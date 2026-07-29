@@ -1,0 +1,5089 @@
+{
+  "version": "sim_lung_v2_ion_ct_synthetic_mechanics_v1",
+  "patient_count": 60,
+  "generated_patient_count": 60,
+  "experiment_count": 240,
+  "patient_level_split": true,
+  "generation_config": {
+    "geometry_count": 3,
+    "geometry_ids": [
+      "geom_58db559b24da6eb7cc0d",
+      "geom_62010c56d95ec023bc9b",
+      "geom_ab578f1bb0ee02be2ccd"
+    ],
+    "scenarios_per_geometry": 20,
+    "resolution": 48,
+    "motion_noise_std": 0.00025,
+    "images_saved": false,
+    "multiview": true,
+    "num_views": 3,
+    "load_count": 4,
+    "frame_count": 7,
+    "force_prior_fraction": 0.05,
+    "base_protocol": "sim_lung_v2_multiview_v1"
+  },
+  "geometry_split": "test",
+  "material_source": "synthetic",
+  "mechanics_source": "synthetic",
+  "known_inputs": [
+    "de-identified CT-conditioned geometry",
+    "synthetic per-frame nodal force and contact location",
+    "camera pose",
+    "measured force with calibrated uncertainty",
+    "boundary-condition DOFs"
+  ],
+  "observations": [
+    "images omitted",
+    "noisy surface motion sequence",
+    "image-plane surface-node tracks and visibility",
+    "synchronized three-view depth and foreground confidence"
+  ],
+  "privacy": {
+    "scenario_ids_contain_source_identifiers": false,
+    "raw_paths_persisted": false,
+    "geometry_is_patient_derived": true,
+    "material_and_mechanics_are_synthetic": true
+  },
+  "patients": [
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_000",
+      "split": "test",
+      "geometry_seed": 81000,
+      "material_seed": 173000,
+      "E_background": 7354.5934289116385,
+      "inclusion_ratio": 1.709421583661228,
+      "inclusion_center_fraction": [
+        0.5633197993958843,
+        0.5012134879498827,
+        0.5517471035165116
+      ],
+      "inclusion_radius_fraction": 0.14910135607511119,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_000",
+      "scenario_template_index": 0,
+      "geometry_id": "geom_58db559b24da6eb7cc0d",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_000\\press_left\\gt.pt",
+          "max_force_N": 8.0,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9879667392204285
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_000\\press_right\\gt.pt",
+          "max_force_N": 9.5,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9858804450052255
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_000\\shear_x\\gt.pt",
+          "max_force_N": 11.0,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9830508124604607
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_000\\shear_y\\gt.pt",
+          "max_force_N": 12.5,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9742966788321344
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_001",
+      "split": "test",
+      "geometry_seed": 81001,
+      "material_seed": 173001,
+      "E_background": 2611.1620481079503,
+      "inclusion_ratio": 2.7941303093094225,
+      "inclusion_center_fraction": [
+        0.6071944036775581,
+        0.4444398114175955,
+        0.4621987712237072
+      ],
+      "inclusion_radius_fraction": 0.1614656337611729,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_001",
+      "scenario_template_index": 1,
+      "geometry_id": "geom_58db559b24da6eb7cc0d",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_001\\press_left\\gt.pt",
+          "max_force_N": 8.4,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9648316496416518
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_001\\press_right\\gt.pt",
+          "max_force_N": 9.9,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9593316209400498
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_001\\shear_x\\gt.pt",
+          "max_force_N": 11.4,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9484659977854557
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_001\\shear_y\\gt.pt",
+          "max_force_N": 12.9,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9169062171813936
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_002",
+      "split": "test",
+      "geometry_seed": 81002,
+      "material_seed": 173002,
+      "E_background": 3813.055593402489,
+      "inclusion_ratio": 3.6620769305945675,
+      "inclusion_center_fraction": [
+        0.6007080760090803,
+        0.5927639663316099,
+        0.47958899317252035
+      ],
+      "inclusion_radius_fraction": 0.15152568533597152,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_002",
+      "scenario_template_index": 2,
+      "geometry_id": "geom_58db559b24da6eb7cc0d",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_002\\press_left\\gt.pt",
+          "max_force_N": 8.8,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9747214119554989
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_002\\press_right\\gt.pt",
+          "max_force_N": 10.3,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9709123282080583
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_002\\shear_x\\gt.pt",
+          "max_force_N": 11.8,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9647190441694147
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_002\\shear_y\\gt.pt",
+          "max_force_N": 13.3,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9443252312683008
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_003",
+      "split": "test",
+      "geometry_seed": 81003,
+      "material_seed": 173003,
+      "E_background": 7782.327213960958,
+      "inclusion_ratio": 1.0,
+      "inclusion_center_fraction": [
+        0.4619864156406984,
+        0.6415968346270134,
+        0.5463300025252733
+      ],
+      "inclusion_radius_fraction": 0.21600977289109896,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_003",
+      "scenario_template_index": 3,
+      "geometry_id": "geom_58db559b24da6eb7cc0d",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_003\\press_left\\gt.pt",
+          "max_force_N": 8.0,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9886348791187205
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_003\\press_right\\gt.pt",
+          "max_force_N": 9.5,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9866589985355505
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_003\\shear_x\\gt.pt",
+          "max_force_N": 11.0,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9841058946813332
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_003\\shear_y\\gt.pt",
+          "max_force_N": 12.5,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9760547541892435
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_004",
+      "split": "test",
+      "geometry_seed": 81004,
+      "material_seed": 173004,
+      "E_background": 2811.329012302196,
+      "inclusion_ratio": 1.301405973072328,
+      "inclusion_center_fraction": [
+        0.36046508185647663,
+        0.49959594544973146,
+        0.47857173707309764
+      ],
+      "inclusion_radius_fraction": 0.20353875914647052,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_004",
+      "scenario_template_index": 4,
+      "geometry_id": "geom_58db559b24da6eb7cc0d",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_004\\press_left\\gt.pt",
+          "max_force_N": 8.4,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9674233534531054
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_004\\press_right\\gt.pt",
+          "max_force_N": 9.9,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9624136354135792
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_004\\shear_x\\gt.pt",
+          "max_force_N": 11.4,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9534181280953216
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_004\\shear_y\\gt.pt",
+          "max_force_N": 12.9,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9239264205071837
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_005",
+      "split": "test",
+      "geometry_seed": 81005,
+      "material_seed": 173005,
+      "E_background": 4568.959940866549,
+      "inclusion_ratio": 3.990608676136115,
+      "inclusion_center_fraction": [
+        0.5352808727444174,
+        0.4064203613420126,
+        0.5230876472821773
+      ],
+      "inclusion_radius_fraction": 0.14099302891396953,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_005",
+      "scenario_template_index": 5,
+      "geometry_id": "geom_58db559b24da6eb7cc0d",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_005\\press_left\\gt.pt",
+          "max_force_N": 8.8,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9787326233955808
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_005\\press_right\\gt.pt",
+          "max_force_N": 10.3,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9754841071037765
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_005\\shear_x\\gt.pt",
+          "max_force_N": 11.8,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9701118259764924
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_005\\shear_y\\gt.pt",
+          "max_force_N": 13.3,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9549714228971945
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_006",
+      "split": "test",
+      "geometry_seed": 81006,
+      "material_seed": 173006,
+      "E_background": 2886.237341553237,
+      "inclusion_ratio": 2.4051511656522515,
+      "inclusion_center_fraction": [
+        0.5204493836487764,
+        0.40466552839709796,
+        0.487888866313822
+      ],
+      "inclusion_radius_fraction": 0.15761570675025355,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_006",
+      "scenario_template_index": 6,
+      "geometry_id": "geom_58db559b24da6eb7cc0d",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_006\\press_left\\gt.pt",
+          "max_force_N": 8.0,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9697499072549765
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_006\\press_right\\gt.pt",
+          "max_force_N": 9.5,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9647745425044459
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_006\\shear_x\\gt.pt",
+          "max_force_N": 11.0,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9563139699186053
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_006\\shear_y\\gt.pt",
+          "max_force_N": 12.5,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9286622997702156
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_007",
+      "split": "test",
+      "geometry_seed": 81007,
+      "material_seed": 173007,
+      "E_background": 3239.5246678437197,
+      "inclusion_ratio": 3.553057557275239,
+      "inclusion_center_fraction": [
+        0.6132705125071466,
+        0.3622330997179437,
+        0.5146952402543572
+      ],
+      "inclusion_radius_fraction": 0.2148633451095714,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_007",
+      "scenario_template_index": 7,
+      "geometry_id": "geom_58db559b24da6eb7cc0d",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_007\\press_left\\gt.pt",
+          "max_force_N": 8.4,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9715300358783674
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_007\\press_right\\gt.pt",
+          "max_force_N": 9.9,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9670570674132737
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_007\\shear_x\\gt.pt",
+          "max_force_N": 11.4,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9590869886371314
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_007\\shear_y\\gt.pt",
+          "max_force_N": 12.9,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9358782973107488
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_008",
+      "split": "test",
+      "geometry_seed": 81008,
+      "material_seed": 173008,
+      "E_background": 4360.918475554391,
+      "inclusion_ratio": 3.5842036041909306,
+      "inclusion_center_fraction": [
+        0.5396498174975832,
+        0.5415749044990853,
+        0.506086280773511
+      ],
+      "inclusion_radius_fraction": 0.15167826200252424,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_008",
+      "scenario_template_index": 8,
+      "geometry_id": "geom_58db559b24da6eb7cc0d",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_008\\press_left\\gt.pt",
+          "max_force_N": 8.8,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9778485273324606
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_008\\press_right\\gt.pt",
+          "max_force_N": 10.3,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9744779685489231
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_008\\shear_x\\gt.pt",
+          "max_force_N": 11.8,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9692455243272746
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_008\\shear_y\\gt.pt",
+          "max_force_N": 13.3,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9521007179322446
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_009",
+      "split": "test",
+      "geometry_seed": 81009,
+      "material_seed": 173009,
+      "E_background": 3030.940646846541,
+      "inclusion_ratio": 1.4595363162276498,
+      "inclusion_center_fraction": [
+        0.3698481153597123,
+        0.5211280717900838,
+        0.5552514709707271
+      ],
+      "inclusion_radius_fraction": 0.18149059514153615,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_009",
+      "scenario_template_index": 9,
+      "geometry_id": "geom_58db559b24da6eb7cc0d",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_009\\press_left\\gt.pt",
+          "max_force_N": 8.0,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.971175358994097
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_009\\press_right\\gt.pt",
+          "max_force_N": 9.5,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9664072931799392
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_009\\shear_x\\gt.pt",
+          "max_force_N": 11.0,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.958454827155404
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_009\\shear_y\\gt.pt",
+          "max_force_N": 12.5,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9329198056495371
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_010",
+      "split": "test",
+      "geometry_seed": 81010,
+      "material_seed": 173010,
+      "E_background": 6316.059181551156,
+      "inclusion_ratio": 3.2868419741199983,
+      "inclusion_center_fraction": [
+        0.45715698955267803,
+        0.4917531304481849,
+        0.473369543239151
+      ],
+      "inclusion_radius_fraction": 0.18714892603322458,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_010",
+      "scenario_template_index": 10,
+      "geometry_id": "geom_58db559b24da6eb7cc0d",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_010\\press_left\\gt.pt",
+          "max_force_N": 8.4,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.984821247008718
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_010\\press_right\\gt.pt",
+          "max_force_N": 9.9,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9830094199456343
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_010\\shear_x\\gt.pt",
+          "max_force_N": 11.4,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9794477201002805
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_010\\shear_y\\gt.pt",
+          "max_force_N": 12.9,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9695814338525852
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_011",
+      "split": "test",
+      "geometry_seed": 81011,
+      "material_seed": 173011,
+      "E_background": 2745.051496938695,
+      "inclusion_ratio": 1.7172938118620324,
+      "inclusion_center_fraction": [
+        0.45945413237903676,
+        0.43376453812392024,
+        0.517305409243329
+      ],
+      "inclusion_radius_fraction": 0.21101221680366877,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_011",
+      "scenario_template_index": 11,
+      "geometry_id": "geom_58db559b24da6eb7cc0d",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_011\\press_left\\gt.pt",
+          "max_force_N": 8.8,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9646052907747433
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_011\\press_right\\gt.pt",
+          "max_force_N": 10.3,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9601007608360447
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_011\\shear_x\\gt.pt",
+          "max_force_N": 11.8,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9503086496034866
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_011\\shear_y\\gt.pt",
+          "max_force_N": 13.3,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9199632343013631
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_012",
+      "split": "test",
+      "geometry_seed": 81012,
+      "material_seed": 173012,
+      "E_background": 3313.8795066513258,
+      "inclusion_ratio": 3.826371468898417,
+      "inclusion_center_fraction": [
+        0.6328053769988629,
+        0.4542930559177569,
+        0.5031412831222382
+      ],
+      "inclusion_radius_fraction": 0.13660302736240373,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_012",
+      "scenario_template_index": 12,
+      "geometry_id": "geom_58db559b24da6eb7cc0d",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_012\\press_left\\gt.pt",
+          "max_force_N": 8.0,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9735794912137022
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_012\\press_right\\gt.pt",
+          "max_force_N": 9.5,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9691832392904033
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_012\\shear_x\\gt.pt",
+          "max_force_N": 11.0,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9620913524839493
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_012\\shear_y\\gt.pt",
+          "max_force_N": 12.5,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9391533465199638
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_013",
+      "split": "test",
+      "geometry_seed": 81013,
+      "material_seed": 173013,
+      "E_background": 3448.60410808366,
+      "inclusion_ratio": 1.0,
+      "inclusion_center_fraction": [
+        0.44086187988867587,
+        0.5743838078519204,
+        0.5712599216999218
+      ],
+      "inclusion_radius_fraction": 0.12374812236400912,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_013",
+      "scenario_template_index": 13,
+      "geometry_id": "geom_58db559b24da6eb7cc0d",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_013\\press_left\\gt.pt",
+          "max_force_N": 8.4,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9733467023503279
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_013\\press_right\\gt.pt",
+          "max_force_N": 9.9,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9691415648243343
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_013\\shear_x\\gt.pt",
+          "max_force_N": 11.4,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.962251608433093
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_013\\shear_y\\gt.pt",
+          "max_force_N": 12.9,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9397298323124849
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_014",
+      "split": "test",
+      "geometry_seed": 81014,
+      "material_seed": 173014,
+      "E_background": 5463.2352536252465,
+      "inclusion_ratio": 1.6312952767236677,
+      "inclusion_center_fraction": [
+        0.4519145549638136,
+        0.4527600525054694,
+        0.4257200950129916
+      ],
+      "inclusion_radius_fraction": 0.12520782202732075,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_014",
+      "scenario_template_index": 14,
+      "geometry_id": "geom_58db559b24da6eb7cc0d",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_014\\press_left\\gt.pt",
+          "max_force_N": 8.8,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9820841633252372
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_014\\press_right\\gt.pt",
+          "max_force_N": 10.3,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.97953657908661
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_014\\shear_x\\gt.pt",
+          "max_force_N": 11.8,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9754808418021885
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_014\\shear_y\\gt.pt",
+          "max_force_N": 13.3,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9626987181533269
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_015",
+      "split": "test",
+      "geometry_seed": 81015,
+      "material_seed": 173015,
+      "E_background": 3147.693448213943,
+      "inclusion_ratio": 1.8172316617060043,
+      "inclusion_center_fraction": [
+        0.45103115410032846,
+        0.4290935093587026,
+        0.43383939214586514
+      ],
+      "inclusion_radius_fraction": 0.1917481007984107,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_015",
+      "scenario_template_index": 15,
+      "geometry_id": "geom_58db559b24da6eb7cc0d",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_015\\press_left\\gt.pt",
+          "max_force_N": 8.0,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9718594924662785
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_015\\press_right\\gt.pt",
+          "max_force_N": 9.5,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9676215529380758
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_015\\shear_x\\gt.pt",
+          "max_force_N": 11.0,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9598801258110189
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_015\\shear_y\\gt.pt",
+          "max_force_N": 12.5,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9356678954651735
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_016",
+      "split": "test",
+      "geometry_seed": 81016,
+      "material_seed": 173016,
+      "E_background": 7423.7625620968065,
+      "inclusion_ratio": 2.9273334333618832,
+      "inclusion_center_fraction": [
+        0.5163505942867832,
+        0.43808731706080123,
+        0.5364703264409961
+      ],
+      "inclusion_radius_fraction": 0.1286453368664624,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_016",
+      "scenario_template_index": 16,
+      "geometry_id": "geom_58db559b24da6eb7cc0d",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_016\\press_left\\gt.pt",
+          "max_force_N": 8.4,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9874992353983875
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_016\\press_right\\gt.pt",
+          "max_force_N": 9.9,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9854417062251336
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_016\\shear_x\\gt.pt",
+          "max_force_N": 11.4,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9827142566293704
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_016\\shear_y\\gt.pt",
+          "max_force_N": 12.9,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.973973863520971
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_017",
+      "split": "test",
+      "geometry_seed": 81017,
+      "material_seed": 173017,
+      "E_background": 4538.250252502894,
+      "inclusion_ratio": 1.7786282335143455,
+      "inclusion_center_fraction": [
+        0.5203259171322432,
+        0.5941723509470612,
+        0.5136945996393227
+      ],
+      "inclusion_radius_fraction": 0.16250452944115273,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_017",
+      "scenario_template_index": 17,
+      "geometry_id": "geom_58db559b24da6eb7cc0d",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_017\\press_left\\gt.pt",
+          "max_force_N": 8.8,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9787015543195757
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_017\\press_right\\gt.pt",
+          "max_force_N": 10.3,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9754522368327673
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_017\\shear_x\\gt.pt",
+          "max_force_N": 11.8,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9704722143365782
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_017\\shear_y\\gt.pt",
+          "max_force_N": 13.3,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9541732366092696
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_018",
+      "split": "test",
+      "geometry_seed": 81018,
+      "material_seed": 173018,
+      "E_background": 6041.194827422252,
+      "inclusion_ratio": 3.835310821002932,
+      "inclusion_center_fraction": [
+        0.5050106900016316,
+        0.4794133560695406,
+        0.5020762683249239
+      ],
+      "inclusion_radius_fraction": 0.155249945947855,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_018",
+      "scenario_template_index": 18,
+      "geometry_id": "geom_58db559b24da6eb7cc0d",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_018\\press_left\\gt.pt",
+          "max_force_N": 8.0,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9853896631578912
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_018\\press_right\\gt.pt",
+          "max_force_N": 9.5,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9828728175819362
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_018\\shear_x\\gt.pt",
+          "max_force_N": 11.0,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9794540324795777
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_018\\shear_y\\gt.pt",
+          "max_force_N": 12.5,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9686403239401661
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_019",
+      "split": "test",
+      "geometry_seed": 81019,
+      "material_seed": 173019,
+      "E_background": 3606.5271159155095,
+      "inclusion_ratio": 1.640187896938408,
+      "inclusion_center_fraction": [
+        0.45562377082944117,
+        0.38634845970851917,
+        0.4478579672207313
+      ],
+      "inclusion_radius_fraction": 0.14178916531386382,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_019",
+      "scenario_template_index": 19,
+      "geometry_id": "geom_58db559b24da6eb7cc0d",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_019\\press_left\\gt.pt",
+          "max_force_N": 8.4,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9742327481874958
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_019\\press_right\\gt.pt",
+          "max_force_N": 9.9,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9704644923238843
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_019\\shear_x\\gt.pt",
+          "max_force_N": 11.4,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9638313993749248
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_58db559b24da6eb7cc0d_scenario_019\\shear_y\\gt.pt",
+          "max_force_N": 12.9,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9428591872497439
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_000",
+      "split": "test",
+      "geometry_seed": 81000,
+      "material_seed": 173000,
+      "E_background": 7354.5934289116385,
+      "inclusion_ratio": 1.709421583661228,
+      "inclusion_center_fraction": [
+        0.5633197993958843,
+        0.5012134879498827,
+        0.5517471035165116
+      ],
+      "inclusion_radius_fraction": 0.14910135607511119,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_000",
+      "scenario_template_index": 0,
+      "geometry_id": "geom_62010c56d95ec023bc9b",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_000\\press_left\\gt.pt",
+          "max_force_N": 8.0,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.980996893024274
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_000\\press_right\\gt.pt",
+          "max_force_N": 9.5,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9796022562095484
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_000\\shear_x\\gt.pt",
+          "max_force_N": 11.0,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9835662710593969
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_000\\shear_y\\gt.pt",
+          "max_force_N": 12.5,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9665987455621704
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_001",
+      "split": "test",
+      "geometry_seed": 81001,
+      "material_seed": 173001,
+      "E_background": 2611.1620481079503,
+      "inclusion_ratio": 2.7941303093094225,
+      "inclusion_center_fraction": [
+        0.6071944036775581,
+        0.4444398114175955,
+        0.4621987712237072
+      ],
+      "inclusion_radius_fraction": 0.1614656337611729,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_001",
+      "scenario_template_index": 1,
+      "geometry_id": "geom_62010c56d95ec023bc9b",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_001\\press_left\\gt.pt",
+          "max_force_N": 8.4,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9444618722153497
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_001\\press_right\\gt.pt",
+          "max_force_N": 9.9,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9414385349348037
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_001\\shear_x\\gt.pt",
+          "max_force_N": 11.4,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9522382777873314
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_001\\shear_y\\gt.pt",
+          "max_force_N": 12.9,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.885202138353122
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_002",
+      "split": "test",
+      "geometry_seed": 81002,
+      "material_seed": 173002,
+      "E_background": 3813.055593402489,
+      "inclusion_ratio": 3.6620769305945675,
+      "inclusion_center_fraction": [
+        0.6007080760090803,
+        0.5927639663316099,
+        0.47958899317252035
+      ],
+      "inclusion_radius_fraction": 0.15152568533597152,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_002",
+      "scenario_template_index": 2,
+      "geometry_id": "geom_62010c56d95ec023bc9b",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_002\\press_left\\gt.pt",
+          "max_force_N": 8.8,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9599309425547401
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_002\\press_right\\gt.pt",
+          "max_force_N": 10.3,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.957792760927029
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_002\\shear_x\\gt.pt",
+          "max_force_N": 11.8,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.966049880197025
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_002\\shear_y\\gt.pt",
+          "max_force_N": 13.3,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9252845012763017
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_003",
+      "split": "test",
+      "geometry_seed": 81003,
+      "material_seed": 173003,
+      "E_background": 7782.327213960958,
+      "inclusion_ratio": 1.0,
+      "inclusion_center_fraction": [
+        0.4619864156406984,
+        0.6415968346270134,
+        0.5463300025252733
+      ],
+      "inclusion_radius_fraction": 0.21600977289109896,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_003",
+      "scenario_template_index": 3,
+      "geometry_id": "geom_62010c56d95ec023bc9b",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_003\\press_left\\gt.pt",
+          "max_force_N": 8.0,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9820429374583004
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_003\\press_right\\gt.pt",
+          "max_force_N": 9.5,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9806722393190966
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_003\\shear_x\\gt.pt",
+          "max_force_N": 11.0,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9845108454916882
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_003\\shear_y\\gt.pt",
+          "max_force_N": 12.5,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9689275712198492
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_004",
+      "split": "test",
+      "geometry_seed": 81004,
+      "material_seed": 173004,
+      "E_background": 2811.329012302196,
+      "inclusion_ratio": 1.301405973072328,
+      "inclusion_center_fraction": [
+        0.36046508185647663,
+        0.49959594544973146,
+        0.47857173707309764
+      ],
+      "inclusion_radius_fraction": 0.20353875914647052,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_004",
+      "scenario_template_index": 4,
+      "geometry_id": "geom_62010c56d95ec023bc9b",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_004\\press_left\\gt.pt",
+          "max_force_N": 8.4,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9483757328810145
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_004\\press_right\\gt.pt",
+          "max_force_N": 9.9,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9454515732023416
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_004\\shear_x\\gt.pt",
+          "max_force_N": 11.4,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.955607004790954
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_004\\shear_y\\gt.pt",
+          "max_force_N": 12.9,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.8959865595344835
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_005",
+      "split": "test",
+      "geometry_seed": 81005,
+      "material_seed": 173005,
+      "E_background": 4568.959940866549,
+      "inclusion_ratio": 3.990608676136115,
+      "inclusion_center_fraction": [
+        0.5352808727444174,
+        0.4064203613420126,
+        0.5230876472821773
+      ],
+      "inclusion_radius_fraction": 0.14099302891396953,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_005",
+      "scenario_template_index": 5,
+      "geometry_id": "geom_62010c56d95ec023bc9b",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_005\\press_left\\gt.pt",
+          "max_force_N": 8.8,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9664132519430597
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_005\\press_right\\gt.pt",
+          "max_force_N": 10.3,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9646663039150779
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_005\\shear_x\\gt.pt",
+          "max_force_N": 11.8,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9713822978830469
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_005\\shear_y\\gt.pt",
+          "max_force_N": 13.3,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9400303380359788
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_006",
+      "split": "test",
+      "geometry_seed": 81006,
+      "material_seed": 173006,
+      "E_background": 2886.237341553237,
+      "inclusion_ratio": 2.4051511656522515,
+      "inclusion_center_fraction": [
+        0.5204493836487764,
+        0.40466552839709796,
+        0.487888866313822
+      ],
+      "inclusion_radius_fraction": 0.15761570675025355,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_006",
+      "scenario_template_index": 6,
+      "geometry_id": "geom_62010c56d95ec023bc9b",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_006\\press_left\\gt.pt",
+          "max_force_N": 8.0,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9520082055659433
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_006\\press_right\\gt.pt",
+          "max_force_N": 9.5,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.948880416141109
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_006\\shear_x\\gt.pt",
+          "max_force_N": 11.0,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9582336890281772
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_006\\shear_y\\gt.pt",
+          "max_force_N": 12.5,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9027387672309681
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_007",
+      "split": "test",
+      "geometry_seed": 81007,
+      "material_seed": 173007,
+      "E_background": 3239.5246678437197,
+      "inclusion_ratio": 3.553057557275239,
+      "inclusion_center_fraction": [
+        0.6132705125071466,
+        0.3622330997179437,
+        0.5146952402543572
+      ],
+      "inclusion_radius_fraction": 0.2148633451095714,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_007",
+      "scenario_template_index": 7,
+      "geometry_id": "geom_62010c56d95ec023bc9b",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_007\\press_left\\gt.pt",
+          "max_force_N": 8.4,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.954887619261788
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_007\\press_right\\gt.pt",
+          "max_force_N": 9.9,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9520334128853393
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_007\\shear_x\\gt.pt",
+          "max_force_N": 11.4,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9604690911333342
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_007\\shear_y\\gt.pt",
+          "max_force_N": 12.9,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9137079934477691
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_008",
+      "split": "test",
+      "geometry_seed": 81008,
+      "material_seed": 173008,
+      "E_background": 4360.918475554391,
+      "inclusion_ratio": 3.5842036041909306,
+      "inclusion_center_fraction": [
+        0.5396498174975832,
+        0.5415749044990853,
+        0.506086280773511
+      ],
+      "inclusion_radius_fraction": 0.15167826200252424,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_008",
+      "scenario_template_index": 8,
+      "geometry_id": "geom_62010c56d95ec023bc9b",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_008\\press_left\\gt.pt",
+          "max_force_N": 8.8,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.96494778498082
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_008\\press_right\\gt.pt",
+          "max_force_N": 10.3,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9631907552295996
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_008\\shear_x\\gt.pt",
+          "max_force_N": 11.8,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9703267277855264
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_008\\shear_y\\gt.pt",
+          "max_force_N": 13.3,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9339185445290957
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_009",
+      "split": "test",
+      "geometry_seed": 81009,
+      "material_seed": 173009,
+      "E_background": 3030.940646846541,
+      "inclusion_ratio": 1.4595363162276498,
+      "inclusion_center_fraction": [
+        0.3698481153597123,
+        0.5211280717900838,
+        0.5552514709707271
+      ],
+      "inclusion_radius_fraction": 0.18149059514153615,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_009",
+      "scenario_template_index": 9,
+      "geometry_id": "geom_62010c56d95ec023bc9b",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_009\\press_left\\gt.pt",
+          "max_force_N": 8.0,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9543450490406576
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_009\\press_right\\gt.pt",
+          "max_force_N": 9.5,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9512452166341314
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_009\\shear_x\\gt.pt",
+          "max_force_N": 11.0,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.960211428151381
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_009\\shear_y\\gt.pt",
+          "max_force_N": 12.5,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9093386235197773
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_010",
+      "split": "test",
+      "geometry_seed": 81010,
+      "material_seed": 173010,
+      "E_background": 6316.059181551156,
+      "inclusion_ratio": 3.2868419741199983,
+      "inclusion_center_fraction": [
+        0.45715698955267803,
+        0.4917531304481849,
+        0.473369543239151
+      ],
+      "inclusion_radius_fraction": 0.18714892603322458,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_010",
+      "scenario_template_index": 10,
+      "geometry_id": "geom_62010c56d95ec023bc9b",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_010\\press_left\\gt.pt",
+          "max_force_N": 8.4,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9762764433600701
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_010\\press_right\\gt.pt",
+          "max_force_N": 9.9,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9752390619919008
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_010\\shear_x\\gt.pt",
+          "max_force_N": 11.4,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9802109041085626
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_010\\shear_y\\gt.pt",
+          "max_force_N": 12.9,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9606076361958135
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_011",
+      "split": "test",
+      "geometry_seed": 81011,
+      "material_seed": 173011,
+      "E_background": 2745.051496938695,
+      "inclusion_ratio": 1.7172938118620324,
+      "inclusion_center_fraction": [
+        0.45945413237903676,
+        0.43376453812392024,
+        0.517305409243329
+      ],
+      "inclusion_radius_fraction": 0.21101221680366877,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_011",
+      "scenario_template_index": 11,
+      "geometry_id": "geom_62010c56d95ec023bc9b",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_011\\press_left\\gt.pt",
+          "max_force_N": 8.8,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9440904094225981
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_011\\press_right\\gt.pt",
+          "max_force_N": 10.3,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9419913909202583
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_011\\shear_x\\gt.pt",
+          "max_force_N": 11.8,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9528688959404327
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_011\\shear_y\\gt.pt",
+          "max_force_N": 13.3,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.8892169273621796
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_012",
+      "split": "test",
+      "geometry_seed": 81012,
+      "material_seed": 173012,
+      "E_background": 3313.8795066513258,
+      "inclusion_ratio": 3.826371468898417,
+      "inclusion_center_fraction": [
+        0.6328053769988629,
+        0.4542930559177569,
+        0.5031412831222382
+      ],
+      "inclusion_radius_fraction": 0.13660302736240373,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_012",
+      "scenario_template_index": 12,
+      "geometry_id": "geom_62010c56d95ec023bc9b",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_012\\press_left\\gt.pt",
+          "max_force_N": 8.0,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9581322771103828
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_012\\press_right\\gt.pt",
+          "max_force_N": 9.5,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9548327452194643
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_012\\shear_x\\gt.pt",
+          "max_force_N": 11.0,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9628825102084607
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_012\\shear_y\\gt.pt",
+          "max_force_N": 12.5,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9182674417108714
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_013",
+      "split": "test",
+      "geometry_seed": 81013,
+      "material_seed": 173013,
+      "E_background": 3448.60410808366,
+      "inclusion_ratio": 1.0,
+      "inclusion_center_fraction": [
+        0.44086187988867587,
+        0.5743838078519204,
+        0.5712599216999218
+      ],
+      "inclusion_radius_fraction": 0.12374812236400912,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_013",
+      "scenario_template_index": 13,
+      "geometry_id": "geom_62010c56d95ec023bc9b",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_013\\press_left\\gt.pt",
+          "max_force_N": 8.4,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.957740938517313
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_013\\press_right\\gt.pt",
+          "max_force_N": 9.9,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9552203414009391
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_013\\shear_x\\gt.pt",
+          "max_force_N": 11.4,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9637416039289894
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_013\\shear_y\\gt.pt",
+          "max_force_N": 12.9,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9187331898114247
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_014",
+      "split": "test",
+      "geometry_seed": 81014,
+      "material_seed": 173014,
+      "E_background": 5463.2352536252465,
+      "inclusion_ratio": 1.6312952767236677,
+      "inclusion_center_fraction": [
+        0.4519145549638136,
+        0.4527600525054694,
+        0.4257200950129916
+      ],
+      "inclusion_radius_fraction": 0.12520782202732075,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_014",
+      "scenario_template_index": 14,
+      "geometry_id": "geom_62010c56d95ec023bc9b",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_014\\press_left\\gt.pt",
+          "max_force_N": 8.8,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9719334053976297
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_014\\press_right\\gt.pt",
+          "max_force_N": 10.3,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9703161032094753
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_014\\shear_x\\gt.pt",
+          "max_force_N": 11.8,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9763072950978585
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_014\\shear_y\\gt.pt",
+          "max_force_N": 13.3,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9507882178285656
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_015",
+      "split": "test",
+      "geometry_seed": 81015,
+      "material_seed": 173015,
+      "E_background": 3147.693448213943,
+      "inclusion_ratio": 1.8172316617060043,
+      "inclusion_center_fraction": [
+        0.45103115410032846,
+        0.4290935093587026,
+        0.43383939214586514
+      ],
+      "inclusion_radius_fraction": 0.1917481007984107,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_015",
+      "scenario_template_index": 15,
+      "geometry_id": "geom_62010c56d95ec023bc9b",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_015\\press_left\\gt.pt",
+          "max_force_N": 8.0,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9555538536103512
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_015\\press_right\\gt.pt",
+          "max_force_N": 9.5,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9529698597126468
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_015\\shear_x\\gt.pt",
+          "max_force_N": 11.0,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9616334982351737
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_015\\shear_y\\gt.pt",
+          "max_force_N": 12.5,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9129871403581338
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_016",
+      "split": "test",
+      "geometry_seed": 81016,
+      "material_seed": 173016,
+      "E_background": 7423.7625620968065,
+      "inclusion_ratio": 2.9273334333618832,
+      "inclusion_center_fraction": [
+        0.5163505942867832,
+        0.43808731706080123,
+        0.5364703264409961
+      ],
+      "inclusion_radius_fraction": 0.1286453368664624,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_016",
+      "scenario_template_index": 16,
+      "geometry_id": "geom_62010c56d95ec023bc9b",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_016\\press_left\\gt.pt",
+          "max_force_N": 8.4,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.980242674105408
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_016\\press_right\\gt.pt",
+          "max_force_N": 9.9,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9789049035971575
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_016\\shear_x\\gt.pt",
+          "max_force_N": 11.4,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9831687348232044
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_016\\shear_y\\gt.pt",
+          "max_force_N": 12.9,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9661528044690905
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_017",
+      "split": "test",
+      "geometry_seed": 81017,
+      "material_seed": 173017,
+      "E_background": 4538.250252502894,
+      "inclusion_ratio": 1.7786282335143455,
+      "inclusion_center_fraction": [
+        0.5203259171322432,
+        0.5941723509470612,
+        0.5136945996393227
+      ],
+      "inclusion_radius_fraction": 0.16250452944115273,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_017",
+      "scenario_template_index": 17,
+      "geometry_id": "geom_62010c56d95ec023bc9b",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_017\\press_left\\gt.pt",
+          "max_force_N": 8.8,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9662793137102164
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_017\\press_right\\gt.pt",
+          "max_force_N": 10.3,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9644593680898964
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_017\\shear_x\\gt.pt",
+          "max_force_N": 11.8,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9714752786282428
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_017\\shear_y\\gt.pt",
+          "max_force_N": 13.3,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9383756942608262
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_018",
+      "split": "test",
+      "geometry_seed": 81018,
+      "material_seed": 173018,
+      "E_background": 6041.194827422252,
+      "inclusion_ratio": 3.835310821002932,
+      "inclusion_center_fraction": [
+        0.5050106900016316,
+        0.4794133560695406,
+        0.5020762683249239
+      ],
+      "inclusion_radius_fraction": 0.155249945947855,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_018",
+      "scenario_template_index": 18,
+      "geometry_id": "geom_62010c56d95ec023bc9b",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_018\\press_left\\gt.pt",
+          "max_force_N": 8.0,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.976896035825492
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_018\\press_right\\gt.pt",
+          "max_force_N": 9.5,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9751738965029105
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_018\\shear_x\\gt.pt",
+          "max_force_N": 11.0,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.980034023300737
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_018\\shear_y\\gt.pt",
+          "max_force_N": 12.5,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9589846535247002
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_019",
+      "split": "test",
+      "geometry_seed": 81019,
+      "material_seed": 173019,
+      "E_background": 3606.5271159155095,
+      "inclusion_ratio": 1.640187896938408,
+      "inclusion_center_fraction": [
+        0.45562377082944117,
+        0.38634845970851917,
+        0.4478579672207313
+      ],
+      "inclusion_radius_fraction": 0.14178916531386382,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_019",
+      "scenario_template_index": 19,
+      "geometry_id": "geom_62010c56d95ec023bc9b",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_019\\press_left\\gt.pt",
+          "max_force_N": 8.4,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9592848120314471
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_019\\press_right\\gt.pt",
+          "max_force_N": 9.9,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9571111768420649
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_019\\shear_x\\gt.pt",
+          "max_force_N": 11.4,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9652935664705898
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_62010c56d95ec023bc9b_scenario_019\\shear_y\\gt.pt",
+          "max_force_N": 12.9,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9232630901700043
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_000",
+      "split": "test",
+      "geometry_seed": 81000,
+      "material_seed": 173000,
+      "E_background": 7354.5934289116385,
+      "inclusion_ratio": 1.709421583661228,
+      "inclusion_center_fraction": [
+        0.5633197993958843,
+        0.5012134879498827,
+        0.5517471035165116
+      ],
+      "inclusion_radius_fraction": 0.14910135607511119,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_000",
+      "scenario_template_index": 0,
+      "geometry_id": "geom_ab578f1bb0ee02be2ccd",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_000\\press_left\\gt.pt",
+          "max_force_N": 8.0,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9878246662459459
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_000\\press_right\\gt.pt",
+          "max_force_N": 9.5,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9866204562158112
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_000\\shear_x\\gt.pt",
+          "max_force_N": 11.0,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.981886652958997
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_000\\shear_y\\gt.pt",
+          "max_force_N": 12.5,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9775608337833229
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_001",
+      "split": "test",
+      "geometry_seed": 81001,
+      "material_seed": 173001,
+      "E_background": 2611.1620481079503,
+      "inclusion_ratio": 2.7941303093094225,
+      "inclusion_center_fraction": [
+        0.6071944036775581,
+        0.4444398114175955,
+        0.4621987712237072
+      ],
+      "inclusion_radius_fraction": 0.1614656337611729,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_001",
+      "scenario_template_index": 1,
+      "geometry_id": "geom_ab578f1bb0ee02be2ccd",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_001\\press_left\\gt.pt",
+          "max_force_N": 8.4,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9644850838021511
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_001\\press_right\\gt.pt",
+          "max_force_N": 9.9,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9603710806670718
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_001\\shear_x\\gt.pt",
+          "max_force_N": 11.4,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9464290501714935
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_001\\shear_y\\gt.pt",
+          "max_force_N": 12.9,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.926251574105264
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_002",
+      "split": "test",
+      "geometry_seed": 81002,
+      "material_seed": 173002,
+      "E_background": 3813.055593402489,
+      "inclusion_ratio": 3.6620769305945675,
+      "inclusion_center_fraction": [
+        0.6007080760090803,
+        0.5927639663316099,
+        0.47958899317252035
+      ],
+      "inclusion_radius_fraction": 0.15152568533597152,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_002",
+      "scenario_template_index": 2,
+      "geometry_id": "geom_ab578f1bb0ee02be2ccd",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_002\\press_left\\gt.pt",
+          "max_force_N": 8.8,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9744067254404188
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_002\\press_right\\gt.pt",
+          "max_force_N": 10.3,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9721274753821593
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_002\\shear_x\\gt.pt",
+          "max_force_N": 11.8,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9621959670364425
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_002\\shear_y\\gt.pt",
+          "max_force_N": 13.3,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9504789960488438
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_003",
+      "split": "test",
+      "geometry_seed": 81003,
+      "material_seed": 173003,
+      "E_background": 7782.327213960958,
+      "inclusion_ratio": 1.0,
+      "inclusion_center_fraction": [
+        0.4619864156406984,
+        0.6415968346270134,
+        0.5463300025252733
+      ],
+      "inclusion_radius_fraction": 0.21600977289109896,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_003",
+      "scenario_template_index": 3,
+      "geometry_id": "geom_ab578f1bb0ee02be2ccd",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_003\\press_left\\gt.pt",
+          "max_force_N": 8.0,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9884763587779333
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_003\\press_right\\gt.pt",
+          "max_force_N": 9.5,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9874189833920586
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_003\\shear_x\\gt.pt",
+          "max_force_N": 11.0,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9828976311845594
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_003\\shear_y\\gt.pt",
+          "max_force_N": 12.5,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9786279975520767
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_004",
+      "split": "test",
+      "geometry_seed": 81004,
+      "material_seed": 173004,
+      "E_background": 2811.329012302196,
+      "inclusion_ratio": 1.301405973072328,
+      "inclusion_center_fraction": [
+        0.36046508185647663,
+        0.49959594544973146,
+        0.47857173707309764
+      ],
+      "inclusion_radius_fraction": 0.20353875914647052,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_004",
+      "scenario_template_index": 4,
+      "geometry_id": "geom_ab578f1bb0ee02be2ccd",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_004\\press_left\\gt.pt",
+          "max_force_N": 8.4,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9668383632899354
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_004\\press_right\\gt.pt",
+          "max_force_N": 9.9,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.963974774771056
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_004\\shear_x\\gt.pt",
+          "max_force_N": 11.4,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9502446242752548
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_004\\shear_y\\gt.pt",
+          "max_force_N": 12.9,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9319987540082894
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_005",
+      "split": "test",
+      "geometry_seed": 81005,
+      "material_seed": 173005,
+      "E_background": 4568.959940866549,
+      "inclusion_ratio": 3.990608676136115,
+      "inclusion_center_fraction": [
+        0.5352808727444174,
+        0.4064203613420126,
+        0.5230876472821773
+      ],
+      "inclusion_radius_fraction": 0.14099302891396953,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_005",
+      "scenario_template_index": 5,
+      "geometry_id": "geom_ab578f1bb0ee02be2ccd",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_005\\press_left\\gt.pt",
+          "max_force_N": 8.8,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9785761977753168
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_005\\press_right\\gt.pt",
+          "max_force_N": 10.3,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9765362672202687
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_005\\shear_x\\gt.pt",
+          "max_force_N": 11.8,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9685433046686452
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_005\\shear_y\\gt.pt",
+          "max_force_N": 13.3,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9601490905702154
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_006",
+      "split": "test",
+      "geometry_seed": 81006,
+      "material_seed": 173006,
+      "E_background": 2886.237341553237,
+      "inclusion_ratio": 2.4051511656522515,
+      "inclusion_center_fraction": [
+        0.5204493836487764,
+        0.40466552839709796,
+        0.487888866313822
+      ],
+      "inclusion_radius_fraction": 0.15761570675025355,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_006",
+      "scenario_template_index": 6,
+      "geometry_id": "geom_ab578f1bb0ee02be2ccd",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_006\\press_left\\gt.pt",
+          "max_force_N": 8.0,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9692429406333212
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_006\\press_right\\gt.pt",
+          "max_force_N": 9.5,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9662984358483362
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_006\\shear_x\\gt.pt",
+          "max_force_N": 11.0,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.953288208888104
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_006\\shear_y\\gt.pt",
+          "max_force_N": 12.5,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9363741274559162
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_007",
+      "split": "test",
+      "geometry_seed": 81007,
+      "material_seed": 173007,
+      "E_background": 3239.5246678437197,
+      "inclusion_ratio": 3.553057557275239,
+      "inclusion_center_fraction": [
+        0.6132705125071466,
+        0.3622330997179437,
+        0.5146952402543572
+      ],
+      "inclusion_radius_fraction": 0.2148633451095714,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_007",
+      "scenario_template_index": 7,
+      "geometry_id": "geom_ab578f1bb0ee02be2ccd",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_007\\press_left\\gt.pt",
+          "max_force_N": 8.4,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9713726488493194
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_007\\press_right\\gt.pt",
+          "max_force_N": 9.9,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9675821631358253
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_007\\shear_x\\gt.pt",
+          "max_force_N": 11.4,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.957146206432636
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_007\\shear_y\\gt.pt",
+          "max_force_N": 12.9,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9441118032136339
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_008",
+      "split": "test",
+      "geometry_seed": 81008,
+      "material_seed": 173008,
+      "E_background": 4360.918475554391,
+      "inclusion_ratio": 3.5842036041909306,
+      "inclusion_center_fraction": [
+        0.5396498174975832,
+        0.5415749044990853,
+        0.506086280773511
+      ],
+      "inclusion_radius_fraction": 0.15167826200252424,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_008",
+      "scenario_template_index": 8,
+      "geometry_id": "geom_ab578f1bb0ee02be2ccd",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_008\\press_left\\gt.pt",
+          "max_force_N": 8.8,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9775098034401302
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_008\\press_right\\gt.pt",
+          "max_force_N": 10.3,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9757483586388194
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_008\\shear_x\\gt.pt",
+          "max_force_N": 11.8,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9670306378495442
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_008\\shear_y\\gt.pt",
+          "max_force_N": 13.3,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9572584436265336
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_009",
+      "split": "test",
+      "geometry_seed": 81009,
+      "material_seed": 173009,
+      "E_background": 3030.940646846541,
+      "inclusion_ratio": 1.4595363162276498,
+      "inclusion_center_fraction": [
+        0.3698481153597123,
+        0.5211280717900838,
+        0.5552514709707271
+      ],
+      "inclusion_radius_fraction": 0.18149059514153615,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_009",
+      "scenario_template_index": 9,
+      "geometry_id": "geom_ab578f1bb0ee02be2ccd",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_009\\press_left\\gt.pt",
+          "max_force_N": 8.0,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9706577496958112
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_009\\press_right\\gt.pt",
+          "max_force_N": 9.5,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9678921710078592
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_009\\shear_x\\gt.pt",
+          "max_force_N": 11.0,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9555317298978545
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_009\\shear_y\\gt.pt",
+          "max_force_N": 12.5,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9393403121405034
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_010",
+      "split": "test",
+      "geometry_seed": 81010,
+      "material_seed": 173010,
+      "E_background": 6316.059181551156,
+      "inclusion_ratio": 3.2868419741199983,
+      "inclusion_center_fraction": [
+        0.45715698955267803,
+        0.4917531304481849,
+        0.473369543239151
+      ],
+      "inclusion_radius_fraction": 0.18714892603322458,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_010",
+      "scenario_template_index": 10,
+      "geometry_id": "geom_ab578f1bb0ee02be2ccd",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_010\\press_left\\gt.pt",
+          "max_force_N": 8.4,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9850616320111258
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_010\\press_right\\gt.pt",
+          "max_force_N": 9.9,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9838435587921522
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_010\\shear_x\\gt.pt",
+          "max_force_N": 11.4,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9770580902218942
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_010\\shear_y\\gt.pt",
+          "max_force_N": 12.9,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.971770090209269
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_011",
+      "split": "test",
+      "geometry_seed": 81011,
+      "material_seed": 173011,
+      "E_background": 2745.051496938695,
+      "inclusion_ratio": 1.7172938118620324,
+      "inclusion_center_fraction": [
+        0.45945413237903676,
+        0.43376453812392024,
+        0.517305409243329
+      ],
+      "inclusion_radius_fraction": 0.21101221680366877,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_011",
+      "scenario_template_index": 11,
+      "geometry_id": "geom_ab578f1bb0ee02be2ccd",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_011\\press_left\\gt.pt",
+          "max_force_N": 8.8,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.964498150699477
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_011\\press_right\\gt.pt",
+          "max_force_N": 10.3,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.961530959998408
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_011\\shear_x\\gt.pt",
+          "max_force_N": 11.8,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9468681004479972
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_011\\shear_y\\gt.pt",
+          "max_force_N": 13.3,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9265668665418475
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_012",
+      "split": "test",
+      "geometry_seed": 81012,
+      "material_seed": 173012,
+      "E_background": 3313.8795066513258,
+      "inclusion_ratio": 3.826371468898417,
+      "inclusion_center_fraction": [
+        0.6328053769988629,
+        0.4542930559177569,
+        0.5031412831222382
+      ],
+      "inclusion_radius_fraction": 0.13660302736240373,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_012",
+      "scenario_template_index": 12,
+      "geometry_id": "geom_ab578f1bb0ee02be2ccd",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_012\\press_left\\gt.pt",
+          "max_force_N": 8.0,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.973156447526296
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_012\\press_right\\gt.pt",
+          "max_force_N": 9.5,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9706104386645833
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_012\\shear_x\\gt.pt",
+          "max_force_N": 11.0,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9594222573877308
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_012\\shear_y\\gt.pt",
+          "max_force_N": 12.5,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9457179933849782
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_013",
+      "split": "test",
+      "geometry_seed": 81013,
+      "material_seed": 173013,
+      "E_background": 3448.60410808366,
+      "inclusion_ratio": 1.0,
+      "inclusion_center_fraction": [
+        0.44086187988867587,
+        0.5743838078519204,
+        0.5712599216999218
+      ],
+      "inclusion_radius_fraction": 0.12374812236400912,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_013",
+      "scenario_template_index": 13,
+      "geometry_id": "geom_ab578f1bb0ee02be2ccd",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_013\\press_left\\gt.pt",
+          "max_force_N": 8.4,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9729187949015908
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_013\\press_right\\gt.pt",
+          "max_force_N": 9.9,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9705698264942123
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_013\\shear_x\\gt.pt",
+          "max_force_N": 11.4,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9595925217345568
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_013\\shear_y\\gt.pt",
+          "max_force_N": 12.9,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9462316397817075
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_014",
+      "split": "test",
+      "geometry_seed": 81014,
+      "material_seed": 173014,
+      "E_background": 5463.2352536252465,
+      "inclusion_ratio": 1.6312952767236677,
+      "inclusion_center_fraction": [
+        0.4519145549638136,
+        0.4527600525054694,
+        0.4257200950129916
+      ],
+      "inclusion_radius_fraction": 0.12520782202732075,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_014",
+      "scenario_template_index": 14,
+      "geometry_id": "geom_ab578f1bb0ee02be2ccd",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_014\\press_left\\gt.pt",
+          "max_force_N": 8.8,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9819945631573126
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_014\\press_right\\gt.pt",
+          "max_force_N": 10.3,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9805918714025471
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_014\\shear_x\\gt.pt",
+          "max_force_N": 11.8,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9736438148629258
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_014\\shear_y\\gt.pt",
+          "max_force_N": 13.3,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9666320031316713
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_015",
+      "split": "test",
+      "geometry_seed": 81015,
+      "material_seed": 173015,
+      "E_background": 3147.693448213943,
+      "inclusion_ratio": 1.8172316617060043,
+      "inclusion_center_fraction": [
+        0.45103115410032846,
+        0.4290935093587026,
+        0.43383939214586514
+      ],
+      "inclusion_radius_fraction": 0.1917481007984107,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_015",
+      "scenario_template_index": 15,
+      "geometry_id": "geom_ab578f1bb0ee02be2ccd",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_015\\press_left\\gt.pt",
+          "max_force_N": 8.0,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9717343298128958
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_015\\press_right\\gt.pt",
+          "max_force_N": 9.5,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9690664086061417
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_015\\shear_x\\gt.pt",
+          "max_force_N": 11.0,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9570271693774691
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_015\\shear_y\\gt.pt",
+          "max_force_N": 12.5,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9419480733407656
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_016",
+      "split": "test",
+      "geometry_seed": 81016,
+      "material_seed": 173016,
+      "E_background": 7423.7625620968065,
+      "inclusion_ratio": 2.9273334333618832,
+      "inclusion_center_fraction": [
+        0.5163505942867832,
+        0.43808731706080123,
+        0.5364703264409961
+      ],
+      "inclusion_radius_fraction": 0.1286453368664624,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_016",
+      "scenario_template_index": 16,
+      "geometry_id": "geom_ab578f1bb0ee02be2ccd",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_016\\press_left\\gt.pt",
+          "max_force_N": 8.4,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9873435279461498
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_016\\press_right\\gt.pt",
+          "max_force_N": 9.9,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9861250068542482
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_016\\shear_x\\gt.pt",
+          "max_force_N": 11.4,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9813986222406161
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_016\\shear_y\\gt.pt",
+          "max_force_N": 12.9,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9770437135667746
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_017",
+      "split": "test",
+      "geometry_seed": 81017,
+      "material_seed": 173017,
+      "E_background": 4538.250252502894,
+      "inclusion_ratio": 1.7786282335143455,
+      "inclusion_center_fraction": [
+        0.5203259171322432,
+        0.5941723509470612,
+        0.5136945996393227
+      ],
+      "inclusion_radius_fraction": 0.16250452944115273,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_017",
+      "scenario_template_index": 17,
+      "geometry_id": "geom_ab578f1bb0ee02be2ccd",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_017\\press_left\\gt.pt",
+          "max_force_N": 8.8,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9783918178691453
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_017\\press_right\\gt.pt",
+          "max_force_N": 10.3,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.976656700639491
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_017\\shear_x\\gt.pt",
+          "max_force_N": 11.8,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9683250137663261
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_017\\shear_y\\gt.pt",
+          "max_force_N": 13.3,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9594128552120088
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_018",
+      "split": "test",
+      "geometry_seed": 81018,
+      "material_seed": 173018,
+      "E_background": 6041.194827422252,
+      "inclusion_ratio": 3.835310821002932,
+      "inclusion_center_fraction": [
+        0.5050106900016316,
+        0.4794133560695406,
+        0.5020762683249239
+      ],
+      "inclusion_radius_fraction": 0.155249945947855,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_018",
+      "scenario_template_index": 18,
+      "geometry_id": "geom_ab578f1bb0ee02be2ccd",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_018\\press_left\\gt.pt",
+          "max_force_N": 8.0,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9851809637040443
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_018\\press_right\\gt.pt",
+          "max_force_N": 9.5,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9838121231173542
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_018\\shear_x\\gt.pt",
+          "max_force_N": 11.0,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.977919815898873
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_018\\shear_y\\gt.pt",
+          "max_force_N": 12.5,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9720116630805571
+        }
+      ]
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_019",
+      "split": "test",
+      "geometry_seed": 81019,
+      "material_seed": 173019,
+      "E_background": 3606.5271159155095,
+      "inclusion_ratio": 1.640187896938408,
+      "inclusion_center_fraction": [
+        0.45562377082944117,
+        0.38634845970851917,
+        0.4478579672207313
+      ],
+      "inclusion_radius_fraction": 0.14178916531386382,
+      "nu": 0.45,
+      "boundary_condition": "posterior_20_percent_fully_fixed",
+      "scenario_id": "scenario_019",
+      "scenario_template_index": 19,
+      "geometry_id": "geom_ab578f1bb0ee02be2ccd",
+      "geometry_source": "deidentified_ct_mesh",
+      "material_source": "synthetic",
+      "mechanics_source": "synthetic",
+      "experiments": [
+        {
+          "name": "press_left",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_019\\press_left\\gt.pt",
+          "max_force_N": 8.4,
+          "contact_center_fraction": [
+            0.36,
+            0.45
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9740768415057688
+        },
+        {
+          "name": "press_right",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_019\\press_right\\gt.pt",
+          "max_force_N": 9.9,
+          "contact_center_fraction": [
+            0.64,
+            0.55
+          ],
+          "direction": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "minimum_jacobian": 0.9718207058160729
+        },
+        {
+          "name": "shear_x",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_019\\shear_x\\gt.pt",
+          "max_force_N": 11.4,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.55,
+            0.0,
+            0.835
+          ],
+          "minimum_jacobian": 0.9612436378659153
+        },
+        {
+          "name": "shear_y",
+          "relative_path": "geom_ab578f1bb0ee02be2ccd_scenario_019\\shear_y\\gt.pt",
+          "max_force_N": 12.9,
+          "contact_center_fraction": [
+            0.5,
+            0.5
+          ],
+          "direction": [
+            0.0,
+            0.55,
+            0.835
+          ],
+          "minimum_jacobian": 0.9488964116433589
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+
+name: smoke-tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - run: python scripts/verify_release.py
+      - run: python scripts/summarize_ct_benchmark.py
+      - run: >-
+          pytest lung_inverse_rendering/test_lung_pipeline.py
+          experiments/test_generate_ion_ct_synthetic_mechanics.py
+          experiments/test_benchmark_ion_ct_synthetic_mechanics.py
+          experiments/test_export_ion_ct_figure_assets.py
+          evaluation/test_material_uncertainty_metrics.py
+          evaluation/test_aggregate_multiseed.py -q

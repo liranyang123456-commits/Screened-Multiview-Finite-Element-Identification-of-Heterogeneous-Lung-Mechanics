@@ -1,0 +1,72 @@
+{
+  "publication_ready": true,
+  "gates": {
+    "image_E_error": {
+      "passed": true,
+      "value": 0.03820904483953458,
+      "threshold": 0.15
+    },
+    "image_ratio_error": {
+      "passed": true,
+      "value": 0.1869241537987601,
+      "threshold": 0.25
+    },
+    "center_error": {
+      "passed": true,
+      "value": 0.06962693724803312,
+      "threshold": 0.1
+    },
+    "radius_error": {
+      "passed": true,
+      "value": 0.09934366067485978,
+      "threshold": 0.12
+    },
+    "E_coverage_90": {
+      "passed": true,
+      "value": 0.92,
+      "threshold": [
+        0.85,
+        0.95
+      ]
+    },
+    "ratio_coverage_90": {
+      "passed": true,
+      "value": 0.9,
+      "threshold": [
+        0.85,
+        0.95
+      ]
+    },
+    "fem_E_error": {
+      "passed": true,
+      "value": 0.04110740128627288,
+      "threshold": 0.1
+    },
+    "fem_ratio_error": {
+      "passed": true,
+      "value": 0.18692415951587435,
+      "threshold": 0.25
+    },
+    "fem_success": {
+      "passed": true,
+      "value": 1.0,
+      "threshold": 0.9
+    },
+    "fem_evaluation_reduction": {
+      "passed": true,
+      "value": 0.9113924050632911,
+      "threshold": 0.3
+    },
+    "seed_count": {
+      "passed": true,
+      "value": 5,
+      "threshold": 5
+    },
+    "ood_success_rate": {
+      "passed": true,
+      "value": 1.0,
+      "threshold": 0.9
+    }
+  },
+  "evidence_boundary": "Synthetic material ground truth; real ION CT contributes geometry-domain stability only."
+}

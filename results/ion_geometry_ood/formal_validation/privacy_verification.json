@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "scope": "workspace_ion_geometry_ood_artifacts",
+  "artifact_file_count": 9,
+  "mesh_count": 3,
+  "deidentified_mesh_filenames": true,
+  "npz_keys_allowlisted": true,
+  "forbidden_npz_keys": [],
+  "raw_source_path_marker_found": false,
+  "audit_case_id_marker_found": false,
+  "dicom_tag_marker_found": false,
+  "uid_value_pattern_found": false,
+  "privacy_verified": true
+}

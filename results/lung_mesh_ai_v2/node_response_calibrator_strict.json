@@ -1,0 +1,4680 @@
+{
+  "model": "train_cv_selected_node_response_with_radius_head",
+  "protocol": {
+    "selection": "Fixed 5-fold shuffled KFold on train only; seed 2026. Main head minimizes lexicographic (worst normalized gate metric, sum normalized gate metrics). Radius head minimizes OOF median relative error among heterogeneous train patients.",
+    "uncertainty": "After train-only model selection, the full validation split sets finite-sample 90% split-conformal quantiles and global log-residual standard deviations used by the FEM material prior.",
+    "test_policy": "Test evaluated once after model and intervals were frozen.",
+    "folds": 5,
+    "seed": 2026,
+    "split_counts": {
+      "train": 150,
+      "validation": 50,
+      "test": 50
+    }
+  },
+  "selected_main_model": {
+    "name": "pca_ridge",
+    "params": {
+      "components": 64,
+      "alpha": 1.0
+    }
+  },
+  "selected_radius_model": {
+    "name": "pca_ridge",
+    "params": {
+      "components": 80,
+      "alpha": 1.0
+    }
+  },
+  "validation_residual_log_std_for_fem_prior": {
+    "log_E_background": 0.06028786685457011,
+    "log_ratio": 0.23410914161497035
+  },
+  "train_cv": {
+    "main_leaderboard": [
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 16,
+          "alpha": 0.1
+        },
+        "score": [
+          1.2143529862404385,
+          3.216438608825434
+        ],
+        "out_of_fold_metrics": {
+          "E_background_median_relative_error": 0.04991616444065783,
+          "inclusion_ratio_median_relative_error": 0.2380332774277446,
+          "center_error_normalized_median": 0.07171780832696317,
+          "radius_relative_error_median": 0.1457223583488526
+        }
+      },
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 16,
+          "alpha": 1.0
+        },
+        "score": [
+          1.2140223153600167,
+          3.2187630632287925
+        ],
+        "out_of_fold_metrics": {
+          "E_background_median_relative_error": 0.049927725960033476,
+          "inclusion_ratio_median_relative_error": 0.23879073178087779,
+          "center_error_normalized_median": 0.07167263143450416,
+          "radius_relative_error_median": 0.145682677843202
+        }
+      },
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 16,
+          "alpha": 10.0
+        },
+        "score": [
+          1.2044735558959523,
+          3.2204700500982724
+        ],
+        "out_of_fold_metrics": {
+          "E_background_median_relative_error": 0.050033085541911326,
+          "inclusion_ratio_median_relative_error": 0.24084129580007163,
+          "center_error_normalized_median": 0.07190774073892914,
+          "radius_relative_error_median": 0.14453682670751428
+        }
+      },
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 16,
+          "alpha": 100.0
+        },
+        "score": [
+          1.0925261782478648,
+          3.073631861758428
+        ],
+        "out_of_fold_metrics": {
+          "E_background_median_relative_error": 0.05060002308056866,
+          "inclusion_ratio_median_relative_error": 0.23059422036359323,
+          "center_error_normalized_median": 0.0721395314852399,
+          "radius_relative_error_median": 0.13110314138974377
+        }
+      },
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 32,
+          "alpha": 0.1
+        },
+        "score": [
+          1.275778774849204,
+          3.087807908916502
+        ],
+        "out_of_fold_metrics": {
+          "E_background_median_relative_error": 0.05034906182205534,
+          "inclusion_ratio_median_relative_error": 0.19571598569823667,
+          "center_error_normalized_median": 0.06935047791273155,
+          "radius_relative_error_median": 0.15309345298190447
+        }
+      },
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 32,
+          "alpha": 1.0
+        },
+        "score": [
+          1.280629161369977,
+          3.0908916958190575
+        ],
+        "out_of_fold_metrics": {
+          "E_background_median_relative_error": 0.05004848569031184,
+          "inclusion_ratio_median_relative_error": 0.19518883721445662,
+          "center_error_normalized_median": 0.06958506143225085,
+          "radius_relative_error_median": 0.15367549936439723
+        }
+      },
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 32,
+          "alpha": 10.0
+        },
+        "score": [
+          1.2611892318888411,
+          3.0724955936249114
+        ],
+        "out_of_fold_metrics": {
+          "E_background_median_relative_error": 0.053517469063926015,
+          "inclusion_ratio_median_relative_error": 0.19049146269158868,
+          "center_error_normalized_median": 0.06925573838768756,
+          "radius_relative_error_median": 0.15134270782666093
+        }
+      },
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 32,
+          "alpha": 100.0
+        },
+        "score": [
+          1.246966096624661,
+          3.115711445664024
+        ],
+        "out_of_fold_metrics": {
+          "E_background_median_relative_error": 0.049657480395182585,
+          "inclusion_ratio_median_relative_error": 0.21784688294729976,
+          "center_error_normalized_median": 0.06663079479489466,
+          "radius_relative_error_median": 0.1496359315949593
+        }
+      },
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 64,
+          "alpha": 0.1
+        },
+        "score": [
+          1.0622240439876494,
+          3.0657792254181726
+        ],
+        "out_of_fold_metrics": {
+          "E_background_median_relative_error": 0.04377291975532116,
+          "inclusion_ratio_median_relative_error": 0.20029245832135917,
+          "center_error_normalized_median": 0.09105658831096121,
+          "radius_relative_error_median": 0.1274668852785179
+        }
+      },
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 64,
+          "alpha": 1.0
+        },
+        "score": [
+          0.9619965578991719,
+          2.8619746826119115
+        ],
+        "out_of_fold_metrics": {
+          "E_background_median_relative_error": 0.04391248049463875,
+          "inclusion_ratio_median_relative_error": 0.18888117441852842,
+          "center_error_normalized_median": 0.08517035570743675,
+          "radius_relative_error_median": 0.11543958694790063
+        }
+      },
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 64,
+          "alpha": 10.0
+        },
+        "score": [
+          1.101868680425388,
+          2.8857036433013272
+        ],
+        "out_of_fold_metrics": {
+          "E_background_median_relative_error": 0.04910827076092472,
+          "inclusion_ratio_median_relative_error": 0.18498208700351176,
+          "center_error_normalized_median": 0.07165181431223942,
+          "radius_relative_error_median": 0.13222424165104657
+        }
+      },
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 64,
+          "alpha": 100.0
+        },
+        "score": [
+          1.2441912395865382,
+          3.1062029630253503
+        ],
+        "out_of_fold_metrics": {
+          "E_background_median_relative_error": 0.048655105195902104,
+          "inclusion_ratio_median_relative_error": 0.2164420332266389,
+          "center_error_normalized_median": 0.06718762225595756,
+          "radius_relative_error_median": 0.14930294875038458
+        }
+      },
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 80,
+          "alpha": 0.1
+        },
+        "score": [
+          1.1799127524694022,
+          3.365364580694016
+        ],
+        "out_of_fold_metrics": {
+          "E_background_median_relative_error": 0.05032545856279358,
+          "inclusion_ratio_median_relative_error": 0.20765368878597734,
+          "center_error_normalized_median": 0.10193340159954138,
+          "radius_relative_error_median": 0.14158953029632826
+        }
+      },
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 80,
+          "alpha": 1.0
+        },
+        "score": [
+          0.9714599939505696,
+          2.8340580022648894
+        ],
+        "out_of_fold_metrics": {
+          "E_background_median_relative_error": 0.04515885036347567,
+          "inclusion_ratio_median_relative_error": 0.18936254531147922,
+          "center_error_normalized_median": 0.08040888246452316,
+          "radius_relative_error_median": 0.11657519927406834
+        }
+      },
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 80,
+          "alpha": 10.0
+        },
+        "score": [
+          1.0823399685197106,
+          2.8314476144135203
+        ],
+        "out_of_fold_metrics": {
+          "E_background_median_relative_error": 0.04759354684561434,
+          "inclusion_ratio_median_relative_error": 0.18092984077099483,
+          "center_error_normalized_median": 0.07080979705057347,
+          "radius_relative_error_median": 0.12988079622236526
+        }
+      },
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 80,
+          "alpha": 100.0
+        },
+        "score": [
+          1.2397345882201718,
+          3.097205999274144
+        ],
+        "out_of_fold_metrics": {
+          "E_background_median_relative_error": 0.04850230086730467,
+          "inclusion_ratio_median_relative_error": 0.21528940078893616,
+          "center_error_normalized_median": 0.06729651354495297,
+          "radius_relative_error_median": 0.14876815058642062
+        }
+      },
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 96,
+          "alpha": 0.1
+        },
+        "score": [
+          1.4616611385231548,
+          3.747063071500326
+        ],
+        "out_of_fold_metrics": {
+          "E_background_median_relative_error": 0.05693155637097713,
+          "inclusion_ratio_median_relative_error": 0.2116607973988771,
+          "center_error_normalized_median": 0.10592150342418151,
+          "radius_relative_error_median": 0.17539933662277857
+        }
+      },
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 96,
+          "alpha": 1.0
+        },
+        "score": [
+          0.9793370901481784,
+          2.8201351662952554
+        ],
+        "out_of_fold_metrics": {
+          "E_background_median_relative_error": 0.04192838800240328,
+          "inclusion_ratio_median_relative_error": 0.19123902082199506,
+          "center_error_normalized_median": 0.07963194061764083,
+          "radius_relative_error_median": 0.1175204508177814
+        }
+      },
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 96,
+          "alpha": 10.0
+        },
+        "score": [
+          1.0817013920343912,
+          2.8317176250200475
+        ],
+        "out_of_fold_metrics": {
+          "E_background_median_relative_error": 0.04770753093073771,
+          "inclusion_ratio_median_relative_error": 0.1811676967184076,
+          "center_error_normalized_median": 0.07072952399071078,
+          "radius_relative_error_median": 0.12980416704412695
+        }
+      },
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 96,
+          "alpha": 100.0
+        },
+        "score": [
+          1.2402333444938547,
+          3.0939749583591216
+        ],
+        "out_of_fold_metrics": {
+          "E_background_median_relative_error": 0.04842907493262022,
+          "inclusion_ratio_median_relative_error": 0.21463281662315753,
+          "center_error_normalized_median": 0.06723498478218355,
+          "radius_relative_error_median": 0.14882800133926255
+        }
+      }
+    ],
+    "radius_leaderboard": [
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 16,
+          "alpha": 0.1
+        },
+        "out_of_fold_radius_relative_error_median": 0.1251844886710166
+      },
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 16,
+          "alpha": 1.0
+        },
+        "out_of_fold_radius_relative_error_median": 0.12528568709239418
+      },
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 16,
+          "alpha": 10.0
+        },
+        "out_of_fold_radius_relative_error_median": 0.12795129305214342
+      },
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 16,
+          "alpha": 100.0
+        },
+        "out_of_fold_radius_relative_error_median": 0.1323495546782798
+      },
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 32,
+          "alpha": 0.1
+        },
+        "out_of_fold_radius_relative_error_median": 0.13531538029871815
+      },
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 32,
+          "alpha": 1.0
+        },
+        "out_of_fold_radius_relative_error_median": 0.1329835403143138
+      },
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 32,
+          "alpha": 10.0
+        },
+        "out_of_fold_radius_relative_error_median": 0.13525276522037288
+      },
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 32,
+          "alpha": 100.0
+        },
+        "out_of_fold_radius_relative_error_median": 0.1292714107638629
+      },
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 64,
+          "alpha": 0.1
+        },
+        "out_of_fold_radius_relative_error_median": 0.12344263356509466
+      },
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 64,
+          "alpha": 1.0
+        },
+        "out_of_fold_radius_relative_error_median": 0.12411817914183854
+      },
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 64,
+          "alpha": 10.0
+        },
+        "out_of_fold_radius_relative_error_median": 0.12423206728799518
+      },
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 64,
+          "alpha": 100.0
+        },
+        "out_of_fold_radius_relative_error_median": 0.1275781893537165
+      },
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 80,
+          "alpha": 0.1
+        },
+        "out_of_fold_radius_relative_error_median": 0.13303250646817982
+      },
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 80,
+          "alpha": 1.0
+        },
+        "out_of_fold_radius_relative_error_median": 0.11245704444038762
+      },
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 80,
+          "alpha": 10.0
+        },
+        "out_of_fold_radius_relative_error_median": 0.1267720219436545
+      },
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 80,
+          "alpha": 100.0
+        },
+        "out_of_fold_radius_relative_error_median": 0.12752927160505945
+      },
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 96,
+          "alpha": 0.1
+        },
+        "out_of_fold_radius_relative_error_median": 0.1389277142942964
+      },
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 96,
+          "alpha": 1.0
+        },
+        "out_of_fold_radius_relative_error_median": 0.1136079401666778
+      },
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 96,
+          "alpha": 10.0
+        },
+        "out_of_fold_radius_relative_error_median": 0.12670802272128223
+      },
+      {
+        "name": "pca_ridge",
+        "params": {
+          "components": 96,
+          "alpha": 100.0
+        },
+        "out_of_fold_radius_relative_error_median": 0.1275796259928857
+      },
+      {
+        "name": "pls",
+        "params": {
+          "components": 2
+        },
+        "out_of_fold_radius_relative_error_median": 0.14800503635398976
+      },
+      {
+        "name": "pls",
+        "params": {
+          "components": 4
+        },
+        "out_of_fold_radius_relative_error_median": 0.1340421103064139
+      },
+      {
+        "name": "pls",
+        "params": {
+          "components": 8
+        },
+        "out_of_fold_radius_relative_error_median": 0.1223433141297175
+      },
+      {
+        "name": "pls",
+        "params": {
+          "components": 12
+        },
+        "out_of_fold_radius_relative_error_median": 0.12155126250874465
+      },
+      {
+        "name": "pls",
+        "params": {
+          "components": 16
+        },
+        "out_of_fold_radius_relative_error_median": 0.12815514422350416
+      },
+      {
+        "name": "extra_trees",
+        "params": {
+          "max_features": 0.5,
+          "min_samples_leaf": 1
+        },
+        "out_of_fold_radius_relative_error_median": 0.1398858068572485
+      },
+      {
+        "name": "extra_trees",
+        "params": {
+          "max_features": 0.5,
+          "min_samples_leaf": 2
+        },
+        "out_of_fold_radius_relative_error_median": 0.14008929045264662
+      },
+      {
+        "name": "extra_trees",
+        "params": {
+          "max_features": 0.5,
+          "min_samples_leaf": 4
+        },
+        "out_of_fold_radius_relative_error_median": 0.1380634122479945
+      },
+      {
+        "name": "extra_trees",
+        "params": {
+          "max_features": 1.0,
+          "min_samples_leaf": 1
+        },
+        "out_of_fold_radius_relative_error_median": 0.13728676352434394
+      },
+      {
+        "name": "extra_trees",
+        "params": {
+          "max_features": 1.0,
+          "min_samples_leaf": 2
+        },
+        "out_of_fold_radius_relative_error_median": 0.12806684839368543
+      },
+      {
+        "name": "extra_trees",
+        "params": {
+          "max_features": 1.0,
+          "min_samples_leaf": 4
+        },
+        "out_of_fold_radius_relative_error_median": 0.12795457977922275
+      }
+    ]
+  },
+  "validation": {
+    "E_background_median_relative_error": 0.04735796710377904,
+    "inclusion_ratio_median_relative_error": 0.17805557090283064,
+    "center_error_normalized_median": 0.0713578687567297,
+    "radius_relative_error_median": 0.11284522312441181,
+    "log_E_uncertainty": {
+      "coverage": {
+        "90": 0.92
+      },
+      "mean_interval_width": {
+        "90": 0.1811069556181515
+      },
+      "half_width": 0.09055347780907574,
+      "calibration": "validation_split_conformal_absolute_residual"
+    },
+    "log_ratio_uncertainty": {
+      "coverage": {
+        "90": 0.92
+      },
+      "mean_interval_width": {
+        "90": 0.815737612689521
+      },
+      "half_width": 0.4078688063447605,
+      "calibration": "validation_split_conformal_absolute_residual"
+    }
+  },
+  "test": {
+    "E_background_median_relative_error": 0.03820904483953458,
+    "inclusion_ratio_median_relative_error": 0.1869241537987601,
+    "center_error_normalized_median": 0.06962693724803312,
+    "radius_relative_error_median": 0.09934366067485978,
+    "log_E_uncertainty": {
+      "coverage": {
+        "90": 0.92
+      },
+      "mean_interval_width": {
+        "90": 0.1811069556181515
+      },
+      "half_width": 0.09055347780907574,
+      "calibration": "validation_split_conformal_absolute_residual"
+    },
+    "log_ratio_uncertainty": {
+      "coverage": {
+        "90": 0.9
+      },
+      "mean_interval_width": {
+        "90": 0.815737612689521
+      },
+      "half_width": 0.4078688063447605,
+      "calibration": "validation_split_conformal_absolute_residual"
+    }
+  },
+  "test_patient_count": 50,
+  "records": [
+    {
+      "patient_id": "lung_patient_004",
+      "patient_index": 0,
+      "E_background_true": 2811.328563192538,
+      "E_background_estimated": 2694.3978899639615,
+      "inclusion_ratio_true": 1.3014059740346762,
+      "inclusion_ratio_estimated": 1.4387255954377511,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        7.808376563119549,
+        7.989483518737701
+      ],
+      "E_background_interval_90": [
+        2461.1316983485594,
+        2949.7730634706068
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        -0.04411108777159084,
+        0.7716265249179302
+      ],
+      "inclusion_ratio_interval_90": [
+        0.9568476574948191,
+        2.163282025883958
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.36046507954597473,
+        0.4995959401130676,
+        0.47857174277305603
+      ],
+      "center_fraction_estimated": [
+        0.4097781816442027,
+        0.4836061383995804,
+        0.48546953038424795
+      ],
+      "radius_fraction_true": 0.20353876054286957,
+      "radius_fraction_estimated": 0.1858145833844285
+    },
+    {
+      "patient_id": "lung_patient_009",
+      "patient_index": 1,
+      "E_background_true": 3030.940557590068,
+      "E_background_estimated": 3137.025580331148,
+      "inclusion_ratio_true": 1.45953630102381,
+      "inclusion_ratio_estimated": 1.6797189415433855,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        7.960476884741453,
+        8.141583840359605
+      ],
+      "E_background_interval_90": [
+        2865.43911092008,
+        3434.3530295753153
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.11075767637438727,
+        0.9264952890639083
+      ],
+      "inclusion_ratio_interval_90": [
+        1.117124168473866,
+        2.5256420031034685
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.3698481023311615,
+        0.5211280584335327,
+        0.5552514791488647
+      ],
+      "center_fraction_estimated": [
+        0.41936222880541074,
+        0.4977173575559238,
+        0.5097039881950733
+      ],
+      "radius_fraction_true": 0.18149060010910034,
+      "radius_fraction_estimated": 0.17812855914481918
+    },
+    {
+      "patient_id": "lung_patient_014",
+      "patient_index": 2,
+      "E_background_true": 5463.237348299965,
+      "E_background_estimated": 5492.675815579166,
+      "inclusion_ratio_true": 1.63129526372376,
+      "inclusion_ratio_estimated": 1.345458977996437,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.520617336056478,
+        8.70172429167463
+      ],
+      "E_background_interval_90": [
+        5017.150068602237,
+        6013.271917826724
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        -0.1111336039216772,
+        0.7046040087678438
+      ],
+      "inclusion_ratio_interval_90": [
+        0.8948191895894894,
+        2.023045418037691
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.45191454887390137,
+        0.4527600407600403,
+        0.42572009563446045
+      ],
+      "center_fraction_estimated": [
+        0.49178073915996295,
+        0.5012873370097113,
+        0.5047085009361848
+      ],
+      "radius_fraction_true": 0.1252078264951706,
+      "radius_fraction_estimated": 0.1561200267037629
+    },
+    {
+      "patient_id": "lung_patient_019",
+      "patient_index": 3,
+      "E_background_true": 3606.5259937826086,
+      "E_background_estimated": 3880.5317630346194,
+      "inclusion_ratio_true": 1.6401879183406143,
+      "inclusion_ratio_estimated": 1.1350170496546157,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.173173997745941,
+        8.354280953364093
+      ],
+      "E_background_interval_90": [
+        3544.5766061599256,
+        4248.328767320527
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        -0.28122113380209113,
+        0.5345164788874299
+      ],
+      "inclusion_ratio_interval_90": [
+        0.7548613916528387,
+        1.706622854542734
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.4556237757205963,
+        0.3863484561443329,
+        0.44785797595977783
+      ],
+      "center_fraction_estimated": [
+        0.5269961139185126,
+        0.4089559850736777,
+        0.46872759408596826
+      ],
+      "radius_fraction_true": 0.14178916811943054,
+      "radius_fraction_estimated": 0.1719387879442657
+    },
+    {
+      "patient_id": "lung_patient_024",
+      "patient_index": 4,
+      "E_background_true": 3341.257003712719,
+      "E_background_estimated": 3226.6103468955775,
+      "inclusion_ratio_true": 1.7444976578310032,
+      "inclusion_ratio_estimated": 1.7358914797548977,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        7.988633959166595,
+        8.169740914784747
+      ],
+      "E_background_interval_90": [
+        2947.2681197320726,
+        3532.4286450192512
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.14365229627753728,
+        0.9593899089670583
+      ],
+      "inclusion_ratio_interval_90": [
+        1.1544826208247954,
+        2.6101035867762543
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.3672391176223755,
+        0.5005680322647095,
+        0.5683759450912476
+      ],
+      "center_fraction_estimated": [
+        0.3567072717398587,
+        0.5274087141584678,
+        0.5441517384107648
+      ],
+      "radius_fraction_true": 0.17030413448810577,
+      "radius_fraction_estimated": 0.17412235821125702
+    },
+    {
+      "patient_id": "lung_patient_029",
+      "patient_index": 5,
+      "E_background_true": 3535.8184292396504,
+      "E_background_estimated": 3627.0789899125534,
+      "inclusion_ratio_true": 3.126348643575888,
+      "inclusion_ratio_estimated": 3.8512142670073266,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.10562943954177,
+        8.286736395159922
+      ],
+      "E_background_interval_90": [
+        3313.066384047405,
+        3970.8537270519205
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.9405196862565682,
+        1.7562572989460894
+      ],
+      "inclusion_ratio_interval_90": [
+        2.5613121512413004,
+        5.790723837862852
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.4477051794528961,
+        0.38677775859832764,
+        0.4653555452823639
+      ],
+      "center_fraction_estimated": [
+        0.47361319973439303,
+        0.4650446855275646,
+        0.4791517205723994
+      ],
+      "radius_fraction_true": 0.22541412711143494,
+      "radius_fraction_estimated": 0.23900998666333628
+    },
+    {
+      "patient_id": "lung_patient_034",
+      "patient_index": 6,
+      "E_background_true": 3863.094935635418,
+      "E_background_estimated": 3831.868783474734,
+      "inclusion_ratio_true": 1.7545839777438694,
+      "inclusion_ratio_estimated": 1.4314742306527548,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.16055441838713,
+        8.341661374005282
+      ],
+      "E_background_interval_90": [
+        3500.126600473303,
+        4195.0535080024265
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        -0.04916396259046957,
+        0.7665736500990514
+      ],
+      "inclusion_ratio_interval_90": [
+        0.9520250204122744,
+        2.152378802119639
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.4190937876701355,
+        0.4564162492752075,
+        0.5248255729675293
+      ],
+      "center_fraction_estimated": [
+        0.4313983395894674,
+        0.4597007163363427,
+        0.5110818112505455
+      ],
+      "radius_fraction_true": 0.1612858921289444,
+      "radius_fraction_estimated": 0.15923258929352108
+    },
+    {
+      "patient_id": "lung_patient_039",
+      "patient_index": 7,
+      "E_background_true": 6321.6932020521135,
+      "E_background_estimated": 6327.988631052884,
+      "inclusion_ratio_true": 3.3413427190143996,
+      "inclusion_ratio_estimated": 2.6112680363373655,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.662184235026952,
+        8.843291190645104
+      ],
+      "E_background_interval_90": [
+        5780.1460818698415,
+        6927.755725817356
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.5519671346860803,
+        1.3677047473756012
+      ],
+      "inclusion_ratio_interval_90": [
+        1.7366659157129103,
+        3.926328429609376
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.6492195129394531,
+        0.4067072868347168,
+        0.5625224113464355
+      ],
+      "center_fraction_estimated": [
+        0.5784875028249665,
+        0.4265973617931165,
+        0.5099273877701134
+      ],
+      "radius_fraction_true": 0.1985093206167221,
+      "radius_fraction_estimated": 0.1934336717425877
+    },
+    {
+      "patient_id": "lung_patient_044",
+      "patient_index": 8,
+      "E_background_true": 5425.583703968429,
+      "E_background_estimated": 5479.918964469155,
+      "inclusion_ratio_true": 2.376773452093911,
+      "inclusion_ratio_estimated": 2.3248145002783516,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.51829211451802,
+        8.699399070136172
+      ],
+      "E_background_interval_90": [
+        5005.497635695091,
+        5999.305971698583
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.4357714446850651,
+        1.2515090573745862
+      ],
+      "inclusion_ratio_interval_90": [
+        1.546155372334568,
+        3.495614061440496
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.46868211030960083,
+        0.3569171130657196,
+        0.5284184813499451
+      ],
+      "center_fraction_estimated": [
+        0.4898263928372343,
+        0.41734628192339845,
+        0.508973772542926
+      ],
+      "radius_fraction_true": 0.15827473998069763,
+      "radius_fraction_estimated": 0.14536657928417976
+    },
+    {
+      "patient_id": "lung_patient_049",
+      "patient_index": 9,
+      "E_background_true": 3059.6835669025745,
+      "E_background_estimated": 3137.8076281648778,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_estimated": 0.9451387235316234,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        7.960726149641983,
+        8.141833105260135
+      ],
+      "E_background_interval_90": [
+        2866.153453341586,
+        3435.2091999437953
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        -0.4642923712188757,
+        0.3514452414706454
+      ],
+      "inclusion_ratio_interval_90": [
+        0.628579748971322,
+        1.4211199265977967
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.5893486142158508,
+        0.44777634739875793,
+        0.49078163504600525
+      ],
+      "center_fraction_estimated": [
+        0.5212709209259956,
+        0.4255809352325801,
+        0.4624674455771704
+      ],
+      "radius_fraction_true": 0.17100177705287933,
+      "radius_fraction_estimated": 0.12860772311643964
+    },
+    {
+      "patient_id": "lung_patient_054",
+      "patient_index": 10,
+      "E_background_true": 7584.310138973239,
+      "E_background_estimated": 7084.191090918341,
+      "inclusion_ratio_true": 3.8647375776365727,
+      "inclusion_ratio_estimated": 2.6800295490620147,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.775067495732419,
+        8.95617445135057
+      ],
+      "E_background_interval_90": [
+        6470.880680229004,
+        7755.631094540709
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.57795901388663,
+        1.393696626576151
+      ],
+      "inclusion_ratio_interval_90": [
+        1.7823968685680045,
+        4.029718919791464
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.6130029559135437,
+        0.5667447447776794,
+        0.5609892010688782
+      ],
+      "center_fraction_estimated": [
+        0.5530755750989172,
+        0.5187668236300531,
+        0.5220907806037675
+      ],
+      "radius_fraction_true": 0.13589683175086975,
+      "radius_fraction_estimated": 0.16062407283936694
+    },
+    {
+      "patient_id": "lung_patient_059",
+      "patient_index": 11,
+      "E_background_true": 2252.3747673986186,
+      "E_background_estimated": 1894.1021113575607,
+      "inclusion_ratio_true": 3.518411301601914,
+      "inclusion_ratio_estimated": 5.978717892350924,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        7.455946707555264,
+        7.637053663173416
+      ],
+      "E_background_interval_90": [
+        1730.1211389507794,
+        2073.62520894049
+      ],
+      "log_E_covered_90": false,
+      "log_ratio_interval_90": [
+        1.3803373393585496,
+        2.1960749520480705
+      ],
+      "inclusion_ratio_interval_90": [
+        3.9762427444531143,
+        8.989659317500596
+      ],
+      "log_ratio_covered_90": false,
+      "center_fraction_true": [
+        0.5514404773712158,
+        0.4872080385684967,
+        0.5122042298316956
+      ],
+      "center_fraction_estimated": [
+        0.5839707982268256,
+        0.5095083536902278,
+        0.6038469440103271
+      ],
+      "radius_fraction_true": 0.14542187750339508,
+      "radius_fraction_estimated": 0.13283463529421918
+    },
+    {
+      "patient_id": "lung_patient_064",
+      "patient_index": 12,
+      "E_background_true": 3031.4262055612357,
+      "E_background_estimated": 3044.652540334851,
+      "inclusion_ratio_true": 1.4120580901676563,
+      "inclusion_ratio_estimated": 1.0970848087058285,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        7.930588587559662,
+        8.111695543177813
+      ],
+      "E_background_interval_90": [
+        2781.063222097384,
+        3333.2248679972145
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        -0.315212318371876,
+        0.500525294317645
+      ],
+      "inclusion_ratio_interval_90": [
+        0.7296339431314042,
+        1.6495875621240688
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.5326636433601379,
+        0.4330083131790161,
+        0.5510215163230896
+      ],
+      "center_fraction_estimated": [
+        0.4706056657630668,
+        0.4384129859155946,
+        0.49695501814068943
+      ],
+      "radius_fraction_true": 0.2005327343940735,
+      "radius_fraction_estimated": 0.20041931991831288
+    },
+    {
+      "patient_id": "lung_patient_069",
+      "patient_index": 13,
+      "E_background_true": 2616.059202141706,
+      "E_background_estimated": 2731.297520915703,
+      "inclusion_ratio_true": 3.334630225734577,
+      "inclusion_ratio_estimated": 4.361753280927283,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        7.8219785798457355,
+        8.003085535463887
+      ],
+      "E_background_interval_90": [
+        2494.8367616322566,
+        2990.1700433817327
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        1.0650052988371717,
+        1.8807429115266925
+      ],
+      "inclusion_ratio_interval_90": [
+        2.900854355173796,
+        6.558375345438569
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.5030236840248108,
+        0.4063119888305664,
+        0.5564793348312378
+      ],
+      "center_fraction_estimated": [
+        0.3584040643993691,
+        0.36861658578188516,
+        0.6074354771485941
+      ],
+      "radius_fraction_true": 0.1265207678079605,
+      "radius_fraction_estimated": 0.14071717755453544
+    },
+    {
+      "patient_id": "lung_patient_074",
+      "patient_index": 14,
+      "E_background_true": 4568.102454974545,
+      "E_background_estimated": 4580.811322997539,
+      "inclusion_ratio_true": 2.7578483393417694,
+      "inclusion_ratio_estimated": 3.401805266979819,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.339077928370163,
+        8.520184883988314
+      ],
+      "E_background_interval_90": [
+        4184.229802575312,
+        5014.980860751797
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.8164374452439226,
+        1.6321750579334435
+      ],
+      "inclusion_ratio_interval_90": [
+        2.262425448803389,
+        5.114988023394223
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.39321109652519226,
+        0.36705607175827026,
+        0.4700281620025635
+      ],
+      "center_fraction_estimated": [
+        0.4288932044843483,
+        0.4193051808585208,
+        0.4942146203429211
+      ],
+      "radius_fraction_true": 0.22371838986873627,
+      "radius_fraction_estimated": 0.15791847108098306
+    },
+    {
+      "patient_id": "lung_patient_079",
+      "patient_index": 15,
+      "E_background_true": 5907.968050015292,
+      "E_background_estimated": 5960.618949533743,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_estimated": 1.3802361267215089,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.60237612745113,
+        8.783483083069282
+      ],
+      "E_background_interval_90": [
+        5444.581252500462,
+        6525.566726591473
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        -0.0856142154927299,
+        0.7301233971967911
+      ],
+      "inclusion_ratio_interval_90": [
+        0.9179482931499284,
+        2.0753366826033646
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.4230614900588989,
+        0.5492035746574402,
+        0.47813665866851807
+      ],
+      "center_fraction_estimated": [
+        0.47040492854262267,
+        0.48696578587845035,
+        0.4799398010678263
+      ],
+      "radius_fraction_true": 0.17216017842292786,
+      "radius_fraction_estimated": 0.16154248258979095
+    },
+    {
+      "patient_id": "lung_patient_084",
+      "patient_index": 16,
+      "E_background_true": 3221.9025490974072,
+      "E_background_estimated": 3758.472710703551,
+      "inclusion_ratio_true": 2.956998202605196,
+      "inclusion_ratio_estimated": 2.8055179976262625,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.141214482093929,
+        8.32232143771208
+      ],
+      "E_background_interval_90": [
+        3433.084757134466,
+        4114.700951599608
+      ],
+      "log_E_covered_90": false,
+      "log_ratio_interval_90": [
+        0.6237193849660839,
+        1.439456997655605
+      ],
+      "inclusion_ratio_interval_90": [
+        1.865854984856556,
+        4.218404591399679
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.6318685412406921,
+        0.6406736969947815,
+        0.45541027188301086
+      ],
+      "center_fraction_estimated": [
+        0.5961673095072704,
+        0.6369302777695705,
+        0.41936110554204786
+      ],
+      "radius_fraction_true": 0.15142722427845,
+      "radius_fraction_estimated": 0.1384096742829499
+    },
+    {
+      "patient_id": "lung_patient_089",
+      "patient_index": 17,
+      "E_background_true": 3098.993512876281,
+      "E_background_estimated": 2895.838951561961,
+      "inclusion_ratio_true": 1.8189035574969716,
+      "inclusion_ratio_estimated": 1.075008195323838,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        7.880476663501708,
+        8.061583619119858
+      ],
+      "E_background_interval_90": [
+        2645.133097657276,
+        3170.306719465506
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        -0.33554052123713507,
+        0.480197091452386
+      ],
+      "inclusion_ratio_interval_90": [
+        0.7149515354040645,
+        1.6163929480342856
+      ],
+      "log_ratio_covered_90": false,
+      "center_fraction_true": [
+        0.645039975643158,
+        0.5720058083534241,
+        0.5633712410926819
+      ],
+      "center_fraction_estimated": [
+        0.6084152906559276,
+        0.5905420371693963,
+        0.5102259026141773
+      ],
+      "radius_fraction_true": 0.15410107374191284,
+      "radius_fraction_estimated": 0.1291184095984433
+    },
+    {
+      "patient_id": "lung_patient_094",
+      "patient_index": 18,
+      "E_background_true": 2849.7622929451018,
+      "E_background_estimated": 2928.1657756320187,
+      "inclusion_ratio_true": 2.9448021905630997,
+      "inclusion_ratio_estimated": 3.7370023695124863,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        7.891578013030086,
+        8.072684968648238
+      ],
+      "E_background_interval_90": [
+        2674.6612425990834,
+        3205.697481618565
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.9104149782264844,
+        1.7261525909160054
+      ],
+      "inclusion_ratio_interval_90": [
+        2.4853536870821045,
+        5.618993699901752
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.5256813168525696,
+        0.5071848630905151,
+        0.5304451584815979
+      ],
+      "center_fraction_estimated": [
+        0.48670228664344894,
+        0.4858713856367419,
+        0.5591716613547768
+      ],
+      "radius_fraction_true": 0.16098423302173615,
+      "radius_fraction_estimated": 0.12810797866000756
+    },
+    {
+      "patient_id": "lung_patient_099",
+      "patient_index": 19,
+      "E_background_true": 3089.1351333614066,
+      "E_background_estimated": 3198.719830936786,
+      "inclusion_ratio_true": 1.5906665951154153,
+      "inclusion_ratio_estimated": 1.6754489125962517,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        7.979952478104005,
+        8.161059433722157
+      ],
+      "E_background_interval_90": [
+        2921.7922116766376,
+        3501.894664493219
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.1082123305448196,
+        0.9239499432343407
+      ],
+      "inclusion_ratio_interval_90": [
+        1.1142843168659873,
+        2.519221545372939
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.40281179547309875,
+        0.36579060554504395,
+        0.5075764060020447
+      ],
+      "center_fraction_estimated": [
+        0.48316909763637006,
+        0.44423879855379256,
+        0.47148460297823147
+      ],
+      "radius_fraction_true": 0.1867954283952713,
+      "radius_fraction_estimated": 0.17479815461831863
+    },
+    {
+      "patient_id": "lung_patient_104",
+      "patient_index": 20,
+      "E_background_true": 3530.891972343149,
+      "E_background_estimated": 3809.851984902637,
+      "inclusion_ratio_true": 3.186738603762067,
+      "inclusion_ratio_estimated": 1.9988829792036005,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.154792140450105,
+        8.335899096068257
+      ],
+      "E_background_interval_90": [
+        3480.01589556822,
+        4170.949956105458
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.28471970779195543,
+        1.1004573204814765
+      ],
+      "inclusion_ratio_interval_90": [
+        1.3293893584170848,
+        3.0055402047955133
+      ],
+      "log_ratio_covered_90": false,
+      "center_fraction_true": [
+        0.4012449383735657,
+        0.4172126352787018,
+        0.5064122080802917
+      ],
+      "center_fraction_estimated": [
+        0.4455800353877568,
+        0.4079223932012991,
+        0.4878246922887796
+      ],
+      "radius_fraction_true": 0.15858903527259827,
+      "radius_fraction_estimated": 0.17278518735888504
+    },
+    {
+      "patient_id": "lung_patient_109",
+      "patient_index": 21,
+      "E_background_true": 5464.831886589103,
+      "E_background_estimated": 5680.619968195232,
+      "inclusion_ratio_true": 3.1478759366903932,
+      "inclusion_ratio_estimated": 2.694356697984198,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.554262177279913,
+        8.735369132898064
+      ],
+      "E_background_interval_90": [
+        5188.823047283513,
+        6219.029427097597
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.5832906674756522,
+        1.3990282801651732
+      ],
+      "inclusion_ratio_interval_90": [
+        1.7919253699919324,
+        4.051261362522589
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.49174511432647705,
+        0.5282823443412781,
+        0.4959701895713806
+      ],
+      "center_fraction_estimated": [
+        0.4946609486938242,
+        0.5135144635746421,
+        0.5187538637570909
+      ],
+      "radius_fraction_true": 0.18249951303005219,
+      "radius_fraction_estimated": 0.17590070273633
+    },
+    {
+      "patient_id": "lung_patient_114",
+      "patient_index": 22,
+      "E_background_true": 3452.310815920417,
+      "E_background_estimated": 3703.568229041598,
+      "inclusion_ratio_true": 1.6862155303109352,
+      "inclusion_ratio_estimated": 1.956592409104512,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.126498542329058,
+        8.30760549794721
+      ],
+      "E_background_interval_90": [
+        3382.9336043656235,
+        4054.5926202824357
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.26333558705306326,
+        1.0790731997425844
+      ],
+      "inclusion_ratio_interval_90": [
+        1.3012633328137653,
+        2.9419516855880636
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.6138696670532227,
+        0.5507206320762634,
+        0.5583463907241821
+      ],
+      "center_fraction_estimated": [
+        0.593478895796546,
+        0.5065445512036925,
+        0.526899580184923
+      ],
+      "radius_fraction_true": 0.18728145956993103,
+      "radius_fraction_estimated": 0.16732707365920352
+    },
+    {
+      "patient_id": "lung_patient_119",
+      "patient_index": 23,
+      "E_background_true": 4289.084813843794,
+      "E_background_estimated": 4503.468148429129,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_estimated": 1.0222951060197936,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.322049600763782,
+        8.503156556381933
+      ],
+      "E_background_interval_90": [
+        4113.582575864573,
+        4930.307096036129
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        -0.3858186028004751,
+        0.42991900988904597
+      ],
+      "inclusion_ratio_interval_90": [
+        0.6798938453345809,
+        1.5371330259324902
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.553948700428009,
+        0.5585166811943054,
+        0.5153173804283142
+      ],
+      "center_fraction_estimated": [
+        0.5119625305785463,
+        0.4686230659239169,
+        0.4725745419147839
+      ],
+      "radius_fraction_true": 0.21178196370601654,
+      "radius_fraction_estimated": 0.16302708003458402
+    },
+    {
+      "patient_id": "lung_patient_124",
+      "patient_index": 24,
+      "E_background_true": 6756.744245247787,
+      "E_background_estimated": 6590.3906067157595,
+      "inclusion_ratio_true": 3.0298149757123793,
+      "inclusion_ratio_estimated": 2.373660162210233,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.702814420573679,
+        8.88392137619183
+      ],
+      "E_background_interval_90": [
+        6019.830733649994,
+        7215.028174513555
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.45656432972647476,
+        1.2723019424159958
+      ],
+      "inclusion_ratio_interval_90": [
+        1.5786409674657813,
+        3.5690588815192634
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.5596851110458374,
+        0.5797807574272156,
+        0.5785761475563049
+      ],
+      "center_fraction_estimated": [
+        0.534615919753304,
+        0.5561904340194941,
+        0.5319880294026469
+      ],
+      "radius_fraction_true": 0.1861807405948639,
+      "radius_fraction_estimated": 0.17370315828337995
+    },
+    {
+      "patient_id": "lung_patient_129",
+      "patient_index": 25,
+      "E_background_true": 5811.749198128042,
+      "E_background_estimated": 5861.077474689697,
+      "inclusion_ratio_true": 3.460651087881327,
+      "inclusion_ratio_estimated": 3.7821917921601025,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.585535257261048,
+        8.7666422128792
+      ],
+      "E_background_interval_90": [
+        5353.657532603129,
+        6416.590705534303
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.9224348744407386,
+        1.7381724871302597
+      ],
+      "inclusion_ratio_interval_90": [
+        2.5154076413184288,
+        5.686940962453871
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.606443464756012,
+        0.5547190308570862,
+        0.4487828314304352
+      ],
+      "center_fraction_estimated": [
+        0.562776094529947,
+        0.5201156494249392,
+        0.5298478598533032
+      ],
+      "radius_fraction_true": 0.1982446312904358,
+      "radius_fraction_estimated": 0.17935773788185283
+    },
+    {
+      "patient_id": "lung_patient_134",
+      "patient_index": 26,
+      "E_background_true": 2220.0649874120104,
+      "E_background_estimated": 1663.9958763081602,
+      "inclusion_ratio_true": 2.59652507567913,
+      "inclusion_ratio_estimated": 5.668095101394773,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        7.326423665388815,
+        7.507530621006967
+      ],
+      "E_background_interval_90": [
+        1519.9362396910421,
+        1821.7094928491167
+      ],
+      "log_E_covered_90": false,
+      "log_ratio_interval_90": [
+        1.326984293994073,
+        2.1427219066835943
+      ],
+      "inclusion_ratio_interval_90": [
+        3.769658048362777,
+        8.522603818775771
+      ],
+      "log_ratio_covered_90": false,
+      "center_fraction_true": [
+        0.6320523023605347,
+        0.6198302507400513,
+        0.43794170022010803
+      ],
+      "center_fraction_estimated": [
+        0.6659265508607917,
+        0.6209102437857771,
+        0.507362414840396
+      ],
+      "radius_fraction_true": 0.22655536234378815,
+      "radius_fraction_estimated": 0.23098386044711766
+    },
+    {
+      "patient_id": "lung_patient_139",
+      "patient_index": 27,
+      "E_background_true": 4925.124139194333,
+      "E_background_estimated": 4972.612071506176,
+      "inclusion_ratio_true": 3.2980322290759636,
+      "inclusion_ratio_estimated": 2.9984235723870016,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.421147070926743,
+        8.602254026544895
+      ],
+      "E_background_interval_90": [
+        4542.110591148895,
+        5443.916504779434
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.6902178683415195,
+        1.5059554810310405
+      ],
+      "inclusion_ratio_interval_90": [
+        1.9941499480606713,
+        4.50845932031812
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.4035622775554657,
+        0.5814058780670166,
+        0.4713156223297119
+      ],
+      "center_fraction_estimated": [
+        0.3790145426221988,
+        0.6140752538212039,
+        0.44940579219236493
+      ],
+      "radius_fraction_true": 0.22577568888664246,
+      "radius_fraction_estimated": 0.2444968645448057
+    },
+    {
+      "patient_id": "lung_patient_144",
+      "patient_index": 28,
+      "E_background_true": 7130.2990817111695,
+      "E_background_estimated": 6784.947255719572,
+      "inclusion_ratio_true": 1.9822014987087428,
+      "inclusion_ratio_estimated": 1.916941695605732,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.731908320770073,
+        8.913015276388224
+      ],
+      "E_background_interval_90": [
+        6197.543735048671,
+        7428.02491292706
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.24286224286171376,
+        1.0585998555512348
+      ],
+      "inclusion_ratio_interval_90": [
+        1.274892986411634,
+        2.882332480857583
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.6288038492202759,
+        0.47766849398612976,
+        0.4839078187942505
+      ],
+      "center_fraction_estimated": [
+        0.5668286725195136,
+        0.46499145043735846,
+        0.503410980423863
+      ],
+      "radius_fraction_true": 0.22065560519695282,
+      "radius_fraction_estimated": 0.1872202672005147
+    },
+    {
+      "patient_id": "lung_patient_149",
+      "patient_index": 29,
+      "E_background_true": 2418.414232757688,
+      "E_background_estimated": 2259.1062738947385,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_estimated": 0.8556618785495749,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        7.632171082215814,
+        7.813278037833966
+      ],
+      "E_background_interval_90": [
+        2063.525242997726,
+        2473.2244851710752
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        -0.5637487889132963,
+        0.2519888237762248
+      ],
+      "inclusion_ratio_interval_90": [
+        0.5690717303522117,
+        1.2865816580799723
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.42833805084228516,
+        0.35902562737464905,
+        0.4895316958427429
+      ],
+      "center_fraction_estimated": [
+        0.5534150053200007,
+        0.4617940936343306,
+        0.49312846076952366
+      ],
+      "radius_fraction_true": 0.2101566642522812,
+      "radius_fraction_estimated": 0.13537655953361794
+    },
+    {
+      "patient_id": "lung_patient_154",
+      "patient_index": 30,
+      "E_background_true": 4926.486447244421,
+      "E_background_estimated": 5175.888470469911,
+      "inclusion_ratio_true": 1.5747026883652868,
+      "inclusion_ratio_estimated": 1.6764324795429721,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.46121281070325,
+        8.642319766321402
+      ],
+      "E_background_interval_90": [
+        4727.788434380314,
+        5666.459451511979
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.10879920511458041,
+        0.9245368178041015
+      ],
+      "inclusion_ratio_interval_90": [
+        1.1149384539244667,
+        2.520700446355754
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.6247644424438477,
+        0.47598764300346375,
+        0.46180856227874756
+      ],
+      "center_fraction_estimated": [
+        0.568442974356912,
+        0.44153898157511107,
+        0.4970455750901238
+      ],
+      "radius_fraction_true": 0.21291889250278473,
+      "radius_fraction_estimated": 0.18072020802621455
+    },
+    {
+      "patient_id": "lung_patient_159",
+      "patient_index": 31,
+      "E_background_true": 2694.2065490245527,
+      "E_background_estimated": 2557.3442456023286,
+      "inclusion_ratio_true": 1.6410146134733767,
+      "inclusion_ratio_estimated": 1.1135483575897405,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        7.756171117126905,
+        7.937278072745056
+      ],
+      "E_background_interval_90": [
+        2335.9434068311857,
+        2799.7294674990285
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        -0.30031717111288514,
+        0.5154204415766359
+      ],
+      "inclusion_ratio_interval_90": [
+        0.7405832918005154,
+        1.674342316954153
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.5884722471237183,
+        0.3740663230419159,
+        0.42291828989982605
+      ],
+      "center_fraction_estimated": [
+        0.5810477111012149,
+        0.29491420980831473,
+        0.5200783027141692
+      ],
+      "radius_fraction_true": 0.14714570343494415,
+      "radius_fraction_estimated": 0.16488305107287168
+    },
+    {
+      "patient_id": "lung_patient_164",
+      "patient_index": 32,
+      "E_background_true": 4947.490047702296,
+      "E_background_estimated": 5112.618426610256,
+      "inclusion_ratio_true": 2.353340469981598,
+      "inclusion_ratio_estimated": 1.7505037149778333,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.448913486402843,
+        8.630020442020994
+      ],
+      "E_background_interval_90": [
+        4669.995963907075,
+        5597.19266957269
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.1520347773036933,
+        0.9677723899932144
+      ],
+      "inclusion_ratio_interval_90": [
+        1.1642007234902136,
+        2.632074688087027
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.3829139173030853,
+        0.4776746332645416,
+        0.5285933017730713
+      ],
+      "center_fraction_estimated": [
+        0.4517207233805824,
+        0.5181000116259643,
+        0.5057685008378322
+      ],
+      "radius_fraction_true": 0.13454416394233704,
+      "radius_fraction_estimated": 0.16308392865998844
+    },
+    {
+      "patient_id": "lung_patient_169",
+      "patient_index": 33,
+      "E_background_true": 4263.124275057323,
+      "E_background_estimated": 4520.328134157359,
+      "inclusion_ratio_true": 1.8089007068406413,
+      "inclusion_ratio_estimated": 2.1538486057885238,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.325786388434748,
+        8.5068933440529
+      ],
+      "E_background_interval_90": [
+        4128.9829164987505,
+        4948.7650720970805
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.3593874847700732,
+        1.1751250974595941
+      ],
+      "inclusion_ratio_interval_90": [
+        1.4324517472841467,
+        3.2385480526325496
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.49189823865890503,
+        0.48111915588378906,
+        0.5232120156288147
+      ],
+      "center_fraction_estimated": [
+        0.50156491681105,
+        0.5158820071831516,
+        0.4699824494282376
+      ],
+      "radius_fraction_true": 0.212086021900177,
+      "radius_fraction_estimated": 0.18761991415557802
+    },
+    {
+      "patient_id": "lung_patient_174",
+      "patient_index": 34,
+      "E_background_true": 5106.1566951544855,
+      "E_background_estimated": 5264.434551607359,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_estimated": 1.24236742747037,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.478175543386024,
+        8.659282499004176
+      ],
+      "E_background_interval_90": [
+        4808.6686814528175,
+        5763.397934869617
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        -0.19085003126175493,
+        0.6248875814277661
+      ],
+      "inclusion_ratio_interval_90": [
+        0.8262564915036446,
+        1.8680359436940497
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.5385611057281494,
+        0.5598608255386353,
+        0.49030497670173645
+      ],
+      "center_fraction_estimated": [
+        0.5375211666257356,
+        0.4965946441084135,
+        0.5101963407958863
+      ],
+      "radius_fraction_true": 0.1339205652475357,
+      "radius_fraction_estimated": 0.15784663696316942
+    },
+    {
+      "patient_id": "lung_patient_179",
+      "patient_index": 35,
+      "E_background_true": 3594.3297318619357,
+      "E_background_estimated": 3675.9183317361617,
+      "inclusion_ratio_true": 2.233903658463337,
+      "inclusion_ratio_estimated": 2.5750913977679244,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.119004788808219,
+        8.30011174442637
+      ],
+      "E_background_interval_90": [
+        3357.6774835202345,
+        4024.3220642583606
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.5380162214198375,
+        1.3537538341093587
+      ],
+      "inclusion_ratio_interval_90": [
+        1.712606058863923,
+        3.8719328782809384
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.45909807085990906,
+        0.5054593682289124,
+        0.46561551094055176
+      ],
+      "center_fraction_estimated": [
+        0.4605328887073636,
+        0.47400772164712585,
+        0.4792410700579403
+      ],
+      "radius_fraction_true": 0.224242702126503,
+      "radius_fraction_estimated": 0.21245914879328315
+    },
+    {
+      "patient_id": "lung_patient_184",
+      "patient_index": 36,
+      "E_background_true": 5284.204362947891,
+      "E_background_estimated": 5453.609974170908,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_estimated": 1.2243024226030506,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.513479571152839,
+        8.69458652677099
+      ],
+      "E_background_interval_90": [
+        4981.466333482549,
+        5970.503413918255
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        -0.20549757548311898,
+        0.6102400372064021
+      ],
+      "inclusion_ratio_interval_90": [
+        0.8142420687084013,
+        1.840873223818278
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.3910365700721741,
+        0.4172499179840088,
+        0.5497299432754517
+      ],
+      "center_fraction_estimated": [
+        0.503097239825037,
+        0.4854359382312376,
+        0.49955392439794954
+      ],
+      "radius_fraction_true": 0.1489754170179367,
+      "radius_fraction_estimated": 0.15398305417871797
+    },
+    {
+      "patient_id": "lung_patient_189",
+      "patient_index": 37,
+      "E_background_true": 2490.8273349310643,
+      "E_background_estimated": 2352.7607326347575,
+      "inclusion_ratio_true": 2.434371496823947,
+      "inclusion_ratio_estimated": 4.721829703757092,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        7.67279121965983,
+        7.8538981752779815
+      ],
+      "E_background_interval_90": [
+        2149.071612357383,
+        2575.7555184287216
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        1.1443275672372817,
+        1.9600651799268025
+      ],
+      "inclusion_ratio_interval_90": [
+        3.140328986608977,
+        7.099789813855886
+      ],
+      "log_ratio_covered_90": false,
+      "center_fraction_true": [
+        0.4340682029724121,
+        0.3524796962738037,
+        0.453275591135025
+      ],
+      "center_fraction_estimated": [
+        0.3649971343348528,
+        0.37554277535651326,
+        0.5421041891892602
+      ],
+      "radius_fraction_true": 0.20731709897518158,
+      "radius_fraction_estimated": 0.18587705314438902
+    },
+    {
+      "patient_id": "lung_patient_194",
+      "patient_index": 38,
+      "E_background_true": 2934.6557559424227,
+      "E_background_estimated": 2815.4436477758477,
+      "inclusion_ratio_true": 1.3169575967918856,
+      "inclusion_ratio_estimated": 0.8809264333504639,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        7.85232165168826,
+        8.033428607306412
+      ],
+      "E_background_interval_90": [
+        2571.6979783367915,
+        3082.2915445646045
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        -0.5346499664522915,
+        0.2810876462372296
+      ],
+      "inclusion_ratio_interval_90": [
+        0.5858743299275149,
+        1.3245696923973116
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.5543254017829895,
+        0.5401793718338013,
+        0.548909068107605
+      ],
+      "center_fraction_estimated": [
+        0.5205064442846523,
+        0.5130427084733968,
+        0.5095184389124447
+      ],
+      "radius_fraction_true": 0.19612541794776917,
+      "radius_fraction_estimated": 0.1490778786715886
+    },
+    {
+      "patient_id": "lung_patient_199",
+      "patient_index": 39,
+      "E_background_true": 2907.607146048019,
+      "E_background_estimated": 2774.059025888864,
+      "inclusion_ratio_true": 1.799554718376149,
+      "inclusion_ratio_estimated": 1.526645146331132,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        7.837513401097745,
+        8.018620356715896
+      ],
+      "E_background_interval_90": [
+        2533.8962100346394,
+        3036.984486041863
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.015203806724218172,
+        0.8309414194137392
+      ],
+      "inclusion_ratio_interval_90": [
+        1.015319972568029,
+        2.2954787316175285
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.4948856234550476,
+        0.647704541683197,
+        0.5359076857566833
+      ],
+      "center_fraction_estimated": [
+        0.5138025488483245,
+        0.7095920698485045,
+        0.48039050382656384
+      ],
+      "radius_fraction_true": 0.19131840765476227,
+      "radius_fraction_estimated": 0.21201295408321885
+    },
+    {
+      "patient_id": "lung_patient_204",
+      "patient_index": 40,
+      "E_background_true": 7158.308682960985,
+      "E_background_estimated": 6893.942270256794,
+      "inclusion_ratio_true": 1.7920722871144013,
+      "inclusion_ratio_estimated": 1.9438412234162854,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.747844895321562,
+        8.928951850939713
+      ],
+      "E_background_interval_90": [
+        6297.1025590214385,
+        7547.350480665975
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.2567972211605022,
+        1.0725348338500234
+      ],
+      "inclusion_ratio_interval_90": [
+        1.292782951151862,
+        2.9227788767525773
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.6395561695098877,
+        0.47975364327430725,
+        0.5026189684867859
+      ],
+      "center_fraction_estimated": [
+        0.5663219345146342,
+        0.4584229819230981,
+        0.49655623548072
+      ],
+      "radius_fraction_true": 0.22147095203399658,
+      "radius_fraction_estimated": 0.18579686565657108
+    },
+    {
+      "patient_id": "lung_patient_209",
+      "patient_index": 41,
+      "E_background_true": 2605.6961396645843,
+      "E_background_estimated": 2421.281130166887,
+      "inclusion_ratio_true": 3.222843375119503,
+      "inclusion_ratio_estimated": 4.581922823393616,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        7.701498593893758,
+        7.88260554951191
+      ],
+      "E_background_interval_90": [
+        2211.65988967823,
+        2650.770282837284
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        1.1142499341124816,
+        1.9299875468020025
+      ],
+      "inclusion_ratio_interval_90": [
+        3.047281659747131,
+        6.889424445680366
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.5080850720405579,
+        0.5571675300598145,
+        0.5571333765983582
+      ],
+      "center_fraction_estimated": [
+        0.5450100608306039,
+        0.5764310989280867,
+        0.4950461967726371
+      ],
+      "radius_fraction_true": 0.16834059357643127,
+      "radius_fraction_estimated": 0.13720830093558017
+    },
+    {
+      "patient_id": "lung_patient_214",
+      "patient_index": 42,
+      "E_background_true": 7622.145795771724,
+      "E_background_estimated": 6937.358308606925,
+      "inclusion_ratio_true": 2.3893047778159646,
+      "inclusion_ratio_estimated": 2.2171609479373204,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.754122856052454,
+        8.935229811670606
+      ],
+      "E_background_interval_90": [
+        6336.759874890869,
+        7594.881493410918
+      ],
+      "log_E_covered_90": false,
+      "log_ratio_interval_90": [
+        0.3883587188295222,
+        1.2040963315190432
+      ],
+      "inclusion_ratio_interval_90": [
+        1.4745586413768692,
+        3.3337451160763503
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.5068138837814331,
+        0.5976541638374329,
+        0.4477553069591522
+      ],
+      "center_fraction_estimated": [
+        0.4960042219879183,
+        0.5362103147315267,
+        0.4929471242762381
+      ],
+      "radius_fraction_true": 0.16417747735977173,
+      "radius_fraction_estimated": 0.18152014654313514
+    },
+    {
+      "patient_id": "lung_patient_219",
+      "patient_index": 43,
+      "E_background_true": 4491.824081759794,
+      "E_background_estimated": 4759.169065183081,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_estimated": 1.1896965364713612,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.37727488803994,
+        8.558381843658092
+      ],
+      "E_background_interval_90": [
+        4347.1463096635025,
+        5210.243359108113
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        -0.2341705431108545,
+        0.5815670695786666
+      ],
+      "inclusion_ratio_interval_90": [
+        0.7912268660973958,
+        1.7888394713808005
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.6259104609489441,
+        0.4944303631782532,
+        0.5105000138282776
+      ],
+      "center_fraction_estimated": [
+        0.5252775456042676,
+        0.5387851232106918,
+        0.48219312457201163
+      ],
+      "radius_fraction_true": 0.1457243710756302,
+      "radius_fraction_estimated": 0.1548620073910678
+    },
+    {
+      "patient_id": "lung_patient_224",
+      "patient_index": 44,
+      "E_background_true": 6001.136639750051,
+      "E_background_estimated": 6028.057035226146,
+      "inclusion_ratio_true": 3.4934079090204646,
+      "inclusion_ratio_estimated": 2.4982865887865553,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.613626543608897,
+        8.794733499227048
+      ],
+      "E_background_interval_90": [
+        5506.180918604617,
+        6599.396597587302
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.5077363260744117,
+        1.3234739387639327
+      ],
+      "inclusion_ratio_interval_90": [
+        1.66152578213068,
+        3.7564484083460763
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.5667561888694763,
+        0.48966360092163086,
+        0.4315205216407776
+      ],
+      "center_fraction_estimated": [
+        0.5425294946783684,
+        0.49311215842643336,
+        0.5201548102078309
+      ],
+      "radius_fraction_true": 0.16631083190441132,
+      "radius_fraction_estimated": 0.16677539696492413
+    },
+    {
+      "patient_id": "lung_patient_229",
+      "patient_index": 45,
+      "E_background_true": 3927.6850021666596,
+      "E_background_estimated": 4027.0225253278422,
+      "inclusion_ratio_true": 3.5055208061348626,
+      "inclusion_ratio_estimated": 3.67133938257433,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.210229076602062,
+        8.391336032220213
+      ],
+      "E_background_interval_90": [
+        3678.3850016971996,
+        4408.70393175684
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.8926877435219936,
+        1.7084253562115146
+      ],
+      "inclusion_ratio_interval_90": [
+        2.441683458766766,
+        5.520262183718538
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.6170759201049805,
+        0.521618127822876,
+        0.5674723982810974
+      ],
+      "center_fraction_estimated": [
+        0.6172175837934396,
+        0.47837068623957846,
+        0.5343692849818331
+      ],
+      "radius_fraction_true": 0.15130886435508728,
+      "radius_fraction_estimated": 0.17225244262494402
+    },
+    {
+      "patient_id": "lung_patient_234",
+      "patient_index": 46,
+      "E_background_true": 4451.73265600197,
+      "E_background_estimated": 4586.452581177222,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_estimated": 1.093145301119691,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.340308668305378,
+        8.521415623923529
+      ],
+      "E_background_interval_90": [
+        4189.38267156185,
+        5021.156797678001
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        -0.3188096680904009,
+        0.49692794459912015
+      ],
+      "inclusion_ratio_interval_90": [
+        0.7270139100844965,
+        1.6436640795788569
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.5632269382476807,
+        0.5465084910392761,
+        0.5539619326591492
+      ],
+      "center_fraction_estimated": [
+        0.5112432313137736,
+        0.44877804065484983,
+        0.4934174327648569
+      ],
+      "radius_fraction_true": 0.16886155307292938,
+      "radius_fraction_estimated": 0.1457300214635345
+    },
+    {
+      "patient_id": "lung_patient_239",
+      "patient_index": 47,
+      "E_background_true": 3138.5570662605146,
+      "E_background_estimated": 3280.931480284057,
+      "inclusion_ratio_true": 3.0927369824695448,
+      "inclusion_ratio_estimated": 2.5261000447293487,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.005329171143666,
+        8.186436126761818
+      ],
+      "E_background_interval_90": [
+        2996.886427321526,
+        3591.8983382829556
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.5188078227886915,
+        1.3345454354782125
+      ],
+      "inclusion_ratio_interval_90": [
+        1.6800235695128527,
+        3.798268995614111
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.5820651054382324,
+        0.4089978337287903,
+        0.513436496257782
+      ],
+      "center_fraction_estimated": [
+        0.5887483253646022,
+        0.36072706063812393,
+        0.5608914178938111
+      ],
+      "radius_fraction_true": 0.14003655314445496,
+      "radius_fraction_estimated": 0.14348164410603623
+    },
+    {
+      "patient_id": "lung_patient_244",
+      "patient_index": 48,
+      "E_background_true": 6029.676862345056,
+      "E_background_estimated": 5854.362617570953,
+      "inclusion_ratio_true": 2.490579765811666,
+      "inclusion_ratio_estimated": 2.2509958097924074,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.58438893107933,
+        8.765495886697481
+      ],
+      "E_background_interval_90": [
+        5347.524010985414,
+        6409.239413905216
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.4035038940909441,
+        1.2192415067804652
+      ],
+      "inclusion_ratio_interval_90": [
+        1.497061061859526,
+        3.3846195487906074
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.5879297256469727,
+        0.5304105877876282,
+        0.46842435002326965
+      ],
+      "center_fraction_estimated": [
+        0.5964322395793829,
+        0.4984656336660873,
+        0.49767859774117046
+      ],
+      "radius_fraction_true": 0.2079392969608307,
+      "radius_fraction_estimated": 0.1932269851115017
+    },
+    {
+      "patient_id": "lung_patient_249",
+      "patient_index": 49,
+      "E_background_true": 5386.874260129059,
+      "E_background_estimated": 5730.574005891669,
+      "inclusion_ratio_true": 3.6978833791607735,
+      "inclusion_ratio_estimated": 2.6438486375302923,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.563017502430759,
+        8.74412445804891
+      ],
+      "E_background_interval_90": [
+        5234.452338374164,
+        6273.718111110231
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.5643668664758303,
+        1.3801044791653514
+      ],
+      "inclusion_ratio_interval_90": [
+        1.758334169916548,
+        3.9753169435947044
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.4927101135253906,
+        0.5485782623291016,
+        0.4301876425743103
+      ],
+      "center_fraction_estimated": [
+        0.5155986476182521,
+        0.5243705224119147,
+        0.45639461874021225
+      ],
+      "radius_fraction_true": 0.20368774235248566,
+      "radius_fraction_estimated": 0.17779115042898042
+    }
+  ],
+  "validation_records": [
+    {
+      "patient_id": "lung_patient_003",
+      "patient_index": 0,
+      "E_background_true": 7782.329072573546,
+      "E_background_estimated": 7083.177767465508,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_estimated": 1.5538178175441617,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.77492444539404,
+        8.956031401012192
+      ],
+      "E_background_interval_90": [
+        6469.955084763042,
+        7754.521728237801
+      ],
+      "log_E_covered_90": false,
+      "log_ratio_interval_90": [
+        0.032846204200624285,
+        0.8485838168901454
+      ],
+      "inclusion_ratio_interval_90": [
+        1.033391595732663,
+        2.3363358286322766
+      ],
+      "log_ratio_covered_90": false,
+      "center_fraction_true": [
+        0.4619864225387573,
+        0.6415968537330627,
+        0.5463299751281738
+      ],
+      "center_fraction_estimated": [
+        0.4998479226957498,
+        0.4889407348689076,
+        0.4877607427497182
+      ],
+      "radius_fraction_true": 0.21600976586341858,
+      "radius_fraction_estimated": 0.15856652754900935
+    },
+    {
+      "patient_id": "lung_patient_008",
+      "patient_index": 1,
+      "E_background_true": 4360.917940312072,
+      "E_background_estimated": 4707.699635584423,
+      "inclusion_ratio_true": 3.584203757514962,
+      "inclusion_ratio_estimated": 2.87769424186339,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.366401189806984,
+        8.547508145425136
+      ],
+      "E_background_interval_90": [
+        4300.132820990206,
+        5153.895654269186
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.6491205566792754,
+        1.4648581693687963
+      ],
+      "inclusion_ratio_interval_90": [
+        1.9138569599684652,
+        4.326929505635657
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.5396498441696167,
+        0.5415748953819275,
+        0.5060862898826599
+      ],
+      "center_fraction_estimated": [
+        0.5513842029833936,
+        0.5269950499711576,
+        0.496104561961447
+      ],
+      "radius_fraction_true": 0.15167826414108276,
+      "radius_fraction_estimated": 0.1343856117429219
+    },
+    {
+      "patient_id": "lung_patient_013",
+      "patient_index": 2,
+      "E_background_true": 3448.6055856264516,
+      "E_background_estimated": 3669.1032324078355,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_estimated": 0.8574290155082291,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.117149082538457,
+        8.298256038156609
+      ],
+      "E_background_interval_90": [
+        3351.452398113653,
+        4016.8610294578016
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        -0.5616856904617387,
+        0.2540519222277824
+      ],
+      "inclusion_ratio_interval_90": [
+        0.5702469932826292,
+        1.2892387426776568
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.44086188077926636,
+        0.5743837952613831,
+        0.5712599158287048
+      ],
+      "center_fraction_estimated": [
+        0.4901216480317221,
+        0.48521179250733765,
+        0.5022902401126866
+      ],
+      "radius_fraction_true": 0.12374812364578247,
+      "radius_fraction_estimated": 0.15513316668011798
+    },
+    {
+      "patient_id": "lung_patient_018",
+      "patient_index": 3,
+      "E_background_true": 6041.194294488703,
+      "E_background_estimated": 6497.022737709684,
+      "inclusion_ratio_true": 3.835310669742689,
+      "inclusion_ratio_estimated": 2.9534199218093757,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.68854583278977,
+        8.869652788407922
+      ],
+      "E_background_interval_90": [
+        5934.546142656946,
+        7112.810893979887
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.6750949880714087,
+        1.4908326007609296
+      ],
+      "inclusion_ratio_interval_90": [
+        1.9642195445351713,
+        4.440791386486638
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.5050106644630432,
+        0.47941336035728455,
+        0.502076268196106
+      ],
+      "center_fraction_estimated": [
+        0.5175401207783207,
+        0.4880453912438854,
+        0.4804087150704628
+      ],
+      "radius_fraction_true": 0.1552499532699585,
+      "radius_fraction_estimated": 0.1595366775000574
+    },
+    {
+      "patient_id": "lung_patient_023",
+      "patient_index": 4,
+      "E_background_true": 2290.638993075897,
+      "E_background_estimated": 2175.069370873262,
+      "inclusion_ratio_true": 2.508534044223012,
+      "inclusion_ratio_estimated": 2.441079677468143,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        7.594262359859458,
+        7.77536931547761
+      ],
+      "E_background_interval_90": [
+        1986.7637941309565,
+        2381.222560068039
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.4845716258558136,
+        1.3003092385453345
+      ],
+      "inclusion_ratio_interval_90": [
+        1.6234794032651663,
+        3.6704315310458533
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.4862065017223358,
+        0.4042852818965912,
+        0.4321677088737488
+      ],
+      "center_fraction_estimated": [
+        0.563008772929365,
+        0.29887220421128136,
+        0.4550649628308292
+      ],
+      "radius_fraction_true": 0.1419871747493744,
+      "radius_fraction_estimated": 0.13798381038774588
+    },
+    {
+      "patient_id": "lung_patient_028",
+      "patient_index": 5,
+      "E_background_true": 6112.161157782707,
+      "E_background_estimated": 6001.088201726279,
+      "inclusion_ratio_true": 2.5825838019515346,
+      "inclusion_ratio_estimated": 2.1839611518064674,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.609142620910498,
+        8.79024957652865
+      ],
+      "E_background_interval_90": [
+        5481.546898795874,
+        6569.871656632054
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.37327146374529485,
+        1.1890090764348158
+      ],
+      "inclusion_ratio_interval_90": [
+        1.4524785815949017,
+        3.283825574462139
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.3892080783843994,
+        0.5337467193603516,
+        0.5785504579544067
+      ],
+      "center_fraction_estimated": [
+        0.42525012562342673,
+        0.5284587526948877,
+        0.5320577904263172
+      ],
+      "radius_fraction_true": 0.15754194557666779,
+      "radius_fraction_estimated": 0.17581595542120426
+    },
+    {
+      "patient_id": "lung_patient_033",
+      "patient_index": 6,
+      "E_background_true": 4491.400011790331,
+      "E_background_estimated": 4773.151644594881,
+      "inclusion_ratio_true": 2.1706976499335076,
+      "inclusion_ratio_estimated": 2.437225741303475,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.38020861002983,
+        8.561315565647982
+      ],
+      "E_background_interval_90": [
+        4359.918354038699,
+        5225.551208130856
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.482991594826343,
+        1.298729207515864
+      ],
+      "inclusion_ratio_interval_90": [
+        1.6209162808719935,
+        3.6646367145357646
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.4638291597366333,
+        0.35172009468078613,
+        0.5386103987693787
+      ],
+      "center_fraction_estimated": [
+        0.49626248263520856,
+        0.4108533399822038,
+        0.5054986140403065
+      ],
+      "radius_fraction_true": 0.19245998561382294,
+      "radius_fraction_estimated": 0.16275567072164343
+    },
+    {
+      "patient_id": "lung_patient_038",
+      "patient_index": 7,
+      "E_background_true": 3786.624075758629,
+      "E_background_estimated": 3982.7090534769554,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_estimated": 0.8203683785189606,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.199164055623646,
+        8.380271011241797
+      ],
+      "E_background_interval_90": [
+        3637.9079471974455,
+        4360.190426716811
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        -0.6058706038513243,
+        0.20986700883819676
+      ],
+      "inclusion_ratio_interval_90": [
+        0.5455992190295703,
+        1.2335140025875904
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.4865315854549408,
+        0.43884241580963135,
+        0.4242357909679413
+      ],
+      "center_fraction_estimated": [
+        0.5075153802971148,
+        0.46321144013376364,
+        0.4936634774960027
+      ],
+      "radius_fraction_true": 0.17046323418617249,
+      "radius_fraction_estimated": 0.14902029854318566
+    },
+    {
+      "patient_id": "lung_patient_043",
+      "patient_index": 8,
+      "E_background_true": 5641.660584765611,
+      "E_background_estimated": 5724.1369664537915,
+      "inclusion_ratio_true": 2.3425451572373714,
+      "inclusion_ratio_estimated": 2.1856324207873565,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.561893591032032,
+        8.743000546650183
+      ],
+      "E_background_interval_90": [
+        5228.5725825062245,
+        6266.670968736391
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.37403641775514473,
+        1.1897740304446658
+      ],
+      "inclusion_ratio_interval_90": [
+        1.4535900859807822,
+        3.2863385110208823
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.5381262898445129,
+        0.6348493099212646,
+        0.4544484317302704
+      ],
+      "center_fraction_estimated": [
+        0.49158022316242994,
+        0.49223475649890763,
+        0.49236626706891573
+      ],
+      "radius_fraction_true": 0.12520180642604828,
+      "radius_fraction_estimated": 0.1515603938929582
+    },
+    {
+      "patient_id": "lung_patient_048",
+      "patient_index": 9,
+      "E_background_true": 7892.4237688763205,
+      "E_background_estimated": 7551.721859687346,
+      "inclusion_ratio_true": 2.063830983156381,
+      "inclusion_ratio_estimated": 2.1108736998183915,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.838977399317805,
+        9.020084354935957
+      ],
+      "E_background_interval_90": [
+        6897.935199257765,
+        8267.474454125942
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.3392331311808259,
+        1.154970743870347
+      ],
+      "inclusion_ratio_interval_90": [
+        1.403870593074494,
+        3.173930559245319
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.49983829259872437,
+        0.46209099888801575,
+        0.560329258441925
+      ],
+      "center_fraction_estimated": [
+        0.48948242299777556,
+        0.4738684810510805,
+        0.4928865431489485
+      ],
+      "radius_fraction_true": 0.12768635153770447,
+      "radius_fraction_estimated": 0.1530936279841557
+    },
+    {
+      "patient_id": "lung_patient_053",
+      "patient_index": 10,
+      "E_background_true": 3224.2201571253736,
+      "E_background_estimated": 3277.171674917274,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_estimated": 0.8055712811411628,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.004182557347045,
+        8.185289512965197
+      ],
+      "E_background_interval_90": [
+        2993.452125282366,
+        3587.7821783660634
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        -0.6240723935883209,
+        0.19166521910120016
+      ],
+      "inclusion_ratio_interval_90": [
+        0.535758170807056,
+        1.2112649407135607
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.3866982161998749,
+        0.645817220211029,
+        0.4482227563858032
+      ],
+      "center_fraction_estimated": [
+        0.5398100608999886,
+        0.4889372190176811,
+        0.49674681897301093
+      ],
+      "radius_fraction_true": 0.2153158038854599,
+      "radius_fraction_estimated": 0.1509880207827638
+    },
+    {
+      "patient_id": "lung_patient_058",
+      "patient_index": 11,
+      "E_background_true": 6072.484182092938,
+      "E_background_estimated": 6045.450512804552,
+      "inclusion_ratio_true": 1.6653147036347238,
+      "inclusion_ratio_estimated": 1.7901419401890373,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.61650780898139,
+        8.797614764599542
+      ],
+      "E_background_interval_90": [
+        5522.068564290572,
+        6618.438629884005
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.17442610655911894,
+        0.99016371924864
+      ],
+      "inclusion_ratio_interval_90": [
+        1.1905627643553118,
+        2.691675115304872
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.43419215083122253,
+        0.5275074243545532,
+        0.5354175567626953
+      ],
+      "center_fraction_estimated": [
+        0.4743400533719583,
+        0.5113849745724659,
+        0.5056281304507289
+      ],
+      "radius_fraction_true": 0.18153458833694458,
+      "radius_fraction_estimated": 0.16837689770473194
+    },
+    {
+      "patient_id": "lung_patient_063",
+      "patient_index": 12,
+      "E_background_true": 6265.878904427053,
+      "E_background_estimated": 6166.910035378051,
+      "inclusion_ratio_true": 3.2918442606010325,
+      "inclusion_ratio_estimated": 2.6879003259222713,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.636399709006941,
+        8.817506664625093
+      ],
+      "E_background_interval_90": [
+        5633.01278755669,
+        6751.410092385447
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.5808915344985132,
+        1.396629147188034
+      ],
+      "inclusion_ratio_interval_90": [
+        1.7876314556395645,
+        4.041553497674507
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.39600762724876404,
+        0.5775532722473145,
+        0.5181241035461426
+      ],
+      "center_fraction_estimated": [
+        0.38011728859351246,
+        0.5553227097846873,
+        0.48761738747379824
+      ],
+      "radius_fraction_true": 0.2170892059803009,
+      "radius_fraction_estimated": 0.19906781278005012
+    },
+    {
+      "patient_id": "lung_patient_068",
+      "patient_index": 13,
+      "E_background_true": 5532.234977708773,
+      "E_background_estimated": 5461.852374795285,
+      "inclusion_ratio_true": 2.1997493665202583,
+      "inclusion_ratio_estimated": 2.7141034402674746,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.51498979617629,
+        8.69609675179444
+      ],
+      "E_background_interval_90": [
+        4988.995152267147,
+        5979.527029706659
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.5905928679257965,
+        1.4063304806153174
+      ],
+      "inclusion_ratio_interval_90": [
+        1.8050582593746076,
+        4.080952759399543
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.550727367401123,
+        0.425066739320755,
+        0.4215472936630249
+      ],
+      "center_fraction_estimated": [
+        0.5138389374704084,
+        0.45801689950212293,
+        0.45145544307888613
+      ],
+      "radius_fraction_true": 0.22022612392902374,
+      "radius_fraction_estimated": 0.2001338299631697
+    },
+    {
+      "patient_id": "lung_patient_073",
+      "patient_index": 14,
+      "E_background_true": 5573.4451551869415,
+      "E_background_estimated": 5673.751279500393,
+      "inclusion_ratio_true": 1.7044536335210203,
+      "inclusion_ratio_estimated": 1.8700442591088409,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.55305230147387,
+        8.734159257092022
+      ],
+      "E_background_interval_90": [
+        5182.549011983856,
+        6211.509723727554
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.21809329221429485,
+        1.033830904903816
+      ],
+      "inclusion_ratio_interval_90": [
+        1.243703090022178,
+        2.8118170317994253
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.40054479241371155,
+        0.5347036123275757,
+        0.48963454365730286
+      ],
+      "center_fraction_estimated": [
+        0.4240980386433805,
+        0.5182133323328143,
+        0.5076563780166683
+      ],
+      "radius_fraction_true": 0.176121786236763,
+      "radius_fraction_estimated": 0.16040254473359056
+    },
+    {
+      "patient_id": "lung_patient_078",
+      "patient_index": 15,
+      "E_background_true": 2409.540612249886,
+      "E_background_estimated": 2334.126266826171,
+      "inclusion_ratio_true": 3.4957474565989948,
+      "inclusion_ratio_estimated": 3.4632430092931967,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        7.6648394324713784,
+        7.84594638808953
+      ],
+      "E_background_interval_90": [
+        2132.050416395892,
+        2555.3548769722115
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.8343366296695883,
+        1.6500742423591093
+      ],
+      "inclusion_ratio_interval_90": [
+        2.3032856100466037,
+        5.2073664199966565
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.41315436363220215,
+        0.36915016174316406,
+        0.5138740539550781
+      ],
+      "center_fraction_estimated": [
+        0.4124009941509291,
+        0.243370053633992,
+        0.5626937364167486
+      ],
+      "radius_fraction_true": 0.15973322093486786,
+      "radius_fraction_estimated": 0.13436874164527893
+    },
+    {
+      "patient_id": "lung_patient_083",
+      "patient_index": 16,
+      "E_background_true": 4088.510854818287,
+      "E_background_estimated": 4393.884121676028,
+      "inclusion_ratio_true": 3.2309288505308413,
+      "inclusion_ratio_estimated": 3.4560814325642895,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.29741540284327,
+        8.478522358461422
+      ],
+      "E_background_interval_90": [
+        4013.4857331230814,
+        4810.336689472583
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.8322666069827317,
+        1.6480042196722526
+      ],
+      "inclusion_ratio_interval_90": [
+        2.298522687958643,
+        5.196598202440952
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.4416705369949341,
+        0.4486769735813141,
+        0.5157938599586487
+      ],
+      "center_fraction_estimated": [
+        0.44357178376486234,
+        0.47869108750304207,
+        0.46903691347887577
+      ],
+      "radius_fraction_true": 0.21833433210849762,
+      "radius_fraction_estimated": 0.22004553455939035
+    },
+    {
+      "patient_id": "lung_patient_088",
+      "patient_index": 17,
+      "E_background_true": 7060.891674449523,
+      "E_background_estimated": 6657.587411659895,
+      "inclusion_ratio_true": 1.8379833828074374,
+      "inclusion_ratio_estimated": 1.956023033611458,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.71295896959528,
+        8.89406592521343
+      ],
+      "E_background_interval_90": [
+        6081.210007769739,
+        7288.5938961591255
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.2630445410735085,
+        1.0787821537630295
+      ],
+      "inclusion_ratio_interval_90": [
+        1.300884660460614,
+        2.941095566968913
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.3770338296890259,
+        0.5045994520187378,
+        0.4514898955821991
+      ],
+      "center_fraction_estimated": [
+        0.4407268288257563,
+        0.5060533397892031,
+        0.51351164028953
+      ],
+      "radius_fraction_true": 0.2007351964712143,
+      "radius_fraction_estimated": 0.18325366294891904
+    },
+    {
+      "patient_id": "lung_patient_093",
+      "patient_index": 18,
+      "E_background_true": 5962.800181415364,
+      "E_background_estimated": 5949.683309647656,
+      "inclusion_ratio_true": 2.959467802390206,
+      "inclusion_ratio_estimated": 2.226794512954786,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.600539794044783,
+        8.781646749662935
+      ],
+      "E_background_interval_90": [
+        5434.59236033809,
+        6513.594606182699
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.3926943068851072,
+        1.2084319195746283
+      ],
+      "inclusion_ratio_interval_90": [
+        1.4809655991383188,
+        3.3482302396562416
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.5267215967178345,
+        0.4145909547805786,
+        0.45792514085769653
+      ],
+      "center_fraction_estimated": [
+        0.5132091072421915,
+        0.4380679819408585,
+        0.47793474219245635
+      ],
+      "radius_fraction_true": 0.14924407005310059,
+      "radius_fraction_estimated": 0.1667531372443491
+    },
+    {
+      "patient_id": "lung_patient_098",
+      "patient_index": 19,
+      "E_background_true": 7784.956835920822,
+      "E_background_estimated": 7395.787837846938,
+      "inclusion_ratio_true": 3.6057617407087297,
+      "inclusion_ratio_estimated": 2.3504975052177604,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.81811242821928,
+        8.999219383837431
+      ],
+      "E_background_interval_90": [
+        6755.501089792389,
+        8096.76099750665
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.44675820375308695,
+        1.262495816442608
+      ],
+      "inclusion_ratio_interval_90": [
+        1.5632362689222346,
+        3.5342312815221386
+      ],
+      "log_ratio_covered_90": false,
+      "center_fraction_true": [
+        0.5160827040672302,
+        0.4974755644798279,
+        0.4502280056476593
+      ],
+      "center_fraction_estimated": [
+        0.5299556544941845,
+        0.4711780115540118,
+        0.48566985215887093
+      ],
+      "radius_fraction_true": 0.22794774174690247,
+      "radius_fraction_estimated": 0.1883713244211923
+    },
+    {
+      "patient_id": "lung_patient_103",
+      "patient_index": 20,
+      "E_background_true": 4858.506134824699,
+      "E_background_estimated": 5063.213889505179,
+      "inclusion_ratio_true": 2.886636123688207,
+      "inclusion_ratio_estimated": 3.2789695912201613,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.439203238874908,
+        8.62031019449306
+      ],
+      "E_background_interval_90": [
+        4624.868600660377,
+        5543.1055678463235
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.7796604176779086,
+        1.5953980303674298
+      ],
+      "inclusion_ratio_interval_90": [
+        2.1807316018459644,
+        4.930291087195403
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.6212151646614075,
+        0.5692989826202393,
+        0.4674009680747986
+      ],
+      "center_fraction_estimated": [
+        0.5621925007472224,
+        0.5214637628550929,
+        0.4726629217328183
+      ],
+      "radius_fraction_true": 0.18050643801689148,
+      "radius_fraction_estimated": 0.1777447633684901
+    },
+    {
+      "patient_id": "lung_patient_108",
+      "patient_index": 21,
+      "E_background_true": 2347.595806164562,
+      "E_background_estimated": 2095.1605158461443,
+      "inclusion_ratio_true": 3.1372232212152866,
+      "inclusion_ratio_estimated": 4.42938405821044,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        7.556831970154424,
+        7.737938925772576
+      ],
+      "E_background_interval_90": [
+        1913.7730095038917,
+        2293.7399395650514
+      ],
+      "log_E_covered_90": false,
+      "log_ratio_interval_90": [
+        1.080391729266815,
+        1.8961293419563359
+      ],
+      "inclusion_ratio_interval_90": [
+        2.9458332941897885,
+        6.660065650634466
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.40986931324005127,
+        0.5688116550445557,
+        0.5546506643295288
+      ],
+      "center_fraction_estimated": [
+        0.26039032363144665,
+        0.6625397425305429,
+        0.5862020688264249
+      ],
+      "radius_fraction_true": 0.18563543260097504,
+      "radius_fraction_estimated": 0.22726385967921534
+    },
+    {
+      "patient_id": "lung_patient_113",
+      "patient_index": 22,
+      "E_background_true": 5880.351592813824,
+      "E_background_estimated": 6025.44902328606,
+      "inclusion_ratio_true": 2.9164012528971965,
+      "inclusion_ratio_estimated": 2.454307438909058,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.613193804459288,
+        8.794300760077439
+      ],
+      "E_background_interval_90": [
+        5503.798694034399,
+        6596.5413981385755
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.48997581282602154,
+        1.3057134255155427
+      ],
+      "inclusion_ratio_interval_90": [
+        1.6322767393164435,
+        3.6903209238936308
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.597375750541687,
+        0.5300658345222473,
+        0.45571765303611755
+      ],
+      "center_fraction_estimated": [
+        0.5788023913612651,
+        0.5205597990333846,
+        0.4948142181931206
+      ],
+      "radius_fraction_true": 0.21323508024215698,
+      "radius_fraction_estimated": 0.1906561910685231
+    },
+    {
+      "patient_id": "lung_patient_118",
+      "patient_index": 23,
+      "E_background_true": 3530.077174690906,
+      "E_background_estimated": 3687.9834154543946,
+      "inclusion_ratio_true": 3.3229493657061115,
+      "inclusion_ratio_estimated": 2.310604859149996,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.122281609963153,
+        8.303388565581304
+      ],
+      "E_background_interval_90": [
+        3368.698038462314,
+        4037.530677245003
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.4296405277017171,
+        1.2453781403912383
+      ],
+      "inclusion_ratio_interval_90": [
+        1.5367050213638034,
+        3.4742483045896355
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.6270291209220886,
+        0.4299090504646301,
+        0.5747365951538086
+      ],
+      "center_fraction_estimated": [
+        0.6179129246255206,
+        0.43734646429737056,
+        0.5694513400694795
+      ],
+      "radius_fraction_true": 0.14688938856124878,
+      "radius_fraction_estimated": 0.16910798805068858
+    },
+    {
+      "patient_id": "lung_patient_123",
+      "patient_index": 24,
+      "E_background_true": 4401.072828333141,
+      "E_background_estimated": 4818.20674212417,
+      "inclusion_ratio_true": 2.2114662412887367,
+      "inclusion_ratio_estimated": 2.2743991254976836,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.389603614807129,
+        8.57071057042528
+      ],
+      "E_background_interval_90": [
+        4401.072828333141,
+        5274.876630170032
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.4138470905117899,
+        1.229584703201311
+      ],
+      "inclusion_ratio_interval_90": [
+        1.5126258143607783,
+        3.419809005607011
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.5088053941726685,
+        0.46987515687942505,
+        0.4729722738265991
+      ],
+      "center_fraction_estimated": [
+        0.4949786567091632,
+        0.4993030569517388,
+        0.470629541444932
+      ],
+      "radius_fraction_true": 0.22727112472057343,
+      "radius_fraction_estimated": 0.20322302641203252
+    },
+    {
+      "patient_id": "lung_patient_128",
+      "patient_index": 25,
+      "E_background_true": 3361.1806302024966,
+      "E_background_estimated": 3351.0729430184256,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_estimated": 0.9211178885593889,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.026482377228904,
+        8.207589332847055
+      ],
+      "E_background_interval_90": [
+        3060.955426910298,
+        3668.687812538755
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        -0.49003605665559824,
+        0.3257015560339228
+      ],
+      "inclusion_ratio_interval_90": [
+        0.6126043053237382,
+        1.3850019617079394
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.46177974343299866,
+        0.45289984345436096,
+        0.4223648011684418
+      ],
+      "center_fraction_estimated": [
+        0.5454587983608866,
+        0.4591294320181341,
+        0.4869255689018007
+      ],
+      "radius_fraction_true": 0.2157825231552124,
+      "radius_fraction_estimated": 0.15626655811368462
+    },
+    {
+      "patient_id": "lung_patient_133",
+      "patient_index": 26,
+      "E_background_true": 3036.292758442991,
+      "E_background_estimated": 3061.7428159251153,
+      "inclusion_ratio_true": 1.610427028113904,
+      "inclusion_ratio_estimated": 1.1016010474100493,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        7.93618610269457,
+        8.117293058312722
+      ],
+      "E_background_interval_90": [
+        2796.673915360388,
+        3351.934960805417
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        -0.3111041871049439,
+        0.5046334255845771
+      ],
+      "inclusion_ratio_interval_90": [
+        0.7326375405085026,
+        1.656378223278929
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.5689945816993713,
+        0.37654393911361694,
+        0.5543604493141174
+      ],
+      "center_fraction_estimated": [
+        0.5487589587929069,
+        0.46702985176399914,
+        0.5347536885082708
+      ],
+      "radius_fraction_true": 0.1272217035293579,
+      "radius_fraction_estimated": 0.15517960125238145
+    },
+    {
+      "patient_id": "lung_patient_138",
+      "patient_index": 27,
+      "E_background_true": 7890.309020928917,
+      "E_background_estimated": 7229.495460851799,
+      "inclusion_ratio_true": 3.0805227337601977,
+      "inclusion_ratio_estimated": 2.201088439543463,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.79537105079416,
+        8.97647800641231
+      ],
+      "E_background_interval_90": [
+        6603.605394750132,
+        7914.7074202870945
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.38108317692046023,
+        1.1968207896099812
+      ],
+      "inclusion_ratio_interval_90": [
+        1.4638693604914137,
+        3.3095783335922158
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.5436762571334839,
+        0.6473687887191772,
+        0.5320358276367188
+      ],
+      "center_fraction_estimated": [
+        0.527949542599142,
+        0.544278483824248,
+        0.5320077854345512
+      ],
+      "radius_fraction_true": 0.1540231704711914,
+      "radius_fraction_estimated": 0.1635998453408848
+    },
+    {
+      "patient_id": "lung_patient_143",
+      "patient_index": 28,
+      "E_background_true": 4546.853190533382,
+      "E_background_estimated": 4784.8446212801355,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_estimated": 1.1991871415719193,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.382655353508982,
+        8.563762309127133
+      ],
+      "E_background_interval_90": [
+        4370.5990169338575,
+        5238.3524457603935
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        -0.22622486110106665,
+        0.5895127515884544
+      ],
+      "inclusion_ratio_interval_90": [
+        0.797538746060798,
+        1.8031096390165915
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.6256424188613892,
+        0.5869303345680237,
+        0.535108208656311
+      ],
+      "center_fraction_estimated": [
+        0.4636476503878877,
+        0.45533608770416745,
+        0.47500634132300623
+      ],
+      "radius_fraction_true": 0.213814377784729,
+      "radius_fraction_estimated": 0.13866355488552645
+    },
+    {
+      "patient_id": "lung_patient_148",
+      "patient_index": 29,
+      "E_background_true": 2429.4940132246725,
+      "E_background_estimated": 2261.5915541571185,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_estimated": 0.7662293841003575,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        7.6332705941085734,
+        7.814377549726725
+      ],
+      "E_background_interval_90": [
+        2065.79536132576,
+        2475.945320427238
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        -0.6741425033645445,
+        0.14159510932497654
+      ],
+      "inclusion_ratio_interval_90": [
+        0.5095932077701377,
+        1.1521100754616802
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.3734706938266754,
+        0.5298780798912048,
+        0.4787653982639313
+      ],
+      "center_fraction_estimated": [
+        0.5057619297322771,
+        0.45886796438056704,
+        0.4938698320857078
+      ],
+      "radius_fraction_true": 0.17179018259048462,
+      "radius_fraction_estimated": 0.1296333383305272
+    },
+    {
+      "patient_id": "lung_patient_153",
+      "patient_index": 30,
+      "E_background_true": 2376.0898114192023,
+      "E_background_estimated": 2183.1069931146485,
+      "inclusion_ratio_true": 1.7569650268615662,
+      "inclusion_ratio_estimated": 2.0848532409334504,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        7.597950889502555,
+        7.779057845120707
+      ],
+      "E_background_interval_90": [
+        1994.1055631218358,
+        2390.0219885675588
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.3268296583871393,
+        1.1425672710766603
+      ],
+      "inclusion_ratio_interval_90": [
+        1.386565267298719,
+        3.134805940075727
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.3673291504383087,
+        0.45346400141716003,
+        0.5054276585578918
+      ],
+      "center_fraction_estimated": [
+        0.3743690411666588,
+        0.47672655743200426,
+        0.5169766255425409
+      ],
+      "radius_fraction_true": 0.14963626861572266,
+      "radius_fraction_estimated": 0.1530005162595124
+    },
+    {
+      "patient_id": "lung_patient_158",
+      "patient_index": 31,
+      "E_background_true": 4764.216063259924,
+      "E_background_estimated": 5002.351906465828,
+      "inclusion_ratio_true": 1.3526397331234044,
+      "inclusion_ratio_estimated": 1.4611264188184792,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.427109984305726,
+        8.608216939923878
+      ],
+      "E_background_interval_90": [
+        4569.275714308872,
+        5476.475082858345
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        -0.0286611483541927,
+        0.7870764643353283
+      ],
+      "inclusion_ratio_interval_90": [
+        0.9717456863098852,
+        2.1969641253323835
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.5568368434906006,
+        0.43990907073020935,
+        0.5051698684692383
+      ],
+      "center_fraction_estimated": [
+        0.5428670507451389,
+        0.4864319954507786,
+        0.4886819351539151
+      ],
+      "radius_fraction_true": 0.204527348279953,
+      "radius_fraction_estimated": 0.1856672851591054
+    },
+    {
+      "patient_id": "lung_patient_163",
+      "patient_index": 32,
+      "E_background_true": 6232.825671288014,
+      "E_background_estimated": 6436.290524090564,
+      "inclusion_ratio_true": 2.8362587244775757,
+      "inclusion_ratio_estimated": 2.7162613568563865,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.679154169758382,
+        8.860261125376534
+      ],
+      "E_background_interval_90": [
+        5879.0717910010035,
+        7046.322477964604
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.5913876273142046,
+        1.4071252400037255
+      ],
+      "inclusion_ratio_interval_90": [
+        1.8064934165996662,
+        4.084197424111808
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.4297744035720825,
+        0.44232550263404846,
+        0.48540109395980835
+      ],
+      "center_fraction_estimated": [
+        0.45927187255870006,
+        0.4778742912640253,
+        0.48132386342335576
+      ],
+      "radius_fraction_true": 0.22676964104175568,
+      "radius_fraction_estimated": 0.19531612024078404
+    },
+    {
+      "patient_id": "lung_patient_168",
+      "patient_index": 33,
+      "E_background_true": 4016.485157908317,
+      "E_background_estimated": 4172.442835989041,
+      "inclusion_ratio_true": 3.444408775696033,
+      "inclusion_ratio_estimated": 2.6651020944309494,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.245703477450691,
+        8.426810433068843
+      ],
+      "E_background_interval_90": [
+        3811.2156194337504,
+        4567.90718709923
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.5723735598942157,
+        1.3881111725837367
+      ],
+      "inclusion_ratio_interval_90": [
+        1.7724691241521215,
+        4.0072738514629505
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.4866131544113159,
+        0.6223447918891907,
+        0.5130629539489746
+      ],
+      "center_fraction_estimated": [
+        0.48056664140787636,
+        0.590772438612927,
+        0.49643776245670224
+      ],
+      "radius_fraction_true": 0.13898301124572754,
+      "radius_fraction_estimated": 0.15450486684972506
+    },
+    {
+      "patient_id": "lung_patient_173",
+      "patient_index": 34,
+      "E_background_true": 5439.006736494556,
+      "E_background_estimated": 5728.301290292741,
+      "inclusion_ratio_true": 3.233340831537214,
+      "inclusion_ratio_estimated": 2.839954519890097,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.562620829010378,
+        8.743727784628529
+      ],
+      "E_background_interval_90": [
+        5232.376382026853,
+        6271.229987407485
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.6359192315769214,
+        1.4516568442664424
+      ],
+      "inclusion_ratio_interval_90": [
+        1.8887575492961584,
+        4.27018368665143
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.5293562412261963,
+        0.425757497549057,
+        0.5192891955375671
+      ],
+      "center_fraction_estimated": [
+        0.4884861474404036,
+        0.44873462672587006,
+        0.5155942310544445
+      ],
+      "radius_fraction_true": 0.12720222771167755,
+      "radius_fraction_estimated": 0.14560711035265406
+    },
+    {
+      "patient_id": "lung_patient_178",
+      "patient_index": 35,
+      "E_background_true": 2602.475105974916,
+      "E_background_estimated": 2341.5086309278736,
+      "inclusion_ratio_true": 3.9458516396075023,
+      "inclusion_ratio_estimated": 6.228816001329378,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        7.667997236875578,
+        7.84910419249373
+      ],
+      "E_background_interval_90": [
+        2138.7936559029918,
+        2563.4369419311574
+      ],
+      "log_E_covered_90": false,
+      "log_ratio_interval_90": [
+        1.4213174604524932,
+        2.237055073142014
+      ],
+      "inclusion_ratio_interval_90": [
+        4.142574524800085,
+        9.365709306168545
+      ],
+      "log_ratio_covered_90": false,
+      "center_fraction_true": [
+        0.38551974296569824,
+        0.4119786024093628,
+        0.5026925802230835
+      ],
+      "center_fraction_estimated": [
+        0.25715120845212525,
+        0.48363808810707737,
+        0.47674881603483915
+      ],
+      "radius_fraction_true": 0.22475038468837738,
+      "radius_fraction_estimated": 0.27005740673691836
+    },
+    {
+      "patient_id": "lung_patient_183",
+      "patient_index": 36,
+      "E_background_true": 5373.636257766672,
+      "E_background_estimated": 5576.235733733989,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_estimated": 1.3334833021682464,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.535715750232276,
+        8.716822705850428
+      ],
+      "E_background_interval_90": [
+        5093.475827336036,
+        6104.751649412397
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        -0.12007426359181622,
+        0.6956633490977049
+      ],
+      "inclusion_ratio_interval_90": [
+        0.8868545732655302,
+        2.0050386734930132
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.4319431781768799,
+        0.4213402569293976,
+        0.5573925971984863
+      ],
+      "center_fraction_estimated": [
+        0.5028719971675553,
+        0.5079580821482831,
+        0.4863540391420117
+      ],
+      "radius_fraction_true": 0.1759265959262848,
+      "radius_fraction_estimated": 0.15207431187063994
+    },
+    {
+      "patient_id": "lung_patient_188",
+      "patient_index": 37,
+      "E_background_true": 7717.150627832699,
+      "E_background_estimated": 7095.960800926755,
+      "inclusion_ratio_true": 2.2024246948467154,
+      "inclusion_ratio_estimated": 2.0684111981234277,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.776727522056676,
+        8.957834477674828
+      ],
+      "E_background_interval_90": [
+        6481.631433297054,
+        7768.516338281805
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.318911969086638,
+        1.134649581776159
+      ],
+      "inclusion_ratio_interval_90": [
+        1.375630221590845,
+        3.1100835219909118
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.5221778154373169,
+        0.6170578002929688,
+        0.42688119411468506
+      ],
+      "center_fraction_estimated": [
+        0.5289972129096179,
+        0.5585345916351971,
+        0.4707776682628222
+      ],
+      "radius_fraction_true": 0.14615356922149658,
+      "radius_fraction_estimated": 0.1727582397226654
+    },
+    {
+      "patient_id": "lung_patient_193",
+      "patient_index": 38,
+      "E_background_true": 2891.578316030314,
+      "E_background_estimated": 2839.653775040508,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_estimated": 0.8386950349244547,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        7.86088393571752,
+        8.041990891335672
+      ],
+      "E_background_interval_90": [
+        2593.8121255657684,
+        3108.7963089628
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        -0.5837769313201276,
+        0.2319606813693934
+      ],
+      "inclusion_ratio_interval_90": [
+        0.5577876573995528,
+        1.261070144302365
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.6083805561065674,
+        0.5662450194358826,
+        0.5619831681251526
+      ],
+      "center_fraction_estimated": [
+        0.5194801944177366,
+        0.4558135408343139,
+        0.4513960763195916
+      ],
+      "radius_fraction_true": 0.22258862853050232,
+      "radius_fraction_estimated": 0.17015062504591977
+    },
+    {
+      "patient_id": "lung_patient_198",
+      "patient_index": 39,
+      "E_background_true": 5223.732404409738,
+      "E_background_estimated": 5533.577946192106,
+      "inclusion_ratio_true": 2.648501364084453,
+      "inclusion_ratio_estimated": 2.5953214569635827,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.528036414033494,
+        8.709143369651645
+      ],
+      "E_background_interval_90": [
+        5054.51111707858,
+        6058.0507545271275
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.5458415781169847,
+        1.3615791908065058
+      ],
+      "inclusion_ratio_interval_90": [
+        1.7260603859529309,
+        3.9023509952445274
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.4947104752063751,
+        0.6409137845039368,
+        0.4221840500831604
+      ],
+      "center_fraction_estimated": [
+        0.4773399167663071,
+        0.5504745372784455,
+        0.4733485078538605
+      ],
+      "radius_fraction_true": 0.18761394917964935,
+      "radius_fraction_estimated": 0.17240413945310867
+    },
+    {
+      "patient_id": "lung_patient_203",
+      "patient_index": 40,
+      "E_background_true": 3917.6629933436143,
+      "E_background_estimated": 3962.6064406668033,
+      "inclusion_ratio_true": 1.3657587691757536,
+      "inclusion_ratio_estimated": 1.1247303167124705,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.194103802013615,
+        8.375210757631766
+      ],
+      "E_background_interval_90": [
+        3619.5457083495835,
+        4338.182487208827
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        -0.290325517903248,
+        0.525412094786273
+      ],
+      "inclusion_ratio_interval_90": [
+        0.7480200340303856,
+        1.6911556212152834
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.5872213840484619,
+        0.5715811252593994,
+        0.5030848979949951
+      ],
+      "center_fraction_estimated": [
+        0.5517181670888657,
+        0.47586144269107916,
+        0.5043748634382682
+      ],
+      "radius_fraction_true": 0.12579332292079926,
+      "radius_fraction_estimated": 0.14930088089438004
+    },
+    {
+      "patient_id": "lung_patient_208",
+      "patient_index": 41,
+      "E_background_true": 2423.516706691431,
+      "E_background_estimated": 2020.2971487398609,
+      "inclusion_ratio_true": 3.816947710653475,
+      "inclusion_ratio_estimated": 2.693044465735295,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        7.520446405104105,
+        7.701553360722256
+      ],
+      "E_background_interval_90": [
+        1845.390902125963,
+        2211.7810185929966
+      ],
+      "log_E_covered_90": false,
+      "log_ratio_interval_90": [
+        0.5828035189470849,
+        1.3985411316366059
+      ],
+      "inclusion_ratio_interval_90": [
+        1.7910526487743261,
+        4.049288277142834
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.49232491850852966,
+        0.6399137377738953,
+        0.5665760040283203
+      ],
+      "center_fraction_estimated": [
+        0.5574876504372608,
+        0.7472948131591595,
+        0.6192089750439072
+      ],
+      "radius_fraction_true": 0.16235333681106567,
+      "radius_fraction_estimated": 0.19452482278525424
+    },
+    {
+      "patient_id": "lung_patient_213",
+      "patient_index": 42,
+      "E_background_true": 6508.20481564517,
+      "E_background_estimated": 6309.346242988379,
+      "inclusion_ratio_true": 3.7702669761052645,
+      "inclusion_ratio_estimated": 3.21126150118995,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.659233865859195,
+        8.840340821477346
+      ],
+      "E_background_interval_90": [
+        5763.1176495179,
+        6907.346411233096
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.7587950446213231,
+        1.574532657310844
+      ],
+      "inclusion_ratio_interval_90": [
+        2.135701244740832,
+        4.828484533788862
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.41748717427253723,
+        0.410940945148468,
+        0.4857960641384125
+      ],
+      "center_fraction_estimated": [
+        0.476832222728312,
+        0.46908172938604026,
+        0.4908439618236356
+      ],
+      "radius_fraction_true": 0.20020629465579987,
+      "radius_fraction_estimated": 0.1875887271368638
+    },
+    {
+      "patient_id": "lung_patient_218",
+      "patient_index": 43,
+      "E_background_true": 3763.5001932028913,
+      "E_background_estimated": 3915.9240668182665,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_estimated": 0.7168786995969568,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.182253135157481,
+        8.363360090775632
+      ],
+      "E_background_interval_90": [
+        3576.9048383946533,
+        4287.075555515408
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        -0.7407174367284788,
+        0.07502017596104227
+      ],
+      "inclusion_ratio_interval_90": [
+        0.4767717392339662,
+        1.0779058984526562
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.42123204469680786,
+        0.4724232852458954,
+        0.4908178746700287
+      ],
+      "center_fraction_estimated": [
+        0.6143539114127144,
+        0.42389926712534004,
+        0.46841979373666426
+      ],
+      "radius_fraction_true": 0.1286286562681198,
+      "radius_fraction_estimated": 0.1467836768182862
+    },
+    {
+      "patient_id": "lung_patient_223",
+      "patient_index": 44,
+      "E_background_true": 5690.677057433989,
+      "E_background_estimated": 5636.826868287188,
+      "inclusion_ratio_true": 2.5351841086713516,
+      "inclusion_ratio_estimated": 2.1854036056470383,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.54652309635169,
+        8.727630051969841
+      ],
+      "E_background_interval_90": [
+        5148.821313777823,
+        6171.085614880481
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.3739317216880599,
+        1.189669334377581
+      ],
+      "inclusion_ratio_interval_90": [
+        1.4534379087819427,
+        3.2859944623142567
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.6360754370689392,
+        0.36720314621925354,
+        0.42419958114624023
+      ],
+      "center_fraction_estimated": [
+        0.5747518592268871,
+        0.35485001411293127,
+        0.4836523017551472
+      ],
+      "radius_fraction_true": 0.18987518548965454,
+      "radius_fraction_estimated": 0.17096938619140212
+    },
+    {
+      "patient_id": "lung_patient_228",
+      "patient_index": 45,
+      "E_background_true": 3716.3742465548044,
+      "E_background_estimated": 3819.7338136611083,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_estimated": 1.0783842753592434,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.157382539075954,
+        8.338489494694105
+      ],
+      "E_background_interval_90": [
+        3489.042209790672,
+        4181.7683851126
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        -0.332404926729873,
+        0.48333268595964807
+      ],
+      "inclusion_ratio_interval_90": [
+        0.7171968518727758,
+        1.6214692553452124
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.5088653564453125,
+        0.6021738052368164,
+        0.5757924914360046
+      ],
+      "center_fraction_estimated": [
+        0.5218508073269135,
+        0.49689594585206287,
+        0.49932707415537175
+      ],
+      "radius_fraction_true": 0.19326931238174438,
+      "radius_fraction_estimated": 0.14955808152292505
+    },
+    {
+      "patient_id": "lung_patient_233",
+      "patient_index": 46,
+      "E_background_true": 5460.372517668452,
+      "E_background_estimated": 5347.782660766253,
+      "inclusion_ratio_true": 2.98238089354757,
+      "inclusion_ratio_estimated": 1.7717893727329639,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.493883820238837,
+        8.674990775856989
+      ],
+      "E_background_interval_90": [
+        4884.800968451867,
+        5854.645782191604
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.16412117462704334,
+        0.9798587873165644
+      ],
+      "inclusion_ratio_interval_90": [
+        1.1783570934233114,
+        2.6640800134783373
+      ],
+      "log_ratio_covered_90": false,
+      "center_fraction_true": [
+        0.42943865060806274,
+        0.5813217163085938,
+        0.5633531212806702
+      ],
+      "center_fraction_estimated": [
+        0.488830701291485,
+        0.5872124364539069,
+        0.5084026323701177
+      ],
+      "radius_fraction_true": 0.14124861359596252,
+      "radius_fraction_estimated": 0.1783275151602496
+    },
+    {
+      "patient_id": "lung_patient_238",
+      "patient_index": 47,
+      "E_background_true": 7347.832454256105,
+      "E_background_estimated": 6898.9985707593805,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_estimated": 1.5036098841528922,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.748578067570666,
+        8.929685023188817
+      ],
+      "E_background_interval_90": [
+        6301.721112758303,
+        7552.886017595727
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.0,
+        0.815737612689521
+      ],
+      "inclusion_ratio_interval_90": [
+        1.0,
+        2.2608426837222737
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.6309370994567871,
+        0.6135039925575256,
+        0.4603503346443176
+      ],
+      "center_fraction_estimated": [
+        0.5161944576611678,
+        0.4748033775985147,
+        0.500452813283476
+      ],
+      "radius_fraction_true": 0.18821017444133759,
+      "radius_fraction_estimated": 0.1573121699733008
+    },
+    {
+      "patient_id": "lung_patient_243",
+      "patient_index": 48,
+      "E_background_true": 7591.141129301883,
+      "E_background_estimated": 6952.748333485612,
+      "inclusion_ratio_true": 3.106478741242051,
+      "inclusion_ratio_estimated": 2.3037235334431183,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.756338826249516,
+        8.937445781867668
+      ],
+      "E_background_interval_90": [
+        6350.817515823707,
+        7611.7301856558115
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.4266579351236953,
+        1.2423955478132163
+      ],
+      "inclusion_ratio_interval_90": [
+        1.5321284847372474,
+        3.4639014752406982
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.609015703201294,
+        0.40935567021369934,
+        0.4433629810810089
+      ],
+      "center_fraction_estimated": [
+        0.5558007674273749,
+        0.42511883749745205,
+        0.4992814847912958
+      ],
+      "radius_fraction_true": 0.1501624435186386,
+      "radius_fraction_estimated": 0.17061224585512408
+    },
+    {
+      "patient_id": "lung_patient_248",
+      "patient_index": 49,
+      "E_background_true": 7077.159022394022,
+      "E_background_estimated": 6606.3875469694185,
+      "inclusion_ratio_true": 3.4319796425376317,
+      "inclusion_ratio_estimated": 2.3154119661699624,
+      "log_E_std": 0.06028786685457011,
+      "log_ratio_std": 0.23410914161497035,
+      "log_E_interval_90": [
+        8.705238792326032,
+        8.886345747944183
+      ],
+      "E_background_interval_90": [
+        6034.442746553328,
+        7232.541305604533
+      ],
+      "log_E_covered_90": true,
+      "log_ratio_interval_90": [
+        0.4317188205103094,
+        1.2474564331998304
+      ],
+      "inclusion_ratio_interval_90": [
+        1.5399020654047013,
+        3.4814763182190367
+      ],
+      "log_ratio_covered_90": true,
+      "center_fraction_true": [
+        0.36134982109069824,
+        0.6131706833839417,
+        0.46006932854652405
+      ],
+      "center_fraction_estimated": [
+        0.4261411829418408,
+        0.5493673857238538,
+        0.48684188660383015
+      ],
+      "radius_fraction_true": 0.13440150022506714,
+      "radius_fraction_estimated": 0.1417440316125167
+    }
+  ],
+  "evidence_boundary": "Point accuracy and uncertainty coverage are measured on the frozen synthetic 250-patient multiview cohort. After train-only selection, validation calibrates interval widths and the global FEM material-prior residual scale; test labels never select models or hyperparameters. These results do not establish real-patient material accuracy."
+}

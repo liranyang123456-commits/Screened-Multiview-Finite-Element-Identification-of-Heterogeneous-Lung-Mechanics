@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "dataset_version": "sim_lung_v2_ion_ct_synthetic_mechanics_v1",
+  "geometry_count": 3,
+  "scenario_count": 60,
+  "scenarios_per_geometry": {
+    "geom_58db559b24da6eb7cc0d": 20,
+    "geom_62010c56d95ec023bc9b": 20,
+    "geom_ab578f1bb0ee02be2ccd": 20
+  },
+  "matched_scenario_template_count": 20,
+  "experiment_count": 240,
+  "load_name_counts": {
+    "press_left": 60,
+    "press_right": 60,
+    "shear_x": 60,
+    "shear_y": 60
+  },
+  "frame_count": 7,
+  "view_count": 3,
+  "minimum_jacobian": 0.885202138353122,
+  "all_geometry_splits_external_test": true,
+  "geometry_cross_split_leakage": false,
+  "raw_identifiers_or_paths_in_manifest": false,
+  "material_truth_present": true,
+  "material_truth_interpretation": "synthetic_mechanics_only",
+  "passed": true
+}

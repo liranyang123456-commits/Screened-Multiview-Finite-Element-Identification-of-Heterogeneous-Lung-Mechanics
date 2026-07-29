@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "validation_type": "real_ion_ct_geometry_domain_ood",
+  "exported_geometry_count": 3,
+  "failure_count": 0,
+  "failures": [],
+  "ood_geometry_forward_success_rate": 1.0,
+  "surface_and_fem_qc_evaluated": true,
+  "checkpoint": {
+    "workspace_relative_path": "results/lung_mesh_ai_v1/full250/best_gnn.pt",
+    "compatibility": "legacy_static_29_feature_checkpoint",
+    "selection_reason": "current temporal checkpoint requires dynamic inputs unavailable for geometry-only CT validation"
+  },
+  "privacy_verification": "privacy_verification.json",
+  "aggregate": "aggregate.json",
+  "material_ground_truth_available": false,
+  "material_E_or_ratio_accuracy_reported": false,
+  "tests": {
+    "pytest": "5 passed",
+    "ruff": "passed",
+    "ide_lints": "passed"
+  }
+}

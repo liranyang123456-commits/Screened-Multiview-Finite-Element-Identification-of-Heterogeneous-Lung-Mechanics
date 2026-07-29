@@ -1,0 +1,13 @@
+{
+  "evidence_scope": "geometry_domain_stability_only",
+  "geometry_count": 3,
+  "fem_construction_success_rate": 1.0,
+  "geometry_forward_success_rate": 1.0,
+  "minimum_deformation_jacobian": 0.9999999999999994,
+  "material_ground_truth_metrics_reported": false,
+  "geometry_ids": [
+    "geom_62010c56d95ec023bc9b",
+    "geom_ab578f1bb0ee02be2ccd",
+    "geom_58db559b24da6eb7cc0d"
+  ]
+}
