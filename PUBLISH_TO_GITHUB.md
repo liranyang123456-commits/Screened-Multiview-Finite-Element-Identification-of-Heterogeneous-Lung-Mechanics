@@ -1,20 +1,11 @@
 
-# Publishing to GitHub
+# GitHub Repository and Release Updates
 
-The folder is already self-contained. Review `README.md`, then either upload it
-through GitHub or use Git:
+The reproducibility package is published at:
 
-```bash
-cd heterogeneous-lung-mechanics
-git init
-git add .
-git commit -m "Release reproducibility package"
-git branch -M main
-git remote add origin https://github.com/<account>/<repository>.git
-git push -u origin main
-```
+https://github.com/liranyang123456-commits/Screened-Multiview-Finite-Element-Identification-of-Heterogeneous-Lung-Mechanics
 
-Before pushing:
+Before updating the public repository, run:
 
 ```bash
 python scripts/verify_release.py
@@ -26,6 +17,7 @@ pytest experiments/test_benchmark_ion_ct_synthetic_mechanics.py \
        evaluation/test_aggregate_multiseed.py -q
 ```
 
-After pushing, replace the pending repository-URL wording in the manuscript and
-data-availability statement with the final HTTPS URL. Do not add raw clinical
-data, patient-derived CT pixels/meshes, generated tensor cohorts, or checkpoints.
+Commit only the verified privacy-safe package and push it to the `main` branch.
+Do not add raw clinical data, patient-derived CT pixels/meshes, generated tensor
+cohorts, or checkpoints. The final HTTPS URL is already included in the
+manuscript and data-availability statement.

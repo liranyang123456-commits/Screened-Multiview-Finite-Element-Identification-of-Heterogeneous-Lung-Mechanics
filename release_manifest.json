@@ -17,8 +17,8 @@
     },
     {
       "path": "CITATION.cff",
-      "size_bytes": 593,
-      "sha256": "9361a36ee93c633c6bbf2c13926f4d18951a822b7b54a6f61657bb6bea142980"
+      "size_bytes": 869,
+      "sha256": "f92c378ce13211ca6da8d57fdc9bc41cac1b18f91498fdda2b1405299e61e2d1"
     },
     {
       "path": "DATA_CARD.md",
@@ -692,8 +692,8 @@
     },
     {
       "path": "PUBLISH_TO_GITHUB.md",
-      "size_bytes": 1038,
-      "sha256": "c6b640595d75dc0421b46b917d5261fb6373b31cc4c7568579f76819e8c5e849"
+      "size_bytes": 952,
+      "sha256": "ae43d3f9dd322c4235034dfb29b2853a6c970b85f5e387809456f359f64e1c17"
     },
     {
       "path": "pyproject.toml",
@@ -702,8 +702,8 @@
     },
     {
       "path": "README.md",
-      "size_bytes": 3177,
-      "sha256": "9f33d1500c7e355c678bbccd3e9170ccc741a33ce58caa47ab3a6c76de1a5efd"
+      "size_bytes": 3317,
+      "sha256": "99c2a42f4c1e7bbffba7c9f7deb7b81b187c38bcdfc7645327949436bb35f25d"
     },
     {
       "path": "rendering/__init__.py",

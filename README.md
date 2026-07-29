@@ -6,6 +6,9 @@ Reference implementation and frozen numerical evidence for:
 > **Calibrated Response Learning as a Prior for Screened Multiview
 > Finite-Element Identification of Heterogeneous Lung Mechanics**
 
+Repository:
+https://github.com/liranyang123456-commits/Screened-Multiview-Finite-Element-Identification-of-Heterogeneous-Lung-Mechanics
+
 The project estimates background Young's modulus, inclusion contrast, region
 center/radius, and node-level material fields from synchronized multiview motion
 under known loads. The primary method uses a train-only-selected PCA--Ridge

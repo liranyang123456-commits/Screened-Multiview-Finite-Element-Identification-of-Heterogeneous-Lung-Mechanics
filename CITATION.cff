@@ -5,6 +5,8 @@ title: "Heterogeneous Lung Mechanics from Multiview Motion"
 type: software
 version: 1.0.0
 date-released: 2026-07-30
+repository-code: "https://github.com/liranyang123456-commits/Screened-Multiview-Finite-Element-Identification-of-Heterogeneous-Lung-Mechanics"
+url: "https://github.com/liranyang123456-commits/Screened-Multiview-Finite-Element-Identification-of-Heterogeneous-Lung-Mechanics"
 authors:
   - family-names: Li
     given-names: Ranyang
