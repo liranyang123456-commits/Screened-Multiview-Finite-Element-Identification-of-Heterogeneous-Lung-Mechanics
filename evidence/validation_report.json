@@ -14,5 +14,7 @@
   "ct_figure_geometry_count": 3,
   "ct_figure_manual_visual_qc_complete": true,
   "ct_figure_publication_authorization_pipeline_gate": false,
+  "github_release_file_count": 162,
+  "github_release_restricted_assets_included": false,
   "failures": []
 }

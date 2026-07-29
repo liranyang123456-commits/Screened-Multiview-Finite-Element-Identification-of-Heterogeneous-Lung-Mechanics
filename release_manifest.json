@@ -212,8 +212,8 @@
     },
     {
       "path": "evidence/validation_report.json",
-      "size_bytes": 410,
-      "sha256": "7269e555976c4cf32298c6b3f7b02e048d1347be3e5279b383d653dad0a74279"
+      "size_bytes": 502,
+      "sha256": "2e7ee4b4a972aafecee1ca156dcdb4e37c11458743f5950be2fe1c6afb345dcd"
     },
     {
       "path": "experiments/aggregate_results.py",
@@ -412,103 +412,103 @@
     },
     {
       "path": "figures/fig_calibration.pdf",
-      "size_bytes": 50055,
-      "sha256": "88922dbe996bfcd97483a48850108b9db6f3a6202b0b4cb45644bee1fb6caa11"
+      "size_bytes": 50053,
+      "sha256": "98926c664506990569c34cf73e057ebab0bf17aba59c3dc9f563dc7375222a90"
     },
     {
       "path": "figures/fig_calibration.png",
-      "size_bytes": 451896,
-      "sha256": "d047ca9f0b28f98235275c51b705c7aa7e5c39b32b51f988e40ddd04079be1e4"
+      "size_bytes": 472166,
+      "sha256": "a3203c5a3b8f95b5fc4e824ca470f2231e490d7d2b53a40fc761e814d03a579d"
     },
     {
       "path": "figures/fig_dataset_protocol.pdf",
-      "size_bytes": 42334,
-      "sha256": "0fb59b767b5bb975e337b39518fd8643525e241d89f8d972d5e58803088f8f30"
+      "size_bytes": 42333,
+      "sha256": "518dc988909bd4d4c790ccb90dc9f4bd95b0844f543b5cd17ffbb8b416e9cd81"
     },
     {
       "path": "figures/fig_dataset_protocol.png",
-      "size_bytes": 453247,
-      "sha256": "404cab9f730feda81ee7003819b0c1918b20998166c16b84375d409fe3ef74b3"
+      "size_bytes": 489846,
+      "sha256": "63dc24559020eb39d00e63047baa94d6633bfd894a4422cc1266f020ea5128bf"
     },
     {
       "path": "figures/fig_fair_fem.pdf",
-      "size_bytes": 27379,
-      "sha256": "1ffa132bf80ac837ad80e96d3f5d3fb2a33c063f4b1058eb703687bab8ddc674"
+      "size_bytes": 27475,
+      "sha256": "065cf00718989c69661fd4d9754de896bfa80e7e0fc6d7103bb9169598460f58"
     },
     {
       "path": "figures/fig_fair_fem.png",
-      "size_bytes": 359194,
-      "sha256": "73011b61b74fc229004cd5eb16d39cb456262206ef6869d142737bb7c3dc7dad"
+      "size_bytes": 384039,
+      "sha256": "c88be17c01ecb0148386c135b9574cf8328c4cd9195fcc8a119a95a513b9da6b"
     },
     {
       "path": "figures/fig_ion_ct_error_distributions.pdf",
-      "size_bytes": 33293,
-      "sha256": "8255c60dd855f21990a36e66f469a908c7114caf17001dad835254dcda5391c2"
+      "size_bytes": 33316,
+      "sha256": "505b262284101a264da9c9bdd1f811ba313253b54e27484424063abc43a18300"
     },
     {
       "path": "figures/fig_ion_ct_error_distributions.png",
-      "size_bytes": 474284,
-      "sha256": "348be04c40e084fad950cbd6fefea1ac5934d513ebb41ac388bd6bb538146af2"
+      "size_bytes": 542714,
+      "sha256": "a6e35859f8ee656b17302e05853f0b340a557b1d4dcb7cc49cc56f48cad7302e"
     },
     {
       "path": "figures/fig_ion_ct_method_comparison.pdf",
-      "size_bytes": 29051,
-      "sha256": "c03943920079456127bbaed244856d896a37b4a13b8cc7eb0c1d14579dfc05f4"
+      "size_bytes": 29164,
+      "sha256": "1af9355a8d5e75ef1a258b39c21ebc034b40a62e93facaf94ee8d96eafa81c63"
     },
     {
       "path": "figures/fig_ion_ct_method_comparison.png",
-      "size_bytes": 448031,
-      "sha256": "91882f109c5058b7e0cc5f8422ab903c93cf2d86935ac9938743a43b3b571403"
+      "size_bytes": 516049,
+      "sha256": "f06ce96420865905c0dec51e40b458732180e081c8505b3dc1d79d22d2b8b9c8"
     },
     {
       "path": "figures/fig_ion_ct_node_material_metrics.pdf",
-      "size_bytes": 31018,
-      "sha256": "2cc8957781fa84e2e8bb9825b5a847637e01a9af03e9137f7212b5d460282bbb"
+      "size_bytes": 31519,
+      "sha256": "b14ee7ed0a59793adc45e3979aee4e46addeee8523313517c0e4becfba5029d5"
     },
     {
       "path": "figures/fig_ion_ct_node_material_metrics.png",
-      "size_bytes": 278104,
-      "sha256": "d20c42ef33bd77582a08d9f27ab39c6c18f543152649da171bef5d31ba20ba6a"
+      "size_bytes": 327200,
+      "sha256": "32d4fa88285283cb8590f88645d0f26a269269257edd7b9b2f2e30ada92d1188"
     },
     {
       "path": "figures/fig_ion_ct_physics_tradeoff.pdf",
-      "size_bytes": 32694,
-      "sha256": "5c8e506d28d2b58e9610bc8a9f6f079457a346dac9a273636986150c38df7a5d"
+      "size_bytes": 32863,
+      "sha256": "5f53ca5749738da9fadf96b76079003e051c6d6c266ad7d1e9f78d6d4443f23e"
     },
     {
       "path": "figures/fig_ion_ct_physics_tradeoff.png",
-      "size_bytes": 440763,
-      "sha256": "09909641c6d1df25658164dbb54c08fd1cdb726396f00c0884f90ca0f6ac61c5"
+      "size_bytes": 485711,
+      "sha256": "8fec635bb05a1330229425fef38250aea37bc3777630c55e425ef4355fe044a7"
     },
     {
       "path": "figures/fig_main_results.pdf",
-      "size_bytes": 41658,
-      "sha256": "ed8265696250c3847a4544e5b962e2a9b875aaa3d8f8a81853da1913f68c43d2"
+      "size_bytes": 41654,
+      "sha256": "a63660f4ff563d01520d4af3cbf1b940ff2531d3de0cc9507981a3953427cc79"
     },
     {
       "path": "figures/fig_main_results.png",
-      "size_bytes": 497828,
-      "sha256": "1d6e9dcce180842cad49d21dfb5769feddc7f2f3fb1923500a235d149b6ec67a"
+      "size_bytes": 533298,
+      "sha256": "682d465a296417d3e8f292a1fe354cb31c049532f17eeb8b4cc97258873416e1"
     },
     {
       "path": "figures/fig_pipeline.pdf",
-      "size_bytes": 42116,
-      "sha256": "94b53b3fd3c07d2e14207ee96004a489844aac49d3bc110d6c87afbb52556c92"
+      "size_bytes": 44535,
+      "sha256": "c97936f9874f51845130e2624bf43ad1298113bab480c9e8b08e139127473b50"
     },
     {
       "path": "figures/fig_pipeline.png",
-      "size_bytes": 387843,
-      "sha256": "1f8f6965478e6a761896e872cfc1548dca8ef5e74d391ee4a1d884efb9b8fa41"
+      "size_bytes": 530895,
+      "sha256": "9aca0ca60c3351e8cc84bc9287bd82ca8f7fd3e58443e266475a0ea490955fdc"
     },
     {
       "path": "figures/fig_response_baselines.pdf",
-      "size_bytes": 28656,
-      "sha256": "4934383aecafad1a393ac3ecb18567fb22d8a99f3f504a331a9856cb9151d993"
+      "size_bytes": 28679,
+      "sha256": "2ab0abaf3b4b2263ea783b9d58d0a217328644b6312972f117947115eb290c81"
     },
     {
       "path": "figures/fig_response_baselines.png",
-      "size_bytes": 385267,
-      "sha256": "04a8b92de3b0abb9ecdfe79018138736d9df7e0dedd1ec8fbd5e3d281f005fa4"
+      "size_bytes": 413565,
+      "sha256": "7fc353a62c6dc64f39c6eed510da4107acbfc26832b9712e902978ab31f1734e"
     },
     {
       "path": "inverse/__init__.py",
