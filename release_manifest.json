@@ -213,7 +213,7 @@
     {
       "path": "evidence/validation_report.json",
       "size_bytes": 502,
-      "sha256": "2e7ee4b4a972aafecee1ca156dcdb4e37c11458743f5950be2fe1c6afb345dcd"
+      "sha256": "bd640a8a35b2c24ce084c796ea142c7502d8b187ef64c813bafb3a463730d4fd"
     },
     {
       "path": "experiments/aggregate_results.py",
@@ -492,13 +492,13 @@
     },
     {
       "path": "figures/fig_pipeline.pdf",
-      "size_bytes": 44535,
-      "sha256": "c97936f9874f51845130e2624bf43ad1298113bab480c9e8b08e139127473b50"
+      "size_bytes": 57439,
+      "sha256": "ad2991308a4857b18a8acb998c2ac25d88ed3bac867818ad1ece91db55ee4955"
     },
     {
       "path": "figures/fig_pipeline.png",
-      "size_bytes": 530895,
-      "sha256": "9aca0ca60c3351e8cc84bc9287bd82ca8f7fd3e58443e266475a0ea490955fdc"
+      "size_bytes": 516106,
+      "sha256": "5d4a2d9521e15944f33f2f1c96a66d865e1ffbd79e2c98b55c52b29f73f7cd15"
     },
     {
       "path": "figures/fig_response_baselines.pdf",
