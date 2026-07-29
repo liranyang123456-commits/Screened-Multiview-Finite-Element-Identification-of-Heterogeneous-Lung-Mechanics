@@ -1,0 +1,7 @@
+
+opencv-python
+open3d
+openpyxl
+pydicom
+python-gdcm
+tifffile

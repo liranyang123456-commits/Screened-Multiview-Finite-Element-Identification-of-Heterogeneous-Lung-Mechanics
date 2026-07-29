@@ -1,0 +1,22 @@
+
+cff-version: 1.2.0
+message: "If you use this software or evidence package, please cite the associated article."
+title: "Heterogeneous Lung Mechanics from Multiview Motion"
+type: software
+version: 1.0.0
+date-released: 2026-07-30
+authors:
+  - family-names: Li
+    given-names: Ranyang
+    email: lry@haut.edu.cn
+  - family-names: Wei
+    given-names: Nan
+  - family-names: Lin
+    given-names: Zhipeng
+  - family-names: Liu
+    given-names: Wufeng
+  - family-names: Fan
+    given-names: Chao
+  - family-names: Pan
+    given-names: Junjun
+    email: pan_junjun@buaa.edu.cn

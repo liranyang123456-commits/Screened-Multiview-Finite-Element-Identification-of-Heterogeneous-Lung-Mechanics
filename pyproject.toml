@@ -1,0 +1,28 @@
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "heterogeneous-lung-mechanics"
+version = "1.0.0"
+description = "Calibrated response learning and screened inverse FEM for lung mechanics"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+  {name = "Ranyang Li", email = "lry@haut.edu.cn"},
+  {name = "Junjun Pan", email = "pan_junjun@buaa.edu.cn"},
+]
+dependencies = [
+  "numpy>=1.26,<2",
+  "scipy",
+  "torch",
+  "scikit-learn",
+  "scikit-image",
+  "joblib",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["experiments", "evaluation", "lung_inverse_rendering"]
+addopts = "-q"

@@ -1,0 +1,11 @@
+
+numpy>=1.26,<2
+scipy
+torch
+torchvision
+scikit-learn
+scikit-image
+joblib
+matplotlib
+pillow
+pytest

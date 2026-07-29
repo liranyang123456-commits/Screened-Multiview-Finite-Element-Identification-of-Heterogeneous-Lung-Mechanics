@@ -1,0 +1,35 @@
+
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
+
+# Large generated artifacts
+dataset/**/*.pt
+dataset/**/*.pth
+dataset/**/*.npz
+results/**/*.pt
+results/**/*.pth
+results/**/*.joblib
+checkpoints/
+
+# Raw/restricted clinical assets
+external_data/
+*.dcm
+*.dicom
+*.mp4
+*.zip
+
+# Local logs and editor files
+*.log
+*.aux
+*.out
+*.bbl
+*.blg
+.idea/
+.vscode/
