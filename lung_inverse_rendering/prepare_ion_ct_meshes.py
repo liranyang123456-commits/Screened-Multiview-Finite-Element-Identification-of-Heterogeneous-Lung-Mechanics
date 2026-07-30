@@ -9,9 +9,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import os
 import sys
-from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
@@ -21,6 +19,11 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from lung_inverse_rendering.ct_loader import lung_air_mask, mask_to_surface  # noqa: E402
+from lung_inverse_rendering.ion_dicom_sources import (  # noqa: E402
+    DicomSource,
+    open_dicom_reader,
+    scan_case_dicoms,
+)
 
 
 DEFAULT_AUDIT = ROOT / "results" / "ion_audit" / "audit_manifest.json"
@@ -62,87 +65,96 @@ def _safe_output_dir(path: Path) -> Path:
     return resolved
 
 
-def _discover_largest_ct_series(case_dir: Path) -> list[Path]:
-    """Find one CT series internally; paths and DICOM values are never returned."""
-    import pydicom
-
-    grouped: dict[str, list[Path]] = defaultdict(list)
-    for root, _, names in os.walk(case_dir):
-        for name in names:
-            path = Path(root) / name
-            try:
-                dataset = pydicom.dcmread(
-                    path,
-                    stop_before_pixels=True,
-                    force=False,
-                    specific_tags=["Modality", "SeriesInstanceUID"],
-                )
-            except Exception:
-                continue
-            if str(getattr(dataset, "Modality", "")) != "CT":
-                continue
-            # The UID is used transiently as an in-memory grouping key only.
-            series_key = str(getattr(dataset, "SeriesInstanceUID", ""))
-            if series_key:
-                grouped[series_key].append(path)
-    if not grouped:
+def _discover_largest_ct_series(case_dir: Path) -> list[DicomSource]:
+    """Find the largest unique CT series without extracting archived objects."""
+    series = _discover_ct_series(case_dir)
+    if not series:
         raise ValueError("No readable CT series found for selected geometry")
-    return max(grouped.values(), key=len)
+    return series[0]
 
 
-def _discover_ct_series(case_dir: Path) -> list[list[Path]]:
-    """Return CT series sorted by size; identifiers remain transient in memory."""
-    import pydicom
+def _discover_ct_series(case_dir: Path) -> list[list[DicomSource]]:
+    """Return SOP-deduplicated CT series sorted by size."""
+    return scan_case_dicoms(case_dir).ct_series
 
-    grouped: dict[str, list[Path]] = defaultdict(list)
-    for root, _, names in os.walk(case_dir):
-        for name in names:
-            path = Path(root) / name
+
+def _load_series_hu(
+    paths: list[DicomSource],
+    *,
+    max_z_samples: int | None = None,
+    max_inplane_samples: int | None = None,
+) -> tuple[np.ndarray, tuple[float, float, float]]:
+    """Read pixels from one internally selected series without retaining tags."""
+    records: list[tuple[float, DicomSource, Any]] = []
+    header_tags = [
+        "ImagePositionPatient",
+        "InstanceNumber",
+        "PixelSpacing",
+        "Rows",
+        "Columns",
+    ]
+    with open_dicom_reader() as read:
+        for source in paths:
             try:
-                dataset = pydicom.dcmread(
-                    path,
+                dataset = read(
+                    source,
                     stop_before_pixels=True,
-                    force=False,
-                    specific_tags=["Modality", "SeriesInstanceUID"],
+                    specific_tags=header_tags,
                 )
             except Exception:
                 continue
-            if str(getattr(dataset, "Modality", "")) != "CT":
-                continue
-            series_key = str(getattr(dataset, "SeriesInstanceUID", ""))
-            if series_key:
-                grouped[series_key].append(path)
-    return sorted(grouped.values(), key=len, reverse=True)
-
-
-def _load_series_hu(paths: list[Path]) -> tuple[np.ndarray, tuple[float, float, float]]:
-    """Read pixels from one internally selected series without retaining tags."""
-    import pydicom
-
-    records = []
-    for path in paths:
-        dataset = pydicom.dcmread(path, force=False)
-        if "PixelData" not in dataset:
-            continue
-        position = getattr(dataset, "ImagePositionPatient", None)
-        z = float(position[2]) if position is not None and len(position) >= 3 else float(
-            getattr(dataset, "InstanceNumber", len(records))
-        )
-        records.append((z, dataset))
+            position = getattr(dataset, "ImagePositionPatient", None)
+            z = (
+                float(position[2])
+                if position is not None and len(position) >= 3
+                else float(getattr(dataset, "InstanceNumber", len(records)))
+            )
+            records.append((z, source, dataset))
     if len(records) < 8:
         raise ValueError("Selected CT series has fewer than eight readable slices")
     records.sort(key=lambda item: item[0])
-    first = records[0][1]
+    unique_records: list[tuple[float, DicomSource, Any]] = []
+    for record in records:
+        if unique_records and abs(record[0] - unique_records[-1][0]) < 1e-6:
+            continue
+        unique_records.append(record)
+    records = unique_records
+    if len(records) < 8:
+        raise ValueError("Selected CT series has fewer than eight unique slice locations")
+    if max_z_samples is not None and len(records) > max_z_samples:
+        indices = np.linspace(0, len(records) - 1, max_z_samples, dtype=int)
+        records = [records[int(index)] for index in np.unique(indices)]
+    first = records[0][2]
     spacing_yx = tuple(float(value) for value in first.PixelSpacing)
     z_values = np.asarray([item[0] for item in records], dtype=np.float64)
     spacing_z = abs(float(np.median(np.diff(z_values))))
+    rows = int(first.Rows)
+    columns = int(first.Columns)
+    stride_y = 1
+    stride_x = 1
+    if max_inplane_samples is not None:
+        stride_y = max(1, int(np.ceil(rows / max_inplane_samples)))
+        stride_x = max(1, int(np.ceil(columns / max_inplane_samples)))
     slices = []
-    for _, dataset in records:
-        pixels = dataset.pixel_array.astype(np.float32)
-        pixels *= float(getattr(dataset, "RescaleSlope", 1.0))
-        pixels += float(getattr(dataset, "RescaleIntercept", 0.0))
-        slices.append(pixels)
-    return np.stack(slices), (spacing_z, spacing_yx[0], spacing_yx[1])
+    with open_dicom_reader() as read:
+        for _, source, _ in records:
+            dataset = read(source)
+            if "PixelData" not in dataset:
+                continue
+            pixels = dataset.pixel_array[::stride_y, ::stride_x].astype(np.float32)
+            pixels *= float(getattr(dataset, "RescaleSlope", 1.0))
+            pixels += float(getattr(dataset, "RescaleIntercept", 0.0))
+            slices.append(pixels)
+    minimum_decodable = min(8, max_z_samples or 8)
+    if len(slices) < minimum_decodable:
+        raise ValueError(
+            f"Selected CT series has fewer than {minimum_decodable} decodable slices"
+        )
+    return np.stack(slices), (
+        spacing_z,
+        spacing_yx[0] * stride_y,
+        spacing_yx[1] * stride_x,
+    )
 
 
 def _bilateral_lung_score(mask: np.ndarray) -> float:
@@ -178,7 +190,7 @@ def _bilateral_lung_score(mask: np.ndarray) -> float:
     return float(best)
 
 
-def _discover_best_lung_ct_series(case_dir: Path) -> list[Path]:
+def _discover_best_lung_ct_series(case_dir: Path) -> list[DicomSource]:
     """Select a thoracic series using pixels without persisting source metadata."""
     candidates = [paths for paths in _discover_ct_series(case_dir) if len(paths) >= 8]
     if not candidates:
@@ -186,9 +198,13 @@ def _discover_best_lung_ct_series(case_dir: Path) -> list[Path]:
     best_paths: list[Path] | None = None
     best_score = 0.0
     # Large diagnostic series are most plausible and limit repeated pixel reads.
-    for paths in candidates[:10]:
+    for paths in candidates[:5]:
         try:
-            volume, _ = _load_series_hu(paths)
+            volume, _ = _load_series_hu(
+                paths,
+                max_z_samples=64,
+                max_inplane_samples=192,
+            )
             score = _bilateral_lung_score(lung_air_mask(volume))
         except Exception:
             continue
@@ -201,7 +217,11 @@ def _discover_best_lung_ct_series(case_dir: Path) -> list[Path]:
 
 def _export_case_mesh(case_dir: Path, output: Path, geometry_id: str) -> None:
     paths = _discover_best_lung_ct_series(case_dir)
-    volume, spacing = _load_series_hu(paths)
+    volume, spacing = _load_series_hu(
+        paths,
+        max_z_samples=256,
+        max_inplane_samples=256,
+    )
     vertices, faces = mask_to_surface(lung_air_mask(volume), spacing)
     output.parent.mkdir(parents=True, exist_ok=True)
     np.savez_compressed(

@@ -10,12 +10,14 @@ import torch
 
 import experiments.generate_ion_ct_synthetic_mechanics as generator
 from dataset.sim_lung_graph import SimLungGraphDataset
+from experiments.build_ion_geometry_split import build_split
 from experiments.generate_ion_ct_synthetic_mechanics import (
     discover_geometry_meshes,
     generation_config,
     manifest_payload,
     scenario_spec,
 )
+from experiments.generate_ion_ct_synthetic_mechanics_parallel import geometry_ranges
 from lung_inverse_rendering.evaluate_sim_lung_v2 import load_patient
 
 
@@ -24,6 +26,27 @@ def test_geometry_discovery_limit_is_deterministic(tmp_path: Path) -> None:
         np.savez(tmp_path / f"{geometry_id}.npz", vertices=np.empty((0, 3)))
     selected = discover_geometry_meshes(tmp_path, geometry_limit=2)
     assert [path.stem for path in selected] == ["geom_aa", "geom_bb"]
+
+
+def test_geometry_split_preserves_locked_test_cases() -> None:
+    geometry_ids = [f"geom_{index:02d}" for index in range(27)]
+    locked = ["geom_01", "geom_03", "geom_08"]
+    result = build_split(geometry_ids, locked)
+    assert result["counts"] == {"train": 18, "val": 3, "test": 6}
+    assert set(result["locked_external_test_geometry_ids"]) == set(locked)
+    assert all(result["assignments"][value] == "test" for value in locked)
+    assert set(result["assignments"]) == set(geometry_ids)
+
+
+def test_parallel_geometry_ranges_cover_cohort_once() -> None:
+    ranges = geometry_ranges(27, 8)
+    covered = [
+        geometry
+        for start, stop in ranges
+        for geometry in range(start, stop)
+    ]
+    assert covered == list(range(27))
+    assert max(stop - start for start, stop in ranges) == 4
 
 
 def test_scenario_protocol_is_private_test_only_and_synthetic() -> None:
@@ -46,6 +69,11 @@ def test_scenario_protocol_is_private_test_only_and_synthetic() -> None:
     assert config["load_count"] == 4
     assert config["frame_count"] == 7
     assert config["num_views"] == 3
+
+
+def test_scenario_protocol_accepts_patient_level_training_split() -> None:
+    spec = scenario_spec(0, 2, geometry_id="geom_private", split="train")
+    assert spec["split"] == "train"
 
 
 def _minimal_multiview_experiment(patient_id: str, name: str) -> dict:

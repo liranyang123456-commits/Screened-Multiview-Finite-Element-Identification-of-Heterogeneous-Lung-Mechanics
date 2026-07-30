@@ -17,10 +17,10 @@ response calibrator as a prior for screened inverse FEM.
 ## Evidence boundary
 
 - Material-property truth is synthetic.
-- The main benchmark contains 250 programmatic CT-like surrogate geometries,
+- The main benchmark contains 250 procedural CT-like surrogate geometries,
   split 150/50/50 by simulated patient.
-- The external benchmark contains 60 synthetic-mechanics scenes instantiated on
-  three de-identified patient-derived CT geometries.
+- The CT-geometry benchmark contains 540 synthetic-mechanics scenes instantiated
+  on 27 de-identified patient-derived geometries with an 18/3/6 split.
 - The CT geometries are not patient material ground truth.
 - No raw DICOM, clinical video, patient identifier, patient-derived mesh/pixel
   asset, model checkpoint, or generated tensor dataset is distributed here.
@@ -59,7 +59,7 @@ pytest experiments/test_benchmark_ion_ct_synthetic_mechanics.py \
 
 ## Reproducing experiments
 
-1. Generate the programmatic multiview synthetic cohort using
+1. Generate the procedural multiview synthetic cohort using
    `lung_inverse_rendering/generate_sim_lung_v2.py`.
 2. Train the response calibrator with
    `experiments/train_lung_response_calibrator.py`.

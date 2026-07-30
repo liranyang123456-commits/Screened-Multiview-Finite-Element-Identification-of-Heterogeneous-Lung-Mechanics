@@ -1,0 +1,693 @@
+{
+  "schema_version": 1,
+  "geometry_count": 27,
+  "passed_count": 27,
+  "failed_count": 0,
+  "surface_vertex_count": {
+    "minimum": 7888,
+    "median": 77708.0,
+    "maximum": 284375
+  },
+  "records": [
+    {
+      "geometry_id": "geom_62010c56d95ec023bc9b",
+      "passed": true,
+      "surface": {
+        "valid": true,
+        "vertex_count": 77708,
+        "face_count": 155460,
+        "finite_vertices": true,
+        "valid_indices": true,
+        "degenerate_face_count": 0,
+        "nonzero_extent_axes": 3
+      },
+      "finite_element": {
+        "construction_success": true,
+        "node_count": 256,
+        "tetrahedron_count": 882,
+        "finite_nodes": true,
+        "degenerate_tetrahedron_count": 0,
+        "mixed_orientation": true,
+        "minimum_normalized_rest_jacobian": 0.39850917139226905,
+        "rest_jacobian_positive_magnitude": true,
+        "minimum_deformation_jacobian": 0.9999999999999993,
+        "nonpositive_deformation_jacobian_count": 0
+      }
+    },
+    {
+      "geometry_id": "geom_05cf9d4fae8e8284f1cf",
+      "passed": true,
+      "surface": {
+        "valid": true,
+        "vertex_count": 7888,
+        "face_count": 15840,
+        "finite_vertices": true,
+        "valid_indices": true,
+        "degenerate_face_count": 0,
+        "nonzero_extent_axes": 3
+      },
+      "finite_element": {
+        "construction_success": true,
+        "node_count": 256,
+        "tetrahedron_count": 882,
+        "finite_nodes": true,
+        "degenerate_tetrahedron_count": 0,
+        "mixed_orientation": true,
+        "minimum_normalized_rest_jacobian": 0.3022125354216637,
+        "rest_jacobian_positive_magnitude": true,
+        "minimum_deformation_jacobian": 0.9999999999999993,
+        "nonpositive_deformation_jacobian_count": 0
+      }
+    },
+    {
+      "geometry_id": "geom_ab578f1bb0ee02be2ccd",
+      "passed": true,
+      "surface": {
+        "valid": true,
+        "vertex_count": 284375,
+        "face_count": 568946,
+        "finite_vertices": true,
+        "valid_indices": true,
+        "degenerate_face_count": 0,
+        "nonzero_extent_axes": 3
+      },
+      "finite_element": {
+        "construction_success": true,
+        "node_count": 256,
+        "tetrahedron_count": 882,
+        "finite_nodes": true,
+        "degenerate_tetrahedron_count": 0,
+        "mixed_orientation": true,
+        "minimum_normalized_rest_jacobian": 0.4041223711907343,
+        "rest_jacobian_positive_magnitude": true,
+        "minimum_deformation_jacobian": 0.9999999999999992,
+        "nonpositive_deformation_jacobian_count": 0
+      }
+    },
+    {
+      "geometry_id": "geom_55fc14f5542c626bd87f",
+      "passed": true,
+      "surface": {
+        "valid": true,
+        "vertex_count": 66862,
+        "face_count": 133736,
+        "finite_vertices": true,
+        "valid_indices": true,
+        "degenerate_face_count": 0,
+        "nonzero_extent_axes": 3
+      },
+      "finite_element": {
+        "construction_success": true,
+        "node_count": 256,
+        "tetrahedron_count": 882,
+        "finite_nodes": true,
+        "degenerate_tetrahedron_count": 0,
+        "mixed_orientation": true,
+        "minimum_normalized_rest_jacobian": 0.42002328636224534,
+        "rest_jacobian_positive_magnitude": true,
+        "minimum_deformation_jacobian": 0.9999999999999996,
+        "nonpositive_deformation_jacobian_count": 0
+      }
+    },
+    {
+      "geometry_id": "geom_306f69af45a814373d2e",
+      "passed": true,
+      "surface": {
+        "valid": true,
+        "vertex_count": 140767,
+        "face_count": 281642,
+        "finite_vertices": true,
+        "valid_indices": true,
+        "degenerate_face_count": 0,
+        "nonzero_extent_axes": 3
+      },
+      "finite_element": {
+        "construction_success": true,
+        "node_count": 256,
+        "tetrahedron_count": 882,
+        "finite_nodes": true,
+        "degenerate_tetrahedron_count": 0,
+        "mixed_orientation": true,
+        "minimum_normalized_rest_jacobian": 0.3539051677287989,
+        "rest_jacobian_positive_magnitude": true,
+        "minimum_deformation_jacobian": 0.9999999999999994,
+        "nonpositive_deformation_jacobian_count": 0
+      }
+    },
+    {
+      "geometry_id": "geom_db7f7d8f94c6f2a94df6",
+      "passed": true,
+      "surface": {
+        "valid": true,
+        "vertex_count": 177191,
+        "face_count": 354618,
+        "finite_vertices": true,
+        "valid_indices": true,
+        "degenerate_face_count": 0,
+        "nonzero_extent_axes": 3
+      },
+      "finite_element": {
+        "construction_success": true,
+        "node_count": 256,
+        "tetrahedron_count": 882,
+        "finite_nodes": true,
+        "degenerate_tetrahedron_count": 0,
+        "mixed_orientation": true,
+        "minimum_normalized_rest_jacobian": 0.4036480776610817,
+        "rest_jacobian_positive_magnitude": true,
+        "minimum_deformation_jacobian": 0.9999999999999994,
+        "nonpositive_deformation_jacobian_count": 0
+      }
+    },
+    {
+      "geometry_id": "geom_58db559b24da6eb7cc0d",
+      "passed": true,
+      "surface": {
+        "valid": true,
+        "vertex_count": 204380,
+        "face_count": 409292,
+        "finite_vertices": true,
+        "valid_indices": true,
+        "degenerate_face_count": 0,
+        "nonzero_extent_axes": 3
+      },
+      "finite_element": {
+        "construction_success": true,
+        "node_count": 256,
+        "tetrahedron_count": 882,
+        "finite_nodes": true,
+        "degenerate_tetrahedron_count": 0,
+        "mixed_orientation": true,
+        "minimum_normalized_rest_jacobian": 0.40895322687579655,
+        "rest_jacobian_positive_magnitude": true,
+        "minimum_deformation_jacobian": 0.9999999999999994,
+        "nonpositive_deformation_jacobian_count": 0
+      }
+    },
+    {
+      "geometry_id": "geom_6d4dd09b30cfb766ab98",
+      "passed": true,
+      "surface": {
+        "valid": true,
+        "vertex_count": 76699,
+        "face_count": 153482,
+        "finite_vertices": true,
+        "valid_indices": true,
+        "degenerate_face_count": 0,
+        "nonzero_extent_axes": 3
+      },
+      "finite_element": {
+        "construction_success": true,
+        "node_count": 256,
+        "tetrahedron_count": 882,
+        "finite_nodes": true,
+        "degenerate_tetrahedron_count": 0,
+        "mixed_orientation": true,
+        "minimum_normalized_rest_jacobian": 0.38390946543657495,
+        "rest_jacobian_positive_magnitude": true,
+        "minimum_deformation_jacobian": 0.9999999999999993,
+        "nonpositive_deformation_jacobian_count": 0
+      }
+    },
+    {
+      "geometry_id": "geom_271acd77cdf0a24bc7a4",
+      "passed": true,
+      "surface": {
+        "valid": true,
+        "vertex_count": 76727,
+        "face_count": 153510,
+        "finite_vertices": true,
+        "valid_indices": true,
+        "degenerate_face_count": 0,
+        "nonzero_extent_axes": 3
+      },
+      "finite_element": {
+        "construction_success": true,
+        "node_count": 256,
+        "tetrahedron_count": 882,
+        "finite_nodes": true,
+        "degenerate_tetrahedron_count": 0,
+        "mixed_orientation": true,
+        "minimum_normalized_rest_jacobian": 0.4124005607032334,
+        "rest_jacobian_positive_magnitude": true,
+        "minimum_deformation_jacobian": 0.9999999999999994,
+        "nonpositive_deformation_jacobian_count": 0
+      }
+    },
+    {
+      "geometry_id": "geom_fac5cdc88e186e46ee04",
+      "passed": true,
+      "surface": {
+        "valid": true,
+        "vertex_count": 156820,
+        "face_count": 313988,
+        "finite_vertices": true,
+        "valid_indices": true,
+        "degenerate_face_count": 0,
+        "nonzero_extent_axes": 3
+      },
+      "finite_element": {
+        "construction_success": true,
+        "node_count": 256,
+        "tetrahedron_count": 882,
+        "finite_nodes": true,
+        "degenerate_tetrahedron_count": 0,
+        "mixed_orientation": true,
+        "minimum_normalized_rest_jacobian": 0.41139218297623076,
+        "rest_jacobian_positive_magnitude": true,
+        "minimum_deformation_jacobian": 0.9999999999999993,
+        "nonpositive_deformation_jacobian_count": 0
+      }
+    },
+    {
+      "geometry_id": "geom_c45d80174af16be5c949",
+      "passed": true,
+      "surface": {
+        "valid": true,
+        "vertex_count": 209253,
+        "face_count": 418630,
+        "finite_vertices": true,
+        "valid_indices": true,
+        "degenerate_face_count": 0,
+        "nonzero_extent_axes": 3
+      },
+      "finite_element": {
+        "construction_success": true,
+        "node_count": 256,
+        "tetrahedron_count": 882,
+        "finite_nodes": true,
+        "degenerate_tetrahedron_count": 0,
+        "mixed_orientation": true,
+        "minimum_normalized_rest_jacobian": 0.3916950212525592,
+        "rest_jacobian_positive_magnitude": true,
+        "minimum_deformation_jacobian": 0.9999999999999993,
+        "nonpositive_deformation_jacobian_count": 0
+      }
+    },
+    {
+      "geometry_id": "geom_4a28ee0fdb392694f551",
+      "passed": true,
+      "surface": {
+        "valid": true,
+        "vertex_count": 67385,
+        "face_count": 134914,
+        "finite_vertices": true,
+        "valid_indices": true,
+        "degenerate_face_count": 0,
+        "nonzero_extent_axes": 3
+      },
+      "finite_element": {
+        "construction_success": true,
+        "node_count": 256,
+        "tetrahedron_count": 882,
+        "finite_nodes": true,
+        "degenerate_tetrahedron_count": 0,
+        "mixed_orientation": true,
+        "minimum_normalized_rest_jacobian": 0.37162954237249207,
+        "rest_jacobian_positive_magnitude": true,
+        "minimum_deformation_jacobian": 0.9999999999999993,
+        "nonpositive_deformation_jacobian_count": 0
+      }
+    },
+    {
+      "geometry_id": "geom_1fd11f1511a5d5db1c30",
+      "passed": true,
+      "surface": {
+        "valid": true,
+        "vertex_count": 69975,
+        "face_count": 140270,
+        "finite_vertices": true,
+        "valid_indices": true,
+        "degenerate_face_count": 0,
+        "nonzero_extent_axes": 3
+      },
+      "finite_element": {
+        "construction_success": true,
+        "node_count": 256,
+        "tetrahedron_count": 882,
+        "finite_nodes": true,
+        "degenerate_tetrahedron_count": 0,
+        "mixed_orientation": true,
+        "minimum_normalized_rest_jacobian": 0.4247219324900143,
+        "rest_jacobian_positive_magnitude": true,
+        "minimum_deformation_jacobian": 0.9999999999999992,
+        "nonpositive_deformation_jacobian_count": 0
+      }
+    },
+    {
+      "geometry_id": "geom_16d7b575eb21c6be3a32",
+      "passed": true,
+      "surface": {
+        "valid": true,
+        "vertex_count": 57581,
+        "face_count": 115290,
+        "finite_vertices": true,
+        "valid_indices": true,
+        "degenerate_face_count": 0,
+        "nonzero_extent_axes": 3
+      },
+      "finite_element": {
+        "construction_success": true,
+        "node_count": 256,
+        "tetrahedron_count": 882,
+        "finite_nodes": true,
+        "degenerate_tetrahedron_count": 0,
+        "mixed_orientation": true,
+        "minimum_normalized_rest_jacobian": 0.3883234957187886,
+        "rest_jacobian_positive_magnitude": true,
+        "minimum_deformation_jacobian": 0.9999999999999994,
+        "nonpositive_deformation_jacobian_count": 0
+      }
+    },
+    {
+      "geometry_id": "geom_40dfead03c83371b4f69",
+      "passed": true,
+      "surface": {
+        "valid": true,
+        "vertex_count": 57529,
+        "face_count": 115238,
+        "finite_vertices": true,
+        "valid_indices": true,
+        "degenerate_face_count": 0,
+        "nonzero_extent_axes": 3
+      },
+      "finite_element": {
+        "construction_success": true,
+        "node_count": 256,
+        "tetrahedron_count": 882,
+        "finite_nodes": true,
+        "degenerate_tetrahedron_count": 0,
+        "mixed_orientation": true,
+        "minimum_normalized_rest_jacobian": 0.37587743198650786,
+        "rest_jacobian_positive_magnitude": true,
+        "minimum_deformation_jacobian": 0.9999999999999994,
+        "nonpositive_deformation_jacobian_count": 0
+      }
+    },
+    {
+      "geometry_id": "geom_4321788df5aa62e8484b",
+      "passed": true,
+      "surface": {
+        "valid": true,
+        "vertex_count": 63567,
+        "face_count": 127390,
+        "finite_vertices": true,
+        "valid_indices": true,
+        "degenerate_face_count": 0,
+        "nonzero_extent_axes": 3
+      },
+      "finite_element": {
+        "construction_success": true,
+        "node_count": 256,
+        "tetrahedron_count": 882,
+        "finite_nodes": true,
+        "degenerate_tetrahedron_count": 0,
+        "mixed_orientation": true,
+        "minimum_normalized_rest_jacobian": 0.40380509310103296,
+        "rest_jacobian_positive_magnitude": true,
+        "minimum_deformation_jacobian": 0.9999999999999993,
+        "nonpositive_deformation_jacobian_count": 0
+      }
+    },
+    {
+      "geometry_id": "geom_fbba1dfbf564184c0b18",
+      "passed": true,
+      "surface": {
+        "valid": true,
+        "vertex_count": 231974,
+        "face_count": 464828,
+        "finite_vertices": true,
+        "valid_indices": true,
+        "degenerate_face_count": 0,
+        "nonzero_extent_axes": 3
+      },
+      "finite_element": {
+        "construction_success": true,
+        "node_count": 256,
+        "tetrahedron_count": 882,
+        "finite_nodes": true,
+        "degenerate_tetrahedron_count": 0,
+        "mixed_orientation": true,
+        "minimum_normalized_rest_jacobian": 0.4094799846621329,
+        "rest_jacobian_positive_magnitude": true,
+        "minimum_deformation_jacobian": 0.9999999999999993,
+        "nonpositive_deformation_jacobian_count": 0
+      }
+    },
+    {
+      "geometry_id": "geom_03024386f1bfde4e97a1",
+      "passed": true,
+      "surface": {
+        "valid": true,
+        "vertex_count": 85219,
+        "face_count": 170642,
+        "finite_vertices": true,
+        "valid_indices": true,
+        "degenerate_face_count": 0,
+        "nonzero_extent_axes": 3
+      },
+      "finite_element": {
+        "construction_success": true,
+        "node_count": 256,
+        "tetrahedron_count": 882,
+        "finite_nodes": true,
+        "degenerate_tetrahedron_count": 0,
+        "mixed_orientation": true,
+        "minimum_normalized_rest_jacobian": 0.417473569702778,
+        "rest_jacobian_positive_magnitude": true,
+        "minimum_deformation_jacobian": 0.9999999999999994,
+        "nonpositive_deformation_jacobian_count": 0
+      }
+    },
+    {
+      "geometry_id": "geom_db38a9c3817f033727b5",
+      "passed": true,
+      "surface": {
+        "valid": true,
+        "vertex_count": 145864,
+        "face_count": 291800,
+        "finite_vertices": true,
+        "valid_indices": true,
+        "degenerate_face_count": 0,
+        "nonzero_extent_axes": 3
+      },
+      "finite_element": {
+        "construction_success": true,
+        "node_count": 256,
+        "tetrahedron_count": 882,
+        "finite_nodes": true,
+        "degenerate_tetrahedron_count": 0,
+        "mixed_orientation": true,
+        "minimum_normalized_rest_jacobian": 0.37354670450713073,
+        "rest_jacobian_positive_magnitude": true,
+        "minimum_deformation_jacobian": 0.9999999999999994,
+        "nonpositive_deformation_jacobian_count": 0
+      }
+    },
+    {
+      "geometry_id": "geom_b916af738e01f23cb936",
+      "passed": true,
+      "surface": {
+        "valid": true,
+        "vertex_count": 68021,
+        "face_count": 136122,
+        "finite_vertices": true,
+        "valid_indices": true,
+        "degenerate_face_count": 0,
+        "nonzero_extent_axes": 3
+      },
+      "finite_element": {
+        "construction_success": true,
+        "node_count": 256,
+        "tetrahedron_count": 882,
+        "finite_nodes": true,
+        "degenerate_tetrahedron_count": 0,
+        "mixed_orientation": true,
+        "minimum_normalized_rest_jacobian": 0.4095652939054469,
+        "rest_jacobian_positive_magnitude": true,
+        "minimum_deformation_jacobian": 0.9999999999999991,
+        "nonpositive_deformation_jacobian_count": 0
+      }
+    },
+    {
+      "geometry_id": "geom_a417d13e9ae27d685557",
+      "passed": true,
+      "surface": {
+        "valid": true,
+        "vertex_count": 73498,
+        "face_count": 147180,
+        "finite_vertices": true,
+        "valid_indices": true,
+        "degenerate_face_count": 0,
+        "nonzero_extent_axes": 3
+      },
+      "finite_element": {
+        "construction_success": true,
+        "node_count": 256,
+        "tetrahedron_count": 882,
+        "finite_nodes": true,
+        "degenerate_tetrahedron_count": 0,
+        "mixed_orientation": true,
+        "minimum_normalized_rest_jacobian": 0.4106253587849528,
+        "rest_jacobian_positive_magnitude": true,
+        "minimum_deformation_jacobian": 0.9999999999999994,
+        "nonpositive_deformation_jacobian_count": 0
+      }
+    },
+    {
+      "geometry_id": "geom_d9b84925e4f0f3b2ee70",
+      "passed": true,
+      "surface": {
+        "valid": true,
+        "vertex_count": 187137,
+        "face_count": 374434,
+        "finite_vertices": true,
+        "valid_indices": true,
+        "degenerate_face_count": 0,
+        "nonzero_extent_axes": 3
+      },
+      "finite_element": {
+        "construction_success": true,
+        "node_count": 256,
+        "tetrahedron_count": 882,
+        "finite_nodes": true,
+        "degenerate_tetrahedron_count": 0,
+        "mixed_orientation": true,
+        "minimum_normalized_rest_jacobian": 0.4105595927912253,
+        "rest_jacobian_positive_magnitude": true,
+        "minimum_deformation_jacobian": 0.9999999999999994,
+        "nonpositive_deformation_jacobian_count": 0
+      }
+    },
+    {
+      "geometry_id": "geom_dd1d30e9968e340055a2",
+      "passed": true,
+      "surface": {
+        "valid": true,
+        "vertex_count": 249319,
+        "face_count": 499274,
+        "finite_vertices": true,
+        "valid_indices": true,
+        "degenerate_face_count": 0,
+        "nonzero_extent_axes": 3
+      },
+      "finite_element": {
+        "construction_success": true,
+        "node_count": 256,
+        "tetrahedron_count": 882,
+        "finite_nodes": true,
+        "degenerate_tetrahedron_count": 0,
+        "mixed_orientation": true,
+        "minimum_normalized_rest_jacobian": 0.40863278489554444,
+        "rest_jacobian_positive_magnitude": true,
+        "minimum_deformation_jacobian": 0.9999999999999994,
+        "nonpositive_deformation_jacobian_count": 0
+      }
+    },
+    {
+      "geometry_id": "geom_955e8309dafc61ab6034",
+      "passed": true,
+      "surface": {
+        "valid": true,
+        "vertex_count": 62045,
+        "face_count": 124218,
+        "finite_vertices": true,
+        "valid_indices": true,
+        "degenerate_face_count": 0,
+        "nonzero_extent_axes": 3
+      },
+      "finite_element": {
+        "construction_success": true,
+        "node_count": 256,
+        "tetrahedron_count": 882,
+        "finite_nodes": true,
+        "degenerate_tetrahedron_count": 0,
+        "mixed_orientation": true,
+        "minimum_normalized_rest_jacobian": 0.40067781815450665,
+        "rest_jacobian_positive_magnitude": true,
+        "minimum_deformation_jacobian": 0.9999999999999996,
+        "nonpositive_deformation_jacobian_count": 0
+      }
+    },
+    {
+      "geometry_id": "geom_db8344e3ed905d9505f7",
+      "passed": true,
+      "surface": {
+        "valid": true,
+        "vertex_count": 191795,
+        "face_count": 383930,
+        "finite_vertices": true,
+        "valid_indices": true,
+        "degenerate_face_count": 0,
+        "nonzero_extent_axes": 3
+      },
+      "finite_element": {
+        "construction_success": true,
+        "node_count": 256,
+        "tetrahedron_count": 882,
+        "finite_nodes": true,
+        "degenerate_tetrahedron_count": 0,
+        "mixed_orientation": true,
+        "minimum_normalized_rest_jacobian": 0.39254936262440104,
+        "rest_jacobian_positive_magnitude": true,
+        "minimum_deformation_jacobian": 0.9999999999999994,
+        "nonpositive_deformation_jacobian_count": 0
+      }
+    },
+    {
+      "geometry_id": "geom_e6a4978ad30c1171231c",
+      "passed": true,
+      "surface": {
+        "valid": true,
+        "vertex_count": 64083,
+        "face_count": 128234,
+        "finite_vertices": true,
+        "valid_indices": true,
+        "degenerate_face_count": 0,
+        "nonzero_extent_axes": 3
+      },
+      "finite_element": {
+        "construction_success": true,
+        "node_count": 256,
+        "tetrahedron_count": 882,
+        "finite_nodes": true,
+        "degenerate_tetrahedron_count": 0,
+        "mixed_orientation": true,
+        "minimum_normalized_rest_jacobian": 0.41650032847834645,
+        "rest_jacobian_positive_magnitude": true,
+        "minimum_deformation_jacobian": 0.9999999999999994,
+        "nonpositive_deformation_jacobian_count": 0
+      }
+    },
+    {
+      "geometry_id": "geom_16cb9f3ab9be38cc56e9",
+      "passed": true,
+      "surface": {
+        "valid": true,
+        "vertex_count": 227827,
+        "face_count": 455786,
+        "finite_vertices": true,
+        "valid_indices": true,
+        "degenerate_face_count": 0,
+        "nonzero_extent_axes": 3
+      },
+      "finite_element": {
+        "construction_success": true,
+        "node_count": 256,
+        "tetrahedron_count": 882,
+        "finite_nodes": true,
+        "degenerate_tetrahedron_count": 0,
+        "mixed_orientation": true,
+        "minimum_normalized_rest_jacobian": 0.42433471594894895,
+        "rest_jacobian_positive_magnitude": true,
+        "minimum_deformation_jacobian": 0.9999999999999993,
+        "nonpositive_deformation_jacobian_count": 0
+      }
+    }
+  ],
+  "privacy": {
+    "raw_paths_persisted": false,
+    "source_identifiers_persisted": false,
+    "dicom_identifiers_persisted": false
+  }
+}

@@ -27,7 +27,7 @@ from lung_inverse_rendering.generate_sim_lung_v2 import (  # noqa: E402
 
 DEFAULT_MESH_DIR = ROOT / "results" / "ion_geometry_ood" / "deidentified_meshes"
 DEFAULT_OUT = ROOT / "dataset" / "ion_ct_synthetic_mechanics"
-SCHEMA_VERSION = "sim_lung_v2_ion_ct_synthetic_mechanics_v1"
+SCHEMA_VERSION = "sim_lung_v2_ion_ct_synthetic_mechanics_v2"
 
 
 def discover_geometry_meshes(mesh_dir: Path, geometry_limit: int | None = None) -> list[Path]:
@@ -47,6 +47,7 @@ def scenario_spec(
     scenario_count: int,
     *,
     geometry_id: str,
+    split: str = "test",
 ) -> dict[str, Any]:
     """Create a synthetic material/mechanics scenario with an opaque public ID."""
     if scenario_index < 0 or scenario_index >= scenario_count:
@@ -61,7 +62,7 @@ def scenario_spec(
             "scenario_id": f"scenario_{scenario_index:03d}",
             "scenario_template_index": scenario_index,
             "patient_id": f"{geometry_id}_scenario_{scenario_index:03d}",
-            "split": "test",
+            "split": split,
             "geometry_id": geometry_id,
             "geometry_source": "deidentified_ct_mesh",
             "material_source": "synthetic",
@@ -79,6 +80,7 @@ def generation_config(
     motion_noise_std: float,
     save_images: bool,
     force_prior_fraction: float,
+    geometry_splits: dict[str, str] | None = None,
 ) -> dict[str, Any]:
     return {
         "geometry_count": len(geometry_ids),
@@ -93,6 +95,8 @@ def generation_config(
         "frame_count": len(LOAD_ENVELOPE),
         "force_prior_fraction": force_prior_fraction,
         "base_protocol": MULTIVIEW_SCHEMA_VERSION,
+        "geometry_splits": geometry_splits
+        or {geometry_id: "test" for geometry_id in geometry_ids},
     }
 
 
@@ -110,7 +114,11 @@ def manifest_payload(
         "experiment_count": sum(len(row["experiments"]) for row in patients),
         "patient_level_split": True,
         "generation_config": config,
-        "geometry_split": "test",
+        "geometry_split": (
+            "test"
+            if set(config["geometry_splits"].values()) == {"test"}
+            else "patient_level_train_val_test"
+        ),
         "material_source": "synthetic",
         "mechanics_source": "synthetic",
         "known_inputs": [
@@ -157,6 +165,21 @@ def generate_dataset(args: argparse.Namespace) -> None:
 
     mesh_paths = discover_geometry_meshes(args.mesh_dir, args.geometry_limit)
     geometry_ids = [path.stem for path in mesh_paths]
+    split_manifest_path = getattr(args, "geometry_split_manifest", None)
+    if split_manifest_path is None:
+        geometry_splits = {geometry_id: "test" for geometry_id in geometry_ids}
+    else:
+        split_payload = json.loads(Path(split_manifest_path).read_text(encoding="utf-8"))
+        geometry_splits = {
+            str(key): str(value)
+            for key, value in split_payload["assignments"].items()
+        }
+        if set(geometry_splits) != set(geometry_ids):
+            raise ValueError(
+                "Geometry split assignments must exactly match discovered meshes"
+            )
+        if not set(geometry_splits.values()) <= {"train", "val", "test"}:
+            raise ValueError("Geometry split contains an unsupported role")
     total_scenarios = len(mesh_paths) * args.scenarios_per_geometry
     scenario_end = total_scenarios if args.scenario_end is None else args.scenario_end
     if not 0 <= args.scenario_start < scenario_end <= total_scenarios:
@@ -171,6 +194,7 @@ def generate_dataset(args: argparse.Namespace) -> None:
         motion_noise_std=args.motion_noise_std,
         save_images=not args.no_images,
         force_prior_fraction=args.force_prior_fraction,
+        geometry_splits=geometry_splits,
     )
     args.out.mkdir(parents=True, exist_ok=True)
     manifest_path = args.out / "manifest.json"
@@ -211,6 +235,7 @@ def generate_dataset(args: argparse.Namespace) -> None:
                 scenario_index,
                 args.scenarios_per_geometry,
                 geometry_id=geometry_id,
+                split=geometry_splits[geometry_id],
             )
             scenario_id = spec["patient_id"]
             existing_row = rows.get(scenario_id)
@@ -261,7 +286,8 @@ def generate_dataset(args: argparse.Namespace) -> None:
                 config=config,
             )
             print(
-                f"{scenario_id} geometry={geometry_index:02d} split=test "
+                f"{scenario_id} geometry={geometry_index:02d} "
+                f"split={geometry_splits[geometry_id]} "
                 f"experiments={len(experiments)}",
                 flush=True,
             )
@@ -272,6 +298,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--mesh-dir", type=Path, default=DEFAULT_MESH_DIR)
     parser.add_argument("--out", type=Path, default=DEFAULT_OUT)
     parser.add_argument("--geometry-limit", type=int)
+    parser.add_argument("--geometry-split-manifest", type=Path)
     parser.add_argument("--scenarios-per-geometry", type=int, default=20)
     parser.add_argument("--scenario-start", type=int, default=0)
     parser.add_argument("--scenario-end", type=int)

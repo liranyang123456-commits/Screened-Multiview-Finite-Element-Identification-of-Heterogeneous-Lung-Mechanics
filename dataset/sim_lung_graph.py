@@ -63,6 +63,7 @@ class SimLungGraphDataset(Dataset):
         no_confidence: bool = False,
         peak_only: bool = False,
         sequence_length: int = 7,
+        cache_graphs: bool = False,
     ) -> None:
         self.root = Path(root)
         manifest_path = self.root if self.root.is_file() else self.root / "manifest.json"
@@ -85,6 +86,8 @@ class SimLungGraphDataset(Dataset):
         self.no_confidence = no_confidence
         self.peak_only = peak_only
         self.sequence_length = sequence_length
+        self.cache_graphs = cache_graphs
+        self._graph_cache: dict[int, dict[str, Any]] = {}
         patients = self.manifest.get("patients", [])
         self.patients = [
             patient for patient in patients if split is None or patient.get("split") == split
@@ -233,6 +236,8 @@ class SimLungGraphDataset(Dataset):
         return dynamic.permute(1, 0, 2, 3).contiguous(), indices
 
     def __getitem__(self, index: int) -> dict[str, Any]:
+        if index in self._graph_cache:
+            return self._graph_cache[index]
         patient = self.patients[index]
         experiment_rows = patient.get("experiments", [])
         if self.experiments_limit is not None:
@@ -409,7 +414,7 @@ class SimLungGraphDataset(Dataset):
             torch.stack(dynamic_rows).to(torch.float32) if dynamic_rows else None
         )
         x = static_x if dynamic_seq is not None else torch.cat(features, dim=1).to(torch.float32)
-        return {
+        graph = {
             "patient_id": patient["patient_id"],
             "split": patient.get("split"),
             "x": x,
@@ -455,6 +460,9 @@ class SimLungGraphDataset(Dataset):
                 ),
             },
         }
+        if self.cache_graphs:
+            self._graph_cache[index] = graph
+        return graph
 
 
 # Backwards-friendly concise name.

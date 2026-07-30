@@ -17,8 +17,9 @@ retains the prior or performs bounded physical refinement.
 
 ## Limitations
 
-The primary model is accurate on the programmatic synthetic distribution but
-does not transfer reliably to the three CT-derived geometries. Measured-force
-FEM recovers global background stiffness on those synthetic-mechanics scenes,
-while material partition and contrast remain unresolved. These limitations are
-part of the frozen evidence rather than omitted failure cases.
+The primary model is accurate on the procedural synthetic distribution. After
+independent-geometry training, the expanded 27-geometry cohort meets
+background, center, and radius criteria on six held-out geometries, while
+inclusion-ratio error remains above criterion. Measured-force FEM improves
+global stiffness but not material contrast. These limitations are part of the
+frozen evidence rather than omitted failure cases.

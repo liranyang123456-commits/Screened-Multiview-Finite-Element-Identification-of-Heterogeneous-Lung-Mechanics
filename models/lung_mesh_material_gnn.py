@@ -306,11 +306,12 @@ class MeshMaterialGNN(nn.Module):
     ) -> dict[str, torch.Tensor]:
         if x.ndim != 2 or x.shape[1] != self.input_dim:
             raise ValueError(f"x must have shape (nodes, {self.input_dim})")
-        h = self.encoder(x.to(torch.float32))
+        model_dtype = self.encoder[0].weight.dtype
+        h = self.encoder(x.to(dtype=model_dtype))
         if dynamic_seq is not None:
             if self.temporal_encoder is None:
                 raise ValueError("Model was not configured with dynamic_dim")
-            h = h + self.temporal_encoder(dynamic_seq.to(torch.float32))
+            h = h + self.temporal_encoder(dynamic_seq.to(dtype=model_dtype))
         for layer in self.layers:
             h = self.dropout(layer(h, edge_index))
         pooled = self.pool_projection(torch.cat((h.mean(dim=0), h.amax(dim=0)))).unsqueeze(0)
@@ -327,6 +328,7 @@ class MeshMaterialGNN(nn.Module):
         output["node_sdf_logvar"] = _bounded(sdf_raw[:, 1], *LOGVAR_BOUNDS)
         output["partition_logits"] = self.partition_head(h).squeeze(-1)
         if pos is not None:
+            pos = pos.to(dtype=h.dtype)
             center_global = output["center_fraction_mean"].squeeze(0)
             radius_global = output["radius_fraction_mean"].squeeze()
             distance_global = torch.linalg.vector_norm(
@@ -455,7 +457,7 @@ class GlobalFeatureMLP(nn.Module):
     def _forward_one(self, x: torch.Tensor) -> dict[str, torch.Tensor]:
         if x.ndim != 2 or x.shape[1] != self.input_dim:
             raise ValueError(f"x must have shape (nodes, {self.input_dim})")
-        h = self.node_encoder(x.to(torch.float32))
+        h = self.node_encoder(x.to(dtype=self.node_encoder[0].weight.dtype))
         pooled = self.pool_projection(torch.cat((h.mean(dim=0), h.amax(dim=0)))).unsqueeze(0)
         output = self.material_heads(pooled)
         node_raw = self.node_head(h)

@@ -10,16 +10,21 @@ import argparse
 import json
 import os
 import random
+import sys
 import zipfile
 from collections import Counter
 from pathlib import Path
 
 import cv2
-import pydicom
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
+from lung_inverse_rendering.ion_dicom_sources import scan_case_dicoms  # noqa: E402
 
 
 DEFAULT_ROOT = Path(r"external_data/ion_ct")
-OUTPUT = Path(__file__).resolve().parents[1] / "results" / "ion_audit"
+OUTPUT = ROOT / "results" / "ion_audit"
 VIDEO_EXTENSIONS = {".mp4", ".avi", ".mov", ".mkv", ".wmv", ".flv"}
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".bmp", ".tif", ".tiff"}
 DICOM_EXTENSIONS = {".dcm", ".ima"}
@@ -35,45 +40,6 @@ def looks_like_dicom(path: Path) -> bool:
             return stream.read(4) == b"DICM"
     except OSError:
         return False
-
-
-def dicom_summary(paths: list[Path], limit: int) -> dict[str, object]:
-    """Extract non-identifying modality and geometry metadata from a sample."""
-    modalities: Counter[str] = Counter()
-    series_descriptions: Counter[str] = Counter()
-    samples = 0
-    for path in paths[:limit]:
-        try:
-            ds = pydicom.dcmread(
-                path,
-                stop_before_pixels=True,
-                specific_tags=[
-                    "Modality",
-                    "Rows",
-                    "Columns",
-                    "NumberOfFrames",
-                    "SeriesDescription",
-                ],
-            )
-        except Exception:
-            continue
-        samples += 1
-        modalities[str(getattr(ds, "Modality", "unknown"))] += 1
-        # This is used only as a modality/series-type inventory, never stored
-        # verbatim because free-text descriptions can contain identifiers.
-        description = str(getattr(ds, "SeriesDescription", "")).lower()
-        if "pet" in description:
-            series_descriptions["contains_pet"] += 1
-        elif "ct" in description:
-            series_descriptions["contains_ct"] += 1
-        elif description:
-            series_descriptions["other_nonempty_description"] += 1
-    return {
-        "candidate_files": len(paths),
-        "headers_read": samples,
-        "modalities": dict(sorted(modalities.items())),
-        "series_description_categories": dict(sorted(series_descriptions.items())),
-    }
 
 
 def video_summary(paths: list[Path]) -> dict[str, object]:
@@ -133,8 +99,8 @@ def audit_case(case_dir: Path, case_id: str, dicom_limit: int) -> dict[str, obje
     categories = {path.parts[len(case_dir.parts)] for path in files if len(path.parts) > len(case_dir.parts)}
     video_files = [path for path in files if path.suffix.lower() in VIDEO_EXTENSIONS]
     image_files = [path for path in files if path.suffix.lower() in IMAGE_EXTENSIONS]
-    dicom_files = [path for path in files if looks_like_dicom(path)]
     archive_files = [path for path in files if path.suffix.lower() == ".zip"]
+    dicom_inventory = scan_case_dicoms(case_dir)
     category_tokens = " ".join(categories)
     return {
         "case_id": case_id,
@@ -149,7 +115,21 @@ def audit_case(case_dir: Path, case_id: str, dicom_limit: int) -> dict[str, obje
         "images": {"count": len(image_files)},
         "videos": video_summary(video_files),
         "archives": archive_summary(archive_files),
-        "dicom": dicom_summary(dicom_files, dicom_limit),
+        "dicom": {
+            "candidate_files": dicom_inventory.candidate_object_count,
+            "headers_read": dicom_inventory.candidate_object_count,
+            "modalities": dicom_inventory.modality_counts,
+            "ct_object_count": dicom_inventory.ct_object_count,
+            "ct_unique_object_count": dicom_inventory.ct_unique_object_count,
+            "ct_series_count": len(dicom_inventory.ct_series),
+            "largest_ct_series_size": (
+                len(dicom_inventory.ct_series[0])
+                if dicom_inventory.ct_series
+                else 0
+            ),
+            "unreadable_archive_count": dicom_inventory.unreadable_archive_count,
+            "unreadable_member_count": dicom_inventory.unreadable_member_count,
+        },
     }
 
 
@@ -223,6 +203,9 @@ def main() -> None:
         f"- Patients: {len(cases)}",
         f"- Cases with directly readable video: {sum(case['videos']['count'] > 0 for case in cases)}",
         f"- Cases with video archived in ZIP: {sum(case['archives']['archives_with_video_member'] > 0 for case in cases)}",
+        f"- Cases with readable CT: {sum(case['dicom']['ct_unique_object_count'] > 0 for case in cases)}",
+        f"- Cases with a CT series of at least 100 unique slices: "
+        f"{sum(case['dicom']['largest_ct_series_size'] >= 100 for case in cases)}",
         f"- Cases with pathology directory: {sum(case['has_pathology_category'] for case in cases)}",
         f"- Cases with planning screenshots: {sum(case['has_planning_screenshot_category'] for case in cases)}",
     ]

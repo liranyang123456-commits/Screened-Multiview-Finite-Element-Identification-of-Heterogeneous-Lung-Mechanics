@@ -9,9 +9,11 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import os
 import subprocess
 import sys
 from collections import defaultdict
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Any, Iterable, Sequence
 
@@ -35,7 +37,7 @@ from experiments.train_lung_response_calibrator import features  # noqa: E402
 
 
 SEED = 2026
-EXPECTED_GEOMETRY_CLUSTERS = 3
+MINIMUM_GEOMETRY_CLUSTERS = 3
 METRICS = (
     "E_background_relative_error",
     "inclusion_ratio_relative_error",
@@ -61,9 +63,11 @@ COMMON_INPUT_METHODS = {
 SECONDARY_METHODS = {
     "training_population",
     "mesh_gnn",
+    "ours_hybrid_initializer",
     "fem_fixed_init",
     "fem_deterministic_multistart",
     "fem_learned_screened_map",
+    "ours_ood_screened_fem",
 }
 ORACLE_METHODS = {"fem_oracle_region_force"}
 DEFAULT_TRAIN = ROOT / "dataset" / "sim_lung_ai_v2_multiview250"
@@ -93,7 +97,10 @@ def entry_identity(row: dict[str, Any]) -> tuple[str, str, str]:
     return geometry_id, scenario_id, f"{geometry_id}/{scenario_id}"
 
 
-def normalized_external_manifest(root: Path) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+def normalized_external_manifest(
+    root: Path,
+    scenarios_per_geometry: int | None = None,
+) -> tuple[dict[str, Any], list[dict[str, Any]]]:
     """Normalize geometry/scenario entries in memory to the sim_lung v2 loader."""
     manifest_path = root if root.is_file() else root / "manifest.json"
     payload = json.loads(manifest_path.read_text(encoding="utf-8"))
@@ -107,16 +114,18 @@ def normalized_external_manifest(root: Path) -> tuple[dict[str, Any], list[dict[
     seen: set[tuple[str, str]] = set()
     for source in source_rows:
         row = dict(source)
+        declared_split = str(row.get("split", "external_test"))
+        if declared_split in {"train", "val"}:
+            continue
+        if declared_split not in {"test", "external_test", "external"}:
+            raise ValueError(
+                f"External entry has forbidden split {declared_split!r}"
+            )
         geometry_id, scenario_id, patient_id = entry_identity(row)
         key = (geometry_id, scenario_id)
         if key in seen:
             raise ValueError(f"Duplicate external entry: {geometry_id}/{scenario_id}")
         seen.add(key)
-        declared_split = str(row.get("split", "external_test"))
-        if declared_split not in {"test", "external_test", "external"}:
-            raise ValueError(
-                f"External entry {patient_id} has forbidden split {declared_split!r}"
-            )
         row.update(
             patient_id=patient_id,
             split="test",
@@ -125,16 +134,38 @@ def normalized_external_manifest(root: Path) -> tuple[dict[str, Any], list[dict[
         )
         normalized.append(row)
     geometries = sorted({row["geometry_id"] for row in normalized})
-    if len(geometries) != EXPECTED_GEOMETRY_CLUSTERS:
+    if len(geometries) < MINIMUM_GEOMETRY_CLUSTERS:
         raise ValueError(
-            f"Expected exactly {EXPECTED_GEOMETRY_CLUSTERS} geometry clusters, "
+            f"Expected at least {MINIMUM_GEOMETRY_CLUSTERS} geometry clusters, "
             f"found {len(geometries)}: {geometries}"
         )
+    if scenarios_per_geometry is not None:
+        if scenarios_per_geometry <= 0:
+            raise ValueError("scenarios_per_geometry must be positive")
+        limited = []
+        for geometry_id in geometries:
+            rows = sorted(
+                (
+                    row
+                    for row in normalized
+                    if row["geometry_id"] == geometry_id
+                ),
+                key=lambda row: row["scenario_id"],
+            )
+            if len(rows) < scenarios_per_geometry:
+                raise ValueError(
+                    f"{geometry_id} has fewer than the requested test scenarios"
+                )
+            limited.extend(rows[:scenarios_per_geometry])
+        normalized = limited
     return payload, normalized
 
 
-def external_dataset(root: Path) -> SimLungGraphDataset:
-    payload, rows = normalized_external_manifest(root)
+def external_dataset(
+    root: Path,
+    scenarios_per_geometry: int | None = None,
+) -> SimLungGraphDataset:
+    payload, rows = normalized_external_manifest(root, scenarios_per_geometry)
     dataset = SimLungGraphDataset(root, split=None)
     dataset.manifest = {**payload, "patients": rows}
     dataset.patients = rows
@@ -211,7 +242,7 @@ def fit_or_load_baselines(
 ) -> dict[str, Any]:
     if artifact_path.exists() and not force_refit:
         artifact = joblib.load(artifact_path)
-        if artifact.get("schema_version") != 2:
+        if artifact.get("schema_version") != 4:
             raise ValueError("Unsupported baseline artifact schema")
         return artifact
     X, target, heterogeneous = train
@@ -220,6 +251,21 @@ def fit_or_load_baselines(
     X_model = np.clip(X, feature_lower, feature_upper)
     target_lower = np.min(target, axis=0)
     target_upper = np.max(target, axis=0)
+    support_scale = np.maximum.reduce(
+        (
+            feature_upper - feature_lower,
+            3.0 * np.std(X, axis=0),
+            np.full(X.shape[1], 1e-4),
+        )
+    )
+    train_excess = np.maximum(
+        np.maximum(feature_lower - X, X - feature_upper),
+        0.0,
+    ) / support_scale
+    train_ood_scores = (
+        np.mean(train_excess, axis=1)
+        + np.mean(train_excess > 0.0, axis=1)
+    )
     models: dict[str, Any] = {}
     selection: dict[str, Any] = {}
     for family, candidates in family_candidates().items():
@@ -237,7 +283,7 @@ def fit_or_load_baselines(
             "radius_cv": radius_board,
         }
     artifact = {
-        "schema_version": 2,
+        "schema_version": 4,
         "seed": SEED,
         "training_policy": "frozen synthetic train split only; five-fold train-only CV",
         "feature_definition": "visible_flow_temporal_mean_and_max",
@@ -247,9 +293,14 @@ def fit_or_load_baselines(
             "feature_quantiles": [0.005, 0.995],
             "feature_lower": feature_lower,
             "feature_upper": feature_upper,
+            "feature_support_scale": support_scale,
             "target_lower": target_lower,
             "target_upper": target_upper,
             "external_labels_used": False,
+            "ood_score_threshold": float(
+                max(np.quantile(train_ood_scores, 0.95), 1e-8)
+            ),
+            "ood_threshold_selection": "train-only 95th percentile",
         },
     }
     artifact_path.parent.mkdir(parents=True, exist_ok=True)
@@ -261,6 +312,21 @@ def guarded_features(X: np.ndarray, artifact: dict[str, Any]) -> np.ndarray:
     """Clip external features to train-only empirical support."""
     guard = artifact["train_support_guard"]
     return np.clip(X, guard["feature_lower"], guard["feature_upper"])
+
+
+def feature_ood_scores(X: np.ndarray, artifact: dict[str, Any]) -> np.ndarray:
+    """Compute train-support exceedance without using external labels."""
+    guard = artifact["train_support_guard"]
+    lower = np.asarray(guard["feature_lower"])
+    upper = np.asarray(guard["feature_upper"])
+    scale = np.asarray(
+        guard.get(
+            "feature_support_scale",
+            np.maximum(upper - lower, 1e-4),
+        )
+    )
+    excess = np.maximum(np.maximum(lower - X, X - upper), 0.0) / scale
+    return np.mean(excess, axis=1) + np.mean(excess > 0.0, axis=1)
 
 
 def guarded_prediction(
@@ -396,10 +462,15 @@ def attach_physics_regions(records: Sequence[dict[str, Any]]) -> None:
     pca = {
         row["entry_id"]: row for row in records if row["method"] == "pca_ridge"
     }
+    hybrid = {
+        row["entry_id"]: row
+        for row in records
+        if row["method"] == "ours_hybrid_initializer"
+    }
     for row in records:
         if not str(row["method"]).startswith("fem_"):
             continue
-        reference = pca.get(row["entry_id"])
+        reference = hybrid.get(row["entry_id"], pca.get(row["entry_id"]))
         if reference is None:
             continue
         oracle = row["method"] == "fem_oracle_region_force"
@@ -444,6 +515,7 @@ def geometry_cluster_bootstrap(
     *,
     seed: int = SEED,
     replicates: int = 5000,
+    expected_cluster_count: int = 3,
 ) -> dict[str, Any]:
     """Bootstrap geometry clusters, preserving all scenarios in each draw."""
     by_geometry: dict[str, list[float]] = defaultdict(list)
@@ -452,11 +524,11 @@ def geometry_cluster_bootstrap(
         if value is not None and np.isfinite(value):
             by_geometry[row["geometry_id"]].append(float(value))
     geometry_ids = sorted(by_geometry)
-    if len(geometry_ids) != EXPECTED_GEOMETRY_CLUSTERS:
+    if len(geometry_ids) != expected_cluster_count:
         return {
             "available": False,
             "reason": "metric_not_defined_in_all_geometry_clusters",
-            "expected_cluster_count": EXPECTED_GEOMETRY_CLUSTERS,
+            "expected_cluster_count": expected_cluster_count,
             "observed_cluster_count": len(geometry_ids),
         }
     rng = np.random.default_rng(seed)
@@ -468,7 +540,7 @@ def geometry_cluster_bootstrap(
     return {
         "estimand": "scenario-level median with geometry-cluster resampling",
         "cluster_variable": "geometry_id",
-        "cluster_count": EXPECTED_GEOMETRY_CLUSTERS,
+        "cluster_count": expected_cluster_count,
         "replicates": replicates,
         "median": float(np.median(metric_values(records, metric))),
         "bootstrap_95_ci": np.quantile(draws, (0.025, 0.975)).tolist(),
@@ -516,6 +588,9 @@ def method_summary(
                         metric,
                         seed=SEED + metric_index,
                         replicates=replicates,
+                        expected_cluster_count=len(
+                            {row["geometry_id"] for row in rows}
+                        ),
                     )
                     if metric_values(rows, metric)
                     else {"available": False, "reason": "metric_not_emitted"}
@@ -533,6 +608,7 @@ def paired_comparisons(
     *,
     replicates: int = 5000,
 ) -> dict[str, Any]:
+    expected_cluster_count = len({row["geometry_id"] for row in records})
     by_method: dict[str, dict[tuple[str, str], dict[str, Any]]] = defaultdict(dict)
     for row in records:
         by_method[row["method"]][(row["geometry_id"], row["scenario_id"])] = row
@@ -568,7 +644,7 @@ def paired_comparisons(
                 }
                 continue
             geometries = sorted({row["geometry_id"] for row in difference_rows})
-            if len(geometries) != EXPECTED_GEOMETRY_CLUSTERS:
+            if len(geometries) != expected_cluster_count:
                 comparison[metric] = {
                     "available": False,
                     "reason": "paired_metric_not_defined_in_all_geometry_clusters",
@@ -592,7 +668,7 @@ def paired_comparisons(
             comparison[metric] = {
                 "estimand": "candidate minus PCA-Ridge paired error",
                 "paired_entry_count": len(differences),
-                "geometry_cluster_count": EXPECTED_GEOMETRY_CLUSTERS,
+                "geometry_cluster_count": expected_cluster_count,
                 "median_difference": float(np.median(differences)),
                 "geometry_cluster_bootstrap_95_ci": np.quantile(
                     draws, (0.025, 0.975)
@@ -685,6 +761,97 @@ def load_physics_records(paths: Sequence[Path]) -> list[dict[str, Any]]:
     return output
 
 
+def compose_ood_screened_fem(
+    records: Sequence[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    """Use learned MAP only in support; otherwise select fixed-FEM output."""
+
+    by_method: dict[str, dict[str, dict[str, Any]]] = defaultdict(dict)
+    for row in records:
+        by_method[str(row["method"])][str(row["entry_id"])] = row
+    fixed = by_method.get("fem_fixed_init", {})
+    learned = by_method.get("fem_learned_screened_map", {})
+    support = by_method.get(
+        "ours_hybrid_initializer",
+        by_method.get("pca_ridge", {}),
+    )
+    output = []
+    for entry_id in sorted(set(fixed) & set(learned) & set(support)):
+        support_row = support[entry_id]
+        learned_row = learned[entry_id]
+        outside_support = bool(support_row.get("ood_detected", False))
+        screened = bool(learned_row.get("screening_rejected", False))
+        fallback_triggered = outside_support or screened
+        fixed_cost = float(fixed[entry_id].get("cost", float("inf")))
+        learned_cost = float(learned_row.get("cost", float("inf")))
+        use_fixed = fallback_triggered and fixed_cost <= learned_cost
+        selected = fixed[entry_id] if use_fixed else learned_row
+        region_fields = {
+            key: support_row[key]
+            for key in (
+                "center_fraction_true",
+                "center_fraction_estimated",
+                "center_error_normalized",
+                "radius_fraction_true",
+                "radius_fraction_estimated",
+                "radius_relative_error",
+            )
+            if key in support_row
+        }
+        output.append(
+            {
+                **selected,
+                **region_fields,
+                "method": "ours_ood_screened_fem",
+                "evidence_tier": evidence_tier("ours_ood_screened_fem"),
+                "ood_score": support_row.get("ood_score"),
+                "ood_detected": outside_support,
+                "fallback_triggered": fallback_triggered,
+                "fallback_used": use_fixed,
+                "fallback_reason": (
+                    "fixed_fem_lower_physics_cost"
+                    if use_fixed
+                    else "learned_map_lower_physics_cost"
+                    if fallback_triggered
+                    else "not_required"
+                ),
+            }
+        )
+    return output
+
+
+def compose_hybrid_initializer(
+    records: Sequence[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    """Combine MeshGNN material outputs with the train-CV radius head."""
+
+    by_method: dict[str, dict[str, dict[str, Any]]] = defaultdict(dict)
+    for row in records:
+        by_method[str(row["method"])][str(row["entry_id"])] = row
+    mesh = by_method.get("mesh_gnn", {})
+    radius = by_method.get("pca_ridge", {})
+    output = []
+    for entry_id in sorted(set(mesh) & set(radius)):
+        mesh_row = mesh[entry_id]
+        radius_row = radius[entry_id]
+        output.append(
+            {
+                **mesh_row,
+                "method": "ours_hybrid_initializer",
+                "evidence_tier": evidence_tier("ours_hybrid_initializer"),
+                "radius_fraction_estimated": radius_row[
+                    "radius_fraction_estimated"
+                ],
+                "radius_relative_error": radius_row["radius_relative_error"],
+                "initializer_components": {
+                    "background_ratio_center_node_field": "MeshGNN",
+                    "radius": "train-CV-selected PCA-Ridge radius head",
+                },
+            }
+        )
+    return output
+
+
 def evaluate_mesh_gnn(
     dataset: Dataset,
     checkpoint: Path,
@@ -726,7 +893,14 @@ def evaluate_mesh_gnn(
         shuffle=False,
         collate_fn=collate_lung_graphs,
     )
-    metrics, rows = evaluate(model, loader, device)
+    metrics, rows = evaluate(
+        model,
+        loader,
+        device,
+        geometry_fusion_weight=float(
+            config.get("geometry_fusion_weight", 0.5)
+        ),
+    )
     identity_by_entry = {row["entry_id"]: row for row in identities}
     for row in rows:
         identity = identity_by_entry[row["patient_id"]]
@@ -793,9 +967,14 @@ def write_prediction_json(
 
 
 def write_compat_manifest(
-    external_root: Path, output_path: Path
+    external_root: Path,
+    output_path: Path,
+    scenarios_per_geometry: int | None = None,
 ) -> None:
-    payload, rows = normalized_external_manifest(external_root)
+    payload, rows = normalized_external_manifest(
+        external_root,
+        scenarios_per_geometry,
+    )
     source_root = (
         external_root.parent if external_root.is_file() else external_root
     ).resolve()
@@ -937,7 +1116,11 @@ def physics_commands(
     return jobs
 
 
-def run_physics_driver(config_path: Path) -> None:
+def run_physics_driver(
+    config_path: Path,
+    workers: int = 1,
+    job_ids: set[str] | None = None,
+) -> None:
     """Execute pending jobs only; completion markers make the driver resumable."""
     payload = json.loads(config_path.read_text(encoding="utf-8"))
     state_path = config_path.with_name("physics_driver_state.json")
@@ -947,15 +1130,32 @@ def run_physics_driver(config_path: Path) -> None:
         else {"completed": []}
     )
     completed = set(state["completed"])
-    for job in payload["jobs"]:
-        if job["job_id"] in completed:
-            continue
-        subprocess.run(job["command"], cwd=ROOT, check=True)
-        completed.add(job["job_id"])
-        state_path.write_text(
-            json.dumps({"completed": sorted(completed)}, indent=2),
-            encoding="utf-8",
+    pending = [
+        job
+        for job in payload["jobs"]
+        if job["job_id"] not in completed
+        and (job_ids is None or job["job_id"] in job_ids)
+    ]
+
+    def execute(job: dict[str, Any]) -> str:
+        environment = os.environ.copy()
+        environment.update(OMP_NUM_THREADS="1", MKL_NUM_THREADS="1")
+        subprocess.run(
+            job["command"],
+            cwd=ROOT,
+            env=environment,
+            check=True,
         )
+        return str(job["job_id"])
+
+    with ThreadPoolExecutor(max_workers=max(1, workers)) as executor:
+        futures = [executor.submit(execute, job) for job in pending]
+        for future in as_completed(futures):
+            completed.add(future.result())
+            state_path.write_text(
+                json.dumps({"completed": sorted(completed)}, indent=2),
+                encoding="utf-8",
+            )
 
 
 def prepare_physics(
@@ -965,11 +1165,16 @@ def prepare_physics(
     *,
     total_budget: int,
     learned_prior_log_stds: tuple[float, float],
+    scenarios_per_geometry: int | None = None,
 ) -> Path:
     physics_dir = output_dir / "physics"
     physics_dir.mkdir(parents=True, exist_ok=True)
     compat_manifest = physics_dir / "external_sim_lung_v2_manifest.json"
-    write_compat_manifest(external_root, compat_manifest)
+    write_compat_manifest(
+        external_root,
+        compat_manifest,
+        scenarios_per_geometry,
+    )
     paths = {
         "fixed": physics_dir / "fixed_init_predictions.json",
         "learned": physics_dir / "learned_screened_map_predictions.json",
@@ -1074,6 +1279,7 @@ def main() -> None:
     parser.add_argument("--batch-size", type=int, default=4)
     parser.add_argument("--bootstrap-replicates", type=int, default=5000)
     parser.add_argument("--multistart-total-budget", type=int, default=96)
+    parser.add_argument("--scenarios-per-test-geometry", type=int)
     parser.add_argument(
         "--physics-results",
         nargs="*",
@@ -1082,18 +1288,41 @@ def main() -> None:
         help="Completed evaluator JSON files to merge into unified analysis",
     )
     parser.add_argument("--run-physics-driver", type=Path)
+    parser.add_argument("--physics-workers", type=int, default=1)
+    parser.add_argument("--physics-job", action="append")
     args = parser.parse_args()
     if args.run_physics_driver:
-        run_physics_driver(args.run_physics_driver)
+        run_physics_driver(
+            args.run_physics_driver,
+            args.physics_workers,
+            set(args.physics_job) if args.physics_job else None,
+        )
         return
 
     args.output_dir.mkdir(parents=True, exist_ok=True)
     artifact_path = args.baseline_artifact or args.output_dir / "baseline_models.joblib"
     train = training_arrays(args.train_dataset)
-    external = external_dataset(args.external_dataset)
+    external = external_dataset(
+        args.external_dataset,
+        args.scenarios_per_test_geometry,
+    )
     X_external, target, heterogeneous, identities = arrays_from_dataset(external)
+    external_geometry_count = len(
+        {identity["geometry_id"] for identity in identities}
+    )
     artifact = fit_or_load_baselines(train, artifact_path, args.force_refit)
     X_external_model = guarded_features(X_external, artifact)
+    external_ood_scores = feature_ood_scores(X_external, artifact)
+    ood_threshold = float(
+        artifact["train_support_guard"]["ood_score_threshold"]
+    )
+    ood_by_entry = {
+        identity["entry_id"]: {
+            "ood_score": float(score),
+            "ood_detected": bool(score > ood_threshold),
+        }
+        for identity, score in zip(identities, external_ood_scores)
+    }
 
     all_records: list[dict[str, Any]] = []
     population = np.tile(np.mean(train[1], axis=0), (len(X_external), 1))
@@ -1132,12 +1361,25 @@ def main() -> None:
         all_records.extend(mesh_records)
     elif not args.skip_mesh_gnn:
         mesh_audit["reason"] = "checkpoint_not_found"
+    for row in all_records:
+        row.update(ood_by_entry.get(str(row["entry_id"]), {}))
+    all_records.extend(compose_hybrid_initializer(all_records))
     if args.physics_results:
-        all_records.extend(load_physics_records(args.physics_results))
+        physics_records = load_physics_records(args.physics_results)
+        for row in physics_records:
+            row.update(ood_by_entry.get(str(row["entry_id"]), {}))
+        all_records.extend(physics_records)
+        all_records.extend(compose_ood_screened_fem(all_records))
     attach_physics_regions(all_records)
     attach_node_material_metrics(all_records, external)
 
-    pca_records = [row for row in all_records if row["method"] == "pca_ridge"]
+    learned_initializer_records = [
+        row for row in all_records if row["method"] == "ours_hybrid_initializer"
+    ]
+    if not learned_initializer_records:
+        learned_initializer_records = [
+            row for row in all_records if row["method"] == "pca_ridge"
+        ]
     calibrator_evidence = json.loads(
         args.calibrator_evidence.read_text(encoding="utf-8")
     )
@@ -1151,9 +1393,10 @@ def main() -> None:
     physics_config = prepare_physics(
         args.output_dir,
         args.external_dataset,
-        pca_records,
+        learned_initializer_records,
         total_budget=args.multistart_total_budget,
         learned_prior_log_stds=learned_prior_log_stds,
+        scenarios_per_geometry=args.scenarios_per_test_geometry,
     )
     output = {
         "schema_version": 1,
@@ -1166,8 +1409,15 @@ def main() -> None:
                 "features clipped to train 0.5--99.5% quantiles and outputs to "
                 "train target extrema; no external labels used"
             ),
+            "ood_detection": {
+                "score": "mean normalized support exceedance plus exceeded-feature fraction",
+                "threshold": ood_threshold,
+                "selection": "train-only 95th percentile",
+                "fallback": "fixed FEM when OOD or learned MAP screening rejects",
+            },
             "identity": ["geometry_id", "scenario_id"],
-            "geometry_cluster_count": EXPECTED_GEOMETRY_CLUSTERS,
+            "geometry_cluster_count": external_geometry_count,
+            "scenarios_per_test_geometry": args.scenarios_per_test_geometry,
             "geometry_cluster_bootstrap_replicates": args.bootstrap_replicates,
             "evidence_tiers": {
                 "common_input": sorted(COMMON_INPUT_METHODS),

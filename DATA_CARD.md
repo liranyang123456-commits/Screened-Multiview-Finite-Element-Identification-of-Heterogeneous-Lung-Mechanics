@@ -1,9 +1,9 @@
 
 # Data Card
 
-## Programmatic synthetic cohort
+## Procedural synthetic cohort
 
-- 250 independent programmatic CT-like lung-wall surrogate geometries.
+- 250 independent procedural CT-like lung-wall surrogate geometries.
 - Patient-level split: 150 training, 50 validation, 50 test.
 - Four loads, three calibrated views, seven synchronized frames.
 - Synthetic heterogeneous Neo-Hookean mechanics and known force.
@@ -13,9 +13,10 @@ manifests, and frozen numerical outputs are included.
 
 ## Real CT geometry with synthetic mechanics
 
-- Three de-identified CT-derived geometries.
-- Twenty matched material/load templates per geometry (60 scenes).
-- Four loads per scene (240 load experiments).
+- Twenty-seven de-identified CT-derived geometries.
+- Geometry-level split: 18 training, 3 validation, 6 test.
+- Twenty matched material/load templates per geometry (540 scenes).
+- Four loads per scene (2160 load experiments).
 - Synthetic material fields, forces, deformation, and accuracy truth.
 
 Only the sanitized manifest, protocol/QC reports, and numerical benchmark are

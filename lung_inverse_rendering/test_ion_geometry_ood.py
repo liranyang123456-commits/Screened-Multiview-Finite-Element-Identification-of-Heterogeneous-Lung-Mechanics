@@ -1,12 +1,17 @@
 """Synthetic-only tests for ION geometry-domain OOD validation."""
 from __future__ import annotations
 
+import io
 import json
 import sys
+import zipfile
 from pathlib import Path
 
 import numpy as np
+import pydicom
 import torch
+from pydicom.dataset import FileDataset, FileMetaDataset
+from pydicom.uid import CTImageStorage, ExplicitVRLittleEndian, generate_uid
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
@@ -19,10 +24,13 @@ from experiments.train_lung_mesh_gnn import build_model  # noqa: E402
 from lung_inverse_rendering.ct_loader import lung_air_mask, mask_to_surface  # noqa: E402
 from lung_inverse_rendering.prepare_ion_ct_meshes import (  # noqa: E402
     _bilateral_lung_score,
+    _discover_best_lung_ct_series,
+    _load_series_hu,
     opaque_geometry_id,
     prepare,
     select_ct_candidates,
 )
+from lung_inverse_rendering.ion_dicom_sources import scan_case_dicoms  # noqa: E402
 
 
 def _synthetic_hu() -> np.ndarray:
@@ -48,6 +56,40 @@ def _synthetic_surface() -> tuple[np.ndarray, np.ndarray]:
                 ([first, first + 1, first + 22], [first, first + 22, first + 21])
             )
     return vertices, np.asarray(faces, dtype=np.int64)
+
+
+def _synthetic_ct_slice(series_uid: str, index: int) -> bytes:
+    file_meta = FileMetaDataset()
+    file_meta.MediaStorageSOPClassUID = CTImageStorage
+    file_meta.MediaStorageSOPInstanceUID = generate_uid()
+    file_meta.TransferSyntaxUID = ExplicitVRLittleEndian
+    dataset = FileDataset(None, {}, file_meta=file_meta, preamble=b"\0" * 128)
+    dataset.SOPClassUID = CTImageStorage
+    dataset.SOPInstanceUID = file_meta.MediaStorageSOPInstanceUID
+    dataset.SeriesInstanceUID = series_uid
+    dataset.Modality = "CT"
+    dataset.Rows = 64
+    dataset.Columns = 64
+    dataset.SamplesPerPixel = 1
+    dataset.PhotometricInterpretation = "MONOCHROME2"
+    dataset.BitsAllocated = 16
+    dataset.BitsStored = 16
+    dataset.HighBit = 15
+    dataset.PixelRepresentation = 1
+    dataset.PixelSpacing = [1.0, 1.0]
+    dataset.ImagePositionPatient = [0.0, 0.0, float(index)]
+    dataset.InstanceNumber = index + 1
+    dataset.RescaleSlope = 1.0
+    dataset.RescaleIntercept = 0.0
+    yy, xx = np.mgrid[:64, :64]
+    pixels = np.zeros((64, 64), dtype=np.int16)
+    lungs = (xx - 19) ** 2 + (yy - 32) ** 2 < 10**2
+    lungs |= (xx - 45) ** 2 + (yy - 32) ** 2 < 10**2
+    pixels[lungs] = -750
+    dataset.PixelData = pixels.tobytes()
+    stream = io.BytesIO()
+    dataset.save_as(stream, enforce_file_format=True)
+    return stream.getvalue()
 
 
 def _audit_manifest() -> dict:
@@ -82,6 +124,28 @@ def test_bilateral_lung_score_rejects_single_air_cavity() -> None:
     single[:, 20:44, 18:46] = True
     assert _bilateral_lung_score(bilateral) > 0.01
     assert _bilateral_lung_score(single) == 0.0
+
+
+def test_zip_members_without_extensions_form_readable_ct_series(
+    tmp_path: Path,
+) -> None:
+    case_dir = tmp_path / "anonymous_case"
+    case_dir.mkdir()
+    series_uid = generate_uid()
+    with zipfile.ZipFile(case_dir / "images.zip", "w") as archive:
+        for index in range(8):
+            archive.writestr(
+                f"series/object_{index:03d}",
+                _synthetic_ct_slice(series_uid, index),
+            )
+    inventory = scan_case_dicoms(case_dir)
+    assert inventory.ct_object_count == 8
+    assert inventory.ct_unique_object_count == 8
+    assert [len(series) for series in inventory.ct_series] == [8]
+    selected = _discover_best_lung_ct_series(case_dir)
+    volume, spacing = _load_series_hu(selected)
+    assert volume.shape == (8, 64, 64)
+    assert spacing == (1.0, 1.0, 1.0)
 
 
 def test_audit_selection_and_dry_run_are_private(

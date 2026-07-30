@@ -61,13 +61,15 @@ def random_yaw_augmentation(graph: dict[str, Any]) -> dict[str, Any]:
         "labels": labels,
         "y": labels,
     }
-    angle = 2.0 * math.pi * torch.rand((), device=graph["x"].device)
+    angle = 2.0 * math.pi * torch.rand(
+        (), device=graph["x"].device, dtype=graph["x"].dtype
+    )
     cosine, sine = torch.cos(angle), torch.sin(angle)
     rotation = torch.stack(
         (
             torch.stack((cosine, -sine, cosine.new_zeros(()))),
             torch.stack((sine, cosine, cosine.new_zeros(()))),
-            torch.tensor([0.0, 0.0, 1.0], device=graph["x"].device),
+            cosine.new_tensor([0.0, 0.0, 1.0]),
         )
     )
     coordinates = graph["x"][:, :3] - 0.5
@@ -228,7 +230,7 @@ def material_loss(
         + 0.5 * terms["radius"]
         + 3.0 * terms["radius_mean"]
         + 0.5 * terms["heterogeneity"]
-        + 0.20 * terms["node"]
+        + 1.00 * terms["node"]
         + sdf_weight * terms["sdf"]
         + partition_weight * terms["partition"]
         + eikonal_weight * terms["eikonal"]
@@ -242,7 +244,10 @@ def evaluate(
     model: nn.Module,
     loader: DataLoader,
     device: torch.device,
+    geometry_fusion_weight: float = 0.5,
 ) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    if not 0.0 <= geometry_fusion_weight <= 1.0:
+        raise ValueError("geometry_fusion_weight must lie in [0, 1]")
     model.eval()
     records: list[dict[str, Any]] = []
     for batch in loader:
@@ -274,8 +279,41 @@ def evaluate(
             label = graph["labels"]
             true_E = float(label["log_E_background"].exp().cpu())
             true_ratio = float(label["log_ratio"].exp().cpu())
-            estimated_E = math.exp(float(log_E_mean[index]))
-            estimated_ratio = math.exp(float(log_ratio_mean[index]))
+            fused_log_E = float(log_E_mean[index])
+            fused_log_ratio = float(log_ratio_mean[index])
+            fused_center = torch.as_tensor(
+                center_mean[index],
+                dtype=torch.float32,
+                device=device,
+            )
+            fused_radius = float(radius_mean[index])
+            probability = None
+            if (
+                isinstance(partition_logits, list)
+                and isinstance(node_sdf_means, list)
+            ):
+                probability = partition_logits[index].sigmoid()
+                partition_center = (
+                    (probability[:, None] * graph["pos"]).sum(dim=0)
+                    / probability.sum().clamp_min(1e-6)
+                )
+                fused_center = (
+                    (1.0 - geometry_fusion_weight) * fused_center
+                    + geometry_fusion_weight * partition_center
+                )
+                distance = torch.linalg.vector_norm(
+                    graph["pos"] - partition_center,
+                    dim=1,
+                )
+                sdf_radius = torch.median(
+                    distance - node_sdf_means[index]
+                ).clamp(0.05, 0.40)
+                fused_radius = (
+                    (1.0 - geometry_fusion_weight) * fused_radius
+                    + geometry_fusion_weight * float(sdf_radius)
+                )
+            estimated_E = math.exp(fused_log_E)
+            estimated_ratio = math.exp(fused_log_ratio)
             heterogeneous = bool(float(label["heterogeneous"].cpu()) > 0.5)
             center_error = (
                 float(
@@ -287,8 +325,14 @@ def evaluate(
                 if heterogeneous
                 else None
             )
+            if heterogeneous:
+                center_error = float(
+                    torch.linalg.vector_norm(
+                        fused_center - label["center_fraction"]
+                    ).cpu()
+                )
             radius_error = (
-                abs(float(radius_mean[index]) - float(label["radius_fraction"].cpu()))
+                abs(fused_radius - float(label["radius_fraction"].cpu()))
                 / float(label["radius_fraction"].cpu())
                 if heterogeneous
                 else None
@@ -306,7 +350,8 @@ def evaluate(
                     .mean()
                     .cpu()
                 )
-                probability = partition_logits[index].sigmoid()  # type: ignore[index]
+                if probability is None:
+                    probability = partition_logits[index].sigmoid()  # type: ignore[index]
                 partition_target = label["partition"]
                 partition_dice = float(
                     (
@@ -324,19 +369,19 @@ def evaluate(
                     "inclusion_ratio_estimated": estimated_ratio,
                     "inclusion_ratio_relative_error": abs(estimated_ratio - true_ratio)
                     / true_ratio,
-                    "log_E_mean": float(log_E_mean[index]),
+                    "log_E_mean": fused_log_E,
                     "log_E_std": float(log_E_std[index]),
-                    "log_ratio_mean": float(log_ratio_mean[index]),
+                    "log_ratio_mean": fused_log_ratio,
                     "log_ratio_std": float(log_ratio_std[index]),
                     "heterogeneous_true": heterogeneous,
                     "heterogeneity_probability": float(
                         heterogeneity_probability[index]
                     ),
                     "center_fraction_true": label["center_fraction"].cpu().tolist(),
-                    "center_fraction_estimated": center_mean[index].tolist(),
+                    "center_fraction_estimated": fused_center.cpu().tolist(),
                     "center_fraction_std": center_std[index].tolist(),
                     "radius_fraction_true": float(label["radius_fraction"].cpu()),
-                    "radius_fraction_estimated": float(radius_mean[index]),
+                    "radius_fraction_estimated": fused_radius,
                     "radius_fraction_std": float(radius_std[index]),
                     "center_error_normalized": center_error,
                     "radius_relative_error": radius_error,
@@ -426,6 +471,7 @@ def make_loaders(
             no_depth=no_depth,
             no_confidence=no_confidence,
             peak_only=peak_only,
+            cache_graphs=True,
         )
         for split in ("train", "val", "test")
     }
@@ -502,6 +548,26 @@ def calibrate_test_uncertainty(
         )
 
 
+def validation_selection_score(metrics: dict[str, Any]) -> float:
+    """Select checkpoints using global and node-level material recovery."""
+    score = (
+        float(metrics["E_background_median_relative_error"])
+        + float(metrics["inclusion_ratio_median_relative_error"])
+        + 0.25 * float(metrics["heterogeneity"]["brier_score"])
+    )
+    for key, weight in (
+        ("center_error_normalized_median", 0.5),
+        ("radius_relative_error_median", 0.5),
+    ):
+        value = metrics.get(key)
+        if value is not None:
+            score += weight * float(value)
+    partition_dice = metrics.get("partition_soft_dice_mean")
+    if partition_dice is not None:
+        score += 0.5 * (1.0 - float(partition_dice))
+    return score
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--dataset", type=Path, required=True)
@@ -531,6 +597,10 @@ def main() -> None:
     parser.add_argument("--resume", type=Path)
     parser.add_argument("--ratio-loss-weight", type=float, default=2.0)
     parser.add_argument("--heterogeneity-pos-weight", type=float, default=1.0)
+    parser.add_argument("--sdf-weight", type=float, default=1.0)
+    parser.add_argument("--partition-weight", type=float, default=1.5)
+    parser.add_argument("--eikonal-weight", type=float, default=0.05)
+    parser.add_argument("--smoothness-weight", type=float, default=0.02)
     args = parser.parse_args()
     random.seed(args.seed)
     np.random.seed(args.seed)
@@ -601,6 +671,10 @@ def main() -> None:
                     graphs,
                     ratio_loss_weight=args.ratio_loss_weight,
                     heterogeneity_pos_weight=args.heterogeneity_pos_weight,
+                    sdf_weight=args.sdf_weight,
+                    partition_weight=args.partition_weight,
+                    eikonal_weight=args.eikonal_weight,
+                    smoothness_weight=args.smoothness_weight,
                 )
             scaler.scale(loss).backward()
             scaler.unscale_(optimizer)
@@ -610,11 +684,7 @@ def main() -> None:
             losses.append(float(loss.detach()))
         scheduler.step()
         validation, _ = evaluate(model, val_loader, device)
-        score = (
-            validation["E_background_median_relative_error"]
-            + validation["inclusion_ratio_median_relative_error"]
-            + 0.25 * validation["heterogeneity"]["brier_score"]
-        )
+        score = validation_selection_score(validation)
         history.append(
             {
                 "epoch": epoch,
@@ -646,6 +716,10 @@ def main() -> None:
                         "track_noise_px": args.track_noise_px,
                         "ratio_loss_weight": args.ratio_loss_weight,
                         "heterogeneity_pos_weight": args.heterogeneity_pos_weight,
+                        "sdf_weight": args.sdf_weight,
+                        "partition_weight": args.partition_weight,
+                        "eikonal_weight": args.eikonal_weight,
+                        "smoothness_weight": args.smoothness_weight,
                         "dynamic_dim": 14 if input_dim == 5 else None,
                         "single_view": args.single_view,
                         "no_depth": args.no_depth,

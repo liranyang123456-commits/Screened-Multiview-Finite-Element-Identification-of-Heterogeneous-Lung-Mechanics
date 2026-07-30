@@ -34,14 +34,23 @@ def validate_dataset(dataset_root: Path) -> dict[str, Any]:
         raise ValueError("Manifest contains a forbidden source identifier or path")
     payload = json.loads(manifest_text)
     patients = payload["patients"]
+    config = payload["generation_config"]
     geometry_ids = sorted({str(row["geometry_id"]) for row in patients})
-    if len(geometry_ids) != 3:
-        raise ValueError(f"Expected three geometries, found {len(geometry_ids)}")
+    expected_geometry_count = int(config["geometry_count"])
+    if len(geometry_ids) != expected_geometry_count:
+        raise ValueError(
+            f"Expected {expected_geometry_count} geometries, found {len(geometry_ids)}"
+        )
+    expected_splits = config.get(
+        "geometry_splits",
+        {geometry_id: "test" for geometry_id in geometry_ids},
+    )
     by_geometry: dict[str, list[dict[str, Any]]] = defaultdict(list)
     for row in patients:
-        by_geometry[str(row["geometry_id"])].append(row)
-        if row.get("split") != "test":
-            raise ValueError("Every CT geometry scene must be external test")
+        geometry_id = str(row["geometry_id"])
+        by_geometry[geometry_id].append(row)
+        if row.get("split") != expected_splits[geometry_id]:
+            raise ValueError("Scene split differs from its patient-level geometry split")
         if row.get("material_source") != "synthetic":
             raise ValueError("Material source must be synthetic")
         if row.get("mechanics_source") != "synthetic":
@@ -49,15 +58,21 @@ def validate_dataset(dataset_root: Path) -> dict[str, Any]:
         if row.get("geometry_source") != "deidentified_ct_mesh":
             raise ValueError("Geometry source must be the de-identified CT mesh")
     counts = {key: len(rows) for key, rows in by_geometry.items()}
-    if set(counts.values()) != {20}:
-        raise ValueError(f"Expected 20 scenes per geometry, found {counts}")
+    expected_per_geometry = int(config["scenarios_per_geometry"])
+    if set(counts.values()) != {expected_per_geometry}:
+        raise ValueError(
+            f"Expected {expected_per_geometry} scenes per geometry, found {counts}"
+        )
 
     scenarios = sorted({str(row["scenario_id"]) for row in patients})
-    if len(scenarios) != 20:
-        raise ValueError(f"Expected 20 matched scenario IDs, found {len(scenarios)}")
+    if len(scenarios) != expected_per_geometry:
+        raise ValueError(
+            f"Expected {expected_per_geometry} matched scenario IDs, "
+            f"found {len(scenarios)}"
+        )
     for scenario_id in scenarios:
         rows = [row for row in patients if row["scenario_id"] == scenario_id]
-        if len(rows) != 3:
+        if len(rows) != expected_geometry_count:
             raise ValueError(f"{scenario_id} is not present in all geometries")
         reference = rows[0]
         for row in rows[1:]:
@@ -71,8 +86,10 @@ def validate_dataset(dataset_root: Path) -> dict[str, Any]:
     minimum_jacobian = float("inf")
     tensor_count = 0
     for row in patients:
-        if len(row["experiments"]) != 4:
-            raise ValueError(f"{row['patient_id']} does not contain four loads")
+        if len(row["experiments"]) != int(config["load_count"]):
+            raise ValueError(
+                f"{row['patient_id']} does not contain the declared loads"
+            )
         for experiment_record in row["experiments"]:
             experiment = torch.load(
                 dataset_root / experiment_record["relative_path"],
@@ -109,7 +126,12 @@ def validate_dataset(dataset_root: Path) -> dict[str, Any]:
         "frame_count": 7,
         "view_count": 3,
         "minimum_jacobian": minimum_jacobian,
-        "all_geometry_splits_external_test": True,
+        "geometry_split_counts": dict(
+            sorted(Counter(expected_splits.values()).items())
+        ),
+        "all_geometry_splits_external_test": (
+            set(expected_splits.values()) == {"test"}
+        ),
         "geometry_cross_split_leakage": False,
         "raw_identifiers_or_paths_in_manifest": False,
         "material_truth_present": True,

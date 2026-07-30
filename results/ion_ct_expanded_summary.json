@@ -1,0 +1,221 @@
+{
+  "schema_version": 1,
+  "geometry_protocol": {
+    "total": 27,
+    "train": 18,
+    "validation": 3,
+    "test": 6,
+    "scenarios_per_geometry": 20,
+    "total_scenarios": 540,
+    "total_load_experiments": 2160
+  },
+  "criteria": {
+    "E_background_relative_error": 0.15,
+    "inclusion_ratio_relative_error": 0.25,
+    "center_error_normalized": 0.1,
+    "radius_relative_error": 0.12
+  },
+  "learning_test_120": {
+    "training_population": {
+      "entry_count": 120,
+      "geometry_count": 6,
+      "medians": {
+        "E_background_relative_error": 0.3155071620468425,
+        "inclusion_ratio_relative_error": 0.3681683843582374,
+        "center_error_normalized": 0.09845179269519702,
+        "radius_relative_error": 0.13414865646080743
+      },
+      "gate_pass_rates": {
+        "E_background_relative_error": 0.25,
+        "inclusion_ratio_relative_error": 0.25,
+        "center_error_normalized": 0.5,
+        "radius_relative_error": 0.4444444444444444
+      }
+    },
+    "ridge": {
+      "entry_count": 120,
+      "geometry_count": 6,
+      "medians": {
+        "E_background_relative_error": 0.21205089929214455,
+        "inclusion_ratio_relative_error": 0.416347622993776,
+        "center_error_normalized": 0.1742401627539482,
+        "radius_relative_error": 0.12565656154408422
+      },
+      "gate_pass_rates": {
+        "E_background_relative_error": 0.35833333333333334,
+        "inclusion_ratio_relative_error": 0.2916666666666667,
+        "center_error_normalized": 0.09259259259259259,
+        "radius_relative_error": 0.4444444444444444
+      }
+    },
+    "pls": {
+      "entry_count": 120,
+      "geometry_count": 6,
+      "medians": {
+        "E_background_relative_error": 0.15578706904412248,
+        "inclusion_ratio_relative_error": 0.4192018448813092,
+        "center_error_normalized": 0.1401448664213979,
+        "radius_relative_error": 0.1260790384541819
+      },
+      "gate_pass_rates": {
+        "E_background_relative_error": 0.48333333333333334,
+        "inclusion_ratio_relative_error": 0.2833333333333333,
+        "center_error_normalized": 0.3425925925925926,
+        "radius_relative_error": 0.4722222222222222
+      }
+    },
+    "extra_trees": {
+      "entry_count": 120,
+      "geometry_count": 6,
+      "medians": {
+        "E_background_relative_error": 0.15767243832615718,
+        "inclusion_ratio_relative_error": 0.3529376189815239,
+        "center_error_normalized": 0.10317859857611278,
+        "radius_relative_error": 0.13243499886535998
+      },
+      "gate_pass_rates": {
+        "E_background_relative_error": 0.4583333333333333,
+        "inclusion_ratio_relative_error": 0.24166666666666667,
+        "center_error_normalized": 0.48148148148148145,
+        "radius_relative_error": 0.4722222222222222
+      }
+    },
+    "pca_ridge": {
+      "entry_count": 120,
+      "geometry_count": 6,
+      "medians": {
+        "E_background_relative_error": 0.11897150660721567,
+        "inclusion_ratio_relative_error": 0.4277287144952802,
+        "center_error_normalized": 0.15390852682437034,
+        "radius_relative_error": 0.11455004168722682
+      },
+      "gate_pass_rates": {
+        "E_background_relative_error": 0.575,
+        "inclusion_ratio_relative_error": 0.3416666666666667,
+        "center_error_normalized": 0.24074074074074073,
+        "radius_relative_error": 0.5092592592592593
+      }
+    },
+    "mesh_gnn": {
+      "entry_count": 120,
+      "geometry_count": 6,
+      "medians": {
+        "E_background_relative_error": 0.08546262218403594,
+        "inclusion_ratio_relative_error": 0.2694619923086097,
+        "center_error_normalized": 0.09600735455751419,
+        "radius_relative_error": 0.13878312241861462
+      },
+      "gate_pass_rates": {
+        "E_background_relative_error": 0.6916666666666667,
+        "inclusion_ratio_relative_error": 0.48333333333333334,
+        "center_error_normalized": 0.5185185185185185,
+        "radius_relative_error": 0.42592592592592593
+      }
+    },
+    "ours_hybrid_initializer": {
+      "entry_count": 120,
+      "geometry_count": 6,
+      "medians": {
+        "E_background_relative_error": 0.08546262218403594,
+        "inclusion_ratio_relative_error": 0.2694619923086097,
+        "center_error_normalized": 0.09600735455751419,
+        "radius_relative_error": 0.11455004168722682
+      },
+      "gate_pass_rates": {
+        "E_background_relative_error": 0.6916666666666667,
+        "inclusion_ratio_relative_error": 0.48333333333333334,
+        "center_error_normalized": 0.5185185185185185,
+        "radius_relative_error": 0.5092592592592593
+      }
+    }
+  },
+  "controlled_physics_test_30": {
+    "fem_fixed_init": {
+      "entry_count": 30,
+      "geometry_count": 6,
+      "medians": {
+        "E_background_relative_error": 0.0823022233495764,
+        "inclusion_ratio_relative_error": 0.3831195163109658,
+        "center_error_normalized": 0.13386934995651245,
+        "radius_relative_error": 0.07554803335834037
+      },
+      "gate_pass_rates": {
+        "E_background_relative_error": 0.8,
+        "inclusion_ratio_relative_error": 0.2,
+        "center_error_normalized": 0.25,
+        "radius_relative_error": 0.6666666666666666
+      }
+    },
+    "fem_deterministic_multistart": {
+      "entry_count": 30,
+      "geometry_count": 6,
+      "medians": {
+        "E_background_relative_error": 0.05316598473782365,
+        "inclusion_ratio_relative_error": 0.5526336063012962,
+        "center_error_normalized": 0.13386934995651245,
+        "radius_relative_error": 0.07554803335834037
+      },
+      "gate_pass_rates": {
+        "E_background_relative_error": 1.0,
+        "inclusion_ratio_relative_error": 0.2,
+        "center_error_normalized": 0.25,
+        "radius_relative_error": 0.6666666666666666
+      }
+    },
+    "fem_learned_screened_map": {
+      "entry_count": 30,
+      "geometry_count": 6,
+      "medians": {
+        "E_background_relative_error": 0.049431275499583135,
+        "inclusion_ratio_relative_error": 0.2686956928634462,
+        "center_error_normalized": 0.13386934995651245,
+        "radius_relative_error": 0.07554803335834037
+      },
+      "gate_pass_rates": {
+        "E_background_relative_error": 0.8333333333333334,
+        "inclusion_ratio_relative_error": 0.5,
+        "center_error_normalized": 0.25,
+        "radius_relative_error": 0.6666666666666666
+      }
+    },
+    "ours_ood_screened_fem": {
+      "entry_count": 30,
+      "geometry_count": 6,
+      "medians": {
+        "E_background_relative_error": 0.0553775404399131,
+        "inclusion_ratio_relative_error": 0.32978477393734507,
+        "center_error_normalized": 0.13386934995651245,
+        "radius_relative_error": 0.07554803335834037
+      },
+      "gate_pass_rates": {
+        "E_background_relative_error": 0.9333333333333333,
+        "inclusion_ratio_relative_error": 0.36666666666666664,
+        "center_error_normalized": 0.25,
+        "radius_relative_error": 0.6666666666666666
+      }
+    },
+    "fem_oracle_region_force": {
+      "entry_count": 30,
+      "geometry_count": 6,
+      "medians": {
+        "E_background_relative_error": 0.028576685370765218,
+        "inclusion_ratio_relative_error": 0.3831195163109658,
+        "center_error_normalized": 0.0,
+        "radius_relative_error": 0.0
+      },
+      "gate_pass_rates": {
+        "E_background_relative_error": 1.0,
+        "inclusion_ratio_relative_error": 0.2,
+        "center_error_normalized": 1.0,
+        "radius_relative_error": 1.0
+      }
+    }
+  },
+  "ood_fallback": {
+    "entry_count": 30,
+    "trigger_rate": 0.7333333333333333,
+    "fixed_fem_selected_rate": 0.23333333333333334,
+    "selection": "lower physical objective after train-support trigger"
+  },
+  "evidence_boundary": "real de-identified CT geometry with synthetic materials, loads, motions, and ground truth; not patient material validation"
+}
