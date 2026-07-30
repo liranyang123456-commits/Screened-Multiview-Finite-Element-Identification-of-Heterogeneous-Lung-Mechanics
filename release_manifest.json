@@ -213,7 +213,7 @@
     {
       "path": "evidence/validation_report.json",
       "size_bytes": 542,
-      "sha256": "bce3f87bb36dd6e80aafe59ec5fbbcac4d2c469411d6dcf128828268a231fc45"
+      "sha256": "404256d5623e414bcd4286cba9cd6497352ab520b3dd61d391ab251c863dd566"
     },
     {
       "path": "experiments/aggregate_results.py",
@@ -443,7 +443,7 @@
     {
       "path": "figures/fig_calibration.pdf",
       "size_bytes": 50053,
-      "sha256": "8a8209d0d079da9f9849c8e16f24d725cc21ca33e0a829272f209c95a4ba2988"
+      "sha256": "1c0f0d3997851ee4969f4ac6a6854a4b0e2bf47647ac413642071960a2f67632"
     },
     {
       "path": "figures/fig_calibration.png",
@@ -453,7 +453,7 @@
     {
       "path": "figures/fig_dataset_protocol.pdf",
       "size_bytes": 42333,
-      "sha256": "7a6b232cebe4cdb729da9e4e0cfd46ef9482d857591b343156cd2d4068a368a7"
+      "sha256": "2ed2e1220187929443365ddb0a05eb36a3c143a86a1fa917e78c9ce2f198da17"
     },
     {
       "path": "figures/fig_dataset_protocol.png",
@@ -463,7 +463,7 @@
     {
       "path": "figures/fig_fair_fem.pdf",
       "size_bytes": 27475,
-      "sha256": "17174d2c802d69a8811328b7d740e17de6827c0117bf721f17bd9896fd839cd7"
+      "sha256": "5f2f6710e22cf56d07f246151c20f29bd901e2a9698d31c52980a249d5f9352a"
     },
     {
       "path": "figures/fig_fair_fem.png",
@@ -473,7 +473,7 @@
     {
       "path": "figures/fig_ion_ct_error_distributions.pdf",
       "size_bytes": 35503,
-      "sha256": "bb78261a0bb1ae002fc268e505f81f5a84d1e5765f7d5343916b6d27df9e9935"
+      "sha256": "127d984fcf608fce6f16170c63206da9c49a5321137cb60f356e60177aa52cf5"
     },
     {
       "path": "figures/fig_ion_ct_error_distributions.png",
@@ -483,7 +483,7 @@
     {
       "path": "figures/fig_ion_ct_method_comparison.pdf",
       "size_bytes": 39430,
-      "sha256": "6f478c184652980b27bd6dc9a20b077307683ad0c86de99de72064e10fb11339"
+      "sha256": "9241ae47b4d02b2f63736a6b52616ce34599e8dc478dfe8d7ff1b52ee1415780"
     },
     {
       "path": "figures/fig_ion_ct_method_comparison.png",
@@ -493,7 +493,7 @@
     {
       "path": "figures/fig_ion_ct_node_material_metrics.pdf",
       "size_bytes": 30981,
-      "sha256": "dc9dc0db6f903f68677651761e0f28568f7b7d91ffdc4782f35bf0b2473b5643"
+      "sha256": "e7e5c15fda5011f40ffbccfcee48074c3ed240078b17f17f3dce215d70ace0b0"
     },
     {
       "path": "figures/fig_ion_ct_node_material_metrics.png",
@@ -502,18 +502,18 @@
     },
     {
       "path": "figures/fig_ion_ct_physics_tradeoff.pdf",
-      "size_bytes": 32606,
-      "sha256": "8412247c966f12c43d24c6f749e26cb63e7deac6b1e8f00788e1e81b96ffebaf"
+      "size_bytes": 31584,
+      "sha256": "2ac782c879319b502f121b5dc52034d64d8a7edc9225b906ee84a566c1d57d48"
     },
     {
       "path": "figures/fig_ion_ct_physics_tradeoff.png",
-      "size_bytes": 433515,
-      "sha256": "9fe91568ca85717225c77b5f85516226b882e984c8e8ea411e9c95f0935df152"
+      "size_bytes": 381111,
+      "sha256": "397d899eb3c635dc0476538f9f24b06ca3657dad0888907735d71cc7b201067d"
     },
     {
       "path": "figures/fig_main_results.pdf",
       "size_bytes": 41654,
-      "sha256": "7a3d98fd40bb5c7aebc438c670ec0625d67279b62f63311e232286ac2f93606d"
+      "sha256": "7c9ab374c25d004b0892ccf65859c0ffb90aa36f4939f5ed5647d1871dd12f45"
     },
     {
       "path": "figures/fig_main_results.png",
@@ -522,18 +522,18 @@
     },
     {
       "path": "figures/fig_pipeline.pdf",
-      "size_bytes": 45477,
-      "sha256": "ac6194a635996da9be7bc56c0dc0cb375cdaecb9b5b75c8fe5cd24918a96b4fb"
+      "size_bytes": 30926,
+      "sha256": "5075cf6960b27977194882890e38da9f5662b6f18872aada2290a2a12681c8d2"
     },
     {
       "path": "figures/fig_pipeline.png",
-      "size_bytes": 525572,
-      "sha256": "09a2a23e132dfcdf6e5da5538e9f37194b7e440472384ead19bf974034c9fcd7"
+      "size_bytes": 294804,
+      "sha256": "253a5022c7c0bcb0fdbf18586ae0f1be3feb4ec1cc68f0184ef63333a384143b"
     },
     {
       "path": "figures/fig_response_baselines.pdf",
       "size_bytes": 28679,
-      "sha256": "8d391cae2149731e1377fd9c6988110107ed664e567b64bcb02ca965387d2004"
+      "sha256": "fd32ae9b9f63cd21bfda1cd0391b60e7fce4525027a5e90fbfa24763f553dfbf"
     },
     {
       "path": "figures/fig_response_baselines.png",
