@@ -12,7 +12,7 @@
   "expanded_ion_geometry_count": 27,
   "ct_synthetic_scene_count": 540,
   "ct_synthetic_experiment_count": 2160,
-  "ct_figure_geometry_count": 3,
+  "ct_figure_geometry_count": 6,
   "ct_figure_manual_visual_qc_complete": true,
   "ct_figure_publication_authorization_pipeline_gate": false,
   "github_release_file_count": 171,

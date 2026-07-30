@@ -232,7 +232,7 @@ CT-conditioned samples**. Real CT-derived geometry appears only in the
 - Privacy source:
   `results/ion_ct_synthetic_mechanics/deidentified_figure_assets/privacy_manifest.json`.
   - DICOM objects/tags, paths, UIDs, names, and PNG metadata are absent.
-  - All three exported CT crops passed visual inspection for visible
+  - All six locked-test CT crops passed visual inspection for visible
     identifiers; publication authorization is externally managed by the authors
     and is not a computational-pipeline gate.
 - Required wording: **real CT geometry with synthetic mechanics**.

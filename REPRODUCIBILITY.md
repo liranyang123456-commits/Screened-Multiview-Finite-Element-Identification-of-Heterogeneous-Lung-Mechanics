@@ -10,8 +10,8 @@ The repository separates:
 
 All reported external CT benchmark methods are tagged as `common_input`,
 `secondary`, or `oracle` in `benchmark.json`. Do not pool these evidence tiers.
-Geometry-cluster bootstrap intervals are descriptive because there are only
-three independent CT geometries.
+Geometry-cluster bootstrap intervals are descriptive because the locked test
+set contains six independent CT geometries.
 
 Run:
 

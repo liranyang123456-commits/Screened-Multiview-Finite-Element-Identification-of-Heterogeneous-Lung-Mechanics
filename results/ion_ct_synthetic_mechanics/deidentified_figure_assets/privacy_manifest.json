@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "export",
-  "geometry_count": 3,
+  "geometry_count": 6,
   "records": [
     {
       "geometry_id": "geom_62010c56d95ec023bc9b",
@@ -11,12 +11,12 @@
         "overlay": "geom_62010c56d95ec023bc9b_ct_mask_overlay.png"
       },
       "sha256": {
-        "ct": "cdf1aedaaa7d5f74799d0feb1b0c0c33374a6fdf2e9cd4f93bf231ddaef3dbbd",
-        "mask": "bdbda42288d3daa54f8c3e4c0ee3ea9a938c2feca14a88fa195f7001a0c5a749",
-        "overlay": "06a371e6ef8ab2642b1399c9cf277fee15090f24dcbcef97e67d8b9239f5c62c"
+        "ct": "d1fb191d7ccd644ead580ea1ccfecdc7b678e15318584bfde7ced536e1ebac6b",
+        "mask": "241e3c85c1eacf23ffea30d9bb5197b96a7fb8204dcce142bdb7660542d47e02",
+        "overlay": "52c9cde7563f4f979e3e5c0243b8e804d3cd983ff1dd38364dadfc19dcee129c"
       },
       "image_shape": [
-        316,
+        318,
         388
       ],
       "preprocessing": "lung_window_and_HU_threshold_baseline_not_clinical_segmentation",
@@ -32,9 +32,9 @@
         "overlay": "geom_ab578f1bb0ee02be2ccd_ct_mask_overlay.png"
       },
       "sha256": {
-        "ct": "ab4255601a7dc56524816853b1754b131f6762610fcc1216afb85850c3745d0d",
-        "mask": "ad7bd06a248349c59686357db382b868e4c1defb1804875c68216d913fb4233e",
-        "overlay": "96bf5908a39eb6c46c500e970af7d80a3ba711b2fd14a654aad96a8b86c0140f"
+        "ct": "bf5bace8ce4bd9aa94e3a78d1c6e85181da9e73b2eab215d662583455987fda9",
+        "mask": "93692b996c7ff49ee94eb1dd9fa72186f861ef3a276519bf18838abf3e300635",
+        "overlay": "36f649a1682b4f64e3a94d8992eeb94920080df613d47515670f111d9e39e7e9"
       },
       "image_shape": [
         347,
@@ -53,9 +53,9 @@
         "overlay": "geom_58db559b24da6eb7cc0d_ct_mask_overlay.png"
       },
       "sha256": {
-        "ct": "a85295bba5b21709b0266787cfae57f9e999c9df300c961539cd0eff5cef9d0f",
-        "mask": "5cb78429579c2d5ee7f5f6a659286ccb868af94fcbd9a64b6ea235792438e262",
-        "overlay": "e7c3ed9074c69cbf915874a14e63d47d64beeb10c7b09e4d735f4518516eaed5"
+        "ct": "4d14bced4e3a31ccca5ff0a05e98e8dc29840cbbb5df66cbd9866fcce438c36a",
+        "mask": "d215482ba1c66cbd83b4496af6756e963a862452101b9e998352107763fbbe9a",
+        "overlay": "c6bb7a33c7d18c14589e1a55d424fc7c2f11df9ae61287bc8579dcf8393de7ea"
       },
       "image_shape": [
         355,
@@ -63,6 +63,69 @@
       ],
       "preprocessing": "lung_window_and_HU_threshold_baseline_not_clinical_segmentation",
       "burned_in_annotation_tag": "unknown_manual_qc_required",
+      "manual_visual_qc": "passed_no_visible_identifiers",
+      "publication_authorization": "externally_managed_by_authors"
+    },
+    {
+      "geometry_id": "geom_fac5cdc88e186e46ee04",
+      "files": {
+        "ct": "geom_fac5cdc88e186e46ee04_ct_window.png",
+        "mask": "geom_fac5cdc88e186e46ee04_hu_mask.png",
+        "overlay": "geom_fac5cdc88e186e46ee04_ct_mask_overlay.png"
+      },
+      "sha256": {
+        "ct": "c4589fc244873267955e545639ae733bf9d8cde9078cc6ef4b30e063d4cab7d0",
+        "mask": "d46e4dbaac1ea9e0a57308a4206c263411602507448d7cdefa9f0249d1d1cb90",
+        "overlay": "2d191cec5ece559db84f32b9df86974ca99daff15a4d71efa3552c94cc519078"
+      },
+      "image_shape": [
+        255,
+        396
+      ],
+      "preprocessing": "lung_window_and_HU_threshold_baseline_not_clinical_segmentation",
+      "burned_in_annotation_tag": "unknown_manual_qc_required",
+      "manual_visual_qc": "passed_no_visible_identifiers",
+      "publication_authorization": "externally_managed_by_authors"
+    },
+    {
+      "geometry_id": "geom_db38a9c3817f033727b5",
+      "files": {
+        "ct": "geom_db38a9c3817f033727b5_ct_window.png",
+        "mask": "geom_db38a9c3817f033727b5_hu_mask.png",
+        "overlay": "geom_db38a9c3817f033727b5_ct_mask_overlay.png"
+      },
+      "sha256": {
+        "ct": "9fc432db7f26db1a7a256604683f1f2d4b3505d33bf9c471c495a4bcf0dadd0d",
+        "mask": "143a9b72fb483e1861a467a1df47980433922eac977096d68198b24977fe122b",
+        "overlay": "5fc2d2ff87814a147e6a14a2958eb03159304585aded0f659aa1efa11f685298"
+      },
+      "image_shape": [
+        289,
+        376
+      ],
+      "preprocessing": "lung_window_and_HU_threshold_baseline_not_clinical_segmentation",
+      "burned_in_annotation_tag": "unknown_manual_qc_required",
+      "manual_visual_qc": "passed_no_visible_identifiers",
+      "publication_authorization": "externally_managed_by_authors"
+    },
+    {
+      "geometry_id": "geom_a417d13e9ae27d685557",
+      "files": {
+        "ct": "geom_a417d13e9ae27d685557_ct_window.png",
+        "mask": "geom_a417d13e9ae27d685557_hu_mask.png",
+        "overlay": "geom_a417d13e9ae27d685557_ct_mask_overlay.png"
+      },
+      "sha256": {
+        "ct": "bffeac58c5aaab1fbc3710cbe61949597e21a20ad636e29461d0a627363fbee0",
+        "mask": "7639f3416c605bfad31437e882de68fc69da879fb2a65a866cd87d27ad4d2c2d",
+        "overlay": "1487eac2034c63758d1dcfa213dab0812dd138e13d388e86ba5a366eb65d94ae"
+      },
+      "image_shape": [
+        318,
+        393
+      ],
+      "preprocessing": "lung_window_and_HU_threshold_baseline_not_clinical_segmentation",
+      "burned_in_annotation_tag": "declared_no",
       "manual_visual_qc": "passed_no_visible_identifiers",
       "publication_authorization": "externally_managed_by_authors"
     }

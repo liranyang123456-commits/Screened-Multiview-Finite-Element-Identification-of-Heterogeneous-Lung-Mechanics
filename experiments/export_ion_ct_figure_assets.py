@@ -21,6 +21,10 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from lung_inverse_rendering.ct_loader import lung_air_mask  # noqa: E402
+from lung_inverse_rendering.ion_dicom_sources import (  # noqa: E402
+    DicomSource,
+    open_dicom_reader,
+)
 from lung_inverse_rendering.prepare_ion_ct_meshes import (
     DEFAULT_AUDIT,
     DEFAULT_SOURCE,
@@ -87,21 +91,19 @@ def _png_sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def _burned_in_annotation_status(paths: list[Path]) -> str:
+def _burned_in_annotation_status(sources: list[DicomSource]) -> str:
     """Read only the standard annotation flag transiently; persist no tags."""
-    import pydicom
-
     observed: set[str] = set()
-    for path in paths[:: max(1, len(paths) // 8)]:
-        dataset = pydicom.dcmread(
-            path,
-            stop_before_pixels=True,
-            force=False,
-            specific_tags=["BurnedInAnnotation"],
-        )
-        value = str(getattr(dataset, "BurnedInAnnotation", "")).strip().upper()
-        if value:
-            observed.add(value)
+    with open_dicom_reader() as read:
+        for source in sources[:: max(1, len(sources) // 8)]:
+            dataset = read(
+                source,
+                stop_before_pixels=True,
+                specific_tags=["BurnedInAnnotation"],
+            )
+            value = str(getattr(dataset, "BurnedInAnnotation", "")).strip().upper()
+            if value:
+                observed.add(value)
     if "YES" in observed:
         return "declared_yes"
     if observed == {"NO"}:
@@ -165,9 +167,20 @@ def export_assets(
     export: bool,
     manual_visual_qc_complete: bool = False,
     publication_authorization_user_managed: bool = False,
+    geometry_ids: set[str] | None = None,
 ) -> dict[str, Any]:
     audit = json.loads(audit_path.read_text(encoding="utf-8"))
     candidates = select_ct_candidates(audit)
+    if geometry_ids is not None:
+        available = {str(candidate["geometry_id"]) for candidate in candidates}
+        missing = geometry_ids - available
+        if missing:
+            raise ValueError(f"Requested geometries are unavailable: {sorted(missing)}")
+        candidates = [
+            candidate
+            for candidate in candidates
+            if str(candidate["geometry_id"]) in geometry_ids
+        ]
     safe_output = _safe_output_dir(output_dir)
     safe_output.mkdir(parents=True, exist_ok=True)
     records: list[dict[str, Any]] = []
@@ -281,6 +294,12 @@ def main() -> None:
         action="store_true",
         help="Record publication authorization as externally managed, not a pipeline gate",
     )
+    parser.add_argument(
+        "--geometry-ids",
+        nargs="+",
+        default=None,
+        help="Optional de-identified geometry IDs to export",
+    )
     args = parser.parse_args()
     result = export_assets(
         args.audit_manifest,
@@ -291,6 +310,7 @@ def main() -> None:
         publication_authorization_user_managed=(
             args.publication_authorization_user_managed
         ),
+        geometry_ids=set(args.geometry_ids) if args.geometry_ids else None,
     )
     print(
         json.dumps(
