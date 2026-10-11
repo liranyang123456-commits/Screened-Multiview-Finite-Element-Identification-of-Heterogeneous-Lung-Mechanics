@@ -156,3 +156,22 @@ def test_oracle_force_mode_uses_simulator_truth(
         soft_occupancy=torch.zeros(2),
     )
     assert torch.allclose(seen_forces[0], experiments[0]["forces"][2])
+
+
+def test_lock_ratio_keeps_initializer_ratio(proportional_fem: None) -> None:
+    scene, experiments = simple_problem()
+    result = evaluation.fit_patient(
+        scene,
+        experiments,
+        observation_key="surface_motion_observed",
+        max_nfev=20,
+        optimize_force_scale=True,
+        force_prior_sigma=0.05,
+        initial_E_background=7000.0,
+        initial_ratio=2.4,
+        lock_ratio=True,
+        search_half_width_log=(0.4, 0.0),
+        soft_occupancy=torch.zeros(2),
+    )
+    assert result["lock_ratio"] is True
+    assert abs(result["inclusion_ratio"] - 2.4) < 1e-12

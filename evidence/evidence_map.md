@@ -219,16 +219,22 @@ CT-conditioned samples**. Real CT-derived geometry appears only in the
   `results/ion_ct_expanded120_final/benchmark.json`,
   `results/ion_ct_expanded30_physics16/benchmark.json`, and
   `results/ion_ct_expanded_summary.json`.
-  - Hybrid initializer on 120 held-out scenes: background 8.55%, ratio 26.95%,
-    center 9.60%, radius 11.46%.
-  - Background, center, and radius criteria pass; ratio remains above 25%.
+  - Frozen uncalibrated hybrid on 120 held-out scenes: background 8.55%,
+    ratio 26.95%, center 9.60%, radius 11.46% (2/6 geometries pass ratio).
+  - Official hybrid after train-fit / validation-select piecewise ratio
+    calibration (`bins3_regularized`): ratio 17.77%, 6/6 geometries pass,
+    cluster interval 13.77--22.13%. E/center/radius unchanged.
+  - Same protocol: Ridge 41.63% (raw), PCA-Ridge 44.83% (shrink). Not a
+    new-network claim.
   - Controlled 30-scene FEM medians: fixed 8.23%/38.31%, multistart
     5.32%/55.26%, screened MAP 4.94%/26.87%, and OOD fallback 5.54%/32.98%
     for background/ratio.
   - OOD fallback triggers in 73.3% and selects fixed FEM in 23.3%, using only
     train-support exceedance and physical objective.
   - True-region/true-force oracle: 2.86% background and 38.31% ratio under the
-    same 16-evaluation budget. Contrast remains the limiting endpoint.
+    same 16-evaluation budget. Frozen physics used the uncalibrated prior.
+    Official geometry-median contrast now passes; scene-level contrast
+    remains incomplete.
 - Privacy source:
   `results/ion_ct_synthetic_mechanics/deidentified_figure_assets/privacy_manifest.json`.
   - DICOM objects/tags, paths, UIDs, names, and PNG metadata are absent.
@@ -313,6 +319,85 @@ Stage-40, stage-100, stage-250, and summary variants are development records.
 Dataset size, features, and architecture changed together. They may motivate
 the final design but must not be presented as a controlled scaling law or as
 isolating one architectural component.
+
+## Post-freeze additions (AIIM revision round, 2026-08-01)
+
+These artifacts were generated after the frozen evidence set; they extend but
+do not modify the frozen files.
+
+### Virtual fields method oracle comparator (R3)
+
+- Script: `experiments/benchmark_vfm_oracle.py` (Galerkin virtual work, unit
+  internal forces from the same FE code; 3 virtual fields x 4 loads).
+- Records: `results/lung_mesh_ai_v2/vfm_oracle_benchmark.json`.
+- Information given: oracle full interior kinematics (peak frame), oracle
+  inclusion region, measured forces (5% error).
+- Results (50 test patients): background median `0.07237588638329817` = 7.24%
+  (mean 11.07%); ratio median `0.21041460042457744` = 21.04% (mean 22.44%).
+
+### Noise x force-bias sensitivity and no-screen counterfactual (R1/R2)
+
+- Driver: `experiments/run_aiim_sensitivity_sweeps.py`; outputs under
+  `results/lung_mesh_ai_v2/aiim_sensitivity/` (`sensitivity_summary.json`,
+  `sensitivity_<config>.json`).
+- Configurations: track noise 0.01/0.10/0.20/0.50 px (0.05 px is the frozen
+  arm), force-calibration bias -0.10/+0.05/+0.10/+0.20, and the unscreened
+  counterfactual (screening and acceptance thresholds set to 0).
+- All runs reuse the frozen protocol (50 test patients, calibrator init,
+  predicted region, force prior sigma 0.05, material prior weight 0.05).
+- Results (median background / ratio / acceptance / evaluations):
+  noise 0.01 px `0.0428/0.1837/0.10/7`; noise 0.10 px `0.0411/0.1869/0.04/7`;
+  noise 0.20 px `0.0382/0.1869/0.00/7`; noise 0.50 px `0.0382/0.1869/0.00/7`;
+  force -0.10 `0.0401/0.1902/0.02/7`; force +0.05 `0.0428/0.1902/0.14/7`;
+  force +0.10 `0.0538/0.2214/0.34/7`; force +0.20 `0.1101/0.2113/0.66/79`;
+  no screen `0.0881/0.1554/1.00/64` (background worsened on 47/50 patients).
+
+### CT-cohort statistics correction (R4/R5)
+
+- `experiments/summarize_ion_geometry_failure.py` writes
+  `results/ion_ct_expanded120_final/geometry_failure_breakdown.json` and the
+  supplementary table fragment `ion_geometry_failure_table.tex`.
+- The main text now reports geometry-cluster bootstrap intervals
+  (`methods.ours_hybrid_initializer.geometry_cluster_bootstrap` in
+  `benchmark.json`, 2,000 replicates) instead of scene-level intervals.
+- Per-geometry ratio medians fail the 25% gate in 4/6 geometries
+  (26.9--33.6%); scene-level ratio-error Spearman correlations: inclusion
+  radius -0.20, OOD score 0.05, partition soft-Dice -0.06.
+
+## Post-lock inverse-arm controls (Array sync, 2026-08-25)
+
+These arms reuse the locked four endpoints. They do **not** change
+`official_lock.json`, the published 3.82% / 4.11% / 18.69% synthetic
+numbers, or the official CT hybrid 8.55% / **17.77%** / 9.60% / 11.46%.
+Do not overwrite `frozen_array_20260824/`.
+
+### Complete arms (may be cited)
+
+- Scoreboard: `results/inverse_arm_scoreboard_20260825.json`
+- Figure: `paper_aiim/figures/fig_inverse_leaderboard.pdf` from
+  `paper_aiim/figures/plot_inverse_leaderboard.py`
+- Synthetic PINN: `results/lung_mesh_ai_v2/pinn_inverse50_v1/` —
+  E 4.55% [3.22, 7.65], ratio 17.87%; does not beat screened MAP.
+- Locked-ρ FEM, synthetic 50:
+  `results/lung_mesh_ai_v2/screened_fem_locked50_v1/` — identical
+  medians to screened MAP (4.11% / 18.69%), acceptance 8%, Hessian
+  rollback 0%.
+- CT PINN official start:
+  `results/ion_ct_pinn_inverse120_officialstart_v1/` — E 11.31%,
+  ratio 23.95%, **3/6** geometries.
+- CT PINN hybrid start:
+  `results/ion_ct_pinn_inverse120_v1/` — E 10.92%, ratio 26.57%,
+  2/6; **not** a same-start control of 17.77%.
+- Stacking / covariate:
+  `results/ion_ct_ratio_optimization/stack_covariate_v1/selection.json`
+  — validation still selects `official_2028_bins3` (3/3 → test 17.77%
+  6/6). Other policies 0/3 on validation.
+
+### Incomplete (not a published number)
+
+- Official-prior screened FEM CT 120:
+  `results/ion_ct_official_prior_screened_fem120_v1/records.jsonl`.
+  Resume without `--overwrite`. Omit from ranking until 120/120.
 
 ## Numbers intentionally excluded
 

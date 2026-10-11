@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "config_id": "w2_s0p2_p2",
+  "factors": {
+    "prior_width_scale": 2.0,
+    "screen_threshold": 0.2,
+    "accept_threshold": 0.05,
+    "candidate_probe_count": 2,
+    "candidate_directions": [
+      -1.0,
+      1.0
+    ],
+    "model_force_bias": 0.0
+  },
+  "paired_population": "same explicit locked test patient ids for every arm",
+  "patient_limit": 18,
+  "patient_start": 0,
+  "patient_ids": [
+    "geom_58db559b24da6eb7cc0d_scenario_000",
+    "geom_58db559b24da6eb7cc0d_scenario_001",
+    "geom_58db559b24da6eb7cc0d_scenario_002",
+    "geom_62010c56d95ec023bc9b_scenario_000",
+    "geom_62010c56d95ec023bc9b_scenario_001",
+    "geom_62010c56d95ec023bc9b_scenario_002",
+    "geom_a417d13e9ae27d685557_scenario_000",
+    "geom_a417d13e9ae27d685557_scenario_001",
+    "geom_a417d13e9ae27d685557_scenario_002",
+    "geom_ab578f1bb0ee02be2ccd_scenario_000",
+    "geom_ab578f1bb0ee02be2ccd_scenario_001",
+    "geom_ab578f1bb0ee02be2ccd_scenario_002",
+    "geom_db38a9c3817f033727b5_scenario_000",
+    "geom_db38a9c3817f033727b5_scenario_001",
+    "geom_db38a9c3817f033727b5_scenario_002",
+    "geom_fac5cdc88e186e46ee04_scenario_000",
+    "geom_fac5cdc88e186e46ee04_scenario_001",
+    "geom_fac5cdc88e186e46ee04_scenario_002"
+  ],
+  "frozen_input_hashes": {
+    "dataset_manifest": "b863d9ad35cff466a1a7a8288458325c79cc2ab2c4851feb475078ae243ec116",
+    "hybrid_benchmark": "8ebb6f6bf94d44d206421eeeab11317586db03eb1f6aa0a86c09511ebb769f3b",
+    "ratio_train": "003b4984f7338a2a976bfe843df9183a475964cc6582d854310c34b155af8819",
+    "ratio_val": "195f52a0eb87b3c693f97b88fd4e7966ba7c0510225413deb18a5f936ca83b52"
+  }
+}

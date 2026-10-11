@@ -77,6 +77,25 @@ def _assemble_tangent(Xe, dN, Vol, elems, mu, lam, Nn, Ne, u_nodes, D):
     return K
 
 
+def assemble_internal_force(u_flat, X, elems, mu, lam, Nn, D):
+    """Energy-consistent internal force with a graph through ``u``, ``mu``, and ``lam``.
+
+    Unlike :func:`assemble_internal_force_and_tangent`, this skips the tangent
+    and does not detach ``u``, so a PINN residual can back-propagate into both
+    the displacement network and the inverse material parameters.
+    """
+    Ne = elems.shape[0]
+    u_nodes = u_flat.view(Nn, D)
+    Xe = X[elems]
+    Vol = _simplex_vol(Xe, D)
+    xloc = Xe + u_nodes[elems]
+    F = deformation_gradient(xloc, Xe)
+    psi = nh_energy_density(F, mu, lam, dim=D)
+    energy = (Vol * psi).sum()
+    fint, = torch.autograd.grad(energy, u_flat, create_graph=True, retain_graph=True)
+    return fint
+
+
 def assemble_internal_force_and_tangent(u_flat, X, elems, mu, lam, Nn, D):
     """Returns fint (D*Nn,), K (D*Nn, D*Nn) — energy-consistent, symmetric K."""
     Ne = elems.shape[0]

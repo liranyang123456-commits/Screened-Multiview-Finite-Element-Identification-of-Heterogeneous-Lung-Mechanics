@@ -22,7 +22,7 @@ from lung_inverse_rendering.ct_geometry import build_scene_from_ct_mesh  # noqa:
 
 DEFAULT_MESH_DIR = ROOT / "results" / "ion_geometry_ood" / "deidentified_meshes27"
 DEFAULT_OUTPUT = ROOT / "results" / "ion_geometry_ood" / "geometry_qc_27.json"
-FORBIDDEN = re.compile(r"(?:[A-Za-z]:\\|省医|case_\d|SeriesInstanceUID)")
+FORBIDDEN = re.compile(r"(?:[A-Za-z]:\\|\u7701\u533b|case_\d|SeriesInstanceUID)")
 
 
 def validate_cohort(mesh_dir: Path) -> dict[str, Any]:

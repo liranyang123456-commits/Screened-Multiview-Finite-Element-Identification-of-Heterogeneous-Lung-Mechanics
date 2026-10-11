@@ -1,0 +1,74 @@
+{
+  "protocol": "Same 18 locked CT test scenes. Observations regenerated with the production isotropic solver under a different truth structure; fitter is the production single-sphere isotropic screened MAP with ratio locked. 'matched' re-runs the unchanged truth through the identical code path as the control.",
+  "modes": {
+    "matched": "single sphere, full posterior fixation (control)",
+    "two_inclusions": "second stiff sphere of equal radius/contrast at the x-mirrored center",
+    "diffuse": "Gaussian stiffness bump, sigma = inclusion radius, same peak contrast",
+    "sliding_bc": "posterior face fixed only in z plus three in-plane pins; fitter keeps full fixation"
+  },
+  "arms": {
+    "diffuse": {
+      "n": 18,
+      "accepted": 17,
+      "median_background_error_percent": 25.93,
+      "median_ratio_error_percent": 54.39,
+      "median_force_error_percent": 3.95,
+      "median_peak_displacement_gap_percent": 6.22,
+      "median_final_cost": 3.0179,
+      "median_initial_cost": 4.9486,
+      "records_sha256": "20548bb4154b5734d2f7e773c8526cf84e582877d4cc79dfbe3e0d2b060bc37e"
+    },
+    "matched": {
+      "n": 18,
+      "accepted": 15,
+      "median_background_error_percent": 24.63,
+      "median_ratio_error_percent": 54.39,
+      "median_force_error_percent": 4.36,
+      "median_peak_displacement_gap_percent": 0.0,
+      "median_final_cost": 3.0307,
+      "median_initial_cost": 4.8254,
+      "records_sha256": "5d76967a8f7db8aac9d21bee574dc8272529f99e6ea6cc50aadb47d1e772424a"
+    },
+    "sliding_bc": {
+      "n": 18,
+      "accepted": 10,
+      "median_background_error_percent": 15.6,
+      "median_ratio_error_percent": 54.39,
+      "median_force_error_percent": 4.36,
+      "median_peak_displacement_gap_percent": 24.43,
+      "median_final_cost": 2.4106,
+      "median_initial_cost": 3.4337,
+      "records_sha256": "4b63a30caf45d2d477bf4102fc661d7b1db5efb831f572c9395a134ea93f2ac0"
+    },
+    "two_inclusions": {
+      "n": 18,
+      "accepted": 17,
+      "median_background_error_percent": 25.25,
+      "median_ratio_error_percent": 54.39,
+      "median_force_error_percent": 4.36,
+      "median_peak_displacement_gap_percent": 2.43,
+      "median_final_cost": 3.0838,
+      "median_initial_cost": 4.9393,
+      "records_sha256": "7f8aee04fddb0fb91b4478a10a56886c870b35a350c413dd6dbf739446c3122e"
+    }
+  },
+  "residual_mismatch_detector": {
+    "diffuse": {
+      "auc_cost_vs_matched": 0.497,
+      "flagged_at_matched_p90": 3,
+      "n": 18
+    },
+    "sliding_bc": {
+      "auc_cost_vs_matched": 0.426,
+      "flagged_at_matched_p90": 0,
+      "n": 18
+    },
+    "two_inclusions": {
+      "auc_cost_vs_matched": 0.509,
+      "flagged_at_matched_p90": 3,
+      "n": 18
+    },
+    "matched_p90_threshold": 5.1031,
+    "matched_self_flag_rate": 2
+  }
+}

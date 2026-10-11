@@ -1,0 +1,18 @@
+{
+  "purpose": "Population-prior-centred FEM control (Reviewer 4 C3): material prior centre fixed at the training-split population mean of true E_background instead of the learned per-scene initializer estimate.",
+  "dataset_manifest": "dataset\\ion_ct_synthetic_mechanics540\\manifest.json",
+  "dataset_manifest_sha256": "b863d9ad35cff466a1a7a8288458325c79cc2ab2c4851feb475078ae243ec116",
+  "split_used": "train",
+  "train_patients": 360,
+  "train_unique_geometries": 18,
+  "E_background_train_mean_Pa": 4425.1653061175575,
+  "E_background_train_median_Pa": 3709.7913546589994,
+  "E_background_train_std_Pa": 1667.3557601750176,
+  "E_background_train_geometric_mean_Pa": 4146.969348128817,
+  "E_background_train_min_Pa": 2611.1620481079503,
+  "E_background_train_max_Pa": 7782.327213960958,
+  "value_passed_to_fixed_prior_E": 4425.1653061175575,
+  "note_material_draws_shared_across_geometries": true,
+  "note": "Material parameters are drawn per scenario template and reused across geometries, so the train and test splits (geometry-level split) share the same E_background marginal; train mean therefore equals test mean. The 18 locked scenes have mean 4592.94 Pa / median 3813.06 Pa.",
+  "other_arms_fixed_prior_E_default_Pa": 5000.0
+}

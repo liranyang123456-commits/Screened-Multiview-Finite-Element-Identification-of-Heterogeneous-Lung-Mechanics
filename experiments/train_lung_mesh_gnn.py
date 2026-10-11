@@ -103,18 +103,30 @@ def material_loss(
     partition_weight: float = 1.0,
     eikonal_weight: float = 0.05,
     smoothness_weight: float = 0.02,
+    ratio_size_upweight: float = 0.0,
 ) -> tuple[torch.Tensor, dict[str, float]]:
     labels = [graph["labels"] for graph in graphs]
     heterogeneous = torch.stack([item["heterogeneous"] for item in labels]).view(-1, 1)
     terms: dict[str, torch.Tensor] = {}
     for name in ("log_E_background", "log_ratio"):
         target = torch.stack([item[name] for item in labels]).view(-1, 1)
-        terms[name] = heteroscedastic_nll(
+        nll = heteroscedastic_nll(
             output[f"{name}_mean"], output[f"{name}_logvar"], target  # type: ignore[arg-type]
-        ).mean()
-        terms[f"{name}_mean"] = F.smooth_l1_loss(
-            output[f"{name}_mean"], target  # type: ignore[arg-type]
         )
+        mean_term = F.smooth_l1_loss(
+            output[f"{name}_mean"], target, reduction="none"  # type: ignore[arg-type]
+        )
+        if name == "log_ratio" and ratio_size_upweight > 0:
+            radii = torch.stack([item["radius_fraction"] for item in labels]).view(-1, 1)
+            size_boost = (0.15 / radii.clamp(min=0.05)).clamp(1.0, 3.0)
+            weights = torch.where(heterogeneous > 0.5, size_boost, torch.ones_like(size_boost))
+            weights = 1.0 + ratio_size_upweight * (weights - 1.0)
+            weights = weights / weights.mean().clamp_min(1e-6)
+            terms[name] = (nll * weights).mean()
+            terms[f"{name}_mean"] = (mean_term * weights).mean()
+        else:
+            terms[name] = nll.mean()
+            terms[f"{name}_mean"] = mean_term.mean()
     region_mask = heterogeneous[:, 0] > 0.5
     if region_mask.any():
         center_target = torch.stack(
@@ -601,6 +613,14 @@ def main() -> None:
     parser.add_argument("--partition-weight", type=float, default=1.5)
     parser.add_argument("--eikonal-weight", type=float, default=0.05)
     parser.add_argument("--smoothness-weight", type=float, default=0.02)
+    parser.add_argument("--ratio-size-upweight", type=float, default=0.0)
+    parser.add_argument(
+        "--selection-mode",
+        choices=("composite", "ratio"),
+        default="composite",
+        help="composite: original score; ratio: validation ratio with an E guard",
+    )
+    parser.add_argument("--ratio-e-guard", type=float, default=0.12)
     args = parser.parse_args()
     random.seed(args.seed)
     np.random.seed(args.seed)
@@ -675,6 +695,7 @@ def main() -> None:
                     partition_weight=args.partition_weight,
                     eikonal_weight=args.eikonal_weight,
                     smoothness_weight=args.smoothness_weight,
+                    ratio_size_upweight=args.ratio_size_upweight,
                 )
             scaler.scale(loss).backward()
             scaler.unscale_(optimizer)
@@ -684,7 +705,18 @@ def main() -> None:
             losses.append(float(loss.detach()))
         scheduler.step()
         validation, _ = evaluate(model, val_loader, device)
-        score = validation_selection_score(validation)
+        if args.selection_mode == "ratio":
+            e_penalty = max(
+                0.0,
+                float(validation["E_background_median_relative_error"])
+                - args.ratio_e_guard,
+            )
+            score = (
+                float(validation["inclusion_ratio_median_relative_error"])
+                + 0.25 * e_penalty
+            )
+        else:
+            score = validation_selection_score(validation)
         history.append(
             {
                 "epoch": epoch,

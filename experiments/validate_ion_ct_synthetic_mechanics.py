@@ -16,7 +16,7 @@ DEFAULT_OUTPUT = (
     ROOT / "results" / "ion_ct_synthetic_mechanics" / "protocol_validation.json"
 )
 FORBIDDEN = re.compile(
-    r"(?:[A-Za-z]:\\|省医|case_\d|SeriesInstanceUID|StudyInstanceUID|PatientName)"
+    r"(?:[A-Za-z]:\\|\u7701\u533b|case_\d|SeriesInstanceUID|StudyInstanceUID|PatientName)"
 )
 MATCHED_FIELDS = (
     "E_background",

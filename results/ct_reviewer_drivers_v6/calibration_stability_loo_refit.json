@@ -1,0 +1,2382 @@
+{
+  "selection_boundary": "inner geometry LOO on train selects; separate val geometries scored once; no held-out test labels loaded",
+  "train_geometry_count": 18,
+  "val_geometry_count": 3,
+  "development_geometries": [
+    "geom_03024386f1bfde4e97a1",
+    "geom_05cf9d4fae8e8284f1cf",
+    "geom_16cb9f3ab9be38cc56e9",
+    "geom_16d7b575eb21c6be3a32",
+    "geom_1fd11f1511a5d5db1c30",
+    "geom_271acd77cdf0a24bc7a4",
+    "geom_306f69af45a814373d2e",
+    "geom_40dfead03c83371b4f69",
+    "geom_4321788df5aa62e8484b",
+    "geom_4a28ee0fdb392694f551",
+    "geom_55fc14f5542c626bd87f",
+    "geom_6d4dd09b30cfb766ab98",
+    "geom_955e8309dafc61ab6034",
+    "geom_b916af738e01f23cb936",
+    "geom_c45d80174af16be5c949",
+    "geom_d9b84925e4f0f3b2ee70",
+    "geom_db7f7d8f94c6f2a94df6",
+    "geom_db8344e3ed905d9505f7",
+    "geom_dd1d30e9968e340055a2",
+    "geom_e6a4978ad30c1171231c",
+    "geom_fbba1dfbf564184c0b18"
+  ],
+  "selected_development_policy": {
+    "bins": 4,
+    "width_scale": 1.0
+  },
+  "inner_policy_selection": [
+    {
+      "bins": 2,
+      "width_scale": 0.5,
+      "inner_loo_median": 0.1898081828962057,
+      "inner_loo_pass_folds": 17,
+      "folds": [
+        {
+          "held_train_geometry": "geom_05cf9d4fae8e8284f1cf",
+          "score": {
+            "n": 20,
+            "median_error": 0.1925313161203695,
+            "geometry_medians": {
+              "geom_05cf9d4fae8e8284f1cf": 0.1925313161203695
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_16cb9f3ab9be38cc56e9",
+          "score": {
+            "n": 20,
+            "median_error": 0.17984470853820356,
+            "geometry_medians": {
+              "geom_16cb9f3ab9be38cc56e9": 0.17984470853820356
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_16d7b575eb21c6be3a32",
+          "score": {
+            "n": 20,
+            "median_error": 0.19466494465998235,
+            "geometry_medians": {
+              "geom_16d7b575eb21c6be3a32": 0.19466494465998235
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_1fd11f1511a5d5db1c30",
+          "score": {
+            "n": 20,
+            "median_error": 0.1765146542419484,
+            "geometry_medians": {
+              "geom_1fd11f1511a5d5db1c30": 0.1765146542419484
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_306f69af45a814373d2e",
+          "score": {
+            "n": 20,
+            "median_error": 0.19768565822557016,
+            "geometry_medians": {
+              "geom_306f69af45a814373d2e": 0.19768565822557016
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_40dfead03c83371b4f69",
+          "score": {
+            "n": 20,
+            "median_error": 0.21939028559937912,
+            "geometry_medians": {
+              "geom_40dfead03c83371b4f69": 0.21939028559937912
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_4321788df5aa62e8484b",
+          "score": {
+            "n": 20,
+            "median_error": 0.18655228135104213,
+            "geometry_medians": {
+              "geom_4321788df5aa62e8484b": 0.18655228135104213
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_4a28ee0fdb392694f551",
+          "score": {
+            "n": 20,
+            "median_error": 0.18675279451852317,
+            "geometry_medians": {
+              "geom_4a28ee0fdb392694f551": 0.18675279451852317
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_55fc14f5542c626bd87f",
+          "score": {
+            "n": 20,
+            "median_error": 0.20751059299963603,
+            "geometry_medians": {
+              "geom_55fc14f5542c626bd87f": 0.20751059299963603
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_6d4dd09b30cfb766ab98",
+          "score": {
+            "n": 20,
+            "median_error": 0.1898081828962057,
+            "geometry_medians": {
+              "geom_6d4dd09b30cfb766ab98": 0.1898081828962057
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_b916af738e01f23cb936",
+          "score": {
+            "n": 20,
+            "median_error": 0.22015545547722265,
+            "geometry_medians": {
+              "geom_b916af738e01f23cb936": 0.22015545547722265
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_c45d80174af16be5c949",
+          "score": {
+            "n": 20,
+            "median_error": 0.17722144104700216,
+            "geometry_medians": {
+              "geom_c45d80174af16be5c949": 0.17722144104700216
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_d9b84925e4f0f3b2ee70",
+          "score": {
+            "n": 20,
+            "median_error": 0.18512865604662382,
+            "geometry_medians": {
+              "geom_d9b84925e4f0f3b2ee70": 0.18512865604662382
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_db7f7d8f94c6f2a94df6",
+          "score": {
+            "n": 20,
+            "median_error": 0.1947817904311554,
+            "geometry_medians": {
+              "geom_db7f7d8f94c6f2a94df6": 0.1947817904311554
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_db8344e3ed905d9505f7",
+          "score": {
+            "n": 20,
+            "median_error": 0.17632781795477004,
+            "geometry_medians": {
+              "geom_db8344e3ed905d9505f7": 0.17632781795477004
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_dd1d30e9968e340055a2",
+          "score": {
+            "n": 20,
+            "median_error": 0.18071344388381883,
+            "geometry_medians": {
+              "geom_dd1d30e9968e340055a2": 0.18071344388381883
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_e6a4978ad30c1171231c",
+          "score": {
+            "n": 20,
+            "median_error": 0.25230891777708375,
+            "geometry_medians": {
+              "geom_e6a4978ad30c1171231c": 0.25230891777708375
+            },
+            "geometries_passing_0.25": 0,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_fbba1dfbf564184c0b18",
+          "score": {
+            "n": 20,
+            "median_error": 0.18914001726764762,
+            "geometry_medians": {
+              "geom_fbba1dfbf564184c0b18": 0.18914001726764762
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        }
+      ]
+    },
+    {
+      "bins": 2,
+      "width_scale": 1.0,
+      "inner_loo_median": 0.1509220159391983,
+      "inner_loo_pass_folds": 18,
+      "folds": [
+        {
+          "held_train_geometry": "geom_05cf9d4fae8e8284f1cf",
+          "score": {
+            "n": 20,
+            "median_error": 0.19465054747641725,
+            "geometry_medians": {
+              "geom_05cf9d4fae8e8284f1cf": 0.19465054747641725
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_16cb9f3ab9be38cc56e9",
+          "score": {
+            "n": 20,
+            "median_error": 0.12190222595005856,
+            "geometry_medians": {
+              "geom_16cb9f3ab9be38cc56e9": 0.12190222595005856
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_16d7b575eb21c6be3a32",
+          "score": {
+            "n": 20,
+            "median_error": 0.14315128840488106,
+            "geometry_medians": {
+              "geom_16d7b575eb21c6be3a32": 0.14315128840488106
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_1fd11f1511a5d5db1c30",
+          "score": {
+            "n": 20,
+            "median_error": 0.12940780849574302,
+            "geometry_medians": {
+              "geom_1fd11f1511a5d5db1c30": 0.12940780849574302
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_306f69af45a814373d2e",
+          "score": {
+            "n": 20,
+            "median_error": 0.14242536202017342,
+            "geometry_medians": {
+              "geom_306f69af45a814373d2e": 0.14242536202017342
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_40dfead03c83371b4f69",
+          "score": {
+            "n": 20,
+            "median_error": 0.17951605208088406,
+            "geometry_medians": {
+              "geom_40dfead03c83371b4f69": 0.17951605208088406
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_4321788df5aa62e8484b",
+          "score": {
+            "n": 20,
+            "median_error": 0.1509220159391983,
+            "geometry_medians": {
+              "geom_4321788df5aa62e8484b": 0.1509220159391983
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_4a28ee0fdb392694f551",
+          "score": {
+            "n": 20,
+            "median_error": 0.14860768398466961,
+            "geometry_medians": {
+              "geom_4a28ee0fdb392694f551": 0.14860768398466961
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_55fc14f5542c626bd87f",
+          "score": {
+            "n": 20,
+            "median_error": 0.17797307281423697,
+            "geometry_medians": {
+              "geom_55fc14f5542c626bd87f": 0.17797307281423697
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_6d4dd09b30cfb766ab98",
+          "score": {
+            "n": 20,
+            "median_error": 0.14200635540552198,
+            "geometry_medians": {
+              "geom_6d4dd09b30cfb766ab98": 0.14200635540552198
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_b916af738e01f23cb936",
+          "score": {
+            "n": 20,
+            "median_error": 0.2014537029897912,
+            "geometry_medians": {
+              "geom_b916af738e01f23cb936": 0.2014537029897912
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_c45d80174af16be5c949",
+          "score": {
+            "n": 20,
+            "median_error": 0.15701611371471746,
+            "geometry_medians": {
+              "geom_c45d80174af16be5c949": 0.15701611371471746
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_d9b84925e4f0f3b2ee70",
+          "score": {
+            "n": 20,
+            "median_error": 0.1274711290076857,
+            "geometry_medians": {
+              "geom_d9b84925e4f0f3b2ee70": 0.1274711290076857
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_db7f7d8f94c6f2a94df6",
+          "score": {
+            "n": 20,
+            "median_error": 0.17862742255135272,
+            "geometry_medians": {
+              "geom_db7f7d8f94c6f2a94df6": 0.17862742255135272
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_db8344e3ed905d9505f7",
+          "score": {
+            "n": 20,
+            "median_error": 0.13694502862412472,
+            "geometry_medians": {
+              "geom_db8344e3ed905d9505f7": 0.13694502862412472
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_dd1d30e9968e340055a2",
+          "score": {
+            "n": 20,
+            "median_error": 0.14860382962765684,
+            "geometry_medians": {
+              "geom_dd1d30e9968e340055a2": 0.14860382962765684
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_e6a4978ad30c1171231c",
+          "score": {
+            "n": 20,
+            "median_error": 0.19181047592100386,
+            "geometry_medians": {
+              "geom_e6a4978ad30c1171231c": 0.19181047592100386
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_fbba1dfbf564184c0b18",
+          "score": {
+            "n": 20,
+            "median_error": 0.1756624827194856,
+            "geometry_medians": {
+              "geom_fbba1dfbf564184c0b18": 0.1756624827194856
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        }
+      ]
+    },
+    {
+      "bins": 2,
+      "width_scale": 1.5,
+      "inner_loo_median": 0.1509220159391983,
+      "inner_loo_pass_folds": 18,
+      "folds": [
+        {
+          "held_train_geometry": "geom_05cf9d4fae8e8284f1cf",
+          "score": {
+            "n": 20,
+            "median_error": 0.19465054747641725,
+            "geometry_medians": {
+              "geom_05cf9d4fae8e8284f1cf": 0.19465054747641725
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_16cb9f3ab9be38cc56e9",
+          "score": {
+            "n": 20,
+            "median_error": 0.12190222595005856,
+            "geometry_medians": {
+              "geom_16cb9f3ab9be38cc56e9": 0.12190222595005856
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_16d7b575eb21c6be3a32",
+          "score": {
+            "n": 20,
+            "median_error": 0.14315128840488106,
+            "geometry_medians": {
+              "geom_16d7b575eb21c6be3a32": 0.14315128840488106
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_1fd11f1511a5d5db1c30",
+          "score": {
+            "n": 20,
+            "median_error": 0.12940780849574302,
+            "geometry_medians": {
+              "geom_1fd11f1511a5d5db1c30": 0.12940780849574302
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_306f69af45a814373d2e",
+          "score": {
+            "n": 20,
+            "median_error": 0.14242536202017342,
+            "geometry_medians": {
+              "geom_306f69af45a814373d2e": 0.14242536202017342
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_40dfead03c83371b4f69",
+          "score": {
+            "n": 20,
+            "median_error": 0.17951605208088406,
+            "geometry_medians": {
+              "geom_40dfead03c83371b4f69": 0.17951605208088406
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_4321788df5aa62e8484b",
+          "score": {
+            "n": 20,
+            "median_error": 0.1509220159391983,
+            "geometry_medians": {
+              "geom_4321788df5aa62e8484b": 0.1509220159391983
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_4a28ee0fdb392694f551",
+          "score": {
+            "n": 20,
+            "median_error": 0.14860768398466961,
+            "geometry_medians": {
+              "geom_4a28ee0fdb392694f551": 0.14860768398466961
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_55fc14f5542c626bd87f",
+          "score": {
+            "n": 20,
+            "median_error": 0.17797307281423697,
+            "geometry_medians": {
+              "geom_55fc14f5542c626bd87f": 0.17797307281423697
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_6d4dd09b30cfb766ab98",
+          "score": {
+            "n": 20,
+            "median_error": 0.14200635540552198,
+            "geometry_medians": {
+              "geom_6d4dd09b30cfb766ab98": 0.14200635540552198
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_b916af738e01f23cb936",
+          "score": {
+            "n": 20,
+            "median_error": 0.2014537029897912,
+            "geometry_medians": {
+              "geom_b916af738e01f23cb936": 0.2014537029897912
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_c45d80174af16be5c949",
+          "score": {
+            "n": 20,
+            "median_error": 0.15701611371471746,
+            "geometry_medians": {
+              "geom_c45d80174af16be5c949": 0.15701611371471746
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_d9b84925e4f0f3b2ee70",
+          "score": {
+            "n": 20,
+            "median_error": 0.1274711290076857,
+            "geometry_medians": {
+              "geom_d9b84925e4f0f3b2ee70": 0.1274711290076857
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_db7f7d8f94c6f2a94df6",
+          "score": {
+            "n": 20,
+            "median_error": 0.17862742255135272,
+            "geometry_medians": {
+              "geom_db7f7d8f94c6f2a94df6": 0.17862742255135272
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_db8344e3ed905d9505f7",
+          "score": {
+            "n": 20,
+            "median_error": 0.13694502862412472,
+            "geometry_medians": {
+              "geom_db8344e3ed905d9505f7": 0.13694502862412472
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_dd1d30e9968e340055a2",
+          "score": {
+            "n": 20,
+            "median_error": 0.14860382962765684,
+            "geometry_medians": {
+              "geom_dd1d30e9968e340055a2": 0.14860382962765684
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_e6a4978ad30c1171231c",
+          "score": {
+            "n": 20,
+            "median_error": 0.19181047592100386,
+            "geometry_medians": {
+              "geom_e6a4978ad30c1171231c": 0.19181047592100386
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_fbba1dfbf564184c0b18",
+          "score": {
+            "n": 20,
+            "median_error": 0.1756624827194856,
+            "geometry_medians": {
+              "geom_fbba1dfbf564184c0b18": 0.1756624827194856
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        }
+      ]
+    },
+    {
+      "bins": 3,
+      "width_scale": 0.5,
+      "inner_loo_median": 0.18512395446137442,
+      "inner_loo_pass_folds": 18,
+      "folds": [
+        {
+          "held_train_geometry": "geom_05cf9d4fae8e8284f1cf",
+          "score": {
+            "n": 20,
+            "median_error": 0.1597852929151926,
+            "geometry_medians": {
+              "geom_05cf9d4fae8e8284f1cf": 0.1597852929151926
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_16cb9f3ab9be38cc56e9",
+          "score": {
+            "n": 20,
+            "median_error": 0.17080662645306355,
+            "geometry_medians": {
+              "geom_16cb9f3ab9be38cc56e9": 0.17080662645306355
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_16d7b575eb21c6be3a32",
+          "score": {
+            "n": 20,
+            "median_error": 0.19014384572336068,
+            "geometry_medians": {
+              "geom_16d7b575eb21c6be3a32": 0.19014384572336068
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_1fd11f1511a5d5db1c30",
+          "score": {
+            "n": 20,
+            "median_error": 0.18512395446137442,
+            "geometry_medians": {
+              "geom_1fd11f1511a5d5db1c30": 0.18512395446137442
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_306f69af45a814373d2e",
+          "score": {
+            "n": 20,
+            "median_error": 0.1652947404661076,
+            "geometry_medians": {
+              "geom_306f69af45a814373d2e": 0.1652947404661076
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_40dfead03c83371b4f69",
+          "score": {
+            "n": 20,
+            "median_error": 0.21460789325983393,
+            "geometry_medians": {
+              "geom_40dfead03c83371b4f69": 0.21460789325983393
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_4321788df5aa62e8484b",
+          "score": {
+            "n": 20,
+            "median_error": 0.18653883511391112,
+            "geometry_medians": {
+              "geom_4321788df5aa62e8484b": 0.18653883511391112
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_4a28ee0fdb392694f551",
+          "score": {
+            "n": 20,
+            "median_error": 0.2038102577254871,
+            "geometry_medians": {
+              "geom_4a28ee0fdb392694f551": 0.2038102577254871
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_55fc14f5542c626bd87f",
+          "score": {
+            "n": 20,
+            "median_error": 0.17530661167016992,
+            "geometry_medians": {
+              "geom_55fc14f5542c626bd87f": 0.17530661167016992
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_6d4dd09b30cfb766ab98",
+          "score": {
+            "n": 20,
+            "median_error": 0.21334193344388508,
+            "geometry_medians": {
+              "geom_6d4dd09b30cfb766ab98": 0.21334193344388508
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_b916af738e01f23cb936",
+          "score": {
+            "n": 20,
+            "median_error": 0.20142607578841643,
+            "geometry_medians": {
+              "geom_b916af738e01f23cb936": 0.20142607578841643
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_c45d80174af16be5c949",
+          "score": {
+            "n": 20,
+            "median_error": 0.1537152331046001,
+            "geometry_medians": {
+              "geom_c45d80174af16be5c949": 0.1537152331046001
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_d9b84925e4f0f3b2ee70",
+          "score": {
+            "n": 20,
+            "median_error": 0.17445601918365305,
+            "geometry_medians": {
+              "geom_d9b84925e4f0f3b2ee70": 0.17445601918365305
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_db7f7d8f94c6f2a94df6",
+          "score": {
+            "n": 20,
+            "median_error": 0.2004924148098911,
+            "geometry_medians": {
+              "geom_db7f7d8f94c6f2a94df6": 0.2004924148098911
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_db8344e3ed905d9505f7",
+          "score": {
+            "n": 20,
+            "median_error": 0.1656851918133238,
+            "geometry_medians": {
+              "geom_db8344e3ed905d9505f7": 0.1656851918133238
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_dd1d30e9968e340055a2",
+          "score": {
+            "n": 20,
+            "median_error": 0.17011735245626758,
+            "geometry_medians": {
+              "geom_dd1d30e9968e340055a2": 0.17011735245626758
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_e6a4978ad30c1171231c",
+          "score": {
+            "n": 20,
+            "median_error": 0.21162429280905792,
+            "geometry_medians": {
+              "geom_e6a4978ad30c1171231c": 0.21162429280905792
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_fbba1dfbf564184c0b18",
+          "score": {
+            "n": 20,
+            "median_error": 0.15196387735331618,
+            "geometry_medians": {
+              "geom_fbba1dfbf564184c0b18": 0.15196387735331618
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        }
+      ]
+    },
+    {
+      "bins": 3,
+      "width_scale": 1.0,
+      "inner_loo_median": 0.1650182896237556,
+      "inner_loo_pass_folds": 18,
+      "folds": [
+        {
+          "held_train_geometry": "geom_05cf9d4fae8e8284f1cf",
+          "score": {
+            "n": 20,
+            "median_error": 0.14493449836131012,
+            "geometry_medians": {
+              "geom_05cf9d4fae8e8284f1cf": 0.14493449836131012
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_16cb9f3ab9be38cc56e9",
+          "score": {
+            "n": 20,
+            "median_error": 0.13789867164237546,
+            "geometry_medians": {
+              "geom_16cb9f3ab9be38cc56e9": 0.13789867164237546
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_16d7b575eb21c6be3a32",
+          "score": {
+            "n": 20,
+            "median_error": 0.1727037891977385,
+            "geometry_medians": {
+              "geom_16d7b575eb21c6be3a32": 0.1727037891977385
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_1fd11f1511a5d5db1c30",
+          "score": {
+            "n": 20,
+            "median_error": 0.16453491043116303,
+            "geometry_medians": {
+              "geom_1fd11f1511a5d5db1c30": 0.16453491043116303
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_306f69af45a814373d2e",
+          "score": {
+            "n": 20,
+            "median_error": 0.14713415105791688,
+            "geometry_medians": {
+              "geom_306f69af45a814373d2e": 0.14713415105791688
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_40dfead03c83371b4f69",
+          "score": {
+            "n": 20,
+            "median_error": 0.19120914311776582,
+            "geometry_medians": {
+              "geom_40dfead03c83371b4f69": 0.19120914311776582
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_4321788df5aa62e8484b",
+          "score": {
+            "n": 20,
+            "median_error": 0.1754460538362338,
+            "geometry_medians": {
+              "geom_4321788df5aa62e8484b": 0.1754460538362338
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_4a28ee0fdb392694f551",
+          "score": {
+            "n": 20,
+            "median_error": 0.17263636577931346,
+            "geometry_medians": {
+              "geom_4a28ee0fdb392694f551": 0.17263636577931346
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_55fc14f5542c626bd87f",
+          "score": {
+            "n": 20,
+            "median_error": 0.16567486111631535,
+            "geometry_medians": {
+              "geom_55fc14f5542c626bd87f": 0.16567486111631535
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_6d4dd09b30cfb766ab98",
+          "score": {
+            "n": 20,
+            "median_error": 0.17726780984942864,
+            "geometry_medians": {
+              "geom_6d4dd09b30cfb766ab98": 0.17726780984942864
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_b916af738e01f23cb936",
+          "score": {
+            "n": 20,
+            "median_error": 0.1650182896237556,
+            "geometry_medians": {
+              "geom_b916af738e01f23cb936": 0.1650182896237556
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_c45d80174af16be5c949",
+          "score": {
+            "n": 20,
+            "median_error": 0.13046657193431305,
+            "geometry_medians": {
+              "geom_c45d80174af16be5c949": 0.13046657193431305
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_d9b84925e4f0f3b2ee70",
+          "score": {
+            "n": 20,
+            "median_error": 0.14313967775309006,
+            "geometry_medians": {
+              "geom_d9b84925e4f0f3b2ee70": 0.14313967775309006
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_db7f7d8f94c6f2a94df6",
+          "score": {
+            "n": 20,
+            "median_error": 0.12985893202375792,
+            "geometry_medians": {
+              "geom_db7f7d8f94c6f2a94df6": 0.12985893202375792
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_db8344e3ed905d9505f7",
+          "score": {
+            "n": 20,
+            "median_error": 0.1553896028528588,
+            "geometry_medians": {
+              "geom_db8344e3ed905d9505f7": 0.1553896028528588
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_dd1d30e9968e340055a2",
+          "score": {
+            "n": 20,
+            "median_error": 0.1856642875368152,
+            "geometry_medians": {
+              "geom_dd1d30e9968e340055a2": 0.1856642875368152
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_e6a4978ad30c1171231c",
+          "score": {
+            "n": 20,
+            "median_error": 0.1993283204191535,
+            "geometry_medians": {
+              "geom_e6a4978ad30c1171231c": 0.1993283204191535
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_fbba1dfbf564184c0b18",
+          "score": {
+            "n": 20,
+            "median_error": 0.15349296396880774,
+            "geometry_medians": {
+              "geom_fbba1dfbf564184c0b18": 0.15349296396880774
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        }
+      ]
+    },
+    {
+      "bins": 3,
+      "width_scale": 1.5,
+      "inner_loo_median": 0.1650182896237556,
+      "inner_loo_pass_folds": 18,
+      "folds": [
+        {
+          "held_train_geometry": "geom_05cf9d4fae8e8284f1cf",
+          "score": {
+            "n": 20,
+            "median_error": 0.14493449836131012,
+            "geometry_medians": {
+              "geom_05cf9d4fae8e8284f1cf": 0.14493449836131012
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_16cb9f3ab9be38cc56e9",
+          "score": {
+            "n": 20,
+            "median_error": 0.13789867164237546,
+            "geometry_medians": {
+              "geom_16cb9f3ab9be38cc56e9": 0.13789867164237546
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_16d7b575eb21c6be3a32",
+          "score": {
+            "n": 20,
+            "median_error": 0.1727037891977385,
+            "geometry_medians": {
+              "geom_16d7b575eb21c6be3a32": 0.1727037891977385
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_1fd11f1511a5d5db1c30",
+          "score": {
+            "n": 20,
+            "median_error": 0.16453491043116303,
+            "geometry_medians": {
+              "geom_1fd11f1511a5d5db1c30": 0.16453491043116303
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_306f69af45a814373d2e",
+          "score": {
+            "n": 20,
+            "median_error": 0.14713415105791688,
+            "geometry_medians": {
+              "geom_306f69af45a814373d2e": 0.14713415105791688
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_40dfead03c83371b4f69",
+          "score": {
+            "n": 20,
+            "median_error": 0.19120914311776582,
+            "geometry_medians": {
+              "geom_40dfead03c83371b4f69": 0.19120914311776582
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_4321788df5aa62e8484b",
+          "score": {
+            "n": 20,
+            "median_error": 0.1754460538362338,
+            "geometry_medians": {
+              "geom_4321788df5aa62e8484b": 0.1754460538362338
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_4a28ee0fdb392694f551",
+          "score": {
+            "n": 20,
+            "median_error": 0.17263636577931346,
+            "geometry_medians": {
+              "geom_4a28ee0fdb392694f551": 0.17263636577931346
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_55fc14f5542c626bd87f",
+          "score": {
+            "n": 20,
+            "median_error": 0.16567486111631535,
+            "geometry_medians": {
+              "geom_55fc14f5542c626bd87f": 0.16567486111631535
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_6d4dd09b30cfb766ab98",
+          "score": {
+            "n": 20,
+            "median_error": 0.17726780984942864,
+            "geometry_medians": {
+              "geom_6d4dd09b30cfb766ab98": 0.17726780984942864
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_b916af738e01f23cb936",
+          "score": {
+            "n": 20,
+            "median_error": 0.1650182896237556,
+            "geometry_medians": {
+              "geom_b916af738e01f23cb936": 0.1650182896237556
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_c45d80174af16be5c949",
+          "score": {
+            "n": 20,
+            "median_error": 0.13046657193431305,
+            "geometry_medians": {
+              "geom_c45d80174af16be5c949": 0.13046657193431305
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_d9b84925e4f0f3b2ee70",
+          "score": {
+            "n": 20,
+            "median_error": 0.14313967775309006,
+            "geometry_medians": {
+              "geom_d9b84925e4f0f3b2ee70": 0.14313967775309006
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_db7f7d8f94c6f2a94df6",
+          "score": {
+            "n": 20,
+            "median_error": 0.12985893202375792,
+            "geometry_medians": {
+              "geom_db7f7d8f94c6f2a94df6": 0.12985893202375792
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_db8344e3ed905d9505f7",
+          "score": {
+            "n": 20,
+            "median_error": 0.1553896028528588,
+            "geometry_medians": {
+              "geom_db8344e3ed905d9505f7": 0.1553896028528588
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_dd1d30e9968e340055a2",
+          "score": {
+            "n": 20,
+            "median_error": 0.1856642875368152,
+            "geometry_medians": {
+              "geom_dd1d30e9968e340055a2": 0.1856642875368152
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_e6a4978ad30c1171231c",
+          "score": {
+            "n": 20,
+            "median_error": 0.1993283204191535,
+            "geometry_medians": {
+              "geom_e6a4978ad30c1171231c": 0.1993283204191535
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_fbba1dfbf564184c0b18",
+          "score": {
+            "n": 20,
+            "median_error": 0.15349296396880774,
+            "geometry_medians": {
+              "geom_fbba1dfbf564184c0b18": 0.15349296396880774
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        }
+      ]
+    },
+    {
+      "bins": 4,
+      "width_scale": 0.5,
+      "inner_loo_median": 0.1987710886471057,
+      "inner_loo_pass_folds": 16,
+      "folds": [
+        {
+          "held_train_geometry": "geom_05cf9d4fae8e8284f1cf",
+          "score": {
+            "n": 20,
+            "median_error": 0.2619344645365076,
+            "geometry_medians": {
+              "geom_05cf9d4fae8e8284f1cf": 0.2619344645365076
+            },
+            "geometries_passing_0.25": 0,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_16cb9f3ab9be38cc56e9",
+          "score": {
+            "n": 20,
+            "median_error": 0.22710574074665446,
+            "geometry_medians": {
+              "geom_16cb9f3ab9be38cc56e9": 0.22710574074665446
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_16d7b575eb21c6be3a32",
+          "score": {
+            "n": 20,
+            "median_error": 0.1680606970542754,
+            "geometry_medians": {
+              "geom_16d7b575eb21c6be3a32": 0.1680606970542754
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_1fd11f1511a5d5db1c30",
+          "score": {
+            "n": 20,
+            "median_error": 0.22815339248305289,
+            "geometry_medians": {
+              "geom_1fd11f1511a5d5db1c30": 0.22815339248305289
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_306f69af45a814373d2e",
+          "score": {
+            "n": 20,
+            "median_error": 0.13542814224419186,
+            "geometry_medians": {
+              "geom_306f69af45a814373d2e": 0.13542814224419186
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_40dfead03c83371b4f69",
+          "score": {
+            "n": 20,
+            "median_error": 0.1759145367468583,
+            "geometry_medians": {
+              "geom_40dfead03c83371b4f69": 0.1759145367468583
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_4321788df5aa62e8484b",
+          "score": {
+            "n": 20,
+            "median_error": 0.18006140708891583,
+            "geometry_medians": {
+              "geom_4321788df5aa62e8484b": 0.18006140708891583
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_4a28ee0fdb392694f551",
+          "score": {
+            "n": 20,
+            "median_error": 0.1859348891135526,
+            "geometry_medians": {
+              "geom_4a28ee0fdb392694f551": 0.1859348891135526
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_55fc14f5542c626bd87f",
+          "score": {
+            "n": 20,
+            "median_error": 0.13793024419882427,
+            "geometry_medians": {
+              "geom_55fc14f5542c626bd87f": 0.13793024419882427
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_6d4dd09b30cfb766ab98",
+          "score": {
+            "n": 20,
+            "median_error": 0.23395721211268883,
+            "geometry_medians": {
+              "geom_6d4dd09b30cfb766ab98": 0.23395721211268883
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_b916af738e01f23cb936",
+          "score": {
+            "n": 20,
+            "median_error": 0.256275093611256,
+            "geometry_medians": {
+              "geom_b916af738e01f23cb936": 0.256275093611256
+            },
+            "geometries_passing_0.25": 0,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_c45d80174af16be5c949",
+          "score": {
+            "n": 20,
+            "median_error": 0.23625191571321397,
+            "geometry_medians": {
+              "geom_c45d80174af16be5c949": 0.23625191571321397
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_d9b84925e4f0f3b2ee70",
+          "score": {
+            "n": 20,
+            "median_error": 0.18473877774376624,
+            "geometry_medians": {
+              "geom_d9b84925e4f0f3b2ee70": 0.18473877774376624
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_db7f7d8f94c6f2a94df6",
+          "score": {
+            "n": 20,
+            "median_error": 0.2438284155116482,
+            "geometry_medians": {
+              "geom_db7f7d8f94c6f2a94df6": 0.2438284155116482
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_db8344e3ed905d9505f7",
+          "score": {
+            "n": 20,
+            "median_error": 0.17023303759269398,
+            "geometry_medians": {
+              "geom_db8344e3ed905d9505f7": 0.17023303759269398
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_dd1d30e9968e340055a2",
+          "score": {
+            "n": 20,
+            "median_error": 0.1987710886471057,
+            "geometry_medians": {
+              "geom_dd1d30e9968e340055a2": 0.1987710886471057
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_e6a4978ad30c1171231c",
+          "score": {
+            "n": 20,
+            "median_error": 0.2174562433186738,
+            "geometry_medians": {
+              "geom_e6a4978ad30c1171231c": 0.2174562433186738
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_fbba1dfbf564184c0b18",
+          "score": {
+            "n": 20,
+            "median_error": 0.1650203974221322,
+            "geometry_medians": {
+              "geom_fbba1dfbf564184c0b18": 0.1650203974221322
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        }
+      ]
+    },
+    {
+      "bins": 4,
+      "width_scale": 1.0,
+      "inner_loo_median": 0.11911764338587782,
+      "inner_loo_pass_folds": 18,
+      "folds": [
+        {
+          "held_train_geometry": "geom_05cf9d4fae8e8284f1cf",
+          "score": {
+            "n": 20,
+            "median_error": 0.24755215387979257,
+            "geometry_medians": {
+              "geom_05cf9d4fae8e8284f1cf": 0.24755215387979257
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_16cb9f3ab9be38cc56e9",
+          "score": {
+            "n": 20,
+            "median_error": 0.08107722014809615,
+            "geometry_medians": {
+              "geom_16cb9f3ab9be38cc56e9": 0.08107722014809615
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_16d7b575eb21c6be3a32",
+          "score": {
+            "n": 20,
+            "median_error": 0.08916296778627752,
+            "geometry_medians": {
+              "geom_16d7b575eb21c6be3a32": 0.08916296778627752
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_1fd11f1511a5d5db1c30",
+          "score": {
+            "n": 20,
+            "median_error": 0.11134454302308444,
+            "geometry_medians": {
+              "geom_1fd11f1511a5d5db1c30": 0.11134454302308444
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_306f69af45a814373d2e",
+          "score": {
+            "n": 20,
+            "median_error": 0.10198937324696594,
+            "geometry_medians": {
+              "geom_306f69af45a814373d2e": 0.10198937324696594
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_40dfead03c83371b4f69",
+          "score": {
+            "n": 20,
+            "median_error": 0.12328491110929457,
+            "geometry_medians": {
+              "geom_40dfead03c83371b4f69": 0.12328491110929457
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_4321788df5aa62e8484b",
+          "score": {
+            "n": 20,
+            "median_error": 0.1049852788590937,
+            "geometry_medians": {
+              "geom_4321788df5aa62e8484b": 0.1049852788590937
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_4a28ee0fdb392694f551",
+          "score": {
+            "n": 20,
+            "median_error": 0.11178969788025589,
+            "geometry_medians": {
+              "geom_4a28ee0fdb392694f551": 0.11178969788025589
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_55fc14f5542c626bd87f",
+          "score": {
+            "n": 20,
+            "median_error": 0.12500386380203332,
+            "geometry_medians": {
+              "geom_55fc14f5542c626bd87f": 0.12500386380203332
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_6d4dd09b30cfb766ab98",
+          "score": {
+            "n": 20,
+            "median_error": 0.11911764338587782,
+            "geometry_medians": {
+              "geom_6d4dd09b30cfb766ab98": 0.11911764338587782
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_b916af738e01f23cb936",
+          "score": {
+            "n": 20,
+            "median_error": 0.14392616251936063,
+            "geometry_medians": {
+              "geom_b916af738e01f23cb936": 0.14392616251936063
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_c45d80174af16be5c949",
+          "score": {
+            "n": 20,
+            "median_error": 0.21454614895907087,
+            "geometry_medians": {
+              "geom_c45d80174af16be5c949": 0.21454614895907087
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_d9b84925e4f0f3b2ee70",
+          "score": {
+            "n": 20,
+            "median_error": 0.09710857856956895,
+            "geometry_medians": {
+              "geom_d9b84925e4f0f3b2ee70": 0.09710857856956895
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_db7f7d8f94c6f2a94df6",
+          "score": {
+            "n": 20,
+            "median_error": 0.11858615139306389,
+            "geometry_medians": {
+              "geom_db7f7d8f94c6f2a94df6": 0.11858615139306389
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_db8344e3ed905d9505f7",
+          "score": {
+            "n": 20,
+            "median_error": 0.11426743615439222,
+            "geometry_medians": {
+              "geom_db8344e3ed905d9505f7": 0.11426743615439222
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_dd1d30e9968e340055a2",
+          "score": {
+            "n": 20,
+            "median_error": 0.14185166854571118,
+            "geometry_medians": {
+              "geom_dd1d30e9968e340055a2": 0.14185166854571118
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_e6a4978ad30c1171231c",
+          "score": {
+            "n": 20,
+            "median_error": 0.14865610422298348,
+            "geometry_medians": {
+              "geom_e6a4978ad30c1171231c": 0.14865610422298348
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_fbba1dfbf564184c0b18",
+          "score": {
+            "n": 20,
+            "median_error": 0.14949314272042424,
+            "geometry_medians": {
+              "geom_fbba1dfbf564184c0b18": 0.14949314272042424
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        }
+      ]
+    },
+    {
+      "bins": 4,
+      "width_scale": 1.5,
+      "inner_loo_median": 0.11911764338587782,
+      "inner_loo_pass_folds": 18,
+      "folds": [
+        {
+          "held_train_geometry": "geom_05cf9d4fae8e8284f1cf",
+          "score": {
+            "n": 20,
+            "median_error": 0.24755215387979257,
+            "geometry_medians": {
+              "geom_05cf9d4fae8e8284f1cf": 0.24755215387979257
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_16cb9f3ab9be38cc56e9",
+          "score": {
+            "n": 20,
+            "median_error": 0.08107722014809615,
+            "geometry_medians": {
+              "geom_16cb9f3ab9be38cc56e9": 0.08107722014809615
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_16d7b575eb21c6be3a32",
+          "score": {
+            "n": 20,
+            "median_error": 0.08916296778627752,
+            "geometry_medians": {
+              "geom_16d7b575eb21c6be3a32": 0.08916296778627752
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_1fd11f1511a5d5db1c30",
+          "score": {
+            "n": 20,
+            "median_error": 0.11134454302308444,
+            "geometry_medians": {
+              "geom_1fd11f1511a5d5db1c30": 0.11134454302308444
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_306f69af45a814373d2e",
+          "score": {
+            "n": 20,
+            "median_error": 0.10198937324696594,
+            "geometry_medians": {
+              "geom_306f69af45a814373d2e": 0.10198937324696594
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_40dfead03c83371b4f69",
+          "score": {
+            "n": 20,
+            "median_error": 0.12328491110929457,
+            "geometry_medians": {
+              "geom_40dfead03c83371b4f69": 0.12328491110929457
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_4321788df5aa62e8484b",
+          "score": {
+            "n": 20,
+            "median_error": 0.1049852788590937,
+            "geometry_medians": {
+              "geom_4321788df5aa62e8484b": 0.1049852788590937
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_4a28ee0fdb392694f551",
+          "score": {
+            "n": 20,
+            "median_error": 0.11178969788025589,
+            "geometry_medians": {
+              "geom_4a28ee0fdb392694f551": 0.11178969788025589
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_55fc14f5542c626bd87f",
+          "score": {
+            "n": 20,
+            "median_error": 0.12500386380203332,
+            "geometry_medians": {
+              "geom_55fc14f5542c626bd87f": 0.12500386380203332
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_6d4dd09b30cfb766ab98",
+          "score": {
+            "n": 20,
+            "median_error": 0.11911764338587782,
+            "geometry_medians": {
+              "geom_6d4dd09b30cfb766ab98": 0.11911764338587782
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_b916af738e01f23cb936",
+          "score": {
+            "n": 20,
+            "median_error": 0.14392616251936063,
+            "geometry_medians": {
+              "geom_b916af738e01f23cb936": 0.14392616251936063
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_c45d80174af16be5c949",
+          "score": {
+            "n": 20,
+            "median_error": 0.21454614895907087,
+            "geometry_medians": {
+              "geom_c45d80174af16be5c949": 0.21454614895907087
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_d9b84925e4f0f3b2ee70",
+          "score": {
+            "n": 20,
+            "median_error": 0.09710857856956895,
+            "geometry_medians": {
+              "geom_d9b84925e4f0f3b2ee70": 0.09710857856956895
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_db7f7d8f94c6f2a94df6",
+          "score": {
+            "n": 20,
+            "median_error": 0.11858615139306389,
+            "geometry_medians": {
+              "geom_db7f7d8f94c6f2a94df6": 0.11858615139306389
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_db8344e3ed905d9505f7",
+          "score": {
+            "n": 20,
+            "median_error": 0.11426743615439222,
+            "geometry_medians": {
+              "geom_db8344e3ed905d9505f7": 0.11426743615439222
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_dd1d30e9968e340055a2",
+          "score": {
+            "n": 20,
+            "median_error": 0.14185166854571118,
+            "geometry_medians": {
+              "geom_dd1d30e9968e340055a2": 0.14185166854571118
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_e6a4978ad30c1171231c",
+          "score": {
+            "n": 20,
+            "median_error": 0.14865610422298348,
+            "geometry_medians": {
+              "geom_e6a4978ad30c1171231c": 0.14865610422298348
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        },
+        {
+          "held_train_geometry": "geom_fbba1dfbf564184c0b18",
+          "score": {
+            "n": 20,
+            "median_error": 0.14949314272042424,
+            "geometry_medians": {
+              "geom_fbba1dfbf564184c0b18": 0.14949314272042424
+            },
+            "geometries_passing_0.25": 1,
+            "geometry_count": 1
+          }
+        }
+      ]
+    }
+  ],
+  "outer_geometry_resampling": [
+    {
+      "held_geometry": "geom_05cf9d4fae8e8284f1cf",
+      "selected_policy": {
+        "bins": 4,
+        "width_scale": 1.0
+      },
+      "score": {
+        "n": 20,
+        "median_error": 0.24755215387979257,
+        "geometry_medians": {
+          "geom_05cf9d4fae8e8284f1cf": 0.24755215387979257
+        },
+        "geometries_passing_0.25": 1,
+        "geometry_count": 1
+      }
+    },
+    {
+      "held_geometry": "geom_16cb9f3ab9be38cc56e9",
+      "selected_policy": {
+        "bins": 4,
+        "width_scale": 1.0
+      },
+      "score": {
+        "n": 20,
+        "median_error": 0.08107722014809615,
+        "geometry_medians": {
+          "geom_16cb9f3ab9be38cc56e9": 0.08107722014809615
+        },
+        "geometries_passing_0.25": 1,
+        "geometry_count": 1
+      }
+    },
+    {
+      "held_geometry": "geom_16d7b575eb21c6be3a32",
+      "selected_policy": {
+        "bins": 4,
+        "width_scale": 1.0
+      },
+      "score": {
+        "n": 20,
+        "median_error": 0.08916296778627752,
+        "geometry_medians": {
+          "geom_16d7b575eb21c6be3a32": 0.08916296778627752
+        },
+        "geometries_passing_0.25": 1,
+        "geometry_count": 1
+      }
+    },
+    {
+      "held_geometry": "geom_1fd11f1511a5d5db1c30",
+      "selected_policy": {
+        "bins": 4,
+        "width_scale": 1.0
+      },
+      "score": {
+        "n": 20,
+        "median_error": 0.11134454302308444,
+        "geometry_medians": {
+          "geom_1fd11f1511a5d5db1c30": 0.11134454302308444
+        },
+        "geometries_passing_0.25": 1,
+        "geometry_count": 1
+      }
+    },
+    {
+      "held_geometry": "geom_306f69af45a814373d2e",
+      "selected_policy": {
+        "bins": 4,
+        "width_scale": 1.0
+      },
+      "score": {
+        "n": 20,
+        "median_error": 0.10198937324696594,
+        "geometry_medians": {
+          "geom_306f69af45a814373d2e": 0.10198937324696594
+        },
+        "geometries_passing_0.25": 1,
+        "geometry_count": 1
+      }
+    },
+    {
+      "held_geometry": "geom_40dfead03c83371b4f69",
+      "selected_policy": {
+        "bins": 4,
+        "width_scale": 1.0
+      },
+      "score": {
+        "n": 20,
+        "median_error": 0.12328491110929457,
+        "geometry_medians": {
+          "geom_40dfead03c83371b4f69": 0.12328491110929457
+        },
+        "geometries_passing_0.25": 1,
+        "geometry_count": 1
+      }
+    },
+    {
+      "held_geometry": "geom_4321788df5aa62e8484b",
+      "selected_policy": {
+        "bins": 4,
+        "width_scale": 1.0
+      },
+      "score": {
+        "n": 20,
+        "median_error": 0.1049852788590937,
+        "geometry_medians": {
+          "geom_4321788df5aa62e8484b": 0.1049852788590937
+        },
+        "geometries_passing_0.25": 1,
+        "geometry_count": 1
+      }
+    },
+    {
+      "held_geometry": "geom_4a28ee0fdb392694f551",
+      "selected_policy": {
+        "bins": 4,
+        "width_scale": 1.0
+      },
+      "score": {
+        "n": 20,
+        "median_error": 0.11178969788025589,
+        "geometry_medians": {
+          "geom_4a28ee0fdb392694f551": 0.11178969788025589
+        },
+        "geometries_passing_0.25": 1,
+        "geometry_count": 1
+      }
+    },
+    {
+      "held_geometry": "geom_55fc14f5542c626bd87f",
+      "selected_policy": {
+        "bins": 4,
+        "width_scale": 1.0
+      },
+      "score": {
+        "n": 20,
+        "median_error": 0.12500386380203332,
+        "geometry_medians": {
+          "geom_55fc14f5542c626bd87f": 0.12500386380203332
+        },
+        "geometries_passing_0.25": 1,
+        "geometry_count": 1
+      }
+    },
+    {
+      "held_geometry": "geom_6d4dd09b30cfb766ab98",
+      "selected_policy": {
+        "bins": 4,
+        "width_scale": 1.0
+      },
+      "score": {
+        "n": 20,
+        "median_error": 0.11911764338587782,
+        "geometry_medians": {
+          "geom_6d4dd09b30cfb766ab98": 0.11911764338587782
+        },
+        "geometries_passing_0.25": 1,
+        "geometry_count": 1
+      }
+    },
+    {
+      "held_geometry": "geom_b916af738e01f23cb936",
+      "selected_policy": {
+        "bins": 4,
+        "width_scale": 1.0
+      },
+      "score": {
+        "n": 20,
+        "median_error": 0.14392616251936063,
+        "geometry_medians": {
+          "geom_b916af738e01f23cb936": 0.14392616251936063
+        },
+        "geometries_passing_0.25": 1,
+        "geometry_count": 1
+      }
+    },
+    {
+      "held_geometry": "geom_c45d80174af16be5c949",
+      "selected_policy": {
+        "bins": 4,
+        "width_scale": 1.0
+      },
+      "score": {
+        "n": 20,
+        "median_error": 0.21454614895907087,
+        "geometry_medians": {
+          "geom_c45d80174af16be5c949": 0.21454614895907087
+        },
+        "geometries_passing_0.25": 1,
+        "geometry_count": 1
+      }
+    },
+    {
+      "held_geometry": "geom_d9b84925e4f0f3b2ee70",
+      "selected_policy": {
+        "bins": 4,
+        "width_scale": 1.0
+      },
+      "score": {
+        "n": 20,
+        "median_error": 0.09710857856956895,
+        "geometry_medians": {
+          "geom_d9b84925e4f0f3b2ee70": 0.09710857856956895
+        },
+        "geometries_passing_0.25": 1,
+        "geometry_count": 1
+      }
+    },
+    {
+      "held_geometry": "geom_db7f7d8f94c6f2a94df6",
+      "selected_policy": {
+        "bins": 4,
+        "width_scale": 1.0
+      },
+      "score": {
+        "n": 20,
+        "median_error": 0.11858615139306389,
+        "geometry_medians": {
+          "geom_db7f7d8f94c6f2a94df6": 0.11858615139306389
+        },
+        "geometries_passing_0.25": 1,
+        "geometry_count": 1
+      }
+    },
+    {
+      "held_geometry": "geom_db8344e3ed905d9505f7",
+      "selected_policy": {
+        "bins": 4,
+        "width_scale": 1.0
+      },
+      "score": {
+        "n": 20,
+        "median_error": 0.11426743615439222,
+        "geometry_medians": {
+          "geom_db8344e3ed905d9505f7": 0.11426743615439222
+        },
+        "geometries_passing_0.25": 1,
+        "geometry_count": 1
+      }
+    },
+    {
+      "held_geometry": "geom_dd1d30e9968e340055a2",
+      "selected_policy": {
+        "bins": 4,
+        "width_scale": 1.0
+      },
+      "score": {
+        "n": 20,
+        "median_error": 0.14185166854571118,
+        "geometry_medians": {
+          "geom_dd1d30e9968e340055a2": 0.14185166854571118
+        },
+        "geometries_passing_0.25": 1,
+        "geometry_count": 1
+      }
+    },
+    {
+      "held_geometry": "geom_e6a4978ad30c1171231c",
+      "selected_policy": {
+        "bins": 4,
+        "width_scale": 1.0
+      },
+      "score": {
+        "n": 20,
+        "median_error": 0.14865610422298348,
+        "geometry_medians": {
+          "geom_e6a4978ad30c1171231c": 0.14865610422298348
+        },
+        "geometries_passing_0.25": 1,
+        "geometry_count": 1
+      }
+    },
+    {
+      "held_geometry": "geom_fbba1dfbf564184c0b18",
+      "selected_policy": {
+        "bins": 4,
+        "width_scale": 1.0
+      },
+      "score": {
+        "n": 20,
+        "median_error": 0.14949314272042424,
+        "geometry_medians": {
+          "geom_fbba1dfbf564184c0b18": 0.14949314272042424
+        },
+        "geometries_passing_0.25": 1,
+        "geometry_count": 1
+      }
+    }
+  ],
+  "outer_policy_selection_counts": [
+    {
+      "bins": 4,
+      "width_scale": 1.0,
+      "selected_folds": 18
+    }
+  ],
+  "outer_geometry_count": 18,
+  "outer_selection_frequency_summary": {
+    "most_selected_policy": {
+      "bins": 4,
+      "width_scale": 1.0,
+      "folds": 18
+    },
+    "unique_policies_selected": 1
+  },
+  "outer_validation": {
+    "n": 60,
+    "median_error": 0.20762037044755988,
+    "geometry_medians": {
+      "geom_03024386f1bfde4e97a1": 0.19557086520328926,
+      "geom_271acd77cdf0a24bc7a4": 0.26446095211580734,
+      "geom_955e8309dafc61ab6034": 0.1513090046718134
+    },
+    "geometries_passing_0.25": 2,
+    "geometry_count": 3
+  },
+  "policy_full_train_fit": {
+    "edges": [
+      0.0,
+      2.170310948168769,
+      2.7145717119423765,
+      3.24175055126214,
+      10.0
+    ],
+    "multipliers": [
+      0.65,
+      0.675,
+      1.225,
+      1.075
+    ]
+  }
+}

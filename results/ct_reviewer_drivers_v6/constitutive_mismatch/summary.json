@@ -1,25 +1,30 @@
 {
-  "protocol": "isotropic Neo-Hookean fitter; observations reprojected from finite-strain fiber or viscous forward solves at truth material",
+  "protocol": "Isotropic Neo-Hookean fitter; observations reprojected from finite-strain fiber or viscous forward solves at synthetic truth.",
   "baseline_background_percent": 24.63,
   "baseline_accepted": "15/18",
+  "median_convention": "Arithmetic mean of the two middle values for even sample sizes.",
   "arms": {
     "fiber": {
       "n": 18,
       "unique": 18,
       "accepted": 16,
-      "background": 26.12,
-      "ratio": 54.69,
-      "force": 3.44,
-      "peak_displacement_gap": 9.5
+      "background": 25.76,
+      "ratio": 54.39,
+      "force": 3.25,
+      "peak_displacement_gap": 9.3,
+      "records_sha256": "9f4985400c76d6ea8d8ad6d2b34c76ec6c46f3f31b5b28d994ea5bf963879401",
+      "source_records": "results\\ct_reviewer_drivers_v6\\constitutive_mismatch\\fiber\\records.jsonl"
     },
     "viscous": {
       "n": 18,
       "unique": 18,
       "accepted": 18,
-      "background": 34.03,
-      "ratio": 54.69,
+      "background": 32.5,
+      "ratio": 54.39,
       "force": 3.07,
-      "peak_displacement_gap": 27.47
+      "peak_displacement_gap": 27.4,
+      "records_sha256": "656ec1d23858d7e65dccac78da4c7cc282cd6369947e0b35d101e19808cb931f",
+      "source_records": "results\\ct_reviewer_drivers_v6\\constitutive_mismatch\\viscous\\records.jsonl"
     }
   }
 }

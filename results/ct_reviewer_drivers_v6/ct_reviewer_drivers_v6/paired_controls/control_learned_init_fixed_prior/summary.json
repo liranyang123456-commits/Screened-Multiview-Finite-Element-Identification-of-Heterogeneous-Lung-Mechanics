@@ -1,0 +1,1326 @@
+{
+  "protocol": {
+    "cohort": "ct120",
+    "same_observations": "image_tracks + multiview temporal regression + Huber 1.5",
+    "region": "initializer predicted sphere, not optimized",
+    "ratio": "locked official 2028+bins3 on CT; contrast-locked on synthetic",
+    "optimized": "log E_background and log q only when ratio is locked",
+    "screening": "Newton FEM Huber; first-round and total acceptance threshold 0.050",
+    "prior_width_scale": 2.0,
+    "screen_threshold": 0.05,
+    "accept_threshold": 0.05,
+    "candidate_probe_count": 2,
+    "candidate_directions": [
+      -1.0,
+      1.0
+    ],
+    "intentional_force_model_bias": 0.0,
+    "intentional_pose_rotation_error_deg": 0.0,
+    "initialization_mode": "learned",
+    "prior_center_mode": "fixed",
+    "material_prior_weight": 0.05,
+    "screening_metric": "map",
+    "material_prior_center": [
+      5000.0,
+      3.4757939892977445
+    ],
+    "eq_correlation_rollback": 0.85,
+    "steps_budget": 48
+  },
+  "screened_fem_locked": {
+    "n": 18,
+    "heterogeneous_n": 18,
+    "E_background_median_relative_error": {
+      "median": 0.2871697146660792,
+      "bootstrap_95_ci": [
+        0.20279838245091342,
+        0.4206330913648824
+      ]
+    },
+    "inclusion_ratio_median_relative_error": {
+      "median": 0.5438574746532778,
+      "bootstrap_95_ci": [
+        0.09233887127069537,
+        0.7841576007177715
+      ]
+    },
+    "center_error_normalized_median": {
+      "median": 0.11781137039684775,
+      "bootstrap_95_ci": [
+        0.058488995619250535,
+        0.1485377242544258
+      ]
+    },
+    "radius_relative_error_median": {
+      "median": 0.0696333938321193,
+      "bootstrap_95_ci": [
+        0.03965587845693813,
+        0.09725696142756768
+      ]
+    },
+    "force_scale_median_relative_error": {
+      "median": 0.043640812652790385,
+      "bootstrap_95_ci": [
+        0.023216546449428728,
+        0.04737941614181986
+      ]
+    },
+    "refinement_acceptance_rate": 0.9444444444444444,
+    "screening_rejected_rate": 0.05555555555555555,
+    "eq_correlation_rejected_rate": 0.0,
+    "ratio_locked_rate": 1.0,
+    "function_evaluations_median": 33.0,
+    "wall_time_seconds_median": 184.10454315005336,
+    "ratio_geometry_medians": {
+      "geom_58db559b24da6eb7cc0d": 0.5542408576358492,
+      "geom_62010c56d95ec023bc9b": 0.047408627336224904,
+      "geom_a417d13e9ae27d685557": 0.5889351366543943,
+      "geom_ab578f1bb0ee02be2ccd": 0.5468741124615732,
+      "geom_db38a9c3817f033727b5": 0.07295946826687033,
+      "geom_fac5cdc88e186e46ee04": 0.5408408368449823
+    },
+    "ratio_geometry_pass_0.25": "2/6"
+  },
+  "reference_screened_map_synthetic": {
+    "E_background_median_relative_error": 0.041107,
+    "inclusion_ratio_median_relative_error": 0.186924
+  },
+  "reference_official_hybrid_ct": {
+    "E_background_median_relative_error": 0.0855,
+    "inclusion_ratio_median_relative_error": 0.1777,
+    "center_error_normalized_median": 0.096,
+    "radius_relative_error_median": 0.1146
+  },
+  "records": [
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_000",
+      "method": "official_prior_screened_fem",
+      "E_background_true": 7354.5934289116385,
+      "E_background_estimated": 8150.100093676734,
+      "E_background_relative_error": 0.10816460113728106,
+      "inclusion_ratio_true": 1.709421583661228,
+      "inclusion_ratio_estimated": 3.4561574154325636,
+      "inclusion_ratio_relative_error": 1.0218285813556818,
+      "force_scale_true": 1.0110509109302301,
+      "force_scale_estimated": 1.0,
+      "force_scale_relative_error": 0.010930123113249174,
+      "center_fraction_true": [
+        0.5633197993958843,
+        0.5012134879498827,
+        0.5517471035165116
+      ],
+      "center_fraction_estimated": [
+        0.5440726280212402,
+        0.48224303126335144,
+        0.5395687818527222
+      ],
+      "radius_fraction_true": 0.14910135607511119,
+      "radius_fraction_estimated": 0.14633760611246685,
+      "center_error_normalized": 0.029641918820602683,
+      "radius_relative_error": 0.01853604846660195,
+      "heterogeneous_true": true,
+      "used_predicted_region": true,
+      "initialization_mode": "learned",
+      "prior_center_mode": "fixed",
+      "material_prior_weight": 0.05,
+      "objective_metric": "map",
+      "screening_metric": "map",
+      "geometry_id": "geom_58db559b24da6eb7cc0d",
+      "scenario_id": "scenario_000",
+      "refinement_accepted": true,
+      "screening_rejected": false,
+      "eq_correlation_rejected": false,
+      "lock_ratio": true,
+      "E_force_local_posterior_correlation": 0.14450790366107916,
+      "E_force_joint_log_covariance": [
+        [
+          0.07318099940913741,
+          0.0019488848697979376
+        ],
+        [
+          0.0019488848697979376,
+          0.002485368730348911
+        ]
+      ],
+      "E_force_joint_log_std": [
+        0.27051986878811213,
+        0.04985347260070166
+      ],
+      "E_force_correlation_status": "local_laplace",
+      "candidate_probe_count": 2,
+      "candidate_directions": [
+        -1.0,
+        1.0
+      ],
+      "relative_cost_reduction": 0.13326270475034194,
+      "function_evaluations": 29,
+      "wall_time_seconds": 160.44378970004618,
+      "termination_reason": "step_tolerance",
+      "initial_E_background": 6939.235308030035,
+      "initial_ratio": 3.456157415432563,
+      "cost": 1.4014087669289754,
+      "initial_cost": 1.6168783489642138
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_001",
+      "method": "official_prior_screened_fem",
+      "E_background_true": 2611.1620481079503,
+      "E_background_estimated": 3499.6650179870458,
+      "E_background_relative_error": 0.34027109520947013,
+      "inclusion_ratio_true": 2.7941303093094225,
+      "inclusion_ratio_estimated": 1.2455091303314476,
+      "inclusion_ratio_relative_error": 0.5542408576358492,
+      "force_scale_true": 0.95818406857637,
+      "force_scale_estimated": 1.0,
+      "force_scale_relative_error": 0.04364081265279063,
+      "center_fraction_true": [
+        0.6071944036775581,
+        0.4444398114175955,
+        0.4621987712237072
+      ],
+      "center_fraction_estimated": [
+        0.4955858588218689,
+        0.44088584184646606,
+        0.5104039907455444
+      ],
+      "radius_fraction_true": 0.1614656337611729,
+      "radius_fraction_estimated": 0.1843772888973548,
+      "center_error_normalized": 0.12162582445215082,
+      "radius_relative_error": 0.14189802871656876,
+      "heterogeneous_true": true,
+      "used_predicted_region": true,
+      "initialization_mode": "learned",
+      "prior_center_mode": "fixed",
+      "material_prior_weight": 0.05,
+      "objective_metric": "map",
+      "screening_metric": "map",
+      "geometry_id": "geom_58db559b24da6eb7cc0d",
+      "scenario_id": "scenario_001",
+      "refinement_accepted": true,
+      "screening_rejected": false,
+      "eq_correlation_rejected": false,
+      "lock_ratio": true,
+      "E_force_local_posterior_correlation": 0.09062163797575301,
+      "E_force_joint_log_covariance": [
+        [
+          0.06916034555138668,
+          0.001186227440549466
+        ],
+        [
+          0.001186227440549466,
+          0.0024775074116499462
+        ]
+      ],
+      "E_force_joint_log_std": [
+        0.2629835461609465,
+        0.0497745659112156
+      ],
+      "E_force_correlation_status": "local_laplace",
+      "candidate_probe_count": 2,
+      "candidate_directions": [
+        -1.0,
+        1.0
+      ],
+      "relative_cost_reduction": 0.3277012754501092,
+      "function_evaluations": 29,
+      "wall_time_seconds": 168.66388730006292,
+      "termination_reason": "step_tolerance",
+      "initial_E_background": 2975.7657605112827,
+      "initial_ratio": 1.2455091303314476,
+      "cost": 1.318279680220932,
+      "initial_cost": 1.9608540550237255
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_002",
+      "method": "official_prior_screened_fem",
+      "E_background_true": 3813.055593402489,
+      "E_background_estimated": 5045.287831448829,
+      "E_background_relative_error": 0.32316136176414534,
+      "inclusion_ratio_true": 3.6620769305945675,
+      "inclusion_ratio_estimated": 3.1713464349275267,
+      "inclusion_ratio_relative_error": 0.1340033278840395,
+      "force_scale_true": 0.9429035794227971,
+      "force_scale_estimated": 1.0,
+      "force_scale_relative_error": 0.06055382737241778,
+      "center_fraction_true": [
+        0.6007080760090803,
+        0.5927639663316099,
+        0.47958899317252035
+      ],
+      "center_fraction_estimated": [
+        0.5110372304916382,
+        0.4515843391418457,
+        0.5101119875907898
+      ],
+      "radius_fraction_true": 0.15152568533597152,
+      "radius_fraction_estimated": 0.17101437891715898,
+      "center_error_normalized": 0.1700123550143091,
+      "radius_relative_error": 0.12861643580740778,
+      "heterogeneous_true": true,
+      "used_predicted_region": true,
+      "initialization_mode": "learned",
+      "prior_center_mode": "fixed",
+      "material_prior_weight": 0.05,
+      "objective_metric": "map",
+      "screening_metric": "map",
+      "geometry_id": "geom_58db559b24da6eb7cc0d",
+      "scenario_id": "scenario_002",
+      "refinement_accepted": true,
+      "screening_rejected": false,
+      "eq_correlation_rejected": false,
+      "lock_ratio": true,
+      "E_force_local_posterior_correlation": 0.10797255893547121,
+      "E_force_joint_log_covariance": [
+        [
+          0.08970809486614151,
+          0.0016118034637655546
+        ],
+        [
+          0.0016118034637655546,
+          0.0024840809676328307
+        ]
+      ],
+      "E_force_joint_log_std": [
+        0.2995130963182437,
+        0.04984055545068525
+      ],
+      "E_force_correlation_status": "local_laplace",
+      "candidate_probe_count": 2,
+      "candidate_directions": [
+        -1.0,
+        1.0
+      ],
+      "relative_cost_reduction": 0.27103701835274113,
+      "function_evaluations": 33,
+      "wall_time_seconds": 187.16170820011757,
+      "termination_reason": "step_tolerance",
+      "initial_E_background": 4087.571277818007,
+      "initial_ratio": 3.171346434927526,
+      "cost": 0.8295673661293193,
+      "initial_cost": 1.1380102790058306
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_000",
+      "method": "official_prior_screened_fem",
+      "E_background_true": 7354.5934289116385,
+      "E_background_estimated": 9632.765615737904,
+      "E_background_relative_error": 0.3097618119678165,
+      "inclusion_ratio_true": 1.709421583661228,
+      "inclusion_ratio_estimated": 3.04987751132019,
+      "inclusion_ratio_relative_error": 0.7841576007177715,
+      "force_scale_true": 1.0110509109302304,
+      "force_scale_estimated": 0.9875778004938814,
+      "force_scale_relative_error": 0.023216546449428728,
+      "center_fraction_true": [
+        0.5633197993958843,
+        0.5012134879498827,
+        0.5517471035165116
+      ],
+      "center_fraction_estimated": [
+        0.5312198996543884,
+        0.4940657317638397,
+        0.5438759326934814
+      ],
+      "radius_fraction_true": 0.14910135607511119,
+      "radius_fraction_estimated": 0.14277302376837803,
+      "center_error_normalized": 0.03381492735515666,
+      "radius_relative_error": 0.04244315728117998,
+      "heterogeneous_true": true,
+      "used_predicted_region": true,
+      "initialization_mode": "learned",
+      "prior_center_mode": "fixed",
+      "material_prior_weight": 0.05,
+      "objective_metric": "map",
+      "screening_metric": "map",
+      "geometry_id": "geom_62010c56d95ec023bc9b",
+      "scenario_id": "scenario_000",
+      "refinement_accepted": true,
+      "screening_rejected": false,
+      "eq_correlation_rejected": false,
+      "lock_ratio": true,
+      "E_force_local_posterior_correlation": 0.22192804116115658,
+      "E_force_joint_log_covariance": [
+        [
+          0.040066610498383996,
+          0.0022141221194569576
+        ],
+        [
+          0.0022141221194569576,
+          0.002484255027270103
+        ]
+      ],
+      "E_force_joint_log_std": [
+        0.2001664569761477,
+        0.049842301584799464
+      ],
+      "E_force_correlation_status": "local_laplace",
+      "candidate_probe_count": 2,
+      "candidate_directions": [
+        -1.0,
+        1.0
+      ],
+      "relative_cost_reduction": 0.35332834934645446,
+      "function_evaluations": 37,
+      "wall_time_seconds": 194.18101570010185,
+      "termination_reason": "step_tolerance",
+      "initial_E_background": 7395.623775250259,
+      "initial_ratio": 3.0498775113201897,
+      "cost": 4.869359872205821,
+      "initial_cost": 7.529879912448151
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_001",
+      "method": "official_prior_screened_fem",
+      "E_background_true": 2611.1620481079503,
+      "E_background_estimated": 4469.883261870339,
+      "E_background_relative_error": 0.7118367912513202,
+      "inclusion_ratio_true": 2.7941303093094225,
+      "inclusion_ratio_estimated": 2.891522463785368,
+      "inclusion_ratio_relative_error": 0.03485598153796065,
+      "force_scale_true": 0.9581840685763702,
+      "force_scale_estimated": 1.0,
+      "force_scale_relative_error": 0.043640812652790385,
+      "center_fraction_true": [
+        0.6071944036775581,
+        0.4444398114175955,
+        0.4621987712237073
+      ],
+      "center_fraction_estimated": [
+        0.5054741501808167,
+        0.4695046544075012,
+        0.492318332195282
+      ],
+      "radius_fraction_true": 0.1614656337611729,
+      "radius_fraction_estimated": 0.1725643715341502,
+      "center_error_normalized": 0.10900662493018654,
+      "radius_relative_error": 0.06873746143029824,
+      "heterogeneous_true": true,
+      "used_predicted_region": true,
+      "initialization_mode": "learned",
+      "prior_center_mode": "fixed",
+      "material_prior_weight": 0.05,
+      "objective_metric": "map",
+      "screening_metric": "map",
+      "geometry_id": "geom_62010c56d95ec023bc9b",
+      "scenario_id": "scenario_001",
+      "refinement_accepted": true,
+      "screening_rejected": false,
+      "eq_correlation_rejected": false,
+      "lock_ratio": true,
+      "E_force_local_posterior_correlation": 0.17214983665075256,
+      "E_force_joint_log_covariance": [
+        [
+          0.05550513610442604,
+          0.002020835220093129
+        ],
+        [
+          0.002020835220093129,
+          0.0024826494579990926
+        ]
+      ],
+      "E_force_joint_log_std": [
+        0.23559528031016674,
+        0.049826192489483806
+      ],
+      "E_force_correlation_status": "local_laplace",
+      "candidate_probe_count": 2,
+      "candidate_directions": [
+        -1.0,
+        1.0
+      ],
+      "relative_cost_reduction": 0.32196856794701983,
+      "function_evaluations": 29,
+      "wall_time_seconds": 169.85844519990496,
+      "termination_reason": "step_tolerance",
+      "initial_E_background": 3515.7983194357457,
+      "initial_ratio": 2.891522463785368,
+      "cost": 2.448544025743937,
+      "initial_cost": 3.6112544492666117
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_002",
+      "method": "official_prior_screened_fem",
+      "E_background_true": 3813.055593402489,
+      "E_background_estimated": 6072.925594041603,
+      "E_background_relative_error": 0.5926664181212666,
+      "inclusion_ratio_true": 3.6620769305945675,
+      "inclusion_ratio_estimated": 3.4884628901154233,
+      "inclusion_ratio_relative_error": 0.047408627336224904,
+      "force_scale_true": 0.9429035794227972,
+      "force_scale_estimated": 0.9875778004938814,
+      "force_scale_relative_error": 0.04737941614181986,
+      "center_fraction_true": [
+        0.6007080760090803,
+        0.5927639663316099,
+        0.4795889931725204
+      ],
+      "center_fraction_estimated": [
+        0.5126056671142578,
+        0.48490211367607117,
+        0.4941662847995758
+      ],
+      "radius_fraction_true": 0.15152568533597152,
+      "radius_fraction_estimated": 0.16239587948258127,
+      "center_error_normalized": 0.14003110776729524,
+      "radius_relative_error": 0.07173829389062147,
+      "heterogeneous_true": true,
+      "used_predicted_region": true,
+      "initialization_mode": "learned",
+      "prior_center_mode": "fixed",
+      "material_prior_weight": 0.05,
+      "objective_metric": "map",
+      "screening_metric": "map",
+      "geometry_id": "geom_62010c56d95ec023bc9b",
+      "scenario_id": "scenario_002",
+      "refinement_accepted": true,
+      "screening_rejected": false,
+      "eq_correlation_rejected": false,
+      "lock_ratio": true,
+      "E_force_local_posterior_correlation": 0.18428249325282267,
+      "E_force_joint_log_covariance": [
+        [
+          0.05552030543929066,
+          0.0021656469711968844
+        ],
+        [
+          0.0021656469711968844,
+          0.0024874554952975347
+        ]
+      ],
+      "E_force_joint_log_std": [
+        0.23562747174149848,
+        0.04987439719232238
+      ],
+      "E_force_correlation_status": "local_laplace",
+      "candidate_probe_count": 2,
+      "candidate_directions": [
+        -1.0,
+        1.0
+      ],
+      "relative_cost_reduction": 0.40334985031038845,
+      "function_evaluations": 33,
+      "wall_time_seconds": 181.48493209993467,
+      "termination_reason": "step_tolerance",
+      "initial_E_background": 4575.466482282042,
+      "initial_ratio": 3.4884628901154238,
+      "cost": 3.039249149572415,
+      "initial_cost": 5.0938546670163225
+    },
+    {
+      "patient_id": "geom_a417d13e9ae27d685557_scenario_000",
+      "method": "official_prior_screened_fem",
+      "E_background_true": 7354.5934289116385,
+      "E_background_estimated": 8431.673229513593,
+      "E_background_relative_error": 0.14644994465198405,
+      "inclusion_ratio_true": 1.709421583661228,
+      "inclusion_ratio_estimated": 3.5201089494311213,
+      "inclusion_ratio_relative_error": 1.0592397937855533,
+      "force_scale_true": 1.0110509109302304,
+      "force_scale_estimated": 0.9875778004938814,
+      "force_scale_relative_error": 0.023216546449428728,
+      "center_fraction_true": [
+        0.5633197993958843,
+        0.5012134879498827,
+        0.5517471035165116
+      ],
+      "center_fraction_estimated": [
+        0.5289942026138306,
+        0.4793527126312256,
+        0.5097373127937317
+      ],
+      "radius_fraction_true": 0.14910135607511119,
+      "radius_fraction_estimated": 0.13858533789056676,
+      "center_error_normalized": 0.058488995619250535,
+      "radius_relative_error": 0.07052932623394037,
+      "heterogeneous_true": true,
+      "used_predicted_region": true,
+      "initialization_mode": "learned",
+      "prior_center_mode": "fixed",
+      "material_prior_weight": 0.05,
+      "objective_metric": "map",
+      "screening_metric": "map",
+      "geometry_id": "geom_a417d13e9ae27d685557",
+      "scenario_id": "scenario_000",
+      "refinement_accepted": true,
+      "screening_rejected": false,
+      "eq_correlation_rejected": false,
+      "lock_ratio": true,
+      "E_force_local_posterior_correlation": 0.17930169557684994,
+      "E_force_joint_log_covariance": [
+        [
+          0.05654695487807562,
+          0.002125886686387098
+        ],
+        [
+          0.002125886686387098,
+          0.0024860062068095983
+        ]
+      ],
+      "E_force_joint_log_std": [
+        0.23779603629597282,
+        0.04985986569185279
+      ],
+      "E_force_correlation_status": "local_laplace",
+      "candidate_probe_count": 2,
+      "candidate_directions": [
+        -1.0,
+        1.0
+      ],
+      "relative_cost_reduction": 0.35259414568423364,
+      "function_evaluations": 33,
+      "wall_time_seconds": 188.82025480014272,
+      "termination_reason": "step_tolerance",
+      "initial_E_background": 6409.113410196581,
+      "initial_ratio": 3.520108949431121,
+      "cost": 3.2323163066956906,
+      "initial_cost": 4.992720231286567
+    },
+    {
+      "patient_id": "geom_a417d13e9ae27d685557_scenario_001",
+      "method": "official_prior_screened_fem",
+      "E_background_true": 2611.1620481079503,
+      "E_background_estimated": 3103.1477973426654,
+      "E_background_relative_error": 0.18841639858821027,
+      "inclusion_ratio_true": 2.7941303093094225,
+      "inclusion_ratio_estimated": 1.1485687937660927,
+      "inclusion_ratio_relative_error": 0.5889351366543943,
+      "force_scale_true": 0.9581840685763702,
+      "force_scale_estimated": 0.9875778004938814,
+      "force_scale_relative_error": 0.03067649826528972,
+      "center_fraction_true": [
+        0.6071944036775581,
+        0.44443981141759553,
+        0.4621987712237072
+      ],
+      "center_fraction_estimated": [
+        0.4734637141227722,
+        0.4499838054180145,
+        0.49591100215911865
+      ],
+      "radius_fraction_true": 0.1614656337611729,
+      "radius_fraction_estimated": 0.17620158413030865,
+      "center_error_normalized": 0.13802589508102348,
+      "radius_relative_error": 0.09126369510264953,
+      "heterogeneous_true": true,
+      "used_predicted_region": true,
+      "initialization_mode": "learned",
+      "prior_center_mode": "fixed",
+      "material_prior_weight": 0.05,
+      "objective_metric": "map",
+      "screening_metric": "map",
+      "geometry_id": "geom_a417d13e9ae27d685557",
+      "scenario_id": "scenario_001",
+      "refinement_accepted": true,
+      "screening_rejected": false,
+      "eq_correlation_rejected": false,
+      "lock_ratio": true,
+      "E_force_local_posterior_correlation": 0.19338518069735755,
+      "E_force_joint_log_covariance": [
+        [
+          0.03492570648802937,
+          0.0017939626773314909
+        ],
+        [
+          0.0017939626773314909,
+          0.0024639689224256306
+        ]
+      ],
+      "E_force_joint_log_std": [
+        0.18688420609572487,
+        0.049638381545187696
+      ],
+      "E_force_correlation_status": "local_laplace",
+      "candidate_probe_count": 2,
+      "candidate_directions": [
+        -1.0,
+        1.0
+      ],
+      "relative_cost_reduction": 0.3431152529852032,
+      "function_evaluations": 33,
+      "wall_time_seconds": 203.52853289991617,
+      "termination_reason": "step_tolerance",
+      "initial_E_background": 2652.627736787642,
+      "initial_ratio": 1.1485687937660927,
+      "cost": 3.4798539850103722,
+      "initial_cost": 5.297510713750803
+    },
+    {
+      "patient_id": "geom_a417d13e9ae27d685557_scenario_002",
+      "method": "official_prior_screened_fem",
+      "E_background_true": 3813.055593402489,
+      "E_background_estimated": 4009.1089867207006,
+      "E_background_relative_error": 0.051416347995930436,
+      "inclusion_ratio_true": 3.6620769305945675,
+      "inclusion_ratio_estimated": 2.7866109437366338,
+      "inclusion_ratio_relative_error": 0.23906269678386982,
+      "force_scale_true": 0.9429035794227972,
+      "force_scale_estimated": 0.9875778004938814,
+      "force_scale_relative_error": 0.04737941614181986,
+      "center_fraction_true": [
+        0.6007080760090803,
+        0.5927639663316099,
+        0.4795889931725204
+      ],
+      "center_fraction_estimated": [
+        0.49708572030067444,
+        0.4593311846256256,
+        0.4972228407859802
+      ],
+      "radius_fraction_true": 0.15152568533597152,
+      "radius_fraction_estimated": 0.1603247865597309,
+      "center_error_normalized": 0.1698612740385841,
+      "radius_relative_error": 0.058070030861431254,
+      "heterogeneous_true": true,
+      "used_predicted_region": true,
+      "initialization_mode": "learned",
+      "prior_center_mode": "fixed",
+      "material_prior_weight": 0.05,
+      "objective_metric": "map",
+      "screening_metric": "map",
+      "geometry_id": "geom_a417d13e9ae27d685557",
+      "scenario_id": "scenario_002",
+      "refinement_accepted": true,
+      "screening_rejected": false,
+      "eq_correlation_rejected": false,
+      "lock_ratio": true,
+      "E_force_local_posterior_correlation": 0.23400597781674418,
+      "E_force_joint_log_covariance": [
+        [
+          0.03352644031688897,
+          0.002132386517783851
+        ],
+        [
+          0.0021323865177838505,
+          0.0024767975407942967
+        ]
+      ],
+      "E_force_joint_log_std": [
+        0.18310226737233204,
+        0.04976743454101584
+      ],
+      "E_force_correlation_status": "local_laplace",
+      "candidate_probe_count": 2,
+      "candidate_directions": [
+        -1.0,
+        1.0
+      ],
+      "relative_cost_reduction": 0.43663314505910034,
+      "function_evaluations": 37,
+      "wall_time_seconds": 219.512461300008,
+      "termination_reason": "step_tolerance",
+      "initial_E_background": 3240.780667985266,
+      "initial_ratio": 2.7866109437366338,
+      "cost": 3.590462196644245,
+      "initial_cost": 6.373222288735649
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_000",
+      "method": "official_prior_screened_fem",
+      "E_background_true": 7354.5934289116385,
+      "E_background_estimated": 8891.945583514056,
+      "E_background_relative_error": 0.20903292200476145,
+      "inclusion_ratio_true": 1.709421583661228,
+      "inclusion_ratio_estimated": 3.380179566060136,
+      "inclusion_ratio_relative_error": 0.9773820562277501,
+      "force_scale_true": 1.0110509109302304,
+      "force_scale_estimated": 1.0,
+      "force_scale_relative_error": 0.01093012311324939,
+      "center_fraction_true": [
+        0.5633197993958843,
+        0.5012134879498827,
+        0.5517471035165116
+      ],
+      "center_fraction_estimated": [
+        0.5233814716339111,
+        0.47617924213409424,
+        0.5301768779754639
+      ],
+      "radius_fraction_true": 0.14910135607511119,
+      "radius_fraction_estimated": 0.15257008655979903,
+      "center_error_normalized": 0.05183684131850422,
+      "radius_relative_error": 0.02326424504778113,
+      "heterogeneous_true": true,
+      "used_predicted_region": true,
+      "initialization_mode": "learned",
+      "prior_center_mode": "fixed",
+      "material_prior_weight": 0.05,
+      "objective_metric": "map",
+      "screening_metric": "map",
+      "geometry_id": "geom_ab578f1bb0ee02be2ccd",
+      "scenario_id": "scenario_000",
+      "refinement_accepted": true,
+      "screening_rejected": false,
+      "eq_correlation_rejected": false,
+      "lock_ratio": true,
+      "E_force_local_posterior_correlation": 0.1592140429103971,
+      "E_force_joint_log_covariance": [
+        [
+          0.06960680335178038,
+          0.002095176995032205
+        ],
+        [
+          0.002095176995032205,
+          0.0024878661052149366
+        ]
+      ],
+      "E_force_joint_log_std": [
+        0.2638310128695646,
+        0.04987851346236109
+      ],
+      "E_force_correlation_status": "local_laplace",
+      "candidate_probe_count": 2,
+      "candidate_directions": [
+        -1.0,
+        1.0
+      ],
+      "relative_cost_reduction": 0.2128871699008293,
+      "function_evaluations": 29,
+      "wall_time_seconds": 153.01651290012524,
+      "termination_reason": "step_tolerance",
+      "initial_E_background": 6883.086914717607,
+      "initial_ratio": 3.380179566060136,
+      "cost": 2.1094169285704933,
+      "initial_cost": 2.6799422495815772
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_001",
+      "method": "official_prior_screened_fem",
+      "E_background_true": 2611.1620481079503,
+      "E_background_estimated": 3302.017081348547,
+      "E_background_relative_error": 0.26457761736434193,
+      "inclusion_ratio_true": 2.7941303093094225,
+      "inclusion_ratio_estimated": 1.266092776303851,
+      "inclusion_ratio_relative_error": 0.5468741124615732,
+      "force_scale_true": 0.9581840685763702,
+      "force_scale_estimated": 1.0,
+      "force_scale_relative_error": 0.043640812652790385,
+      "center_fraction_true": [
+        0.6071944036775581,
+        0.4444398114175954,
+        0.4621987712237072
+      ],
+      "center_fraction_estimated": [
+        0.4885413944721222,
+        0.44950711727142334,
+        0.5143637657165527
+      ],
+      "radius_fraction_true": 0.1614656337611729,
+      "radius_fraction_estimated": 0.19334151705520924,
+      "center_error_normalized": 0.1297127627974984,
+      "radius_relative_error": 0.19741589929399228,
+      "heterogeneous_true": true,
+      "used_predicted_region": true,
+      "initialization_mode": "learned",
+      "prior_center_mode": "fixed",
+      "material_prior_weight": 0.05,
+      "objective_metric": "map",
+      "screening_metric": "map",
+      "geometry_id": "geom_ab578f1bb0ee02be2ccd",
+      "scenario_id": "scenario_001",
+      "refinement_accepted": true,
+      "screening_rejected": false,
+      "eq_correlation_rejected": false,
+      "lock_ratio": true,
+      "E_force_local_posterior_correlation": 0.14671227147860239,
+      "E_force_joint_log_covariance": [
+        [
+          0.047382698689322454,
+          0.001587008942291593
+        ],
+        [
+          0.001587008942291593,
+          0.0024694831835349357
+        ]
+      ],
+      "E_force_joint_log_std": [
+        0.2176756731684146,
+        0.049693894831608194
+      ],
+      "E_force_correlation_status": "local_laplace",
+      "candidate_probe_count": 2,
+      "candidate_directions": [
+        -1.0,
+        1.0
+      ],
+      "relative_cost_reduction": 0.3193984481268338,
+      "function_evaluations": 29,
+      "wall_time_seconds": 171.4454489001073,
+      "termination_reason": "step_tolerance",
+      "initial_E_background": 2811.0484030551293,
+      "initial_ratio": 1.266092776303851,
+      "cost": 2.2344198481772537,
+      "initial_cost": 3.283007277940574
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_002",
+      "method": "official_prior_screened_fem",
+      "E_background_true": 3813.055593402489,
+      "E_background_estimated": 4734.621774707694,
+      "E_background_relative_error": 0.24168705614986002,
+      "inclusion_ratio_true": 3.6620769305945675,
+      "inclusion_ratio_estimated": 3.3239248803170125,
+      "inclusion_ratio_relative_error": 0.09233887127069537,
+      "force_scale_true": 0.9429035794227971,
+      "force_scale_estimated": 1.0,
+      "force_scale_relative_error": 0.06055382737241778,
+      "center_fraction_true": [
+        0.6007080760090803,
+        0.5927639663316099,
+        0.47958899317252035
+      ],
+      "center_fraction_estimated": [
+        0.5160848498344421,
+        0.45755496621131897,
+        0.5098246932029724
+      ],
+      "radius_fraction_true": 0.15152568533597152,
+      "radius_fraction_estimated": 0.17717936514031815,
+      "center_error_normalized": 0.16234765682960833,
+      "radius_relative_error": 0.16930251625304193,
+      "heterogeneous_true": true,
+      "used_predicted_region": true,
+      "initialization_mode": "learned",
+      "prior_center_mode": "fixed",
+      "material_prior_weight": 0.05,
+      "objective_metric": "map",
+      "screening_metric": "map",
+      "geometry_id": "geom_ab578f1bb0ee02be2ccd",
+      "scenario_id": "scenario_002",
+      "refinement_accepted": true,
+      "screening_rejected": false,
+      "eq_correlation_rejected": false,
+      "lock_ratio": true,
+      "E_force_local_posterior_correlation": 0.15809401812435564,
+      "E_force_joint_log_covariance": [
+        [
+          0.06069246503140216,
+          0.0019404319577870713
+        ],
+        [
+          0.0019404319577870713,
+          0.0024821680726677376
+        ]
+      ],
+      "E_force_joint_log_std": [
+        0.24635840767345887,
+        0.04982136160993332
+      ],
+      "E_force_correlation_status": "local_laplace",
+      "candidate_probe_count": 2,
+      "candidate_directions": [
+        -1.0,
+        1.0
+      ],
+      "relative_cost_reduction": 0.34007722161748327,
+      "function_evaluations": 29,
+      "wall_time_seconds": 171.07324509997852,
+      "termination_reason": "step_tolerance",
+      "initial_E_background": 3752.1862759188757,
+      "initial_ratio": 3.3239248803170125,
+      "cost": 1.7915668711238821,
+      "initial_cost": 2.7148128990410765
+    },
+    {
+      "patient_id": "geom_db38a9c3817f033727b5_scenario_000",
+      "method": "official_prior_screened_fem",
+      "E_background_true": 7354.5934289116385,
+      "E_background_estimated": 10448.178798646592,
+      "E_background_relative_error": 0.4206330913648824,
+      "inclusion_ratio_true": 1.709421583661228,
+      "inclusion_ratio_estimated": 3.317529853117963,
+      "inclusion_ratio_relative_error": 0.9407324002616715,
+      "force_scale_true": 1.0110509109302304,
+      "force_scale_estimated": 0.9875778004938814,
+      "force_scale_relative_error": 0.023216546449428728,
+      "center_fraction_true": [
+        0.5633197993958843,
+        0.5012134879498827,
+        0.5517471035165116
+      ],
+      "center_fraction_estimated": [
+        0.5369877815246582,
+        0.47885191440582275,
+        0.5391069650650024
+      ],
+      "radius_fraction_true": 0.14910135607511119,
+      "radius_fraction_estimated": 0.14018448076955098,
+      "center_error_normalized": 0.03678570696086039,
+      "radius_relative_error": 0.059804119427782076,
+      "heterogeneous_true": true,
+      "used_predicted_region": true,
+      "initialization_mode": "learned",
+      "prior_center_mode": "fixed",
+      "material_prior_weight": 0.05,
+      "objective_metric": "map",
+      "screening_metric": "map",
+      "geometry_id": "geom_db38a9c3817f033727b5",
+      "scenario_id": "scenario_000",
+      "refinement_accepted": true,
+      "screening_rejected": false,
+      "eq_correlation_rejected": false,
+      "lock_ratio": true,
+      "E_force_local_posterior_correlation": 0.18597898295187143,
+      "E_force_joint_log_covariance": [
+        [
+          0.052115560554775585,
+          0.0021161746715231407
+        ],
+        [
+          0.002116174671523141,
+          0.0024843219345687486
+        ]
+      ],
+      "E_force_joint_log_std": [
+        0.22828832767965948,
+        0.049842972770178434
+      ],
+      "E_force_correlation_status": "local_laplace",
+      "candidate_probe_count": 2,
+      "candidate_directions": [
+        -1.0,
+        1.0
+      ],
+      "relative_cost_reduction": 0.25636194153311653,
+      "function_evaluations": 37,
+      "wall_time_seconds": 193.98921279981732,
+      "termination_reason": "step_tolerance",
+      "initial_E_background": 8045.854690316688,
+      "initial_ratio": 3.3175298531179633,
+      "cost": 5.010015845179785,
+      "initial_cost": 6.737169767115808
+    },
+    {
+      "patient_id": "geom_db38a9c3817f033727b5_scenario_001",
+      "method": "official_prior_screened_fem",
+      "E_background_true": 2611.1620481079503,
+      "E_background_estimated": 4732.257272011866,
+      "E_background_relative_error": 0.8123184945342103,
+      "inclusion_ratio_true": 2.7941303093094225,
+      "inclusion_ratio_estimated": 2.9182892425092875,
+      "inclusion_ratio_relative_error": 0.044435627352881465,
+      "force_scale_true": 0.9581840685763702,
+      "force_scale_estimated": 0.9875778004938814,
+      "force_scale_relative_error": 0.03067649826528972,
+      "center_fraction_true": [
+        0.6071944036775581,
+        0.4444398114175955,
+        0.4621987712237072
+      ],
+      "center_fraction_estimated": [
+        0.506194531917572,
+        0.45845261216163635,
+        0.4952976703643799
+      ],
+      "radius_fraction_true": 0.1614656337611729,
+      "radius_fraction_estimated": 0.15663441747047435,
+      "center_error_normalized": 0.10720480308526403,
+      "radius_relative_error": 0.02992101896955046,
+      "heterogeneous_true": true,
+      "used_predicted_region": true,
+      "initialization_mode": "learned",
+      "prior_center_mode": "fixed",
+      "material_prior_weight": 0.05,
+      "objective_metric": "map",
+      "screening_metric": "map",
+      "geometry_id": "geom_db38a9c3817f033727b5",
+      "scenario_id": "scenario_001",
+      "refinement_accepted": true,
+      "screening_rejected": false,
+      "eq_correlation_rejected": false,
+      "lock_ratio": true,
+      "E_force_local_posterior_correlation": 0.1446018214036507,
+      "E_force_joint_log_covariance": [
+        [
+          0.07164750605264822,
+          0.001929538862717161
+        ],
+        [
+          0.0019295388627171611,
+          0.002485183466317697
+        ]
+      ],
+      "E_force_joint_log_std": [
+        0.26767051771281836,
+        0.049851614480553155
+      ],
+      "E_force_correlation_status": "local_laplace",
+      "candidate_probe_count": 2,
+      "candidate_directions": [
+        -1.0,
+        1.0
+      ],
+      "relative_cost_reduction": 0.2457129492979662,
+      "function_evaluations": 33,
+      "wall_time_seconds": 186.94775859988295,
+      "termination_reason": "step_tolerance",
+      "initial_E_background": 3696.403308894157,
+      "initial_ratio": 2.918289242509288,
+      "cost": 3.688150979360528,
+      "initial_cost": 4.889585438233195
+    },
+    {
+      "patient_id": "geom_db38a9c3817f033727b5_scenario_002",
+      "method": "official_prior_screened_fem",
+      "E_background_true": 3813.055593402489,
+      "E_background_estimated": 7569.286806412329,
+      "E_background_relative_error": 0.9850974162320189,
+      "inclusion_ratio_true": 3.6620769305945675,
+      "inclusion_ratio_estimated": 3.3948937449860153,
+      "inclusion_ratio_relative_error": 0.07295946826687033,
+      "force_scale_true": 0.9429035794227969,
+      "force_scale_estimated": 0.9875778004938814,
+      "force_scale_relative_error": 0.04737941614182024,
+      "center_fraction_true": [
+        0.6007080760090803,
+        0.5927639663316099,
+        0.47958899317252035
+      ],
+      "center_fraction_estimated": [
+        0.505605936050415,
+        0.46848928928375244,
+        0.4927917420864105
+      ],
+      "radius_fraction_true": 0.15152568533597152,
+      "radius_fraction_estimated": 0.14996731376858957,
+      "center_error_normalized": 0.15704434074155632,
+      "radius_relative_error": 0.010284537330596089,
+      "heterogeneous_true": true,
+      "used_predicted_region": true,
+      "initialization_mode": "learned",
+      "prior_center_mode": "fixed",
+      "material_prior_weight": 0.05,
+      "objective_metric": "map",
+      "screening_metric": "map",
+      "geometry_id": "geom_db38a9c3817f033727b5",
+      "scenario_id": "scenario_002",
+      "refinement_accepted": true,
+      "screening_rejected": false,
+      "eq_correlation_rejected": false,
+      "lock_ratio": true,
+      "E_force_local_posterior_correlation": 0.1488334307371844,
+      "E_force_joint_log_covariance": [
+        [
+          0.0782360880023679,
+          0.0020766358495131108
+        ],
+        [
+          0.0020766358495131108,
+          0.002488356394169655
+        ]
+      ],
+      "E_force_joint_log_std": [
+        0.27970714685607856,
+        0.04988342805150479
+      ],
+      "E_force_correlation_status": "local_laplace",
+      "candidate_probe_count": 2,
+      "candidate_directions": [
+        -1.0,
+        1.0
+      ],
+      "relative_cost_reduction": 0.24891122145117542,
+      "function_evaluations": 33,
+      "wall_time_seconds": 186.72415420017205,
+      "termination_reason": "step_tolerance",
+      "initial_E_background": 5557.7765985375145,
+      "initial_ratio": 3.3948937449860153,
+      "cost": 3.8912892217365194,
+      "initial_cost": 5.180864543409719
+    },
+    {
+      "patient_id": "geom_fac5cdc88e186e46ee04_scenario_000",
+      "method": "official_prior_screened_fem",
+      "E_background_true": 7354.5934289116385,
+      "E_background_estimated": 8951.866723890385,
+      "E_background_relative_error": 0.21718036631361656,
+      "inclusion_ratio_true": 1.709421583661228,
+      "inclusion_ratio_estimated": 3.4587743510419253,
+      "inclusion_ratio_relative_error": 1.0233594708883602,
+      "force_scale_true": 1.0110509109302304,
+      "force_scale_estimated": 0.9937694906233947,
+      "force_scale_relative_error": 0.017092532255310138,
+      "center_fraction_true": [
+        0.5633197993958843,
+        0.5012134879498827,
+        0.5517471035165116
+      ],
+      "center_fraction_estimated": [
+        0.526412308216095,
+        0.4738747775554657,
+        0.5213260054588318
+      ],
+      "radius_fraction_true": 0.14910135607511119,
+      "radius_fraction_estimated": 0.14360419787328582,
+      "center_error_normalized": 0.05509093571769317,
+      "radius_relative_error": 0.036868599632696286,
+      "heterogeneous_true": true,
+      "used_predicted_region": true,
+      "initialization_mode": "learned",
+      "prior_center_mode": "fixed",
+      "material_prior_weight": 0.05,
+      "objective_metric": "map",
+      "screening_metric": "map",
+      "geometry_id": "geom_fac5cdc88e186e46ee04",
+      "scenario_id": "scenario_000",
+      "refinement_accepted": true,
+      "screening_rejected": false,
+      "eq_correlation_rejected": false,
+      "lock_ratio": true,
+      "E_force_local_posterior_correlation": 0.10889670203715635,
+      "E_force_joint_log_covariance": [
+        [
+          0.1286886687537298,
+          0.0019499872143594792
+        ],
+        [
+          0.0019499872143594794,
+          0.0024916885979613533
+        ]
+      ],
+      "E_force_joint_log_std": [
+        0.3587320291718176,
+        0.04991681678514119
+      ],
+      "E_force_correlation_status": "local_laplace",
+      "candidate_probe_count": 2,
+      "candidate_directions": [
+        -1.0,
+        1.0
+      ],
+      "relative_cost_reduction": 0.12329242329686668,
+      "function_evaluations": 37,
+      "wall_time_seconds": 193.14820139994845,
+      "termination_reason": "step_tolerance",
+      "initial_E_background": 6361.11761067169,
+      "initial_ratio": 3.458774351041925,
+      "cost": 5.293662617084265,
+      "initial_cost": 6.0381166511542315
+    },
+    {
+      "patient_id": "geom_fac5cdc88e186e46ee04_scenario_001",
+      "method": "official_prior_screened_fem",
+      "E_background_true": 2611.1620481079503,
+      "E_background_estimated": 2890.4327502503393,
+      "E_background_relative_error": 0.10695265058127995,
+      "inclusion_ratio_true": 2.7941303093094225,
+      "inclusion_ratio_estimated": 1.2829505345685852,
+      "inclusion_ratio_relative_error": 0.5408408368449823,
+      "force_scale_true": 0.95818406857637,
+      "force_scale_estimated": 1.0,
+      "force_scale_relative_error": 0.04364081265279063,
+      "center_fraction_true": [
+        0.6071944036775581,
+        0.4444398114175955,
+        0.4621987712237072
+      ],
+      "center_fraction_estimated": [
+        0.5100562572479248,
+        0.44627389311790466,
+        0.5218319296836853
+      ],
+      "radius_fraction_true": 0.1614656337611729,
+      "radius_fraction_estimated": 0.17813699722121346,
+      "center_error_normalized": 0.11399691634154467,
+      "radius_relative_error": 0.10325022775248582,
+      "heterogeneous_true": true,
+      "used_predicted_region": true,
+      "initialization_mode": "learned",
+      "prior_center_mode": "fixed",
+      "material_prior_weight": 0.05,
+      "objective_metric": "map",
+      "screening_metric": "map",
+      "geometry_id": "geom_fac5cdc88e186e46ee04",
+      "scenario_id": "scenario_001",
+      "refinement_accepted": false,
+      "screening_rejected": true,
+      "eq_correlation_rejected": false,
+      "lock_ratio": true,
+      "E_force_local_posterior_correlation": null,
+      "E_force_joint_log_covariance": null,
+      "E_force_joint_log_std": null,
+      "E_force_correlation_status": "screening_rejected",
+      "candidate_probe_count": 2,
+      "candidate_directions": [
+        -1.0,
+        1.0
+      ],
+      "relative_cost_reduction": 0.04865049725866848,
+      "function_evaluations": 5,
+      "wall_time_seconds": 22.151058500166982,
+      "termination_reason": "insufficient_initial_physics_evidence",
+      "initial_E_background": 2890.4327502503393,
+      "initial_ratio": 1.2829505345685852,
+      "cost": 5.92034472695526,
+      "initial_cost": 5.92034472695526
+    },
+    {
+      "patient_id": "geom_fac5cdc88e186e46ee04_scenario_002",
+      "method": "official_prior_screened_fem",
+      "E_background_true": 3813.055593402489,
+      "E_background_estimated": 5442.531824328511,
+      "E_background_relative_error": 0.427341325352143,
+      "inclusion_ratio_true": 3.6620769305945675,
+      "inclusion_ratio_estimated": 3.4757939892977445,
+      "inclusion_ratio_relative_error": 0.05086811250209822,
+      "force_scale_true": 0.9429035794227971,
+      "force_scale_estimated": 1.0,
+      "force_scale_relative_error": 0.06055382737241778,
+      "center_fraction_true": [
+        0.6007080760090803,
+        0.5927639663316099,
+        0.47958899317252035
+      ],
+      "center_fraction_estimated": [
+        0.5325568318367004,
+        0.45236682891845703,
+        0.5199195146560669
+      ],
+      "radius_fraction_true": 0.15152568533597152,
+      "radius_fraction_estimated": 0.16355043876019282,
+      "center_error_normalized": 0.16119087827537223,
+      "radius_relative_error": 0.07935785538642715,
+      "heterogeneous_true": true,
+      "used_predicted_region": true,
+      "initialization_mode": "learned",
+      "prior_center_mode": "fixed",
+      "material_prior_weight": 0.05,
+      "objective_metric": "map",
+      "screening_metric": "map",
+      "geometry_id": "geom_fac5cdc88e186e46ee04",
+      "scenario_id": "scenario_002",
+      "refinement_accepted": true,
+      "screening_rejected": false,
+      "eq_correlation_rejected": false,
+      "lock_ratio": true,
+      "E_force_local_posterior_correlation": 0.10086007122894491,
+      "E_force_joint_log_covariance": [
+        [
+          0.1340383224311521,
+          0.0018429756139779533
+        ],
+        [
+          0.0018429756139779535,
+          0.0024909880990287947
+        ]
+      ],
+      "E_force_joint_log_std": [
+        0.36611244506456225,
+        0.04990979962921906
+      ],
+      "E_force_correlation_status": "local_laplace",
+      "candidate_probe_count": 2,
+      "candidate_directions": [
+        -1.0,
+        1.0
+      ],
+      "relative_cost_reduction": 0.13774191754860698,
+      "function_evaluations": 29,
+      "wall_time_seconds": 163.42602640017867,
+      "termination_reason": "step_tolerance",
+      "initial_E_background": 3955.697621210398,
+      "initial_ratio": 3.4757939892977445,
+      "cost": 5.0754312651867854,
+      "initial_cost": 5.8862089767339425
+    }
+  ]
+}

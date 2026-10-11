@@ -15,6 +15,7 @@ import torch
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
+from lung_inverse_rendering.tracking_error import TrackingError
 from physics.fem import solve_nh_heterogeneous
 from rendering.gaussian_pbr import gaussian_centers, project
 
@@ -202,6 +203,9 @@ def fit_patient(
     inclusion_center: torch.Tensor | None = None,
     inclusion_radius: float | None = None,
     track_noise_px: float = 0.25,
+    tracking_error_model: str = "iid",
+    tracking_view_bias_px: float = 0.04,
+    tracking_dropout_rate: float = 0.10,
     use_all_track_frames: bool = False,
     force_calibration_factor: float = 1.0,
     track_entity: str = "nodes",
@@ -220,8 +224,15 @@ def fit_patient(
     initial_force_scale_std: float | None = None,
     material_prior_sigma: tuple[float, float] | None = None,
     material_prior_weight: float = 1.0,
+    material_prior_center: tuple[float, float] | None = None,
     minimum_refinement_cost_reduction: float = 0.05,
     screening_minimum_cost_reduction: float = 0.0,
+    screening_metric: str = "map",
+    objective_metric: str = "map",
+    acceptance_metric: str | None = None,
+    lock_ratio: bool = False,
+    eq_correlation_rollback: float | None = None,
+    candidate_probe_count: int | None = None,
     node_partition: torch.Tensor | None = None,
     sdf: torch.Tensor | None = None,
     soft_occupancy: torch.Tensor | None = None,
@@ -246,6 +257,15 @@ def fit_patient(
         raise ValueError("convergence_threshold must be positive")
     if material_prior_weight < 0:
         raise ValueError("material_prior_weight must be non-negative")
+    if screening_metric not in {"map", "residual"}:
+        raise ValueError("screening_metric must be 'map' or 'residual'")
+    if objective_metric not in {"map", "residual"}:
+        raise ValueError("objective_metric must be 'map' or 'residual'")
+    if acceptance_metric not in {None, "map", "residual"}:
+        raise ValueError("acceptance_metric must be None, 'map' or 'residual'")
+    # None keeps the historical behaviour: the final acceptance/rollback test
+    # is evaluated on the same objective the optimizer minimised.
+    effective_acceptance_metric = acceptance_metric or objective_metric
     if experiments_limit is not None:
         experiments = experiments[:experiments_limit]
     first = experiments[0]
@@ -313,8 +333,18 @@ def fit_patient(
                 len(surface_nodes), dtype=scene["nodes"].dtype
             )
         frame_indices = (1, 2, 3, 4, 5) if use_all_track_frames else (peak_frame,)
-        generator = torch.Generator().manual_seed(
-            93_000 + int(first["patient_id"].rsplit("_", 1)[1])
+        patient_token = str(first["patient_id"]).rsplit("_", 1)[-1]
+        try:
+            patient_seed = int(patient_token)
+        except ValueError:
+            patient_seed = abs(hash(str(first["patient_id"]))) % 1_000_000
+        generator = torch.Generator().manual_seed(93_000 + patient_seed)
+        tracker = TrackingError(
+            tracking_error_model,
+            track_noise_px,
+            generator,
+            view_bias_px=tracking_view_bias_px,
+            dropout_rate=tracking_dropout_rate,
         )
         for experiment in experiments:
             if multiview_tracks:
@@ -335,14 +365,18 @@ def fit_patient(
                         ).all(dim=0)
                         numerator = None
                         denominator = sum(value * value for value in envelopes)
+                        keep_all = None
                         for frame_index, envelope in zip(
                             regression_frames, envelopes
                         ):
-                            noise = track_noise_px * torch.randn(
-                                deformed[frame_index, view_index].shape,
-                                generator=generator,
-                                dtype=deformed.dtype,
+                            noise, keep = tracker.noise(
+                                tuple(deformed[frame_index, view_index].shape),
+                                deformed.dtype,
+                                view_index,
+                                confidence[frame_index, view_index],
                             )
+                            if keep is not None:
+                                keep_all = keep if keep_all is None else keep_all & keep
                             weighted = envelope * (
                                 deformed[frame_index, view_index]
                                 + noise
@@ -351,6 +385,8 @@ def fit_patient(
                             numerator = (
                                 weighted if numerator is None else numerator + weighted
                             )
+                        if keep_all is not None:
+                            mask = mask & keep_all
                         regressed = numerator / denominator
                         regressed = smooth_surface_tracks(
                             regressed,
@@ -491,7 +527,11 @@ def fit_patient(
     evaluations = 0
     diagnostic_evaluations = 0
 
-    def objective(parameters: np.ndarray, *, diagnostic: bool = False) -> float:
+    def objective(
+        parameters: np.ndarray, *, diagnostic: bool = False, include_priors: bool | None = None
+    ) -> float:
+        if include_priors is None:
+            include_priors = objective_metric == "map"
         nonlocal evaluations, diagnostic_evaluations
         if diagnostic:
             diagnostic_evaluations += 1
@@ -592,15 +632,19 @@ def fit_patient(
         # likelihoods keeps Gaussian parameter priors on the correct scale;
         # averaging here previously made the force prior dominate the data.
         data_cost = float(np.sum(experiment_losses))
-        if material_prior_sigma is not None and material_prior_weight > 0:
+        if include_priors and material_prior_sigma is not None and material_prior_weight > 0:
             prior_sigma = np.asarray(material_prior_sigma, dtype=float)
             if prior_sigma.shape != (2,) or np.any(prior_sigma <= 0):
                 raise ValueError("material_prior_sigma must contain two positive values")
-            prior_center = np.log([initial_E_background, initial_ratio])
+            prior_center = np.log(
+                material_prior_center
+                if material_prior_center is not None
+                else [initial_E_background, initial_ratio]
+            )
             data_cost += 0.5 * material_prior_weight * float(
                 np.square((parameters[:2] - prior_center) / prior_sigma).sum()
             )
-        if optimize_force_scale:
+        if include_priors and optimize_force_scale:
             assert force_prior_sigma is not None
             data_cost += 0.5 * (float(parameters[2]) / force_prior_sigma) ** 2
         return data_cost
@@ -621,7 +665,7 @@ def fit_patient(
     )
     initial_parameters = parameters.copy()
     if search_half_width_log is None:
-        lower, upper = global_lower, global_upper
+        lower, upper = global_lower.copy(), global_upper.copy()
     else:
         half_width = np.asarray(search_half_width_log, dtype=float)
         if optimize_force_scale:
@@ -636,6 +680,9 @@ def fit_patient(
             half_width = np.concatenate((half_width, [force_width]))
         lower = np.maximum(global_lower, parameters - half_width)
         upper = np.minimum(global_upper, parameters + half_width)
+    if lock_ratio:
+        lower[1] = parameters[1]
+        upper[1] = parameters[1]
     material_steps = (
         [
             min(0.15, max(0.025, 0.5 * material_prior_sigma[0])),
@@ -644,6 +691,8 @@ def fit_patient(
         if material_prior_sigma is not None
         else [0.15, 0.15]
     )
+    if lock_ratio:
+        material_steps[1] = 0.0
     steps = np.asarray(
         [*material_steps, max(0.025, force_prior_sigma or 0.05)]
         if optimize_force_scale
@@ -655,14 +704,34 @@ def fit_patient(
     search_iteration = 0
     # Deterministic coarse-to-fine coordinate pattern search. It avoids mixed
     # OpenMP runtimes from scipy+torch and is adequate for this 2-D problem.
+    if candidate_probe_count is not None and (
+        candidate_probe_count < 2 or candidate_probe_count % 2 != 0
+    ):
+        raise ValueError("candidate_probe_count must be an even integer >= 2")
+    if candidate_probe_count is None or candidate_probe_count == 2:
+        directions = (-1.0, 1.0)
+    else:
+        magnitudes = np.linspace(1.0 / candidate_probe_count, 1.0, candidate_probe_count // 2)
+        directions = tuple(float(-value) for value in magnitudes[::-1]) + tuple(
+            float(value) for value in magnitudes
+        )
+    def _metric_score(parameters: np.ndarray, *, include_priors: bool) -> float:
+        return objective(parameters, diagnostic=True, include_priors=include_priors)
+
     while evaluations < max_nfev:
         search_iteration += 1
         candidates = []
         for dimension in range(len(parameters)):
-            for direction in (-1.0, 1.0):
+            if lock_ratio and dimension == 1:
+                continue
+            if steps[dimension] <= 0:
+                continue
+            for direction in directions:
                 candidate = parameters.copy()
                 candidate[dimension] += direction * steps[dimension]
                 candidates.append(np.clip(candidate, lower, upper))
+        if not candidates:
+            break
         improved = False
         best_candidate = None
         best_candidate_cost = best_cost
@@ -676,8 +745,13 @@ def fit_patient(
             parameters, best_cost = best_candidate, best_candidate_cost
             improved = True
         if search_iteration == 1 and screening_minimum_cost_reduction > 0:
-            screening_reduction = (initial_cost - best_cost) / max(
-                abs(initial_cost), 1e-12
+            if screening_metric == "residual":
+                initial_screen_cost = objective(initial_parameters, diagnostic=True, include_priors=False)
+                candidate_screen_cost = objective(parameters, diagnostic=True, include_priors=False)
+            else:
+                initial_screen_cost, candidate_screen_cost = initial_cost, best_cost
+            screening_reduction = (initial_screen_cost - candidate_screen_cost) / max(
+                abs(initial_screen_cost), 1e-12
             )
             if screening_reduction < screening_minimum_cost_reduction:
                 screening_rejected = True
@@ -690,17 +764,30 @@ def fit_patient(
     relative_cost_reduction = (initial_cost - optimized_cost) / max(
         abs(initial_cost), 1e-12
     )
+    if effective_acceptance_metric == objective_metric:
+        acceptance_initial_cost, acceptance_optimized_cost = initial_cost, optimized_cost
+        acceptance_relative_cost_reduction = relative_cost_reduction
+    else:
+        # Decoupled acceptance: re-score the start and end points on the
+        # requested metric (prior-free Huber residual or MAP) without touching
+        # the optimizer's own objective trace.
+        acceptance_include_priors = effective_acceptance_metric == "map"
+        acceptance_initial_cost = objective(
+            initial_parameters, diagnostic=True, include_priors=acceptance_include_priors
+        )
+        acceptance_optimized_cost = objective(
+            parameters, diagnostic=True, include_priors=acceptance_include_priors
+        )
+        acceptance_relative_cost_reduction = (
+            acceptance_initial_cost - acceptance_optimized_cost
+        ) / max(abs(acceptance_initial_cost), 1e-12)
     refinement_accepted = bool(
-        relative_cost_reduction >= minimum_refinement_cost_reduction
+        acceptance_relative_cost_reduction >= minimum_refinement_cost_reduction
     )
-    if not refinement_accepted:
-        parameters = initial_parameters
-        best_cost = initial_cost
-    fitted = np.exp(parameters)
-    E_background, ratio = fitted[:2]
-    force_scale = float(fitted[2]) if optimize_force_scale else 1.0
     hessian_correlation = None
     hessian_status = "not_requested"
+    joint_covariance = None
+    eq_correlation_rejected = False
     if optimize_force_scale and not screening_rejected:
         # A local finite-difference Hessian exposes the expected E/force
         # confounding. The Gaussian prior makes this posterior curvature finite.
@@ -738,6 +825,8 @@ def fit_patient(
         local_hessian = np.asarray([[h_ee, h_ef], [h_ef, h_ff]])
         if np.isfinite(local_hessian).all() and np.linalg.det(local_hessian) > 1e-12:
             covariance = np.linalg.inv(local_hessian)
+            if np.isfinite(covariance).all() and np.all(np.diag(covariance) > 0):
+                joint_covariance = covariance.tolist()
             denominator = math.sqrt(max(covariance[0, 0] * covariance[1, 1], 0.0))
             if denominator > 0:
                 hessian_correlation = float(covariance[0, 1] / denominator)
@@ -746,17 +835,49 @@ def fit_patient(
                 hessian_status = "non_positive_covariance"
         else:
             hessian_status = "singular_or_indefinite"
+        if (
+            eq_correlation_rollback is not None
+            and hessian_correlation is not None
+            and abs(hessian_correlation) >= eq_correlation_rollback
+        ):
+            eq_correlation_rejected = True
     elif screening_rejected:
         hessian_status = "screening_rejected"
+    if not refinement_accepted:
+        parameters = initial_parameters.copy()
+        best_cost = initial_cost
+    elif eq_correlation_rejected:
+        parameters = parameters.copy()
+        parameters[0] = initial_parameters[0]
+        if optimize_force_scale:
+            parameters[2] = initial_parameters[2]
+        if lock_ratio:
+            refinement_accepted = False
+            best_cost = initial_cost
+    fitted = np.exp(parameters)
+    E_background, ratio = fitted[:2]
+    force_scale = float(fitted[2]) if optimize_force_scale else 1.0
     converged = bool(
         screening_rejected or float(steps.max()) < convergence_threshold
     )
     termination_reason = (
         "insufficient_initial_physics_evidence"
         if screening_rejected
+        else "eq_correlation_rejected"
+        if eq_correlation_rejected and not refinement_accepted
         else "step_tolerance"
         if converged
         else "evaluation_budget"
+    )
+    acceptance_fields = (
+        {
+            "acceptance_metric": effective_acceptance_metric,
+            "acceptance_initial_cost": float(acceptance_initial_cost),
+            "acceptance_optimized_cost": float(acceptance_optimized_cost),
+            "acceptance_relative_cost_reduction": float(acceptance_relative_cost_reduction),
+        }
+        if acceptance_metric is not None
+        else {}
     )
     return {
         "E_background": float(E_background),
@@ -768,6 +889,12 @@ def fit_patient(
             "informative_prior" if optimize_force_scale else "externally_calibrated"
         ),
         "E_force_local_posterior_correlation": hessian_correlation,
+        "E_force_joint_log_covariance": joint_covariance,
+        "E_force_joint_log_std": (
+            [math.sqrt(float(covariance[0, 0])), math.sqrt(float(covariance[1, 1]))]
+            if joint_covariance is not None
+            else None
+        ),
         "E_force_correlation_status": hessian_status,
         "region_source": region_source,
         "optimizer_success": converged,
@@ -784,10 +911,19 @@ def fit_patient(
         "relative_cost_reduction": relative_cost_reduction,
         "refinement_accepted": refinement_accepted,
         "screening_rejected": screening_rejected,
+        "lock_ratio": bool(lock_ratio),
+        "eq_correlation_rollback": eq_correlation_rollback,
+                "screening_metric": screening_metric,
+                "objective_metric": objective_metric,
+                "material_prior_center": list(material_prior_center) if material_prior_center is not None else None,
+        "candidate_probe_count": candidate_probe_count or 2,
+        "candidate_directions": list(directions),
+        "eq_correlation_rejected": eq_correlation_rejected,
         "final_max_log_step": float(steps.max()),
         "initial_E_background": float(initial_E_background),
         "initial_ratio": float(initial_ratio),
         "initial_force_scale": float(initial_force_scale),
+        **acceptance_fields,
     }
 
 
@@ -870,6 +1006,13 @@ def main() -> None:
     parser.add_argument("--experiments-limit", type=int)
     parser.add_argument("--pose-rotation-error-deg", type=float, default=0.0)
     parser.add_argument("--track-noise-px", type=float, default=0.25)
+    parser.add_argument(
+        "--tracking-error-model",
+        choices=("iid", "view_bias", "conf_scaled", "dropout", "mixed"),
+        default="iid",
+    )
+    parser.add_argument("--tracking-view-bias-px", type=float, default=0.04)
+    parser.add_argument("--tracking-dropout-rate", type=float, default=0.10)
     parser.add_argument("--all-track-frames", action="store_true")
     parser.add_argument(
         "--track-entity", choices=("nodes", "gaussians"), default="nodes"
@@ -899,6 +1042,22 @@ def main() -> None:
     )
     parser.add_argument(
         "--screening-minimum-cost-reduction", type=float, default=0.0
+    )
+    parser.add_argument(
+        "--lock-ratio",
+        action="store_true",
+        help="Freeze inclusion ratio at the initializer; only refine E and q",
+    )
+    parser.add_argument(
+        "--eq-correlation-rollback",
+        type=float,
+        help="Rollback E and q when |E-q posterior correlation| exceeds this",
+    )
+    parser.add_argument(
+        "--candidate-probe-count",
+        type=int,
+        default=2,
+        help="Even number of symmetric coordinate probes per free parameter",
     )
     args = parser.parse_args()
     if args.use_true_forces and args.estimate_force_scale:
@@ -938,8 +1097,19 @@ def main() -> None:
         initial_predictions = {
             row["patient_id"]: row for row in prediction_records
         }
+    args.results.mkdir(parents=True, exist_ok=True)
+    checkpoint_path = args.results / "records.jsonl"
+    done: dict[str, dict] = {}
+    if checkpoint_path.exists():
+        for line in checkpoint_path.read_text(encoding="utf-8").splitlines():
+            if line.strip():
+                row = json.loads(line)
+                done[str(row["patient_id"])] = row
     records = []
     for patient in test_patients:
+        if patient["patient_id"] in done:
+            records.append(done[patient["patient_id"]])
+            continue
         scene, experiments = load_patient(dataset_root, patient)
         check_patient_consistency(scene, experiments)
         prior = initial_predictions.get(patient["patient_id"])
@@ -954,7 +1124,9 @@ def main() -> None:
             initial_ratio = float(prior["inclusion_ratio_estimated"])
             search_width = (
                 max(0.15, args.adaptive_search_sigma * float(prior["log_E_std"])),
-                max(0.15, args.adaptive_search_sigma * float(prior["log_ratio_std"])),
+                0.0
+                if args.lock_ratio
+                else max(0.15, args.adaptive_search_sigma * float(prior["log_ratio_std"])),
             )
             material_prior_sigma = (
                 max(0.03, float(prior["log_E_std"])),
@@ -1008,6 +1180,9 @@ def main() -> None:
             experiments_limit=args.experiments_limit,
             pose_rotation_error_deg=args.pose_rotation_error_deg,
             track_noise_px=args.track_noise_px,
+            tracking_error_model=args.tracking_error_model,
+            tracking_view_bias_px=args.tracking_view_bias_px,
+            tracking_dropout_rate=args.tracking_dropout_rate,
             use_all_track_frames=args.all_track_frames,
             track_entity=args.track_entity,
             temporal_track_regression=args.temporal_track_regression,
@@ -1029,6 +1204,9 @@ def main() -> None:
             material_prior_weight=args.material_prior_weight,
             minimum_refinement_cost_reduction=args.minimum_refinement_cost_reduction,
             screening_minimum_cost_reduction=args.screening_minimum_cost_reduction,
+            lock_ratio=args.lock_ratio,
+            eq_correlation_rollback=args.eq_correlation_rollback,
+            candidate_probe_count=args.candidate_probe_count,
             sdf_soft_width=args.sdf_soft_width,
             convergence_threshold=args.convergence_threshold,
             **nodal_region,
@@ -1075,6 +1253,8 @@ def main() -> None:
         }
         records.append(record)
         print(json.dumps(record), flush=True)
+        with checkpoint_path.open("a", encoding="utf-8") as handle:
+            handle.write(json.dumps(record) + "\n")
     result = {
         "dataset": manifest.get("version", args.dataset.name),
         "split": args.split,
@@ -1143,7 +1323,6 @@ def main() -> None:
         ),
         "records": records,
     }
-    args.results.mkdir(parents=True, exist_ok=True)
     suffix = args.observation
     if args.force_scale_error:
         suffix += f"_force_{args.force_scale_error:+.2f}".replace("+", "p").replace("-", "m")

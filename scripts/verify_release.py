@@ -12,6 +12,9 @@ FORBIDDEN_SUFFIXES = {
 }
 FORBIDDEN_TEXT = (
     "E:\\Diff_Rending_Re_3D",
+    "\x46:\\",               # private raw-data drive root
+    "\u7701\u533b",          # institution token
+    "ION\u60a3\u8005\u6574\u7406",  # private source folder name
 )
 
 

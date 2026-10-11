@@ -1,6 +1,6 @@
 {
   "audit": "Central finite-difference local sensitivity of image-plane flows around synthetic material truth using simulator-truth forces and a smooth SDF occupancy relaxation; not a joint refit/global proof.",
-  "cohort": "exact paired 18 locked test scenes, six geometry clusters \u00d7 three scenarios, four load modes and all available views; prescribed peak-envelope frame 2",
+  "cohort": "exact paired 18 locked test scenes, six geometry clusters × three scenarios, four load modes and all available views; prescribed peak-envelope frame 2",
   "parameters": [
     "log_E_background",
     "log_inclusion_ratio",

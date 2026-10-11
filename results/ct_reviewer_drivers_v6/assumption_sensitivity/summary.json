@@ -11,72 +11,93 @@
     "aspect_1p5": {
       "n": 18,
       "accepted": 15,
-      "median_background_error_percent": 25.09,
-      "median_ratio_error_percent": 54.69,
-      "median_force_error_percent": 4.36
+      "median_background_error_percent": 24.63,
+      "median_ratio_error_percent": 54.39,
+      "median_force_error_percent": 4.36,
+      "records_sha256": "7f8acd52939789c9e150358799b976d30e1d0eb74e59876ddeb10c0cbfe9ef61",
+      "source_records": "results\\ct_reviewer_drivers_v6\\assumption_sensitivity\\aspect_1p5\\records.jsonl"
     },
     "aspect_2p0": {
       "n": 18,
       "accepted": 15,
-      "median_background_error_percent": 25.09,
-      "median_ratio_error_percent": 54.69,
-      "median_force_error_percent": 4.36
+      "median_background_error_percent": 24.63,
+      "median_ratio_error_percent": 54.39,
+      "median_force_error_percent": 4.36,
+      "records_sha256": "afbc8374d8356060472cdeab43a72c6c06fbfed3ff3c9f99901d1943779d62b2",
+      "source_records": "results\\ct_reviewer_drivers_v6\\assumption_sensitivity\\aspect_2p0\\records.jsonl"
     },
     "contact_shift_0p15": {
       "n": 18,
       "accepted": 16,
-      "median_background_error_percent": 26.46,
-      "median_ratio_error_percent": 54.69,
-      "median_force_error_percent": 3.54
+      "median_background_error_percent": 25.93,
+      "median_ratio_error_percent": 54.39,
+      "median_force_error_percent": 3.49,
+      "records_sha256": "d3bf282daa8a9ba98abf6018672896983ebae514b53d92ac5c00f14b790f5dad",
+      "source_records": "results\\ct_reviewer_drivers_v6\\assumption_sensitivity\\contact_shift_0p15\\records.jsonl"
     },
     "corr_dropout_0p20": {
       "n": 18,
       "accepted": 15,
-      "median_background_error_percent": 24.17,
-      "median_ratio_error_percent": 54.69,
-      "median_force_error_percent": 4.36
+      "median_background_error_percent": 23.11,
+      "median_ratio_error_percent": 54.39,
+      "median_force_error_percent": 4.36,
+      "records_sha256": "8b0bdefef9b6865b5b88aaff686fdcaf51a09723a86f11c5c61614ec42d18e52",
+      "source_records": "results\\ct_reviewer_drivers_v6\\assumption_sensitivity\\corr_dropout_0p20\\records.jsonl"
     },
     "fix_q0p70": {
       "n": 18,
       "accepted": 6,
-      "median_background_error_percent": 13.51,
-      "median_ratio_error_percent": 54.69,
-      "median_force_error_percent": 4.36
+      "median_background_error_percent": 12.1,
+      "median_ratio_error_percent": 54.39,
+      "median_force_error_percent": 4.36,
+      "records_sha256": "2dc4793bb916e2f21c949025abfcae8ce7af022d7e09cbdeecd2c7feff211885",
+      "source_records": "results\\ct_reviewer_drivers_v6\\assumption_sensitivity\\fix_q0p70\\records.jsonl"
     },
     "fix_q0p90": {
       "n": 18,
       "accepted": 18,
-      "median_background_error_percent": 34.03,
-      "median_ratio_error_percent": 54.69,
-      "median_force_error_percent": 3.44
+      "median_background_error_percent": 32.5,
+      "median_ratio_error_percent": 54.39,
+      "median_force_error_percent": 3.25,
+      "records_sha256": "3314d4146b5d601af21647e3ae11f6b5cbc7500248599401bbbab81cdd3cf11b",
+      "source_records": "results\\ct_reviewer_drivers_v6\\assumption_sensitivity\\fix_q0p90\\records.jsonl"
     },
     "joint_force_p10_yaw_p5": {
       "n": 18,
       "accepted": 17,
-      "median_background_error_percent": 30.98,
-      "median_ratio_error_percent": 54.69,
-      "median_force_error_percent": 3.44
+      "median_background_error_percent": 28.72,
+      "median_ratio_error_percent": 54.39,
+      "median_force_error_percent": 3.25,
+      "records_sha256": "9d71910f122ddd0f9365dbebd1248549152973f19bde3112aaec06c31efc30a0",
+      "source_records": "results\\ct_reviewer_drivers_v6\\assumption_sensitivity\\joint_force_p10_yaw_p5\\records.jsonl"
     },
     "mesh_jitter_0p02": {
       "n": 18,
       "accepted": 15,
-      "median_background_error_percent": 23.35,
-      "median_ratio_error_percent": 54.69,
-      "median_force_error_percent": 4.36
+      "median_background_error_percent": 22.53,
+      "median_ratio_error_percent": 54.39,
+      "median_force_error_percent": 4.36,
+      "records_sha256": "48060063c9f88af7cc4aef82895f04d46aa69b1afd3c52309deb63c142db7a21",
+      "source_records": "results\\ct_reviewer_drivers_v6\\assumption_sensitivity\\mesh_jitter_0p02\\records.jsonl"
     },
     "nu_0p40": {
       "n": 18,
       "accepted": 17,
-      "median_background_error_percent": 30.98,
-      "median_ratio_error_percent": 54.69,
-      "median_force_error_percent": 3.54
+      "median_background_error_percent": 28.72,
+      "median_ratio_error_percent": 54.39,
+      "median_force_error_percent": 3.3,
+      "records_sha256": "b0b954b3d33e68e60ac3307eb46e165307c943c270d17d713d5958b619e58bf0",
+      "source_records": "results\\ct_reviewer_drivers_v6\\assumption_sensitivity\\nu_0p40\\records.jsonl"
     },
     "nu_0p49": {
       "n": 18,
       "accepted": 4,
-      "median_background_error_percent": 13.51,
-      "median_ratio_error_percent": 54.69,
-      "median_force_error_percent": 4.36
+      "median_background_error_percent": 13.18,
+      "median_ratio_error_percent": 54.39,
+      "median_force_error_percent": 4.36,
+      "records_sha256": "b486d80551d34a6dbc541c7c8511335eb53d10ed05f5d5015578d8b2f9287f0a",
+      "source_records": "results\\ct_reviewer_drivers_v6\\assumption_sensitivity\\nu_0p49\\records.jsonl"
     }
-  }
+  },
+  "median_convention": "Arithmetic mean of the two middle values for even sample sizes."
 }

@@ -1,0 +1,19 @@
+{
+  "protocol": "EKF over log(E_bg), log(q) with the same learned initializer, same prior scales, ratio and predicted region locked as in the official-prior screened FEM. One measurement update per nonzero frame per load (five frames x four loads), multiview UV residuals, central-difference Jacobians, Huber-style innovation clipping. No screening or rollback.",
+  "n": 18,
+  "observation_noise_px": 0.0,
+  "median_background_error_percent": 1.94,
+  "median_ratio_error_percent": 54.39,
+  "median_force_error_percent": 5.52,
+  "median_fem_solves": 100.0,
+  "paired_vs_batch_w2_s0p05_p2": {
+    "n_paired": 18,
+    "better": 18,
+    "worse": 0,
+    "tied": 0,
+    "median_delta_pp": -20.95,
+    "batch_median_background_error_percent": 24.63,
+    "batch_median_evaluations": 33.0
+  },
+  "records_sha256": "4cd54102d9a337f54fee2a0be69587a81a17ad7919ed3262823e6d5d9e2915bd"
+}
