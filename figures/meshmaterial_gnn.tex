@@ -1,5 +1,5 @@
 
-\documentclass[border=8pt, multi, tikz]{standalone}
+\documentclass[12pt, border=8pt, multi, tikz]{standalone}
 \usepackage{amsmath} 
 \usepackage{import}
 \subimport{E:/PlotNeuralNet-master/layers/}{init}
@@ -303,25 +303,25 @@
 
 \draw [connection]  (delta-east)    -- node {\midarrow} (dec-west);
 
-\node[anchor=south west, align=left, font=\scriptsize\bfseries, yshift=2pt]
+\node[anchor=south west, align=left, font=\small\bfseries, yshift=3pt]
 at (current bounding box.north west) {
 MeshMaterialGNN with screened FEM
 };
-% Compact legend (block meanings only; no caption-style prose).
-\node[anchor=north west, align=left, font=\tiny, inner sep=3pt,
-  draw=black!55, fill=white, rounded corners=1pt, text width=0.98\linewidth]
-at ([yshift=-3pt]current bounding box.south west) {
-\textbf{Legend}\\[0.2em]
-\fcolorbox{black}{\ConvColor}{\rule{0pt}{2.6pt}\rule{2.6pt}{0pt}} Feature/MLP (incl.\ Enc, MP plates) \quad
-\fcolorbox{black}{\PoolColor}{\rule{0pt}{2.6pt}\rule{2.6pt}{0pt}} Pool/Attn/Screen \quad
-\fcolorbox{black}{\SoftmaxColor}{\rule{0pt}{2.6pt}\rule{2.6pt}{0pt}} Heads/FEM/Decision \quad
-\textcolor{rgb:blue,5;green,15}{$+$} residual fuse\\[0.25em]
+% Legend (block meanings only; no caption-style prose).
+\node[anchor=north west, align=left, font=\small, inner sep=4pt,
+  draw=black!55, fill=white, rounded corners=1pt, text width=23.1cm]
+at ([yshift=-4pt]current bounding box.south west) {
+\textbf{Legend}\quad
+\fcolorbox{black}{\ConvColor}{\rule{0pt}{5pt}\rule{5pt}{0pt}} Feature/MLP (incl.\ Enc, MP plates) \quad
+\fcolorbox{black}{\PoolColor}{\rule{0pt}{5pt}\rule{5pt}{0pt}} Pool/Attn/Screen \quad
+\fcolorbox{black}{\SoftmaxColor}{\rule{0pt}{5pt}\rule{5pt}{0pt}} Heads/FEM/Decision \quad
+\textcolor{rgb:blue,5;green,15}{$\boldsymbol{+}$} residual fuse\\[0.3em]
 \textbf{Flow:} Static$\|$Dyn $\oplus$ MP$\times$4;\;
 Pool$\to$Global;\; MP$\to$Node (parallel);\;
-$\theta_0{+}R\to\mathcal{F}\to\mathcal{J}\to\Delta\to$Retain.\\[0.15em]
+$\theta_0{+}R\to\mathcal{F}$ (FEM) $\to\mathcal{J}$ (MAP objective) $\to\Delta\to$Retain.\\[0.2em]
 \textbf{Blocks:} Enc $=$ Lin+SiLU+LN;\;
 Attn $=$ view/load;\;
-Pool $=$ mean$\|$max.\\[0.15em]
+Pool $=$ mean$\|$max.\quad
 \textbf{Outputs:} Global $\log E_b,\log\rho,\mathbf{c},r$;\;
 Node $\log E_i,s_i$, partition.
 };

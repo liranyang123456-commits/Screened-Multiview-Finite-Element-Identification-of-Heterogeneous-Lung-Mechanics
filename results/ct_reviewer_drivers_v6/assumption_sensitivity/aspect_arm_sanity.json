@@ -1,0 +1,1498 @@
+{
+  "description": "Ellipsoid-aspect assumption-sensitivity arm sanity (no FEM runs).\n\n1. Compare aspect_1p5 / aspect_2p0 records against the paired 18-scene baseline\n   w2_s0p05_p2: count scenes whose E_background_estimated (and other fields)\n   are bitwise identical.\n2. Recompute, for every scene, the hard inclusion-node set produced by\n   ``_ellipsoid_occupancy`` (aspect 1.5 / 2.0) versus the sphere occupancy\n   used by the baseline (``norm(nodes - center) < radius``) with the SAME\n   predicted centre/radius, on the 256-node patch; report whether the node set\n   changes.  Also reports the side effect that passing ``soft_occupancy`` makes\n   ``fit_patient`` fall back to the TRUE inclusion centre/radius for the\n   region-attention weights (center/radius are None in that call).\n\nWrites results/ct_reviewer_drivers_v6/assumption_sensitivity/aspect_arm_sanity.json",
+  "baseline_records": "results\\ct_reviewer_drivers_v6\\ct_reviewer_drivers_v6\\fem_paired\\w2_s0p05_p2\\records.jsonl",
+  "baseline_sha256": "d2e818b23eead350176e25fc420f36f26324f2b2364acf2a5f40ea37020138e1",
+  "baseline_n": 18,
+  "arms": {
+    "aspect_1p5": {
+      "records_path": "results\\ct_reviewer_drivers_v6\\assumption_sensitivity\\aspect_1p5\\records.jsonl",
+      "records_sha256": "7f8acd52939789c9e150358799b976d30e1d0eb74e59876ddeb10c0cbfe9ef61",
+      "region_aspect_xy": 1.5,
+      "n": 18,
+      "n_paired_with_baseline": 18,
+      "E_background_estimated_bitwise_identical": 17,
+      "bitwise_identical_by_field": {
+        "E_background_estimated": 17,
+        "inclusion_ratio_estimated": 18,
+        "force_scale_estimated": 16,
+        "function_evaluations": 15,
+        "refinement_accepted": 18,
+        "screening_rejected": 18,
+        "cost": 0,
+        "initial_cost": 0,
+        "relative_cost_reduction": 0
+      },
+      "all_compared_fields_identical": 0,
+      "differing_scenes": [
+        {
+          "patient_id": "geom_58db559b24da6eb7cc0d_scenario_000",
+          "E_arm": 8832.600881164626,
+          "E_baseline": 8832.600881164626,
+          "nfev_arm": 33,
+          "nfev_baseline": 33
+        },
+        {
+          "patient_id": "geom_58db559b24da6eb7cc0d_scenario_001",
+          "E_arm": 2975.7657605112827,
+          "E_baseline": 2975.7657605112827,
+          "nfev_arm": 5,
+          "nfev_baseline": 5
+        },
+        {
+          "patient_id": "geom_58db559b24da6eb7cc0d_scenario_002",
+          "E_arm": 4769.876324309683,
+          "E_baseline": 4769.876324309683,
+          "nfev_arm": 33,
+          "nfev_baseline": 33
+        },
+        {
+          "patient_id": "geom_62010c56d95ec023bc9b_scenario_000",
+          "E_arm": 9632.765615737904,
+          "E_baseline": 9632.765615737904,
+          "nfev_arm": 37,
+          "nfev_baseline": 37
+        },
+        {
+          "patient_id": "geom_62010c56d95ec023bc9b_scenario_001",
+          "E_arm": 4469.883261870339,
+          "E_baseline": 4469.883261870339,
+          "nfev_arm": 29,
+          "nfev_baseline": 29
+        },
+        {
+          "patient_id": "geom_62010c56d95ec023bc9b_scenario_002",
+          "E_arm": 6072.925594041603,
+          "E_baseline": 6072.925594041603,
+          "nfev_arm": 33,
+          "nfev_baseline": 33
+        },
+        {
+          "patient_id": "geom_a417d13e9ae27d685557_scenario_000",
+          "E_arm": 8431.673229513593,
+          "E_baseline": 8431.673229513593,
+          "nfev_arm": 33,
+          "nfev_baseline": 33
+        },
+        {
+          "patient_id": "geom_a417d13e9ae27d685557_scenario_001",
+          "E_arm": 3103.1477973426654,
+          "E_baseline": 3103.1477973426654,
+          "nfev_arm": 33,
+          "nfev_baseline": 33
+        },
+        {
+          "patient_id": "geom_a417d13e9ae27d685557_scenario_002",
+          "E_arm": 4009.1089867207006,
+          "E_baseline": 4009.1089867207006,
+          "nfev_arm": 37,
+          "nfev_baseline": 37
+        },
+        {
+          "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_000",
+          "E_arm": 9223.259868807567,
+          "E_baseline": 9223.259868807567,
+          "nfev_arm": 29,
+          "nfev_baseline": 29
+        },
+        {
+          "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_001",
+          "E_arm": 3268.96204811016,
+          "E_baseline": 3302.017081348547,
+          "nfev_arm": 33,
+          "nfev_baseline": 29
+        },
+        {
+          "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_002",
+          "E_arm": 4734.621774707694,
+          "E_baseline": 4734.621774707694,
+          "nfev_arm": 29,
+          "nfev_baseline": 29
+        },
+        {
+          "patient_id": "geom_db38a9c3817f033727b5_scenario_000",
+          "E_arm": 10448.178798646592,
+          "E_baseline": 10448.178798646592,
+          "nfev_arm": 37,
+          "nfev_baseline": 37
+        },
+        {
+          "patient_id": "geom_db38a9c3817f033727b5_scenario_001",
+          "E_arm": 4732.257272011866,
+          "E_baseline": 4732.257272011866,
+          "nfev_arm": 29,
+          "nfev_baseline": 33
+        },
+        {
+          "patient_id": "geom_db38a9c3817f033727b5_scenario_002",
+          "E_arm": 7569.286806412329,
+          "E_baseline": 7569.286806412329,
+          "nfev_arm": 29,
+          "nfev_baseline": 33
+        },
+        {
+          "patient_id": "geom_fac5cdc88e186e46ee04_scenario_000",
+          "E_arm": 8951.866723890385,
+          "E_baseline": 8951.866723890385,
+          "nfev_arm": 37,
+          "nfev_baseline": 37
+        },
+        {
+          "patient_id": "geom_fac5cdc88e186e46ee04_scenario_001",
+          "E_arm": 2890.4327502503393,
+          "E_baseline": 2890.4327502503393,
+          "nfev_arm": 5,
+          "nfev_baseline": 5
+        },
+        {
+          "patient_id": "geom_fac5cdc88e186e46ee04_scenario_002",
+          "E_arm": 3955.697621210398,
+          "E_baseline": 3955.697621210398,
+          "nfev_arm": 5,
+          "nfev_baseline": 5
+        }
+      ],
+      "median_E_error_percent_arm": 25.0933,
+      "median_E_error_percent_baseline": 25.0933,
+      "wall_time_median_arm_s": 174.59130249998998,
+      "wall_time_median_baseline_s": 187.6883674999699
+    },
+    "aspect_2p0": {
+      "records_path": "results\\ct_reviewer_drivers_v6\\assumption_sensitivity\\aspect_2p0\\records.jsonl",
+      "records_sha256": "afbc8374d8356060472cdeab43a72c6c06fbfed3ff3c9f99901d1943779d62b2",
+      "region_aspect_xy": 2.0,
+      "n": 18,
+      "n_paired_with_baseline": 18,
+      "E_background_estimated_bitwise_identical": 17,
+      "bitwise_identical_by_field": {
+        "E_background_estimated": 17,
+        "inclusion_ratio_estimated": 18,
+        "force_scale_estimated": 16,
+        "function_evaluations": 15,
+        "refinement_accepted": 18,
+        "screening_rejected": 18,
+        "cost": 0,
+        "initial_cost": 0,
+        "relative_cost_reduction": 0
+      },
+      "all_compared_fields_identical": 0,
+      "differing_scenes": [
+        {
+          "patient_id": "geom_58db559b24da6eb7cc0d_scenario_000",
+          "E_arm": 8832.600881164626,
+          "E_baseline": 8832.600881164626,
+          "nfev_arm": 33,
+          "nfev_baseline": 33
+        },
+        {
+          "patient_id": "geom_58db559b24da6eb7cc0d_scenario_001",
+          "E_arm": 2975.7657605112827,
+          "E_baseline": 2975.7657605112827,
+          "nfev_arm": 5,
+          "nfev_baseline": 5
+        },
+        {
+          "patient_id": "geom_58db559b24da6eb7cc0d_scenario_002",
+          "E_arm": 4769.876324309683,
+          "E_baseline": 4769.876324309683,
+          "nfev_arm": 33,
+          "nfev_baseline": 33
+        },
+        {
+          "patient_id": "geom_62010c56d95ec023bc9b_scenario_000",
+          "E_arm": 9632.765615737904,
+          "E_baseline": 9632.765615737904,
+          "nfev_arm": 37,
+          "nfev_baseline": 37
+        },
+        {
+          "patient_id": "geom_62010c56d95ec023bc9b_scenario_001",
+          "E_arm": 4469.883261870339,
+          "E_baseline": 4469.883261870339,
+          "nfev_arm": 29,
+          "nfev_baseline": 29
+        },
+        {
+          "patient_id": "geom_62010c56d95ec023bc9b_scenario_002",
+          "E_arm": 6072.925594041603,
+          "E_baseline": 6072.925594041603,
+          "nfev_arm": 33,
+          "nfev_baseline": 33
+        },
+        {
+          "patient_id": "geom_a417d13e9ae27d685557_scenario_000",
+          "E_arm": 8431.673229513593,
+          "E_baseline": 8431.673229513593,
+          "nfev_arm": 33,
+          "nfev_baseline": 33
+        },
+        {
+          "patient_id": "geom_a417d13e9ae27d685557_scenario_001",
+          "E_arm": 3103.1477973426654,
+          "E_baseline": 3103.1477973426654,
+          "nfev_arm": 33,
+          "nfev_baseline": 33
+        },
+        {
+          "patient_id": "geom_a417d13e9ae27d685557_scenario_002",
+          "E_arm": 4009.1089867207006,
+          "E_baseline": 4009.1089867207006,
+          "nfev_arm": 37,
+          "nfev_baseline": 37
+        },
+        {
+          "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_000",
+          "E_arm": 9223.259868807567,
+          "E_baseline": 9223.259868807567,
+          "nfev_arm": 29,
+          "nfev_baseline": 29
+        },
+        {
+          "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_001",
+          "E_arm": 3268.96204811016,
+          "E_baseline": 3302.017081348547,
+          "nfev_arm": 33,
+          "nfev_baseline": 29
+        },
+        {
+          "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_002",
+          "E_arm": 4734.621774707694,
+          "E_baseline": 4734.621774707694,
+          "nfev_arm": 29,
+          "nfev_baseline": 29
+        },
+        {
+          "patient_id": "geom_db38a9c3817f033727b5_scenario_000",
+          "E_arm": 10448.178798646592,
+          "E_baseline": 10448.178798646592,
+          "nfev_arm": 37,
+          "nfev_baseline": 37
+        },
+        {
+          "patient_id": "geom_db38a9c3817f033727b5_scenario_001",
+          "E_arm": 4732.257272011866,
+          "E_baseline": 4732.257272011866,
+          "nfev_arm": 29,
+          "nfev_baseline": 33
+        },
+        {
+          "patient_id": "geom_db38a9c3817f033727b5_scenario_002",
+          "E_arm": 7569.286806412329,
+          "E_baseline": 7569.286806412329,
+          "nfev_arm": 29,
+          "nfev_baseline": 33
+        },
+        {
+          "patient_id": "geom_fac5cdc88e186e46ee04_scenario_000",
+          "E_arm": 8951.866723890385,
+          "E_baseline": 8951.866723890385,
+          "nfev_arm": 37,
+          "nfev_baseline": 37
+        },
+        {
+          "patient_id": "geom_fac5cdc88e186e46ee04_scenario_001",
+          "E_arm": 2890.4327502503393,
+          "E_baseline": 2890.4327502503393,
+          "nfev_arm": 5,
+          "nfev_baseline": 5
+        },
+        {
+          "patient_id": "geom_fac5cdc88e186e46ee04_scenario_002",
+          "E_arm": 3955.697621210398,
+          "E_baseline": 3955.697621210398,
+          "nfev_arm": 5,
+          "nfev_baseline": 5
+        }
+      ],
+      "median_E_error_percent_arm": 25.0933,
+      "median_E_error_percent_baseline": 25.0933,
+      "wall_time_median_arm_s": 167.83299490000354,
+      "wall_time_median_baseline_s": 187.6883674999699
+    }
+  },
+  "occupancy_recompute": {
+    "n_scenes": 18,
+    "scenes_with_zero_sphere_inclusion_nodes": 3,
+    "sphere_inclusion_node_counts": [
+      1,
+      0,
+      0,
+      1,
+      2,
+      0,
+      2,
+      5,
+      6,
+      1,
+      2,
+      2,
+      3,
+      4,
+      1,
+      6,
+      10,
+      7
+    ],
+    "nearest_node_distance_over_radius": [
+      0.9149,
+      1.2742,
+      1.3436,
+      0.9913,
+      0.8772,
+      1.0439,
+      0.7151,
+      0.5852,
+      0.7712,
+      0.8696,
+      0.8491,
+      0.9414,
+      0.6701,
+      0.9576,
+      0.9745,
+      0.5177,
+      0.4513,
+      0.3464
+    ],
+    "attention_weights_differ_from_baseline_in_n_scenes": 18,
+    "summary_by_aspect": {
+      "aspect_1p5": {
+        "scenes_node_set_identical_to_sphere": 6,
+        "scenes_node_set_changed": 12,
+        "ellipsoid_inclusion_node_counts": [
+          1,
+          0,
+          0,
+          1,
+          4,
+          1,
+          4,
+          9,
+          6,
+          1,
+          4,
+          3,
+          4,
+          5,
+          4,
+          9,
+          14,
+          11
+        ],
+        "node_set_changed_but_E_estimate_identical": 11,
+        "node_set_changed_and_E_estimate_differs": 1,
+        "node_set_identical_but_cost_differs": 6,
+        "cost_identical_to_baseline_n": 0,
+        "accepted_scenes_with_E_identical": 14,
+        "accepted_scenes_n": 15
+      },
+      "aspect_2p0": {
+        "scenes_node_set_identical_to_sphere": 2,
+        "scenes_node_set_changed": 16,
+        "ellipsoid_inclusion_node_counts": [
+          1,
+          1,
+          0,
+          2,
+          4,
+          1,
+          6,
+          11,
+          8,
+          2,
+          4,
+          4,
+          4,
+          6,
+          4,
+          10,
+          18,
+          15
+        ],
+        "node_set_changed_but_E_estimate_identical": 15,
+        "node_set_changed_and_E_estimate_differs": 1,
+        "node_set_identical_but_cost_differs": 2,
+        "cost_identical_to_baseline_n": 0,
+        "accepted_scenes_with_E_identical": 14,
+        "accepted_scenes_n": 15
+      }
+    },
+    "per_scene": [
+      {
+        "patient_id": "geom_58db559b24da6eb7cc0d_scenario_000",
+        "n_nodes": 256,
+        "predicted_center": [
+          0.5440726280212402,
+          0.17276773078829757,
+          0.5314274471419442
+        ],
+        "predicted_radius": 0.052426711218219665,
+        "mesh_extent": [
+          1.0,
+          0.3582586363885674,
+          0.9849114052098733
+        ],
+        "sphere_source": "sphere",
+        "sphere_inclusion_nodes": 1,
+        "nearest_node_distance_over_radius": 0.9149,
+        "n_nodes_within_2r": 2,
+        "true_center": [
+          0.5633197993958843,
+          0.17956406073248266,
+          0.5434220150449248
+        ],
+        "true_radius": 0.05341684851115558,
+        "aspects": {
+          "aspect_1p5": {
+            "ellipsoid_inclusion_nodes": 1,
+            "added_vs_sphere": [],
+            "removed_vs_sphere": [],
+            "node_set_identical": true,
+            "E_field_bitwise_identical": true,
+            "E_estimate_bitwise_identical_to_baseline": true,
+            "cost_identical_to_baseline": false,
+            "cost_arm_over_baseline": 1.0000295569746922,
+            "refinement_accepted_baseline": true
+          },
+          "aspect_2p0": {
+            "ellipsoid_inclusion_nodes": 1,
+            "added_vs_sphere": [],
+            "removed_vs_sphere": [],
+            "node_set_identical": true,
+            "E_field_bitwise_identical": true,
+            "E_estimate_bitwise_identical_to_baseline": true,
+            "cost_identical_to_baseline": false,
+            "cost_arm_over_baseline": 1.0000295569746922,
+            "refinement_accepted_baseline": true
+          }
+        },
+        "attention_weights_predicted_vs_true_region": {
+          "max_abs_difference": 0.0038556414289965257,
+          "identical": false,
+          "predicted_minus_true_center_norm_over_true_radius": 0.44321528019870104
+        }
+      },
+      {
+        "patient_id": "geom_58db559b24da6eb7cc0d_scenario_001",
+        "n_nodes": 256,
+        "predicted_center": [
+          0.4955858588218689,
+          0.15795116050294053,
+          0.5027027117499213
+        ],
+        "predicted_radius": 0.06605475610138728,
+        "mesh_extent": [
+          1.0,
+          0.3582586363885674,
+          0.9849114052098733
+        ],
+        "sphere_source": "sphere",
+        "sphere_inclusion_nodes": 0,
+        "nearest_node_distance_over_radius": 1.2742,
+        "n_nodes_within_2r": 8,
+        "true_center": [
+          0.6071944036775581,
+          0.15922440079525982,
+          0.45522484125221824
+        ],
+        "true_radius": 0.05784645777489364,
+        "aspects": {
+          "aspect_1p5": {
+            "ellipsoid_inclusion_nodes": 0,
+            "added_vs_sphere": [],
+            "removed_vs_sphere": [],
+            "node_set_identical": true,
+            "E_field_bitwise_identical": true,
+            "E_estimate_bitwise_identical_to_baseline": true,
+            "cost_identical_to_baseline": false,
+            "cost_arm_over_baseline": 0.9990547829395321,
+            "refinement_accepted_baseline": false
+          },
+          "aspect_2p0": {
+            "ellipsoid_inclusion_nodes": 1,
+            "added_vs_sphere": [
+              164
+            ],
+            "removed_vs_sphere": [],
+            "node_set_identical": false,
+            "E_field_bitwise_identical": false,
+            "E_estimate_bitwise_identical_to_baseline": true,
+            "cost_identical_to_baseline": false,
+            "cost_arm_over_baseline": 1.0019610693960357,
+            "refinement_accepted_baseline": false
+          }
+        },
+        "attention_weights_predicted_vs_true_region": {
+          "max_abs_difference": 0.21194772990320643,
+          "identical": false,
+          "predicted_minus_true_center_norm_over_true_radius": 2.096826904157213
+        }
+      },
+      {
+        "patient_id": "geom_58db559b24da6eb7cc0d_scenario_002",
+        "n_nodes": 256,
+        "predicted_center": [
+          0.5110372304916382,
+          0.16178398955539,
+          0.5024151145124462
+        ],
+        "predicted_radius": 0.06126737819369915,
+        "mesh_extent": [
+          1.0,
+          0.3582586363885674,
+          0.9849114052098733
+        ],
+        "sphere_source": "sphere",
+        "sphere_inclusion_nodes": 0,
+        "nearest_node_distance_over_radius": 1.3436,
+        "n_nodes_within_2r": 7,
+        "true_center": [
+          0.6007080760090803,
+          0.21236281027824125,
+          0.47235266918873536
+        ],
+        "true_radius": 0.054285385406308305,
+        "aspects": {
+          "aspect_1p5": {
+            "ellipsoid_inclusion_nodes": 0,
+            "added_vs_sphere": [],
+            "removed_vs_sphere": [],
+            "node_set_identical": true,
+            "E_field_bitwise_identical": true,
+            "E_estimate_bitwise_identical_to_baseline": true,
+            "cost_identical_to_baseline": false,
+            "cost_arm_over_baseline": 1.0013062313951389,
+            "refinement_accepted_baseline": true
+          },
+          "aspect_2p0": {
+            "ellipsoid_inclusion_nodes": 0,
+            "added_vs_sphere": [],
+            "removed_vs_sphere": [],
+            "node_set_identical": true,
+            "E_field_bitwise_identical": true,
+            "E_estimate_bitwise_identical_to_baseline": true,
+            "cost_identical_to_baseline": false,
+            "cost_arm_over_baseline": 1.0013062313951389,
+            "refinement_accepted_baseline": true
+          }
+        },
+        "attention_weights_predicted_vs_true_region": {
+          "max_abs_difference": 0.1383431890428466,
+          "identical": false,
+          "predicted_minus_true_center_norm_over_true_radius": 1.9756926871971106
+        }
+      },
+      {
+        "patient_id": "geom_62010c56d95ec023bc9b_scenario_000",
+        "n_nodes": 256,
+        "predicted_center": [
+          0.26034105694231663,
+          0.4940657317638397,
+          0.519340532495085
+        ],
+        "predicted_radius": 0.06997042078975697,
+        "mesh_extent": [
+          0.49008152200565996,
+          1.0,
+          0.9548878729071762
+        ],
+        "sphere_source": "sphere",
+        "sphere_inclusion_nodes": 1,
+        "nearest_node_distance_over_radius": 0.9913,
+        "n_nodes_within_2r": 10,
+        "true_center": [
+          0.276072624663858,
+          0.5012134879498827,
+          0.5268566180595773
+        ],
+        "true_radius": 0.07307181951839835,
+        "aspects": {
+          "aspect_1p5": {
+            "ellipsoid_inclusion_nodes": 1,
+            "added_vs_sphere": [],
+            "removed_vs_sphere": [],
+            "node_set_identical": true,
+            "E_field_bitwise_identical": true,
+            "E_estimate_bitwise_identical_to_baseline": true,
+            "cost_identical_to_baseline": false,
+            "cost_arm_over_baseline": 0.9996062912468678,
+            "refinement_accepted_baseline": true
+          },
+          "aspect_2p0": {
+            "ellipsoid_inclusion_nodes": 2,
+            "added_vs_sphere": [
+              156
+            ],
+            "removed_vs_sphere": [],
+            "node_set_identical": false,
+            "E_field_bitwise_identical": false,
+            "E_estimate_bitwise_identical_to_baseline": true,
+            "cost_identical_to_baseline": false,
+            "cost_arm_over_baseline": 0.9235247162147908,
+            "refinement_accepted_baseline": true
+          }
+        },
+        "attention_weights_predicted_vs_true_region": {
+          "max_abs_difference": 0.07193036448777823,
+          "identical": false,
+          "predicted_minus_true_center_norm_over_true_radius": 0.2578715979263482
+        }
+      },
+      {
+        "patient_id": "geom_62010c56d95ec023bc9b_scenario_001",
+        "n_nodes": 256,
+        "predicted_center": [
+          0.24772354085513215,
+          0.4695046544075012,
+          0.4701088050231614
+        ],
+        "predicted_radius": 0.08457060984540651,
+        "mesh_extent": [
+          0.49008152200565996,
+          1.0,
+          0.9548878729071762
+        ],
+        "sphere_source": "sphere",
+        "sphere_inclusion_nodes": 2,
+        "nearest_node_distance_over_radius": 0.8772,
+        "n_nodes_within_2r": 14,
+        "true_center": [
+          0.29757475750761675,
+          0.4444398114175955,
+          0.4413480015141164
+        ],
+        "true_radius": 0.07913132354528409,
+        "aspects": {
+          "aspect_1p5": {
+            "ellipsoid_inclusion_nodes": 4,
+            "added_vs_sphere": [
+              155,
+              156
+            ],
+            "removed_vs_sphere": [],
+            "node_set_identical": false,
+            "E_field_bitwise_identical": false,
+            "E_estimate_bitwise_identical_to_baseline": true,
+            "cost_identical_to_baseline": false,
+            "cost_arm_over_baseline": 0.9285363065268325,
+            "refinement_accepted_baseline": true
+          },
+          "aspect_2p0": {
+            "ellipsoid_inclusion_nodes": 4,
+            "added_vs_sphere": [
+              155,
+              156
+            ],
+            "removed_vs_sphere": [],
+            "node_set_identical": false,
+            "E_field_bitwise_identical": false,
+            "E_estimate_bitwise_identical_to_baseline": true,
+            "cost_identical_to_baseline": false,
+            "cost_arm_over_baseline": 0.9285363065268325,
+            "refinement_accepted_baseline": true
+          }
+        },
+        "attention_weights_predicted_vs_true_region": {
+          "max_abs_difference": 0.34303749365392333,
+          "identical": false,
+          "predicted_minus_true_center_norm_over_true_radius": 0.7932887813909125
+        }
+      },
+      {
+        "patient_id": "geom_62010c56d95ec023bc9b_scenario_002",
+        "n_nodes": 256,
+        "predicted_center": [
+          0.25121856552808214,
+          0.48490211367607117,
+          0.4718733925547088
+        ],
+        "predicted_radius": 0.07958721978427116,
+        "mesh_extent": [
+          0.49008152200565996,
+          1.0,
+          0.9548878729071762
+        ],
+        "sphere_source": "sphere",
+        "sphere_inclusion_nodes": 0,
+        "nearest_node_distance_over_radius": 1.0439,
+        "n_nodes_within_2r": 12,
+        "true_center": [
+          0.29439592817162175,
+          0.5927639663316099,
+          0.45795371356020226
+        ],
+        "true_radius": 0.07425993849240363,
+        "aspects": {
+          "aspect_1p5": {
+            "ellipsoid_inclusion_nodes": 1,
+            "added_vs_sphere": [
+              155
+            ],
+            "removed_vs_sphere": [],
+            "node_set_identical": false,
+            "E_field_bitwise_identical": false,
+            "E_estimate_bitwise_identical_to_baseline": true,
+            "cost_identical_to_baseline": false,
+            "cost_arm_over_baseline": 0.9372944767045706,
+            "refinement_accepted_baseline": true
+          },
+          "aspect_2p0": {
+            "ellipsoid_inclusion_nodes": 1,
+            "added_vs_sphere": [
+              155
+            ],
+            "removed_vs_sphere": [],
+            "node_set_identical": false,
+            "E_field_bitwise_identical": false,
+            "E_estimate_bitwise_identical_to_baseline": true,
+            "cost_identical_to_baseline": false,
+            "cost_arm_over_baseline": 0.9372944767045706,
+            "refinement_accepted_baseline": true
+          }
+        },
+        "attention_weights_predicted_vs_true_region": {
+          "max_abs_difference": 0.5570552869595651,
+          "identical": false,
+          "predicted_minus_true_center_norm_over_true_radius": 1.575732058079208
+        }
+      },
+      {
+        "patient_id": "geom_a417d13e9ae27d685557_scenario_000",
+        "n_nodes": 256,
+        "predicted_center": [
+          0.5289942026138306,
+          0.31952767402343046,
+          0.5485290603605004
+        ],
+        "predicted_radius": 0.09237842929240037,
+        "mesh_extent": [
+          1.0,
+          0.6665815496683101,
+          1.0761014479284667
+        ],
+        "sphere_source": "sphere",
+        "sphere_inclusion_nodes": 2,
+        "nearest_node_distance_over_radius": 0.7151,
+        "n_nodes_within_2r": 19,
+        "true_center": [
+          0.5633197993958843,
+          0.3340996635122917,
+          0.5937358569844557
+        ],
+        "true_radius": 0.09938821299019411,
+        "aspects": {
+          "aspect_1p5": {
+            "ellipsoid_inclusion_nodes": 4,
+            "added_vs_sphere": [
+              100,
+              164
+            ],
+            "removed_vs_sphere": [],
+            "node_set_identical": false,
+            "E_field_bitwise_identical": false,
+            "E_estimate_bitwise_identical_to_baseline": true,
+            "cost_identical_to_baseline": false,
+            "cost_arm_over_baseline": 0.9606037979525928,
+            "refinement_accepted_baseline": true
+          },
+          "aspect_2p0": {
+            "ellipsoid_inclusion_nodes": 6,
+            "added_vs_sphere": [
+              99,
+              100,
+              148,
+              164
+            ],
+            "removed_vs_sphere": [],
+            "node_set_identical": false,
+            "E_field_bitwise_identical": false,
+            "E_estimate_bitwise_identical_to_baseline": true,
+            "cost_identical_to_baseline": false,
+            "cost_arm_over_baseline": 0.936046221554687,
+            "refinement_accepted_baseline": true
+          }
+        },
+        "attention_weights_predicted_vs_true_region": {
+          "max_abs_difference": 0.2750061339481751,
+          "identical": false,
+          "predicted_minus_true_center_norm_over_true_radius": 0.5896315148873819
+        }
+      },
+      {
+        "patient_id": "geom_a417d13e9ae27d685557_scenario_001",
+        "n_nodes": 256,
+        "predicted_center": [
+          0.4734637141227722,
+          0.29995090234118343,
+          0.5336505474670846
+        ],
+        "predicted_radius": 0.11745272500359225,
+        "mesh_extent": [
+          1.0,
+          0.6665815496683101,
+          1.0761014479284667
+        ],
+        "sphere_source": "sphere",
+        "sphere_inclusion_nodes": 5,
+        "nearest_node_distance_over_radius": 0.5852,
+        "n_nodes_within_2r": 37,
+        "true_center": [
+          0.6071944036775581,
+          0.2962553782290323,
+          0.4973727669445895
+        ],
+        "true_radius": 0.10763001237069844,
+        "aspects": {
+          "aspect_1p5": {
+            "ellipsoid_inclusion_nodes": 9,
+            "added_vs_sphere": [
+              107,
+              156,
+              171,
+              220
+            ],
+            "removed_vs_sphere": [],
+            "node_set_identical": false,
+            "E_field_bitwise_identical": false,
+            "E_estimate_bitwise_identical_to_baseline": true,
+            "cost_identical_to_baseline": false,
+            "cost_arm_over_baseline": 0.9709170847113957,
+            "refinement_accepted_baseline": true
+          },
+          "aspect_2p0": {
+            "ellipsoid_inclusion_nodes": 11,
+            "added_vs_sphere": [
+              92,
+              107,
+              156,
+              171,
+              219,
+              220
+            ],
+            "removed_vs_sphere": [],
+            "node_set_identical": false,
+            "E_field_bitwise_identical": false,
+            "E_estimate_bitwise_identical_to_baseline": true,
+            "cost_identical_to_baseline": false,
+            "cost_arm_over_baseline": 0.9699145701223795,
+            "refinement_accepted_baseline": true
+          }
+        },
+        "attention_weights_predicted_vs_true_region": {
+          "max_abs_difference": 1.4948665787035313,
+          "identical": false,
+          "predicted_minus_true_center_norm_over_true_radius": 1.2878679615193989
+        }
+      },
+      {
+        "patient_id": "geom_a417d13e9ae27d685557_scenario_002",
+        "n_nodes": 256,
+        "predicted_center": [
+          0.49708572030067444,
+          0.30618169285873015,
+          0.5350622189128988
+        ],
+        "predicted_radius": 0.10686954467522647,
+        "mesh_extent": [
+          1.0,
+          0.6665815496683101,
+          1.0761014479284667
+        ],
+        "sphere_source": "sphere",
+        "sphere_inclusion_nodes": 6,
+        "nearest_node_distance_over_radius": 0.7712,
+        "n_nodes_within_2r": 28,
+        "true_center": [
+          0.6007080760090803,
+          0.3951255232648585,
+          0.5160864099635047
+        ],
+        "true_radius": 0.10100422614580462,
+        "aspects": {
+          "aspect_1p5": {
+            "ellipsoid_inclusion_nodes": 6,
+            "added_vs_sphere": [],
+            "removed_vs_sphere": [],
+            "node_set_identical": true,
+            "E_field_bitwise_identical": true,
+            "E_estimate_bitwise_identical_to_baseline": true,
+            "cost_identical_to_baseline": false,
+            "cost_arm_over_baseline": 0.9757471449480161,
+            "refinement_accepted_baseline": true
+          },
+          "aspect_2p0": {
+            "ellipsoid_inclusion_nodes": 8,
+            "added_vs_sphere": [
+              107,
+              220
+            ],
+            "removed_vs_sphere": [],
+            "node_set_identical": false,
+            "E_field_bitwise_identical": false,
+            "E_estimate_bitwise_identical_to_baseline": true,
+            "cost_identical_to_baseline": false,
+            "cost_arm_over_baseline": 0.9436065831091625,
+            "refinement_accepted_baseline": true
+          }
+        },
+        "attention_weights_predicted_vs_true_region": {
+          "max_abs_difference": 1.5593126521570504,
+          "identical": false,
+          "predicted_minus_true_center_norm_over_true_radius": 1.365011849991188
+        }
+      },
+      {
+        "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_000",
+        "n_nodes": 256,
+        "predicted_center": [
+          0.5233814716339111,
+          0.17461411317412587,
+          0.5322300667919786
+        ],
+        "predicted_radius": 0.05594718963838565,
+        "mesh_extent": [
+          1.0,
+          0.3666982886350887,
+          1.0038726487363143
+        ],
+        "sphere_source": "sphere",
+        "sphere_inclusion_nodes": 1,
+        "nearest_node_distance_over_radius": 0.8696,
+        "n_nodes_within_2r": 8,
+        "true_center": [
+          0.5633197993958843,
+          0.18379412827204564,
+          0.5538838262397099
+        ],
+        "true_radius": 0.05467521210591426,
+        "aspects": {
+          "aspect_1p5": {
+            "ellipsoid_inclusion_nodes": 1,
+            "added_vs_sphere": [],
+            "removed_vs_sphere": [],
+            "node_set_identical": true,
+            "E_field_bitwise_identical": true,
+            "E_estimate_bitwise_identical_to_baseline": true,
+            "cost_identical_to_baseline": false,
+            "cost_arm_over_baseline": 0.9992161959203291,
+            "refinement_accepted_baseline": true
+          },
+          "aspect_2p0": {
+            "ellipsoid_inclusion_nodes": 2,
+            "added_vs_sphere": [
+              100
+            ],
+            "removed_vs_sphere": [],
+            "node_set_identical": false,
+            "E_field_bitwise_identical": false,
+            "E_estimate_bitwise_identical_to_baseline": true,
+            "cost_identical_to_baseline": false,
+            "cost_arm_over_baseline": 1.0543624179832538,
+            "refinement_accepted_baseline": true
+          }
+        },
+        "attention_weights_predicted_vs_true_region": {
+          "max_abs_difference": 0.6539126427793307,
+          "identical": false,
+          "predicted_minus_true_center_norm_over_true_radius": 0.8477146916195527
+        }
+      },
+      {
+        "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_001",
+        "n_nodes": 256,
+        "predicted_center": [
+          0.4885413944721222,
+          0.16483349063272307,
+          0.5163557159038609
+        ],
+        "predicted_radius": 0.07089800342625704,
+        "mesh_extent": [
+          1.0,
+          0.3666982886350887,
+          1.0038726487363143
+        ],
+        "sphere_source": "sphere",
+        "sphere_inclusion_nodes": 2,
+        "nearest_node_distance_over_radius": 0.8491,
+        "n_nodes_within_2r": 16,
+        "true_center": [
+          0.6071944036775581,
+          0.1629753182481338,
+          0.4639887047110127
+        ],
+        "true_radius": 0.0592091715736021,
+        "aspects": {
+          "aspect_1p5": {
+            "ellipsoid_inclusion_nodes": 4,
+            "added_vs_sphere": [
+              100,
+              155
+            ],
+            "removed_vs_sphere": [],
+            "node_set_identical": false,
+            "E_field_bitwise_identical": false,
+            "E_estimate_bitwise_identical_to_baseline": false,
+            "cost_identical_to_baseline": false,
+            "cost_arm_over_baseline": 0.9831033950335129,
+            "refinement_accepted_baseline": true
+          },
+          "aspect_2p0": {
+            "ellipsoid_inclusion_nodes": 4,
+            "added_vs_sphere": [
+              100,
+              155
+            ],
+            "removed_vs_sphere": [],
+            "node_set_identical": false,
+            "E_field_bitwise_identical": false,
+            "E_estimate_bitwise_identical_to_baseline": false,
+            "cost_identical_to_baseline": false,
+            "cost_arm_over_baseline": 0.9831033950335129,
+            "refinement_accepted_baseline": true
+          }
+        },
+        "attention_weights_predicted_vs_true_region": {
+          "max_abs_difference": 1.8491599505867584,
+          "identical": false,
+          "predicted_minus_true_center_norm_over_true_radius": 2.1906824559439206
+        }
+      },
+      {
+        "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_002",
+        "n_nodes": 256,
+        "predicted_center": [
+          0.5160848498344421,
+          0.1677846230661765,
+          0.5117990651568467
+        ],
+        "predicted_radius": 0.06497136997840616,
+        "mesh_extent": [
+          1.0,
+          0.3666982886350887,
+          1.0038726487363143
+        ],
+        "sphere_source": "sphere",
+        "sphere_inclusion_nodes": 2,
+        "nearest_node_distance_over_radius": 0.9414,
+        "n_nodes_within_2r": 12,
+        "true_center": [
+          0.6007080760090803,
+          0.21736553201834868,
+          0.48144627288088016
+        ],
+        "true_radius": 0.05556420949695971,
+        "aspects": {
+          "aspect_1p5": {
+            "ellipsoid_inclusion_nodes": 3,
+            "added_vs_sphere": [
+              91
+            ],
+            "removed_vs_sphere": [],
+            "node_set_identical": false,
+            "E_field_bitwise_identical": false,
+            "E_estimate_bitwise_identical_to_baseline": true,
+            "cost_identical_to_baseline": false,
+            "cost_arm_over_baseline": 1.0020393568500783,
+            "refinement_accepted_baseline": true
+          },
+          "aspect_2p0": {
+            "ellipsoid_inclusion_nodes": 4,
+            "added_vs_sphere": [
+              91,
+              155
+            ],
+            "removed_vs_sphere": [],
+            "node_set_identical": false,
+            "E_field_bitwise_identical": false,
+            "E_estimate_bitwise_identical_to_baseline": true,
+            "cost_identical_to_baseline": false,
+            "cost_arm_over_baseline": 0.9880312294130086,
+            "refinement_accepted_baseline": true
+          }
+        },
+        "attention_weights_predicted_vs_true_region": {
+          "max_abs_difference": 1.2643869127935017,
+          "identical": false,
+          "predicted_minus_true_center_norm_over_true_radius": 1.8477301037781713
+        }
+      },
+      {
+        "patient_id": "geom_db38a9c3817f033727b5_scenario_000",
+        "n_nodes": 256,
+        "predicted_center": [
+          0.5369877815246582,
+          0.235988235594987,
+          0.5413130105010688
+        ],
+        "predicted_radius": 0.06908584319988562,
+        "mesh_extent": [
+          1.0,
+          0.49282090870997136,
+          1.0040920366068733
+        ],
+        "sphere_source": "sphere",
+        "sphere_inclusion_nodes": 3,
+        "nearest_node_distance_over_radius": 0.6701,
+        "n_nodes_within_2r": 16,
+        "true_center": [
+          0.5633197993958843,
+          0.2470084865891555,
+          0.5540048728618374
+        ],
+        "true_radius": 0.0734802657908253,
+        "aspects": {
+          "aspect_1p5": {
+            "ellipsoid_inclusion_nodes": 4,
+            "added_vs_sphere": [
+              99
+            ],
+            "removed_vs_sphere": [],
+            "node_set_identical": false,
+            "E_field_bitwise_identical": false,
+            "E_estimate_bitwise_identical_to_baseline": true,
+            "cost_identical_to_baseline": false,
+            "cost_arm_over_baseline": 0.9580218645522305,
+            "refinement_accepted_baseline": true
+          },
+          "aspect_2p0": {
+            "ellipsoid_inclusion_nodes": 4,
+            "added_vs_sphere": [
+              99
+            ],
+            "removed_vs_sphere": [],
+            "node_set_identical": false,
+            "E_field_bitwise_identical": false,
+            "E_estimate_bitwise_identical_to_baseline": true,
+            "cost_identical_to_baseline": false,
+            "cost_arm_over_baseline": 0.9580218645522305,
+            "refinement_accepted_baseline": true
+          }
+        },
+        "attention_weights_predicted_vs_true_region": {
+          "max_abs_difference": 0.3727778287019441,
+          "identical": false,
+          "predicted_minus_true_center_norm_over_true_radius": 0.4251409458970936
+        }
+      },
+      {
+        "patient_id": "geom_db38a9c3817f033727b5_scenario_001",
+        "n_nodes": 256,
+        "predicted_center": [
+          0.506194531917572,
+          0.2259350329259577,
+          0.49732444656281
+        ],
+        "predicted_radius": 0.07719271595305618,
+        "mesh_extent": [
+          1.0,
+          0.49282090870997136,
+          1.0040920366068733
+        ],
+        "sphere_source": "sphere",
+        "sphere_inclusion_nodes": 4,
+        "nearest_node_distance_over_radius": 0.9576,
+        "n_nodes_within_2r": 16,
+        "true_center": [
+          0.6071944036775581,
+          0.2190292317297077,
+          0.4640901055152065
+        ],
+        "true_radius": 0.07957364035561267,
+        "aspects": {
+          "aspect_1p5": {
+            "ellipsoid_inclusion_nodes": 5,
+            "added_vs_sphere": [
+              91
+            ],
+            "removed_vs_sphere": [],
+            "node_set_identical": false,
+            "E_field_bitwise_identical": false,
+            "E_estimate_bitwise_identical_to_baseline": true,
+            "cost_identical_to_baseline": false,
+            "cost_arm_over_baseline": 0.9789906115992222,
+            "refinement_accepted_baseline": true
+          },
+          "aspect_2p0": {
+            "ellipsoid_inclusion_nodes": 6,
+            "added_vs_sphere": [
+              91,
+              228
+            ],
+            "removed_vs_sphere": [],
+            "node_set_identical": false,
+            "E_field_bitwise_identical": false,
+            "E_estimate_bitwise_identical_to_baseline": true,
+            "cost_identical_to_baseline": false,
+            "cost_arm_over_baseline": 0.9850928607743132,
+            "refinement_accepted_baseline": true
+          }
+        },
+        "attention_weights_predicted_vs_true_region": {
+          "max_abs_difference": 2.5798683393499378,
+          "identical": false,
+          "predicted_minus_true_center_norm_over_true_radius": 1.3390279500773845
+        }
+      },
+      {
+        "patient_id": "geom_db38a9c3817f033727b5_scenario_002",
+        "n_nodes": 256,
+        "predicted_center": [
+          0.505605936050415,
+          0.23088131726570751,
+          0.494808263934593
+        ],
+        "predicted_radius": 0.07390702784822971,
+        "mesh_extent": [
+          1.0,
+          0.49282090870997136,
+          1.0040920366068733
+        ],
+        "sphere_source": "sphere",
+        "sphere_inclusion_nodes": 1,
+        "nearest_node_distance_over_radius": 0.9745,
+        "n_nodes_within_2r": 16,
+        "true_center": [
+          0.6007080760090803,
+          0.29212647653807083,
+          0.4815514888888358
+        ],
+        "true_radius": 0.07467502594017467,
+        "aspects": {
+          "aspect_1p5": {
+            "ellipsoid_inclusion_nodes": 4,
+            "added_vs_sphere": [
+              91,
+              155,
+              164
+            ],
+            "removed_vs_sphere": [],
+            "node_set_identical": false,
+            "E_field_bitwise_identical": false,
+            "E_estimate_bitwise_identical_to_baseline": true,
+            "cost_identical_to_baseline": false,
+            "cost_arm_over_baseline": 0.9767728560366844,
+            "refinement_accepted_baseline": true
+          },
+          "aspect_2p0": {
+            "ellipsoid_inclusion_nodes": 4,
+            "added_vs_sphere": [
+              91,
+              155,
+              164
+            ],
+            "removed_vs_sphere": [],
+            "node_set_identical": false,
+            "E_field_bitwise_identical": false,
+            "E_estimate_bitwise_identical_to_baseline": true,
+            "cost_identical_to_baseline": false,
+            "cost_arm_over_baseline": 0.9767728560366844,
+            "refinement_accepted_baseline": true
+          }
+        },
+        "attention_weights_predicted_vs_true_region": {
+          "max_abs_difference": 1.7796866727827756,
+          "identical": false,
+          "predicted_minus_true_center_norm_over_true_radius": 1.5251533083366131
+        }
+      },
+      {
+        "patient_id": "geom_fac5cdc88e186e46ee04_scenario_000",
+        "n_nodes": 256,
+        "predicted_center": [
+          0.526412308216095,
+          0.3874546458149824,
+          0.4629259418091987
+        ],
+        "predicted_radius": 0.11741522499164052,
+        "mesh_extent": [
+          1.0,
+          0.8176308682511213,
+          0.8879778429655859
+        ],
+        "sphere_source": "sphere",
+        "sphere_inclusion_nodes": 6,
+        "nearest_node_distance_over_radius": 0.5177,
+        "n_nodes_within_2r": 40,
+        "true_center": [
+          0.5633197993958843,
+          0.40980761933163556,
+          0.4899392028431018
+        ],
+        "true_radius": 0.12190987122511276,
+        "aspects": {
+          "aspect_1p5": {
+            "ellipsoid_inclusion_nodes": 9,
+            "added_vs_sphere": [
+              93,
+              99,
+              163
+            ],
+            "removed_vs_sphere": [],
+            "node_set_identical": false,
+            "E_field_bitwise_identical": false,
+            "E_estimate_bitwise_identical_to_baseline": true,
+            "cost_identical_to_baseline": false,
+            "cost_arm_over_baseline": 1.0198921273086532,
+            "refinement_accepted_baseline": true
+          },
+          "aspect_2p0": {
+            "ellipsoid_inclusion_nodes": 10,
+            "added_vs_sphere": [
+              93,
+              99,
+              157,
+              163
+            ],
+            "removed_vs_sphere": [],
+            "node_set_identical": false,
+            "E_field_bitwise_identical": false,
+            "E_estimate_bitwise_identical_to_baseline": true,
+            "cost_identical_to_baseline": false,
+            "cost_arm_over_baseline": 1.0318785943913216,
+            "refinement_accepted_baseline": true
+          }
+        },
+        "attention_weights_predicted_vs_true_region": {
+          "max_abs_difference": 0.586533243812486,
+          "identical": false,
+          "predicted_minus_true_center_norm_over_true_radius": 0.4175799456413009
+        }
+      },
+      {
+        "patient_id": "geom_fac5cdc88e186e46ee04_scenario_001",
+        "n_nodes": 256,
+        "predicted_center": [
+          0.5100562572479248,
+          0.3648873107078005,
+          0.4633751913110882
+        ],
+        "predicted_radius": 0.14565030770562834,
+        "mesh_extent": [
+          1.0,
+          0.8176308682511213,
+          0.8879778429655859
+        ],
+        "sphere_source": "sphere",
+        "sphere_inclusion_nodes": 10,
+        "nearest_node_distance_over_radius": 0.4513,
+        "n_nodes_within_2r": 62,
+        "true_center": [
+          0.6071944036775581,
+          0.3633877088947332,
+          0.41042226789257186
+        ],
+        "true_radius": 0.13201928632486537,
+        "aspects": {
+          "aspect_1p5": {
+            "ellipsoid_inclusion_nodes": 14,
+            "added_vs_sphere": [
+              84,
+              90,
+              93,
+              154
+            ],
+            "removed_vs_sphere": [],
+            "node_set_identical": false,
+            "E_field_bitwise_identical": false,
+            "E_estimate_bitwise_identical_to_baseline": true,
+            "cost_identical_to_baseline": false,
+            "cost_arm_over_baseline": 0.98627702697326,
+            "refinement_accepted_baseline": false
+          },
+          "aspect_2p0": {
+            "ellipsoid_inclusion_nodes": 18,
+            "added_vs_sphere": [
+              29,
+              84,
+              90,
+              93,
+              98,
+              154,
+              157,
+              162
+            ],
+            "removed_vs_sphere": [],
+            "node_set_identical": false,
+            "E_field_bitwise_identical": false,
+            "E_estimate_bitwise_identical_to_baseline": true,
+            "cost_identical_to_baseline": false,
+            "cost_arm_over_baseline": 0.9823192214043849,
+            "refinement_accepted_baseline": false
+          }
+        },
+        "attention_weights_predicted_vs_true_region": {
+          "max_abs_difference": 1.363092247698444,
+          "identical": false,
+          "predicted_minus_true_center_norm_over_true_radius": 0.8380891783118639
+        }
+      },
+      {
+        "patient_id": "geom_fac5cdc88e186e46ee04_scenario_002",
+        "n_nodes": 256,
+        "predicted_center": [
+          0.5325568318367004,
+          0.3698690830966045,
+          0.4616770091400086
+        ],
+        "predicted_radius": 0.1337238872463483,
+        "mesh_extent": [
+          1.0,
+          0.8176308682511213,
+          0.8879778429655859
+        ],
+        "sphere_source": "sphere",
+        "sphere_inclusion_nodes": 7,
+        "nearest_node_distance_over_radius": 0.3464,
+        "n_nodes_within_2r": 51,
+        "true_center": [
+          0.6007080760090803,
+          0.48466211645969265,
+          0.4258643996673717
+        ],
+        "true_radius": 0.1238920776635966,
+        "aspects": {
+          "aspect_1p5": {
+            "ellipsoid_inclusion_nodes": 11,
+            "added_vs_sphere": [
+              27,
+              93,
+              99,
+              163
+            ],
+            "removed_vs_sphere": [],
+            "node_set_identical": false,
+            "E_field_bitwise_identical": false,
+            "E_estimate_bitwise_identical_to_baseline": true,
+            "cost_identical_to_baseline": false,
+            "cost_arm_over_baseline": 1.0122456394886725,
+            "refinement_accepted_baseline": false
+          },
+          "aspect_2p0": {
+            "ellipsoid_inclusion_nodes": 15,
+            "added_vs_sphere": [
+              27,
+              29,
+              90,
+              93,
+              99,
+              154,
+              157,
+              163
+            ],
+            "removed_vs_sphere": [],
+            "node_set_identical": false,
+            "E_field_bitwise_identical": false,
+            "E_estimate_bitwise_identical_to_baseline": true,
+            "cost_identical_to_baseline": false,
+            "cost_arm_over_baseline": 0.9748814715370426,
+            "refinement_accepted_baseline": false
+          }
+        },
+        "attention_weights_predicted_vs_true_region": {
+          "max_abs_difference": 1.6767659339490648,
+          "identical": false,
+          "predicted_minus_true_center_norm_over_true_radius": 1.115642784617189
+        }
+      }
+    ]
+  },
+  "fit_patient_side_effect_note": "run_screened_fem_locked passes inclusion_center=None/inclusion_radius=None when region_aspect_xy is set; fit_patient then falls back to first['inclusion_center'] / first['inclusion_radius'] (ground-truth region) for the region-attention weights (region_track_weight=8), while the E-field occupancy comes from soft_occupancy. So the aspect arm differs from the baseline in attention centre/radius even when the occupancy node set is unchanged."
+}

@@ -1,0 +1,992 @@
+{
+  "description": "Accepted-update harm statistics from EXISTING screened-FEM records (no FEM runs).\n\nFor every arm: among scenes whose refinement was accepted, count how many\naccepted updates increased / decreased / left unchanged the background error\nrelative to the initializer (initializer error = |initial_E_background -\nE_background_true| / E_background_true, which the records store), plus the\naccepted-set medians of initializer and final error.  The same is done for the\ninclusion ratio restricted to accepted scenes whose ratio was not locked.\n\nWrites results/ct_reviewer_drivers_v6/accepted_update_harm.json.",
+  "tie_tolerance_relative": 1e-12,
+  "definitions": {
+    "initializer_error": "|initial_E_background - E_background_true| / E_background_true (fields stored in records)",
+    "final_error": "E_background_relative_error (record field)",
+    "increased_error": "final_error > initializer_error (accepted update harmed the estimate)",
+    "ratio_initializer_error": "|initial_ratio - inclusion_ratio_true| / inclusion_ratio_true, only for scenes with lock_ratio == false"
+  },
+  "arms": {
+    "six_arm/learned_learned": {
+      "n": 50,
+      "unique_ids": 50,
+      "n_accepted": 26,
+      "n_rejected": 24,
+      "n_ratio_locked": 10,
+      "n_accepted_ratio_unlocked": 21,
+      "records_missing_initializer_fields": [],
+      "rejected_scenes_whose_E_differs_from_initializer": [],
+      "E_background": {
+        "accepted": {
+          "n": 26,
+          "increased_error": 23,
+          "decreased_error": 3,
+          "tied": 0,
+          "median_initializer_error_percent": 4.0054,
+          "median_final_error_percent": 15.9936,
+          "median_paired_delta_pp": 13.7286,
+          "mean_paired_delta_pp": 11.7096
+        },
+        "rejected_(final==initializer_by_construction)": {
+          "n": 24,
+          "increased_error": 0,
+          "decreased_error": 0,
+          "tied": 24,
+          "median_initializer_error_percent": 3.5238,
+          "median_final_error_percent": 3.5238,
+          "median_paired_delta_pp": 0.0,
+          "mean_paired_delta_pp": 0.0
+        },
+        "all_scenes": {
+          "n": 50,
+          "increased_error": 23,
+          "decreased_error": 3,
+          "tied": 24,
+          "median_initializer_error_percent": 3.8209,
+          "median_final_error_percent": 7.454,
+          "median_paired_delta_pp": 0.0,
+          "mean_paired_delta_pp": 6.089
+        }
+      },
+      "inclusion_ratio_unlocked_only": {
+        "accepted": {
+          "n": 21,
+          "increased_error": 14,
+          "decreased_error": 6,
+          "tied": 1,
+          "median_initializer_error_percent": 18.4152,
+          "median_final_error_percent": 20.028,
+          "median_paired_delta_pp": 6.9878,
+          "mean_paired_delta_pp": 1.0946
+        },
+        "all_unlocked_scenes": {
+          "n": 40,
+          "increased_error": 14,
+          "decreased_error": 6,
+          "tied": 20,
+          "median_initializer_error_percent": 18.3684,
+          "median_final_error_percent": 19.1157,
+          "median_paired_delta_pp": 0.0,
+          "mean_paired_delta_pp": 0.5747
+        }
+      },
+      "cohort_median_E_error_percent": 7.454,
+      "cohort_median_initializer_E_error_percent": 3.8209,
+      "records_path": "results\\lung_mesh_ai_v2\\synthetic50_full_paired_controls_20261008\\learned_learned\\records.jsonl",
+      "records_sha256": "538b555dd03eddb642dc5d2844a90b8dfba524332cef9e727bd64e375ba84fd5"
+    },
+    "six_arm/learned_fixed": {
+      "n": 50,
+      "unique_ids": 50,
+      "n_accepted": 28,
+      "n_rejected": 22,
+      "n_ratio_locked": 10,
+      "n_accepted_ratio_unlocked": 21,
+      "records_missing_initializer_fields": [],
+      "rejected_scenes_whose_E_differs_from_initializer": [],
+      "E_background": {
+        "accepted": {
+          "n": 28,
+          "increased_error": 26,
+          "decreased_error": 2,
+          "tied": 0,
+          "median_initializer_error_percent": 3.8048,
+          "median_final_error_percent": 22.3894,
+          "median_paired_delta_pp": 18.7561,
+          "mean_paired_delta_pp": 18.0844
+        },
+        "rejected_(final==initializer_by_construction)": {
+          "n": 22,
+          "increased_error": 0,
+          "decreased_error": 0,
+          "tied": 22,
+          "median_initializer_error_percent": 3.8209,
+          "median_final_error_percent": 3.8209,
+          "median_paired_delta_pp": 0.0,
+          "mean_paired_delta_pp": 0.0
+        },
+        "all_scenes": {
+          "n": 50,
+          "increased_error": 26,
+          "decreased_error": 2,
+          "tied": 22,
+          "median_initializer_error_percent": 3.8209,
+          "median_final_error_percent": 15.2781,
+          "median_paired_delta_pp": 9.3808,
+          "mean_paired_delta_pp": 10.1273
+        }
+      },
+      "inclusion_ratio_unlocked_only": {
+        "accepted": {
+          "n": 21,
+          "increased_error": 12,
+          "decreased_error": 9,
+          "tied": 0,
+          "median_initializer_error_percent": 16.0345,
+          "median_final_error_percent": 22.231,
+          "median_paired_delta_pp": 3.0028,
+          "mean_paired_delta_pp": -2.5121
+        },
+        "all_unlocked_scenes": {
+          "n": 40,
+          "increased_error": 12,
+          "decreased_error": 9,
+          "tied": 19,
+          "median_initializer_error_percent": 18.3684,
+          "median_final_error_percent": 21.6338,
+          "median_paired_delta_pp": 0.0,
+          "mean_paired_delta_pp": -1.3189
+        }
+      },
+      "cohort_median_E_error_percent": 15.2781,
+      "cohort_median_initializer_E_error_percent": 3.8209,
+      "records_path": "results\\lung_mesh_ai_v2\\synthetic50_full_paired_controls_20261008\\learned_fixed\\records.jsonl",
+      "records_sha256": "18a35337a820ce758e8f47bce46c018f0227f7672aa7029597a3b337c4b9caa6"
+    },
+    "six_arm/fixed_learned": {
+      "n": 50,
+      "unique_ids": 50,
+      "n_accepted": 41,
+      "n_rejected": 9,
+      "n_ratio_locked": 10,
+      "n_accepted_ratio_unlocked": 34,
+      "records_missing_initializer_fields": [],
+      "rejected_scenes_whose_E_differs_from_initializer": [],
+      "E_background": {
+        "accepted": {
+          "n": 41,
+          "increased_error": 7,
+          "decreased_error": 34,
+          "tied": 0,
+          "median_initializer_error_percent": 41.6073,
+          "median_final_error_percent": 23.7862,
+          "median_paired_delta_pp": -22.9377,
+          "mean_paired_delta_pp": -21.9336
+        },
+        "rejected_(final==initializer_by_construction)": {
+          "n": 9,
+          "increased_error": 0,
+          "decreased_error": 0,
+          "tied": 9,
+          "median_initializer_error_percent": 12.3159,
+          "median_final_error_percent": 12.3159,
+          "median_paired_delta_pp": 0.0,
+          "mean_paired_delta_pp": 0.0
+        },
+        "all_scenes": {
+          "n": 50,
+          "increased_error": 7,
+          "decreased_error": 34,
+          "tied": 9,
+          "median_initializer_error_percent": 34.238,
+          "median_final_error_percent": 18.1546,
+          "median_paired_delta_pp": -18.5138,
+          "mean_paired_delta_pp": -17.9855
+        }
+      },
+      "inclusion_ratio_unlocked_only": {
+        "accepted": {
+          "n": 34,
+          "increased_error": 19,
+          "decreased_error": 15,
+          "tied": 0,
+          "median_initializer_error_percent": 16.7783,
+          "median_final_error_percent": 22.7497,
+          "median_paired_delta_pp": 3.4786,
+          "mean_paired_delta_pp": 2.938
+        },
+        "all_unlocked_scenes": {
+          "n": 40,
+          "increased_error": 19,
+          "decreased_error": 15,
+          "tied": 6,
+          "median_initializer_error_percent": 18.3684,
+          "median_final_error_percent": 22.7497,
+          "median_paired_delta_pp": 0.0,
+          "mean_paired_delta_pp": 2.4973
+        }
+      },
+      "cohort_median_E_error_percent": 18.1546,
+      "cohort_median_initializer_E_error_percent": 34.238,
+      "records_path": "results\\lung_mesh_ai_v2\\synthetic50_full_paired_controls_20261008\\fixed_learned\\records.jsonl",
+      "records_sha256": "a6264bc51c740327e2c536c40e6230e907ad4e1cca259fb82af6efe19da0048d"
+    },
+    "six_arm/fixed_fixed": {
+      "n": 50,
+      "unique_ids": 50,
+      "n_accepted": 28,
+      "n_rejected": 22,
+      "n_ratio_locked": 10,
+      "n_accepted_ratio_unlocked": 23,
+      "records_missing_initializer_fields": [],
+      "rejected_scenes_whose_E_differs_from_initializer": [],
+      "E_background": {
+        "accepted": {
+          "n": 28,
+          "increased_error": 6,
+          "decreased_error": 22,
+          "tied": 0,
+          "median_initializer_error_percent": 32.1128,
+          "median_final_error_percent": 17.3215,
+          "median_paired_delta_pp": -19.0862,
+          "mean_paired_delta_pp": -17.3758
+        },
+        "rejected_(final==initializer_by_construction)": {
+          "n": 22,
+          "increased_error": 0,
+          "decreased_error": 0,
+          "tied": 22,
+          "median_initializer_error_percent": 38.8728,
+          "median_final_error_percent": 38.8728,
+          "median_paired_delta_pp": 0.0,
+          "mean_paired_delta_pp": 0.0
+        },
+        "all_scenes": {
+          "n": 50,
+          "increased_error": 6,
+          "decreased_error": 22,
+          "tied": 22,
+          "median_initializer_error_percent": 34.238,
+          "median_final_error_percent": 28.3657,
+          "median_paired_delta_pp": 0.0,
+          "mean_paired_delta_pp": -9.7305
+        }
+      },
+      "inclusion_ratio_unlocked_only": {
+        "accepted": {
+          "n": 23,
+          "increased_error": 15,
+          "decreased_error": 8,
+          "tied": 0,
+          "median_initializer_error_percent": 15.1654,
+          "median_final_error_percent": 26.3561,
+          "median_paired_delta_pp": 12.6084,
+          "mean_paired_delta_pp": 15.5897
+        },
+        "all_unlocked_scenes": {
+          "n": 40,
+          "increased_error": 15,
+          "decreased_error": 10,
+          "tied": 15,
+          "median_initializer_error_percent": 18.3684,
+          "median_final_error_percent": 23.4158,
+          "median_paired_delta_pp": 0.0,
+          "mean_paired_delta_pp": 7.6254
+        }
+      },
+      "cohort_median_E_error_percent": 28.3657,
+      "cohort_median_initializer_E_error_percent": 34.238,
+      "records_path": "results\\lung_mesh_ai_v2\\synthetic50_full_paired_controls_20261008\\fixed_fixed\\records.jsonl",
+      "records_sha256": "0afa0efdbcee909651e2f6ce9d74e248445785a7666ea93a7ef06f1fafa51e3c"
+    },
+    "six_arm/no_material_prior": {
+      "n": 50,
+      "unique_ids": 50,
+      "n_accepted": 32,
+      "n_rejected": 18,
+      "n_ratio_locked": 10,
+      "n_accepted_ratio_unlocked": 26,
+      "records_missing_initializer_fields": [],
+      "rejected_scenes_whose_E_differs_from_initializer": [],
+      "E_background": {
+        "accepted": {
+          "n": 32,
+          "increased_error": 31,
+          "decreased_error": 1,
+          "tied": 0,
+          "median_initializer_error_percent": 3.6203,
+          "median_final_error_percent": 37.5187,
+          "median_paired_delta_pp": 34.5467,
+          "mean_paired_delta_pp": 32.7898
+        },
+        "rejected_(final==initializer_by_construction)": {
+          "n": 18,
+          "increased_error": 0,
+          "decreased_error": 0,
+          "tied": 18,
+          "median_initializer_error_percent": 4.4707,
+          "median_final_error_percent": 4.4707,
+          "median_paired_delta_pp": 0.0,
+          "mean_paired_delta_pp": 0.0
+        },
+        "all_scenes": {
+          "n": 50,
+          "increased_error": 31,
+          "decreased_error": 1,
+          "tied": 18,
+          "median_initializer_error_percent": 3.8209,
+          "median_final_error_percent": 18.3495,
+          "median_paired_delta_pp": 16.159,
+          "mean_paired_delta_pp": 20.9855
+        }
+      },
+      "inclusion_ratio_unlocked_only": {
+        "accepted": {
+          "n": 26,
+          "increased_error": 20,
+          "decreased_error": 6,
+          "tied": 0,
+          "median_initializer_error_percent": 14.7863,
+          "median_final_error_percent": 44.8111,
+          "median_paired_delta_pp": 33.5755,
+          "mean_paired_delta_pp": 19.7606
+        },
+        "all_unlocked_scenes": {
+          "n": 40,
+          "increased_error": 20,
+          "decreased_error": 6,
+          "tied": 14,
+          "median_initializer_error_percent": 18.3684,
+          "median_final_error_percent": 36.935,
+          "median_paired_delta_pp": 1.4078,
+          "mean_paired_delta_pp": 12.8444
+        }
+      },
+      "cohort_median_E_error_percent": 18.3495,
+      "cohort_median_initializer_E_error_percent": 3.8209,
+      "records_path": "results\\lung_mesh_ai_v2\\synthetic50_full_paired_controls_20261008\\no_material_prior\\records.jsonl",
+      "records_sha256": "f56aaba28b811be5b2333db12004b3295547dc730aef358502fd51e9a791ef61"
+    },
+    "six_arm/residual_only": {
+      "n": 50,
+      "unique_ids": 50,
+      "n_accepted": 32,
+      "n_rejected": 18,
+      "n_ratio_locked": 10,
+      "n_accepted_ratio_unlocked": 26,
+      "records_missing_initializer_fields": [],
+      "rejected_scenes_whose_E_differs_from_initializer": [],
+      "E_background": {
+        "accepted": {
+          "n": 32,
+          "increased_error": 30,
+          "decreased_error": 2,
+          "tied": 0,
+          "median_initializer_error_percent": 3.6203,
+          "median_final_error_percent": 21.4182,
+          "median_paired_delta_pp": 16.79,
+          "mean_paired_delta_pp": 22.2023
+        },
+        "rejected_(final==initializer_by_construction)": {
+          "n": 18,
+          "increased_error": 0,
+          "decreased_error": 0,
+          "tied": 18,
+          "median_initializer_error_percent": 4.4707,
+          "median_final_error_percent": 4.4707,
+          "median_paired_delta_pp": 0.0,
+          "mean_paired_delta_pp": 0.0
+        },
+        "all_scenes": {
+          "n": 50,
+          "increased_error": 30,
+          "decreased_error": 2,
+          "tied": 18,
+          "median_initializer_error_percent": 3.8209,
+          "median_final_error_percent": 15.8755,
+          "median_paired_delta_pp": 8.0836,
+          "mean_paired_delta_pp": 14.2095
+        }
+      },
+      "inclusion_ratio_unlocked_only": {
+        "accepted": {
+          "n": 26,
+          "increased_error": 20,
+          "decreased_error": 6,
+          "tied": 0,
+          "median_initializer_error_percent": 14.7863,
+          "median_final_error_percent": 46.1746,
+          "median_paired_delta_pp": 31.1522,
+          "mean_paired_delta_pp": 18.4597
+        },
+        "all_unlocked_scenes": {
+          "n": 40,
+          "increased_error": 20,
+          "decreased_error": 6,
+          "tied": 14,
+          "median_initializer_error_percent": 18.3684,
+          "median_final_error_percent": 36.6163,
+          "median_paired_delta_pp": 6.9302,
+          "mean_paired_delta_pp": 11.9988
+        }
+      },
+      "cohort_median_E_error_percent": 15.8755,
+      "cohort_median_initializer_E_error_percent": 3.8209,
+      "records_path": "results\\lung_mesh_ai_v2\\synthetic50_full_paired_controls_20261008\\residual_only\\records.jsonl",
+      "records_sha256": "3d0abced102df4c83b5ffa3f5e347f34758b285628cdbea4f86a327fc1165a2d"
+    },
+    "threshold_sweep/s0p00": {
+      "n": 50,
+      "unique_ids": 50,
+      "n_accepted": 36,
+      "n_rejected": 14,
+      "n_ratio_locked": 10,
+      "n_accepted_ratio_unlocked": 30,
+      "records_missing_initializer_fields": [],
+      "rejected_scenes_whose_E_differs_from_initializer": [],
+      "E_background": {
+        "accepted": {
+          "n": 36,
+          "increased_error": 33,
+          "decreased_error": 3,
+          "tied": 0,
+          "median_initializer_error_percent": 3.8209,
+          "median_final_error_percent": 19.6353,
+          "median_paired_delta_pp": 16.288,
+          "mean_paired_delta_pp": 13.322
+        },
+        "rejected_(final==initializer_by_construction)": {
+          "n": 14,
+          "increased_error": 0,
+          "decreased_error": 0,
+          "tied": 14,
+          "median_initializer_error_percent": 4.0182,
+          "median_final_error_percent": 4.0182,
+          "median_paired_delta_pp": 0.0,
+          "mean_paired_delta_pp": 0.0
+        },
+        "all_scenes": {
+          "n": 50,
+          "increased_error": 33,
+          "decreased_error": 3,
+          "tied": 14,
+          "median_initializer_error_percent": 3.8209,
+          "median_final_error_percent": 14.9926,
+          "median_paired_delta_pp": 11.041,
+          "mean_paired_delta_pp": 9.5918
+        }
+      },
+      "inclusion_ratio_unlocked_only": {
+        "accepted": {
+          "n": 30,
+          "increased_error": 19,
+          "decreased_error": 10,
+          "tied": 1,
+          "median_initializer_error_percent": 15.6538,
+          "median_final_error_percent": 21.2928,
+          "median_paired_delta_pp": 7.799,
+          "mean_paired_delta_pp": 1.1996
+        },
+        "all_unlocked_scenes": {
+          "n": 40,
+          "increased_error": 19,
+          "decreased_error": 10,
+          "tied": 11,
+          "median_initializer_error_percent": 18.3684,
+          "median_final_error_percent": 21.2928,
+          "median_paired_delta_pp": 0.0,
+          "mean_paired_delta_pp": 0.8997
+        }
+      },
+      "cohort_median_E_error_percent": 14.9926,
+      "cohort_median_initializer_E_error_percent": 3.8209,
+      "records_path": "results\\lung_mesh_ai_v2\\synthetic50_threshold_sweep\\s0p00\\records.jsonl",
+      "records_sha256": "fe194e09495afdc2c9da27c1c9a8faf9563828af55a29fa211cb8a5faf246c37"
+    },
+    "threshold_sweep/s0p01": {
+      "n": 50,
+      "unique_ids": 50,
+      "n_accepted": 36,
+      "n_rejected": 14,
+      "n_ratio_locked": 10,
+      "n_accepted_ratio_unlocked": 30,
+      "records_missing_initializer_fields": [],
+      "rejected_scenes_whose_E_differs_from_initializer": [],
+      "E_background": {
+        "accepted": {
+          "n": 36,
+          "increased_error": 33,
+          "decreased_error": 3,
+          "tied": 0,
+          "median_initializer_error_percent": 3.8209,
+          "median_final_error_percent": 19.6353,
+          "median_paired_delta_pp": 16.288,
+          "mean_paired_delta_pp": 13.322
+        },
+        "rejected_(final==initializer_by_construction)": {
+          "n": 14,
+          "increased_error": 0,
+          "decreased_error": 0,
+          "tied": 14,
+          "median_initializer_error_percent": 4.0182,
+          "median_final_error_percent": 4.0182,
+          "median_paired_delta_pp": 0.0,
+          "mean_paired_delta_pp": 0.0
+        },
+        "all_scenes": {
+          "n": 50,
+          "increased_error": 33,
+          "decreased_error": 3,
+          "tied": 14,
+          "median_initializer_error_percent": 3.8209,
+          "median_final_error_percent": 14.9926,
+          "median_paired_delta_pp": 11.041,
+          "mean_paired_delta_pp": 9.5918
+        }
+      },
+      "inclusion_ratio_unlocked_only": {
+        "accepted": {
+          "n": 30,
+          "increased_error": 19,
+          "decreased_error": 10,
+          "tied": 1,
+          "median_initializer_error_percent": 15.6538,
+          "median_final_error_percent": 21.2928,
+          "median_paired_delta_pp": 7.799,
+          "mean_paired_delta_pp": 1.1996
+        },
+        "all_unlocked_scenes": {
+          "n": 40,
+          "increased_error": 19,
+          "decreased_error": 10,
+          "tied": 11,
+          "median_initializer_error_percent": 18.3684,
+          "median_final_error_percent": 21.2928,
+          "median_paired_delta_pp": 0.0,
+          "mean_paired_delta_pp": 0.8997
+        }
+      },
+      "cohort_median_E_error_percent": 14.9926,
+      "cohort_median_initializer_E_error_percent": 3.8209,
+      "records_path": "results\\lung_mesh_ai_v2\\synthetic50_threshold_sweep\\s0p01\\records.jsonl",
+      "records_sha256": "293db8e186a10648b998853a8b7661c5fff1d6326b1a16c2aa3bd59be5fae176"
+    },
+    "threshold_sweep/s0p025": {
+      "n": 50,
+      "unique_ids": 50,
+      "n_accepted": 34,
+      "n_rejected": 16,
+      "n_ratio_locked": 10,
+      "n_accepted_ratio_unlocked": 28,
+      "records_missing_initializer_fields": [],
+      "rejected_scenes_whose_E_differs_from_initializer": [],
+      "E_background": {
+        "accepted": {
+          "n": 34,
+          "increased_error": 31,
+          "decreased_error": 3,
+          "tied": 0,
+          "median_initializer_error_percent": 3.8209,
+          "median_final_error_percent": 19.6353,
+          "median_paired_delta_pp": 16.288,
+          "mean_paired_delta_pp": 13.3669
+        },
+        "rejected_(final==initializer_by_construction)": {
+          "n": 16,
+          "increased_error": 0,
+          "decreased_error": 0,
+          "tied": 16,
+          "median_initializer_error_percent": 4.0182,
+          "median_final_error_percent": 4.0182,
+          "median_paired_delta_pp": 0.0,
+          "mean_paired_delta_pp": 0.0
+        },
+        "all_scenes": {
+          "n": 50,
+          "increased_error": 31,
+          "decreased_error": 3,
+          "tied": 16,
+          "median_initializer_error_percent": 3.8209,
+          "median_final_error_percent": 14.461,
+          "median_paired_delta_pp": 9.8683,
+          "mean_paired_delta_pp": 9.0895
+        }
+      },
+      "inclusion_ratio_unlocked_only": {
+        "accepted": {
+          "n": 28,
+          "increased_error": 19,
+          "decreased_error": 8,
+          "tied": 1,
+          "median_initializer_error_percent": 15.2193,
+          "median_final_error_percent": 21.8779,
+          "median_paired_delta_pp": 9.1086,
+          "mean_paired_delta_pp": 4.1765
+        },
+        "all_unlocked_scenes": {
+          "n": 40,
+          "increased_error": 19,
+          "decreased_error": 8,
+          "tied": 13,
+          "median_initializer_error_percent": 18.3684,
+          "median_final_error_percent": 22.5269,
+          "median_paired_delta_pp": 0.0,
+          "mean_paired_delta_pp": 2.9236
+        }
+      },
+      "cohort_median_E_error_percent": 14.461,
+      "cohort_median_initializer_E_error_percent": 3.8209,
+      "records_path": "results\\lung_mesh_ai_v2\\synthetic50_threshold_sweep\\s0p025\\records.jsonl",
+      "records_sha256": "10b37f78aad367ca4597c6e7a2a14509245c87ee954ef0070626f6f6d7baedbb"
+    },
+    "threshold_sweep/s0p05(=six_arm learned_learned)": {
+      "n": 50,
+      "unique_ids": 50,
+      "n_accepted": 26,
+      "n_rejected": 24,
+      "n_ratio_locked": 10,
+      "n_accepted_ratio_unlocked": 21,
+      "records_missing_initializer_fields": [],
+      "rejected_scenes_whose_E_differs_from_initializer": [],
+      "E_background": {
+        "accepted": {
+          "n": 26,
+          "increased_error": 23,
+          "decreased_error": 3,
+          "tied": 0,
+          "median_initializer_error_percent": 4.0054,
+          "median_final_error_percent": 15.9936,
+          "median_paired_delta_pp": 13.7286,
+          "mean_paired_delta_pp": 11.7096
+        },
+        "rejected_(final==initializer_by_construction)": {
+          "n": 24,
+          "increased_error": 0,
+          "decreased_error": 0,
+          "tied": 24,
+          "median_initializer_error_percent": 3.5238,
+          "median_final_error_percent": 3.5238,
+          "median_paired_delta_pp": 0.0,
+          "mean_paired_delta_pp": 0.0
+        },
+        "all_scenes": {
+          "n": 50,
+          "increased_error": 23,
+          "decreased_error": 3,
+          "tied": 24,
+          "median_initializer_error_percent": 3.8209,
+          "median_final_error_percent": 7.454,
+          "median_paired_delta_pp": 0.0,
+          "mean_paired_delta_pp": 6.089
+        }
+      },
+      "inclusion_ratio_unlocked_only": {
+        "accepted": {
+          "n": 21,
+          "increased_error": 14,
+          "decreased_error": 6,
+          "tied": 1,
+          "median_initializer_error_percent": 18.4152,
+          "median_final_error_percent": 20.028,
+          "median_paired_delta_pp": 6.9878,
+          "mean_paired_delta_pp": 1.0946
+        },
+        "all_unlocked_scenes": {
+          "n": 40,
+          "increased_error": 14,
+          "decreased_error": 6,
+          "tied": 20,
+          "median_initializer_error_percent": 18.3684,
+          "median_final_error_percent": 19.1157,
+          "median_paired_delta_pp": 0.0,
+          "mean_paired_delta_pp": 0.5747
+        }
+      },
+      "cohort_median_E_error_percent": 7.454,
+      "cohort_median_initializer_E_error_percent": 3.8209,
+      "records_path": "results\\lung_mesh_ai_v2\\synthetic50_full_paired_controls_20261008\\learned_learned\\records.jsonl",
+      "records_sha256": "538b555dd03eddb642dc5d2844a90b8dfba524332cef9e727bd64e375ba84fd5"
+    },
+    "threshold_sweep/s0p10": {
+      "n": 50,
+      "unique_ids": 50,
+      "n_accepted": 26,
+      "n_rejected": 24,
+      "n_ratio_locked": 10,
+      "n_accepted_ratio_unlocked": 21,
+      "records_missing_initializer_fields": [],
+      "rejected_scenes_whose_E_differs_from_initializer": [],
+      "E_background": {
+        "accepted": {
+          "n": 26,
+          "increased_error": 12,
+          "decreased_error": 13,
+          "tied": 1,
+          "median_initializer_error_percent": 4.0054,
+          "median_final_error_percent": 4.342,
+          "median_paired_delta_pp": -0.4308,
+          "mean_paired_delta_pp": 1.4327
+        },
+        "rejected_(final==initializer_by_construction)": {
+          "n": 24,
+          "increased_error": 0,
+          "decreased_error": 0,
+          "tied": 24,
+          "median_initializer_error_percent": 3.5238,
+          "median_final_error_percent": 3.5238,
+          "median_paired_delta_pp": 0.0,
+          "mean_paired_delta_pp": 0.0
+        },
+        "all_scenes": {
+          "n": 50,
+          "increased_error": 12,
+          "decreased_error": 13,
+          "tied": 25,
+          "median_initializer_error_percent": 3.8209,
+          "median_final_error_percent": 3.5238,
+          "median_paired_delta_pp": 0.0,
+          "mean_paired_delta_pp": 0.745
+        }
+      },
+      "inclusion_ratio_unlocked_only": {
+        "accepted": {
+          "n": 21,
+          "increased_error": 0,
+          "decreased_error": 5,
+          "tied": 16,
+          "median_initializer_error_percent": 18.4152,
+          "median_final_error_percent": 15.1654,
+          "median_paired_delta_pp": 0.0,
+          "mean_paired_delta_pp": -4.6292
+        },
+        "all_unlocked_scenes": {
+          "n": 40,
+          "increased_error": 0,
+          "decreased_error": 5,
+          "tied": 35,
+          "median_initializer_error_percent": 18.3684,
+          "median_final_error_percent": 17.6926,
+          "median_paired_delta_pp": 0.0,
+          "mean_paired_delta_pp": -2.4304
+        }
+      },
+      "cohort_median_E_error_percent": 3.5238,
+      "cohort_median_initializer_E_error_percent": 3.8209,
+      "records_path": "results\\lung_mesh_ai_v2\\synthetic50_threshold_sweep\\s0p10\\records.jsonl",
+      "records_sha256": "fb8541f601af2c6db6265c97990c1bc30770652c65909ccca467f74c186cedd9"
+    },
+    "threshold_sweep/s0p20": {
+      "n": 50,
+      "unique_ids": 50,
+      "n_accepted": 26,
+      "n_rejected": 24,
+      "n_ratio_locked": 10,
+      "n_accepted_ratio_unlocked": 21,
+      "records_missing_initializer_fields": [],
+      "rejected_scenes_whose_E_differs_from_initializer": [],
+      "E_background": {
+        "accepted": {
+          "n": 26,
+          "increased_error": 11,
+          "decreased_error": 14,
+          "tied": 1,
+          "median_initializer_error_percent": 4.0054,
+          "median_final_error_percent": 3.2271,
+          "median_paired_delta_pp": -1.1316,
+          "mean_paired_delta_pp": -0.0096
+        },
+        "rejected_(final==initializer_by_construction)": {
+          "n": 24,
+          "increased_error": 0,
+          "decreased_error": 0,
+          "tied": 24,
+          "median_initializer_error_percent": 3.5238,
+          "median_final_error_percent": 3.5238,
+          "median_paired_delta_pp": 0.0,
+          "mean_paired_delta_pp": 0.0
+        },
+        "all_scenes": {
+          "n": 50,
+          "increased_error": 11,
+          "decreased_error": 14,
+          "tied": 25,
+          "median_initializer_error_percent": 3.8209,
+          "median_final_error_percent": 3.4189,
+          "median_paired_delta_pp": 0.0,
+          "mean_paired_delta_pp": -0.005
+        }
+      },
+      "inclusion_ratio_unlocked_only": {
+        "accepted": {
+          "n": 21,
+          "increased_error": 0,
+          "decreased_error": 3,
+          "tied": 18,
+          "median_initializer_error_percent": 18.4152,
+          "median_final_error_percent": 18.4152,
+          "median_paired_delta_pp": 0.0,
+          "mean_paired_delta_pp": -2.7144
+        },
+        "all_unlocked_scenes": {
+          "n": 40,
+          "increased_error": 0,
+          "decreased_error": 3,
+          "tied": 37,
+          "median_initializer_error_percent": 18.3684,
+          "median_final_error_percent": 18.3684,
+          "median_paired_delta_pp": 0.0,
+          "mean_paired_delta_pp": -1.4251
+        }
+      },
+      "cohort_median_E_error_percent": 3.4189,
+      "cohort_median_initializer_E_error_percent": 3.8209,
+      "records_path": "results\\lung_mesh_ai_v2\\synthetic50_threshold_sweep\\s0p20\\records.jsonl",
+      "records_sha256": "2f75d792d13dd6d9faa163b04456752887a2328ca01204c2703bd192be4d1079"
+    },
+    "ct120/official_prior_screened_fem120_v1": {
+      "n": 120,
+      "unique_ids": 120,
+      "n_accepted": 73,
+      "n_rejected": 47,
+      "n_ratio_locked": 120,
+      "n_accepted_ratio_unlocked": 0,
+      "records_missing_initializer_fields": [],
+      "rejected_scenes_whose_E_differs_from_initializer": [],
+      "E_background": {
+        "accepted": {
+          "n": 73,
+          "increased_error": 57,
+          "decreased_error": 16,
+          "tied": 0,
+          "median_initializer_error_percent": 8.3095,
+          "median_final_error_percent": 14.3228,
+          "median_paired_delta_pp": 11.8352,
+          "mean_paired_delta_pp": 8.9552
+        },
+        "rejected_(final==initializer_by_construction)": {
+          "n": 47,
+          "increased_error": 0,
+          "decreased_error": 0,
+          "tied": 47,
+          "median_initializer_error_percent": 8.61,
+          "median_final_error_percent": 8.61,
+          "median_paired_delta_pp": 0.0,
+          "mean_paired_delta_pp": 0.0
+        },
+        "all_scenes": {
+          "n": 120,
+          "increased_error": 57,
+          "decreased_error": 16,
+          "tied": 47,
+          "median_initializer_error_percent": 8.5463,
+          "median_final_error_percent": 11.6957,
+          "median_paired_delta_pp": 0.0,
+          "mean_paired_delta_pp": 5.4477
+        }
+      },
+      "inclusion_ratio_unlocked_only": {
+        "accepted": {
+          "n": 0,
+          "increased_error": 0,
+          "decreased_error": 0,
+          "tied": 0,
+          "median_initializer_error_percent": null,
+          "median_final_error_percent": null,
+          "median_paired_delta_pp": null,
+          "mean_paired_delta_pp": null
+        },
+        "all_unlocked_scenes": {
+          "n": 0,
+          "increased_error": 0,
+          "decreased_error": 0,
+          "tied": 0,
+          "median_initializer_error_percent": null,
+          "median_final_error_percent": null,
+          "median_paired_delta_pp": null,
+          "mean_paired_delta_pp": null
+        }
+      },
+      "cohort_median_E_error_percent": 11.6957,
+      "cohort_median_initializer_E_error_percent": 8.5463,
+      "records_path": "results\\ion_ct_official_prior_screened_fem120_v1\\records.jsonl",
+      "records_sha256": "166da29af39c37c0fa6b24f4db737b38c2862fa4916513fd87143be323ccc124"
+    },
+    "ct18/w2_s0p05_p2": {
+      "n": 18,
+      "unique_ids": 18,
+      "n_accepted": 15,
+      "n_rejected": 3,
+      "n_ratio_locked": 18,
+      "n_accepted_ratio_unlocked": 0,
+      "records_missing_initializer_fields": [],
+      "rejected_scenes_whose_E_differs_from_initializer": [],
+      "E_background": {
+        "accepted": {
+          "n": 15,
+          "increased_error": 14,
+          "decreased_error": 1,
+          "tied": 0,
+          "median_initializer_error_percent": 9.399,
+          "median_final_error_percent": 25.4082,
+          "median_paired_delta_pp": 18.9971,
+          "mean_paired_delta_pp": 22.7612
+        },
+        "rejected_(final==initializer_by_construction)": {
+          "n": 3,
+          "increased_error": 0,
+          "decreased_error": 0,
+          "tied": 3,
+          "median_initializer_error_percent": 10.6953,
+          "median_final_error_percent": 10.6953,
+          "median_paired_delta_pp": 0.0,
+          "mean_paired_delta_pp": 0.0
+        },
+        "all_scenes": {
+          "n": 18,
+          "increased_error": 14,
+          "decreased_error": 1,
+          "tied": 3,
+          "median_initializer_error_percent": 10.0472,
+          "median_final_error_percent": 24.631,
+          "median_paired_delta_pp": 18.3483,
+          "mean_paired_delta_pp": 18.9676
+        }
+      },
+      "inclusion_ratio_unlocked_only": {
+        "accepted": {
+          "n": 0,
+          "increased_error": 0,
+          "decreased_error": 0,
+          "tied": 0,
+          "median_initializer_error_percent": null,
+          "median_final_error_percent": null,
+          "median_paired_delta_pp": null,
+          "mean_paired_delta_pp": null
+        },
+        "all_unlocked_scenes": {
+          "n": 0,
+          "increased_error": 0,
+          "decreased_error": 0,
+          "tied": 0,
+          "median_initializer_error_percent": null,
+          "median_final_error_percent": null,
+          "median_paired_delta_pp": null,
+          "mean_paired_delta_pp": null
+        }
+      },
+      "cohort_median_E_error_percent": 24.631,
+      "cohort_median_initializer_E_error_percent": 10.0472,
+      "records_path": "results\\ct_reviewer_drivers_v6\\ct_reviewer_drivers_v6\\fem_paired\\w2_s0p05_p2\\records.jsonl",
+      "records_sha256": "d2e818b23eead350176e25fc420f36f26324f2b2364acf2a5f40ea37020138e1"
+    }
+  },
+  "claim_checks": {
+    "claim_six_arm_learned_learned_23_of_26_worsened": {
+      "claimed": {
+        "worsened": 23,
+        "accepted": 26,
+        "accepted_median_initializer_percent": 4.01,
+        "accepted_median_final_percent": 15.99
+      },
+      "observed": {
+        "worsened": 23,
+        "accepted": 26,
+        "accepted_median_initializer_percent": 4.0054,
+        "accepted_median_final_percent": 15.9936
+      },
+      "matches": true
+    },
+    "claim_threshold_0p20_only_11_of_26_worsened": {
+      "claimed": {
+        "worsened": 11,
+        "accepted": 26
+      },
+      "observed": {
+        "worsened": 11,
+        "accepted": 26
+      },
+      "matches": true
+    }
+  }
+}

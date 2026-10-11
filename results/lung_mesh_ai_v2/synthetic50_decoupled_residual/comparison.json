@@ -1,0 +1,416 @@
+{
+  "arms": {
+    "primary_like_w1_n96": {
+      "arm": "primary_like_w1_n96",
+      "status": "complete",
+      "records_path": ".\\results\\lung_mesh_ai_v2\\synthetic50_decoupled_residual\\primary_like_w1_n96\\records.jsonl",
+      "records_sha256": "97b1c4434cb56efae040464e21fb16ee6cb8d39085cc392a9a37a3ce4759836f",
+      "label": "A1 primary-like: width 1.0, 96 evals, residual screen, MAP objective, residual acceptance",
+      "n": 50,
+      "unique_ids": 50,
+      "unique_ids_equal_50": true,
+      "accepted": 4,
+      "screening_rejected": 46,
+      "continued_not_screening_rejected": 4,
+      "continued_but_rolled_back_at_final_acceptance": 0,
+      "eq_correlation_rejected": 0,
+      "lock_ratio_count": 10,
+      "termination_reason_counts": {
+        "insufficient_initial_physics_evidence": 46,
+        "step_tolerance": 4
+      },
+      "function_evaluations_counts": {
+        "5": 9,
+        "7": 37,
+        "37": 1,
+        "73": 1,
+        "91": 1,
+        "96": 1
+      },
+      "median_function_evaluations": 7.0,
+      "median_wall_time_seconds": 54.67004100000122,
+      "median_relative_error": {
+        "E_background": 0.04110740128627288,
+        "inclusion_ratio": 0.18692415951587435,
+        "force_scale": 0.033896160509529843
+      },
+      "mean_relative_error": {
+        "E_background": 0.050281478333504326,
+        "inclusion_ratio": 0.22030900157580738,
+        "force_scale": 0.03634577063737979
+      },
+      "initializer_only_median_E_background_error": 0.03820899421520965,
+      "all_cases_vs_initializer": {
+        "n": 50,
+        "worse_than_initializer": 2,
+        "better_than_initializer": 2,
+        "tied": 46
+      },
+      "accepted_set": {
+        "n": 4,
+        "worse_than_initializer": 2,
+        "better_than_initializer": 2,
+        "tied": 0,
+        "median_initializer_E_background_error": 0.04508753931225026,
+        "median_final_E_background_error": 0.07195157010809625,
+        "median_paired_delta_final_minus_initializer": 0.03174372070620288,
+        "ids": [
+          "lung_patient_089",
+          "lung_patient_124",
+          "lung_patient_139",
+          "lung_patient_209"
+        ]
+      },
+      "acceptance_metric_counts": {
+        "residual": 50
+      },
+      "acceptance_relative_cost_reduction_continued_min_median_max": [
+        0.1811209369889336,
+        0.24122342320737433,
+        0.28250787419597856
+      ],
+      "map_relative_cost_reduction_continued_min_median_max": [
+        0.12405772813689366,
+        0.1781812874185269,
+        0.21060952117899756
+      ],
+      "continued_cases_where_map_and_residual_acceptance_disagree": [],
+      "objective_metric_counts": {
+        "map": 50
+      },
+      "screening_metric_counts": {
+        "residual": 50
+      }
+    },
+    "sixarm_like_w2_n48": {
+      "arm": "sixarm_like_w2_n48",
+      "status": "complete",
+      "records_path": ".\\results\\lung_mesh_ai_v2\\synthetic50_decoupled_residual\\sixarm_like_w2_n48\\records.jsonl",
+      "records_sha256": "95c11966d38f6714a3a7190fe93dbfcbd73383b75c5f1b0a20add2d430b65669",
+      "label": "A2 six-arm-like: width 2.0, 48 evals, residual screen, MAP objective, residual acceptance",
+      "n": 50,
+      "unique_ids": 50,
+      "unique_ids_equal_50": true,
+      "accepted": 26,
+      "screening_rejected": 24,
+      "continued_not_screening_rejected": 26,
+      "continued_but_rolled_back_at_final_acceptance": 0,
+      "eq_correlation_rejected": 0,
+      "lock_ratio_count": 10,
+      "termination_reason_counts": {
+        "evaluation_budget": 20,
+        "insufficient_initial_physics_evidence": 24,
+        "step_tolerance": 6
+      },
+      "function_evaluations_counts": {
+        "5": 5,
+        "7": 19,
+        "25": 1,
+        "29": 2,
+        "33": 2,
+        "48": 21
+      },
+      "median_function_evaluations": 27.0,
+      "median_wall_time_seconds": 148.2885565999968,
+      "median_relative_error": {
+        "E_background": 0.07454029198949147,
+        "inclusion_ratio": 0.19115665649987462,
+        "force_scale": 0.033896160509529843
+      },
+      "mean_relative_error": {
+        "E_background": 0.10828802221977922,
+        "inclusion_ratio": 0.22843461466327125,
+        "force_scale": 0.03660580510027459
+      },
+      "initializer_only_median_E_background_error": 0.03820899421520965,
+      "all_cases_vs_initializer": {
+        "n": 50,
+        "worse_than_initializer": 23,
+        "better_than_initializer": 3,
+        "tied": 24
+      },
+      "accepted_set": {
+        "n": 26,
+        "worse_than_initializer": 23,
+        "better_than_initializer": 3,
+        "tied": 0,
+        "median_initializer_E_background_error": 0.04005426002384621,
+        "median_final_E_background_error": 0.15993580067438215,
+        "median_paired_delta_final_minus_initializer": 0.13728605948743866,
+        "ids": [
+          "lung_patient_004",
+          "lung_patient_024",
+          "lung_patient_034",
+          "lung_patient_039",
+          "lung_patient_054",
+          "lung_patient_059",
+          "lung_patient_064",
+          "lung_patient_074",
+          "lung_patient_089",
+          "lung_patient_094",
+          "lung_patient_109",
+          "lung_patient_124",
+          "lung_patient_129",
+          "lung_patient_134",
+          "lung_patient_139",
+          "lung_patient_144",
+          "lung_patient_149",
+          "lung_patient_159",
+          "lung_patient_194",
+          "lung_patient_199",
+          "lung_patient_204",
+          "lung_patient_209",
+          "lung_patient_214",
+          "lung_patient_224",
+          "lung_patient_244",
+          "lung_patient_249"
+        ]
+      },
+      "acceptance_metric_counts": {
+        "residual": 50
+      },
+      "acceptance_relative_cost_reduction_continued_min_median_max": [
+        0.09028657277675185,
+        0.179399971816865,
+        0.33328426510676157
+      ],
+      "map_relative_cost_reduction_continued_min_median_max": [
+        0.07608855545062948,
+        0.14140333398261998,
+        0.2896624838106255
+      ],
+      "continued_cases_where_map_and_residual_acceptance_disagree": [],
+      "objective_metric_counts": {
+        "map": 50
+      },
+      "screening_metric_counts": {
+        "residual": 50
+      }
+    },
+    "map_w1_n96": {
+      "arm": "map_w1_n96",
+      "status": "complete",
+      "records_path": ".\\results\\lung_mesh_ai_v2\\synthetic50_decoupled_residual\\map_w1_n96\\records.jsonl",
+      "records_sha256": "8e8c8ca64b45f3b954a57f1067128ea1e855720ad31337cf99eb8a9298aac288",
+      "label": "A3 plain learned/learned at width 1.0, 96 evals, MAP screen + MAP objective + MAP acceptance",
+      "n": 50,
+      "unique_ids": 50,
+      "unique_ids_equal_50": true,
+      "accepted": 4,
+      "screening_rejected": 46,
+      "continued_not_screening_rejected": 4,
+      "continued_but_rolled_back_at_final_acceptance": 0,
+      "eq_correlation_rejected": 0,
+      "lock_ratio_count": 10,
+      "termination_reason_counts": {
+        "insufficient_initial_physics_evidence": 46,
+        "step_tolerance": 4
+      },
+      "function_evaluations_counts": {
+        "5": 9,
+        "7": 37,
+        "37": 1,
+        "73": 1,
+        "91": 1,
+        "96": 1
+      },
+      "median_function_evaluations": 7.0,
+      "median_wall_time_seconds": 35.863597100000334,
+      "median_relative_error": {
+        "E_background": 0.04110740128627288,
+        "inclusion_ratio": 0.18692415951587435,
+        "force_scale": 0.033896160509529843
+      },
+      "mean_relative_error": {
+        "E_background": 0.050281478333504326,
+        "inclusion_ratio": 0.22030900157580738,
+        "force_scale": 0.03634577063737979
+      },
+      "initializer_only_median_E_background_error": 0.03820899421520965,
+      "all_cases_vs_initializer": {
+        "n": 50,
+        "worse_than_initializer": 2,
+        "better_than_initializer": 2,
+        "tied": 46
+      },
+      "accepted_set": {
+        "n": 4,
+        "worse_than_initializer": 2,
+        "better_than_initializer": 2,
+        "tied": 0,
+        "median_initializer_E_background_error": 0.04508753931225026,
+        "median_final_E_background_error": 0.07195157010809625,
+        "median_paired_delta_final_minus_initializer": 0.03174372070620288,
+        "ids": [
+          "lung_patient_089",
+          "lung_patient_124",
+          "lung_patient_139",
+          "lung_patient_209"
+        ]
+      },
+      "objective_metric_counts": {
+        "map": 50
+      },
+      "screening_metric_counts": {
+        "map": 50
+      }
+    }
+  },
+  "references": {
+    "frozen_primary_screened_map_strict": {
+      "path": ".\\results\\lung_mesh_ai_v2\\fem_multiview_screened50_strict\\metrics_image_tracks_force_map_sigma_0.05_px_0.05_nodes_allframes_temporalreg_smooth2_multiview_conf0.20_regionweight8.0_frozen50_screen05_strict_gnn_init_predicted_region.json",
+      "sha256": "3caf908a8d087aebebfa4d0e0721e13f6f3ea3d73d85d49c451b27954f199dde",
+      "benchmark_method": "calibrated_multiview_screened_map_strict",
+      "label": "frozen primary (evaluate_sim_lung_v2, width 1.0, 96 evals, MAP screen/objective/acceptance, no ratio lock, no eq rollback)",
+      "n": 50,
+      "unique_ids": 50,
+      "unique_ids_equal_50": true,
+      "accepted": 4,
+      "screening_rejected": 46,
+      "continued_not_screening_rejected": 4,
+      "continued_but_rolled_back_at_final_acceptance": 0,
+      "eq_correlation_rejected": 0,
+      "lock_ratio_count": 0,
+      "termination_reason_counts": {
+        "insufficient_initial_physics_evidence": 46,
+        "step_tolerance": 4
+      },
+      "function_evaluations_counts": {
+        "7": 46,
+        "73": 1,
+        "79": 1,
+        "91": 1,
+        "96": 1
+      },
+      "median_function_evaluations": 7.0,
+      "median_wall_time_seconds": 24.575721350003732,
+      "median_relative_error": {
+        "E_background": 0.04110740128627288,
+        "inclusion_ratio": 0.18692415951587435,
+        "force_scale": 0.033896160509529843
+      },
+      "mean_relative_error": {
+        "E_background": 0.050201584349789476,
+        "inclusion_ratio": 0.21959653989222228,
+        "force_scale": 0.03620887769542976
+      },
+      "initializer_only_median_E_background_error": 0.03820899421520965,
+      "all_cases_vs_initializer": {
+        "n": 50,
+        "worse_than_initializer": 2,
+        "better_than_initializer": 2,
+        "tied": 46
+      },
+      "accepted_set": {
+        "n": 4,
+        "worse_than_initializer": 2,
+        "better_than_initializer": 2,
+        "tied": 0,
+        "median_initializer_E_background_error": 0.04508753931225026,
+        "median_final_E_background_error": 0.07195157010809625,
+        "median_paired_delta_final_minus_initializer": 0.03174372070620288,
+        "ids": [
+          "lung_patient_089",
+          "lung_patient_124",
+          "lung_patient_139",
+          "lung_patient_209"
+        ]
+      }
+    },
+    "six_arm_learned_learned": {
+      "path": ".\\results\\lung_mesh_ai_v2\\synthetic50_full_paired_controls_20261008\\learned_learned\\records.jsonl",
+      "sha256": "538b555dd03eddb642dc5d2844a90b8dfba524332cef9e727bd64e375ba84fd5",
+      "label": "six-arm learned_learned (run_screened_fem_locked, width 2.0, 48 evals, MAP screen/objective/acceptance)",
+      "n": 50,
+      "unique_ids": 50,
+      "unique_ids_equal_50": true,
+      "accepted": 26,
+      "screening_rejected": 24,
+      "continued_not_screening_rejected": 26,
+      "continued_but_rolled_back_at_final_acceptance": 0,
+      "eq_correlation_rejected": 0,
+      "lock_ratio_count": 10,
+      "termination_reason_counts": {
+        "evaluation_budget": 20,
+        "insufficient_initial_physics_evidence": 24,
+        "step_tolerance": 6
+      },
+      "function_evaluations_counts": {
+        "5": 5,
+        "7": 19,
+        "25": 1,
+        "29": 2,
+        "33": 2,
+        "48": 21
+      },
+      "median_function_evaluations": 27.0,
+      "median_wall_time_seconds": 116.75665429999935,
+      "median_relative_error": {
+        "E_background": 0.07454029198949147,
+        "inclusion_ratio": 0.19115665649987462,
+        "force_scale": 0.033896160509529843
+      },
+      "mean_relative_error": {
+        "E_background": 0.10828802221977922,
+        "inclusion_ratio": 0.22843461466327125,
+        "force_scale": 0.03660580510027459
+      },
+      "initializer_only_median_E_background_error": 0.03820899421520965,
+      "all_cases_vs_initializer": {
+        "n": 50,
+        "worse_than_initializer": 23,
+        "better_than_initializer": 3,
+        "tied": 24
+      },
+      "accepted_set": {
+        "n": 26,
+        "worse_than_initializer": 23,
+        "better_than_initializer": 3,
+        "tied": 0,
+        "median_initializer_E_background_error": 0.04005426002384621,
+        "median_final_E_background_error": 0.15993580067438215,
+        "median_paired_delta_final_minus_initializer": 0.13728605948743866,
+        "ids": [
+          "lung_patient_004",
+          "lung_patient_024",
+          "lung_patient_034",
+          "lung_patient_039",
+          "lung_patient_054",
+          "lung_patient_059",
+          "lung_patient_064",
+          "lung_patient_074",
+          "lung_patient_089",
+          "lung_patient_094",
+          "lung_patient_109",
+          "lung_patient_124",
+          "lung_patient_129",
+          "lung_patient_134",
+          "lung_patient_139",
+          "lung_patient_144",
+          "lung_patient_149",
+          "lung_patient_159",
+          "lung_patient_194",
+          "lung_patient_199",
+          "lung_patient_204",
+          "lung_patient_209",
+          "lung_patient_214",
+          "lung_patient_224",
+          "lung_patient_244",
+          "lung_patient_249"
+        ]
+      },
+      "objective_metric_counts": {
+        "map": 50
+      },
+      "screening_metric_counts": {
+        "map": 50
+      }
+    }
+  },
+  "protocol_notes": [
+    "All three new arms use experiments/run_screened_fem_locked.py --cohort synthetic50 with its defaults for material_prior_weight (0.05), contrast_ratio_lock (1.20 -> ratio locked for low-contrast predictions), eq_correlation_rollback (0.85), accept_threshold 0.05 and probe_count 2.",
+    "The frozen primary was produced by lung_inverse_rendering/evaluate_sim_lung_v2.py (material_prior_weight 0.05, adaptive_search_sigma 2.0, no ratio lock, no eq_correlation_rollback). Its '7 initial probes' are 1 initial + 3 free parameters x 2 symmetric probes = probe_count 2 with an unlocked ratio; run_screened_fem_locked reproduces this with --probe-count 2 except for the contrast-locked cases (5 probes).",
+    "acceptance_metric=residual re-scores the initial and final parameters on the prior-free Huber track residual and applies the 5% rule to that; the optimizer itself still minimises the MAP objective."
+  ],
+  "all_arms_complete": true
+}

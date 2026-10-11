@@ -64,6 +64,7 @@ TRACK_NOISE_PX = 0.05
 PRIOR_WIDTH_SCALE = 2.0       # six-arm learned/learned and official-prior CT arms
 CONTRAST_RATIO_LOCK = 1.20    # six-arm learned/learned contrast lock threshold
 FORCE_PRIOR_SIGMA = 0.05
+GLOBAL_BOUNDS = {"E": (1000.0, 15000.0), "ratio": (1.0, 5.0)}  # fit_patient global box
 
 # Matched batch arms used for the paired comparison in --summarize.
 BATCH_REFERENCES = {
@@ -149,8 +150,12 @@ def _done_ids(out_dir: Path) -> set[str]:
 
 def run_ekf_patient(scene, experiments, prior, official, *, lock_ratio: bool, noise_px: float, pid: str) -> dict:
     center, radius = _predicted_region(scene, prior)
-    initial_E = float(prior["E_background_estimated"])
-    initial_ratio = float((official or prior)["inclusion_ratio_estimated"])
+    initial_E_raw = float(prior["E_background_estimated"])
+    initial_ratio_raw = float((official or prior)["inclusion_ratio_estimated"])
+    # fit_patient clips the start point to its global box (E 1000-15000, ratio 1-5)
+    # before locking/optimising; mirror that so the locked ratio is identical.
+    initial_E = min(max(initial_E_raw, GLOBAL_BOUNDS["E"][0]), GLOBAL_BOUNDS["E"][1])
+    initial_ratio = min(max(initial_ratio_raw, GLOBAL_BOUNDS["ratio"][0]), GLOBAL_BOUNDS["ratio"][1])
     intr = experiments[0]["render_intrinsics"]
     focal, H, W = float(intr["focal_px"]), int(intr["height_px"]), int(intr["width_px"])
     # prior state and covariance (same scales as batch material/force priors)
@@ -235,8 +240,10 @@ def run_ekf_patient(scene, experiments, prior, official, *, lock_ratio: bool, no
         "inclusion_ratio_estimated": ratio_est,
         "force_scale_true": force_scale_target(experiments),
         "lock_ratio": bool(lock_ratio),
-        "initial_E_background": initial_E,
-        "initial_ratio": initial_ratio,
+        "initial_E_background": initial_E_raw,
+        "initial_ratio": initial_ratio_raw,
+        "start_E_background_clipped": initial_E,
+        "start_ratio_clipped": initial_ratio,
         "prior_log_std": [sig_E, FORCE_PRIOR_SIGMA] + ([] if lock_ratio else [sig_r]),
     }
     return record
@@ -340,13 +347,16 @@ def _paired(ekf: dict[str, dict], batch_rows: list[dict], tie_tol: float = 1e-9)
     evals = [float(batch[p].get("function_evaluations", math.nan)) for p in common if "function_evaluations" in batch[p]]
     result["batch_median_function_evaluations"] = _median(evals) if evals else None
     # matched-protocol checks (same lock decision / initial point as the batch arm)
-    checks = {"lock_ratio_equal": 0, "initial_E_equal": 0, "initial_ratio_equal": 0, "n_checked": 0}
+    checks = {"lock_ratio_equal": 0, "initial_E_equal": 0, "initial_ratio_equal": 0, "locked_ratio_value_equal": 0, "n_locked_in_both": 0, "n_checked": 0}
     for pid in common:
         e, b = ekf[pid], batch[pid]
         if "lock_ratio" not in e or "lock_ratio" not in b:
             continue
         checks["n_checked"] += 1
         checks["lock_ratio_equal"] += int(bool(e["lock_ratio"]) == bool(b["lock_ratio"]))
+        if bool(e["lock_ratio"]) and bool(b["lock_ratio"]) and "inclusion_ratio_estimated" in e and "inclusion_ratio_estimated" in b:
+            checks["n_locked_in_both"] += 1
+            checks["locked_ratio_value_equal"] += int(abs(float(e["inclusion_ratio_estimated"]) - float(b["inclusion_ratio_estimated"])) <= 1e-9)
         if "initial_E_background" in e and "initial_E_background" in b:
             checks["initial_E_equal"] += int(abs(float(e["initial_E_background"]) - float(b["initial_E_background"])) <= 1e-9 * max(1.0, abs(float(b["initial_E_background"]))))
         if "initial_ratio" in e and "initial_ratio" in b:
@@ -418,6 +428,34 @@ def summarize(args) -> None:
         comparison["records_path"] = str(path.relative_to(ROOT))
         comparison["records_sha256"] = _sha256(path)
         summary["paired_vs_batch"][name] = comparison
+    # EKF versus the (unrefined) learned initializer it started from
+    init_pairs = [
+        (abs(float(r["initial_E_background"]) - float(r["E_background_true"])) / float(r["E_background_true"]), float(r["E_background_relative_error"]))
+        for r in records if "initial_E_background" in r and "E_background_true" in r
+    ]
+    ratio_pairs = [
+        (abs(float(r["initial_ratio"]) - float(r["inclusion_ratio_true"])) / float(r["inclusion_ratio_true"]), float(r["inclusion_ratio_relative_error"]))
+        for r in records if not bool(r.get("lock_ratio", True)) and "initial_ratio" in r and "inclusion_ratio_true" in r
+    ]
+
+    def _vs_init(pairs: list[tuple[float, float]]) -> dict | None:
+        if not pairs:
+            return None
+        deltas = [100.0 * (f - i) for i, f in pairs]
+        return {
+            "n": len(pairs),
+            "ekf_better_than_initializer": sum(f < i for i, f in pairs),
+            "ekf_worse_than_initializer": sum(f > i for i, f in pairs),
+            "tied": sum(f == i for i, f in pairs),
+            "median_initializer_error_percent": round(100.0 * _median([i for i, _ in pairs]), 4),
+            "median_ekf_error_percent": round(100.0 * _median([f for _, f in pairs]), 4),
+            "median_paired_delta_pp": round(_median(deltas), 4),
+        }
+
+    summary["paired_vs_initializer"] = {
+        "E_background_relative_error": _vs_init(init_pairs),
+        "inclusion_ratio_relative_error_unlocked_only": _vs_init(ratio_pairs),
+    }
     (out_dir / "summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
     print(json.dumps({k: v for k, v in summary.items() if k not in ("protocol",)}, indent=2))
 

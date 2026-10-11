@@ -1,0 +1,162 @@
+{
+  "run_dir": ".\\results\\ion_ct_official_prior_screened_fem120_v1",
+  "run_manifest_exists": false,
+  "run_manifest_sha256": null,
+  "records_sha256": "166da29af39c37c0fa6b24f4db737b38c2862fa4916513fd87143be323ccc124",
+  "summary_sha256": "c5076fad3b4619fd308c179c9b77256c6e39282c790f4e06693c59f239d9a7ee",
+  "records_last_write": "2026-10-06T04:00:27.461001",
+  "settings_from_manifest": null,
+  "settings_from_summary_protocol": {
+    "cohort": "ct120",
+    "same_observations": "image_tracks + multiview temporal regression + Huber 1.5",
+    "region": "initializer predicted sphere, not optimized",
+    "ratio": "locked official 2028+bins3 on CT; contrast-locked on synthetic",
+    "optimized": "log E_background and log q only when ratio is locked",
+    "screening": "Newton FEM Huber cost; first-round 5% and total 5% rollback",
+    "eq_correlation_rollback": 0.85,
+    "steps_budget": 48
+  },
+  "settings_inferred_from_documented_reproduction_command": {
+    "command": "python experiments/run_screened_fem_locked.py --cohort ct120 --max-nfev 48 (experiments/reproduce_reviewer_arms.ps1:239)",
+    "values": {
+      "prior_width_scale": 1.0,
+      "material_prior_weight": 0.05,
+      "probe_count": 2,
+      "screen_threshold": 0.05,
+      "accept_threshold": 0.05,
+      "screening_metric": "map",
+      "objective_metric": "map",
+      "eq_correlation_rollback": 0.85,
+      "max_nfev": 48
+    },
+    "caveat": "run_manifest.json is absent (run predates manifest support); material_prior_weight and probe_count are not stored in these records and are taken from the documented command + script defaults. prior_width_scale is NOT taken from the current driver default (2.0): see prior_width_scale_evidence."
+  },
+  "settings_evidence_in_records": {
+    "max_nfev_48_consistent": true,
+    "max_function_evaluations_observed": 48,
+    "screening_rejected_function_evaluations": [
+      5
+    ],
+    "probe_count_2_consistent": true,
+    "probe_count_note": "ratio locked on CT -> 2 free parameters (log E, log q) x 2 symmetric probes + 1 initial = 5 evaluations in the screening round, which is exactly what every screening-rejected record shows.",
+    "eq_correlation_rollback_from_summary_protocol": 0.85,
+    "steps_budget_from_summary_protocol": 48,
+    "screening_string_from_summary_protocol": "Newton FEM Huber cost; first-round 5% and total 5% rollback",
+    "lock_ratio": {
+      "True": 120
+    },
+    "ratio_source": {
+      "official_2028_bins3": 120
+    },
+    "method": {
+      "official_prior_screened_fem": 120
+    },
+    "record_keys_present": [
+      "E_background_estimated",
+      "E_background_relative_error",
+      "E_background_true",
+      "E_force_correlation_status",
+      "E_force_local_posterior_correlation",
+      "center_error_normalized",
+      "center_fraction_estimated",
+      "center_fraction_true",
+      "cost",
+      "eq_correlation_rejected",
+      "force_scale_estimated",
+      "force_scale_relative_error",
+      "force_scale_true",
+      "function_evaluations",
+      "geometry_id",
+      "heterogeneous_true",
+      "inclusion_ratio_estimated",
+      "inclusion_ratio_relative_error",
+      "inclusion_ratio_true",
+      "initial_E_background",
+      "initial_cost",
+      "initial_ratio",
+      "lock_ratio",
+      "method",
+      "patient_id",
+      "radius_fraction_estimated",
+      "radius_fraction_true",
+      "radius_relative_error",
+      "ratio_source",
+      "refinement_accepted",
+      "relative_cost_reduction",
+      "scenario_id",
+      "screening_rejected",
+      "termination_reason",
+      "used_predicted_region",
+      "wall_time_seconds"
+    ]
+  },
+  "n_records": 120,
+  "unique_patient_ids": 120,
+  "manifest_patient_ids_count": null,
+  "ids_match_manifest": null,
+  "ids_match_ct_benchmark_120": true,
+  "termination_reason_counts": {
+    "step_tolerance": 73,
+    "insufficient_initial_physics_evidence": 47
+  },
+  "E_force_correlation_status_counts": {
+    "local_laplace": 73,
+    "screening_rejected": 47
+  },
+  "function_evaluations_counts": {
+    "5": 47,
+    "25": 2,
+    "29": 6,
+    "33": 9,
+    "37": 22,
+    "41": 22,
+    "45": 11,
+    "48": 1
+  },
+  "acceptance_mechanics": {
+    "screening_rejected": 47,
+    "continued_search_not_screening_rejected": 73,
+    "refinement_accepted": 73,
+    "continued_but_final_acceptance_rolled_back": 0,
+    "continued_but_rolled_back_ids": [],
+    "screening_rejected_but_accepted": 0,
+    "eq_correlation_rejected": 0,
+    "eq_correlation_rejected_ids": [],
+    "every_continued_search_was_accepted": true,
+    "relative_cost_reduction_continued_min_median_max": [
+      0.08011254816309932,
+      0.23278947824627377,
+      0.3091668946918211
+    ],
+    "relative_cost_reduction_screening_rejected_min_median_max": [
+      0.013751719106800873,
+      0.03387922253014952,
+      0.04998745055405371
+    ],
+    "accept_threshold_used_by_fit_patient": 0.05,
+    "note": "In fit_patient the first-round screen and the final acceptance share the same MAP objective when screening_metric == objective_metric == 'map'; the pattern search is monotone (best_cost never increases), so once the first round clears the 5% screen the final relative reduction is >= the first-round reduction and the final acceptance test cannot roll back. The only other rollback path is eq_correlation_rollback (|E-q Laplace correlation| >= 0.85), which with lock_ratio=True also flips refinement_accepted."
+  },
+  "ct_dataset_test_count": 120,
+  "prior_width_scale_evidence": {
+    "value": 1.0,
+    "status": "corrected 2026-10-12 (previous entry 2.0 was the current driver default, not the audit setting)",
+    "method": "bitwise comparison of the 18 locked scenes (results/ct_reviewer_drivers_v6/paired_scene_ids.json) between this audit's records.jsonl and the width-1 and width-2 18-scene pilot arms run with experiments/run_screened_fem_locked.py --cohort ct120 --screen-threshold 0.05 --probe-count 2 --max-nfev 48",
+    "width_1_arm": {
+      "records": "results/ct_reviewer_drivers_v1/recovered_raw/fem_paired/w1_s0p05_p2/records.jsonl",
+      "records_sha256": "23dde4dc737237de825cf242a916086edc6f048b22a58d2596142186715959cb",
+      "run_manifest_prior_width_scale": 1.0,
+      "scenes_compared": 18,
+      "E_background_estimated_identical": 18,
+      "function_evaluations_identical": 18,
+      "refinement_accepted_identical": 18
+    },
+    "width_2_arm": {
+      "records": "results/ct_reviewer_drivers_v6/ct_reviewer_drivers_v6/fem_paired/w2_s0p05_p2/records.jsonl",
+      "records_sha256": "d2e818b23eead350176e25fc420f36f26324f2b2364acf2a5f40ea37020138e1",
+      "run_manifest_prior_width_scale": 2.0,
+      "scenes_compared": 18,
+      "E_background_estimated_identical": 3
+    },
+    "conclusion": "The 120-scene official-prior audit used prior-width multiplier 1 (learned log-SD, floor 0.03). Its 73/120 acceptance therefore cannot be attributed to a width-2 prior; it reflects the ratio lock (two active parameters, five first-round evaluations), the 48-evaluation budget, and the CT observation regime. Acceptance rates are protocol-specific (synthetic primary 4/50 at width 1 / 96 evaluations / unlocked ratio; six-arm 26/50 at width 2 / 48 / contrast lock; CT120 73/120 at width 1 / 48 / ratio locked in all scenes) and are not comparable across protocols."
+  }
+}

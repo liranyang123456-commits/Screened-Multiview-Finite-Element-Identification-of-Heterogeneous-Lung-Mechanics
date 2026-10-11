@@ -1,0 +1,2980 @@
+{
+  "description": "Initializer-only (hybrid initializer E_background vs truth) reference for the 18-scene CT pilot; scene-wise worse/better/tied of each arm's final estimate against the initializer.",
+  "tie_tolerance_abs": 1e-09,
+  "baseline": {
+    "path": ".\\results\\ct_reviewer_drivers_v6\\ct_reviewer_drivers_v6\\fem_paired\\w2_s0p05_p2\\records.jsonl",
+    "records_sha256": "d2e818b23eead350176e25fc420f36f26324f2b2364acf2a5f40ea37020138e1",
+    "n": 18,
+    "unique_ids": 18,
+    "ids_match_baseline_18": true,
+    "accepted": 15,
+    "screening_rejected": 3,
+    "initializer_fields_in_records": true,
+    "initializer_reference_source": "own records (initial_E_background vs E_background_true)",
+    "median_initializer_only_error": 0.10047153094589976,
+    "median_final_error": 0.24630992994994141,
+    "median_paired_delta_final_minus_initializer": 0.18348303552477183,
+    "all_scenes": {
+      "n": 18,
+      "worse_than_initializer": 14,
+      "better_than_initializer": 1,
+      "tied": 3
+    },
+    "accepted_set": {
+      "n": 15,
+      "worse_than_initializer": 14,
+      "better_than_initializer": 1,
+      "tied": 0,
+      "median_initializer_only_error": 0.09399041131051958,
+      "median_final_error": 0.2540815420944976
+    },
+    "per_scene": [
+      {
+        "patient_id": "geom_58db559b24da6eb7cc0d_scenario_000",
+        "initializer_error": 0.05647601392196461,
+        "final_error": 0.20096385565554084,
+        "accepted": true,
+        "outcome": "worse"
+      },
+      {
+        "patient_id": "geom_58db559b24da6eb7cc0d_scenario_001",
+        "initializer_error": 0.13963274039905887,
+        "final_error": 0.13963274039905887,
+        "accepted": false,
+        "outcome": "tied"
+      },
+      {
+        "patient_id": "geom_58db559b24da6eb7cc0d_scenario_002",
+        "initializer_error": 0.07199362235643675,
+        "final_error": 0.2509328037500228,
+        "accepted": true,
+        "outcome": "worse"
+      },
+      {
+        "patient_id": "geom_62010c56d95ec023bc9b_scenario_000",
+        "initializer_error": 0.0055788734938530295,
+        "final_error": 0.3097618119678165,
+        "accepted": true,
+        "outcome": "worse"
+      },
+      {
+        "patient_id": "geom_62010c56d95ec023bc9b_scenario_001",
+        "initializer_error": 0.34644968587196473,
+        "final_error": 0.7118367912513202,
+        "accepted": true,
+        "outcome": "worse"
+      },
+      {
+        "patient_id": "geom_62010c56d95ec023bc9b_scenario_002",
+        "initializer_error": 0.19994748836043955,
+        "final_error": 0.5926664181212666,
+        "accepted": true,
+        "outcome": "worse"
+      },
+      {
+        "patient_id": "geom_a417d13e9ae27d685557_scenario_000",
+        "initializer_error": 0.1285563951092499,
+        "final_error": 0.14644994465198405,
+        "accepted": true,
+        "outcome": "worse"
+      },
+      {
+        "patient_id": "geom_a417d13e9ae27d685557_scenario_001",
+        "initializer_error": 0.015880166728731986,
+        "final_error": 0.18841639858821027,
+        "accepted": true,
+        "outcome": "worse"
+      },
+      {
+        "patient_id": "geom_a417d13e9ae27d685557_scenario_002",
+        "initializer_error": 0.15008302695806416,
+        "final_error": 0.051416347995930436,
+        "accepted": true,
+        "outcome": "better"
+      },
+      {
+        "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_000",
+        "initializer_error": 0.06411047989960836,
+        "final_error": 0.2540815420944976,
+        "accepted": true,
+        "outcome": "worse"
+      },
+      {
+        "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_001",
+        "initializer_error": 0.07655072770838435,
+        "final_error": 0.26457761736434193,
+        "accepted": true,
+        "outcome": "worse"
+      },
+      {
+        "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_002",
+        "initializer_error": 0.01596339628221843,
+        "final_error": 0.24168705614986002,
+        "accepted": true,
+        "outcome": "worse"
+      },
+      {
+        "patient_id": "geom_db38a9c3817f033727b5_scenario_000",
+        "initializer_error": 0.09399041131051958,
+        "final_error": 0.4206330913648824,
+        "accepted": true,
+        "outcome": "worse"
+      },
+      {
+        "patient_id": "geom_db38a9c3817f033727b5_scenario_001",
+        "initializer_error": 0.41561620488953305,
+        "final_error": 0.8123184945342103,
+        "accepted": true,
+        "outcome": "worse"
+      },
+      {
+        "patient_id": "geom_db38a9c3817f033727b5_scenario_002",
+        "initializer_error": 0.4575650583625939,
+        "final_error": 0.9850974162320189,
+        "accepted": true,
+        "outcome": "worse"
+      },
+      {
+        "patient_id": "geom_fac5cdc88e186e46ee04_scenario_000",
+        "initializer_error": 0.1350823574195816,
+        "final_error": 0.21718036631361656,
+        "accepted": true,
+        "outcome": "worse"
+      },
+      {
+        "patient_id": "geom_fac5cdc88e186e46ee04_scenario_001",
+        "initializer_error": 0.10695265058127995,
+        "final_error": 0.10695265058127995,
+        "accepted": false,
+        "outcome": "tied"
+      },
+      {
+        "patient_id": "geom_fac5cdc88e186e46ee04_scenario_002",
+        "initializer_error": 0.03740885080582468,
+        "final_error": 0.03740885080582468,
+        "accepted": false,
+        "outcome": "tied"
+      }
+    ]
+  },
+  "groups": {
+    "assumption_sensitivity": {
+      "aspect_1p5": {
+        "path": ".\\results\\ct_reviewer_drivers_v6\\assumption_sensitivity\\aspect_1p5\\records.jsonl",
+        "records_sha256": "7f8acd52939789c9e150358799b976d30e1d0eb74e59876ddeb10c0cbfe9ef61",
+        "n": 18,
+        "unique_ids": 18,
+        "ids_match_baseline_18": true,
+        "accepted": 15,
+        "screening_rejected": 3,
+        "initializer_fields_in_records": true,
+        "initializer_reference_source": "own records (initial_E_background vs E_background_true)",
+        "median_initializer_only_error": 0.10047153094589976,
+        "median_final_error": 0.24630992994994141,
+        "median_paired_delta_final_minus_initializer": 0.17715347178468557,
+        "all_scenes": {
+          "n": 18,
+          "worse_than_initializer": 14,
+          "better_than_initializer": 1,
+          "tied": 3
+        },
+        "accepted_set": {
+          "n": 15,
+          "worse_than_initializer": 14,
+          "better_than_initializer": 1,
+          "tied": 0,
+          "median_initializer_only_error": 0.09399041131051958,
+          "median_final_error": 0.2519184898841694
+        },
+        "per_scene": [
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_000",
+            "initializer_error": 0.05647601392196461,
+            "final_error": 0.20096385565554084,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_001",
+            "initializer_error": 0.13963274039905887,
+            "final_error": 0.13963274039905887,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_002",
+            "initializer_error": 0.07199362235643675,
+            "final_error": 0.2509328037500228,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_000",
+            "initializer_error": 0.0055788734938530295,
+            "final_error": 0.3097618119678165,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_001",
+            "initializer_error": 0.34644968587196473,
+            "final_error": 0.7118367912513202,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_002",
+            "initializer_error": 0.19994748836043955,
+            "final_error": 0.5926664181212666,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_000",
+            "initializer_error": 0.1285563951092499,
+            "final_error": 0.14644994465198405,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_001",
+            "initializer_error": 0.015880166728731986,
+            "final_error": 0.18841639858821027,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_002",
+            "initializer_error": 0.15008302695806416,
+            "final_error": 0.051416347995930436,
+            "accepted": true,
+            "outcome": "better"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_000",
+            "initializer_error": 0.06411047989960836,
+            "final_error": 0.2540815420944976,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_001",
+            "initializer_error": 0.07655072770838435,
+            "final_error": 0.2519184898841694,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_002",
+            "initializer_error": 0.01596339628221843,
+            "final_error": 0.24168705614986002,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_000",
+            "initializer_error": 0.09399041131051958,
+            "final_error": 0.4206330913648824,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_001",
+            "initializer_error": 0.41561620488953305,
+            "final_error": 0.8123184945342103,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_002",
+            "initializer_error": 0.4575650583625939,
+            "final_error": 0.9850974162320189,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_000",
+            "initializer_error": 0.1350823574195816,
+            "final_error": 0.21718036631361656,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_001",
+            "initializer_error": 0.10695265058127995,
+            "final_error": 0.10695265058127995,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_002",
+            "initializer_error": 0.03740885080582468,
+            "final_error": 0.03740885080582468,
+            "accepted": false,
+            "outcome": "tied"
+          }
+        ]
+      },
+      "aspect_2p0": {
+        "path": ".\\results\\ct_reviewer_drivers_v6\\assumption_sensitivity\\aspect_2p0\\records.jsonl",
+        "records_sha256": "afbc8374d8356060472cdeab43a72c6c06fbfed3ff3c9f99901d1943779d62b2",
+        "n": 18,
+        "unique_ids": 18,
+        "ids_match_baseline_18": true,
+        "accepted": 15,
+        "screening_rejected": 3,
+        "initializer_fields_in_records": true,
+        "initializer_reference_source": "own records (initial_E_background vs E_background_true)",
+        "median_initializer_only_error": 0.10047153094589976,
+        "median_final_error": 0.24630992994994141,
+        "median_paired_delta_final_minus_initializer": 0.17715347178468557,
+        "all_scenes": {
+          "n": 18,
+          "worse_than_initializer": 14,
+          "better_than_initializer": 1,
+          "tied": 3
+        },
+        "accepted_set": {
+          "n": 15,
+          "worse_than_initializer": 14,
+          "better_than_initializer": 1,
+          "tied": 0,
+          "median_initializer_only_error": 0.09399041131051958,
+          "median_final_error": 0.2519184898841694
+        },
+        "per_scene": [
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_000",
+            "initializer_error": 0.05647601392196461,
+            "final_error": 0.20096385565554084,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_001",
+            "initializer_error": 0.13963274039905887,
+            "final_error": 0.13963274039905887,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_002",
+            "initializer_error": 0.07199362235643675,
+            "final_error": 0.2509328037500228,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_000",
+            "initializer_error": 0.0055788734938530295,
+            "final_error": 0.3097618119678165,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_001",
+            "initializer_error": 0.34644968587196473,
+            "final_error": 0.7118367912513202,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_002",
+            "initializer_error": 0.19994748836043955,
+            "final_error": 0.5926664181212666,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_000",
+            "initializer_error": 0.1285563951092499,
+            "final_error": 0.14644994465198405,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_001",
+            "initializer_error": 0.015880166728731986,
+            "final_error": 0.18841639858821027,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_002",
+            "initializer_error": 0.15008302695806416,
+            "final_error": 0.051416347995930436,
+            "accepted": true,
+            "outcome": "better"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_000",
+            "initializer_error": 0.06411047989960836,
+            "final_error": 0.2540815420944976,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_001",
+            "initializer_error": 0.07655072770838435,
+            "final_error": 0.2519184898841694,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_002",
+            "initializer_error": 0.01596339628221843,
+            "final_error": 0.24168705614986002,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_000",
+            "initializer_error": 0.09399041131051958,
+            "final_error": 0.4206330913648824,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_001",
+            "initializer_error": 0.41561620488953305,
+            "final_error": 0.8123184945342103,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_002",
+            "initializer_error": 0.4575650583625939,
+            "final_error": 0.9850974162320189,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_000",
+            "initializer_error": 0.1350823574195816,
+            "final_error": 0.21718036631361656,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_001",
+            "initializer_error": 0.10695265058127995,
+            "final_error": 0.10695265058127995,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_002",
+            "initializer_error": 0.03740885080582468,
+            "final_error": 0.03740885080582468,
+            "accepted": false,
+            "outcome": "tied"
+          }
+        ]
+      },
+      "contact_shift_0p15": {
+        "path": ".\\results\\ct_reviewer_drivers_v6\\assumption_sensitivity\\contact_shift_0p15\\records.jsonl",
+        "records_sha256": "d3bf282daa8a9ba98abf6018672896983ebae514b53d92ac5c00f14b790f5dad",
+        "n": 18,
+        "unique_ids": 18,
+        "ids_match_baseline_18": true,
+        "accepted": 16,
+        "screening_rejected": 2,
+        "initializer_fields_in_records": true,
+        "initializer_reference_source": "own records (initial_E_background vs E_background_true)",
+        "median_initializer_only_error": 0.10047153094589976,
+        "median_final_error": 0.2593295797294198,
+        "median_paired_delta_final_minus_initializer": 0.19530470850265025,
+        "all_scenes": {
+          "n": 18,
+          "worse_than_initializer": 15,
+          "better_than_initializer": 1,
+          "tied": 2
+        },
+        "accepted_set": {
+          "n": 16,
+          "worse_than_initializer": 15,
+          "better_than_initializer": 1,
+          "tied": 0,
+          "median_initializer_only_error": 0.11127340320988474,
+          "median_final_error": 0.2871697146660792
+        },
+        "per_scene": [
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_000",
+            "initializer_error": 0.05647601392196461,
+            "final_error": 0.22043616856590187,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_001",
+            "initializer_error": 0.13963274039905887,
+            "final_error": 0.34027109520947013,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_002",
+            "initializer_error": 0.07199362235643675,
+            "final_error": 0.34186095959264856,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_000",
+            "initializer_error": 0.0055788734938530295,
+            "final_error": 0.3097618119678165,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_001",
+            "initializer_error": 0.34644968587196473,
+            "final_error": 0.7118367912513202,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_002",
+            "initializer_error": 0.19994748836043955,
+            "final_error": 0.5926664181212666,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_000",
+            "initializer_error": 0.1285563951092499,
+            "final_error": 0.14644994465198405,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_001",
+            "initializer_error": 0.015880166728731986,
+            "final_error": 0.18841639858821027,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_002",
+            "initializer_error": 0.15008302695806416,
+            "final_error": 0.051416347995930436,
+            "accepted": true,
+            "outcome": "better"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_000",
+            "initializer_error": 0.06411047989960836,
+            "final_error": 0.2540815420944976,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_001",
+            "initializer_error": 0.07655072770838435,
+            "final_error": 0.26457761736434193,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_002",
+            "initializer_error": 0.01596339628221843,
+            "final_error": 0.24168705614986002,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_000",
+            "initializer_error": 0.09399041131051958,
+            "final_error": 0.4206330913648824,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_001",
+            "initializer_error": 0.41561620488953305,
+            "final_error": 0.8123184945342103,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_002",
+            "initializer_error": 0.4575650583625939,
+            "final_error": 0.9850974162320189,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_000",
+            "initializer_error": 0.1350823574195816,
+            "final_error": 0.1416517695842098,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_001",
+            "initializer_error": 0.10695265058127995,
+            "final_error": 0.10695265058127995,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_002",
+            "initializer_error": 0.03740885080582468,
+            "final_error": 0.03740885080582468,
+            "accepted": false,
+            "outcome": "tied"
+          }
+        ]
+      },
+      "corr_dropout_0p20": {
+        "path": ".\\results\\ct_reviewer_drivers_v6\\assumption_sensitivity\\corr_dropout_0p20\\records.jsonl",
+        "records_sha256": "8b0bdefef9b6865b5b88aaff686fdcaf51a09723a86f11c5c61614ec42d18e52",
+        "n": 18,
+        "unique_ids": 18,
+        "ids_match_baseline_18": true,
+        "accepted": 15,
+        "screening_rejected": 3,
+        "initializer_fields_in_records": true,
+        "initializer_reference_source": "own records (initial_E_background vs E_background_true)",
+        "median_initializer_only_error": 0.10047153094589976,
+        "median_final_error": 0.23106161235788095,
+        "median_paired_delta_final_minus_initializer": 0.18028156075771795,
+        "all_scenes": {
+          "n": 18,
+          "worse_than_initializer": 14,
+          "better_than_initializer": 1,
+          "tied": 3
+        },
+        "accepted_set": {
+          "n": 15,
+          "worse_than_initializer": 14,
+          "better_than_initializer": 1,
+          "tied": 0,
+          "median_initializer_only_error": 0.09399041131051958,
+          "median_final_error": 0.2540815420944976
+        },
+        "per_scene": [
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_000",
+            "initializer_error": 0.05647601392196461,
+            "final_error": 0.22043616856590187,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_001",
+            "initializer_error": 0.13963274039905887,
+            "final_error": 0.13963274039905887,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_002",
+            "initializer_error": 0.07199362235643675,
+            "final_error": 0.19936082592871426,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_000",
+            "initializer_error": 0.0055788734938530295,
+            "final_error": 0.3097618119678165,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_001",
+            "initializer_error": 0.34644968587196473,
+            "final_error": 0.7118367912513202,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_002",
+            "initializer_error": 0.19994748836043955,
+            "final_error": 0.5926664181212666,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_000",
+            "initializer_error": 0.1285563951092499,
+            "final_error": 0.14644994465198405,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_001",
+            "initializer_error": 0.015880166728731986,
+            "final_error": 0.18841639858821027,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_002",
+            "initializer_error": 0.15008302695806416,
+            "final_error": 0.051416347995930436,
+            "accepted": true,
+            "outcome": "better"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_000",
+            "initializer_error": 0.06411047989960836,
+            "final_error": 0.2540815420944976,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_001",
+            "initializer_error": 0.07655072770838435,
+            "final_error": 0.26457761736434193,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_002",
+            "initializer_error": 0.01596339628221843,
+            "final_error": 0.24168705614986002,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_000",
+            "initializer_error": 0.09399041131051958,
+            "final_error": 0.4206330913648824,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_001",
+            "initializer_error": 0.41561620488953305,
+            "final_error": 0.8123184945342103,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_002",
+            "initializer_error": 0.4575650583625939,
+            "final_error": 0.9850974162320189,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_000",
+            "initializer_error": 0.1350823574195816,
+            "final_error": 0.21718036631361656,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_001",
+            "initializer_error": 0.10695265058127995,
+            "final_error": 0.10695265058127995,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_002",
+            "initializer_error": 0.03740885080582468,
+            "final_error": 0.03740885080582468,
+            "accepted": false,
+            "outcome": "tied"
+          }
+        ]
+      },
+      "fix_q0p70": {
+        "path": ".\\results\\ct_reviewer_drivers_v6\\assumption_sensitivity\\fix_q0p70\\records.jsonl",
+        "records_sha256": "2dc4793bb916e2f21c949025abfcae8ce7af022d7e09cbdeecd2c7feff211885",
+        "n": 18,
+        "unique_ids": 18,
+        "ids_match_baseline_18": true,
+        "accepted": 6,
+        "screening_rejected": 12,
+        "initializer_fields_in_records": true,
+        "initializer_reference_source": "own records (initial_E_background vs E_background_true)",
+        "median_initializer_only_error": 0.10047153094589976,
+        "median_final_error": 0.12101750400043078,
+        "median_paired_delta_final_minus_initializer": 0.0,
+        "all_scenes": {
+          "n": 18,
+          "worse_than_initializer": 4,
+          "better_than_initializer": 2,
+          "tied": 12
+        },
+        "accepted_set": {
+          "n": 6,
+          "worse_than_initializer": 4,
+          "better_than_initializer": 2,
+          "tied": 0,
+          "median_initializer_only_error": 0.09633343750442913,
+          "median_final_error": 0.19577918100565175
+        },
+        "per_scene": [
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_000",
+            "initializer_error": 0.05647601392196461,
+            "final_error": 0.05647601392196461,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_001",
+            "initializer_error": 0.13963274039905887,
+            "final_error": 0.13963274039905887,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_002",
+            "initializer_error": 0.07199362235643675,
+            "final_error": 0.07199362235643675,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_000",
+            "initializer_error": 0.0055788734938530295,
+            "final_error": 0.3097618119678165,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_001",
+            "initializer_error": 0.34644968587196473,
+            "final_error": 0.34644968587196473,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_002",
+            "initializer_error": 0.19994748836043955,
+            "final_error": 0.4578035923153298,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_000",
+            "initializer_error": 0.1285563951092499,
+            "final_error": 0.07047405315812902,
+            "accepted": true,
+            "outcome": "better"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_001",
+            "initializer_error": 0.015880166728731986,
+            "final_error": 0.015880166728731986,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_002",
+            "initializer_error": 0.15008302695806416,
+            "final_error": 0.023823155177903062,
+            "accepted": true,
+            "outcome": "better"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_000",
+            "initializer_error": 0.06411047989960836,
+            "final_error": 0.20616514456228893,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_001",
+            "initializer_error": 0.07655072770838435,
+            "final_error": 0.07655072770838435,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_002",
+            "initializer_error": 0.01596339628221843,
+            "final_error": 0.18539321744901457,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_000",
+            "initializer_error": 0.09399041131051958,
+            "final_error": 0.09399041131051958,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_001",
+            "initializer_error": 0.41561620488953305,
+            "final_error": 0.41561620488953305,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_002",
+            "initializer_error": 0.4575650583625939,
+            "final_error": 0.4575650583625939,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_000",
+            "initializer_error": 0.1350823574195816,
+            "final_error": 0.1350823574195816,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_001",
+            "initializer_error": 0.10695265058127995,
+            "final_error": 0.10695265058127995,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_002",
+            "initializer_error": 0.03740885080582468,
+            "final_error": 0.03740885080582468,
+            "accepted": false,
+            "outcome": "tied"
+          }
+        ]
+      },
+      "fix_q0p90": {
+        "path": ".\\results\\ct_reviewer_drivers_v6\\assumption_sensitivity\\fix_q0p90\\records.jsonl",
+        "records_sha256": "3314d4146b5d601af21647e3ae11f6b5cbc7500248599401bbbab81cdd3cf11b",
+        "n": 18,
+        "unique_ids": 18,
+        "ids_match_baseline_18": true,
+        "accepted": 18,
+        "screening_rejected": 0,
+        "initializer_fields_in_records": true,
+        "initializer_reference_source": "own records (initial_E_background vs E_background_true)",
+        "median_initializer_only_error": 0.10047153094589976,
+        "median_final_error": 0.3250164535886433,
+        "median_paired_delta_final_minus_initializer": 0.2477954985519267,
+        "all_scenes": {
+          "n": 18,
+          "worse_than_initializer": 17,
+          "better_than_initializer": 1,
+          "tied": 0
+        },
+        "accepted_set": {
+          "n": 18,
+          "worse_than_initializer": 17,
+          "better_than_initializer": 1,
+          "tied": 0,
+          "median_initializer_only_error": 0.10047153094589976,
+          "median_final_error": 0.3250164535886433
+        },
+        "per_scene": [
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_000",
+            "initializer_error": 0.05647601392196461,
+            "final_error": 0.22043616856590187,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_001",
+            "initializer_error": 0.13963274039905887,
+            "final_error": 0.34027109520947013,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_002",
+            "initializer_error": 0.07199362235643675,
+            "final_error": 0.34186095959264856,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_000",
+            "initializer_error": 0.0055788734938530295,
+            "final_error": 0.3097618119678165,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_001",
+            "initializer_error": 0.34644968587196473,
+            "final_error": 0.7118367912513202,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_002",
+            "initializer_error": 0.19994748836043955,
+            "final_error": 0.5926664181212666,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_000",
+            "initializer_error": 0.1285563951092499,
+            "final_error": 0.14644994465198405,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_001",
+            "initializer_error": 0.015880166728731986,
+            "final_error": 0.18841639858821027,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_002",
+            "initializer_error": 0.15008302695806416,
+            "final_error": 0.051416347995930436,
+            "accepted": true,
+            "outcome": "better"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_000",
+            "initializer_error": 0.06411047989960836,
+            "final_error": 0.2540815420944976,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_001",
+            "initializer_error": 0.07655072770838435,
+            "final_error": 0.26457761736434193,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_002",
+            "initializer_error": 0.01596339628221843,
+            "final_error": 0.24168705614986002,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_000",
+            "initializer_error": 0.09399041131051958,
+            "final_error": 0.4206330913648824,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_001",
+            "initializer_error": 0.41561620488953305,
+            "final_error": 0.8123184945342103,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_002",
+            "initializer_error": 0.4575650583625939,
+            "final_error": 0.9850974162320189,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_000",
+            "initializer_error": 0.1350823574195816,
+            "final_error": 0.21718036631361656,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_001",
+            "initializer_error": 0.10695265058127995,
+            "final_error": 0.3790620220823853,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_002",
+            "initializer_error": 0.03740885080582468,
+            "final_error": 0.427341325352143,
+            "accepted": true,
+            "outcome": "worse"
+          }
+        ]
+      },
+      "joint_force_p10_yaw_p5": {
+        "path": ".\\results\\ct_reviewer_drivers_v6\\assumption_sensitivity\\joint_force_p10_yaw_p5\\records.jsonl",
+        "records_sha256": "9d71910f122ddd0f9365dbebd1248549152973f19bde3112aaec06c31efc30a0",
+        "n": 18,
+        "unique_ids": 18,
+        "ids_match_baseline_18": true,
+        "accepted": 17,
+        "screening_rejected": 1,
+        "initializer_fields_in_records": true,
+        "initializer_reference_source": "own records (initial_E_background vs E_background_true)",
+        "median_initializer_only_error": 0.10047153094589976,
+        "median_final_error": 0.2871697146660792,
+        "median_paired_delta_final_minus_initializer": 0.20784736103126544,
+        "all_scenes": {
+          "n": 18,
+          "worse_than_initializer": 16,
+          "better_than_initializer": 1,
+          "tied": 1
+        },
+        "accepted_set": {
+          "n": 17,
+          "worse_than_initializer": 16,
+          "better_than_initializer": 1,
+          "tied": 0,
+          "median_initializer_only_error": 0.09399041131051958,
+          "median_final_error": 0.3097618119678165
+        },
+        "per_scene": [
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_000",
+            "initializer_error": 0.05647601392196461,
+            "final_error": 0.22043616856590187,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_001",
+            "initializer_error": 0.13963274039905887,
+            "final_error": 0.3133763291779854,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_002",
+            "initializer_error": 0.07199362235643675,
+            "final_error": 0.34186095959264856,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_000",
+            "initializer_error": 0.0055788734938530295,
+            "final_error": 0.3097618119678165,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_001",
+            "initializer_error": 0.34644968587196473,
+            "final_error": 0.7118367912513202,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_002",
+            "initializer_error": 0.19994748836043955,
+            "final_error": 0.5926664181212666,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_000",
+            "initializer_error": 0.1285563951092499,
+            "final_error": 0.14644994465198405,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_001",
+            "initializer_error": 0.015880166728731986,
+            "final_error": 0.18841639858821027,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_002",
+            "initializer_error": 0.15008302695806416,
+            "final_error": 0.051416347995930436,
+            "accepted": true,
+            "outcome": "better"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_000",
+            "initializer_error": 0.06411047989960836,
+            "final_error": 0.2540815420944976,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_001",
+            "initializer_error": 0.07655072770838435,
+            "final_error": 0.26457761736434193,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_002",
+            "initializer_error": 0.01596339628221843,
+            "final_error": 0.24168705614986002,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_000",
+            "initializer_error": 0.09399041131051958,
+            "final_error": 0.4206330913648824,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_001",
+            "initializer_error": 0.41561620488953305,
+            "final_error": 0.8123184945342103,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_002",
+            "initializer_error": 0.4575650583625939,
+            "final_error": 0.9850974162320189,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_000",
+            "initializer_error": 0.1350823574195816,
+            "final_error": 0.21718036631361656,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_001",
+            "initializer_error": 0.10695265058127995,
+            "final_error": 0.10695265058127995,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_002",
+            "initializer_error": 0.03740885080582468,
+            "final_error": 0.427341325352143,
+            "accepted": true,
+            "outcome": "worse"
+          }
+        ]
+      },
+      "mesh_jitter_0p02": {
+        "path": ".\\results\\ct_reviewer_drivers_v6\\assumption_sensitivity\\mesh_jitter_0p02\\records.jsonl",
+        "records_sha256": "48060063c9f88af7cc4aef82895f04d46aa69b1afd3c52309deb63c142db7a21",
+        "n": 18,
+        "unique_ids": 18,
+        "ids_match_baseline_18": true,
+        "accepted": 15,
+        "screening_rejected": 3,
+        "initializer_fields_in_records": true,
+        "initializer_reference_source": "own records (initial_E_background vs E_background_true)",
+        "median_initializer_only_error": 0.10047153094589976,
+        "median_final_error": 0.22534035397472535,
+        "median_paired_delta_final_minus_initializer": 0.16702147556943786,
+        "all_scenes": {
+          "n": 18,
+          "worse_than_initializer": 14,
+          "better_than_initializer": 1,
+          "tied": 3
+        },
+        "accepted_set": {
+          "n": 15,
+          "worse_than_initializer": 14,
+          "better_than_initializer": 1,
+          "tied": 0,
+          "median_initializer_only_error": 0.09399041131051958,
+          "median_final_error": 0.24168705614986002
+        },
+        "per_scene": [
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_000",
+            "initializer_error": 0.05647601392196461,
+            "final_error": 0.16294632720188093,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_001",
+            "initializer_error": 0.13963274039905887,
+            "final_error": 0.13963274039905887,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_002",
+            "initializer_error": 0.07199362235643675,
+            "final_error": 0.23350034163583416,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_000",
+            "initializer_error": 0.0055788734938530295,
+            "final_error": 0.3097618119678165,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_001",
+            "initializer_error": 0.34644968587196473,
+            "final_error": 0.6121086172043987,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_002",
+            "initializer_error": 0.19994748836043955,
+            "final_error": 0.5926664181212666,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_000",
+            "initializer_error": 0.1285563951092499,
+            "final_error": 0.14644994465198405,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_001",
+            "initializer_error": 0.015880166728731986,
+            "final_error": 0.18841639858821027,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_002",
+            "initializer_error": 0.15008302695806416,
+            "final_error": 0.051416347995930436,
+            "accepted": true,
+            "outcome": "better"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_000",
+            "initializer_error": 0.06411047989960836,
+            "final_error": 0.2540815420944976,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_001",
+            "initializer_error": 0.07655072770838435,
+            "final_error": 0.214696395366933,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_002",
+            "initializer_error": 0.01596339628221843,
+            "final_error": 0.24168705614986002,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_000",
+            "initializer_error": 0.09399041131051958,
+            "final_error": 0.4206330913648824,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_001",
+            "initializer_error": 0.41561620488953305,
+            "final_error": 0.8123184945342103,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_002",
+            "initializer_error": 0.4575650583625939,
+            "final_error": 0.9850974162320189,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_000",
+            "initializer_error": 0.1350823574195816,
+            "final_error": 0.21718036631361656,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_001",
+            "initializer_error": 0.10695265058127995,
+            "final_error": 0.10695265058127995,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_002",
+            "initializer_error": 0.03740885080582468,
+            "final_error": 0.03740885080582468,
+            "accepted": false,
+            "outcome": "tied"
+          }
+        ]
+      },
+      "nu_0p40": {
+        "path": ".\\results\\ct_reviewer_drivers_v6\\assumption_sensitivity\\nu_0p40\\records.jsonl",
+        "records_sha256": "b0b954b3d33e68e60ac3307eb46e165307c943c270d17d713d5958b619e58bf0",
+        "n": 18,
+        "unique_ids": 18,
+        "ids_match_baseline_18": true,
+        "accepted": 17,
+        "screening_rejected": 1,
+        "initializer_fields_in_records": true,
+        "initializer_reference_source": "own records (initial_E_background vs E_background_true)",
+        "median_initializer_only_error": 0.10047153094589976,
+        "median_final_error": 0.2871697146660792,
+        "median_paired_delta_final_minus_initializer": 0.21318100733902642,
+        "all_scenes": {
+          "n": 18,
+          "worse_than_initializer": 16,
+          "better_than_initializer": 1,
+          "tied": 1
+        },
+        "accepted_set": {
+          "n": 17,
+          "worse_than_initializer": 16,
+          "better_than_initializer": 1,
+          "tied": 0,
+          "median_initializer_only_error": 0.09399041131051958,
+          "median_final_error": 0.3097618119678165
+        },
+        "per_scene": [
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_000",
+            "initializer_error": 0.05647601392196461,
+            "final_error": 0.22043616856590187,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_001",
+            "initializer_error": 0.13963274039905887,
+            "final_error": 0.34027109520947013,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_002",
+            "initializer_error": 0.07199362235643675,
+            "final_error": 0.34186095959264856,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_000",
+            "initializer_error": 0.0055788734938530295,
+            "final_error": 0.3097618119678165,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_001",
+            "initializer_error": 0.34644968587196473,
+            "final_error": 0.7118367912513202,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_002",
+            "initializer_error": 0.19994748836043955,
+            "final_error": 0.5926664181212666,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_000",
+            "initializer_error": 0.1285563951092499,
+            "final_error": 0.14644994465198405,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_001",
+            "initializer_error": 0.015880166728731986,
+            "final_error": 0.18841639858821027,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_002",
+            "initializer_error": 0.15008302695806416,
+            "final_error": 0.051416347995930436,
+            "accepted": true,
+            "outcome": "better"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_000",
+            "initializer_error": 0.06411047989960836,
+            "final_error": 0.2540815420944976,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_001",
+            "initializer_error": 0.07655072770838435,
+            "final_error": 0.26457761736434193,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_002",
+            "initializer_error": 0.01596339628221843,
+            "final_error": 0.24168705614986002,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_000",
+            "initializer_error": 0.09399041131051958,
+            "final_error": 0.4206330913648824,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_001",
+            "initializer_error": 0.41561620488953305,
+            "final_error": 0.8123184945342103,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_002",
+            "initializer_error": 0.4575650583625939,
+            "final_error": 0.9850974162320189,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_000",
+            "initializer_error": 0.1350823574195816,
+            "final_error": 0.21718036631361656,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_001",
+            "initializer_error": 0.10695265058127995,
+            "final_error": 0.10695265058127995,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_002",
+            "initializer_error": 0.03740885080582468,
+            "final_error": 0.427341325352143,
+            "accepted": true,
+            "outcome": "worse"
+          }
+        ]
+      },
+      "nu_0p49": {
+        "path": ".\\results\\ct_reviewer_drivers_v6\\assumption_sensitivity\\nu_0p49\\records.jsonl",
+        "records_sha256": "b486d80551d34a6dbc541c7c8511335eb53d10ed05f5d5015578d8b2f9287f0a",
+        "n": 18,
+        "unique_ids": 18,
+        "ids_match_baseline_18": true,
+        "accepted": 4,
+        "screening_rejected": 14,
+        "initializer_fields_in_records": true,
+        "initializer_reference_source": "own records (initial_E_background vs E_background_true)",
+        "median_initializer_only_error": 0.10047153094589976,
+        "median_final_error": 0.13181937626441576,
+        "median_paired_delta_final_minus_initializer": 0.0,
+        "all_scenes": {
+          "n": 18,
+          "worse_than_initializer": 3,
+          "better_than_initializer": 1,
+          "tied": 14
+        },
+        "accepted_set": {
+          "n": 4,
+          "worse_than_initializer": 3,
+          "better_than_initializer": 1,
+          "tied": 0,
+          "median_initializer_only_error": 0.07905044560506397,
+          "median_final_error": 0.3651974516663494
+        },
+        "per_scene": [
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_000",
+            "initializer_error": 0.05647601392196461,
+            "final_error": 0.05647601392196461,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_001",
+            "initializer_error": 0.13963274039905887,
+            "final_error": 0.13963274039905887,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_002",
+            "initializer_error": 0.07199362235643675,
+            "final_error": 0.07199362235643675,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_000",
+            "initializer_error": 0.0055788734938530295,
+            "final_error": 0.3097618119678165,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_001",
+            "initializer_error": 0.34644968587196473,
+            "final_error": 0.34644968587196473,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_002",
+            "initializer_error": 0.19994748836043955,
+            "final_error": 0.19994748836043955,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_000",
+            "initializer_error": 0.1285563951092499,
+            "final_error": 0.1285563951092499,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_001",
+            "initializer_error": 0.015880166728731986,
+            "final_error": 0.015880166728731986,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_002",
+            "initializer_error": 0.15008302695806416,
+            "final_error": 0.15008302695806416,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_000",
+            "initializer_error": 0.06411047989960836,
+            "final_error": 0.0444497037307506,
+            "accepted": true,
+            "outcome": "better"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_001",
+            "initializer_error": 0.07655072770838435,
+            "final_error": 0.07655072770838435,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_002",
+            "initializer_error": 0.01596339628221843,
+            "final_error": 0.01596339628221843,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_000",
+            "initializer_error": 0.09399041131051958,
+            "final_error": 0.4206330913648824,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_001",
+            "initializer_error": 0.41561620488953305,
+            "final_error": 0.41561620488953305,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_002",
+            "initializer_error": 0.4575650583625939,
+            "final_error": 0.9850974162320189,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_000",
+            "initializer_error": 0.1350823574195816,
+            "final_error": 0.1350823574195816,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_001",
+            "initializer_error": 0.10695265058127995,
+            "final_error": 0.10695265058127995,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_002",
+            "initializer_error": 0.03740885080582468,
+            "final_error": 0.03740885080582468,
+            "accepted": false,
+            "outcome": "tied"
+          }
+        ]
+      }
+    },
+    "constitutive_mismatch": {
+      "fiber": {
+        "path": ".\\results\\ct_reviewer_drivers_v6\\constitutive_mismatch\\fiber\\records.jsonl",
+        "records_sha256": "9f4985400c76d6ea8d8ad6d2b34c76ec6c46f3f31b5b28d994ea5bf963879401",
+        "n": 18,
+        "unique_ids": 18,
+        "ids_match_baseline_18": true,
+        "accepted": 16,
+        "screening_rejected": null,
+        "initializer_fields_in_records": false,
+        "initializer_reference_source": "baseline w2_s0p05_p2 records (same hybrid initializer and same truth E per scene)",
+        "median_initializer_only_error": 0.10047153094589976,
+        "median_final_error": 0.25763828697347557,
+        "median_paired_delta_final_minus_initializer": 0.18899897592542342,
+        "all_scenes": {
+          "n": 18,
+          "worse_than_initializer": 15,
+          "better_than_initializer": 1,
+          "tied": 2
+        },
+        "accepted_set": {
+          "n": 16,
+          "worse_than_initializer": 15,
+          "better_than_initializer": 1,
+          "tied": 0,
+          "median_initializer_only_error": 0.11127340320988474,
+          "median_final_error": 0.26288632460839767
+        },
+        "per_scene": [
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_000",
+            "initializer_error": 0.05647601392196461,
+            "final_error": 0.22043616856590187,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_001",
+            "initializer_error": 0.13963274039905887,
+            "final_error": 0.26119503185245346,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_002",
+            "initializer_error": 0.07199362235643675,
+            "final_error": 0.28654030332722963,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_000",
+            "initializer_error": 0.0055788734938530295,
+            "final_error": 0.3097618119678165,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_001",
+            "initializer_error": 0.34644968587196473,
+            "final_error": 0.7118367912513202,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_002",
+            "initializer_error": 0.19994748836043955,
+            "final_error": 0.5926664181212666,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_000",
+            "initializer_error": 0.1285563951092499,
+            "final_error": 0.14644994465198405,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_001",
+            "initializer_error": 0.015880166728731986,
+            "final_error": 0.18841639858821027,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_002",
+            "initializer_error": 0.15008302695806416,
+            "final_error": 0.051416347995930436,
+            "accepted": true,
+            "outcome": "better"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_000",
+            "initializer_error": 0.06411047989960836,
+            "final_error": 0.2540815420944976,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_001",
+            "initializer_error": 0.07655072770838435,
+            "final_error": 0.26457761736434193,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_002",
+            "initializer_error": 0.01596339628221843,
+            "final_error": 0.24168705614986002,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_000",
+            "initializer_error": 0.09399041131051958,
+            "final_error": 0.4206330913648824,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_001",
+            "initializer_error": 0.41561620488953305,
+            "final_error": 0.8123184945342103,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_002",
+            "initializer_error": 0.4575650583625939,
+            "final_error": 0.9850974162320189,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_000",
+            "initializer_error": 0.1350823574195816,
+            "final_error": 0.21718036631361656,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_001",
+            "initializer_error": 0.10695265058127995,
+            "final_error": 0.10695265058127995,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_002",
+            "initializer_error": 0.03740885080582468,
+            "final_error": 0.03740885080582468,
+            "accepted": false,
+            "outcome": "tied"
+          }
+        ]
+      },
+      "viscous": {
+        "path": ".\\results\\ct_reviewer_drivers_v6\\constitutive_mismatch\\viscous\\records.jsonl",
+        "records_sha256": "656ec1d23858d7e65dccac78da4c7cc282cd6369947e0b35d101e19808cb931f",
+        "n": 18,
+        "unique_ids": 18,
+        "ids_match_baseline_18": true,
+        "accepted": 18,
+        "screening_rejected": null,
+        "initializer_fields_in_records": false,
+        "initializer_reference_source": "baseline w2_s0p05_p2 records (same hybrid initializer and same truth E per scene)",
+        "median_initializer_only_error": 0.10047153094589976,
+        "median_final_error": 0.3250164535886433,
+        "median_paired_delta_final_minus_initializer": 0.2477954985519267,
+        "all_scenes": {
+          "n": 18,
+          "worse_than_initializer": 17,
+          "better_than_initializer": 1,
+          "tied": 0
+        },
+        "accepted_set": {
+          "n": 18,
+          "worse_than_initializer": 17,
+          "better_than_initializer": 1,
+          "tied": 0,
+          "median_initializer_only_error": 0.10047153094589976,
+          "median_final_error": 0.3250164535886433
+        },
+        "per_scene": [
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_000",
+            "initializer_error": 0.05647601392196461,
+            "final_error": 0.22043616856590187,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_001",
+            "initializer_error": 0.13963274039905887,
+            "final_error": 0.34027109520947013,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_002",
+            "initializer_error": 0.07199362235643675,
+            "final_error": 0.34186095959264856,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_000",
+            "initializer_error": 0.0055788734938530295,
+            "final_error": 0.3097618119678165,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_001",
+            "initializer_error": 0.34644968587196473,
+            "final_error": 0.7118367912513202,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_002",
+            "initializer_error": 0.19994748836043955,
+            "final_error": 0.5926664181212666,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_000",
+            "initializer_error": 0.1285563951092499,
+            "final_error": 0.14644994465198405,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_001",
+            "initializer_error": 0.015880166728731986,
+            "final_error": 0.18841639858821027,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_002",
+            "initializer_error": 0.15008302695806416,
+            "final_error": 0.051416347995930436,
+            "accepted": true,
+            "outcome": "better"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_000",
+            "initializer_error": 0.06411047989960836,
+            "final_error": 0.2540815420944976,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_001",
+            "initializer_error": 0.07655072770838435,
+            "final_error": 0.26457761736434193,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_002",
+            "initializer_error": 0.01596339628221843,
+            "final_error": 0.24168705614986002,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_000",
+            "initializer_error": 0.09399041131051958,
+            "final_error": 0.4206330913648824,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_001",
+            "initializer_error": 0.41561620488953305,
+            "final_error": 0.8123184945342103,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_002",
+            "initializer_error": 0.4575650583625939,
+            "final_error": 0.9850974162320189,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_000",
+            "initializer_error": 0.1350823574195816,
+            "final_error": 0.21718036631361656,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_001",
+            "initializer_error": 0.10695265058127995,
+            "final_error": 0.3790620220823853,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_002",
+            "initializer_error": 0.03740885080582468,
+            "final_error": 0.427341325352143,
+            "accepted": true,
+            "outcome": "worse"
+          }
+        ]
+      }
+    },
+    "structural_mismatch": {
+      "diffuse": {
+        "path": ".\\results\\ct_reviewer_drivers_v6\\structural_mismatch\\diffuse\\records.jsonl",
+        "records_sha256": "20548bb4154b5734d2f7e773c8526cf84e582877d4cc79dfbe3e0d2b060bc37e",
+        "n": 18,
+        "unique_ids": 18,
+        "ids_match_baseline_18": true,
+        "accepted": 17,
+        "screening_rejected": null,
+        "initializer_fields_in_records": false,
+        "initializer_reference_source": "baseline w2_s0p05_p2 records (same hybrid initializer and same truth E per scene)",
+        "median_initializer_only_error": 0.10047153094589976,
+        "median_final_error": 0.2593295797294198,
+        "median_paired_delta_final_minus_initializer": 0.1932945351177266,
+        "all_scenes": {
+          "n": 18,
+          "worse_than_initializer": 16,
+          "better_than_initializer": 1,
+          "tied": 1
+        },
+        "accepted_set": {
+          "n": 17,
+          "worse_than_initializer": 16,
+          "better_than_initializer": 1,
+          "tied": 0,
+          "median_initializer_only_error": 0.09399041131051958,
+          "median_final_error": 0.26457761736434193
+        },
+        "per_scene": [
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_000",
+            "initializer_error": 0.05647601392196461,
+            "final_error": 0.20096385565554084,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_001",
+            "initializer_error": 0.13963274039905887,
+            "final_error": 0.2484769192820636,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_002",
+            "initializer_error": 0.07199362235643675,
+            "final_error": 0.2686116303970007,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_000",
+            "initializer_error": 0.0055788734938530295,
+            "final_error": 0.3097618119678165,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_001",
+            "initializer_error": 0.34644968587196473,
+            "final_error": 0.7118367912513202,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_002",
+            "initializer_error": 0.19994748836043955,
+            "final_error": 0.5926664181212666,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_000",
+            "initializer_error": 0.1285563951092499,
+            "final_error": 0.14644994465198405,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_001",
+            "initializer_error": 0.015880166728731986,
+            "final_error": 0.18841639858821027,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_002",
+            "initializer_error": 0.15008302695806416,
+            "final_error": 0.051416347995930436,
+            "accepted": true,
+            "outcome": "better"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_000",
+            "initializer_error": 0.06411047989960836,
+            "final_error": 0.2540815420944976,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_001",
+            "initializer_error": 0.07655072770838435,
+            "final_error": 0.26457761736434193,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_002",
+            "initializer_error": 0.01596339628221843,
+            "final_error": 0.24168705614986002,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_000",
+            "initializer_error": 0.09399041131051958,
+            "final_error": 0.4206330913648824,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_001",
+            "initializer_error": 0.41561620488953305,
+            "final_error": 0.8123184945342103,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_002",
+            "initializer_error": 0.4575650583625939,
+            "final_error": 0.9850974162320189,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_000",
+            "initializer_error": 0.1350823574195816,
+            "final_error": 0.21718036631361656,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_001",
+            "initializer_error": 0.10695265058127995,
+            "final_error": 0.10695265058127995,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_002",
+            "initializer_error": 0.03740885080582468,
+            "final_error": 0.427341325352143,
+            "accepted": true,
+            "outcome": "worse"
+          }
+        ]
+      },
+      "matched": {
+        "path": ".\\results\\ct_reviewer_drivers_v6\\structural_mismatch\\matched\\records.jsonl",
+        "records_sha256": "5d76967a8f7db8aac9d21bee574dc8272529f99e6ea6cc50aadb47d1e772424a",
+        "n": 18,
+        "unique_ids": 18,
+        "ids_match_baseline_18": true,
+        "accepted": 15,
+        "screening_rejected": null,
+        "initializer_fields_in_records": false,
+        "initializer_reference_source": "baseline w2_s0p05_p2 records (same hybrid initializer and same truth E per scene)",
+        "median_initializer_only_error": 0.10047153094589976,
+        "median_final_error": 0.24630992994994141,
+        "median_paired_delta_final_minus_initializer": 0.18348303552477183,
+        "all_scenes": {
+          "n": 18,
+          "worse_than_initializer": 14,
+          "better_than_initializer": 1,
+          "tied": 3
+        },
+        "accepted_set": {
+          "n": 15,
+          "worse_than_initializer": 14,
+          "better_than_initializer": 1,
+          "tied": 0,
+          "median_initializer_only_error": 0.09399041131051958,
+          "median_final_error": 0.2540815420944976
+        },
+        "per_scene": [
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_000",
+            "initializer_error": 0.05647601392196461,
+            "final_error": 0.20096385565554084,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_001",
+            "initializer_error": 0.13963274039905887,
+            "final_error": 0.13963274039905887,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_002",
+            "initializer_error": 0.07199362235643675,
+            "final_error": 0.2509328037500228,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_000",
+            "initializer_error": 0.0055788734938530295,
+            "final_error": 0.3097618119678165,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_001",
+            "initializer_error": 0.34644968587196473,
+            "final_error": 0.7118367912513202,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_002",
+            "initializer_error": 0.19994748836043955,
+            "final_error": 0.5926664181212666,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_000",
+            "initializer_error": 0.1285563951092499,
+            "final_error": 0.14644994465198405,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_001",
+            "initializer_error": 0.015880166728731986,
+            "final_error": 0.18841639858821027,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_002",
+            "initializer_error": 0.15008302695806416,
+            "final_error": 0.051416347995930436,
+            "accepted": true,
+            "outcome": "better"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_000",
+            "initializer_error": 0.06411047989960836,
+            "final_error": 0.2540815420944976,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_001",
+            "initializer_error": 0.07655072770838435,
+            "final_error": 0.26457761736434193,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_002",
+            "initializer_error": 0.01596339628221843,
+            "final_error": 0.24168705614986002,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_000",
+            "initializer_error": 0.09399041131051958,
+            "final_error": 0.4206330913648824,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_001",
+            "initializer_error": 0.41561620488953305,
+            "final_error": 0.8123184945342103,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_002",
+            "initializer_error": 0.4575650583625939,
+            "final_error": 0.9850974162320189,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_000",
+            "initializer_error": 0.1350823574195816,
+            "final_error": 0.21718036631361656,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_001",
+            "initializer_error": 0.10695265058127995,
+            "final_error": 0.10695265058127995,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_002",
+            "initializer_error": 0.03740885080582468,
+            "final_error": 0.03740885080582468,
+            "accepted": false,
+            "outcome": "tied"
+          }
+        ]
+      },
+      "sliding_bc": {
+        "path": ".\\results\\ct_reviewer_drivers_v6\\structural_mismatch\\sliding_bc\\records.jsonl",
+        "records_sha256": "4b63a30caf45d2d477bf4102fc661d7b1db5efb831f572c9395a134ea93f2ac0",
+        "n": 18,
+        "unique_ids": 18,
+        "ids_match_baseline_18": true,
+        "accepted": 10,
+        "screening_rejected": null,
+        "initializer_fields_in_records": false,
+        "initializer_reference_source": "baseline w2_s0p05_p2 records (same hybrid initializer and same truth E per scene)",
+        "median_initializer_only_error": 0.10047153094589976,
+        "median_final_error": 0.15602623262124354,
+        "median_paired_delta_final_minus_initializer": 0.008946774771367072,
+        "all_scenes": {
+          "n": 18,
+          "worse_than_initializer": 9,
+          "better_than_initializer": 1,
+          "tied": 8
+        },
+        "accepted_set": {
+          "n": 10,
+          "worse_than_initializer": 9,
+          "better_than_initializer": 1,
+          "tied": 0,
+          "median_initializer_only_error": 0.07905044560506397,
+          "median_final_error": 0.18856124066214672
+        },
+        "per_scene": [
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_000",
+            "initializer_error": 0.05647601392196461,
+            "final_error": 0.10816460113728106,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_001",
+            "initializer_error": 0.13963274039905887,
+            "final_error": 0.13963274039905887,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_002",
+            "initializer_error": 0.07199362235643675,
+            "final_error": 0.07199362235643675,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_000",
+            "initializer_error": 0.0055788734938530295,
+            "final_error": 0.3097618119678165,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_001",
+            "initializer_error": 0.34644968587196473,
+            "final_error": 0.34644968587196473,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_002",
+            "initializer_error": 0.19994748836043955,
+            "final_error": 0.5926664181212666,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_000",
+            "initializer_error": 0.1285563951092499,
+            "final_error": 0.14644994465198405,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_001",
+            "initializer_error": 0.015880166728731986,
+            "final_error": 0.18841639858821027,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_002",
+            "initializer_error": 0.15008302695806416,
+            "final_error": 0.051416347995930436,
+            "accepted": true,
+            "outcome": "better"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_000",
+            "initializer_error": 0.06411047989960836,
+            "final_error": 0.165602520590503,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_001",
+            "initializer_error": 0.07655072770838435,
+            "final_error": 0.07655072770838435,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_002",
+            "initializer_error": 0.01596339628221843,
+            "final_error": 0.18870608273608316,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_000",
+            "initializer_error": 0.09399041131051958,
+            "final_error": 0.4206330913648824,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_001",
+            "initializer_error": 0.41561620488953305,
+            "final_error": 0.41561620488953305,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_002",
+            "initializer_error": 0.4575650583625939,
+            "final_error": 0.9850974162320189,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_000",
+            "initializer_error": 0.1350823574195816,
+            "final_error": 0.1350823574195816,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_001",
+            "initializer_error": 0.10695265058127995,
+            "final_error": 0.10695265058127995,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_002",
+            "initializer_error": 0.03740885080582468,
+            "final_error": 0.03740885080582468,
+            "accepted": false,
+            "outcome": "tied"
+          }
+        ]
+      },
+      "two_inclusions": {
+        "path": ".\\results\\ct_reviewer_drivers_v6\\structural_mismatch\\two_inclusions\\records.jsonl",
+        "records_sha256": "7f8aee04fddb0fb91b4478a10a56886c870b35a350c413dd6dbf739446c3122e",
+        "n": 18,
+        "unique_ids": 18,
+        "ids_match_baseline_18": true,
+        "accepted": 17,
+        "screening_rejected": null,
+        "initializer_fields_in_records": false,
+        "initializer_reference_source": "baseline w2_s0p05_p2 records (same hybrid initializer and same truth E per scene)",
+        "median_initializer_only_error": 0.10047153094589976,
+        "median_final_error": 0.2525071729222602,
+        "median_paired_delta_final_minus_initializer": 0.18899897592542342,
+        "all_scenes": {
+          "n": 18,
+          "worse_than_initializer": 16,
+          "better_than_initializer": 1,
+          "tied": 1
+        },
+        "accepted_set": {
+          "n": 17,
+          "worse_than_initializer": 16,
+          "better_than_initializer": 1,
+          "tied": 0,
+          "median_initializer_only_error": 0.09399041131051958,
+          "median_final_error": 0.2540815420944976
+        },
+        "per_scene": [
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_000",
+            "initializer_error": 0.05647601392196461,
+            "final_error": 0.22043616856590187,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_001",
+            "initializer_error": 0.13963274039905887,
+            "final_error": 0.2484769192820636,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_002",
+            "initializer_error": 0.07199362235643675,
+            "final_error": 0.2509328037500228,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_000",
+            "initializer_error": 0.0055788734938530295,
+            "final_error": 0.3097618119678165,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_001",
+            "initializer_error": 0.34644968587196473,
+            "final_error": 0.7118367912513202,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_002",
+            "initializer_error": 0.19994748836043955,
+            "final_error": 0.5926664181212666,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_000",
+            "initializer_error": 0.1285563951092499,
+            "final_error": 0.14644994465198405,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_001",
+            "initializer_error": 0.015880166728731986,
+            "final_error": 0.18841639858821027,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_002",
+            "initializer_error": 0.15008302695806416,
+            "final_error": 0.051416347995930436,
+            "accepted": true,
+            "outcome": "better"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_000",
+            "initializer_error": 0.06411047989960836,
+            "final_error": 0.2540815420944976,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_001",
+            "initializer_error": 0.07655072770838435,
+            "final_error": 0.26457761736434193,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_002",
+            "initializer_error": 0.01596339628221843,
+            "final_error": 0.24168705614986002,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_000",
+            "initializer_error": 0.09399041131051958,
+            "final_error": 0.4206330913648824,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_001",
+            "initializer_error": 0.41561620488953305,
+            "final_error": 0.8123184945342103,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_002",
+            "initializer_error": 0.4575650583625939,
+            "final_error": 0.9850974162320189,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_000",
+            "initializer_error": 0.1350823574195816,
+            "final_error": 0.21718036631361656,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_001",
+            "initializer_error": 0.10695265058127995,
+            "final_error": 0.10695265058127995,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_002",
+            "initializer_error": 0.03740885080582468,
+            "final_error": 0.427341325352143,
+            "accepted": true,
+            "outcome": "worse"
+          }
+        ]
+      }
+    },
+    "decoupled_screen": {
+      "residual_screen_map_objective": {
+        "path": ".\\results\\ct_reviewer_drivers_v6\\decoupled_screen\\residual_screen_map_objective\\records.jsonl",
+        "records_sha256": "5cd1d09d244dcd869b7c3e3404d29d3ed7b5c891a7855d7c517adac23adb7683",
+        "n": 18,
+        "unique_ids": 18,
+        "ids_match_baseline_18": true,
+        "accepted": 16,
+        "screening_rejected": 2,
+        "initializer_fields_in_records": true,
+        "initializer_reference_source": "own records (initial_E_background vs E_background_true)",
+        "median_initializer_only_error": 0.10047153094589976,
+        "median_final_error": 0.24630992994994141,
+        "median_paired_delta_final_minus_initializer": 0.18348303552477183,
+        "all_scenes": {
+          "n": 18,
+          "worse_than_initializer": 15,
+          "better_than_initializer": 1,
+          "tied": 2
+        },
+        "accepted_set": {
+          "n": 16,
+          "worse_than_initializer": 15,
+          "better_than_initializer": 1,
+          "tied": 0,
+          "median_initializer_only_error": 0.11127340320988474,
+          "median_final_error": 0.2525071729222602
+        },
+        "per_scene": [
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_000",
+            "initializer_error": 0.05647601392196461,
+            "final_error": 0.20096385565554084,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_001",
+            "initializer_error": 0.13963274039905887,
+            "final_error": 0.2358870583962016,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_002",
+            "initializer_error": 0.07199362235643675,
+            "final_error": 0.2509328037500228,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_000",
+            "initializer_error": 0.0055788734938530295,
+            "final_error": 0.3097618119678165,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_001",
+            "initializer_error": 0.34644968587196473,
+            "final_error": 0.7118367912513202,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_002",
+            "initializer_error": 0.19994748836043955,
+            "final_error": 0.5926664181212666,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_000",
+            "initializer_error": 0.1285563951092499,
+            "final_error": 0.14644994465198405,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_001",
+            "initializer_error": 0.015880166728731986,
+            "final_error": 0.18841639858821027,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_002",
+            "initializer_error": 0.15008302695806416,
+            "final_error": 0.051416347995930436,
+            "accepted": true,
+            "outcome": "better"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_000",
+            "initializer_error": 0.06411047989960836,
+            "final_error": 0.2540815420944976,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_001",
+            "initializer_error": 0.07655072770838435,
+            "final_error": 0.26457761736434193,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_002",
+            "initializer_error": 0.01596339628221843,
+            "final_error": 0.24168705614986002,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_000",
+            "initializer_error": 0.09399041131051958,
+            "final_error": 0.4206330913648824,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_001",
+            "initializer_error": 0.41561620488953305,
+            "final_error": 0.8123184945342103,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_002",
+            "initializer_error": 0.4575650583625939,
+            "final_error": 0.9850974162320189,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_000",
+            "initializer_error": 0.1350823574195816,
+            "final_error": 0.21718036631361656,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_001",
+            "initializer_error": 0.10695265058127995,
+            "final_error": 0.10695265058127995,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_002",
+            "initializer_error": 0.03740885080582468,
+            "final_error": 0.03740885080582468,
+            "accepted": false,
+            "outcome": "tied"
+          }
+        ]
+      }
+    },
+    "population_prior": {
+      "learned_init_population_center": {
+        "path": ".\\results\\ct_reviewer_drivers_v6\\population_prior\\learned_init_population_center\\records.jsonl",
+        "records_sha256": "e882012ace998cf36bcdfbbfb50a781379f9a6bb28fc517d4ba3024f6a300e4f",
+        "n": 18,
+        "unique_ids": 18,
+        "ids_match_baseline_18": true,
+        "accepted": 15,
+        "screening_rejected": 3,
+        "initializer_fields_in_records": true,
+        "initializer_reference_source": "own records (initial_E_background vs E_background_true)",
+        "median_initializer_only_error": 0.10047153094589976,
+        "median_final_error": 0.253132336757101,
+        "median_paired_delta_final_minus_initializer": 0.19433262223318443,
+        "all_scenes": {
+          "n": 18,
+          "worse_than_initializer": 14,
+          "better_than_initializer": 1,
+          "tied": 3
+        },
+        "accepted_set": {
+          "n": 15,
+          "worse_than_initializer": 14,
+          "better_than_initializer": 1,
+          "tied": 0,
+          "median_initializer_only_error": 0.09399041131051958,
+          "median_final_error": 0.28654030332722963
+        },
+        "per_scene": [
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_000",
+            "initializer_error": 0.05647601392196461,
+            "final_error": 0.09048360443682522,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_001",
+            "initializer_error": 0.13963274039905887,
+            "final_error": 0.34027109520947013,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_58db559b24da6eb7cc0d_scenario_002",
+            "initializer_error": 0.07199362235643675,
+            "final_error": 0.28654030332722963,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_000",
+            "initializer_error": 0.0055788734938530295,
+            "final_error": 0.3097618119678165,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_001",
+            "initializer_error": 0.34644968587196473,
+            "final_error": 0.7118367912513202,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_62010c56d95ec023bc9b_scenario_002",
+            "initializer_error": 0.19994748836043955,
+            "final_error": 0.5926664181212666,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_000",
+            "initializer_error": 0.1285563951092499,
+            "final_error": 0.14644994465198405,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_001",
+            "initializer_error": 0.015880166728731986,
+            "final_error": 0.18841639858821027,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_a417d13e9ae27d685557_scenario_002",
+            "initializer_error": 0.15008302695806416,
+            "final_error": 0.051416347995930436,
+            "accepted": true,
+            "outcome": "better"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_000",
+            "initializer_error": 0.06411047989960836,
+            "final_error": 0.1871191268637073,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_001",
+            "initializer_error": 0.07655072770838435,
+            "final_error": 0.26457761736434193,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_002",
+            "initializer_error": 0.01596339628221843,
+            "final_error": 0.24168705614986002,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_000",
+            "initializer_error": 0.09399041131051958,
+            "final_error": 0.4206330913648824,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_001",
+            "initializer_error": 0.41561620488953305,
+            "final_error": 0.8123184945342103,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_db38a9c3817f033727b5_scenario_002",
+            "initializer_error": 0.4575650583625939,
+            "final_error": 0.9850974162320189,
+            "accepted": true,
+            "outcome": "worse"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_000",
+            "initializer_error": 0.1350823574195816,
+            "final_error": 0.1350823574195816,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_001",
+            "initializer_error": 0.10695265058127995,
+            "final_error": 0.10695265058127995,
+            "accepted": false,
+            "outcome": "tied"
+          },
+          {
+            "patient_id": "geom_fac5cdc88e186e46ee04_scenario_002",
+            "initializer_error": 0.03740885080582468,
+            "final_error": 0.03740885080582468,
+            "accepted": false,
+            "outcome": "tied"
+          }
+        ]
+      }
+    }
+  }
+}

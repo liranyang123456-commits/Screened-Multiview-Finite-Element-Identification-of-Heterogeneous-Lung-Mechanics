@@ -1,0 +1,127 @@
+{
+  "protocol": "EKF over log(E_bg), log(q) with the same learned initializer, same prior scales (prior_width_scale 2.0, force prior 0.05), ratio locked (official 2028+bins3) and predicted region locked as in the official-prior screened FEM. One measurement update per nonzero frame per load (five frames x four loads), multiview UV residuals, central-difference Jacobians, Huber-style innovation clipping. No screening or rollback.",
+  "cohort": "ct120",
+  "n": 120,
+  "unique_ids": 120,
+  "expected_n": 120,
+  "missing_ids": [],
+  "unexpected_ids": [],
+  "duplicate_rows_dropped_in_merge": 120,
+  "shard_files": [
+    "records_shard0of4.jsonl",
+    "records_shard1of4.jsonl",
+    "records_shard2of4.jsonl",
+    "records_shard3of4.jsonl"
+  ],
+  "observation_noise_px": [
+    0.05
+  ],
+  "ratio_locked_n": 120,
+  "median_background_error_percent": 3.1237,
+  "median_ratio_error_percent": 17.7672,
+  "median_force_error_percent": 4.3294,
+  "median_fem_solves": 100.0,
+  "paired_vs_batch": {
+    "official_prior_screened_fem120_v1": {
+      "n_paired": 120,
+      "n_batch": 120,
+      "endpoints": {
+        "E_background_relative_error": {
+          "better": 104,
+          "worse": 16,
+          "tied": 0,
+          "median_paired_delta_pp": -8.6738,
+          "ekf_median_percent": 3.1237,
+          "batch_median_percent": 11.6957
+        },
+        "inclusion_ratio_relative_error": {
+          "better": 0,
+          "worse": 0,
+          "tied": 120,
+          "median_paired_delta_pp": 0.0,
+          "ekf_median_percent": 17.7672,
+          "batch_median_percent": 17.7672
+        },
+        "force_scale_relative_error": {
+          "better": 42,
+          "worse": 78,
+          "tied": 0,
+          "median_paired_delta_pp": 0.6027,
+          "ekf_median_percent": 4.3294,
+          "batch_median_percent": 4.1318
+        }
+      },
+      "batch_median_function_evaluations": 33.0,
+      "matched_protocol_checks": {
+        "lock_ratio_equal": 120,
+        "initial_E_equal": 120,
+        "initial_ratio_equal": 120,
+        "locked_ratio_value_equal": 120,
+        "n_locked_in_both": 120,
+        "n_checked": 120
+      },
+      "records_path": "results\\ion_ct_official_prior_screened_fem120_v1\\records.jsonl",
+      "records_sha256": "166da29af39c37c0fa6b24f4db737b38c2862fa4916513fd87143be323ccc124"
+    },
+    "eighteen_scene_w2_s0p05_p2": {
+      "n_paired": 18,
+      "n_batch": 18,
+      "endpoints": {
+        "E_background_relative_error": {
+          "better": 18,
+          "worse": 0,
+          "tied": 0,
+          "median_paired_delta_pp": -20.6074,
+          "ekf_median_percent": 1.7784,
+          "batch_median_percent": 24.631
+        },
+        "inclusion_ratio_relative_error": {
+          "better": 0,
+          "worse": 0,
+          "tied": 18,
+          "median_paired_delta_pp": 0.0,
+          "ekf_median_percent": 54.3857,
+          "batch_median_percent": 54.3857
+        },
+        "force_scale_relative_error": {
+          "better": 4,
+          "worse": 14,
+          "tied": 0,
+          "median_paired_delta_pp": 0.6027,
+          "ekf_median_percent": 5.4815,
+          "batch_median_percent": 4.3641
+        }
+      },
+      "batch_median_function_evaluations": 33.0,
+      "matched_protocol_checks": {
+        "lock_ratio_equal": 18,
+        "initial_E_equal": 18,
+        "initial_ratio_equal": 18,
+        "locked_ratio_value_equal": 18,
+        "n_locked_in_both": 18,
+        "n_checked": 18
+      },
+      "records_path": "results\\ct_reviewer_drivers_v6\\ct_reviewer_drivers_v6\\fem_paired\\w2_s0p05_p2\\records.jsonl",
+      "records_sha256": "d2e818b23eead350176e25fc420f36f26324f2b2364acf2a5f40ea37020138e1"
+    }
+  },
+  "records_sha256": "525d67d2bc6332d7a4c4a140bd91da88ccae36f49addcfc13c227a1061bf5e74",
+  "shard_records_sha256": {
+    "records_shard0of4.jsonl": "d720ac90475eb4a71caed309bd5c1b80b6ca7b14bf7a01ea466525b1f88b90ba",
+    "records_shard1of4.jsonl": "042793f41f399f5d509c96dfc252711caffac95d5aa1a33340e39cc10a272796",
+    "records_shard2of4.jsonl": "d6f991b6c513623d884878ac335b16ed40911bbdc231bffd0a34b1c9d779a422",
+    "records_shard3of4.jsonl": "e74df6536d5e9cb00e55085db761d534b6b35f1866e19535c64bd5022f78ae6d"
+  },
+  "paired_vs_initializer": {
+    "E_background_relative_error": {
+      "n": 120,
+      "ekf_better_than_initializer": 93,
+      "ekf_worse_than_initializer": 27,
+      "tied": 0,
+      "median_initializer_error_percent": 8.5463,
+      "median_ekf_error_percent": 3.1237,
+      "median_paired_delta_pp": -5.2781
+    },
+    "inclusion_ratio_relative_error_unlocked_only": null
+  }
+}

@@ -1,0 +1,1 @@
+superseded 2026-10-12: initial ratio was not clipped to fit_patient's global box [1,5]; 4 scenes (lung_patient_049/149/194 locked at ratio<1, one unlocked start 5.98>5) differed from the matched batch start point. Replaced by a full re-run with clipping.

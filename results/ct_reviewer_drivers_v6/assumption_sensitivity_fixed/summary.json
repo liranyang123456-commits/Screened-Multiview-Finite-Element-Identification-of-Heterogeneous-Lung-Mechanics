@@ -1,0 +1,1738 @@
+{
+  "task": "ellipsoid-aspect arms with region attention always using the predicted centre/radius",
+  "locked_scene_ids_sha256": "c85c901b500a6e0dcb467804cc9884abce1d81803cd1bb45878a23cdfb983d7e",
+  "baseline": {
+    "label": "baseline_w2_s0p05_p2",
+    "results_dir": "results/ct_reviewer_drivers_v6/ct_reviewer_drivers_v6/fem_paired/w2_s0p05_p2",
+    "n": 18,
+    "unique_ids_equal_locked_18": true,
+    "manifest_patient_ids_equal_locked_18": true,
+    "max_nfev": 48,
+    "pose_rotation_error_deg": 0.0,
+    "region_aspect_xy": null,
+    "accepted": 15,
+    "screening_rejected": 3,
+    "eq_correlation_rejected": 0,
+    "median_convention": "arithmetic: sorted, mean of the two middle values for even n",
+    "E_background_median_relative_error": 0.24630992994994141,
+    "inclusion_ratio_median_relative_error": 0.5438574746532778,
+    "force_scale_median_relative_error": 0.043640812652790385,
+    "function_evaluations_median": 33.0,
+    "wall_time_seconds_median": 184.11325135000516,
+    "termination_reasons": {
+      "insufficient_initial_physics_evidence": 3,
+      "step_tolerance": 15
+    },
+    "records_sha256": "d2e818b23eead350176e25fc420f36f26324f2b2364acf2a5f40ea37020138e1",
+    "run_manifest_sha256": "e7120a2524c8aa3e755bef2ce7d513fb1679ce783dcbc1ccbebfb7dbdb61eb44",
+    "summary_json_sha256": "e682849fa34dbffcb0636867da41bea77420b09fa16707b3155da0beebff31d1"
+  },
+  "arms": {
+    "aspect_1p5": {
+      "label": "aspect_1p5",
+      "results_dir": "results/ct_reviewer_drivers_v6/assumption_sensitivity_fixed/aspect_1p5",
+      "n": 18,
+      "unique_ids_equal_locked_18": true,
+      "manifest_patient_ids_equal_locked_18": true,
+      "max_nfev": 48,
+      "pose_rotation_error_deg": 0.0,
+      "region_aspect_xy": 1.5,
+      "accepted": 15,
+      "screening_rejected": 3,
+      "eq_correlation_rejected": 0,
+      "median_convention": "arithmetic: sorted, mean of the two middle values for even n",
+      "E_background_median_relative_error": 0.24630992994994141,
+      "inclusion_ratio_median_relative_error": 0.5438574746532778,
+      "force_scale_median_relative_error": 0.043640812652790385,
+      "function_evaluations_median": 31.0,
+      "wall_time_seconds_median": 135.41670945000078,
+      "termination_reasons": {
+        "insufficient_initial_physics_evidence": 3,
+        "step_tolerance": 15
+      },
+      "records_sha256": "a5857b2e0c71befcf2bbc656a2b0f516d1a5b309d8003d992229273f90b61a45",
+      "run_manifest_sha256": "950c292b8532a835b43aff4e2bc36aafdf2a25d8714e0b9d2133dd1246e8ead0",
+      "summary_json_sha256": "401730ed4f368044c3d49c0983e13c793c6c536073fcf0f88034435a4c984adb",
+      "per_scene": [
+        {
+          "patient_id": "geom_58db559b24da6eb7cc0d_scenario_000",
+          "E_background_estimated": 8832.600881164626,
+          "E_background_relative_error": 0.20096385565554084,
+          "inclusion_ratio_relative_error": 1.0218285813556818,
+          "force_scale_relative_error": 0.010930123113249174,
+          "refinement_accepted": true,
+          "screening_rejected": false,
+          "function_evaluations": 33,
+          "termination_reason": "step_tolerance"
+        },
+        {
+          "patient_id": "geom_58db559b24da6eb7cc0d_scenario_001",
+          "E_background_estimated": 2975.7657605112827,
+          "E_background_relative_error": 0.13963274039905887,
+          "inclusion_ratio_relative_error": 0.5542408576358492,
+          "force_scale_relative_error": 0.04364081265279063,
+          "refinement_accepted": false,
+          "screening_rejected": true,
+          "function_evaluations": 5,
+          "termination_reason": "insufficient_initial_physics_evidence"
+        },
+        {
+          "patient_id": "geom_58db559b24da6eb7cc0d_scenario_002",
+          "E_background_estimated": 4769.876324309683,
+          "E_background_relative_error": 0.2509328037500228,
+          "inclusion_ratio_relative_error": 0.1340033278840395,
+          "force_scale_relative_error": 0.06055382737241778,
+          "refinement_accepted": true,
+          "screening_rejected": false,
+          "function_evaluations": 33,
+          "termination_reason": "step_tolerance"
+        },
+        {
+          "patient_id": "geom_62010c56d95ec023bc9b_scenario_000",
+          "E_background_estimated": 9632.765615737904,
+          "E_background_relative_error": 0.3097618119678165,
+          "inclusion_ratio_relative_error": 0.7841576007177715,
+          "force_scale_relative_error": 0.023216546449428728,
+          "refinement_accepted": true,
+          "screening_rejected": false,
+          "function_evaluations": 37,
+          "termination_reason": "step_tolerance"
+        },
+        {
+          "patient_id": "geom_62010c56d95ec023bc9b_scenario_001",
+          "E_background_estimated": 4469.883261870339,
+          "E_background_relative_error": 0.7118367912513202,
+          "inclusion_ratio_relative_error": 0.03485598153796065,
+          "force_scale_relative_error": 0.043640812652790385,
+          "refinement_accepted": true,
+          "screening_rejected": false,
+          "function_evaluations": 29,
+          "termination_reason": "step_tolerance"
+        },
+        {
+          "patient_id": "geom_62010c56d95ec023bc9b_scenario_002",
+          "E_background_estimated": 6072.925594041603,
+          "E_background_relative_error": 0.5926664181212666,
+          "inclusion_ratio_relative_error": 0.047408627336224904,
+          "force_scale_relative_error": 0.04737941614181986,
+          "refinement_accepted": true,
+          "screening_rejected": false,
+          "function_evaluations": 33,
+          "termination_reason": "step_tolerance"
+        },
+        {
+          "patient_id": "geom_a417d13e9ae27d685557_scenario_000",
+          "E_background_estimated": 8431.673229513593,
+          "E_background_relative_error": 0.14644994465198405,
+          "inclusion_ratio_relative_error": 1.0592397937855533,
+          "force_scale_relative_error": 0.023216546449428728,
+          "refinement_accepted": true,
+          "screening_rejected": false,
+          "function_evaluations": 33,
+          "termination_reason": "step_tolerance"
+        },
+        {
+          "patient_id": "geom_a417d13e9ae27d685557_scenario_001",
+          "E_background_estimated": 3103.1477973426654,
+          "E_background_relative_error": 0.18841639858821027,
+          "inclusion_ratio_relative_error": 0.5889351366543943,
+          "force_scale_relative_error": 0.03067649826528972,
+          "refinement_accepted": true,
+          "screening_rejected": false,
+          "function_evaluations": 33,
+          "termination_reason": "step_tolerance"
+        },
+        {
+          "patient_id": "geom_a417d13e9ae27d685557_scenario_002",
+          "E_background_estimated": 4009.1089867207006,
+          "E_background_relative_error": 0.051416347995930436,
+          "inclusion_ratio_relative_error": 0.23906269678386982,
+          "force_scale_relative_error": 0.04737941614181986,
+          "refinement_accepted": true,
+          "screening_rejected": false,
+          "function_evaluations": 37,
+          "termination_reason": "step_tolerance"
+        },
+        {
+          "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_000",
+          "E_background_estimated": 9223.259868807567,
+          "E_background_relative_error": 0.2540815420944976,
+          "inclusion_ratio_relative_error": 0.9773820562277501,
+          "force_scale_relative_error": 0.01093012311324939,
+          "refinement_accepted": true,
+          "screening_rejected": false,
+          "function_evaluations": 29,
+          "termination_reason": "step_tolerance"
+        },
+        {
+          "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_001",
+          "E_background_estimated": 3302.017081348547,
+          "E_background_relative_error": 0.26457761736434193,
+          "inclusion_ratio_relative_error": 0.5468741124615732,
+          "force_scale_relative_error": 0.043640812652790385,
+          "refinement_accepted": true,
+          "screening_rejected": false,
+          "function_evaluations": 29,
+          "termination_reason": "step_tolerance"
+        },
+        {
+          "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_002",
+          "E_background_estimated": 4734.621774707694,
+          "E_background_relative_error": 0.24168705614986002,
+          "inclusion_ratio_relative_error": 0.09233887127069537,
+          "force_scale_relative_error": 0.06055382737241778,
+          "refinement_accepted": true,
+          "screening_rejected": false,
+          "function_evaluations": 29,
+          "termination_reason": "step_tolerance"
+        },
+        {
+          "patient_id": "geom_db38a9c3817f033727b5_scenario_000",
+          "E_background_estimated": 10448.178798646592,
+          "E_background_relative_error": 0.4206330913648824,
+          "inclusion_ratio_relative_error": 0.9407324002616715,
+          "force_scale_relative_error": 0.023216546449428728,
+          "refinement_accepted": true,
+          "screening_rejected": false,
+          "function_evaluations": 37,
+          "termination_reason": "step_tolerance"
+        },
+        {
+          "patient_id": "geom_db38a9c3817f033727b5_scenario_001",
+          "E_background_estimated": 4732.257272011866,
+          "E_background_relative_error": 0.8123184945342103,
+          "inclusion_ratio_relative_error": 0.044435627352881465,
+          "force_scale_relative_error": 0.043640812652790385,
+          "refinement_accepted": true,
+          "screening_rejected": false,
+          "function_evaluations": 29,
+          "termination_reason": "step_tolerance"
+        },
+        {
+          "patient_id": "geom_db38a9c3817f033727b5_scenario_002",
+          "E_background_estimated": 7569.286806412329,
+          "E_background_relative_error": 0.9850974162320189,
+          "inclusion_ratio_relative_error": 0.07295946826687033,
+          "force_scale_relative_error": 0.06055382737241803,
+          "refinement_accepted": true,
+          "screening_rejected": false,
+          "function_evaluations": 29,
+          "termination_reason": "step_tolerance"
+        },
+        {
+          "patient_id": "geom_fac5cdc88e186e46ee04_scenario_000",
+          "E_background_estimated": 8951.866723890385,
+          "E_background_relative_error": 0.21718036631361656,
+          "inclusion_ratio_relative_error": 1.0233594708883602,
+          "force_scale_relative_error": 0.017092532255310138,
+          "refinement_accepted": true,
+          "screening_rejected": false,
+          "function_evaluations": 37,
+          "termination_reason": "step_tolerance"
+        },
+        {
+          "patient_id": "geom_fac5cdc88e186e46ee04_scenario_001",
+          "E_background_estimated": 2890.4327502503393,
+          "E_background_relative_error": 0.10695265058127995,
+          "inclusion_ratio_relative_error": 0.5408408368449823,
+          "force_scale_relative_error": 0.04364081265279063,
+          "refinement_accepted": false,
+          "screening_rejected": true,
+          "function_evaluations": 5,
+          "termination_reason": "insufficient_initial_physics_evidence"
+        },
+        {
+          "patient_id": "geom_fac5cdc88e186e46ee04_scenario_002",
+          "E_background_estimated": 3955.697621210398,
+          "E_background_relative_error": 0.03740885080582468,
+          "inclusion_ratio_relative_error": 0.05086811250209822,
+          "force_scale_relative_error": 0.06055382737241778,
+          "refinement_accepted": false,
+          "screening_rejected": true,
+          "function_evaluations": 5,
+          "termination_reason": "insufficient_initial_physics_evidence"
+        }
+      ]
+    },
+    "aspect_2p0": {
+      "label": "aspect_2p0",
+      "results_dir": "results/ct_reviewer_drivers_v6/assumption_sensitivity_fixed/aspect_2p0",
+      "n": 18,
+      "unique_ids_equal_locked_18": true,
+      "manifest_patient_ids_equal_locked_18": true,
+      "max_nfev": 48,
+      "pose_rotation_error_deg": 0.0,
+      "region_aspect_xy": 2.0,
+      "accepted": 15,
+      "screening_rejected": 3,
+      "eq_correlation_rejected": 0,
+      "median_convention": "arithmetic: sorted, mean of the two middle values for even n",
+      "E_background_median_relative_error": 0.24630992994994141,
+      "inclusion_ratio_median_relative_error": 0.5438574746532778,
+      "force_scale_median_relative_error": 0.043640812652790385,
+      "function_evaluations_median": 31.0,
+      "wall_time_seconds_median": 134.86375255000166,
+      "termination_reasons": {
+        "insufficient_initial_physics_evidence": 3,
+        "step_tolerance": 15
+      },
+      "records_sha256": "1e1e66012ae28769fa4304369fb83be2bddec37513440be9b9ef950afb5d1eda",
+      "run_manifest_sha256": "485f2e50b4b12f56ca0c206eafefb95cbac39fee25dd661335940e0b5d2b78e4",
+      "summary_json_sha256": "dbe95517d3423a331c1ef304db1a13763e645b715cfafe903f6aab1d9ee0d4db",
+      "per_scene": [
+        {
+          "patient_id": "geom_58db559b24da6eb7cc0d_scenario_000",
+          "E_background_estimated": 8832.600881164626,
+          "E_background_relative_error": 0.20096385565554084,
+          "inclusion_ratio_relative_error": 1.0218285813556818,
+          "force_scale_relative_error": 0.010930123113249174,
+          "refinement_accepted": true,
+          "screening_rejected": false,
+          "function_evaluations": 33,
+          "termination_reason": "step_tolerance"
+        },
+        {
+          "patient_id": "geom_58db559b24da6eb7cc0d_scenario_001",
+          "E_background_estimated": 2975.7657605112827,
+          "E_background_relative_error": 0.13963274039905887,
+          "inclusion_ratio_relative_error": 0.5542408576358492,
+          "force_scale_relative_error": 0.04364081265279063,
+          "refinement_accepted": false,
+          "screening_rejected": true,
+          "function_evaluations": 5,
+          "termination_reason": "insufficient_initial_physics_evidence"
+        },
+        {
+          "patient_id": "geom_58db559b24da6eb7cc0d_scenario_002",
+          "E_background_estimated": 4769.876324309683,
+          "E_background_relative_error": 0.2509328037500228,
+          "inclusion_ratio_relative_error": 0.1340033278840395,
+          "force_scale_relative_error": 0.06055382737241778,
+          "refinement_accepted": true,
+          "screening_rejected": false,
+          "function_evaluations": 33,
+          "termination_reason": "step_tolerance"
+        },
+        {
+          "patient_id": "geom_62010c56d95ec023bc9b_scenario_000",
+          "E_background_estimated": 9632.765615737904,
+          "E_background_relative_error": 0.3097618119678165,
+          "inclusion_ratio_relative_error": 0.7841576007177715,
+          "force_scale_relative_error": 0.023216546449428728,
+          "refinement_accepted": true,
+          "screening_rejected": false,
+          "function_evaluations": 37,
+          "termination_reason": "step_tolerance"
+        },
+        {
+          "patient_id": "geom_62010c56d95ec023bc9b_scenario_001",
+          "E_background_estimated": 4469.883261870339,
+          "E_background_relative_error": 0.7118367912513202,
+          "inclusion_ratio_relative_error": 0.03485598153796065,
+          "force_scale_relative_error": 0.043640812652790385,
+          "refinement_accepted": true,
+          "screening_rejected": false,
+          "function_evaluations": 29,
+          "termination_reason": "step_tolerance"
+        },
+        {
+          "patient_id": "geom_62010c56d95ec023bc9b_scenario_002",
+          "E_background_estimated": 6072.925594041603,
+          "E_background_relative_error": 0.5926664181212666,
+          "inclusion_ratio_relative_error": 0.047408627336224904,
+          "force_scale_relative_error": 0.04737941614181986,
+          "refinement_accepted": true,
+          "screening_rejected": false,
+          "function_evaluations": 33,
+          "termination_reason": "step_tolerance"
+        },
+        {
+          "patient_id": "geom_a417d13e9ae27d685557_scenario_000",
+          "E_background_estimated": 8431.673229513593,
+          "E_background_relative_error": 0.14644994465198405,
+          "inclusion_ratio_relative_error": 1.0592397937855533,
+          "force_scale_relative_error": 0.023216546449428728,
+          "refinement_accepted": true,
+          "screening_rejected": false,
+          "function_evaluations": 33,
+          "termination_reason": "step_tolerance"
+        },
+        {
+          "patient_id": "geom_a417d13e9ae27d685557_scenario_001",
+          "E_background_estimated": 3103.1477973426654,
+          "E_background_relative_error": 0.18841639858821027,
+          "inclusion_ratio_relative_error": 0.5889351366543943,
+          "force_scale_relative_error": 0.03067649826528972,
+          "refinement_accepted": true,
+          "screening_rejected": false,
+          "function_evaluations": 33,
+          "termination_reason": "step_tolerance"
+        },
+        {
+          "patient_id": "geom_a417d13e9ae27d685557_scenario_002",
+          "E_background_estimated": 4009.1089867207006,
+          "E_background_relative_error": 0.051416347995930436,
+          "inclusion_ratio_relative_error": 0.23906269678386982,
+          "force_scale_relative_error": 0.04737941614181986,
+          "refinement_accepted": true,
+          "screening_rejected": false,
+          "function_evaluations": 37,
+          "termination_reason": "step_tolerance"
+        },
+        {
+          "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_000",
+          "E_background_estimated": 9223.259868807567,
+          "E_background_relative_error": 0.2540815420944976,
+          "inclusion_ratio_relative_error": 0.9773820562277501,
+          "force_scale_relative_error": 0.01093012311324939,
+          "refinement_accepted": true,
+          "screening_rejected": false,
+          "function_evaluations": 29,
+          "termination_reason": "step_tolerance"
+        },
+        {
+          "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_001",
+          "E_background_estimated": 3302.017081348547,
+          "E_background_relative_error": 0.26457761736434193,
+          "inclusion_ratio_relative_error": 0.5468741124615732,
+          "force_scale_relative_error": 0.043640812652790385,
+          "refinement_accepted": true,
+          "screening_rejected": false,
+          "function_evaluations": 29,
+          "termination_reason": "step_tolerance"
+        },
+        {
+          "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_002",
+          "E_background_estimated": 4734.621774707694,
+          "E_background_relative_error": 0.24168705614986002,
+          "inclusion_ratio_relative_error": 0.09233887127069537,
+          "force_scale_relative_error": 0.06055382737241778,
+          "refinement_accepted": true,
+          "screening_rejected": false,
+          "function_evaluations": 29,
+          "termination_reason": "step_tolerance"
+        },
+        {
+          "patient_id": "geom_db38a9c3817f033727b5_scenario_000",
+          "E_background_estimated": 10448.178798646592,
+          "E_background_relative_error": 0.4206330913648824,
+          "inclusion_ratio_relative_error": 0.9407324002616715,
+          "force_scale_relative_error": 0.023216546449428728,
+          "refinement_accepted": true,
+          "screening_rejected": false,
+          "function_evaluations": 37,
+          "termination_reason": "step_tolerance"
+        },
+        {
+          "patient_id": "geom_db38a9c3817f033727b5_scenario_001",
+          "E_background_estimated": 4732.257272011866,
+          "E_background_relative_error": 0.8123184945342103,
+          "inclusion_ratio_relative_error": 0.044435627352881465,
+          "force_scale_relative_error": 0.043640812652790385,
+          "refinement_accepted": true,
+          "screening_rejected": false,
+          "function_evaluations": 29,
+          "termination_reason": "step_tolerance"
+        },
+        {
+          "patient_id": "geom_db38a9c3817f033727b5_scenario_002",
+          "E_background_estimated": 7569.286806412329,
+          "E_background_relative_error": 0.9850974162320189,
+          "inclusion_ratio_relative_error": 0.07295946826687033,
+          "force_scale_relative_error": 0.06055382737241803,
+          "refinement_accepted": true,
+          "screening_rejected": false,
+          "function_evaluations": 29,
+          "termination_reason": "step_tolerance"
+        },
+        {
+          "patient_id": "geom_fac5cdc88e186e46ee04_scenario_000",
+          "E_background_estimated": 8951.866723890385,
+          "E_background_relative_error": 0.21718036631361656,
+          "inclusion_ratio_relative_error": 1.0233594708883602,
+          "force_scale_relative_error": 0.017092532255310138,
+          "refinement_accepted": true,
+          "screening_rejected": false,
+          "function_evaluations": 37,
+          "termination_reason": "step_tolerance"
+        },
+        {
+          "patient_id": "geom_fac5cdc88e186e46ee04_scenario_001",
+          "E_background_estimated": 2890.4327502503393,
+          "E_background_relative_error": 0.10695265058127995,
+          "inclusion_ratio_relative_error": 0.5408408368449823,
+          "force_scale_relative_error": 0.04364081265279063,
+          "refinement_accepted": false,
+          "screening_rejected": true,
+          "function_evaluations": 5,
+          "termination_reason": "insufficient_initial_physics_evidence"
+        },
+        {
+          "patient_id": "geom_fac5cdc88e186e46ee04_scenario_002",
+          "E_background_estimated": 3955.697621210398,
+          "E_background_relative_error": 0.03740885080582468,
+          "inclusion_ratio_relative_error": 0.05086811250209822,
+          "force_scale_relative_error": 0.06055382737241778,
+          "refinement_accepted": false,
+          "screening_rejected": true,
+          "function_evaluations": 5,
+          "termination_reason": "insufficient_initial_physics_evidence"
+        }
+      ]
+    }
+  },
+  "vs_baseline": {
+    "aspect_1p5": {
+      "n_common": 18,
+      "n_E_background_estimated_bitwise_identical_to_baseline": 18,
+      "identical_scenes": [
+        "geom_58db559b24da6eb7cc0d_scenario_000",
+        "geom_58db559b24da6eb7cc0d_scenario_001",
+        "geom_58db559b24da6eb7cc0d_scenario_002",
+        "geom_62010c56d95ec023bc9b_scenario_000",
+        "geom_62010c56d95ec023bc9b_scenario_001",
+        "geom_62010c56d95ec023bc9b_scenario_002",
+        "geom_a417d13e9ae27d685557_scenario_000",
+        "geom_a417d13e9ae27d685557_scenario_001",
+        "geom_a417d13e9ae27d685557_scenario_002",
+        "geom_ab578f1bb0ee02be2ccd_scenario_000",
+        "geom_ab578f1bb0ee02be2ccd_scenario_001",
+        "geom_ab578f1bb0ee02be2ccd_scenario_002",
+        "geom_db38a9c3817f033727b5_scenario_000",
+        "geom_db38a9c3817f033727b5_scenario_001",
+        "geom_db38a9c3817f033727b5_scenario_002",
+        "geom_fac5cdc88e186e46ee04_scenario_000",
+        "geom_fac5cdc88e186e46ee04_scenario_001",
+        "geom_fac5cdc88e186e46ee04_scenario_002"
+      ],
+      "differing_scenes": [],
+      "median_delta_E_background_relative_error": 0.0,
+      "n_cost_identical_to_baseline": 0,
+      "n_initial_cost_identical_to_baseline": 0,
+      "n_function_evaluations_identical_to_baseline": 16,
+      "n_force_scale_estimated_identical_to_baseline": 16,
+      "n_accepted_identical_to_baseline": 18,
+      "per_scene_objective_shift_vs_baseline": [
+        {
+          "patient_id": "geom_58db559b24da6eb7cc0d_scenario_000",
+          "initial_cost_relative_change": -8.215650382226158e-15,
+          "final_cost_relative_change": 3.774758283725532e-15,
+          "function_evaluations_arm": 33,
+          "function_evaluations_baseline": 33,
+          "force_scale_estimated_arm": 1.0,
+          "force_scale_estimated_baseline": 1.0
+        },
+        {
+          "patient_id": "geom_58db559b24da6eb7cc0d_scenario_001",
+          "initial_cost_relative_change": 2.220446049250313e-15,
+          "final_cost_relative_change": 2.220446049250313e-15,
+          "function_evaluations_arm": 5,
+          "function_evaluations_baseline": 5,
+          "force_scale_estimated_arm": 1.0,
+          "force_scale_estimated_baseline": 1.0
+        },
+        {
+          "patient_id": "geom_58db559b24da6eb7cc0d_scenario_002",
+          "initial_cost_relative_change": 3.1086244689504383e-15,
+          "final_cost_relative_change": -7.882583474838611e-15,
+          "function_evaluations_arm": 33,
+          "function_evaluations_baseline": 33,
+          "force_scale_estimated_arm": 1.0,
+          "force_scale_estimated_baseline": 1.0
+        },
+        {
+          "patient_id": "geom_62010c56d95ec023bc9b_scenario_000",
+          "initial_cost_relative_change": -2.708944180085382e-14,
+          "final_cost_relative_change": -4.141131881851834e-14,
+          "function_evaluations_arm": 37,
+          "function_evaluations_baseline": 37,
+          "force_scale_estimated_arm": 0.9875778004938814,
+          "force_scale_estimated_baseline": 0.9875778004938814
+        },
+        {
+          "patient_id": "geom_62010c56d95ec023bc9b_scenario_001",
+          "initial_cost_relative_change": -0.12763046246686516,
+          "final_cost_relative_change": -0.07488249676873948,
+          "function_evaluations_arm": 29,
+          "function_evaluations_baseline": 29,
+          "force_scale_estimated_arm": 1.0,
+          "force_scale_estimated_baseline": 1.0
+        },
+        {
+          "patient_id": "geom_62010c56d95ec023bc9b_scenario_002",
+          "initial_cost_relative_change": -0.08130330386535578,
+          "final_cost_relative_change": -0.06569583835766257,
+          "function_evaluations_arm": 33,
+          "function_evaluations_baseline": 33,
+          "force_scale_estimated_arm": 0.9875778004938814,
+          "force_scale_estimated_baseline": 0.9875778004938814
+        },
+        {
+          "patient_id": "geom_a417d13e9ae27d685557_scenario_000",
+          "initial_cost_relative_change": -0.046584609594544024,
+          "final_cost_relative_change": -0.02948107340504391,
+          "function_evaluations_arm": 33,
+          "function_evaluations_baseline": 33,
+          "force_scale_estimated_arm": 0.9875778004938814,
+          "force_scale_estimated_baseline": 0.9875778004938814
+        },
+        {
+          "patient_id": "geom_a417d13e9ae27d685557_scenario_001",
+          "initial_cost_relative_change": -0.009433835514782274,
+          "final_cost_relative_change": -0.005709791559631583,
+          "function_evaluations_arm": 33,
+          "function_evaluations_baseline": 33,
+          "force_scale_estimated_arm": 0.9875778004938814,
+          "force_scale_estimated_baseline": 0.9875778004938814
+        },
+        {
+          "patient_id": "geom_a417d13e9ae27d685557_scenario_002",
+          "initial_cost_relative_change": 3.3306690738754696e-15,
+          "final_cost_relative_change": -2.1094237467877974e-15,
+          "function_evaluations_arm": 37,
+          "function_evaluations_baseline": 37,
+          "force_scale_estimated_arm": 0.9875778004938814,
+          "force_scale_estimated_baseline": 0.9875778004938814
+        },
+        {
+          "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_000",
+          "initial_cost_relative_change": 2.220446049250313e-15,
+          "final_cost_relative_change": -1.887379141862766e-15,
+          "function_evaluations_arm": 29,
+          "function_evaluations_baseline": 29,
+          "force_scale_estimated_arm": 1.0,
+          "force_scale_estimated_baseline": 1.0
+        },
+        {
+          "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_001",
+          "initial_cost_relative_change": -0.001900673023024546,
+          "final_cost_relative_change": 0.003936598738204955,
+          "function_evaluations_arm": 29,
+          "function_evaluations_baseline": 29,
+          "force_scale_estimated_arm": 1.0,
+          "force_scale_estimated_baseline": 1.0
+        },
+        {
+          "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_002",
+          "initial_cost_relative_change": -0.029640426404863862,
+          "final_cost_relative_change": 0.010393325076908821,
+          "function_evaluations_arm": 29,
+          "function_evaluations_baseline": 29,
+          "force_scale_estimated_arm": 1.0,
+          "force_scale_estimated_baseline": 1.0
+        },
+        {
+          "patient_id": "geom_db38a9c3817f033727b5_scenario_000",
+          "initial_cost_relative_change": -0.0460466204837775,
+          "final_cost_relative_change": -0.039389661635815254,
+          "function_evaluations_arm": 37,
+          "function_evaluations_baseline": 37,
+          "force_scale_estimated_arm": 0.9875778004938814,
+          "force_scale_estimated_baseline": 0.9875778004938814
+        },
+        {
+          "patient_id": "geom_db38a9c3817f033727b5_scenario_001",
+          "initial_cost_relative_change": -0.022230206627424254,
+          "final_cost_relative_change": -0.014030368524764247,
+          "function_evaluations_arm": 29,
+          "function_evaluations_baseline": 33,
+          "force_scale_estimated_arm": 1.0,
+          "force_scale_estimated_baseline": 0.9875778004938814
+        },
+        {
+          "patient_id": "geom_db38a9c3817f033727b5_scenario_002",
+          "initial_cost_relative_change": -0.05299999953555168,
+          "final_cost_relative_change": -0.02132324592741064,
+          "function_evaluations_arm": 29,
+          "function_evaluations_baseline": 33,
+          "force_scale_estimated_arm": 1.0,
+          "force_scale_estimated_baseline": 0.9875778004938814
+        },
+        {
+          "patient_id": "geom_fac5cdc88e186e46ee04_scenario_000",
+          "initial_cost_relative_change": 0.011394431170048902,
+          "final_cost_relative_change": 0.022264199867578105,
+          "function_evaluations_arm": 37,
+          "function_evaluations_baseline": 37,
+          "force_scale_estimated_arm": 0.9937694906233947,
+          "force_scale_estimated_baseline": 0.9937694906233947
+        },
+        {
+          "patient_id": "geom_fac5cdc88e186e46ee04_scenario_001",
+          "initial_cost_relative_change": -0.006969570908079148,
+          "final_cost_relative_change": -0.006969570908079148,
+          "function_evaluations_arm": 5,
+          "function_evaluations_baseline": 5,
+          "force_scale_estimated_arm": 1.0,
+          "force_scale_estimated_baseline": 1.0
+        },
+        {
+          "patient_id": "geom_fac5cdc88e186e46ee04_scenario_002",
+          "initial_cost_relative_change": 0.017378664875265404,
+          "final_cost_relative_change": 0.017378664875265404,
+          "function_evaluations_arm": 5,
+          "function_evaluations_baseline": 5,
+          "force_scale_estimated_arm": 1.0,
+          "force_scale_estimated_baseline": 1.0
+        }
+      ],
+      "max_abs_initial_cost_relative_change": 0.12763046246686516,
+      "max_abs_final_cost_relative_change": 0.07488249676873948,
+      "occupancy_node_set_changed_scenes": [
+        "geom_62010c56d95ec023bc9b_scenario_001",
+        "geom_62010c56d95ec023bc9b_scenario_002",
+        "geom_a417d13e9ae27d685557_scenario_000",
+        "geom_a417d13e9ae27d685557_scenario_001",
+        "geom_ab578f1bb0ee02be2ccd_scenario_001",
+        "geom_ab578f1bb0ee02be2ccd_scenario_002",
+        "geom_db38a9c3817f033727b5_scenario_000",
+        "geom_db38a9c3817f033727b5_scenario_001",
+        "geom_db38a9c3817f033727b5_scenario_002",
+        "geom_fac5cdc88e186e46ee04_scenario_000",
+        "geom_fac5cdc88e186e46ee04_scenario_001",
+        "geom_fac5cdc88e186e46ee04_scenario_002"
+      ],
+      "n_occupancy_changed": 12,
+      "n_occupancy_changed_and_E_identical": 12,
+      "n_occupancy_unchanged_and_E_identical": 6,
+      "n_occupancy_unchanged_and_E_differs": 0
+    },
+    "aspect_2p0": {
+      "n_common": 18,
+      "n_E_background_estimated_bitwise_identical_to_baseline": 18,
+      "identical_scenes": [
+        "geom_58db559b24da6eb7cc0d_scenario_000",
+        "geom_58db559b24da6eb7cc0d_scenario_001",
+        "geom_58db559b24da6eb7cc0d_scenario_002",
+        "geom_62010c56d95ec023bc9b_scenario_000",
+        "geom_62010c56d95ec023bc9b_scenario_001",
+        "geom_62010c56d95ec023bc9b_scenario_002",
+        "geom_a417d13e9ae27d685557_scenario_000",
+        "geom_a417d13e9ae27d685557_scenario_001",
+        "geom_a417d13e9ae27d685557_scenario_002",
+        "geom_ab578f1bb0ee02be2ccd_scenario_000",
+        "geom_ab578f1bb0ee02be2ccd_scenario_001",
+        "geom_ab578f1bb0ee02be2ccd_scenario_002",
+        "geom_db38a9c3817f033727b5_scenario_000",
+        "geom_db38a9c3817f033727b5_scenario_001",
+        "geom_db38a9c3817f033727b5_scenario_002",
+        "geom_fac5cdc88e186e46ee04_scenario_000",
+        "geom_fac5cdc88e186e46ee04_scenario_001",
+        "geom_fac5cdc88e186e46ee04_scenario_002"
+      ],
+      "differing_scenes": [],
+      "median_delta_E_background_relative_error": 0.0,
+      "n_cost_identical_to_baseline": 0,
+      "n_initial_cost_identical_to_baseline": 0,
+      "n_function_evaluations_identical_to_baseline": 16,
+      "n_force_scale_estimated_identical_to_baseline": 16,
+      "n_accepted_identical_to_baseline": 18,
+      "per_scene_objective_shift_vs_baseline": [
+        {
+          "patient_id": "geom_58db559b24da6eb7cc0d_scenario_000",
+          "initial_cost_relative_change": -8.215650382226158e-15,
+          "final_cost_relative_change": 3.774758283725532e-15,
+          "function_evaluations_arm": 33,
+          "function_evaluations_baseline": 33,
+          "force_scale_estimated_arm": 1.0,
+          "force_scale_estimated_baseline": 1.0
+        },
+        {
+          "patient_id": "geom_58db559b24da6eb7cc0d_scenario_001",
+          "initial_cost_relative_change": 0.002888531187965615,
+          "final_cost_relative_change": 0.002888531187965615,
+          "function_evaluations_arm": 5,
+          "function_evaluations_baseline": 5,
+          "force_scale_estimated_arm": 1.0,
+          "force_scale_estimated_baseline": 1.0
+        },
+        {
+          "patient_id": "geom_58db559b24da6eb7cc0d_scenario_002",
+          "initial_cost_relative_change": 3.1086244689504383e-15,
+          "final_cost_relative_change": -7.882583474838611e-15,
+          "function_evaluations_arm": 33,
+          "function_evaluations_baseline": 33,
+          "force_scale_estimated_arm": 1.0,
+          "force_scale_estimated_baseline": 1.0
+        },
+        {
+          "patient_id": "geom_62010c56d95ec023bc9b_scenario_000",
+          "initial_cost_relative_change": -0.07734070627663325,
+          "final_cost_relative_change": -0.07611606370782598,
+          "function_evaluations_arm": 37,
+          "function_evaluations_baseline": 37,
+          "force_scale_estimated_arm": 0.9875778004938814,
+          "force_scale_estimated_baseline": 0.9875778004938814
+        },
+        {
+          "patient_id": "geom_62010c56d95ec023bc9b_scenario_001",
+          "initial_cost_relative_change": -0.12763046246686516,
+          "final_cost_relative_change": -0.07488249676873948,
+          "function_evaluations_arm": 29,
+          "function_evaluations_baseline": 29,
+          "force_scale_estimated_arm": 1.0,
+          "force_scale_estimated_baseline": 1.0
+        },
+        {
+          "patient_id": "geom_62010c56d95ec023bc9b_scenario_002",
+          "initial_cost_relative_change": -0.08130330386535578,
+          "final_cost_relative_change": -0.06569583835766257,
+          "function_evaluations_arm": 33,
+          "function_evaluations_baseline": 33,
+          "force_scale_estimated_arm": 0.9875778004938814,
+          "force_scale_estimated_baseline": 0.9875778004938814
+        },
+        {
+          "patient_id": "geom_a417d13e9ae27d685557_scenario_000",
+          "initial_cost_relative_change": -0.09492522902525569,
+          "final_cost_relative_change": -0.05432567322821946,
+          "function_evaluations_arm": 33,
+          "function_evaluations_baseline": 33,
+          "force_scale_estimated_arm": 0.9875778004938814,
+          "force_scale_estimated_baseline": 0.9875778004938814
+        },
+        {
+          "patient_id": "geom_a417d13e9ae27d685557_scenario_001",
+          "initial_cost_relative_change": -0.012392178758043881,
+          "final_cost_relative_change": -0.006752368868184089,
+          "function_evaluations_arm": 33,
+          "function_evaluations_baseline": 33,
+          "force_scale_estimated_arm": 0.9875778004938814,
+          "force_scale_estimated_baseline": 0.9875778004938814
+        },
+        {
+          "patient_id": "geom_a417d13e9ae27d685557_scenario_002",
+          "initial_cost_relative_change": -0.044735891766083724,
+          "final_cost_relative_change": -0.0326119514358566,
+          "function_evaluations_arm": 37,
+          "function_evaluations_baseline": 37,
+          "force_scale_estimated_arm": 0.9875778004938814,
+          "force_scale_estimated_baseline": 0.9875778004938814
+        },
+        {
+          "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_000",
+          "initial_cost_relative_change": 0.008622542336404804,
+          "final_cost_relative_change": 0.055118379849459,
+          "function_evaluations_arm": 29,
+          "function_evaluations_baseline": 29,
+          "force_scale_estimated_arm": 1.0,
+          "force_scale_estimated_baseline": 1.0
+        },
+        {
+          "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_001",
+          "initial_cost_relative_change": -0.001900673023024546,
+          "final_cost_relative_change": 0.003936598738204955,
+          "function_evaluations_arm": 29,
+          "function_evaluations_baseline": 29,
+          "force_scale_estimated_arm": 1.0,
+          "force_scale_estimated_baseline": 1.0
+        },
+        {
+          "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_002",
+          "initial_cost_relative_change": -0.05697969721173013,
+          "final_cost_relative_change": -0.0038126124369552983,
+          "function_evaluations_arm": 29,
+          "function_evaluations_baseline": 29,
+          "force_scale_estimated_arm": 1.0,
+          "force_scale_estimated_baseline": 1.0
+        },
+        {
+          "patient_id": "geom_db38a9c3817f033727b5_scenario_000",
+          "initial_cost_relative_change": -0.0460466204837775,
+          "final_cost_relative_change": -0.039389661635815254,
+          "function_evaluations_arm": 37,
+          "function_evaluations_baseline": 37,
+          "force_scale_estimated_arm": 0.9875778004938814,
+          "force_scale_estimated_baseline": 0.9875778004938814
+        },
+        {
+          "patient_id": "geom_db38a9c3817f033727b5_scenario_001",
+          "initial_cost_relative_change": -0.02169066247034901,
+          "final_cost_relative_change": -0.008347915720991361,
+          "function_evaluations_arm": 29,
+          "function_evaluations_baseline": 33,
+          "force_scale_estimated_arm": 1.0,
+          "force_scale_estimated_baseline": 0.9875778004938814
+        },
+        {
+          "patient_id": "geom_db38a9c3817f033727b5_scenario_002",
+          "initial_cost_relative_change": -0.05299999953555168,
+          "final_cost_relative_change": -0.02132324592741064,
+          "function_evaluations_arm": 29,
+          "function_evaluations_baseline": 33,
+          "force_scale_estimated_arm": 1.0,
+          "force_scale_estimated_baseline": 0.9875778004938814
+        },
+        {
+          "patient_id": "geom_fac5cdc88e186e46ee04_scenario_000",
+          "initial_cost_relative_change": 0.01876238359168414,
+          "final_cost_relative_change": 0.03413085616433009,
+          "function_evaluations_arm": 37,
+          "function_evaluations_baseline": 37,
+          "force_scale_estimated_arm": 0.9937694906233947,
+          "force_scale_estimated_baseline": 0.9937694906233947
+        },
+        {
+          "patient_id": "geom_fac5cdc88e186e46ee04_scenario_001",
+          "initial_cost_relative_change": -0.010895083115335713,
+          "final_cost_relative_change": -0.010895083115335713,
+          "function_evaluations_arm": 5,
+          "function_evaluations_baseline": 5,
+          "force_scale_estimated_arm": 1.0,
+          "force_scale_estimated_baseline": 1.0
+        },
+        {
+          "patient_id": "geom_fac5cdc88e186e46ee04_scenario_002",
+          "initial_cost_relative_change": -0.020358156124708482,
+          "final_cost_relative_change": -0.020358156124708482,
+          "function_evaluations_arm": 5,
+          "function_evaluations_baseline": 5,
+          "force_scale_estimated_arm": 1.0,
+          "force_scale_estimated_baseline": 1.0
+        }
+      ],
+      "max_abs_initial_cost_relative_change": 0.12763046246686516,
+      "max_abs_final_cost_relative_change": 0.07611606370782598,
+      "occupancy_node_set_changed_scenes": [
+        "geom_58db559b24da6eb7cc0d_scenario_001",
+        "geom_62010c56d95ec023bc9b_scenario_000",
+        "geom_62010c56d95ec023bc9b_scenario_001",
+        "geom_62010c56d95ec023bc9b_scenario_002",
+        "geom_a417d13e9ae27d685557_scenario_000",
+        "geom_a417d13e9ae27d685557_scenario_001",
+        "geom_a417d13e9ae27d685557_scenario_002",
+        "geom_ab578f1bb0ee02be2ccd_scenario_000",
+        "geom_ab578f1bb0ee02be2ccd_scenario_001",
+        "geom_ab578f1bb0ee02be2ccd_scenario_002",
+        "geom_db38a9c3817f033727b5_scenario_000",
+        "geom_db38a9c3817f033727b5_scenario_001",
+        "geom_db38a9c3817f033727b5_scenario_002",
+        "geom_fac5cdc88e186e46ee04_scenario_000",
+        "geom_fac5cdc88e186e46ee04_scenario_001",
+        "geom_fac5cdc88e186e46ee04_scenario_002"
+      ],
+      "n_occupancy_changed": 16,
+      "n_occupancy_changed_and_E_identical": 16,
+      "n_occupancy_unchanged_and_E_identical": 2,
+      "n_occupancy_unchanged_and_E_differs": 0
+    }
+  },
+  "vs_archived_defective_arm": {
+    "aspect_1p5": {
+      "archived_dir": "results/ct_reviewer_drivers_v6/assumption_sensitivity/aspect_1p5",
+      "archived_records_sha256": "7f8acd52939789c9e150358799b976d30e1d0eb74e59876ddeb10c0cbfe9ef61",
+      "n_common": 18,
+      "n_E_background_estimated_bitwise_identical_to_archived": 17,
+      "archived_E_background_median_relative_error": 0.24630992994994141,
+      "archived_n_E_background_estimated_bitwise_identical_to_baseline": 17
+    },
+    "aspect_2p0": {
+      "archived_dir": "results/ct_reviewer_drivers_v6/assumption_sensitivity/aspect_2p0",
+      "archived_records_sha256": "afbc8374d8356060472cdeab43a72c6c06fbfed3ff3c9f99901d1943779d62b2",
+      "n_common": 18,
+      "n_E_background_estimated_bitwise_identical_to_archived": 17,
+      "archived_E_background_median_relative_error": 0.24630992994994141,
+      "archived_n_E_background_estimated_bitwise_identical_to_baseline": 17
+    }
+  },
+  "pre_run_occupancy_check": {
+    "aspects": [
+      1.5,
+      2.0
+    ],
+    "scenes": [
+      {
+        "patient_id": "geom_58db559b24da6eb7cc0d_scenario_000",
+        "n_nodes": 256,
+        "predicted_center": [
+          0.5440726280212402,
+          0.17276773078829757,
+          0.5314274471419442
+        ],
+        "predicted_radius": 0.052426711218219665,
+        "sphere_source": "sphere",
+        "sphere_node_count": 1,
+        "true_inclusion_node_count": 2,
+        "true_inclusion_ratio": 1.709421583661228,
+        "sphere_vs_true_overlap": 1,
+        "aspect": {
+          "1.5": {
+            "ellipsoid_node_count": 1,
+            "added_nodes": [],
+            "removed_nodes": [],
+            "n_added": 0,
+            "n_removed": 0,
+            "node_set_changed": false,
+            "ellipsoid_vs_true_overlap": 1
+          },
+          "2.0": {
+            "ellipsoid_node_count": 1,
+            "added_nodes": [],
+            "removed_nodes": [],
+            "n_added": 0,
+            "n_removed": 0,
+            "node_set_changed": false,
+            "ellipsoid_vs_true_overlap": 1
+          }
+        }
+      },
+      {
+        "patient_id": "geom_58db559b24da6eb7cc0d_scenario_001",
+        "n_nodes": 256,
+        "predicted_center": [
+          0.4955858588218689,
+          0.15795116050294053,
+          0.5027027117499213
+        ],
+        "predicted_radius": 0.06605475610138728,
+        "sphere_source": "sphere",
+        "sphere_node_count": 0,
+        "true_inclusion_node_count": 0,
+        "true_inclusion_ratio": 2.7941303093094225,
+        "sphere_vs_true_overlap": 0,
+        "aspect": {
+          "1.5": {
+            "ellipsoid_node_count": 0,
+            "added_nodes": [],
+            "removed_nodes": [],
+            "n_added": 0,
+            "n_removed": 0,
+            "node_set_changed": false,
+            "ellipsoid_vs_true_overlap": 0
+          },
+          "2.0": {
+            "ellipsoid_node_count": 1,
+            "added_nodes": [
+              164
+            ],
+            "removed_nodes": [],
+            "n_added": 1,
+            "n_removed": 0,
+            "node_set_changed": true,
+            "ellipsoid_vs_true_overlap": 0
+          }
+        }
+      },
+      {
+        "patient_id": "geom_58db559b24da6eb7cc0d_scenario_002",
+        "n_nodes": 256,
+        "predicted_center": [
+          0.5110372304916382,
+          0.16178398955539,
+          0.5024151145124462
+        ],
+        "predicted_radius": 0.06126737819369915,
+        "sphere_source": "sphere",
+        "sphere_node_count": 0,
+        "true_inclusion_node_count": 0,
+        "true_inclusion_ratio": 3.6620769305945675,
+        "sphere_vs_true_overlap": 0,
+        "aspect": {
+          "1.5": {
+            "ellipsoid_node_count": 0,
+            "added_nodes": [],
+            "removed_nodes": [],
+            "n_added": 0,
+            "n_removed": 0,
+            "node_set_changed": false,
+            "ellipsoid_vs_true_overlap": 0
+          },
+          "2.0": {
+            "ellipsoid_node_count": 0,
+            "added_nodes": [],
+            "removed_nodes": [],
+            "n_added": 0,
+            "n_removed": 0,
+            "node_set_changed": false,
+            "ellipsoid_vs_true_overlap": 0
+          }
+        }
+      },
+      {
+        "patient_id": "geom_62010c56d95ec023bc9b_scenario_000",
+        "n_nodes": 256,
+        "predicted_center": [
+          0.26034105694231663,
+          0.4940657317638397,
+          0.519340532495085
+        ],
+        "predicted_radius": 0.06997042078975697,
+        "sphere_source": "sphere",
+        "sphere_node_count": 1,
+        "true_inclusion_node_count": 1,
+        "true_inclusion_ratio": 1.709421583661228,
+        "sphere_vs_true_overlap": 1,
+        "aspect": {
+          "1.5": {
+            "ellipsoid_node_count": 1,
+            "added_nodes": [],
+            "removed_nodes": [],
+            "n_added": 0,
+            "n_removed": 0,
+            "node_set_changed": false,
+            "ellipsoid_vs_true_overlap": 1
+          },
+          "2.0": {
+            "ellipsoid_node_count": 2,
+            "added_nodes": [
+              156
+            ],
+            "removed_nodes": [],
+            "n_added": 1,
+            "n_removed": 0,
+            "node_set_changed": true,
+            "ellipsoid_vs_true_overlap": 1
+          }
+        }
+      },
+      {
+        "patient_id": "geom_62010c56d95ec023bc9b_scenario_001",
+        "n_nodes": 256,
+        "predicted_center": [
+          0.24772354085513215,
+          0.4695046544075012,
+          0.4701088050231614
+        ],
+        "predicted_radius": 0.08457060984540651,
+        "sphere_source": "sphere",
+        "sphere_node_count": 2,
+        "true_inclusion_node_count": 2,
+        "true_inclusion_ratio": 2.7941303093094225,
+        "sphere_vs_true_overlap": 1,
+        "aspect": {
+          "1.5": {
+            "ellipsoid_node_count": 4,
+            "added_nodes": [
+              155,
+              156
+            ],
+            "removed_nodes": [],
+            "n_added": 2,
+            "n_removed": 0,
+            "node_set_changed": true,
+            "ellipsoid_vs_true_overlap": 1
+          },
+          "2.0": {
+            "ellipsoid_node_count": 4,
+            "added_nodes": [
+              155,
+              156
+            ],
+            "removed_nodes": [],
+            "n_added": 2,
+            "n_removed": 0,
+            "node_set_changed": true,
+            "ellipsoid_vs_true_overlap": 1
+          }
+        }
+      },
+      {
+        "patient_id": "geom_62010c56d95ec023bc9b_scenario_002",
+        "n_nodes": 256,
+        "predicted_center": [
+          0.25121856552808214,
+          0.48490211367607117,
+          0.4718733925547088
+        ],
+        "predicted_radius": 0.07958721978427116,
+        "sphere_source": "sphere",
+        "sphere_node_count": 0,
+        "true_inclusion_node_count": 1,
+        "true_inclusion_ratio": 3.6620769305945675,
+        "sphere_vs_true_overlap": 0,
+        "aspect": {
+          "1.5": {
+            "ellipsoid_node_count": 1,
+            "added_nodes": [
+              155
+            ],
+            "removed_nodes": [],
+            "n_added": 1,
+            "n_removed": 0,
+            "node_set_changed": true,
+            "ellipsoid_vs_true_overlap": 0
+          },
+          "2.0": {
+            "ellipsoid_node_count": 1,
+            "added_nodes": [
+              155
+            ],
+            "removed_nodes": [],
+            "n_added": 1,
+            "n_removed": 0,
+            "node_set_changed": true,
+            "ellipsoid_vs_true_overlap": 0
+          }
+        }
+      },
+      {
+        "patient_id": "geom_a417d13e9ae27d685557_scenario_000",
+        "n_nodes": 256,
+        "predicted_center": [
+          0.5289942026138306,
+          0.31952767402343046,
+          0.5485290603605004
+        ],
+        "predicted_radius": 0.09237842929240037,
+        "sphere_source": "sphere",
+        "sphere_node_count": 2,
+        "true_inclusion_node_count": 2,
+        "true_inclusion_ratio": 1.709421583661228,
+        "sphere_vs_true_overlap": 2,
+        "aspect": {
+          "1.5": {
+            "ellipsoid_node_count": 4,
+            "added_nodes": [
+              100,
+              164
+            ],
+            "removed_nodes": [],
+            "n_added": 2,
+            "n_removed": 0,
+            "node_set_changed": true,
+            "ellipsoid_vs_true_overlap": 2
+          },
+          "2.0": {
+            "ellipsoid_node_count": 6,
+            "added_nodes": [
+              99,
+              100,
+              148,
+              164
+            ],
+            "removed_nodes": [],
+            "n_added": 4,
+            "n_removed": 0,
+            "node_set_changed": true,
+            "ellipsoid_vs_true_overlap": 2
+          }
+        }
+      },
+      {
+        "patient_id": "geom_a417d13e9ae27d685557_scenario_001",
+        "n_nodes": 256,
+        "predicted_center": [
+          0.4734637141227722,
+          0.29995090234118343,
+          0.5336505474670846
+        ],
+        "predicted_radius": 0.11745272500359225,
+        "sphere_source": "sphere",
+        "sphere_node_count": 5,
+        "true_inclusion_node_count": 4,
+        "true_inclusion_ratio": 2.7941303093094225,
+        "sphere_vs_true_overlap": 1,
+        "aspect": {
+          "1.5": {
+            "ellipsoid_node_count": 9,
+            "added_nodes": [
+              107,
+              156,
+              171,
+              220
+            ],
+            "removed_nodes": [],
+            "n_added": 4,
+            "n_removed": 0,
+            "node_set_changed": true,
+            "ellipsoid_vs_true_overlap": 3
+          },
+          "2.0": {
+            "ellipsoid_node_count": 11,
+            "added_nodes": [
+              92,
+              107,
+              156,
+              171,
+              219,
+              220
+            ],
+            "removed_nodes": [],
+            "n_added": 6,
+            "n_removed": 0,
+            "node_set_changed": true,
+            "ellipsoid_vs_true_overlap": 4
+          }
+        }
+      },
+      {
+        "patient_id": "geom_a417d13e9ae27d685557_scenario_002",
+        "n_nodes": 256,
+        "predicted_center": [
+          0.49708572030067444,
+          0.30618169285873015,
+          0.5350622189128988
+        ],
+        "predicted_radius": 0.10686954467522647,
+        "sphere_source": "sphere",
+        "sphere_node_count": 6,
+        "true_inclusion_node_count": 5,
+        "true_inclusion_ratio": 3.6620769305945675,
+        "sphere_vs_true_overlap": 1,
+        "aspect": {
+          "1.5": {
+            "ellipsoid_node_count": 6,
+            "added_nodes": [],
+            "removed_nodes": [],
+            "n_added": 0,
+            "n_removed": 0,
+            "node_set_changed": false,
+            "ellipsoid_vs_true_overlap": 1
+          },
+          "2.0": {
+            "ellipsoid_node_count": 8,
+            "added_nodes": [
+              107,
+              220
+            ],
+            "removed_nodes": [],
+            "n_added": 2,
+            "n_removed": 0,
+            "node_set_changed": true,
+            "ellipsoid_vs_true_overlap": 1
+          }
+        }
+      },
+      {
+        "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_000",
+        "n_nodes": 256,
+        "predicted_center": [
+          0.5233814716339111,
+          0.17461411317412587,
+          0.5322300667919786
+        ],
+        "predicted_radius": 0.05594718963838565,
+        "sphere_source": "sphere",
+        "sphere_node_count": 1,
+        "true_inclusion_node_count": 0,
+        "true_inclusion_ratio": 1.709421583661228,
+        "sphere_vs_true_overlap": 0,
+        "aspect": {
+          "1.5": {
+            "ellipsoid_node_count": 1,
+            "added_nodes": [],
+            "removed_nodes": [],
+            "n_added": 0,
+            "n_removed": 0,
+            "node_set_changed": false,
+            "ellipsoid_vs_true_overlap": 0
+          },
+          "2.0": {
+            "ellipsoid_node_count": 2,
+            "added_nodes": [
+              100
+            ],
+            "removed_nodes": [],
+            "n_added": 1,
+            "n_removed": 0,
+            "node_set_changed": true,
+            "ellipsoid_vs_true_overlap": 0
+          }
+        }
+      },
+      {
+        "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_001",
+        "n_nodes": 256,
+        "predicted_center": [
+          0.4885413944721222,
+          0.16483349063272307,
+          0.5163557159038609
+        ],
+        "predicted_radius": 0.07089800342625704,
+        "sphere_source": "sphere",
+        "sphere_node_count": 2,
+        "true_inclusion_node_count": 1,
+        "true_inclusion_ratio": 2.7941303093094225,
+        "sphere_vs_true_overlap": 0,
+        "aspect": {
+          "1.5": {
+            "ellipsoid_node_count": 4,
+            "added_nodes": [
+              100,
+              155
+            ],
+            "removed_nodes": [],
+            "n_added": 2,
+            "n_removed": 0,
+            "node_set_changed": true,
+            "ellipsoid_vs_true_overlap": 1
+          },
+          "2.0": {
+            "ellipsoid_node_count": 4,
+            "added_nodes": [
+              100,
+              155
+            ],
+            "removed_nodes": [],
+            "n_added": 2,
+            "n_removed": 0,
+            "node_set_changed": true,
+            "ellipsoid_vs_true_overlap": 1
+          }
+        }
+      },
+      {
+        "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_002",
+        "n_nodes": 256,
+        "predicted_center": [
+          0.5160848498344421,
+          0.1677846230661765,
+          0.5117990651568467
+        ],
+        "predicted_radius": 0.06497136997840616,
+        "sphere_source": "sphere",
+        "sphere_node_count": 2,
+        "true_inclusion_node_count": 1,
+        "true_inclusion_ratio": 3.6620769305945675,
+        "sphere_vs_true_overlap": 0,
+        "aspect": {
+          "1.5": {
+            "ellipsoid_node_count": 3,
+            "added_nodes": [
+              91
+            ],
+            "removed_nodes": [],
+            "n_added": 1,
+            "n_removed": 0,
+            "node_set_changed": true,
+            "ellipsoid_vs_true_overlap": 0
+          },
+          "2.0": {
+            "ellipsoid_node_count": 4,
+            "added_nodes": [
+              91,
+              155
+            ],
+            "removed_nodes": [],
+            "n_added": 2,
+            "n_removed": 0,
+            "node_set_changed": true,
+            "ellipsoid_vs_true_overlap": 0
+          }
+        }
+      },
+      {
+        "patient_id": "geom_db38a9c3817f033727b5_scenario_000",
+        "n_nodes": 256,
+        "predicted_center": [
+          0.5369877815246582,
+          0.235988235594987,
+          0.5413130105010688
+        ],
+        "predicted_radius": 0.06908584319988562,
+        "sphere_source": "sphere",
+        "sphere_node_count": 3,
+        "true_inclusion_node_count": 2,
+        "true_inclusion_ratio": 1.709421583661228,
+        "sphere_vs_true_overlap": 2,
+        "aspect": {
+          "1.5": {
+            "ellipsoid_node_count": 4,
+            "added_nodes": [
+              99
+            ],
+            "removed_nodes": [],
+            "n_added": 1,
+            "n_removed": 0,
+            "node_set_changed": true,
+            "ellipsoid_vs_true_overlap": 2
+          },
+          "2.0": {
+            "ellipsoid_node_count": 4,
+            "added_nodes": [
+              99
+            ],
+            "removed_nodes": [],
+            "n_added": 1,
+            "n_removed": 0,
+            "node_set_changed": true,
+            "ellipsoid_vs_true_overlap": 2
+          }
+        }
+      },
+      {
+        "patient_id": "geom_db38a9c3817f033727b5_scenario_001",
+        "n_nodes": 256,
+        "predicted_center": [
+          0.506194531917572,
+          0.2259350329259577,
+          0.49732444656281
+        ],
+        "predicted_radius": 0.07719271595305618,
+        "sphere_source": "sphere",
+        "sphere_node_count": 4,
+        "true_inclusion_node_count": 4,
+        "true_inclusion_ratio": 2.7941303093094225,
+        "sphere_vs_true_overlap": 1,
+        "aspect": {
+          "1.5": {
+            "ellipsoid_node_count": 5,
+            "added_nodes": [
+              91
+            ],
+            "removed_nodes": [],
+            "n_added": 1,
+            "n_removed": 0,
+            "node_set_changed": true,
+            "ellipsoid_vs_true_overlap": 1
+          },
+          "2.0": {
+            "ellipsoid_node_count": 6,
+            "added_nodes": [
+              91,
+              228
+            ],
+            "removed_nodes": [],
+            "n_added": 2,
+            "n_removed": 0,
+            "node_set_changed": true,
+            "ellipsoid_vs_true_overlap": 2
+          }
+        }
+      },
+      {
+        "patient_id": "geom_db38a9c3817f033727b5_scenario_002",
+        "n_nodes": 256,
+        "predicted_center": [
+          0.505605936050415,
+          0.23088131726570751,
+          0.494808263934593
+        ],
+        "predicted_radius": 0.07390702784822971,
+        "sphere_source": "sphere",
+        "sphere_node_count": 1,
+        "true_inclusion_node_count": 3,
+        "true_inclusion_ratio": 3.6620769305945675,
+        "sphere_vs_true_overlap": 0,
+        "aspect": {
+          "1.5": {
+            "ellipsoid_node_count": 4,
+            "added_nodes": [
+              91,
+              155,
+              164
+            ],
+            "removed_nodes": [],
+            "n_added": 3,
+            "n_removed": 0,
+            "node_set_changed": true,
+            "ellipsoid_vs_true_overlap": 0
+          },
+          "2.0": {
+            "ellipsoid_node_count": 4,
+            "added_nodes": [
+              91,
+              155,
+              164
+            ],
+            "removed_nodes": [],
+            "n_added": 3,
+            "n_removed": 0,
+            "node_set_changed": true,
+            "ellipsoid_vs_true_overlap": 0
+          }
+        }
+      },
+      {
+        "patient_id": "geom_fac5cdc88e186e46ee04_scenario_000",
+        "n_nodes": 256,
+        "predicted_center": [
+          0.526412308216095,
+          0.3874546458149824,
+          0.4629259418091987
+        ],
+        "predicted_radius": 0.11741522499164052,
+        "sphere_source": "sphere",
+        "sphere_node_count": 6,
+        "true_inclusion_node_count": 4,
+        "true_inclusion_ratio": 1.709421583661228,
+        "sphere_vs_true_overlap": 3,
+        "aspect": {
+          "1.5": {
+            "ellipsoid_node_count": 9,
+            "added_nodes": [
+              93,
+              99,
+              163
+            ],
+            "removed_nodes": [],
+            "n_added": 3,
+            "n_removed": 0,
+            "node_set_changed": true,
+            "ellipsoid_vs_true_overlap": 3
+          },
+          "2.0": {
+            "ellipsoid_node_count": 10,
+            "added_nodes": [
+              93,
+              99,
+              157,
+              163
+            ],
+            "removed_nodes": [],
+            "n_added": 4,
+            "n_removed": 0,
+            "node_set_changed": true,
+            "ellipsoid_vs_true_overlap": 3
+          }
+        }
+      },
+      {
+        "patient_id": "geom_fac5cdc88e186e46ee04_scenario_001",
+        "n_nodes": 256,
+        "predicted_center": [
+          0.5100562572479248,
+          0.3648873107078005,
+          0.4633751913110882
+        ],
+        "predicted_radius": 0.14565030770562834,
+        "sphere_source": "sphere",
+        "sphere_node_count": 10,
+        "true_inclusion_node_count": 9,
+        "true_inclusion_ratio": 2.7941303093094225,
+        "sphere_vs_true_overlap": 4,
+        "aspect": {
+          "1.5": {
+            "ellipsoid_node_count": 14,
+            "added_nodes": [
+              84,
+              90,
+              93,
+              154
+            ],
+            "removed_nodes": [],
+            "n_added": 4,
+            "n_removed": 0,
+            "node_set_changed": true,
+            "ellipsoid_vs_true_overlap": 5
+          },
+          "2.0": {
+            "ellipsoid_node_count": 18,
+            "added_nodes": [
+              29,
+              84,
+              90,
+              93,
+              98,
+              154,
+              157,
+              162
+            ],
+            "removed_nodes": [],
+            "n_added": 8,
+            "n_removed": 0,
+            "node_set_changed": true,
+            "ellipsoid_vs_true_overlap": 6
+          }
+        }
+      },
+      {
+        "patient_id": "geom_fac5cdc88e186e46ee04_scenario_002",
+        "n_nodes": 256,
+        "predicted_center": [
+          0.5325568318367004,
+          0.3698690830966045,
+          0.4616770091400086
+        ],
+        "predicted_radius": 0.1337238872463483,
+        "sphere_source": "sphere",
+        "sphere_node_count": 7,
+        "true_inclusion_node_count": 7,
+        "true_inclusion_ratio": 3.6620769305945675,
+        "sphere_vs_true_overlap": 3,
+        "aspect": {
+          "1.5": {
+            "ellipsoid_node_count": 11,
+            "added_nodes": [
+              27,
+              93,
+              99,
+              163
+            ],
+            "removed_nodes": [],
+            "n_added": 4,
+            "n_removed": 0,
+            "node_set_changed": true,
+            "ellipsoid_vs_true_overlap": 3
+          },
+          "2.0": {
+            "ellipsoid_node_count": 15,
+            "added_nodes": [
+              27,
+              29,
+              90,
+              93,
+              99,
+              154,
+              157,
+              163
+            ],
+            "removed_nodes": [],
+            "n_added": 8,
+            "n_removed": 0,
+            "node_set_changed": true,
+            "ellipsoid_vs_true_overlap": 3
+          }
+        }
+      }
+    ],
+    "changed_scenes_aspect_1.5": [
+      "geom_62010c56d95ec023bc9b_scenario_001",
+      "geom_62010c56d95ec023bc9b_scenario_002",
+      "geom_a417d13e9ae27d685557_scenario_000",
+      "geom_a417d13e9ae27d685557_scenario_001",
+      "geom_ab578f1bb0ee02be2ccd_scenario_001",
+      "geom_ab578f1bb0ee02be2ccd_scenario_002",
+      "geom_db38a9c3817f033727b5_scenario_000",
+      "geom_db38a9c3817f033727b5_scenario_001",
+      "geom_db38a9c3817f033727b5_scenario_002",
+      "geom_fac5cdc88e186e46ee04_scenario_000",
+      "geom_fac5cdc88e186e46ee04_scenario_001",
+      "geom_fac5cdc88e186e46ee04_scenario_002"
+    ],
+    "n_changed_aspect_1.5": 12,
+    "changed_scenes_aspect_2.0": [
+      "geom_58db559b24da6eb7cc0d_scenario_001",
+      "geom_62010c56d95ec023bc9b_scenario_000",
+      "geom_62010c56d95ec023bc9b_scenario_001",
+      "geom_62010c56d95ec023bc9b_scenario_002",
+      "geom_a417d13e9ae27d685557_scenario_000",
+      "geom_a417d13e9ae27d685557_scenario_001",
+      "geom_a417d13e9ae27d685557_scenario_002",
+      "geom_ab578f1bb0ee02be2ccd_scenario_000",
+      "geom_ab578f1bb0ee02be2ccd_scenario_001",
+      "geom_ab578f1bb0ee02be2ccd_scenario_002",
+      "geom_db38a9c3817f033727b5_scenario_000",
+      "geom_db38a9c3817f033727b5_scenario_001",
+      "geom_db38a9c3817f033727b5_scenario_002",
+      "geom_fac5cdc88e186e46ee04_scenario_000",
+      "geom_fac5cdc88e186e46ee04_scenario_001",
+      "geom_fac5cdc88e186e46ee04_scenario_002"
+    ],
+    "n_changed_aspect_2.0": 16
+  },
+  "conclusion": {
+    "informative_for_E_background_at_256_nodes": false,
+    "statement": "With region attention now always driven by the predicted centre/radius, the ellipsoid occupancy does change the forward model (initial objective shifts by up to 0.128 relative; the node set changes in 12/18 scenes at aspect 1.5 and 16/18 at aspect 2.0), but the E_background estimate is bitwise identical to the unperturbed baseline in 18/18 (aspect 1.5) and 18/18 (aspect 2.0) scenes, acceptance is identical in 18/18, and all three medians equal the baseline. On the 256-node patch the predicted sphere covers 0-10 nodes and the ellipsoid adds 0-8 nodes; with the inclusion ratio locked this perturbation is too small to move the discrete E/q search endpoint. The arm therefore reports a null effect by construction and should not be cited as evidence of robustness to inclusion shape; it is informative only as a check that the fixed region-attention path reproduces the baseline (objective differs only at the 1e-15 level in scenes whose node set is unchanged).",
+    "scenes_with_unchanged_node_set_objective_roundoff_only": {
+      "aspect_1p5": [
+        "geom_58db559b24da6eb7cc0d_scenario_000",
+        "geom_58db559b24da6eb7cc0d_scenario_001",
+        "geom_58db559b24da6eb7cc0d_scenario_002",
+        "geom_62010c56d95ec023bc9b_scenario_000",
+        "geom_a417d13e9ae27d685557_scenario_002",
+        "geom_ab578f1bb0ee02be2ccd_scenario_000"
+      ],
+      "aspect_2p0": [
+        "geom_58db559b24da6eb7cc0d_scenario_000",
+        "geom_58db559b24da6eb7cc0d_scenario_002"
+      ]
+    },
+    "archived_defective_arms": "results/ct_reviewer_drivers_v6/assumption_sensitivity/aspect_{1p5,2p0} let fit_patient fall back to the ground-truth centre/radius for region attention (inclusion_center/radius were None when soft_occupancy was given). Their E estimates differed from baseline in 1/18 scenes (geom_ab578f1bb0ee02be2ccd_scenario_001) and their objectives differed from baseline at the 1e-5 level even where the node set was unchanged; the fixed arms remove both effects."
+  },
+  "notes": [
+    "Run settings: experiments/run_screened_fem_locked.py --cohort ct120 --prior-width-scale 2.0 --screen-threshold 0.05 --probe-count 2 --max-nfev 48 --region-aspect-xy {1.5,2.0} --patient-ids <18 locked ids>; OMP_NUM_THREADS=3, run 2026-10-12.",
+    "pre_run_occupancy_check: _ellipsoid_occupancy(nodes, predicted centre, predicted radius, aspect) vs the sphere occupancy material_occupancy(nodes, center, radius) on the same 256-node patch; node indices are 0-based into scene['nodes'].",
+    "Bitwise identity is exact float equality of E_background_estimated in records.jsonl."
+  ]
+}

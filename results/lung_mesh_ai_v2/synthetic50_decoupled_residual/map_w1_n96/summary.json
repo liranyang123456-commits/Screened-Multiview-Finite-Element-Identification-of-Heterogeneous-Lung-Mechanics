@@ -1,0 +1,124 @@
+{
+  "arm": "map_w1_n96",
+  "status": "complete",
+  "records_path": ".\\results\\lung_mesh_ai_v2\\synthetic50_decoupled_residual\\map_w1_n96\\records.jsonl",
+  "records_sha256": "8e8c8ca64b45f3b954a57f1067128ea1e855720ad31337cf99eb8a9298aac288",
+  "shards": [
+    {
+      "shard": "shard0",
+      "patient_start": 0,
+      "patient_limit": 17,
+      "expected": 17,
+      "done": 17,
+      "complete": true,
+      "run_manifest_sha256": "3422d3dd30ec356562700a13cc01a1e040084bc4deb0ca5b6a40db2a91540fb9",
+      "records_sha256": "fd2777e1ddd47e470e82d43ec49ddd3bc1c9bba967df77a064813b815f694a81",
+      "command": "﻿D:\\anaconda\\python.exe .\\experiments\\run_screened_fem_locked.py --cohort synthetic50 --prior-width-scale 1.0 --max-nfev 96 --screen-threshold 0.05 --probe-count 2 --patient-start 0 --patient-limit 17 --results .\\results\\lung_mesh_ai_v2\\synthetic50_decoupled_residual\\map_w1_n96\\shard0",
+      "manifest_acceptance_metric": "<absent>",
+      "manifest_objective_metric": "map",
+      "manifest_screening_metric": "map",
+      "manifest_prior_width_scale": 1.0,
+      "manifest_max_nfev": 96,
+      "manifest_probe_count": 2,
+      "manifest_material_prior_weight": 0.05
+    },
+    {
+      "shard": "shard1",
+      "patient_start": 17,
+      "patient_limit": 17,
+      "expected": 17,
+      "done": 17,
+      "complete": true,
+      "run_manifest_sha256": "d48fc1a6bf3f820135474547de56f3f990ab79f22c98d15a76c702596d96d8c6",
+      "records_sha256": "bf43726cf48ac7e3d6aa98c97a6b9425e1e2fc2ad910f72541169b31e923d885",
+      "command": "﻿D:\\anaconda\\python.exe .\\experiments\\run_screened_fem_locked.py --cohort synthetic50 --prior-width-scale 1.0 --max-nfev 96 --screen-threshold 0.05 --probe-count 2 --patient-start 17 --patient-limit 17 --results .\\results\\lung_mesh_ai_v2\\synthetic50_decoupled_residual\\map_w1_n96\\shard1",
+      "manifest_acceptance_metric": "<absent>",
+      "manifest_objective_metric": "map",
+      "manifest_screening_metric": "map",
+      "manifest_prior_width_scale": 1.0,
+      "manifest_max_nfev": 96,
+      "manifest_probe_count": 2,
+      "manifest_material_prior_weight": 0.05
+    },
+    {
+      "shard": "shard2",
+      "patient_start": 34,
+      "patient_limit": 16,
+      "expected": 16,
+      "done": 16,
+      "complete": true,
+      "run_manifest_sha256": "050c945a077fe56c5559c30f103d8952b74a55680d909d7e3ebcf965a3beb05d",
+      "records_sha256": "7e4cedf97ae2ed5cb6b2fc35f2c12b386b2da1da797b7f387eeccc58f0464974",
+      "command": "﻿D:\\anaconda\\python.exe .\\experiments\\run_screened_fem_locked.py --cohort synthetic50 --prior-width-scale 1.0 --max-nfev 96 --screen-threshold 0.05 --probe-count 2 --patient-start 34 --patient-limit 16 --results .\\results\\lung_mesh_ai_v2\\synthetic50_decoupled_residual\\map_w1_n96\\shard2",
+      "manifest_acceptance_metric": "<absent>",
+      "manifest_objective_metric": "map",
+      "manifest_screening_metric": "map",
+      "manifest_prior_width_scale": 1.0,
+      "manifest_max_nfev": 96,
+      "manifest_probe_count": 2,
+      "manifest_material_prior_weight": 0.05
+    }
+  ],
+  "label": "A3 plain learned/learned at width 1.0, 96 evals, MAP screen + MAP objective + MAP acceptance",
+  "n": 50,
+  "unique_ids": 50,
+  "unique_ids_equal_50": true,
+  "accepted": 4,
+  "screening_rejected": 46,
+  "continued_not_screening_rejected": 4,
+  "continued_but_rolled_back_at_final_acceptance": 0,
+  "eq_correlation_rejected": 0,
+  "lock_ratio_count": 10,
+  "termination_reason_counts": {
+    "insufficient_initial_physics_evidence": 46,
+    "step_tolerance": 4
+  },
+  "function_evaluations_counts": {
+    "5": 9,
+    "7": 37,
+    "37": 1,
+    "73": 1,
+    "91": 1,
+    "96": 1
+  },
+  "median_function_evaluations": 7.0,
+  "median_wall_time_seconds": 35.863597100000334,
+  "median_relative_error": {
+    "E_background": 0.04110740128627288,
+    "inclusion_ratio": 0.18692415951587435,
+    "force_scale": 0.033896160509529843
+  },
+  "mean_relative_error": {
+    "E_background": 0.050281478333504326,
+    "inclusion_ratio": 0.22030900157580738,
+    "force_scale": 0.03634577063737979
+  },
+  "initializer_only_median_E_background_error": 0.03820899421520965,
+  "all_cases_vs_initializer": {
+    "n": 50,
+    "worse_than_initializer": 2,
+    "better_than_initializer": 2,
+    "tied": 46
+  },
+  "accepted_set": {
+    "n": 4,
+    "worse_than_initializer": 2,
+    "better_than_initializer": 2,
+    "tied": 0,
+    "median_initializer_E_background_error": 0.04508753931225026,
+    "median_final_E_background_error": 0.07195157010809625,
+    "median_paired_delta_final_minus_initializer": 0.03174372070620288,
+    "ids": [
+      "lung_patient_089",
+      "lung_patient_124",
+      "lung_patient_139",
+      "lung_patient_209"
+    ]
+  },
+  "objective_metric_counts": {
+    "map": 50
+  },
+  "screening_metric_counts": {
+    "map": 50
+  }
+}

@@ -1,0 +1,396 @@
+{
+  "post_lock_labelled_sensitivity_not_selection": true,
+  "statement": "The 4-bin/width-1.0 rule was fitted on the 18 training geometries and selected by inner leave-one-geometry-out on train; the lock decision was made on the 3 validation geometries (one failed the 25% per-geometry rule). gnn_test.json is opened here ONLY to report a labelled post-lock sensitivity score for the reviewer; it was not and is not used for selection.",
+  "inputs": {
+    "gnn_train": {
+      "path": ".\\results\\ion_ct_ratio_optimization\\calibrate_v2\\gnn_train.json",
+      "sha256": "003b4984f7338a2a976bfe843df9183a475964cc6582d854310c34b155af8819",
+      "n": 360,
+      "geometries": [
+        "geom_05cf9d4fae8e8284f1cf",
+        "geom_16cb9f3ab9be38cc56e9",
+        "geom_16d7b575eb21c6be3a32",
+        "geom_1fd11f1511a5d5db1c30",
+        "geom_306f69af45a814373d2e",
+        "geom_40dfead03c83371b4f69",
+        "geom_4321788df5aa62e8484b",
+        "geom_4a28ee0fdb392694f551",
+        "geom_55fc14f5542c626bd87f",
+        "geom_6d4dd09b30cfb766ab98",
+        "geom_b916af738e01f23cb936",
+        "geom_c45d80174af16be5c949",
+        "geom_d9b84925e4f0f3b2ee70",
+        "geom_db7f7d8f94c6f2a94df6",
+        "geom_db8344e3ed905d9505f7",
+        "geom_dd1d30e9968e340055a2",
+        "geom_e6a4978ad30c1171231c",
+        "geom_fbba1dfbf564184c0b18"
+      ]
+    },
+    "gnn_val": {
+      "path": ".\\results\\ion_ct_ratio_optimization\\calibrate_v2\\gnn_val.json",
+      "sha256": "195f52a0eb87b3c693f97b88fd4e7966ba7c0510225413deb18a5f936ca83b52",
+      "n": 60,
+      "geometries": [
+        "geom_03024386f1bfde4e97a1",
+        "geom_271acd77cdf0a24bc7a4",
+        "geom_955e8309dafc61ab6034"
+      ]
+    },
+    "gnn_test": {
+      "path": ".\\results\\ion_ct_ratio_optimization\\calibrate_v2\\gnn_test.json",
+      "sha256": "a9ee28878b86aa8820ec16fe178f72503240f2e267718f14168f5210f4bd18be",
+      "n": 120,
+      "geometries": [
+        "geom_58db559b24da6eb7cc0d",
+        "geom_62010c56d95ec023bc9b",
+        "geom_a417d13e9ae27d685557",
+        "geom_ab578f1bb0ee02be2ccd",
+        "geom_db38a9c3817f033727b5",
+        "geom_fac5cdc88e186e46ee04"
+      ]
+    },
+    "fit_bins_score_policy_source": ".\\experiments\\run_ct_reviewer_drivers.py"
+  },
+  "rules": {
+    "fourbin_w1_train_fit": {
+      "bins": 4,
+      "width_scale": 1.0,
+      "edges": [
+        0.0,
+        2.170310948168769,
+        2.7145717119423765,
+        3.24175055126214,
+        10.0
+      ],
+      "multipliers": [
+        0.65,
+        0.675,
+        1.225,
+        1.075
+      ]
+    },
+    "threebin_w1_train_fit_refit": {
+      "bins": 3,
+      "width_scale": 1.0,
+      "edges": [
+        0.0,
+        2.3522442307010984,
+        3.1483814709163886,
+        10.0
+      ],
+      "multipliers": [
+        0.625,
+        1.175,
+        1.05
+      ]
+    },
+    "official_bins3_regularized_locked": {
+      "edges": [
+        0.0,
+        2.3522442307010984,
+        3.1483814709163886,
+        10.0
+      ],
+      "multipliers": [
+        0.625,
+        1.175,
+        1.05
+      ],
+      "source": "lung_inverse_rendering.pinn_inverse.official_bins3_regularized",
+      "identical_to_threebin_w1_refit": true
+    }
+  },
+  "inner_loo_train": {
+    "threebin_w1": {
+      "bins": 3,
+      "width_scale": 1.0,
+      "inner_loo_median": 0.1650182896237556,
+      "fold_count": 18,
+      "folds": [
+        {
+          "held_train_geometry": "geom_05cf9d4fae8e8284f1cf",
+          "median_error": 0.14493449836131012
+        },
+        {
+          "held_train_geometry": "geom_16cb9f3ab9be38cc56e9",
+          "median_error": 0.13789867164237546
+        },
+        {
+          "held_train_geometry": "geom_16d7b575eb21c6be3a32",
+          "median_error": 0.1727037891977385
+        },
+        {
+          "held_train_geometry": "geom_1fd11f1511a5d5db1c30",
+          "median_error": 0.16453491043116303
+        },
+        {
+          "held_train_geometry": "geom_306f69af45a814373d2e",
+          "median_error": 0.14713415105791688
+        },
+        {
+          "held_train_geometry": "geom_40dfead03c83371b4f69",
+          "median_error": 0.19120914311776582
+        },
+        {
+          "held_train_geometry": "geom_4321788df5aa62e8484b",
+          "median_error": 0.1754460538362338
+        },
+        {
+          "held_train_geometry": "geom_4a28ee0fdb392694f551",
+          "median_error": 0.17263636577931346
+        },
+        {
+          "held_train_geometry": "geom_55fc14f5542c626bd87f",
+          "median_error": 0.16567486111631535
+        },
+        {
+          "held_train_geometry": "geom_6d4dd09b30cfb766ab98",
+          "median_error": 0.17726780984942864
+        },
+        {
+          "held_train_geometry": "geom_b916af738e01f23cb936",
+          "median_error": 0.1650182896237556
+        },
+        {
+          "held_train_geometry": "geom_c45d80174af16be5c949",
+          "median_error": 0.13046657193431305
+        },
+        {
+          "held_train_geometry": "geom_d9b84925e4f0f3b2ee70",
+          "median_error": 0.14313967775309006
+        },
+        {
+          "held_train_geometry": "geom_db7f7d8f94c6f2a94df6",
+          "median_error": 0.12985893202375792
+        },
+        {
+          "held_train_geometry": "geom_db8344e3ed905d9505f7",
+          "median_error": 0.1553896028528588
+        },
+        {
+          "held_train_geometry": "geom_dd1d30e9968e340055a2",
+          "median_error": 0.1856642875368152
+        },
+        {
+          "held_train_geometry": "geom_e6a4978ad30c1171231c",
+          "median_error": 0.1993283204191535
+        },
+        {
+          "held_train_geometry": "geom_fbba1dfbf564184c0b18",
+          "median_error": 0.15349296396880774
+        }
+      ]
+    },
+    "fourbin_w1": {
+      "bins": 4,
+      "width_scale": 1.0,
+      "inner_loo_median": 0.11911764338587782,
+      "fold_count": 18,
+      "folds": [
+        {
+          "held_train_geometry": "geom_05cf9d4fae8e8284f1cf",
+          "median_error": 0.24755215387979257
+        },
+        {
+          "held_train_geometry": "geom_16cb9f3ab9be38cc56e9",
+          "median_error": 0.08107722014809615
+        },
+        {
+          "held_train_geometry": "geom_16d7b575eb21c6be3a32",
+          "median_error": 0.08916296778627752
+        },
+        {
+          "held_train_geometry": "geom_1fd11f1511a5d5db1c30",
+          "median_error": 0.11134454302308444
+        },
+        {
+          "held_train_geometry": "geom_306f69af45a814373d2e",
+          "median_error": 0.10198937324696594
+        },
+        {
+          "held_train_geometry": "geom_40dfead03c83371b4f69",
+          "median_error": 0.12328491110929457
+        },
+        {
+          "held_train_geometry": "geom_4321788df5aa62e8484b",
+          "median_error": 0.1049852788590937
+        },
+        {
+          "held_train_geometry": "geom_4a28ee0fdb392694f551",
+          "median_error": 0.11178969788025589
+        },
+        {
+          "held_train_geometry": "geom_55fc14f5542c626bd87f",
+          "median_error": 0.12500386380203332
+        },
+        {
+          "held_train_geometry": "geom_6d4dd09b30cfb766ab98",
+          "median_error": 0.11911764338587782
+        },
+        {
+          "held_train_geometry": "geom_b916af738e01f23cb936",
+          "median_error": 0.14392616251936063
+        },
+        {
+          "held_train_geometry": "geom_c45d80174af16be5c949",
+          "median_error": 0.21454614895907087
+        },
+        {
+          "held_train_geometry": "geom_d9b84925e4f0f3b2ee70",
+          "median_error": 0.09710857856956895
+        },
+        {
+          "held_train_geometry": "geom_db7f7d8f94c6f2a94df6",
+          "median_error": 0.11858615139306389
+        },
+        {
+          "held_train_geometry": "geom_db8344e3ed905d9505f7",
+          "median_error": 0.11426743615439222
+        },
+        {
+          "held_train_geometry": "geom_dd1d30e9968e340055a2",
+          "median_error": 0.14185166854571118
+        },
+        {
+          "held_train_geometry": "geom_e6a4978ad30c1171231c",
+          "median_error": 0.14865610422298348
+        },
+        {
+          "held_train_geometry": "geom_fbba1dfbf564184c0b18",
+          "median_error": 0.14949314272042424
+        }
+      ]
+    }
+  },
+  "validation_scores_that_drove_lock": {
+    "fourbin_w1": {
+      "n": 60,
+      "median_error": 0.20762037044755988,
+      "geometry_medians": {
+        "geom_03024386f1bfde4e97a1": 0.19557086520328926,
+        "geom_271acd77cdf0a24bc7a4": 0.26446095211580734,
+        "geom_955e8309dafc61ab6034": 0.1513090046718134
+      },
+      "geometries_passing_0.25": 2,
+      "geometry_count": 3
+    },
+    "threebin_w1_refit": {
+      "n": 60,
+      "median_error": 0.21717484017250538,
+      "geometry_medians": {
+        "geom_03024386f1bfde4e97a1": 0.20157733384220122,
+        "geom_271acd77cdf0a24bc7a4": 0.22389932110148542,
+        "geom_955e8309dafc61ab6034": 0.18656628585117252
+      },
+      "geometries_passing_0.25": 3,
+      "geometry_count": 3
+    },
+    "official_bins3": {
+      "n": 60,
+      "median_error": 0.21717484017250538,
+      "geometry_medians": {
+        "geom_03024386f1bfde4e97a1": 0.20157733384220122,
+        "geom_271acd77cdf0a24bc7a4": 0.22389932110148542,
+        "geom_955e8309dafc61ab6034": 0.18656628585117252
+      },
+      "geometries_passing_0.25": 3,
+      "geometry_count": 3
+    },
+    "fourbin_w1_failing_geometries": {
+      "geom_271acd77cdf0a24bc7a4": {
+        "median_error": 0.26446095211580734,
+        "excess_over_0.25": 0.014460952115807335
+      }
+    }
+  },
+  "post_lock_test_sensitivity": {
+    "fourbin_w1": {
+      "n": 120,
+      "median_error": 0.1963312632987983,
+      "geometry_medians": {
+        "geom_58db559b24da6eb7cc0d": 0.21084779391020314,
+        "geom_62010c56d95ec023bc9b": 0.16059713107375023,
+        "geom_a417d13e9ae27d685557": 0.259818979798517,
+        "geom_ab578f1bb0ee02be2ccd": 0.09166467981646842,
+        "geom_db38a9c3817f033727b5": 0.2675449779055925,
+        "geom_fac5cdc88e186e46ee04": 0.10476781897547116
+      },
+      "geometries_passing_0.25": 4,
+      "geometry_count": 6,
+      "passing_geometries_list": [
+        "geom_58db559b24da6eb7cc0d",
+        "geom_62010c56d95ec023bc9b",
+        "geom_ab578f1bb0ee02be2ccd",
+        "geom_fac5cdc88e186e46ee04"
+      ],
+      "failing_geometries_list": [
+        "geom_a417d13e9ae27d685557",
+        "geom_db38a9c3817f033727b5"
+      ]
+    },
+    "threebin_w1_refit": {
+      "n": 120,
+      "median_error": 0.17767180073003352,
+      "geometry_medians": {
+        "geom_58db559b24da6eb7cc0d": 0.18129287102381092,
+        "geom_62010c56d95ec023bc9b": 0.11555876852553343,
+        "geom_a417d13e9ae27d685557": 0.23434303747394658,
+        "geom_ab578f1bb0ee02be2ccd": 0.17781971377157202,
+        "geom_db38a9c3817f033727b5": 0.1425943503087425,
+        "geom_fac5cdc88e186e46ee04": 0.16043850164655943
+      },
+      "geometries_passing_0.25": 6,
+      "geometry_count": 6
+    },
+    "official_bins3": {
+      "n": 120,
+      "median_error": 0.17767180073003352,
+      "geometry_medians": {
+        "geom_58db559b24da6eb7cc0d": 0.18129287102381092,
+        "geom_62010c56d95ec023bc9b": 0.11555876852553343,
+        "geom_a417d13e9ae27d685557": 0.23434303747394658,
+        "geom_ab578f1bb0ee02be2ccd": 0.17781971377157202,
+        "geom_db38a9c3817f033727b5": 0.1425943503087425,
+        "geom_fac5cdc88e186e46ee04": 0.16043850164655943
+      },
+      "geometries_passing_0.25": 6,
+      "geometry_count": 6,
+      "passing_geometries_list": [
+        "geom_58db559b24da6eb7cc0d",
+        "geom_62010c56d95ec023bc9b",
+        "geom_a417d13e9ae27d685557",
+        "geom_ab578f1bb0ee02be2ccd",
+        "geom_db38a9c3817f033727b5",
+        "geom_fac5cdc88e186e46ee04"
+      ],
+      "failing_geometries_list": []
+    },
+    "uncalibrated_raw_gnn": {
+      "n": 120,
+      "median_error": 0.24728405831960293,
+      "geometry_medians": {
+        "geom_58db559b24da6eb7cc0d": 0.27488343750611477,
+        "geom_62010c56d95ec023bc9b": 0.2291238460339614,
+        "geom_a417d13e9ae27d685557": 0.3096335435537027,
+        "geom_ab578f1bb0ee02be2ccd": 0.2512604849862097,
+        "geom_db38a9c3817f033727b5": 0.15740516384582004,
+        "geom_fac5cdc88e186e46ee04": 0.24487743238765552
+      },
+      "geometries_passing_0.25": 3,
+      "geometry_count": 6
+    }
+  },
+  "summary": {
+    "inner_loo_median_threebin_w1": 0.1650182896237556,
+    "inner_loo_median_fourbin_w1": 0.11911764338587782,
+    "val_fourbin_median": 0.20762037044755988,
+    "val_fourbin_pass": "2/3",
+    "val_official3_median": 0.21717484017250538,
+    "val_official3_pass": "3/3",
+    "test_fourbin_median": 0.1963312632987983,
+    "test_fourbin_pass": "4/6",
+    "test_official3_median": 0.17767180073003352,
+    "test_official3_pass": "6/6"
+  }
+}
