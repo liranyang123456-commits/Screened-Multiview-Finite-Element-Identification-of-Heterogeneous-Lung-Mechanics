@@ -1,0 +1,474 @@
+{
+  "method": "vfm_oracle_fullfield",
+  "information": "oracle full interior kinematics + oracle region + selected force field",
+  "force_field": "forces",
+  "noise_free_true_force_ceiling": true,
+  "patients": 50,
+  "runtime_seconds": 1.2784111499786377,
+  "bootstrap_seed": 20261007,
+  "bootstrap_replicates": 5000,
+  "E_background_median_relative_error": 0.03308216060019259,
+  "E_background_median_bootstrap_95_ci": [
+    0.021912875954867794,
+    0.05623613723550802
+  ],
+  "inclusion_ratio_median_relative_error": 0.18547916011616083,
+  "inclusion_ratio_median_bootstrap_95_ci": [
+    0.16101643888798856,
+    0.21908138496670765
+  ],
+  "E_background_mean_relative_error": 0.08347561277252502,
+  "inclusion_ratio_mean_relative_error": 0.2367413459912521,
+  "records": [
+    {
+      "patient_id": "lung_patient_004",
+      "E_background_estimated": 2864.0946212955255,
+      "E_background_true": 2811.329012302196,
+      "E_background_relative_error": 0.018768919881817503,
+      "inclusion_ratio_estimated": 1.1267498672884446,
+      "inclusion_ratio_true": 1.301405973072328,
+      "inclusion_ratio_relative_error": 0.13420570475142313
+    },
+    {
+      "patient_id": "lung_patient_009",
+      "E_background_estimated": 3109.7595527328835,
+      "E_background_true": 3030.940646846541,
+      "E_background_relative_error": 0.02600476718946898,
+      "inclusion_ratio_estimated": 1.233202304147524,
+      "inclusion_ratio_true": 1.4595363162276498,
+      "inclusion_ratio_relative_error": 0.15507254568705342
+    },
+    {
+      "patient_id": "lung_patient_014",
+      "E_background_estimated": 5485.537567204468,
+      "E_background_true": 5463.2352536252465,
+      "E_background_relative_error": 0.004082253929010848,
+      "inclusion_ratio_estimated": 1.4318786089564948,
+      "inclusion_ratio_true": 1.6312952767236677,
+      "inclusion_ratio_relative_error": 0.12224437268505195
+    },
+    {
+      "patient_id": "lung_patient_019",
+      "E_background_estimated": 3602.0832783381757,
+      "E_background_true": 3606.5271159155095,
+      "E_background_relative_error": 0.0012321653032146829,
+      "inclusion_ratio_estimated": 1.3291107546311633,
+      "inclusion_ratio_true": 1.640187896938408,
+      "inclusion_ratio_relative_error": 0.18965945480265067
+    },
+    {
+      "patient_id": "lung_patient_024",
+      "E_background_estimated": 3541.924477891358,
+      "E_background_true": 3341.258253085971,
+      "E_background_relative_error": 0.06005708317220093,
+      "inclusion_ratio_estimated": 1.157020694901196,
+      "inclusion_ratio_true": 1.7444976427810717,
+      "inclusion_ratio_relative_error": 0.33675995511425394
+    },
+    {
+      "patient_id": "lung_patient_029",
+      "E_background_estimated": 3563.831646409637,
+      "E_background_true": 3535.817930072125,
+      "E_background_relative_error": 0.007922839040793273,
+      "inclusion_ratio_estimated": 3.182042961239153,
+      "inclusion_ratio_true": 3.126348507544812,
+      "inclusion_ratio_relative_error": 0.017814537809823117
+    },
+    {
+      "patient_id": "lung_patient_034",
+      "E_background_estimated": 3963.528271487087,
+      "E_background_true": 3863.0931423824054,
+      "E_background_relative_error": 0.025998629958671415,
+      "inclusion_ratio_estimated": 1.226563907452022,
+      "inclusion_ratio_true": 1.7545840023346129,
+      "inclusion_ratio_relative_error": 0.3009374838594324
+    },
+    {
+      "patient_id": "lung_patient_039",
+      "E_background_estimated": 6626.876620277062,
+      "E_background_true": 6321.691630543122,
+      "E_background_relative_error": 0.04827584253864026,
+      "inclusion_ratio_estimated": 2.759015051452663,
+      "inclusion_ratio_true": 3.3413428247568504,
+      "inclusion_ratio_relative_error": 0.17427956478741857
+    },
+    {
+      "patient_id": "lung_patient_044",
+      "E_background_estimated": 5511.182817713102,
+      "E_background_true": 5425.584167042602,
+      "E_background_relative_error": 0.015776854258471307,
+      "inclusion_ratio_estimated": 1.920528957739423,
+      "inclusion_ratio_true": 2.376773386741907,
+      "inclusion_ratio_relative_error": 0.19195958333575347
+    },
+    {
+      "patient_id": "lung_patient_049",
+      "E_background_estimated": 3125.9527157132607,
+      "E_background_true": 3059.6840925688443,
+      "E_background_relative_error": 0.02165864878186774,
+      "inclusion_ratio_estimated": 1.0,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_relative_error": 0.0
+    },
+    {
+      "patient_id": "lung_patient_054",
+      "E_background_estimated": 8271.526797195844,
+      "E_background_true": 7584.311053731263,
+      "E_background_relative_error": 0.09061017389661119,
+      "inclusion_ratio_estimated": 2.1908561351963924,
+      "inclusion_ratio_true": 3.8647376926828496,
+      "inclusion_ratio_relative_error": 0.4331164727312893
+    },
+    {
+      "patient_id": "lung_patient_059",
+      "E_background_estimated": 2556.32556449402,
+      "E_background_true": 2252.375131383823,
+      "E_background_relative_error": 0.13494662983756833,
+      "inclusion_ratio_estimated": 1.5592936872762426,
+      "inclusion_ratio_true": 3.518411314065652,
+      "inclusion_ratio_relative_error": 0.5568188173330928
+    },
+    {
+      "patient_id": "lung_patient_064",
+      "E_background_estimated": 3046.1978893118703,
+      "E_background_true": 3031.4264479987673,
+      "E_background_relative_error": 0.004872769162139745,
+      "inclusion_ratio_estimated": 1.3229802376821371,
+      "inclusion_ratio_true": 1.4120581029079262,
+      "inclusion_ratio_relative_error": 0.06308371096228005
+    },
+    {
+      "patient_id": "lung_patient_069",
+      "E_background_estimated": 2873.8351898109504,
+      "E_background_true": 2616.058648348625,
+      "E_background_relative_error": 0.0985362241878811,
+      "inclusion_ratio_estimated": 1.4845373248590055,
+      "inclusion_ratio_true": 3.3346301762475523,
+      "inclusion_ratio_relative_error": 0.5548120042116484
+    },
+    {
+      "patient_id": "lung_patient_074",
+      "E_background_estimated": 4446.349955413705,
+      "E_background_true": 4568.1043199227515,
+      "E_background_relative_error": 0.02665314887360215,
+      "inclusion_ratio_estimated": 2.309293692580972,
+      "inclusion_ratio_true": 2.757848201546662,
+      "inclusion_ratio_relative_error": 0.1626465549170295
+    },
+    {
+      "patient_id": "lung_patient_079",
+      "E_background_estimated": 6037.929304499408,
+      "E_background_true": 5907.97021797869,
+      "E_background_relative_error": 0.02199724807773018,
+      "inclusion_ratio_estimated": 1.0,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_relative_error": 0.0
+    },
+    {
+      "patient_id": "lung_patient_084",
+      "E_background_estimated": 3203.694918286641,
+      "E_background_true": 3221.9036458749547,
+      "E_background_relative_error": 0.0056515431836785535,
+      "inclusion_ratio_estimated": 2.2975427984274015,
+      "inclusion_ratio_true": 2.9569981775712053,
+      "inclusion_ratio_relative_error": 0.22301514561143954
+    },
+    {
+      "patient_id": "lung_patient_089",
+      "E_background_estimated": 3117.5512753062562,
+      "E_background_true": 3098.9924565740057,
+      "E_background_relative_error": 0.005988662119160937,
+      "inclusion_ratio_estimated": 1.5343667377841643,
+      "inclusion_ratio_true": 1.8189035117682493,
+      "inclusion_ratio_relative_error": 0.1564331324576267
+    },
+    {
+      "patient_id": "lung_patient_094",
+      "E_background_estimated": 3172.9574540839794,
+      "E_background_true": 2849.7621296430348,
+      "E_background_relative_error": 0.11341133390716673,
+      "inclusion_ratio_estimated": 1.749263860121583,
+      "inclusion_ratio_true": 2.9448021999647676,
+      "inclusion_ratio_relative_error": 0.4059825613609933
+    },
+    {
+      "patient_id": "lung_patient_099",
+      "E_background_estimated": 3156.5657657988113,
+      "E_background_true": 3089.134579786364,
+      "E_background_relative_error": 0.021828503832005408,
+      "inclusion_ratio_estimated": 1.3960738356937012,
+      "inclusion_ratio_true": 1.5906665829943794,
+      "inclusion_ratio_relative_error": 0.12233408897945375
+    },
+    {
+      "patient_id": "lung_patient_104",
+      "E_background_estimated": 3662.7472317291154,
+      "E_background_true": 3530.8921770986412,
+      "E_background_relative_error": 0.037343268504681504,
+      "inclusion_ratio_estimated": 1.7793418841626039,
+      "inclusion_ratio_true": 3.1867385304338605,
+      "inclusion_ratio_relative_error": 0.4416417076049367
+    },
+    {
+      "patient_id": "lung_patient_109",
+      "E_background_estimated": 6205.719821546477,
+      "E_background_true": 5464.832610166871,
+      "E_background_relative_error": 0.13557363312487314,
+      "inclusion_ratio_estimated": 1.8404727042339928,
+      "inclusion_ratio_true": 3.1478760863012862,
+      "inclusion_ratio_relative_error": 0.4153287315713483
+    },
+    {
+      "patient_id": "lung_patient_114",
+      "E_background_estimated": 3507.9167040105235,
+      "E_background_true": 3452.3120605204826,
+      "E_background_relative_error": 0.01610649400033015,
+      "inclusion_ratio_estimated": 1.4613657308837773,
+      "inclusion_ratio_true": 1.6862155290779905,
+      "inclusion_ratio_relative_error": 0.13334582342339085
+    },
+    {
+      "patient_id": "lung_patient_119",
+      "E_background_estimated": 4721.159961340548,
+      "E_background_true": 4289.08309362192,
+      "E_background_relative_error": 0.10073874958523144,
+      "inclusion_ratio_estimated": 1.0,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_relative_error": 0.0
+    },
+    {
+      "patient_id": "lung_patient_124",
+      "E_background_estimated": 7274.517103747999,
+      "E_background_true": 6756.744242645826,
+      "E_background_relative_error": 0.07663052536963,
+      "inclusion_ratio_estimated": 2.2158898896475083,
+      "inclusion_ratio_true": 3.0298148650347234,
+      "inclusion_ratio_relative_error": 0.2686385180758848
+    },
+    {
+      "patient_id": "lung_patient_129",
+      "E_background_estimated": 6438.9704178496095,
+      "E_background_true": 5811.747490736191,
+      "E_background_relative_error": 0.10792329297052206,
+      "inclusion_ratio_estimated": 2.2924725482819754,
+      "inclusion_ratio_true": 3.460651229153285,
+      "inclusion_ratio_relative_error": 0.3375603617695757
+    },
+    {
+      "patient_id": "lung_patient_134",
+      "E_background_estimated": 2376.6763624141736,
+      "E_background_true": 2220.0647244361708,
+      "E_background_relative_error": 0.07054372615995574,
+      "inclusion_ratio_estimated": 2.037888836700481,
+      "inclusion_ratio_true": 2.59652502795825,
+      "inclusion_ratio_relative_error": 0.21514762432197576
+    },
+    {
+      "patient_id": "lung_patient_139",
+      "E_background_estimated": 5202.796306985756,
+      "E_background_true": 4925.1250181176765,
+      "E_background_relative_error": 0.056378525996118256,
+      "inclusion_ratio_estimated": 2.7350507405967255,
+      "inclusion_ratio_true": 3.2980322737808265,
+      "inclusion_ratio_relative_error": 0.1707022510542947
+    },
+    {
+      "patient_id": "lung_patient_144",
+      "E_background_estimated": 7253.29023366246,
+      "E_background_true": 7130.300063633145,
+      "E_background_relative_error": 0.01724894729979254,
+      "inclusion_ratio_estimated": 1.629959902401919,
+      "inclusion_ratio_true": 1.9822015217270783,
+      "inclusion_ratio_relative_error": 0.1777022242512728
+    },
+    {
+      "patient_id": "lung_patient_149",
+      "E_background_estimated": 2.9,
+      "E_background_true": 2418.4143720861343,
+      "E_background_relative_error": 0.9988008671989911,
+      "inclusion_ratio_estimated": 1.0,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_relative_error": 0.0
+    },
+    {
+      "patient_id": "lung_patient_154",
+      "E_background_estimated": 5090.517771062516,
+      "E_background_true": 4926.484194617148,
+      "E_background_relative_error": 0.033296275795342334,
+      "inclusion_ratio_estimated": 1.3237166173002952,
+      "inclusion_ratio_true": 1.5747026884005595,
+      "inclusion_ratio_relative_error": 0.1593863228589476
+    },
+    {
+      "patient_id": "lung_patient_159",
+      "E_background_estimated": 2729.55432459665,
+      "E_background_true": 2694.206413239129,
+      "E_background_relative_error": 0.01311997150026234,
+      "inclusion_ratio_estimated": 1.2939202288013878,
+      "inclusion_ratio_true": 1.641014602428014,
+      "inclusion_ratio_relative_error": 0.21151205669533468
+    },
+    {
+      "patient_id": "lung_patient_164",
+      "E_background_estimated": 5059.39674990099,
+      "E_background_true": 4947.488786720276,
+      "E_background_relative_error": 0.022619144379081746,
+      "inclusion_ratio_estimated": 1.9265924556362353,
+      "inclusion_ratio_true": 2.353340475272553,
+      "inclusion_ratio_relative_error": 0.18133713507260096
+    },
+    {
+      "patient_id": "lung_patient_169",
+      "E_background_estimated": 4123.002402069246,
+      "E_background_true": 4263.122919763306,
+      "E_background_relative_error": 0.032868045405042845,
+      "inclusion_ratio_estimated": 1.708148165570556,
+      "inclusion_ratio_true": 1.8089007342741539,
+      "inclusion_ratio_relative_error": 0.05569822975611005
+    },
+    {
+      "patient_id": "lung_patient_174",
+      "E_background_estimated": 2.9,
+      "E_background_true": 5106.157444960085,
+      "E_background_relative_error": 0.9994320582490337,
+      "inclusion_ratio_estimated": 1.0,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_relative_error": 0.0
+    },
+    {
+      "patient_id": "lung_patient_179",
+      "E_background_estimated": 3796.4612745698696,
+      "E_background_true": 3594.330037321357,
+      "E_background_relative_error": 0.05623613723550802,
+      "inclusion_ratio_estimated": 1.8103082275833107,
+      "inclusion_ratio_true": 2.2339036934721834,
+      "inclusion_ratio_relative_error": 0.1896211851597207
+    },
+    {
+      "patient_id": "lung_patient_184",
+      "E_background_estimated": 5461.084488236694,
+      "E_background_true": 5284.203957461065,
+      "E_background_relative_error": 0.03347344882967307,
+      "inclusion_ratio_estimated": 1.0,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_relative_error": 0.0
+    },
+    {
+      "patient_id": "lung_patient_189",
+      "E_background_estimated": 2534.5034113504653,
+      "E_background_true": 2490.826789628982,
+      "E_background_relative_error": 0.01753498954778343,
+      "inclusion_ratio_estimated": 2.0780548032748207,
+      "inclusion_ratio_true": 2.4343715006693474,
+      "inclusion_ratio_relative_error": 0.14636907197465743
+    },
+    {
+      "patient_id": "lung_patient_194",
+      "E_background_estimated": 2986.847456146815,
+      "E_background_true": 2934.655135882241,
+      "E_background_relative_error": 0.01778482235490464,
+      "inclusion_ratio_estimated": 1.1179918381090082,
+      "inclusion_ratio_true": 1.3169575845141437,
+      "inclusion_ratio_relative_error": 0.1510798439864247
+    },
+    {
+      "patient_id": "lung_patient_199",
+      "E_background_estimated": 2980.333881730675,
+      "E_background_true": 2907.607026046499,
+      "E_background_relative_error": 0.025012615196168042,
+      "inclusion_ratio_estimated": 1.5496775095362993,
+      "inclusion_ratio_true": 1.7995546654203483,
+      "inclusion_ratio_relative_error": 0.13885499600851603
+    },
+    {
+      "patient_id": "lung_patient_204",
+      "E_background_estimated": 7200.3440239162355,
+      "E_background_true": 7158.308953410142,
+      "E_background_relative_error": 0.005872206799074853,
+      "inclusion_ratio_estimated": 1.544120548910658,
+      "inclusion_ratio_true": 1.7920723132329226,
+      "inclusion_ratio_relative_error": 0.13836035660578694
+    },
+    {
+      "patient_id": "lung_patient_209",
+      "E_background_estimated": 2773.756230019042,
+      "E_background_true": 2605.696434968724,
+      "E_background_relative_error": 0.06449707371700608,
+      "inclusion_ratio_estimated": 2.368153621369938,
+      "inclusion_ratio_true": 3.2228434351751245,
+      "inclusion_ratio_relative_error": 0.2651974354313441
+    },
+    {
+      "patient_id": "lung_patient_214",
+      "E_background_estimated": 8218.229782615967,
+      "E_background_true": 7622.142410033745,
+      "E_background_relative_error": 0.07820470158069148,
+      "inclusion_ratio_estimated": 1.6923775999163422,
+      "inclusion_ratio_true": 2.3893047880893907,
+      "inclusion_ratio_relative_error": 0.29168618070294283
+    },
+    {
+      "patient_id": "lung_patient_219",
+      "E_background_estimated": 4535.137749547658,
+      "E_background_true": 4491.8258995334245,
+      "E_background_relative_error": 0.00964237060450901,
+      "inclusion_ratio_estimated": 1.0,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_relative_error": 0.0
+    },
+    {
+      "patient_id": "lung_patient_224",
+      "E_background_estimated": 6759.592569314507,
+      "E_background_true": 6001.139495682587,
+      "E_background_relative_error": 0.12638484310814224,
+      "inclusion_ratio_estimated": 1.5047966453684687,
+      "inclusion_ratio_true": 3.4934078595303744,
+      "inclusion_ratio_relative_error": 0.5692467911345567
+    },
+    {
+      "patient_id": "lung_patient_229",
+      "E_background_estimated": 3945.8128420039134,
+      "E_background_true": 3927.6861871799283,
+      "E_background_relative_error": 0.004615097530742407,
+      "inclusion_ratio_estimated": 3.9076048282455247,
+      "inclusion_ratio_true": 3.5055206907068595,
+      "inclusion_ratio_relative_error": 0.11470026082133566
+    },
+    {
+      "patient_id": "lung_patient_234",
+      "E_background_estimated": 4923.536013541846,
+      "E_background_true": 4451.730911401938,
+      "E_background_relative_error": 0.10598239460779246,
+      "inclusion_ratio_estimated": 1.0,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_relative_error": 0.0
+    },
+    {
+      "patient_id": "lung_patient_239",
+      "E_background_estimated": 3285.3063231939277,
+      "E_background_true": 3138.5576722783712,
+      "E_background_relative_error": 0.04675671637699352,
+      "inclusion_ratio_estimated": 1.6087851026612727,
+      "inclusion_ratio_true": 3.0927369376769187,
+      "inclusion_ratio_relative_error": 0.4798183178587129
+    },
+    {
+      "patient_id": "lung_patient_244",
+      "E_background_estimated": 6252.44040996753,
+      "E_background_true": 6029.678844221402,
+      "E_background_relative_error": 0.03694418417651124,
+      "inclusion_ratio_estimated": 1.9592778772656023,
+      "inclusion_ratio_true": 2.4905797241808276,
+      "inclusion_ratio_relative_error": 0.2133245692787349
+    },
+    {
+      "patient_id": "lung_patient_249",
+      "E_background_estimated": 5774.4130955643,
+      "E_background_true": 5386.8745010640805,
+      "E_background_relative_error": 0.07194127029015962,
+      "inclusion_ratio_estimated": 3.048162211565018,
+      "inclusion_ratio_true": 3.69788345941752,
+      "inclusion_ratio_relative_error": 0.1757008448164682
+    }
+  ]
+}

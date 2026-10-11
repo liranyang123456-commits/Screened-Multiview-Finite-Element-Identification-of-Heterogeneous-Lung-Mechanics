@@ -3,8 +3,8 @@
 
 Reference implementation and frozen numerical evidence for:
 
-> **Calibrated Response Learning as a Prior for Screened Multiview
-> Finite-Element Identification of Heterogeneous Lung Mechanics**
+> **Calibrated Multiview Inverse Finite-Element Identification of
+> Heterogeneous Lung Mechanics with Screened Physics Auditing**
 
 Repository:
 https://github.com/liranyang123456-commits/Screened-Multiview-Finite-Element-Identification-of-Heterogeneous-Lung-Mechanics
@@ -69,6 +69,23 @@ pytest experiments/test_benchmark_ion_ct_synthetic_mechanics.py \
    `lung_inverse_rendering/evaluate_sim_lung_v2.py`.
 5. Aggregate the external benchmark using
    `experiments/benchmark_ion_ct_synthetic_mechanics.py`.
+
+### First-round revision audits
+
+- Reconcile paired 18-scene / 50-case factorial and mismatch evidence:
+  `python experiments/reconcile_ct_reviewer_evidence.py`
+  (records in `results/ct_reviewer_drivers_v6/reconciled_paired_experiments.json`).
+- Evaluate seven-parameter local identifiability and curvature diagnostics:
+  `python experiments/audit_joint_identifiability_ct.py`
+  (output in `results/ct_reviewer_drivers_v6/joint_identifiability_audit_v1.json`).
+- Audit temporal rank-one observation projection discrepancy:
+  `python experiments/audit_temporal_amplitude.py`
+  (output in `results/lung_mesh_ai_v2/temporal_amplitude_audit_test50.json`).
+- Official-prior CT 120-scene screened-FEM geometry-level influence analysis:
+  `results/ion_ct_official_prior_screened_fem120_v1/geometry_influence_audit.json`.
+- Biomechanical constitutive and assumption sensitivities (fiber/viscous, mesh jitter, contact shift):
+  `results/ct_reviewer_drivers_v6/constitutive_mismatch/summary.json` and
+  `results/ct_reviewer_drivers_v6/assumption_sensitivity/summary.json`.
 
 Large generated tensors and checkpoints are intentionally not versioned. The
 frozen JSON files under `results/` reproduce manuscript statistics without

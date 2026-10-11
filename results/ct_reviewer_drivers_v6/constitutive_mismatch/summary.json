@@ -1,0 +1,25 @@
+{
+  "protocol": "isotropic Neo-Hookean fitter; observations reprojected from finite-strain fiber or viscous forward solves at truth material",
+  "baseline_background_percent": 24.63,
+  "baseline_accepted": "15/18",
+  "arms": {
+    "fiber": {
+      "n": 18,
+      "unique": 18,
+      "accepted": 16,
+      "background": 26.12,
+      "ratio": 54.69,
+      "force": 3.44,
+      "peak_displacement_gap": 9.5
+    },
+    "viscous": {
+      "n": 18,
+      "unique": 18,
+      "accepted": 18,
+      "background": 34.03,
+      "ratio": 54.69,
+      "force": 3.07,
+      "peak_displacement_gap": 27.47
+    }
+  }
+}

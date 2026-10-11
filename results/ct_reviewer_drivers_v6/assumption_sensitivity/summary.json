@@ -1,0 +1,82 @@
+{
+  "protocol": "Paired 18 locked CT test scenes. FEM assumption overrides only; observations stay on the generator (nu=0.45, posterior 20% fixation, sphere). CT ratio remains locked, so ratio error is not the sensitivity endpoint.",
+  "baseline_reference": {
+    "arm": "w2_s0p05_p2 learned/learned",
+    "median_background_error_percent": 24.63,
+    "median_ratio_error_percent": 54.39,
+    "accepted": 15,
+    "n": 18
+  },
+  "arms": {
+    "aspect_1p5": {
+      "n": 18,
+      "accepted": 15,
+      "median_background_error_percent": 25.09,
+      "median_ratio_error_percent": 54.69,
+      "median_force_error_percent": 4.36
+    },
+    "aspect_2p0": {
+      "n": 18,
+      "accepted": 15,
+      "median_background_error_percent": 25.09,
+      "median_ratio_error_percent": 54.69,
+      "median_force_error_percent": 4.36
+    },
+    "contact_shift_0p15": {
+      "n": 18,
+      "accepted": 16,
+      "median_background_error_percent": 26.46,
+      "median_ratio_error_percent": 54.69,
+      "median_force_error_percent": 3.54
+    },
+    "corr_dropout_0p20": {
+      "n": 18,
+      "accepted": 15,
+      "median_background_error_percent": 24.17,
+      "median_ratio_error_percent": 54.69,
+      "median_force_error_percent": 4.36
+    },
+    "fix_q0p70": {
+      "n": 18,
+      "accepted": 6,
+      "median_background_error_percent": 13.51,
+      "median_ratio_error_percent": 54.69,
+      "median_force_error_percent": 4.36
+    },
+    "fix_q0p90": {
+      "n": 18,
+      "accepted": 18,
+      "median_background_error_percent": 34.03,
+      "median_ratio_error_percent": 54.69,
+      "median_force_error_percent": 3.44
+    },
+    "joint_force_p10_yaw_p5": {
+      "n": 18,
+      "accepted": 17,
+      "median_background_error_percent": 30.98,
+      "median_ratio_error_percent": 54.69,
+      "median_force_error_percent": 3.44
+    },
+    "mesh_jitter_0p02": {
+      "n": 18,
+      "accepted": 15,
+      "median_background_error_percent": 23.35,
+      "median_ratio_error_percent": 54.69,
+      "median_force_error_percent": 4.36
+    },
+    "nu_0p40": {
+      "n": 18,
+      "accepted": 17,
+      "median_background_error_percent": 30.98,
+      "median_ratio_error_percent": 54.69,
+      "median_force_error_percent": 3.54
+    },
+    "nu_0p49": {
+      "n": 18,
+      "accepted": 4,
+      "median_background_error_percent": 13.51,
+      "median_ratio_error_percent": 54.69,
+      "median_force_error_percent": 4.36
+    }
+  }
+}

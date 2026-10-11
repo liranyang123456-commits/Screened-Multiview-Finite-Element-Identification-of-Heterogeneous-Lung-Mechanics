@@ -1,0 +1,337 @@
+{
+  "protocol": "Locked-outcome-only geometry influence analysis of the completed official-prior screened-FEM CT test. No fitting, calibration, threshold selection, or prediction changes are performed.",
+  "records_path": "results\\ion_ct_official_prior_screened_fem120_v1\\records.jsonl",
+  "records_sha256": "166da29af39c37c0fa6b24f4db737b38c2862fa4916513fd87143be323ccc124",
+  "n_scenes": 120,
+  "n_geometries": 6,
+  "scenes_per_geometry": 20,
+  "calibration_source": "official_2028_bins3",
+  "full_cohort_scene_pooled": {
+    "background_error": 0.1169567985575396,
+    "background_error_n": 120,
+    "ratio_error": 0.17767177518291227,
+    "ratio_error_n": 120,
+    "center_error": 0.09600734792508726,
+    "center_error_n": 108,
+    "radius_error": 0.11454998798097737,
+    "radius_error_n": 108,
+    "force_error": 0.041318448989528106,
+    "force_error_n": 120,
+    "accepted_fraction": 0.6083333333333333,
+    "screen_rejected_fraction": 0.39166666666666666,
+    "n_scenes": 120
+  },
+  "geometry_level_medians": {
+    "geom_58db559b24da6eb7cc0d": {
+      "background_error": 0.11574385576167837,
+      "background_error_n": 20,
+      "ratio_error": 0.18129284331952814,
+      "ratio_error_n": 20,
+      "center_error": 0.10088360180888878,
+      "center_error_n": 18,
+      "radius_error": 0.13322692271399877,
+      "radius_error_n": 18,
+      "force_error": 0.04347459780839449,
+      "force_error_n": 20,
+      "accepted_fraction": 0.5,
+      "screen_rejected_fraction": 0.5,
+      "n_scenes": 20
+    },
+    "geom_62010c56d95ec023bc9b": {
+      "background_error": 0.39176791287778945,
+      "background_error_n": 20,
+      "ratio_error": 0.11555881391091025,
+      "ratio_error_n": 20,
+      "center_error": 0.09829674457870222,
+      "center_error_n": 18,
+      "radius_error": 0.11070032449933553,
+      "radius_error_n": 18,
+      "force_error": 0.03405033841936317,
+      "force_error_n": 20,
+      "accepted_fraction": 1.0,
+      "screen_rejected_fraction": 0.0,
+      "n_scenes": 20
+    },
+    "geom_a417d13e9ae27d685557": {
+      "background_error": 0.06321858561733526,
+      "background_error_n": 20,
+      "ratio_error": 0.2343430189817992,
+      "ratio_error_n": 20,
+      "center_error": 0.08755698759898586,
+      "center_error_n": 18,
+      "radius_error": 0.09403946126698198,
+      "radius_error_n": 18,
+      "force_error": 0.03380888466964352,
+      "force_error_n": 20,
+      "accepted_fraction": 1.0,
+      "screen_rejected_fraction": 0.0,
+      "n_scenes": 20
+    },
+    "geom_ab578f1bb0ee02be2ccd": {
+      "background_error": 0.09738026858086829,
+      "background_error_n": 20,
+      "ratio_error": 0.17781968453996863,
+      "ratio_error_n": 20,
+      "center_error": 0.1010916558385162,
+      "center_error_n": 18,
+      "radius_error": 0.1600049286248505,
+      "radius_error_n": 18,
+      "force_error": 0.043563397014022044,
+      "force_error_n": 20,
+      "accepted_fraction": 0.75,
+      "screen_rejected_fraction": 0.25,
+      "n_scenes": 20
+    },
+    "geom_db38a9c3817f033727b5": {
+      "background_error": 0.4161006043151801,
+      "background_error_n": 20,
+      "ratio_error": 0.14259430713372584,
+      "ratio_error_n": 20,
+      "center_error": 0.088090681704416,
+      "center_error_n": 18,
+      "radius_error": 0.09327136708947842,
+      "radius_error_n": 18,
+      "force_error": 0.04347459780839449,
+      "force_error_n": 20,
+      "accepted_fraction": 0.4,
+      "screen_rejected_fraction": 0.6,
+      "n_scenes": 20
+    },
+    "geom_fac5cdc88e186e46ee04": {
+      "background_error": 0.04998856426728554,
+      "background_error_n": 20,
+      "ratio_error": 0.16043847846641668,
+      "ratio_error_n": 20,
+      "center_error": 0.11168943405101356,
+      "center_error_n": 18,
+      "radius_error": 0.11152654533193845,
+      "radius_error_n": 18,
+      "force_error": 0.043563397014022044,
+      "force_error_n": 20,
+      "accepted_fraction": 0.0,
+      "screen_rejected_fraction": 1.0,
+      "n_scenes": 20
+    }
+  },
+  "leave_one_geometry_out": {
+    "geom_58db559b24da6eb7cc0d": {
+      "excluded_geometry": "geom_58db559b24da6eb7cc0d",
+      "remaining_geometry_count": 5,
+      "remaining_scene_count": 100,
+      "scene_pooled": {
+        "background_error": 0.11790120592706485,
+        "background_error_n": 100,
+        "ratio_error": 0.17767177518291227,
+        "ratio_error_n": 100,
+        "center_error": 0.09414898621385784,
+        "center_error_n": 90,
+        "radius_error": 0.10851306644364495,
+        "radius_error_n": 90,
+        "force_error": 0.03921036538660988,
+        "force_error_n": 100,
+        "accepted_fraction": 0.63,
+        "screen_rejected_fraction": 0.37,
+        "n_scenes": 100
+      },
+      "equal_geometry_weighted_median": {
+        "background_error": 0.09738026858086829,
+        "ratio_error": 0.16043847846641668,
+        "center_error": 0.09829674457870222,
+        "radius_error": 0.11070032449933553,
+        "force_error": 0.04347459780839449,
+        "accepted_fraction": 0.75,
+        "screen_rejected_fraction": 0.25
+      }
+    },
+    "geom_62010c56d95ec023bc9b": {
+      "excluded_geometry": "geom_62010c56d95ec023bc9b",
+      "remaining_geometry_count": 5,
+      "remaining_scene_count": 100,
+      "scene_pooled": {
+        "background_error": 0.10109775958801093,
+        "background_error_n": 100,
+        "ratio_error": 0.18433571626061285,
+        "ratio_error_n": 100,
+        "center_error": 0.09514194528057082,
+        "center_error_n": 90,
+        "radius_error": 0.11966991075251321,
+        "radius_error_n": 90,
+        "force_error": 0.04346321424153527,
+        "force_error_n": 100,
+        "accepted_fraction": 0.53,
+        "screen_rejected_fraction": 0.47,
+        "n_scenes": 100
+      },
+      "equal_geometry_weighted_median": {
+        "background_error": 0.09738026858086829,
+        "ratio_error": 0.17781968453996863,
+        "center_error": 0.10088360180888878,
+        "radius_error": 0.11152654533193845,
+        "force_error": 0.04347459780839449,
+        "accepted_fraction": 0.5,
+        "screen_rejected_fraction": 0.5
+      }
+    },
+    "geom_a417d13e9ae27d685557": {
+      "excluded_geometry": "geom_a417d13e9ae27d685557",
+      "remaining_geometry_count": 5,
+      "remaining_scene_count": 100,
+      "scene_pooled": {
+        "background_error": 0.13805331092683792,
+        "background_error_n": 100,
+        "ratio_error": 0.15381212993187454,
+        "ratio_error_n": 100,
+        "center_error": 0.10052887869139907,
+        "center_error_n": 90,
+        "radius_error": 0.12115279564376558,
+        "radius_error_n": 90,
+        "force_error": 0.043463214241535375,
+        "force_error_n": 100,
+        "accepted_fraction": 0.53,
+        "screen_rejected_fraction": 0.47,
+        "n_scenes": 100
+      },
+      "equal_geometry_weighted_median": {
+        "background_error": 0.11574385576167837,
+        "ratio_error": 0.16043847846641668,
+        "center_error": 0.10088360180888878,
+        "radius_error": 0.11152654533193845,
+        "force_error": 0.04347459780839449,
+        "accepted_fraction": 0.5,
+        "screen_rejected_fraction": 0.5
+      }
+    },
+    "geom_ab578f1bb0ee02be2ccd": {
+      "excluded_geometry": "geom_ab578f1bb0ee02be2ccd",
+      "remaining_geometry_count": 5,
+      "remaining_scene_count": 100,
+      "scene_pooled": {
+        "background_error": 0.1336227351416441,
+        "background_error_n": 100,
+        "ratio_error": 0.17767177518291227,
+        "ratio_error_n": 100,
+        "center_error": 0.09414898621385784,
+        "center_error_n": 90,
+        "radius_error": 0.10851306644364495,
+        "radius_error_n": 90,
+        "force_error": 0.03921036538661006,
+        "force_error_n": 100,
+        "accepted_fraction": 0.58,
+        "screen_rejected_fraction": 0.42,
+        "n_scenes": 100
+      },
+      "equal_geometry_weighted_median": {
+        "background_error": 0.11574385576167837,
+        "ratio_error": 0.16043847846641668,
+        "center_error": 0.09829674457870222,
+        "radius_error": 0.11070032449933553,
+        "force_error": 0.04347459780839449,
+        "accepted_fraction": 0.5,
+        "screen_rejected_fraction": 0.5
+      }
+    },
+    "geom_db38a9c3817f033727b5": {
+      "excluded_geometry": "geom_db38a9c3817f033727b5",
+      "remaining_geometry_count": 5,
+      "remaining_scene_count": 100,
+      "scene_pooled": {
+        "background_error": 0.10109775958801093,
+        "background_error_n": 100,
+        "ratio_error": 0.18433571626061285,
+        "ratio_error_n": 100,
+        "center_error": 0.0982394820377841,
+        "center_error_n": 90,
+        "radius_error": 0.1264204892023969,
+        "radius_error_n": 90,
+        "force_error": 0.03921036538661006,
+        "force_error_n": 100,
+        "accepted_fraction": 0.65,
+        "screen_rejected_fraction": 0.35,
+        "n_scenes": 100
+      },
+      "equal_geometry_weighted_median": {
+        "background_error": 0.09738026858086829,
+        "ratio_error": 0.17781968453996863,
+        "center_error": 0.10088360180888878,
+        "radius_error": 0.11152654533193845,
+        "force_error": 0.04347459780839449,
+        "accepted_fraction": 0.75,
+        "screen_rejected_fraction": 0.25
+      }
+    },
+    "geom_fac5cdc88e186e46ee04": {
+      "excluded_geometry": "geom_fac5cdc88e186e46ee04",
+      "remaining_geometry_count": 5,
+      "remaining_scene_count": 100,
+      "scene_pooled": {
+        "background_error": 0.1417888507616833,
+        "background_error_n": 100,
+        "ratio_error": 0.18433571626061285,
+        "ratio_error_n": 100,
+        "center_error": 0.09414898621385784,
+        "center_error_n": 90,
+        "radius_error": 0.12130056643086107,
+        "radius_error_n": 90,
+        "force_error": 0.037617294276402605,
+        "force_error_n": 100,
+        "accepted_fraction": 0.73,
+        "screen_rejected_fraction": 0.27,
+        "n_scenes": 100
+      },
+      "equal_geometry_weighted_median": {
+        "background_error": 0.11574385576167837,
+        "ratio_error": 0.17781968453996863,
+        "center_error": 0.09829674457870222,
+        "radius_error": 0.11070032449933553,
+        "force_error": 0.04347459780839449,
+        "accepted_fraction": 0.75,
+        "screen_rejected_fraction": 0.25
+      }
+    }
+  },
+  "leave_one_out_influence_ranges": {
+    "background_error": {
+      "leave_one_out_min": 0.10109775958801093,
+      "leave_one_out_max": 0.1417888507616833,
+      "full_cohort_value": 0.1169567985575396,
+      "max_absolute_shift": 0.024832052204143695
+    },
+    "ratio_error": {
+      "leave_one_out_min": 0.15381212993187454,
+      "leave_one_out_max": 0.18433571626061285,
+      "full_cohort_value": 0.17767177518291227,
+      "max_absolute_shift": 0.02385964525103773
+    },
+    "center_error": {
+      "leave_one_out_min": 0.09414898621385784,
+      "leave_one_out_max": 0.10052887869139907,
+      "full_cohort_value": 0.09600734792508726,
+      "max_absolute_shift": 0.0045215307663118015
+    },
+    "radius_error": {
+      "leave_one_out_min": 0.10851306644364495,
+      "leave_one_out_max": 0.1264204892023969,
+      "full_cohort_value": 0.11454998798097737,
+      "max_absolute_shift": 0.011870501221419527
+    },
+    "force_error": {
+      "leave_one_out_min": 0.037617294276402605,
+      "leave_one_out_max": 0.043463214241535375,
+      "full_cohort_value": 0.041318448989528106,
+      "max_absolute_shift": 0.0037011547131255013
+    },
+    "accepted_fraction": {
+      "leave_one_out_min": 0.53,
+      "leave_one_out_max": 0.73,
+      "full_cohort_value": 0.6083333333333333,
+      "max_absolute_shift": 0.1216666666666667
+    },
+    "screen_rejected_fraction": {
+      "leave_one_out_min": 0.27,
+      "leave_one_out_max": 0.47,
+      "full_cohort_value": 0.39166666666666666,
+      "max_absolute_shift": 0.12166666666666665
+    }
+  },
+  "limitations": "This is a descriptive leave-one-geometry-out influence analysis of already-locked predictions, not an independent validation, a recalibration, or a replacement for cluster-level uncertainty intervals. Six geometries are too few for broad population inference."
+}
