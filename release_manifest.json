@@ -737,13 +737,13 @@
     },
     {
       "path": "figures/fig_ion_ct_error_distributions.pdf",
-      "size_bytes": 36725,
-      "sha256": "48b6ed58d74b598e4ad526da305520d4a0ed308d9181455db38616de7fb279ad"
+      "size_bytes": 36713,
+      "sha256": "95ed226ab7e26666394880fed58acc7d9a8c41cdcb78b9fd69c272c663324012"
     },
     {
       "path": "figures/fig_ion_ct_error_distributions.png",
-      "size_bytes": 332385,
-      "sha256": "5514ccc520d01138374feb3993f97f1e980991330b7cb1e15cd6a5fca3861d66"
+      "size_bytes": 334291,
+      "sha256": "706a3dbd12148db979cc27617dda358f02580680276bc162d55ea5523745bd28"
     },
     {
       "path": "figures/fig_ion_ct_material_recovery.pdf",
@@ -757,13 +757,13 @@
     },
     {
       "path": "figures/fig_ion_ct_method_comparison.pdf",
-      "size_bytes": 38533,
-      "sha256": "0d96d1760319da9c401b094369716e1d6c688c96263521aaa85f97f274bc7d05"
+      "size_bytes": 38539,
+      "sha256": "72d30229d69398dcb39ec3789355d474afc2c0da49e7f6ad1ca7ad40c9a817be"
     },
     {
       "path": "figures/fig_ion_ct_method_comparison.png",
-      "size_bytes": 392140,
-      "sha256": "819c3ebdd17aab8f1e08f85831ee44761235310bf588b0e23fe9b7a9936577b9"
+      "size_bytes": 393692,
+      "sha256": "bdab1897833c73abf411ecb512c697640f6e9ea3da4a6a2fadf020f4cc5c321b"
     },
     {
       "path": "figures/fig_ion_ct_multiview_tracks.pdf",
@@ -877,13 +877,13 @@
     },
     {
       "path": "figures/fig_response_baselines.pdf",
-      "size_bytes": 47741,
-      "sha256": "268d45c837d5ac68b3acb70d8db07883f5cf63336228cc34f92103b00e178464"
+      "size_bytes": 47855,
+      "sha256": "6ec9de25d7c5c6e2d989ad21eb79c9dd9bb23f45446700c4aa1c546193b2b24b"
     },
     {
       "path": "figures/fig_response_baselines.png",
-      "size_bytes": 350322,
-      "sha256": "a24d191724a6cb6c251cabb7f944d3d02285b0338bded7fa69fdae7d14c7b1af"
+      "size_bytes": 354441,
+      "sha256": "6fc30665809155390a1face6784f96d126f0cd1ce9dde041d715605539421f86"
     },
     {
       "path": "figures/fig_structured_tracking.pdf",
