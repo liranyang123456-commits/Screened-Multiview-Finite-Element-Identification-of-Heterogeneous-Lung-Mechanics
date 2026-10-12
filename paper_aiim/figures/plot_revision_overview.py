@@ -1,6 +1,14 @@
-"""Readable decision-layer and cohort diagrams for the revised manuscript.
+"""Simplified decision-layer and cohort diagrams (auxiliary, not compiled).
 
-Usage: python plot_revision_overview.py [--only fig_dataset_protocol ...]
+These reduced text-box / box-plot drawings were explored during the revision
+and then withdrawn: the manuscript keeps the original illustrated designs of
+``fig_pipeline``, ``fig_dataset_protocol`` and ``fig_main_results``, which are
+drawn at their printed width by ``generate_aiim_figures.py``. To avoid
+overwriting those compiled figures, this script writes its outputs under the
+``*_simplified`` stems. ``fig_ct_controlled_distributions`` is likewise an
+auxiliary diagnostic that is not referenced by the manuscript.
+
+Usage: python plot_revision_overview.py [--only fig_dataset_protocol_simplified ...]
 """
 from pathlib import Path
 import argparse
@@ -53,7 +61,7 @@ def pipeline():
         ((0.525, 0.305), (0.465, 0.305)),
     ):
         ax.add_patch(FancyArrowPatch(first, last, arrowstyle="-|>", mutation_scale=14, lw=1.5))
-    save(fig, "fig_pipeline")
+    save(fig, "fig_pipeline_simplified")
 
 
 def dataset():
@@ -78,7 +86,7 @@ def dataset():
         "Single-inclusion material targets and all motion are synthetic\n"
         "CT test: 120 scenes within 6 geometry clusters, not 120 anatomies",
         COLORS[2], fontsize=8.5, pad=0.01)
-    save(fig, "fig_dataset_protocol")
+    save(fig, "fig_dataset_protocol_simplified")
 
 
 def primary_results():
@@ -108,7 +116,7 @@ def primary_results():
         ax.set_xticks([1], [f"{len(values)} eligible cases"])
         ax.set_ylabel("Error (%)")
         ax.grid(axis="y", alpha=0.2)
-    save(fig, "fig_main_results")
+    save(fig, "fig_main_results_simplified")
 
 
 def ct_controls():
@@ -153,9 +161,9 @@ def ct_controls():
 
 def main():
     builders = {
-        "fig_pipeline": pipeline,
-        "fig_dataset_protocol": dataset,
-        "fig_main_results": primary_results,
+        "fig_pipeline_simplified": pipeline,
+        "fig_dataset_protocol_simplified": dataset,
+        "fig_main_results_simplified": primary_results,
         "fig_ct_controlled_distributions": ct_controls,
     }
     parser = argparse.ArgumentParser(description=__doc__)
@@ -167,7 +175,7 @@ def main():
         if args.only is None or stem in args.only:
             builder()
             print(f"wrote {stem}")
-    print("Generated simplified inference and cohort diagrams.")
+    print("Generated simplified (auxiliary, *_simplified) inference and cohort diagrams.")
 
 
 if __name__ == "__main__":

@@ -373,35 +373,43 @@ def verify_assets(output_dir: Path, stems: tuple[str, ...]) -> None:
 
 
 def fig_pipeline(output_dir: Path) -> None:
-    """Draw the Calibrated Multiview screened-FEM inference path: observe → encode → prior → screen → audit."""
-    fig, ax = plt.subplots(figsize=(16.8, 7.6))
-    ax.set_xlim(0, 1)
-    ax.set_ylim(0, 1)
+    """Draw the Calibrated Multiview screened-FEM inference path: observe → encode → prior → screen → audit.
+
+    The canvas is laid out at its printed size (``FINAL_WIDTH_IN`` wide): one
+    axes fills the figure and its data units are inches, so every coordinate
+    below is an axes fraction scaled by the page width/height and every font
+    size is the printed point size (titles 8.5 pt, all other text >= 7 pt).
+    """
+    W, H = FINAL_WIDTH_IN, 3.9
+    fig = plt.figure(figsize=(W, H))
+    ax = fig.add_axes([0.0, 0.0, 1.0, 1.0])
+    ax.set_xlim(0, W)
+    ax.set_ylim(0, H)
     ax.axis("off")
+    # save_figure pads the page by 0.03 in per side, so nominal 7.1 pt prints
+    # at >= 7.0 pt once the PDF is scaled to \linewidth.
+    title_pt, detail_pt, label_pt = 8.5, 7.1, 7.1
     stages = [
         (
-            "1  Geometry and constraints",
-            "surface mesh • tetrahedra\n"
-            "boundary • contacts",
+            "1  Geometry and\nconstraints",
+            "surface mesh • tetrahedra\nboundary • contacts",
             GRAY,
             "#F4F6F8",
         ),
         (
             "2  Multiview motion",
-            "4 loads • 3 views\n"
-            "7-frame tracks + force",
+            "4 loads • 3 views\n7-frame tracks + force",
             BLUE,
             PALE_BLUE,
         ),
         (
             "3  Response encoding",
-            "visibility mask\n"
-            "temporal response tokens",
+            "visibility mask\ntemporal response tokens",
             BLUE,
             "#F2F7FB",
         ),
         (
-            "4  Hybrid material initializer",
+            "4  Hybrid material\ninitializer",
             "MeshGNN field + calibrated radius\n"
             r"$\theta_0=(\hat E_b,\hat\rho_E,\hat{\mathbf{c}},\hat R)$",
             GREEN,
@@ -409,82 +417,81 @@ def fig_pipeline(output_dir: Path) -> None:
         ),
         (
             "5  Physics decision",
-            "seven probes\n"
-            "retain prior or bounded MAP",
+            "seven probes\nretain prior or bounded MAP",
             ORANGE,
             PALE_ORANGE,
         ),
         (
             "6  Audited output",
-            "accept or roll back\n"
-            "field • interval • diagnostics",
+            "accept or roll back\nfield • interval • diagnostics",
             PURPLE,
             PALE_PURPLE,
         ),
     ]
     # Estimator inference order (clockwise): geometry → motion → encoding →
     # hybrid prior → screened FEM decision → audited material field.
+    box_w, box_h = 1.78, 1.00
+    margin = 0.02
+    gap = (W - 2 * margin - 3 * box_w) / 2
+    col_x = [margin + index * (box_w + gap) for index in range(3)]
+    row_y = (2.42, 1.05)  # bottom edge of the top and bottom rows (in)
     positions = (
-        (0.055, 0.555),
-        (0.385, 0.555),
-        (0.715, 0.555),
-        (0.715, 0.245),
-        (0.385, 0.245),
-        (0.055, 0.245),
+        (col_x[0], row_y[0]),
+        (col_x[1], row_y[0]),
+        (col_x[2], row_y[0]),
+        (col_x[2], row_y[1]),
+        (col_x[1], row_y[1]),
+        (col_x[0], row_y[1]),
     )
-    width, height = 0.230, 0.195
-    for (left, y0), (title, detail, color, fill) in zip(
-        positions, stages, strict=True
-    ):
-        box = FancyBboxPatch(
-            (left, y0),
-            width,
-            height,
-            boxstyle="round,pad=0.012,rounding_size=0.016",
-            facecolor=fill,
-            edgecolor=color,
-            linewidth=2.2,
+    icon_dy = 0.50  # icon centre above the box bottom (in)
+    for (left, y0), (title, detail, color, fill) in zip(positions, stages, strict=True):
+        ax.add_patch(
+            FancyBboxPatch(
+                (left, y0),
+                box_w,
+                box_h,
+                boxstyle="round,pad=0,rounding_size=0.07",
+                facecolor=fill,
+                edgecolor=color,
+                linewidth=1.3,
+            )
         )
-        ax.add_patch(box)
+        two_lines = "\n" in title
         ax.text(
-            left + width / 2,
-            y0 + height - 0.028,
+            left + box_w / 2,
+            y0 + box_h - (0.15 if two_lines else 0.14),
             title,
             ha="center",
             va="center",
-            fontsize=9.0,
+            fontsize=title_pt,
             fontweight="bold",
             color=color,
+            linespacing=1.05,
         )
         ax.text(
-            left + width / 2,
-            y0 + 0.028,
+            left + box_w / 2,
+            y0 + 0.16,
             detail,
             ha="center",
             va="center",
-            fontsize=7.6,
+            fontsize=detail_pt,
             color=INK,
-            linespacing=1.28,
+            linespacing=1.3,
         )
 
-    def _icon_center(y0: float) -> float:
-        return y0 + 0.095
+    def _icon_centre(index: int) -> tuple[float, float]:
+        left, y0 = positions[index]
+        return left + box_w / 2, y0 + icon_dy
 
-    # 1: denser curved surface mesh with many triangular facets.
-    left, y0 = positions[0]
-    icon_y = _icon_center(y0)
+    # 1: dense curved surface mesh with triangular facets and a fixed boundary.
+    cx, cy = _icon_centre(0)
     rows, cols = 5, 7
     mesh_x = np.zeros((rows, cols))
     mesh_y = np.zeros((rows, cols))
     for row in range(rows):
         for col in range(cols):
-            mesh_x[row, col] = left + 0.040 + 0.022 * col + 0.006 * row
-            mesh_y[row, col] = (
-                icon_y
-                + 0.030
-                - 0.014 * row
-                + 0.005 * np.sin(0.9 * col + 0.45 * row)
-            )
+            mesh_x[row, col] = cx - 0.50 + 0.14 * col + 0.035 * (row - 2)
+            mesh_y[row, col] = cy + 0.14 - 0.07 * row + 0.022 * np.sin(0.9 * col + 0.45 * row)
     for row in range(rows - 1):
         for col in range(cols - 1):
             triangle_a = (
@@ -498,115 +505,81 @@ def fig_pipeline(output_dir: Path) -> None:
                 (mesh_x[row + 1, col], mesh_y[row + 1, col]),
             )
             for triangle, alpha in ((triangle_a, 0.20), (triangle_b, 0.12)):
-                patch = plt.Polygon(
-                    triangle,
-                    closed=True,
-                    facecolor=GRAY,
-                    edgecolor=GRAY,
-                    linewidth=0.45,
-                    alpha=alpha,
-                    zorder=2,
+                ax.add_patch(
+                    plt.Polygon(
+                        triangle,
+                        closed=True,
+                        facecolor=GRAY,
+                        edgecolor=GRAY,
+                        linewidth=0.35,
+                        alpha=alpha,
+                        zorder=2,
+                    )
                 )
-                ax.add_patch(patch)
-    ax.scatter(mesh_x.ravel(), mesh_y.ravel(), s=5.5, color=GRAY, zorder=3)
+    ax.scatter(mesh_x.ravel(), mesh_y.ravel(), s=3.0, color=GRAY, zorder=3)
     # Fixed posterior boundary cue.
-    ax.plot(
-        mesh_x[-1],
-        mesh_y[-1] - 0.006,
-        color=ORANGE,
-        lw=1.5,
-        solid_capstyle="round",
-        zorder=4,
-    )
+    ax.plot(mesh_x[-1], mesh_y[-1] - 0.03, color=ORANGE, lw=1.2, solid_capstyle="round", zorder=4)
 
-    # 2: denser rendered multiview tracks with three cameras.
-    left, y0 = positions[1]
-    icon_y = _icon_center(y0)
-    view_left, view_bottom = left + 0.078, icon_y - 0.028
-    view = FancyBboxPatch(
-        (view_left, view_bottom),
-        0.078,
-        0.056,
-        boxstyle="round,pad=0.002,rounding_size=0.004",
-        facecolor="#F8FBFD",
-        edgecolor=BLUE,
-        linewidth=0.9,
+    # 2: rendered multiview tracks with three cameras.
+    cx, cy = _icon_centre(1)
+    view_w, view_h = 0.52, 0.30
+    view_left, view_bottom = cx - view_w / 2, cy - view_h / 2 + 0.01
+    ax.add_patch(
+        FancyBboxPatch(
+            (view_left, view_bottom),
+            view_w,
+            view_h,
+            boxstyle="round,pad=0.01,rounding_size=0.02",
+            facecolor="#F8FBFD",
+            edgecolor=BLUE,
+            linewidth=0.7,
+        )
     )
-    ax.add_patch(view)
     rng = np.random.default_rng(7)
-    node_u = view_left + 0.010 + 0.058 * rng.random(18)
-    node_v = view_bottom + 0.008 + 0.040 * rng.random(18)
+    node_u = view_left + 0.06 + 0.38 * rng.random(18)
+    node_v = view_bottom + 0.05 + 0.20 * rng.random(18)
     frame_colors = plt.get_cmap("viridis")(np.linspace(0.15, 0.9, 5))
     for index, (u_value, v_value) in enumerate(zip(node_u, node_v, strict=True)):
-        track_u = u_value + 0.004 * np.arange(5)
-        track_v = v_value - 0.003 * np.arange(5)
-        ax.plot(track_u, track_v, color=GRAY, lw=0.55, alpha=0.45, zorder=3)
-        ax.scatter(
-            track_u[-1],
-            track_v[-1],
-            s=8,
-            color=frame_colors[index % len(frame_colors)],
-            zorder=4,
-        )
-    target = (view_left + 0.039, view_bottom + 0.028)
-    cameras = (
-        (left + 0.062, icon_y + 0.028),
-        (left + 0.178, icon_y + 0.028),
-        (left + 0.120, icon_y - 0.042),
-    )
+        track_u = u_value + 0.022 * np.arange(5)
+        track_v = v_value - 0.014 * np.arange(5)
+        ax.plot(track_u, track_v, color=GRAY, lw=0.45, alpha=0.45, zorder=3)
+        ax.scatter(track_u[-1], track_v[-1], s=5, color=frame_colors[index % len(frame_colors)], zorder=4)
+    target = (cx, cy + 0.01)
+    cameras = ((cx - 0.60, cy + 0.15), (cx + 0.60, cy + 0.15), (cx, cy - 0.21))
     for camera_x, camera_y in cameras:
-        ax.scatter(camera_x, camera_y, marker="s", s=22, color=BLUE, zorder=5)
-        ax.plot(
-            (camera_x, target[0]),
-            (camera_y, target[1]),
-            color=BLUE,
-            lw=0.7,
-            alpha=0.65,
-            zorder=2,
-        )
+        ax.scatter(camera_x, camera_y, marker="s", s=14, color=BLUE, zorder=5)
+        ax.plot((camera_x, target[0]), (camera_y, target[1]), color=BLUE, lw=0.55, alpha=0.65, zorder=2)
 
-    # 3: denser temporal token sequence with masked frames.
-    left, y0 = positions[2]
-    icon_y = _icon_center(y0)
-    token_x = left + 0.052 + 0.022 * np.arange(7)
-    token_y = icon_y + 0.004 * np.sin(np.linspace(0, np.pi, 7))
-    ax.plot(token_x, token_y, color=BLUE, lw=1.15, alpha=0.55, zorder=2)
+    # 3: temporal token sequence with masked frames.
+    cx, cy = _icon_centre(2)
+    token_x = cx - 0.46 + 0.14 * np.arange(7)
+    token_y = cy + 0.02 + 0.025 * np.sin(np.linspace(0, np.pi, 7))
+    ax.plot(token_x, token_y, color=BLUE, lw=0.9, alpha=0.55, zorder=2)
     for index, (x_value, y_value) in enumerate(zip(token_x, token_y, strict=True)):
         visible = index not in (2, 5)
         ax.scatter(
             x_value,
             y_value,
-            s=34 if visible else 18,
+            s=20 if visible else 11,
             color=BLUE if visible else LIGHT,
             edgecolor=BLUE,
-            linewidth=0.8,
+            linewidth=0.6,
             zorder=4,
         )
         if visible:
-            ax.plot(
-                (x_value, x_value),
-                (y_value - 0.018, y_value - 0.006),
-                color=BLUE,
-                lw=1.0,
-                alpha=0.55,
-                zorder=3,
-            )
+            ax.plot((x_value, x_value), (y_value - 0.11, y_value - 0.04), color=BLUE, lw=0.8, alpha=0.55, zorder=3)
     ax.annotate(
         "",
-        (token_x[-1] + 0.018, token_y[-1]),
-        (token_x[-1], token_y[-1]),
-        arrowprops={"arrowstyle": "-|>", "color": BLUE, "lw": 0.95},
+        (token_x[-1] + 0.14, token_y[-1]),
+        (token_x[-1] + 0.03, token_y[-1]),
+        arrowprops={"arrowstyle": "-|>", "color": BLUE, "lw": 0.8, "mutation_scale": 7},
     )
 
-    # 4: denser MeshGNN cue: node graph + global heads.
-    left, y0 = positions[3]
-    icon_y = _icon_center(y0)
+    # 4: MeshGNN cue: node graph + global material heads.
+    cx, cy = _icon_centre(3)
     layer_widths = (4, 5, 4, 3)
-    layer_x = left + np.asarray((0.055, 0.095, 0.135, 0.175))
-    layer_y = []
-    for count in layer_widths:
-        offsets = np.linspace(-0.028, 0.028, count)
-        layer_y.append(icon_y + offsets)
+    layer_x = cx + np.asarray((-0.46, -0.21, 0.04, 0.29))
+    layer_y = [cy + np.linspace(-0.16, 0.16, count) for count in layer_widths]
     for first_layer, second_layer in zip(range(3), range(1, 4), strict=True):
         for first_y in layer_y[first_layer]:
             for second_y in layer_y[second_layer]:
@@ -614,102 +587,61 @@ def fig_pipeline(output_dir: Path) -> None:
                     (layer_x[first_layer], layer_x[second_layer]),
                     (first_y, second_y),
                     color=GREEN,
-                    lw=0.45,
+                    lw=0.35,
                     alpha=0.35,
                     zorder=2,
                 )
     for x_value, ys in zip(layer_x, layer_y, strict=True):
-        ax.scatter(
-            np.full(len(ys), x_value),
-            ys,
-            s=15,
-            color=GREEN,
-            edgecolor="#0B5F3A",
-            linewidth=0.4,
-            zorder=4,
-        )
-    # Global material heads.
-    head_y = icon_y + np.asarray((-0.018, 0.000, 0.018))
-    for y_value in head_y:
+        ax.scatter(np.full(len(ys), x_value), ys, s=9, color=GREEN, edgecolor="#0B5F3A", linewidth=0.3, zorder=4)
+    head_x = cx + 0.52
+    for y_value in cy + np.asarray((-0.10, 0.0, 0.10)):
         ax.plot(
-            (layer_x[-1], left + 0.198),
+            (layer_x[-1], head_x),
             (layer_y[-1][len(layer_y[-1]) // 2], y_value),
             color=GREEN,
-            lw=0.55,
+            lw=0.45,
             alpha=0.55,
             zorder=2,
         )
-        ax.scatter(left + 0.198, y_value, s=18, marker="D", color=ORANGE, zorder=5)
+        ax.scatter(head_x, y_value, s=11, marker="D", color=ORANGE, zorder=5)
 
-    # 5: support screen with retain-prior / MAP-FEM branches.
-    left, y0 = positions[4]
-    icon_y = _icon_center(y0)
-    decision_x, decision_y = left + 0.115, icon_y + 0.012
+    # 5: support screen with retain-prior / MAP-FEM branches and a FEM lattice.
+    cx, cy = _icon_centre(4)
+    decision_x, decision_y = cx, cy + 0.09
     ax.scatter(
         decision_x,
         decision_y,
-        s=420,
+        s=300,
         marker="D",
         facecolor="#FFF7ED",
         edgecolor=ORANGE,
-        linewidth=1.15,
+        linewidth=0.9,
         zorder=3,
     )
-    ax.text(
-        decision_x,
-        decision_y,
-        r"$\Delta J$?",
-        fontsize=7.0,
-        ha="center",
-        va="center",
-        color=ORANGE,
-        zorder=4,
-    )
-    ax.annotate(
-        "",
-        (left + 0.068, icon_y - 0.018),
-        (decision_x - 0.012, decision_y - 0.012),
-        arrowprops={"arrowstyle": "-|>", "color": ORANGE, "lw": 0.75},
-    )
-    ax.annotate(
-        "",
-        (left + 0.164, icon_y - 0.018),
-        (decision_x + 0.012, decision_y - 0.012),
-        arrowprops={"arrowstyle": "-|>", "color": ORANGE, "lw": 0.75},
-    )
-    ax.text(
-        left + 0.068,
-        icon_y - 0.030,
-        "prior",
-        fontsize=6.8,
-        ha="center",
-        color=ORANGE,
-    )
-    ax.text(
-        left + 0.164,
-        icon_y - 0.030,
-        "MAP",
-        fontsize=6.8,
-        ha="center",
-        color=ORANGE,
-    )
-    # Compact FEM lattice under the MAP branch.
+    ax.text(decision_x, decision_y, r"$\Delta J$?", fontsize=label_pt, ha="center", va="center", color=ORANGE, zorder=4)
+    for sign, word in ((-1, "prior"), (1, "MAP")):
+        ax.annotate(
+            "",
+            (cx + sign * 0.40, cy - 0.06),
+            (decision_x + sign * 0.09, decision_y - 0.07),
+            arrowprops={"arrowstyle": "-|>", "color": ORANGE, "lw": 0.6, "mutation_scale": 7},
+        )
+        ax.text(cx + sign * 0.40, cy - 0.15, word, fontsize=label_pt, ha="center", va="center", color=ORANGE)
     for row in range(2):
         for col in range(3):
             ax.scatter(
-                left + 0.148 + 0.012 * col,
-                icon_y - 0.042 - 0.010 * row,
-                s=12,
+                cx + 0.58 + 0.075 * col,
+                cy - 0.08 - 0.065 * row,
+                s=8,
                 marker="s",
                 facecolor=PALE_ORANGE,
                 edgecolor=ORANGE,
-                linewidth=0.55,
+                linewidth=0.45,
                 zorder=3,
             )
 
-    # 6: denser audited material-field map with accept mark.
-    left, y0 = positions[5]
-    icon_y = _icon_center(y0)
+    # 6: audited material-field map with an accept mark.
+    cx, cy = _icon_centre(5)
     field = np.array(
         [
             [0, 0, 0, 1, 1],
@@ -720,143 +652,121 @@ def fig_pipeline(output_dir: Path) -> None:
     )
     for row in range(field.shape[0]):
         for col in range(field.shape[1]):
-            color = ORANGE if field[row, col] else BLUE
             ax.scatter(
-                left + 0.055 + 0.022 * col,
-                icon_y + 0.024 - 0.016 * row,
-                s=38,
+                cx - 0.42 + 0.13 * col,
+                cy + 0.13 - 0.09 * row,
+                s=24,
                 marker="s",
-                color=color,
+                color=ORANGE if field[row, col] else BLUE,
                 alpha=0.85 if field[row, col] else 0.55,
                 edgecolor="white",
-                linewidth=0.4,
+                linewidth=0.3,
                 zorder=3,
             )
-    ax.text(
-        left + 0.185,
-        icon_y,
-        "✓",
-        color=PURPLE,
-        fontsize=13,
-        va="center",
-        ha="center",
-        fontweight="bold",
-        zorder=4,
-    )
+    ax.text(cx + 0.50, cy, "✓", color=PURPLE, fontsize=11, va="center", ha="center", fontweight="bold", zorder=4)
 
-    # Formula above the shaft, gloss below. Because the canvas is wide and
-    # short, use a larger y offset so the labels stay visually clear of the line.
-    arrow_gap = 0.090
+    # Arrows between stages: symbol above the shaft, verb below it.
+    mid_top = row_y[0] + box_h / 2
+    mid_bottom = row_y[1] + box_h / 2
+    label_gap = 0.16
     arrow_specs = (
-        # start, end, vertical?, formula, gloss
-        ((0.288, 0.665), (0.377, 0.665), False, r"$\Pi_v,\mathbf{f}$", "project + load"),
-        ((0.618, 0.665), (0.707, 0.665), False, r"$\mathbf{z}_{i\ell vt}$", "tokenize"),
-        ((0.830, 0.555), (0.830, 0.445), True, r"$\theta_0$", "MeshGNN prior"),
-        ((0.707, 0.328), (0.618, 0.328), False, r"$\Delta J$", "screen"),
-        ((0.377, 0.328), (0.288, 0.328), False, "accept / roll back", "audit"),
+        # start, end, formula, gloss
+        ((col_x[0] + box_w + 0.02, mid_top), (col_x[1] - 0.02, mid_top), r"$\Pi_v,\mathbf{f}$", "project\n+ load"),
+        ((col_x[1] + box_w + 0.02, mid_top), (col_x[2] - 0.02, mid_top), r"$\mathbf{z}_{i\ell vt}$", "tokenize"),
+        ((col_x[2] - 0.02, mid_bottom), (col_x[1] + box_w + 0.02, mid_bottom), r"$\Delta J$", "screen"),
+        ((col_x[1] - 0.02, mid_bottom), (col_x[0] + box_w + 0.02, mid_bottom), "accept /\nroll back", "audit"),
     )
-    for start, end, vertical, formula, gloss in arrow_specs:
+    for start, end, formula, gloss in arrow_specs:
         ax.add_patch(
-            FancyArrowPatch(
-                start,
-                end,
-                arrowstyle="-|>",
-                mutation_scale=14,
-                linewidth=1.6,
-                color=INK,
-                zorder=3,
-                shrinkA=1,
-                shrinkB=1,
-            )
+            FancyArrowPatch(start, end, arrowstyle="-|>", mutation_scale=9, linewidth=1.1, color=INK, zorder=3, shrinkA=0, shrinkB=0)
         )
         mid_x = 0.5 * (start[0] + end[0])
-        mid_y = 0.5 * (start[1] + end[1])
-        if vertical:
-            # Keep both labels inside the inter-row gutter and to the right of
-            # the shaft so they never sit on box borders or the arrow.
-            above_xy = (mid_x + 0.070, 0.528)
-            below_xy = (mid_x + 0.070, 0.468)
-        else:
-            above_xy = (mid_x, mid_y + arrow_gap)
-            below_xy = (mid_x, mid_y - arrow_gap)
+        formula_lines = formula.count("\n") + 1
         ax.text(
-            above_xy[0],
-            above_xy[1],
+            mid_x,
+            start[1] + label_gap + (0.05 if formula_lines > 1 else 0.0),
             formula,
             ha="center",
             va="center",
-            fontsize=6.8,
+            fontsize=label_pt,
             color=INK,
             fontweight="bold",
+            linespacing=1.1,
             zorder=6,
-            clip_on=False,
         )
+        gloss_lines = gloss.count("\n") + 1
         ax.text(
-            below_xy[0],
-            below_xy[1],
+            mid_x,
+            start[1] - label_gap - (0.05 if gloss_lines > 1 else 0.0),
             gloss,
             ha="center",
             va="center",
-            fontsize=6.2,
+            fontsize=label_pt,
             color=GRAY,
+            linespacing=1.1,
             zorder=6,
-            clip_on=False,
         )
-    ax.text(
-        0.035,
-        0.955,
-        "Screened multiview finite-element identification",
-        fontsize=15.0,
-        fontweight="bold",
-        color=INK,
-        va="top",
+    # Vertical arrow from the encoder to the hybrid initializer, labelled in
+    # the inter-row gutter to the right of the shaft.
+    shaft_x = col_x[2] + box_w / 2
+    ax.add_patch(
+        FancyArrowPatch(
+            (shaft_x, row_y[0] - 0.02),
+            (shaft_x, row_y[1] + box_h + 0.02),
+            arrowstyle="-|>",
+            mutation_scale=9,
+            linewidth=1.1,
+            color=INK,
+            zorder=3,
+            shrinkA=0,
+            shrinkB=0,
+        )
     )
+    gutter_mid = 0.5 * (row_y[0] + row_y[1] + box_h)
+    ax.text(shaft_x + 0.07, gutter_mid + 0.075, r"$\theta_0$", ha="left", va="center", fontsize=label_pt, fontweight="bold", color=INK)
+    ax.text(shaft_x + 0.07, gutter_mid - 0.075, "MeshGNN prior", ha="left", va="center", fontsize=label_pt, color=GRAY)
+
+    ax.text(margin + 0.04, H - 0.07, "Screened multiview finite-element identification", fontsize=10.0, fontweight="bold", color=INK, va="top")
     ax.text(
-        0.035,
-        0.905,
+        margin + 0.04,
+        H - 0.31,
         "Geometry and motion  →  hybrid prior  →  screened FEM  →  audited material field",
-        fontsize=9.5,
+        fontsize=7.5,
         color=GRAY,
-    )
-    branch = FancyBboxPatch(
-        (0.220, 0.055),
-        0.56,
-        0.078,
-        boxstyle="round,pad=0.012,rounding_size=0.016",
-        facecolor="#F7FAFC",
-        edgecolor=BLUE,
-        linewidth=1.7,
-        linestyle="--",
-    )
-    ax.add_patch(branch)
-    ax.text(
-        0.500,
-        0.096,
-        "Selection protocol",
-        ha="center",
         va="center",
-        fontsize=8.2,
-        fontweight="bold",
-        color=BLUE,
     )
     ax.text(
-        0.500,
-        0.070,
-        "geometry split • train fit • validation selection • locked test",
-        ha="center",
-        va="center",
-        fontsize=7.4,
-        color=INK,
-    )
-    ax.text(
-        0.500,
-        0.185,
+        W / 2,
+        0.86,
         "Learned-prior initializer + support-screened MAP FEM + objective-based fallback",
         ha="center",
         va="center",
-        fontsize=8.2,
+        fontsize=8.0,
         fontweight="bold",
         color=PURPLE,
+    )
+    band_w, band_h, band_y = 3.9, 0.54, 0.12
+    ax.add_patch(
+        FancyBboxPatch(
+            (W / 2 - band_w / 2, band_y),
+            band_w,
+            band_h,
+            boxstyle="round,pad=0,rounding_size=0.07",
+            facecolor="#F7FAFC",
+            edgecolor=BLUE,
+            linewidth=1.1,
+            linestyle="--",
+        )
+    )
+    ax.text(W / 2, band_y + band_h - 0.15, "Selection protocol", ha="center", va="center", fontsize=8.0, fontweight="bold", color=BLUE)
+    ax.text(
+        W / 2,
+        band_y + 0.16,
+        "geometry split • train fit • validation selection • locked test",
+        ha="center",
+        va="center",
+        fontsize=7.3,
+        color=INK,
     )
     save_figure(fig, output_dir, "fig_pipeline")
 
@@ -869,197 +779,196 @@ def _patient_record(manifest: dict[str, Any], patient_id: str) -> dict[str, Any]
 
 
 def fig_dataset_protocol(manifest: dict[str, Any], output_dir: Path) -> None:
-    """Summarize the generated cohort and acquisition protocol from its manifest."""
+    """Summarize the generated cohort and acquisition protocol from its manifest.
+
+    Laid out at the printed width (6.5 in): A case-level split bar, B four
+    material/region histograms, C the four-load / three-view / seven-frame
+    protocol and the observation-model card. Labels are >= 7 pt on the page.
+    """
     patients = manifest["patients"]
     split_order = ("train", "val", "test")
     split_labels = ("Train", "Validation", "Test")
     counts = np.asarray([sum(p["split"] == key for p in patients) for key in split_order])
     if tuple(counts) != (150, 50, 50):
-        raise ValueError(f"Unexpected patient split: {dict(zip(split_order, counts))}")
+        raise ValueError(f"Unexpected case split: {dict(zip(split_order, counts))}")
     E = np.asarray([p["E_background"] for p in patients]) / 1000.0
     ratio = np.asarray([p["inclusion_ratio"] for p in patients])
     radius = np.asarray([p["inclusion_radius_fraction"] for p in patients])
     center = np.asarray([p["inclusion_center_fraction"] for p in patients])
 
-    fig = plt.figure(figsize=(15.2, 8.8))
+    small_pt = 7.1
+    W, H = FINAL_WIDTH_IN, 6.1
+    fig = plt.figure(figsize=(W, H))
     grid = fig.add_gridspec(
-        4,
-        4,
-        height_ratios=(0.72, 0.13, 1.3, 1.0),
-        hspace=0.52,
-        wspace=0.38,
+        3,
+        1,
+        height_ratios=(0.42, 1.0, 1.0),
+        left=0.075,
+        right=0.985,
+        bottom=0.075,
+        top=0.905,
+        hspace=0.80,
     )
-    ax_split = fig.add_subplot(grid[0, :])
+    ax_split = fig.add_subplot(grid[0])
     split_colors = [BLUE, GREEN, PURPLE]
     left = 0
     for count, label, color in zip(counts, split_labels, split_colors, strict=True):
-        ax_split.barh(0, count, left=left, height=0.48, color=color, edgecolor="white", linewidth=2)
-        ax_split.text(left + count / 2, 0, f"{label}\n$n={count}$", color="white", ha="center", va="center", fontweight="bold")
+        ax_split.barh(0, count, left=left, height=0.6, color=color, edgecolor="white", linewidth=1.5)
+        ax_split.text(
+            left + count / 2,
+            0,
+            f"{label}  $n={count}$",
+            color="white",
+            ha="center",
+            va="center",
+            fontweight="bold",
+            fontsize=small_pt + 0.4,
+        )
         left += count
     ax_split.set_xlim(0, counts.sum())
-    ax_split.set_ylim(-0.55, 0.7)
+    ax_split.set_ylim(-0.5, 0.5)
     ax_split.set_yticks([])
-    ax_split.set_xlabel("Patient-level split (250 procedural synthetic CT-like surrogates)")
-    ax_split.set_title("A  Development-fixed case-level partition", loc="left")
+    ax_split.tick_params(axis="x", labelsize=small_pt)
+    ax_split.set_xlabel("Case-level split (250 procedural synthetic CT-like surrogates)", fontsize=small_pt + 0.4)
+    ax_split.set_title("A  Development-fixed case-level partition", loc="left", fontsize=8.5)
     ax_split.spines[["left", "right", "top"]].set_visible(False)
     ax_split.text(
-        0.995,
-        0.88,
-        "Model selection: train only • interval/prior-scale calibration: validation only • test: after freezing",
+        1.0,
+        1.10,
+        "selection: train • calibration: validation • test: locked",
         transform=ax_split.transAxes,
         ha="right",
-        fontsize=8.2,
+        va="bottom",
+        fontsize=small_pt,
         color=GRAY,
     )
 
-    ax_distribution_header = fig.add_subplot(grid[1, :])
-    ax_distribution_header.axis("off")
-    ax_distribution_header.text(
-        0.0,
-        0.35,
-        "B  Generated material/region distributions",
-        transform=ax_distribution_header.transAxes,
-        fontsize=11.5,
-        fontweight="bold",
-        va="center",
-    )
-    distribution_axes = [fig.add_subplot(grid[2, index]) for index in range(4)]
+    dist_grid = grid[1].subgridspec(1, 4, wspace=0.50)
+    distribution_axes = [fig.add_subplot(dist_grid[index]) for index in range(4)]
+    distribution_axes[0].set_title("B  Generated material/region distributions", loc="left", fontsize=8.5, x=0.0, pad=6)
     histogram_specs = [
         (E, "$E_b$ (kPa)", BLUE),
         (ratio, r"Inclusion ratio $\rho_E$", GREEN),
         (radius, "Radius fraction $R$", ORANGE),
     ]
     for ax, (values, label, color) in zip(distribution_axes[:3], histogram_specs, strict=True):
-        ax.hist(values, bins=14, color=color, alpha=0.82, edgecolor="white")
-        ax.axvline(np.median(values), color=INK, linestyle="--", linewidth=1.2)
-        ax.set_xlabel(label)
-        ax.set_ylabel("Patients")
+        ax.hist(values, bins=14, color=color, alpha=0.82, edgecolor="white", linewidth=0.5)
+        ax.axvline(np.median(values), color=INK, linestyle="--", linewidth=1.0)
+        ax.set_xlabel(label, fontsize=small_pt + 0.4)
+        ax.set_ylabel("Cases", fontsize=small_pt + 0.4)
+        ax.tick_params(labelsize=small_pt)
         ax.grid(axis="y", color=LIGHT)
-        ax.text(0.97, 0.92, f"median {np.median(values):.2f}", transform=ax.transAxes, ha="right", fontsize=8)
+        ax.set_ylim(top=ax.get_ylim()[1] * 1.18)
+        ax.text(0.97, 0.93, f"median {np.median(values):.2f}", transform=ax.transAxes, ha="right", va="top", fontsize=small_pt)
     ax = distribution_axes[3]
     for dim, color, label in zip(range(3), (BLUE, ORANGE, GREEN), ("x", "y", "z"), strict=True):
-        ax.hist(center[:, dim], bins=12, histtype="step", linewidth=2, color=color, label=label)
-    ax.set_xlabel("Inclusion-center fraction")
-    ax.set_ylabel("Patients")
+        ax.hist(center[:, dim], bins=12, histtype="step", linewidth=1.4, color=color, label=label)
+    ax.set_xlabel("Inclusion-center fraction", fontsize=small_pt + 0.4)
+    ax.set_ylabel("Cases", fontsize=small_pt + 0.4)
+    ax.tick_params(labelsize=small_pt)
+    ax.set_ylim(top=ax.get_ylim()[1] * 1.3)
     ax.grid(axis="y", color=LIGHT)
-    ax.legend(title="Axis", ncol=3, fontsize=8, title_fontsize=8)
+    ax.legend(title="Axis", ncol=3, fontsize=small_pt, title_fontsize=small_pt, loc="upper center", columnspacing=0.8, handlelength=1.2)
 
-    protocol_axes = [fig.add_subplot(grid[3, index]) for index in range(4)]
+    proto_grid = grid[2].subgridspec(1, 4, wspace=0.42, width_ratios=(1.45, 0.9, 0.95, 1.5))
+    protocol_axes = [fig.add_subplot(proto_grid[index]) for index in range(4)]
+    protocol_axes[0].set_title("C  Loads, views, frames, and observation model", loc="left", fontsize=8.5, x=0.0, pad=16)
     load_rows = _patient_record(manifest, "lung_patient_004")["experiments"]
     load_names = [row["name"].replace("_", "\n") for row in load_rows]
     load_values = [row["max_force_N"] for row in load_rows]
     ax = protocol_axes[0]
-    bars = ax.bar(range(4), load_values, color=[BLUE, BLUE, ORANGE, ORANGE], edgecolor=INK)
-    ax.set_xticks(range(4), load_names, fontsize=8)
-    ax.set_ylabel("Peak force (N)")
-    ax.set_title("4-load protocol")
+    bars = ax.bar(range(4), load_values, color=[BLUE, BLUE, ORANGE, ORANGE], edgecolor=INK, linewidth=0.6)
+    ax.set_xticks(range(4), load_names, fontsize=small_pt)
+    ax.tick_params(axis="y", labelsize=small_pt)
+    ax.set_ylabel("Peak force (N)", fontsize=small_pt + 0.4)
+    ax.text(0.5, 1.02, "4-load protocol", transform=ax.transAxes, ha="center", va="bottom", fontsize=small_pt + 0.4, fontweight="semibold")
     for bar, value in zip(bars, load_values, strict=True):
-        ax.text(bar.get_x() + bar.get_width() / 2, value + 0.25, f"{value:g}", ha="center", fontsize=7.5)
-    ax.set_ylim(0, max(load_values) * 1.2)
+        ax.text(bar.get_x() + bar.get_width() / 2, value + 0.25, f"{value:g}", ha="center", fontsize=small_pt)
+    ax.set_ylim(0, max(load_values) * 1.22)
+    ax.set_xlim(-0.5, 3.5)
     ax.grid(axis="y", color=LIGHT)
 
     ax = protocol_axes[1]
     for view in range(3):
         angle = 2 * np.pi * view / 3 + np.pi / 2
-        ax.plot([0, np.cos(angle)], [0, np.sin(angle)], color=(BLUE, GREEN, PURPLE)[view], lw=3)
-        ax.scatter(np.cos(angle), np.sin(angle), s=90, color=(BLUE, GREEN, PURPLE)[view], edgecolor=INK)
-        ax.text(1.18 * np.cos(angle), 1.18 * np.sin(angle), f"view {view + 1}", ha="center", va="center", fontsize=8)
-    ax.scatter(0, 0, s=150, color=LIGHT, edgecolor=INK, marker="h")
-    ax.set_aspect("equal")
-    ax.set_xlim(-1.4, 1.4)
-    ax.set_ylim(-1.25, 1.35)
-    ax.set_title("3 synchronized views")
+        ax.plot([0, np.cos(angle)], [0, np.sin(angle)], color=(BLUE, GREEN, PURPLE)[view], lw=2.2)
+        ax.scatter(np.cos(angle), np.sin(angle), s=50, color=(BLUE, GREEN, PURPLE)[view], edgecolor=INK, linewidth=0.6, zorder=3)
+        label_xy = (0.0, 1.32) if view == 0 else (0.62 * np.sign(np.cos(angle)), -1.0)
+        ax.text(label_xy[0], label_xy[1], f"view {view + 1}", ha="center", va="center", fontsize=small_pt)
+    ax.scatter(0, 0, s=90, color=LIGHT, edgecolor=INK, marker="h", linewidth=0.6, zorder=3)
+    # Isotropic axes without shrinking the box: match the x range to the
+    # box aspect so the three views stay 120 degrees apart on the page.
+    box = ax.get_position()
+    y_range = (-1.45, 1.6)
+    x_half = 0.5 * (y_range[1] - y_range[0]) * (box.width * W) / (box.height * H)
+    ax.set_xlim(-x_half, x_half)
+    ax.set_ylim(*y_range)
+    ax.text(0.5, 1.02, "3 synchronized views", transform=ax.transAxes, ha="center", va="bottom", fontsize=small_pt + 0.4, fontweight="semibold")
     ax.axis("off")
 
     ax = protocol_axes[2]
     frames = np.arange(7)
     ramp = np.sin(np.linspace(0, np.pi / 2, 7)) ** 1.6
-    ax.plot(frames, ramp, "o-", color=BLUE, lw=2.2)
+    ax.plot(frames, ramp, "o-", color=BLUE, lw=1.6, markersize=3.5)
     ax.fill_between(frames, 0, ramp, color=BLUE, alpha=0.12)
     ax.set_xticks(frames)
-    ax.set_xlabel("Frame")
-    ax.set_ylabel("Normalized load")
-    ax.set_title("7-frame load ramp")
+    ax.tick_params(labelsize=small_pt)
+    ax.set_xlabel("Frame", fontsize=small_pt + 0.4)
+    ax.set_ylabel("Normalized load", fontsize=small_pt + 0.4)
+    ax.text(0.5, 1.02, "7-frame load ramp", transform=ax.transAxes, ha="center", va="bottom", fontsize=small_pt + 0.4, fontweight="semibold")
     ax.grid(color=LIGHT)
 
     ax = protocol_axes[3]
     ax.axis("off")
-    card = FancyBboxPatch(
-        (0.02, 0.04),
-        0.96,
-        0.90,
-        transform=ax.transAxes,
-        boxstyle="round,pad=0.02",
-        facecolor="#F7F8FA",
-        edgecolor=ORANGE,
-        linewidth=1.8,
+    ax.add_patch(
+        FancyBboxPatch(
+            (0.0, 0.0),
+            1.0,
+            1.0,
+            transform=ax.transAxes,
+            boxstyle="round,pad=0.02",
+            facecolor="#F7F8FA",
+            edgecolor=ORANGE,
+            linewidth=1.2,
+            clip_on=False,
+        )
     )
-    ax.add_patch(card)
     noise_px = manifest["generation_config"]["motion_noise_std"] * 200.0
     force_prior = manifest["generation_config"]["force_prior_fraction"]
-    ax.text(
-        0.50,
-        0.90,
-        "Observation model",
-        transform=ax.transAxes,
-        ha="center",
-        fontweight="bold",
-        color=ORANGE,
-        fontsize=9.2,
-    )
-    # Two columns × three rows of compact cards.
+    ax.text(0.5, 1.02, "Observation model", transform=ax.transAxes, ha="center", va="bottom", fontsize=small_pt + 0.4, fontweight="semibold", color=ORANGE)
+    # Six compact entries in two columns, formula on the last row.
     cards = (
-        (0.08, 0.62, "Track noise", f"{noise_px:.2f} px"),
-        (0.52, 0.62, "Force prior", f"{force_prior:.0%}"),
-        (0.08, 0.42, "Depth change", "normalized"),
-        (0.52, 0.42, "Visibility", "binary mask"),
-        (0.08, 0.22, "Occlusion", "confidence"),
-        (0.52, 0.22, "Camera pose", "known"),
+        (0.04, 0.80, "Track noise", f"{noise_px:.2f} px"),
+        (0.57, 0.80, "Force prior", f"{force_prior:.0%}"),
+        (0.04, 0.56, "Depth change", "normalized"),
+        (0.57, 0.56, "Visibility", "binary mask"),
+        (0.04, 0.32, "Occlusion", "confidence"),
+        (0.57, 0.32, "Camera pose", "known"),
     )
     for x0, y0, title, value in cards:
-        ax.add_patch(
-            FancyBboxPatch(
-                (x0, y0),
-                0.40,
-                0.16,
-                transform=ax.transAxes,
-                boxstyle="round,pad=0.01,rounding_size=0.02",
-                facecolor="white",
-                edgecolor=LIGHT,
-                linewidth=0.8,
-            )
-        )
-        ax.text(
-            x0 + 0.02,
-            y0 + 0.105,
-            title,
-            transform=ax.transAxes,
-            fontsize=7.0,
-            color=GRAY,
-            va="center",
-        )
-        ax.text(
-            x0 + 0.02,
-            y0 + 0.045,
-            value,
-            transform=ax.transAxes,
-            fontsize=8.0,
-            color=INK,
-            fontweight="semibold",
-            va="center",
-        )
+        ax.text(x0, y0 + 0.095, title, transform=ax.transAxes, fontsize=small_pt, color=GRAY, va="center")
+        ax.text(x0, y0, value, transform=ax.transAxes, fontsize=small_pt + 0.2, color=INK, fontweight="semibold", va="center")
     ax.text(
-        0.50,
-        0.08,
-        r"$y_{t,v}=\Pi_v(x+u_t)+\epsilon,\ "
-        r"\epsilon\sim\mathcal{N}(0,0.05^2)$",
+        0.5,
+        0.09,
+        r"$y_{t,v}=\Pi_v(x+u_t)+\epsilon$",
         transform=ax.transAxes,
         ha="center",
         va="center",
-        fontsize=7.2,
+        fontsize=small_pt + 0.4,
         color=INK,
     )
-    fig.suptitle("Dataset and observation protocol", y=0.995)
+    ax.text(
+        0.5,
+        -0.08,
+        r"$\epsilon\sim\mathcal{N}(0,0.05^2)$",
+        transform=ax.transAxes,
+        ha="center",
+        va="center",
+        fontsize=small_pt + 0.4,
+        color=INK,
+    )
+    fig.suptitle("Dataset and observation protocol", y=0.985, fontsize=9.5)
     save_figure(fig, output_dir, "fig_dataset_protocol")
 
 
@@ -1636,9 +1545,9 @@ def fig_case_gallery(
 def _development_metrics(results_root: Path) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     rows: list[dict[str, Any]] = []
     stage_specs = [
-        ("40-patient development", "stage40_round2"),
-        ("100-patient development", "stage100"),
-        ("250-patient development", "stage250"),
+        ("40-case development", "stage40_round2"),
+        ("100-case development", "stage100"),
+        ("250-case development", "stage250"),
     ]
     # The stage-250 base reported in the supplement (development-variant table
     # and text: 28.77/31.75/12.78/15.78 %) is the round-0 training state of
@@ -1827,6 +1736,14 @@ def _bootstrap_median_ci(values: np.ndarray, seed: int) -> tuple[float, float]:
 
 
 def fig_main_results(payload: dict[str, Any], output_dir: Path) -> None:
+    """Six-panel held-out accuracy figure at its printed width.
+
+    A--D: case-level violin + box + points per endpoint with the
+    development-fixed criterion, median and case-bootstrap 95% CI;
+    E: endpoint attainment by case; F: true contrast versus ratio error.
+    Every label is >= 7 pt on the 6.5 in page (nominal 7.1 pt after the
+    0.03 in save pad).
+    """
     gates = payload["gates"]["gates"]
     records = payload["calibration"]["records"]
     if len(records) != 50:
@@ -1841,7 +1758,7 @@ def fig_main_results(payload: dict[str, Any], output_dir: Path) -> None:
             "A",
         ),
         (
-            "Inclusion-ratio relative error",
+            r"Inclusion-ratio $\rho_E$ relative error",
             np.asarray([abs(row["inclusion_ratio_estimated"] / row["inclusion_ratio_true"] - 1) for row in records]),
             gates["image_ratio_error"]["threshold"],
             GREEN,
@@ -1865,12 +1782,19 @@ def fig_main_results(payload: dict[str, Any], output_dir: Path) -> None:
             "D",
         ),
     ]
-    fig, axes = plt.subplots(
+    small_pt = 7.1
+    fig = plt.figure(figsize=(FINAL_WIDTH_IN, 7.0))
+    grid = fig.add_gridspec(
         3,
         2,
-        figsize=(13.6, 10.8),
-        gridspec_kw={"hspace": 0.46, "wspace": 0.28},
+        left=0.10,
+        right=0.985,
+        bottom=0.07,
+        top=0.92,
+        hspace=0.60,
+        wspace=0.36,
     )
+    axes = np.array([[fig.add_subplot(grid[row, col]) for col in range(2)] for row in range(3)])
     for index, (ax, (title, values, threshold, color, label)) in enumerate(
         zip(axes.flat[:4], metric_specs, strict=True)
     ):
@@ -1886,34 +1810,44 @@ def fig_main_results(payload: dict[str, Any], output_dir: Path) -> None:
             widths=0.22,
             showfliers=False,
             patch_artist=True,
-            boxprops={"facecolor": "white", "edgecolor": color, "linewidth": 1.5},
-            medianprops={"color": INK, "linewidth": 2},
-            whiskerprops={"color": color},
-            capprops={"color": color},
+            boxprops={"facecolor": "white", "edgecolor": color, "linewidth": 1.1},
+            medianprops={"color": INK, "linewidth": 1.5},
+            whiskerprops={"color": color, "linewidth": 0.9},
+            capprops={"color": color, "linewidth": 0.9},
         )
         rng = np.random.default_rng(3100 + index)
         jitter = rng.normal(0, 0.055, len(percent))
-        ax.scatter(jitter, percent, s=16, color=color, alpha=0.66, edgecolor="white", linewidth=0.25, zorder=3)
-        ax.axhline(threshold * 100, color=ORANGE, linestyle="--", linewidth=1.6, label=f"Development-fixed criterion {threshold:.0%}")
+        ax.scatter(jitter, percent, s=9, color=color, alpha=0.66, edgecolor="white", linewidth=0.2, zorder=3)
+        ax.axhline(
+            threshold * 100,
+            color=ORANGE,
+            linestyle="--",
+            linewidth=1.2,
+            label=f"Development-fixed\ncriterion {threshold:.0%}",
+        )
         median = float(np.median(values))
         ci = _bootstrap_median_ci(values, 4100 + index)
         ax.text(
-            0.97,
-            0.95,
-            f"median {median:.1%}\nbootstrap 95% CI {ci[0]:.1%}–{ci[1]:.1%}\n$n={len(values)}$ patients",
+            0.975,
+            0.965,
+            f"median {median:.2%}\nbootstrap 95% CI\n{ci[0]:.1%}–{ci[1]:.1%}\n$n={len(values)}$ cases",
             transform=ax.transAxes,
             ha="right",
             va="top",
-            fontsize=8.3,
-            bbox={"facecolor": "white", "edgecolor": LIGHT, "pad": 3},
+            fontsize=small_pt,
+            linespacing=1.25,
+            bbox={"facecolor": "white", "edgecolor": LIGHT, "pad": 2.5},
         )
         ax.set_xlim(-0.58, 0.58)
-        ax.set_xticks([0], ["track-summary\nPCA–Ridge"])
-        ax.set_ylabel("Patient-level error (%)")
-        ax.set_title(title)
+        # Leave head-room for the legend and the statistics box.
+        ax.set_ylim(min(0.0, percent.min()) - 0.03 * percent.max(), percent.max() * 1.42)
+        ax.set_xticks([0], ["track-summary\nPCA–Ridge"], fontsize=small_pt)
+        ax.tick_params(axis="y", labelsize=small_pt)
+        ax.set_ylabel("Case-level error (%)", fontsize=small_pt + 0.4)
+        ax.set_title(title, fontsize=8.5)
         ax.grid(axis="y", color=LIGHT)
-        ax.legend(loc="upper left", fontsize=7.7)
-        panel_label(ax, label)
+        ax.legend(loc="upper left", fontsize=small_pt, handlelength=1.6, borderpad=0.3, labelspacing=0.3)
+        panel_label(ax, label, x=-0.22, y=1.16)
     # Show endpoint co-occurrence and dependence on contrast without replacing
     # the per-endpoint distributions above.
     ax = axes[2, 0]
@@ -1938,68 +1872,61 @@ def fig_main_results(payload: dict[str, Any], output_dir: Path) -> None:
         vmin=0,
         vmax=1,
         edgecolors="white",
-        linewidth=0.25,
+        linewidth=0.2,
     )
     ax.set_ylim(4, 0)
-    ax.set_yticks(range(4), ("$E_b$", "Ratio", "Center", "Radius"))
-    ax.set_xticks((0, 24, 49), ("1", "25", "50"))
-    ax.set_xlabel("Held-out patient index")
-    ax.set_title("Endpoint attainment by patient")
+    ax.set_yticks(np.arange(4) + 0.5, ("$E_b$", r"$\rho_E$", "Center", "Radius"), fontsize=small_pt)
+    ax.set_xticks((0.5, 24.5, 49.5), ("1", "25", "50"), fontsize=small_pt)
+    ax.set_xlabel("Held-out case index", fontsize=small_pt + 0.4)
+    ax.set_title("Endpoint attainment by case", fontsize=8.5)
     for row_index, (_, values, threshold, _, _) in enumerate(metric_specs):
         ax.text(
-            len(records) + 1.2,
-            row_index,
+            len(records) + 1.0,
+            row_index + 0.5,
             f"{np.mean(values <= threshold):.0%}",
             va="center",
-            fontsize=8.5,
+            ha="left",
+            fontsize=small_pt,
             color=INK,
+            clip_on=False,
         )
     ax.text(
-        1.02,
-        1.02,
-        "green: meets ceiling",
+        0.0,
+        -0.30,
+        "green: meets criterion; blank: homogeneous case",
         transform=ax.transAxes,
-        fontsize=7.8,
+        fontsize=small_pt,
         color=GREEN,
+        va="top",
     )
-    panel_label(ax, "E")
+    panel_label(ax, "E", x=-0.22, y=1.16)
 
     ax = axes[2, 1]
-    true_ratio = np.asarray(
-        [row["inclusion_ratio_true"] for row in heterogeneous]
-    )
+    true_ratio = np.asarray([row["inclusion_ratio_true"] for row in heterogeneous])
     ratio_error = np.asarray(
-        [
-            abs(
-                row["inclusion_ratio_estimated"] / row["inclusion_ratio_true"]
-                - 1
-            )
-            for row in heterogeneous
-        ]
+        [abs(row["inclusion_ratio_estimated"] / row["inclusion_ratio_true"] - 1) for row in heterogeneous]
     ) * 100
-    ax.scatter(
-        true_ratio,
-        ratio_error,
-        s=28,
-        color=GREEN,
-        alpha=0.72,
-        edgecolor="white",
-        linewidth=0.4,
-    )
+    ax.scatter(true_ratio, ratio_error, s=14, color=GREEN, alpha=0.72, edgecolor="white", linewidth=0.3)
     ax.axhline(
         metric_specs[1][2] * 100,
         color=ORANGE,
         linestyle="--",
-        linewidth=1.4,
+        linewidth=1.2,
         label="Development-fixed criterion",
     )
-    ax.set_xlabel("True inclusion-to-background ratio")
-    ax.set_ylabel("Ratio error (%)")
-    ax.set_title("Contrast versus ratio error")
+    ax.set_xlabel(r"True inclusion-to-background ratio $\rho_E$", fontsize=small_pt + 0.4)
+    ax.set_ylabel(r"$\rho_E$ error (%)", fontsize=small_pt + 0.4)
+    ax.set_title("Contrast versus ratio error", fontsize=8.5)
+    ax.tick_params(labelsize=small_pt)
+    ax.set_ylim(top=ratio_error.max() * 1.25)
     ax.grid(color=LIGHT)
-    ax.legend(loc="upper right", fontsize=7.7)
-    panel_label(ax, "F")
-    fig.suptitle("Held-out patient-level accuracy, endpoint attainment, and contrast dependence", y=0.995)
+    ax.legend(loc="upper right", fontsize=small_pt, handlelength=1.6, borderpad=0.3)
+    panel_label(ax, "F", x=-0.22, y=1.16)
+    fig.suptitle(
+        "Held-out case-level accuracy, endpoint attainment, and contrast dependence",
+        y=0.985,
+        fontsize=9.5,
+    )
     save_figure(fig, output_dir, "fig_main_results")
 
 
@@ -2785,17 +2712,19 @@ def _material_map(
 def fig_ion_ct_material_recovery(output_dir: Path) -> None:
     """Visualize held-out hybrid estimates on a fixed heterogeneous scenario.
 
-    Three quantities (rows: synthetic truth, uncalibrated hybrid initializer,
-    |hybrid - truth| in log E) for the six held-out CT-derived geometries
-    (columns). The raw-MeshGNN columns of the earlier 6 x 4 grid are gone;
-    the two log-E rows share one colour scale and one colorbar, the error row
-    has its own shared colorbar, and all text is >= 7 pt at 6.5 in width.
+    The four imaged products of the original 6 x 4 design are kept as rows
+    (synthetic truth, uncalibrated hybrid initializer, |hybrid - truth| in
+    log E, and rest versus peak-deformed nodes) for the six held-out
+    CT-derived geometries (columns). The two log-E rows share one colour
+    scale and one colorbar, the error row has its own shared colorbar, and
+    all text is >= 7 pt at 6.5 in width.
     """
     import torch
 
     benchmark = load_json(ION_SYNTH_RESULTS / "benchmark.json")
     manifest = load_json(ION_SYNTH_DATASET / "manifest.json")
     scenario_id = "scenario_010"
+    deformation_display_scale = 2.5
     records = [
         row
         for row in benchmark["records"]
@@ -2815,6 +2744,11 @@ def fig_ion_ct_material_recovery(output_dir: Path) -> None:
         nodes = experiment["nodes"].detach().cpu().numpy()
         minimum, extent = nodes.min(axis=0), np.maximum(np.ptp(nodes, axis=0), 1e-8)
         positions = (nodes - minimum) / extent
+        # Peak-frame nodal displacement of the first (press-left) load, drawn
+        # magnified so that the deformation is visible at the page width.
+        u_seq = experiment["u_seq"].detach().cpu().numpy().reshape(len(experiment["u_seq"]), -1, 3)
+        peak = int(np.argmax(np.linalg.norm(u_seq, axis=2).max(axis=1)))
+        deformed = (nodes + deformation_display_scale * u_seq[peak] - minimum) / extent
         truth = _material_map(
             positions,
             np.asarray(record["center_fraction_true"]),
@@ -2832,6 +2766,7 @@ def fig_ion_ct_material_recovery(output_dir: Path) -> None:
         cases.append(
             {
                 "positions": positions,
+                "deformed": deformed,
                 "truth": truth,
                 "prediction": prediction,
                 "error": np.abs(prediction - truth),
@@ -2843,25 +2778,27 @@ def fig_ion_ct_material_recovery(output_dir: Path) -> None:
     log_high = max(max(case["truth"].max(), case["prediction"].max()) for case in cases)
     error_high = max(max(float(case["error"].max()), 1e-8) for case in cases)
 
-    fig = plt.figure(figsize=(6.5, 4.15))
+    n_rows = 4
+    fig = plt.figure(figsize=(6.5, 5.35))
     grid = fig.add_gridspec(
-        3,
+        n_rows,
         len(cases) + 1,
         width_ratios=[1.0] * len(cases) + [0.07],
         hspace=0.10,
         wspace=0.08,
         left=0.085,
         right=0.93,
-        top=0.84,
-        bottom=0.015,
+        top=0.875,
+        bottom=0.012,
     )
     axes = np.asarray(
-        [[fig.add_subplot(grid[row, col]) for col in range(len(cases))] for row in range(3)]
+        [[fig.add_subplot(grid[row, col]) for col in range(len(cases))] for row in range(n_rows)]
     )
     row_titles = (
         "Synthetic truth\nlog E",
         "Uncalibrated\nhybrid initializer",
         "|hybrid − truth|\n(log E)",
+        f"Rest → peak\n(×{deformation_display_scale:g} displ.)",
     )
     log_mappable = error_mappable = None
     for column, case in enumerate(cases):
@@ -2878,12 +2815,25 @@ def fig_ion_ct_material_recovery(output_dir: Path) -> None:
             positions[:, 0], positions[:, 1], c=case["error"], s=4,
             cmap="magma", vmin=0.0, vmax=error_high, edgecolors="none",
         )
-        for row in range(3):
+        axes[3, column].scatter(
+            positions[:, 0], positions[:, 1], s=3, color="#B8C2CC", edgecolors="none", zorder=2,
+        )
+        axes[3, column].scatter(
+            case["deformed"][:, 0], case["deformed"][:, 1], s=3, color=BLUE, alpha=0.85,
+            edgecolors="none", zorder=3,
+        )
+        for row in range(n_rows):
             axes[row, column].set_aspect("equal")
             axes[row, column].set_xticks([])
             axes[row, column].set_yticks([])
             axes[row, column].set_xlim(-0.04, 1.04)
             axes[row, column].set_ylim(-0.04, 1.04)
+        axes[3, column].set_xlim(
+            min(-0.04, case["deformed"][:, 0].min() - 0.02), max(1.04, case["deformed"][:, 0].max() + 0.02)
+        )
+        axes[3, column].set_ylim(
+            min(-0.04, case["deformed"][:, 1].min() - 0.02), max(1.04, case["deformed"][:, 1].max() + 0.02)
+        )
         axes[0, column].set_title(
             f"Geometry {column + 1}\nratio err {case['ratio_error']:.1f}%\n$E_b$ err {case['E_error']:.1f}%",
             fontsize=7.2,

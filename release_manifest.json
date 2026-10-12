@@ -692,18 +692,18 @@
     },
     {
       "path": "figures/fig_dataset_protocol.pdf",
-      "size_bytes": 43830,
-      "sha256": "5d9966ee023ff1448195e405d4901e6d866dc2ff18aeede111bb32be546cbb96"
+      "size_bytes": 42347,
+      "sha256": "1dafe3a28d5b71fa060503cd5ffcfc025733640610c7b2f11985bdcc6116ac8e"
     },
     {
       "path": "figures/fig_dataset_protocol.png",
-      "size_bytes": 426995,
-      "sha256": "61599ff455f4c180f107387337f9f8c45c0fab6d92d8b399aec030cf803c9943"
+      "size_bytes": 315992,
+      "sha256": "f9236d736db1dd2b190be6da893828c58ba066e407d4215ed3eb7f8c5e90a61a"
     },
     {
       "path": "figures/fig_development_ablation.pdf",
       "size_bytes": 32615,
-      "sha256": "3c09b4621c9d599cfa7b58f7a9ed5d2fb9df564d508aa90ff208d321a27b0003"
+      "sha256": "edddc71249a8d9c73de8e7cede4ff327cca11ee6fb6b5709fd5a9037ebf56ddc"
     },
     {
       "path": "figures/fig_development_ablation.png",
@@ -732,18 +732,18 @@
     },
     {
       "path": "figures/fig_inverse_leaderboard.jpg",
-      "size_bytes": 437026,
-      "sha256": "0d2e6b7df5682cdfcf028c8d71f0f555262beee731ac5ef0bfcb60aad4a65a3b"
+      "size_bytes": 425259,
+      "sha256": "5a84157dd1fb2b99784e3f2afdd261a063f11012a98527ec92241b30c5550437"
     },
     {
       "path": "figures/fig_inverse_leaderboard.pdf",
-      "size_bytes": 30839,
-      "sha256": "fe3d04e3160b72bcc52d9bbf515c2b27d11c2ec32afae16c626cc1da9b0b0d99"
+      "size_bytes": 30850,
+      "sha256": "1492a72861c6d5495bd1f048acd09111cd1f330646871ef5f3e03d1f60539d9d"
     },
     {
       "path": "figures/fig_inverse_leaderboard.png",
-      "size_bytes": 479882,
-      "sha256": "a4e7277738e55f6626247fbf9bf2f474abe5f417b263018113e8fed239888707"
+      "size_bytes": 475950,
+      "sha256": "73abba2b0f15eb7bfdf56f6be90742542d244132fcf40b8d6022ab094a35aaa8"
     },
     {
       "path": "figures/fig_ion_ct_error_distributions.pdf",
@@ -757,13 +757,13 @@
     },
     {
       "path": "figures/fig_ion_ct_material_recovery.pdf",
-      "size_bytes": 39264,
-      "sha256": "7b56b874feb1bf532693f6e0bb110d698a50f4fb40486532d5955cb1c31ee928"
+      "size_bytes": 65415,
+      "sha256": "9130e49569261578acc8db0ef435761821c85af7e6291d5fc04855b7319edb15"
     },
     {
       "path": "figures/fig_ion_ct_material_recovery.png",
-      "size_bytes": 664173,
-      "sha256": "65abf4021cfd66480157f5cf724dbbe199aaed1dfc1992fdb0db255a693d725b"
+      "size_bytes": 916846,
+      "sha256": "a788fd2baf9e851c60baa477316dbc066079b3ef172674e9e97bfc9a80412a36"
     },
     {
       "path": "figures/fig_ion_ct_method_comparison.pdf",
@@ -827,13 +827,13 @@
     },
     {
       "path": "figures/fig_main_results.pdf",
-      "size_bytes": 16750,
-      "sha256": "874946dfca9d607cce54b6aaf5c2a583caae2e27e154bdf4ff56ef8e13e00bd8"
+      "size_bytes": 47289,
+      "sha256": "36d0e4f1fcb1341bdcddf9140ac122b87f12478be602eb5f46f6944f5d1309f6"
     },
     {
       "path": "figures/fig_main_results.png",
-      "size_bytes": 235703,
-      "sha256": "e29bbdf4a93bf476a55dda65cdb2af217e7afd009d8f6706331f2f0eb5dda66e"
+      "size_bytes": 421988,
+      "sha256": "3a27570f7ed2dc2314f290b5f41a8cf1556858df8f823e0cac7098496e2bb2de"
     },
     {
       "path": "figures/fig_multiseed_ood.pdf",
@@ -857,13 +857,13 @@
     },
     {
       "path": "figures/fig_pipeline.pdf",
-      "size_bytes": 18059,
-      "sha256": "99656b8b59ac908b6dc458e43c548567bd08eed88f5575441ff883f6088f21d6"
+      "size_bytes": 43342,
+      "sha256": "abd5ebdb4bbae15f676bf2f0f974cacd47ee7baa5e282238815f7921dbdaf460"
     },
     {
       "path": "figures/fig_pipeline.png",
-      "size_bytes": 124337,
-      "sha256": "40a766a09cdf17623cbd46f4d27065b025b9b557166359b5dfbb03486a3f19b9"
+      "size_bytes": 332180,
+      "sha256": "99a9be2e93d00dbc4aa9f9621cea7ef8673168e5de1371348ebddd718fd765af"
     },
     {
       "path": "figures/fig_qualitative_case.pdf",
@@ -1122,8 +1122,8 @@
     },
     {
       "path": "paper_aiim/figures/generate_aiim_figures.py",
-      "size_bytes": 155014,
-      "sha256": "1769eb0d01324403da95849c54d116f959d4fbc883f05925c510fb417f4373d0"
+      "size_bytes": 159318,
+      "sha256": "e67f353d75ce973e0aafa4d835b8dea83ca11327962e9455c6d94c95a26c4a04"
     },
     {
       "path": "paper_aiim/figures/generate_graphical_abstract.py",
@@ -1137,8 +1137,8 @@
     },
     {
       "path": "paper_aiim/figures/plot_inverse_leaderboard.py",
-      "size_bytes": 16606,
-      "sha256": "3a92cd626e0554d0c9e2a492614969efe0bc1d7588a41286d986c181025f0e5e"
+      "size_bytes": 16692,
+      "sha256": "5f9eff008d0d2a5077339f9de416edd770e4459894c1de2c604ab2931b171b55"
     },
     {
       "path": "paper_aiim/figures/plot_meshmaterial_gnn.py",
@@ -1147,8 +1147,8 @@
     },
     {
       "path": "paper_aiim/figures/plot_revision_overview.py",
-      "size_bytes": 8274,
-      "sha256": "633564568e946c033aedf6e56e88d63f1c79fd24b23096985143979bc75ea23b"
+      "size_bytes": 8898,
+      "sha256": "b933e4999196f1125475a91549d03c9d99281cdb8480be9fe96198419cbd2fcb"
     },
     {
       "path": "paper_aiim/figures/plot_revision_sensitivity.py",
@@ -1157,8 +1157,8 @@
     },
     {
       "path": "paper_aiim/figures/README.md",
-      "size_bytes": 1764,
-      "sha256": "751b9f0545ff6436ef5579f81efb9f5d95e821f92505545c802dc24c8d78a30d"
+      "size_bytes": 1893,
+      "sha256": "82bf9d0eea14a5cc284375aff6bddbb5494430aecf0580ac626ccbbbb67576ab"
     },
     {
       "path": "paper_aiim/revision_tools/build_all.ps1",
@@ -1247,8 +1247,8 @@
     },
     {
       "path": "README.md",
-      "size_bytes": 25682,
-      "sha256": "0a10d1335ff5565718732f95b6fb633e2d743784db37c520fac64c62a3a3260c"
+      "size_bytes": 26008,
+      "sha256": "a805f3605fcab993fcda76c99ad25c156b6f7e6006950fbb5d4ecc001e8bad45"
     },
     {
       "path": "rendering/__init__.py",

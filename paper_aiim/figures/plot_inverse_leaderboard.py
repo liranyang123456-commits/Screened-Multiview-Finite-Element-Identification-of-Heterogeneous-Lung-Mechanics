@@ -332,11 +332,12 @@ def main() -> None:
     _style()
     # Final 6.5 in width (\linewidth of the 3p elsarticle page); the height
     # leaves room for the title/legend stack above every panel and for the
-    # key block (which also carries the per-panel notes) underneath.
-    fig = plt.figure(figsize=(6.5, 7.7))
+    # key block (which also carries the per-panel notes) underneath, while
+    # keeping figure + caption inside the 8.6 in text height of the main text.
+    fig = plt.figure(figsize=(6.5, 7.0))
     grid = fig.add_gridspec(
         2, 2, height_ratios=[1.0, 1.0], width_ratios=[1.0, 1.0],
-        wspace=0.40, hspace=0.70, left=0.095, right=0.985, top=0.835, bottom=0.24,
+        wspace=0.40, hspace=0.72, left=0.095, right=0.985, top=0.828, bottom=0.252,
     )
     ax_a = fig.add_subplot(grid[0, 0])
     ax_b = fig.add_subplot(grid[0, 1])

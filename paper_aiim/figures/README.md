@@ -11,7 +11,8 @@ resolves the repository root from its own location
 (`Path(__file__).resolve().parents[2]`), so run them from a checkout:
 
 ```bash
-python paper_aiim/figures/plot_revision_overview.py                    # fig_pipeline, fig_dataset_protocol, fig_main_results
+python paper_aiim/figures/generate_aiim_figures.py --output-dir figures --only fig_pipeline fig_dataset_protocol fig_main_results
+python paper_aiim/figures/plot_revision_overview.py                    # auxiliary *_simplified drawings only (not compiled)
 python paper_aiim/figures/plot_revision_sensitivity.py                 # fig_review_sensitivity
 python paper_aiim/figures/generate_graphical_abstract.py               # graphical_abstract_array (2656 x 1062 px; width-1 EKF bars)
 python paper_aiim/figures/generate_new_result_figures.py --output-dir figures
