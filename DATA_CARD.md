@@ -4,7 +4,7 @@
 ## Procedural synthetic cohort
 
 - 250 independent procedural CT-like lung-wall surrogate geometries.
-- Patient-level split: 150 training, 50 validation, 50 test.
+- Case-level split: 150 training, 50 validation, 50 test.
 - Four loads, three calibrated views, seven synchronized frames.
 - Synthetic heterogeneous Neo-Hookean mechanics and known force.
 

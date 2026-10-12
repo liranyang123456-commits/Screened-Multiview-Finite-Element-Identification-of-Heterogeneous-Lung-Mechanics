@@ -180,7 +180,7 @@ def draw_abstract(numbers: dict[str, dict[str, float]]) -> plt.Figure:
     stages = [
         ("Synthetic / CT-derived geometry", "implanted two-level stiffness field", GRAY, PALE["gray"]),
         ("Calibrated multiview tracks", "4 loads × 3 views × 7 frames; force and camera calibration", BLUE, PALE["blue"]),
-        ("Learned initializer", "CV-selected PCA–Ridge with conformal intervals", GREEN, PALE["green"]),
+        ("Learned initializer", "PCA–Ridge (synthetic) / hybrid MeshGNN (CT); conformal intervals", GREEN, PALE["green"]),
         ("Screened FEM audit", "accept if the development-fixed objective improves, else retain", ORANGE, PALE["orange"]),
         ("Sequential EKF diagnostic", "all-frame updates of E_bg and q; prior matched to the audit; no screening", PURPLE, PALE["purple"]),
     ]

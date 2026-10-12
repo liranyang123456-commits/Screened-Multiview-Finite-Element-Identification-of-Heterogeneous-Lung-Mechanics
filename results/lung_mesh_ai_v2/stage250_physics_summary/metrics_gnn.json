@@ -1,0 +1,5300 @@
+{
+  "model": "gnn",
+  "dataset": "dataset\\sim_lung_ai_v2_multiview250",
+  "selected_epoch": 63,
+  "config": {
+    "model": "gnn",
+    "input_dim": 5,
+    "hidden_dim": 128,
+    "layers": 4,
+    "dropout": 0.05,
+    "experiments_limit": null,
+    "observation": "noisy",
+    "track_noise_px": 0.0,
+    "ratio_loss_weight": 3.0,
+    "heterogeneity_pos_weight": 0.25,
+    "dynamic_dim": 14,
+    "single_view": false,
+    "no_depth": false,
+    "no_confidence": false,
+    "peak_only": false
+  },
+  "validation": {
+    "patient_count": 50,
+    "E_background_median_relative_error": 0.07265173005386921,
+    "E_background_median_bootstrap_95_ci": [
+      0.04119499253703355,
+      0.12440528985228286
+    ],
+    "inclusion_ratio_median_relative_error": 0.3181132813709649,
+    "inclusion_ratio_median_bootstrap_95_ci": [
+      0.24957343500217266,
+      0.4161804196980511
+    ],
+    "center_error_normalized_median": 0.11707809194922447,
+    "radius_relative_error_median": 0.16502619517292133,
+    "node_sdf_mae_mean": 0.0850643769494797,
+    "node_sdf_nll_mean": -1.7351804626615424,
+    "partition_soft_dice_mean": 0.3187080017830196,
+    "heterogeneity": {
+      "accuracy": 0.76,
+      "brier_score": 0.2145243461363507,
+      "binary_nll": 0.6206362885858254
+    },
+    "log_E_uncertainty": {
+      "gaussian_nll": -0.5985726947556717,
+      "coverage": {
+        "50": 0.58,
+        "80": 0.76,
+        "90": 0.86,
+        "95": 0.94
+      },
+      "mean_interval_width": {
+        "50": 0.17728965654466056,
+        "80": 0.3368558778448789,
+        "90": 0.43234983853155634,
+        "95": 0.515176608032952
+      },
+      "mean_absolute_calibration_error": 0.04250000000000001
+    },
+    "log_ratio_uncertainty": {
+      "gaussian_nll": 0.5947676698085443,
+      "coverage": {
+        "50": 0.46,
+        "80": 0.92,
+        "90": 0.96,
+        "95": 0.98
+      },
+      "mean_interval_width": {
+        "50": 0.6549654783819353,
+        "80": 1.2444548400535704,
+        "90": 1.597240495250436,
+        "95": 1.903229438805337
+      },
+      "mean_absolute_calibration_error": 0.062499999999999986
+    }
+  },
+  "test": {
+    "patient_count": 50,
+    "E_background_median_relative_error": 0.08274059552920404,
+    "E_background_median_bootstrap_95_ci": [
+      0.053117211896624675,
+      0.16692931180972626
+    ],
+    "inclusion_ratio_median_relative_error": 0.28866211047280843,
+    "inclusion_ratio_median_bootstrap_95_ci": [
+      0.24185307490507796,
+      0.3700896540169141
+    ],
+    "center_error_normalized_median": 0.12926732748746872,
+    "radius_relative_error_median": 0.13201125877742204,
+    "node_sdf_mae_mean": 0.10007687258933272,
+    "node_sdf_nll_mean": -1.6131459006241389,
+    "partition_soft_dice_mean": 0.3483529215057691,
+    "heterogeneity": {
+      "accuracy": 0.5,
+      "brier_score": 0.23090776361327922,
+      "binary_nll": 0.6534357147849024
+    },
+    "log_E_uncertainty": {
+      "gaussian_nll": -0.32015250598059436,
+      "coverage": {
+        "50": 0.5,
+        "80": 0.68,
+        "90": 0.76,
+        "95": 0.88
+      },
+      "mean_interval_width": {
+        "50": 0.17834586215016368,
+        "80": 0.33886270144283004,
+        "90": 0.434925568734296,
+        "95": 0.5182457798720403
+      },
+      "mean_absolute_calibration_error": 0.08249999999999999
+    },
+    "log_ratio_uncertainty": {
+      "gaussian_nll": 0.5267117236635581,
+      "coverage": {
+        "50": 0.5,
+        "80": 0.92,
+        "90": 1.0,
+        "95": 1.0
+      },
+      "mean_interval_width": {
+        "50": 0.6815997977648892,
+        "80": 1.2950608777176216,
+        "90": 1.662192641410848,
+        "95": 1.9806246945941033
+      },
+      "mean_absolute_calibration_error": 0.0675
+    }
+  },
+  "history": [
+    {
+      "epoch": 0,
+      "train_loss": 1.399526131976592,
+      "validation_score": 0.7305950482809093,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.3416992696966933,
+      "E_background_median_bootstrap_95_ci": [
+        0.2849715943212277,
+        0.3999911380900363
+      ],
+      "inclusion_ratio_median_relative_error": 0.32995363344278994,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.269990719031234,
+        0.3983507549236732
+      ],
+      "center_error_normalized_median": 0.12850947678089142,
+      "radius_relative_error_median": 0.18558375182949927,
+      "node_sdf_mae_mean": 0.17698604809610466,
+      "node_sdf_nll_mean": -0.020993339363485575,
+      "partition_soft_dice_mean": 0.0653574719142757,
+      "heterogeneity": {
+        "accuracy": 0.76,
+        "brier_score": 0.23576858056570416,
+        "binary_nll": 0.6646533583374622
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": 0.6349643537083122,
+        "coverage": {
+          "50": 0.42,
+          "80": 0.9,
+          "90": 1.0,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.7517478114695828,
+          "80": 1.4283442919681124,
+          "90": 1.8332600516006448,
+          "95": 2.184464086383604
+        },
+        "mean_absolute_calibration_error": 0.0825
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.7148298053388715,
+        "coverage": {
+          "50": 0.48,
+          "80": 0.76,
+          "90": 0.9,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.6864722213291491,
+          "80": 1.3043186344810982,
+          "90": 1.6740748435783184,
+          "95": 1.9947832117555533
+        },
+        "mean_absolute_calibration_error": 0.027500000000000024
+      }
+    },
+    {
+      "epoch": 1,
+      "train_loss": -1.1547253024029105,
+      "validation_score": 0.7827184704278415,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.2941684144772599,
+      "E_background_median_bootstrap_95_ci": [
+        0.23477511510196242,
+        0.36244729697183875
+      ],
+      "inclusion_ratio_median_relative_error": 0.42539780347534595,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.3637400460402598,
+        0.47575398330008567
+      ],
+      "center_error_normalized_median": 0.12328552454710007,
+      "radius_relative_error_median": 0.17396667686259393,
+      "node_sdf_mae_mean": 0.1532416743667502,
+      "node_sdf_nll_mean": -0.6771863212710932,
+      "partition_soft_dice_mean": 0.06760349374656614,
+      "heterogeneity": {
+        "accuracy": 0.24,
+        "brier_score": 0.2526090099009425,
+        "binary_nll": 0.6983653727878059
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": 0.46749719908495135,
+        "coverage": {
+          "50": 0.34,
+          "80": 0.7,
+          "90": 0.92,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.4981898937118141,
+          "80": 0.9465763386904947,
+          "90": 1.2149175778345371,
+          "95": 1.4476635839953573
+        },
+        "mean_absolute_calibration_error": 0.08250000000000003
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.732002006367249,
+        "coverage": {
+          "50": 0.3,
+          "80": 0.82,
+          "90": 1.0,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.6789401754365272,
+          "80": 1.2900075123289279,
+          "90": 1.6557067171520203,
+          "95": 1.9728962391586384
+        },
+        "mean_absolute_calibration_error": 0.09249999999999999
+      }
+    },
+    {
+      "epoch": 2,
+      "train_loss": -1.5832726604452259,
+      "validation_score": 0.6458277589723406,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.2612793250220205,
+      "E_background_median_bootstrap_95_ci": [
+        0.20024713309136719,
+        0.35479341576844664
+      ],
+      "inclusion_ratio_median_relative_error": 0.315296769274646,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.26908950810389953,
+        0.3886816141204772
+      ],
+      "center_error_normalized_median": 0.12211624160408974,
+      "radius_relative_error_median": 0.1753105545772498,
+      "node_sdf_mae_mean": 0.14892204537203438,
+      "node_sdf_nll_mean": -0.8802403588044015,
+      "partition_soft_dice_mean": 0.06956435043952967,
+      "heterogeneity": {
+        "accuracy": 0.24,
+        "brier_score": 0.27700665870269653,
+        "binary_nll": 0.7473313277405854
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": 0.6001132686204512,
+        "coverage": {
+          "50": 0.22,
+          "80": 0.6,
+          "90": 0.66,
+          "95": 0.74
+        },
+        "mean_interval_width": {
+          "50": 0.34863429899425796,
+          "80": 0.6624160434591453,
+          "90": 0.8502017873713874,
+          "95": 1.0130779149801286
+        },
+        "mean_absolute_calibration_error": 0.2325
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.7350177546823764,
+        "coverage": {
+          "50": 0.4,
+          "80": 0.76,
+          "90": 0.76,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.6148706372050315,
+          "80": 1.168273391090728,
+          "90": 1.4994626640636743,
+          "95": 1.7867199667937317
+        },
+        "mean_absolute_calibration_error": 0.08250000000000002
+      }
+    },
+    {
+      "epoch": 3,
+      "train_loss": -1.4793043352271382,
+      "validation_score": 0.6437717295288122,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.27287860700343025,
+      "E_background_median_bootstrap_95_ci": [
+        0.2197559862049201,
+        0.35018938401751776
+      ],
+      "inclusion_ratio_median_relative_error": 0.30598891142667506,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.2559557576318122,
+        0.3849128783027803
+      ],
+      "center_error_normalized_median": 0.12492040172219276,
+      "radius_relative_error_median": 0.1776029123320687,
+      "node_sdf_mae_mean": 0.14165515001667173,
+      "node_sdf_nll_mean": -0.9596522026940396,
+      "partition_soft_dice_mean": 0.07062858156859875,
+      "heterogeneity": {
+        "accuracy": 0.24,
+        "brier_score": 0.2596168443948278,
+        "binary_nll": 0.7123892139701303
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": 0.4496207635557801,
+        "coverage": {
+          "50": 0.36,
+          "80": 0.68,
+          "90": 0.78,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.45658300886449693,
+          "80": 0.8675219595868654,
+          "90": 1.1134523807320367,
+          "95": 1.3267603444932896
+        },
+        "mean_absolute_calibration_error": 0.10750000000000001
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.7453319127971965,
+        "coverage": {
+          "50": 0.58,
+          "80": 0.76,
+          "90": 1.0,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.7574920825191396,
+          "80": 1.4392585861502425,
+          "90": 1.847268396527026,
+          "95": 2.2011560589025247
+        },
+        "mean_absolute_calibration_error": 0.0675
+      }
+    },
+    {
+      "epoch": 4,
+      "train_loss": -1.883955292011562,
+      "validation_score": 0.7307616256181138,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.24808022809756847,
+      "E_background_median_bootstrap_95_ci": [
+        0.21395365195641453,
+        0.35392206698835393
+      ],
+      "inclusion_ratio_median_relative_error": 0.4160433519191321,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.36054681553238804,
+        0.47092976447472146
+      ],
+      "center_error_normalized_median": 0.12222141027450562,
+      "radius_relative_error_median": 0.18704972671357906,
+      "node_sdf_mae_mean": 0.14270839957814468,
+      "node_sdf_nll_mean": -1.0829593100045856,
+      "partition_soft_dice_mean": 0.07163797274820115,
+      "heterogeneity": {
+        "accuracy": 0.24,
+        "brier_score": 0.26655218240565254,
+        "binary_nll": 0.7262927011998412
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": 0.4308842385346864,
+        "coverage": {
+          "50": 0.42,
+          "80": 0.7,
+          "90": 0.86,
+          "95": 0.98
+        },
+        "mean_interval_width": {
+          "50": 0.46802838530103613,
+          "80": 0.8892685318457175,
+          "90": 1.1413638040531375,
+          "95": 1.360018856722124
+        },
+        "mean_absolute_calibration_error": 0.06250000000000004
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.8056666275002468,
+        "coverage": {
+          "50": 0.4,
+          "80": 1.0,
+          "90": 1.0,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.9189654613860664,
+          "80": 1.7460630430312076,
+          "90": 2.241047653822131,
+          "95": 2.670372984658866
+        },
+        "mean_absolute_calibration_error": 0.11249999999999999
+      }
+    },
+    {
+      "epoch": 5,
+      "train_loss": -1.9688847723760103,
+      "validation_score": 0.7524535670687411,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.31437159847364954,
+      "E_background_median_bootstrap_95_ci": [
+        0.2684873636862276,
+        0.3628786732045373
+      ],
+      "inclusion_ratio_median_relative_error": 0.36852294034468247,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.29259429569284634,
+        0.4365517478288725
+      ],
+      "center_error_normalized_median": 0.12621848285198212,
+      "radius_relative_error_median": 0.16977394577971416,
+      "node_sdf_mae_mean": 0.15985342742581116,
+      "node_sdf_nll_mean": -1.0111167132854462,
+      "partition_soft_dice_mean": 0.07329028898752049,
+      "heterogeneity": {
+        "accuracy": 0.24,
+        "brier_score": 0.2782361130016364,
+        "binary_nll": 0.7498136779551303
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": 0.5755409391334598,
+        "coverage": {
+          "50": 0.32,
+          "80": 0.58,
+          "90": 0.82,
+          "95": 0.88
+        },
+        "mean_interval_width": {
+          "50": 0.4346019631840444,
+          "80": 0.8257572871127442,
+          "90": 1.0598480039402953,
+          "95": 1.2628867899082237
+        },
+        "mean_absolute_calibration_error": 0.1375
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.8177174270438047,
+        "coverage": {
+          "50": 0.26,
+          "80": 0.54,
+          "90": 0.68,
+          "95": 0.78
+        },
+        "mean_interval_width": {
+          "50": 0.4823740214785315,
+          "80": 0.9165256880836852,
+          "90": 1.1763479853407253,
+          "95": 1.401705079878268
+        },
+        "mean_absolute_calibration_error": 0.22249999999999998
+      }
+    },
+    {
+      "epoch": 6,
+      "train_loss": -1.7664427176902169,
+      "validation_score": 0.6053083496186108,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.27527112490194355,
+      "E_background_median_bootstrap_95_ci": [
+        0.22194921455636238,
+        0.3522764357679602
+      ],
+      "inclusion_ratio_median_relative_error": 0.2623945143580666,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.20477102826639224,
+        0.4535052609478765
+      ],
+      "center_error_normalized_median": 0.12177771329879761,
+      "radius_relative_error_median": 0.18466134103200482,
+      "node_sdf_mae_mean": 0.1403068143286203,
+      "node_sdf_nll_mean": -1.1963370693357367,
+      "partition_soft_dice_mean": 0.07484720549301098,
+      "heterogeneity": {
+        "accuracy": 0.24,
+        "brier_score": 0.27057084143440263,
+        "binary_nll": 0.7343664437085142
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": 0.5140544377471773,
+        "coverage": {
+          "50": 0.26,
+          "80": 0.64,
+          "90": 0.72,
+          "95": 0.84
+        },
+        "mean_interval_width": {
+          "50": 0.39542969728701294,
+          "80": 0.7513287599606623,
+          "90": 0.9643200235404324,
+          "95": 1.1490581804613218
+        },
+        "mean_absolute_calibration_error": 0.17250000000000001
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.7923492957381594,
+        "coverage": {
+          "50": 0.54,
+          "80": 0.74,
+          "90": 0.76,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.6801687690116711,
+          "80": 1.2923418784467022,
+          "90": 1.6587028436276823,
+          "95": 1.9764663440538124
+        },
+        "mean_absolute_calibration_error": 0.07250000000000004
+      }
+    },
+    {
+      "epoch": 7,
+      "train_loss": -2.024141541247158,
+      "validation_score": 0.6979851003198443,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.2954240878944787,
+      "E_background_median_bootstrap_95_ci": [
+        0.2365878007525029,
+        0.3582214904877528
+      ],
+      "inclusion_ratio_median_relative_error": 0.3385099624117699,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.28610369324007034,
+        0.4029302683450888
+      ],
+      "center_error_normalized_median": 0.12105019390583038,
+      "radius_relative_error_median": 0.17858385454158832,
+      "node_sdf_mae_mean": 0.13746596774772593,
+      "node_sdf_nll_mean": -1.1756634273027118,
+      "partition_soft_dice_mean": 0.07849194584904533,
+      "heterogeneity": {
+        "accuracy": 0.24,
+        "brier_score": 0.25620420005438294,
+        "binary_nll": 0.7055578607375906
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": 0.48064698380146936,
+        "coverage": {
+          "50": 0.32,
+          "80": 0.68,
+          "90": 0.86,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.4727333806093999,
+          "80": 0.8982081697002006,
+          "90": 1.152837705021243,
+          "95": 1.373690852996556
+        },
+        "mean_absolute_calibration_error": 0.09750000000000002
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.723343458078003,
+        "coverage": {
+          "50": 0.34,
+          "80": 0.72,
+          "90": 0.76,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.5803103407339545,
+          "80": 1.1026077497146825,
+          "90": 1.4151817257952377,
+          "95": 1.6862930346444356
+        },
+        "mean_absolute_calibration_error": 0.10750000000000003
+      }
+    },
+    {
+      "epoch": 8,
+      "train_loss": -1.9746603291285665,
+      "validation_score": 0.6612013417342993,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.2800375487820581,
+      "E_background_median_bootstrap_95_ci": [
+        0.22516053733864408,
+        0.357391767167001
+      ],
+      "inclusion_ratio_median_relative_error": 0.31478195262042885,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.261924611363178,
+        0.3885255982368811
+      ],
+      "center_error_normalized_median": 0.1172904521226883,
+      "radius_relative_error_median": 0.17463808048669544,
+      "node_sdf_mae_mean": 0.13704147738845726,
+      "node_sdf_nll_mean": -1.2371323422381753,
+      "partition_soft_dice_mean": 0.08159127831459045,
+      "heterogeneity": {
+        "accuracy": 0.24,
+        "brier_score": 0.26552736132724936,
+        "binary_nll": 0.7242360449071126
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": 0.48122236923250766,
+        "coverage": {
+          "50": 0.28,
+          "80": 0.66,
+          "90": 0.74,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.4297203790275578,
+          "80": 0.8164821249382791,
+          "90": 1.0479434621696728,
+          "95": 1.2487016534677757
+        },
+        "mean_absolute_calibration_error": 0.14250000000000002
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.7307389941647408,
+        "coverage": {
+          "50": 0.5,
+          "80": 0.76,
+          "90": 0.78,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.6931396867804961,
+          "80": 1.316987026824947,
+          "90": 1.6903345491217068,
+          "95": 2.0141578459127163
+        },
+        "mean_absolute_calibration_error": 0.05250000000000002
+      }
+    },
+    {
+      "epoch": 9,
+      "train_loss": -2.345093233804954,
+      "validation_score": 0.6740820879148498,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.24923548798216383,
+      "E_background_median_bootstrap_95_ci": [
+        0.20377099150508327,
+        0.35417613912766727
+      ],
+      "inclusion_ratio_median_relative_error": 0.35799825521593226,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.286000435363193,
+        0.42739049684155905
+      ],
+      "center_error_normalized_median": 0.12313039600849152,
+      "radius_relative_error_median": 0.18457413241148019,
+      "node_sdf_mae_mean": 0.13423918226831838,
+      "node_sdf_nll_mean": -1.2543423583633022,
+      "partition_soft_dice_mean": 0.09201754869795159,
+      "heterogeneity": {
+        "accuracy": 0.24,
+        "brier_score": 0.26739337886701486,
+        "binary_nll": 0.7279815159447189
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": 0.528396664242854,
+        "coverage": {
+          "50": 0.32,
+          "80": 0.62,
+          "90": 0.72,
+          "95": 0.86
+        },
+        "mean_interval_width": {
+          "50": 0.3741703837361485,
+          "80": 0.7109354010466188,
+          "90": 0.9124757086483646,
+          "95": 1.0872818689849424
+        },
+        "mean_absolute_calibration_error": 0.1575
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.700207711220324,
+        "coverage": {
+          "50": 0.36,
+          "80": 0.76,
+          "90": 1.0,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.6585320580367409,
+          "80": 1.2512314526543202,
+          "90": 1.6059381833610595,
+          "95": 1.9135933734231418
+        },
+        "mean_absolute_calibration_error": 0.08250000000000002
+      }
+    },
+    {
+      "epoch": 10,
+      "train_loss": -2.245555237327751,
+      "validation_score": 0.6653434110237083,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.284761435860036,
+      "E_background_median_bootstrap_95_ci": [
+        0.17072446307775294,
+        0.3284249689822465
+      ],
+      "inclusion_ratio_median_relative_error": 0.31320469153021235,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.25892088607044883,
+        0.38916162205936955
+      ],
+      "center_error_normalized_median": 0.13173357397317886,
+      "radius_relative_error_median": 0.1801651325717839,
+      "node_sdf_mae_mean": 0.12822731152961128,
+      "node_sdf_nll_mean": -1.3464488042028326,
+      "partition_soft_dice_mean": 0.10224516042753269,
+      "heterogeneity": {
+        "accuracy": 0.24,
+        "brier_score": 0.26950913453383973,
+        "binary_nll": 0.7322319528423238
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": 0.5440919310036699,
+        "coverage": {
+          "50": 0.44,
+          "80": 0.7,
+          "90": 0.82,
+          "95": 0.86
+        },
+        "mean_interval_width": {
+          "50": 0.4140512201956512,
+          "80": 0.7867102343706921,
+          "90": 1.0097316543127746,
+          "95": 1.2031694760408447
+        },
+        "mean_absolute_calibration_error": 0.08250000000000003
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.7387690126543203,
+        "coverage": {
+          "50": 0.54,
+          "80": 0.76,
+          "90": 1.0,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.7329228820851078,
+          "80": 1.3925763389088892,
+          "90": 1.7873523808522642,
+          "95": 2.129761722716321
+        },
+        "mean_absolute_calibration_error": 0.05750000000000002
+      }
+    },
+    {
+      "epoch": 11,
+      "train_loss": -2.0043037165152398,
+      "validation_score": 0.666080175390363,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.2879767594493713,
+      "E_background_median_bootstrap_95_ci": [
+        0.22633198634518414,
+        0.35528294697744195
+      ],
+      "inclusion_ratio_median_relative_error": 0.3113299118774392,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.2408237368252744,
+        0.3873277737686337
+      ],
+      "center_error_normalized_median": 0.12750688940286636,
+      "radius_relative_error_median": 0.18713774782430564,
+      "node_sdf_mae_mean": 0.12251999131158779,
+      "node_sdf_nll_mean": -1.3439367978196395,
+      "partition_soft_dice_mean": 0.11214591258842695,
+      "heterogeneity": {
+        "accuracy": 0.24,
+        "brier_score": 0.26709401625421014,
+        "binary_nll": 0.7273804463549599
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": 0.46427623898391074,
+        "coverage": {
+          "50": 0.46,
+          "80": 0.78,
+          "90": 1.0,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.5756699013484132,
+          "80": 1.093790770127333,
+          "90": 1.4038652550086363,
+          "95": 1.6728086280015497
+        },
+        "mean_absolute_calibration_error": 0.052500000000000005
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.7939870615720157,
+        "coverage": {
+          "50": 0.36,
+          "80": 0.72,
+          "90": 0.76,
+          "95": 0.76
+        },
+        "mean_interval_width": {
+          "50": 0.5627827507751292,
+          "80": 1.069304782033667,
+          "90": 1.3724378295283035,
+          "95": 1.6353605407924585
+        },
+        "mean_absolute_calibration_error": 0.1375
+      }
+    },
+    {
+      "epoch": 12,
+      "train_loss": -1.9172342346098863,
+      "validation_score": 0.6539055108555922,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.24667554755041773,
+      "E_background_median_bootstrap_95_ci": [
+        0.2134013346251881,
+        0.35347413219467005
+      ],
+      "inclusion_ratio_median_relative_error": 0.338787312709646,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.2786149518164865,
+        0.39536031645730996
+      ],
+      "center_error_normalized_median": 0.12601331621408463,
+      "radius_relative_error_median": 0.17543276680708697,
+      "node_sdf_mae_mean": 0.1245557926595211,
+      "node_sdf_nll_mean": -1.3361697949861224,
+      "partition_soft_dice_mean": 0.11418466956207626,
+      "heterogeneity": {
+        "accuracy": 0.24,
+        "brier_score": 0.27377060238211404,
+        "binary_nll": 0.7408064761379829
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": 0.4253495328073788,
+        "coverage": {
+          "50": 0.42,
+          "80": 0.72,
+          "90": 0.88,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.4841685535951044,
+          "80": 0.9199353550841779,
+          "90": 1.1807242455578268,
+          "95": 1.406919715558886
+        },
+        "mean_absolute_calibration_error": 0.05750000000000004
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.7223257013534249,
+        "coverage": {
+          "50": 0.36,
+          "80": 0.74,
+          "90": 0.76,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.592700109663522,
+          "80": 1.1261486971698622,
+          "90": 1.4453962047476094,
+          "95": 1.7222958069203174
+        },
+        "mean_absolute_calibration_error": 0.09750000000000003
+      }
+    },
+    {
+      "epoch": 13,
+      "train_loss": -2.381616761809901,
+      "validation_score": 0.6932488336996399,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.25071792745682336,
+      "E_background_median_bootstrap_95_ci": [
+        0.2034045955796449,
+        0.35321390085889365
+      ],
+      "inclusion_ratio_median_relative_error": 0.37548680017045244,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.30274797611689586,
+        0.4442149458595803
+      ],
+      "center_error_normalized_median": 0.13278625160455704,
+      "radius_relative_error_median": 0.18510946586447974,
+      "node_sdf_mae_mean": 0.11869067404615252,
+      "node_sdf_nll_mean": -1.3656960694413436,
+      "partition_soft_dice_mean": 0.11922944356736384,
+      "heterogeneity": {
+        "accuracy": 0.24,
+        "brier_score": 0.26817642428945654,
+        "binary_nll": 0.7295541333895449
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": 0.4717088979845138,
+        "coverage": {
+          "50": 0.34,
+          "80": 0.64,
+          "90": 0.82,
+          "95": 0.86
+        },
+        "mean_interval_width": {
+          "50": 0.4076678504952881,
+          "80": 0.7745816328158542,
+          "90": 0.9941647627465762,
+          "95": 1.1846203806556606
+        },
+        "mean_absolute_calibration_error": 0.12250000000000001
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.736018212696504,
+        "coverage": {
+          "50": 0.42,
+          "80": 1.0,
+          "90": 1.0,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.8023885478547592,
+          "80": 1.5245632707974974,
+          "90": 1.9567557739454773,
+          "95": 2.3316183158388006
+        },
+        "mean_absolute_calibration_error": 0.1075
+      }
+    },
+    {
+      "epoch": 14,
+      "train_loss": -2.462666267627164,
+      "validation_score": 0.6783446397481867,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.24330819331625442,
+      "E_background_median_bootstrap_95_ci": [
+        0.20509602871338234,
+        0.3538814532946927
+      ],
+      "inclusion_ratio_median_relative_error": 0.36701274480926915,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.291915979369946,
+        0.43607818641094714
+      ],
+      "center_error_normalized_median": 0.12751871347427368,
+      "radius_relative_error_median": 0.18620877615704856,
+      "node_sdf_mae_mean": 0.12267589569091797,
+      "node_sdf_nll_mean": -1.3685725456789921,
+      "partition_soft_dice_mean": 0.14874562493672497,
+      "heterogeneity": {
+        "accuracy": 0.24,
+        "brier_score": 0.2720948064906527,
+        "binary_nll": 0.7374322995802131
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": 0.535029837518268,
+        "coverage": {
+          "50": 0.32,
+          "80": 0.62,
+          "90": 0.72,
+          "95": 0.86
+        },
+        "mean_interval_width": {
+          "50": 0.36691805712619774,
+          "80": 0.6971557542571439,
+          "90": 0.8947897234651259,
+          "95": 1.0662077178129004
+        },
+        "mean_absolute_calibration_error": 0.1575
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.7086620130892095,
+        "coverage": {
+          "50": 0.3,
+          "80": 0.68,
+          "90": 0.92,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.5994049950044199,
+          "80": 1.138888188471141,
+          "90": 1.4617471648149243,
+          "95": 1.7417791775494629
+        },
+        "mean_absolute_calibration_error": 0.09750000000000002
+      }
+    },
+    {
+      "epoch": 15,
+      "train_loss": -2.621388364387186,
+      "validation_score": 0.6766129531653864,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.2743255311684417,
+      "E_background_median_bootstrap_95_ci": [
+        0.22166869834108818,
+        0.35096860097289473
+      ],
+      "inclusion_ratio_median_relative_error": 0.3355984100674796,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.27621030365707266,
+        0.3926983531669351
+      ],
+      "center_error_normalized_median": 0.12826832383871078,
+      "radius_relative_error_median": 0.18543922968117282,
+      "node_sdf_mae_mean": 0.10764591415461741,
+      "node_sdf_nll_mean": -1.5339988940640499,
+      "partition_soft_dice_mean": 0.16675494679887043,
+      "heterogeneity": {
+        "accuracy": 0.24,
+        "brier_score": 0.2667560477178602,
+        "binary_nll": 0.7267019406153284
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": 0.49178731369141426,
+        "coverage": {
+          "50": 0.26,
+          "80": 0.64,
+          "90": 0.72,
+          "95": 0.9
+        },
+        "mean_interval_width": {
+          "50": 0.39883117642352434,
+          "80": 0.757791676426474,
+          "90": 0.972615087020736,
+          "95": 1.158942358241323
+        },
+        "mean_absolute_calibration_error": 0.1575
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.7566841110537743,
+        "coverage": {
+          "50": 0.54,
+          "80": 0.86,
+          "90": 1.0,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.8412869680867989,
+          "80": 1.5984714826436968,
+          "90": 2.0516159368801294,
+          "95": 2.4446511716948582
+        },
+        "mean_absolute_calibration_error": 0.0625
+      }
+    },
+    {
+      "epoch": 16,
+      "train_loss": -2.625914572885162,
+      "validation_score": 0.6746958656807278,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.24354632426362594,
+      "E_background_median_bootstrap_95_ci": [
+        0.19957145854735803,
+        0.35006164619032326
+      ],
+      "inclusion_ratio_median_relative_error": 0.3628835737734947,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.29268521843779843,
+        0.4325649703787565
+      ],
+      "center_error_normalized_median": 0.13317786902189255,
+      "radius_relative_error_median": 0.1853615396235755,
+      "node_sdf_mae_mean": 0.13662384175940565,
+      "node_sdf_nll_mean": -1.2773410364201194,
+      "partition_soft_dice_mean": 0.1930377238283032,
+      "heterogeneity": {
+        "accuracy": 0.24,
+        "brier_score": 0.2730638705744284,
+        "binary_nll": 0.7393830918780563
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": 0.4762987659915359,
+        "coverage": {
+          "50": 0.34,
+          "80": 0.64,
+          "90": 0.74,
+          "95": 0.86
+        },
+        "mean_interval_width": {
+          "50": 0.389325340909523,
+          "80": 0.7397302924228825,
+          "90": 0.9494335516188059,
+          "95": 1.1313198550898842
+        },
+        "mean_absolute_calibration_error": 0.14250000000000002
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.7013521095600755,
+        "coverage": {
+          "50": 0.38,
+          "80": 0.76,
+          "90": 1.0,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.7039776234057219,
+          "80": 1.3375794444937008,
+          "90": 1.7167646310636342,
+          "95": 2.0456512310175223
+        },
+        "mean_absolute_calibration_error": 0.07750000000000001
+      }
+    },
+    {
+      "epoch": 17,
+      "train_loss": -2.840102211425179,
+      "validation_score": 0.7164433652993512,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.2727430589336305,
+      "E_background_median_bootstrap_95_ci": [
+        0.2214981584267286,
+        0.34870603314283155
+      ],
+      "inclusion_ratio_median_relative_error": 0.37621962100600514,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.2990062974514248,
+        0.4437754516668313
+      ],
+      "center_error_normalized_median": 0.12421924248337746,
+      "radius_relative_error_median": 0.17818360447556353,
+      "node_sdf_mae_mean": 0.10633563338533829,
+      "node_sdf_nll_mean": -1.541493638565666,
+      "partition_soft_dice_mean": 0.26007491820736933,
+      "heterogeneity": {
+        "accuracy": 0.24,
+        "brier_score": 0.2699227414388621,
+        "binary_nll": 0.7330633376671508
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": 0.4633496916530383,
+        "coverage": {
+          "50": 0.28,
+          "80": 0.66,
+          "90": 0.74,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.414667692754536,
+          "80": 0.7878815514629448,
+          "90": 1.011235023524987,
+          "95": 1.2049608509468681
+        },
+        "mean_absolute_calibration_error": 0.14250000000000002
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.7013103061450434,
+        "coverage": {
+          "50": 0.3,
+          "80": 0.68,
+          "90": 1.0,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.6173639995685981,
+          "80": 1.1730108573599627,
+          "90": 1.5055431361921603,
+          "95": 1.7939652962173105
+        },
+        "mean_absolute_calibration_error": 0.11750000000000001
+      }
+    },
+    {
+      "epoch": 18,
+      "train_loss": -2.6611272590725044,
+      "validation_score": 0.6389501545991645,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.2668963052765343,
+      "E_background_median_bootstrap_95_ci": [
+        0.2188833888366573,
+        0.3464218566676861
+      ],
+      "inclusion_ratio_median_relative_error": 0.304305101902625,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.23407994027133033,
+        0.38837707880322214
+      ],
+      "center_error_normalized_median": 0.1374119147658348,
+      "radius_relative_error_median": 0.18440956198826858,
+      "node_sdf_mae_mean": 0.1035953052341938,
+      "node_sdf_nll_mean": -1.5484195618253005,
+      "partition_soft_dice_mean": 0.2436120202274699,
+      "heterogeneity": {
+        "accuracy": 0.24,
+        "brier_score": 0.2709949896800206,
+        "binary_nll": 0.7352194930178364
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": 0.47477664634877415,
+        "coverage": {
+          "50": 0.26,
+          "80": 0.64,
+          "90": 0.72,
+          "95": 0.88
+        },
+        "mean_interval_width": {
+          "50": 0.38751365670365073,
+          "80": 0.7362880359176752,
+          "90": 0.9450154632252412,
+          "95": 1.1260553780628613
+        },
+        "mean_absolute_calibration_error": 0.1625
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.7581462864951876,
+        "coverage": {
+          "50": 0.44,
+          "80": 0.74,
+          "90": 0.76,
+          "95": 0.88
+        },
+        "mean_interval_width": {
+          "50": 0.6055085931585737,
+          "80": 1.1504852153609297,
+          "90": 1.4766317876848725,
+          "95": 1.7595152996399301
+        },
+        "mean_absolute_calibration_error": 0.0825
+      }
+    },
+    {
+      "epoch": 19,
+      "train_loss": -2.876371187599082,
+      "validation_score": 0.7163523056769363,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.2265212596750783,
+      "E_background_median_bootstrap_95_ci": [
+        0.1910614613591567,
+        0.33633180240930305
+      ],
+      "inclusion_ratio_median_relative_error": 0.42338372324775414,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.3591127984207568,
+        0.4765867306762177
+      ],
+      "center_error_normalized_median": 0.12463715672492981,
+      "radius_relative_error_median": 0.18482605968103472,
+      "node_sdf_mae_mean": 0.10143926445590823,
+      "node_sdf_nll_mean": -1.5641503804608394,
+      "partition_soft_dice_mean": 0.21864570128290275,
+      "heterogeneity": {
+        "accuracy": 0.24,
+        "brier_score": 0.2657892910164153,
+        "binary_nll": 0.7247616077161524
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": 0.48663522861438024,
+        "coverage": {
+          "50": 0.34,
+          "80": 0.62,
+          "90": 0.72,
+          "95": 0.86
+        },
+        "mean_interval_width": {
+          "50": 0.3465468908522238,
+          "80": 0.6584499028742411,
+          "90": 0.8451113010410096,
+          "95": 1.0070122263937071
+        },
+        "mean_absolute_calibration_error": 0.1525
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.7291389096236722,
+        "coverage": {
+          "50": 0.3,
+          "80": 0.88,
+          "90": 1.0,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.6848731082116127,
+          "80": 1.3012802696747159,
+          "90": 1.6701751445680357,
+          "95": 1.9901364337775846
+        },
+        "mean_absolute_calibration_error": 0.1075
+      }
+    },
+    {
+      "epoch": 20,
+      "train_loss": -2.6919616147091516,
+      "validation_score": 0.6274815905084732,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.2406291909083225,
+      "E_background_median_bootstrap_95_ci": [
+        0.166847839791627,
+        0.314126387167851
+      ],
+      "inclusion_ratio_median_relative_error": 0.3184247171967048,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.27536107875080706,
+        0.38907599643783686
+      ],
+      "center_error_normalized_median": 0.1301090568304062,
+      "radius_relative_error_median": 0.18201715748052505,
+      "node_sdf_mae_mean": 0.0993927450556504,
+      "node_sdf_nll_mean": -1.607029748590369,
+      "partition_soft_dice_mean": 0.2638830866076444,
+      "heterogeneity": {
+        "accuracy": 0.24,
+        "brier_score": 0.2737107296137836,
+        "binary_nll": 0.7406858992518014
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": 0.33700259967376545,
+        "coverage": {
+          "50": 0.46,
+          "80": 0.74,
+          "90": 0.86,
+          "95": 0.86
+        },
+        "mean_interval_width": {
+          "50": 0.405512538347746,
+          "80": 0.7704864725022738,
+          "90": 0.9889086813871981,
+          "95": 1.1783573734218278
+        },
+        "mean_absolute_calibration_error": 0.05750000000000001
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.7046009621296185,
+        "coverage": {
+          "50": 0.4,
+          "80": 0.76,
+          "90": 0.8,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.6516032178047554,
+          "80": 1.2380664400738803,
+          "90": 1.5890410726446476,
+          "95": 1.8934592241564174
+        },
+        "mean_absolute_calibration_error": 0.07250000000000001
+      }
+    },
+    {
+      "epoch": 21,
+      "train_loss": -3.046112645221384,
+      "validation_score": 0.6666598569533343,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.19627615186740016,
+      "E_background_median_bootstrap_95_ci": [
+        0.14542696173371042,
+        0.23880106734373183
+      ],
+      "inclusion_ratio_median_relative_error": 0.40527753572064396,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.33747621482247514,
+        0.45064830241885967
+      ],
+      "center_error_normalized_median": 0.1309005543589592,
+      "radius_relative_error_median": 0.18452922750272052,
+      "node_sdf_mae_mean": 0.11462538042350819,
+      "node_sdf_nll_mean": -1.4501291293846934,
+      "partition_soft_dice_mean": 0.26082299336006765,
+      "heterogeneity": {
+        "accuracy": 0.24,
+        "brier_score": 0.26042467746116094,
+        "binary_nll": 0.7140080411347985
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": 0.0715029286430995,
+        "coverage": {
+          "50": 0.3,
+          "80": 0.7,
+          "90": 0.82,
+          "95": 0.86
+        },
+        "mean_interval_width": {
+          "50": 0.279690108761624,
+          "80": 0.5314199313578851,
+          "90": 0.6820700977075892,
+          "95": 0.8127366499572614
+        },
+        "mean_absolute_calibration_error": 0.11750000000000003
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.7270048459413537,
+        "coverage": {
+          "50": 0.36,
+          "80": 1.0,
+          "90": 1.0,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.7783735419430161,
+          "80": 1.47893401043615,
+          "90": 1.8981912522997322,
+          "95": 2.261834384115821
+        },
+        "mean_absolute_calibration_error": 0.1225
+      }
+    },
+    {
+      "epoch": 22,
+      "train_loss": -3.5237331484493457,
+      "validation_score": 0.5601591211646726,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.1360547746935783,
+      "E_background_median_bootstrap_95_ci": [
+        0.09793815347585194,
+        0.17238659988770344
+      ],
+      "inclusion_ratio_median_relative_error": 0.3568926255356203,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.28963943089318855,
+        0.42676263522078994
+      ],
+      "center_error_normalized_median": 0.12285881116986275,
+      "radius_relative_error_median": 0.18235531903500052,
+      "node_sdf_mae_mean": 0.09521066260180976,
+      "node_sdf_nll_mean": -1.6273468732833862,
+      "partition_soft_dice_mean": 0.20349365394366414,
+      "heterogeneity": {
+        "accuracy": 0.24,
+        "brier_score": 0.2688468837418958,
+        "binary_nll": 0.730907211937821
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.20488112464117228,
+        "coverage": {
+          "50": 0.6,
+          "80": 0.88,
+          "90": 0.94,
+          "95": 0.98
+        },
+        "mean_interval_width": {
+          "50": 0.31683218021633147,
+          "80": 0.6019910257392483,
+          "90": 0.7726471167460636,
+          "95": 0.9206658250726385
+        },
+        "mean_absolute_calibration_error": 0.06249999999999997
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6918406755987933,
+        "coverage": {
+          "50": 0.32,
+          "80": 0.68,
+          "90": 0.94,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.6087716141206374,
+          "80": 1.156685056976198,
+          "90": 1.484589198249983,
+          "95": 1.7689971391557788
+        },
+        "mean_absolute_calibration_error": 0.09749999999999999
+      }
+    },
+    {
+      "epoch": 23,
+      "train_loss": -3.1394431853274765,
+      "validation_score": 0.6242255809877093,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.17870481232651841,
+      "E_background_median_bootstrap_95_ci": [
+        0.14732047354245476,
+        0.22502594201664455
+      ],
+      "inclusion_ratio_median_relative_error": 0.3785813902214048,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.30466347441717956,
+        0.4462861570382288
+      ],
+      "center_error_normalized_median": 0.12618085741996765,
+      "radius_relative_error_median": 0.17801488659984904,
+      "node_sdf_mae_mean": 0.1178377882430428,
+      "node_sdf_nll_mean": -1.4282450189715938,
+      "partition_soft_dice_mean": 0.19462938842020536,
+      "heterogeneity": {
+        "accuracy": 0.24,
+        "brier_score": 0.26775751375914403,
+        "binary_nll": 0.7287143289059996
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": 0.07992898826014198,
+        "coverage": {
+          "50": 0.56,
+          "80": 0.78,
+          "90": 1.0,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.3991942669049247,
+          "80": 0.7584815596674537,
+          "90": 0.9735005425744626,
+          "95": 1.159997443609881
+        },
+        "mean_absolute_calibration_error": 0.05750000000000002
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.72027883376256,
+        "coverage": {
+          "50": 0.3,
+          "80": 0.64,
+          "90": 0.92,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.5850473993211944,
+          "80": 1.1116083087992186,
+          "90": 1.426733818315603,
+          "95": 1.7000582019000496
+        },
+        "mean_absolute_calibration_error": 0.10750000000000003
+      }
+    },
+    {
+      "epoch": 24,
+      "train_loss": -3.3140576372021124,
+      "validation_score": 0.5860634567601802,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.18756568972101834,
+      "E_background_median_bootstrap_95_ci": [
+        0.15397372923674862,
+        0.21775058570339428
+      ],
+      "inclusion_ratio_median_relative_error": 0.3320346260144397,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.2615728094739702,
+        0.3938533632821434
+      ],
+      "center_error_normalized_median": 0.13120093196630478,
+      "radius_relative_error_median": 0.18381393175258026,
+      "node_sdf_mae_mean": 0.09101880322161474,
+      "node_sdf_nll_mean": -1.6827114318546497,
+      "partition_soft_dice_mean": 0.2995091294379611,
+      "heterogeneity": {
+        "accuracy": 0.24,
+        "brier_score": 0.26585256409888863,
+        "binary_nll": 0.7248936680764756
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.07279956480568817,
+        "coverage": {
+          "50": 0.26,
+          "80": 0.66,
+          "90": 0.88,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.2704295213093853,
+          "80": 0.5138245263219612,
+          "90": 0.6594866398357863,
+          "95": 0.7858268001384985
+        },
+        "mean_absolute_calibration_error": 0.11250000000000002
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6941566717215152,
+        "coverage": {
+          "50": 0.44,
+          "80": 0.76,
+          "90": 0.94,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.6520411259537601,
+          "80": 1.2388984792171858,
+          "90": 1.5901089833237239,
+          "95": 1.8947317182163144
+        },
+        "mean_absolute_calibration_error": 0.0475
+      }
+    },
+    {
+      "epoch": 25,
+      "train_loss": -3.5189406150265743,
+      "validation_score": 0.6160301304353841,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.21335695570685928,
+      "E_background_median_bootstrap_95_ci": [
+        0.16104072210456039,
+        0.270896891124439
+      ],
+      "inclusion_ratio_median_relative_error": 0.3371167357256668,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.2646527888005016,
+        0.384790364942981
+      ],
+      "center_error_normalized_median": 0.13173169642686844,
+      "radius_relative_error_median": 0.18172380002544644,
+      "node_sdf_mae_mean": 0.11693555812694524,
+      "node_sdf_nll_mean": -1.4389622399681492,
+      "partition_soft_dice_mean": 0.22456066977036626,
+      "heterogeneity": {
+        "accuracy": 0.24,
+        "brier_score": 0.262225756011432,
+        "binary_nll": 0.7176161660431286
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": 0.26802533811588913,
+        "coverage": {
+          "50": 0.36,
+          "80": 0.62,
+          "90": 0.74,
+          "95": 0.84
+        },
+        "mean_interval_width": {
+          "50": 0.27818819175484655,
+          "80": 0.5285662421938998,
+          "90": 0.6784074273182175,
+          "95": 0.8083723090014555
+        },
+        "mean_absolute_calibration_error": 0.14750000000000002
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6978601199964009,
+        "coverage": {
+          "50": 0.5,
+          "80": 0.76,
+          "90": 1.0,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.7136475632145669,
+          "80": 1.3559526317765984,
+          "90": 1.740346361641982,
+          "95": 2.073750596133889
+        },
+        "mean_absolute_calibration_error": 0.047500000000000014
+      }
+    },
+    {
+      "epoch": 26,
+      "train_loss": -3.7367679821817497,
+      "validation_score": 0.5014212313113028,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.1094716473204164,
+      "E_background_median_bootstrap_95_ci": [
+        0.07738035113423489,
+        0.1421238432553399
+      ],
+      "inclusion_ratio_median_relative_error": 0.3268602671641959,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.25963735818819605,
+        0.3803595695533283
+      ],
+      "center_error_normalized_median": 0.12218283116817474,
+      "radius_relative_error_median": 0.17715131318994945,
+      "node_sdf_mae_mean": 0.09274826561541934,
+      "node_sdf_nll_mean": -1.657195414367475,
+      "partition_soft_dice_mean": 0.2848054880374356,
+      "heterogeneity": {
+        "accuracy": 0.24,
+        "brier_score": 0.2603572673067621,
+        "binary_nll": 0.7138724216374611
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.3652861914655444,
+        "coverage": {
+          "50": 0.56,
+          "80": 0.82,
+          "90": 0.92,
+          "95": 0.94
+        },
+        "mean_interval_width": {
+          "50": 0.24721388722490295,
+          "80": 0.4697140973681786,
+          "90": 0.6028715171971728,
+          "95": 0.7183657206030157
+        },
+        "mean_absolute_calibration_error": 0.027499999999999997
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6529436261999356,
+        "coverage": {
+          "50": 0.42,
+          "80": 0.76,
+          "90": 0.94,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.6564865668607363,
+          "80": 1.2473449556124392,
+          "90": 1.6009499184114884,
+          "95": 1.9076494891246814
+        },
+        "mean_absolute_calibration_error": 0.052500000000000005
+      }
+    },
+    {
+      "epoch": 27,
+      "train_loss": -3.9253936457006553,
+      "validation_score": 0.5013709416967274,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.07930313217966894,
+      "E_background_median_bootstrap_95_ci": [
+        0.05961205217534589,
+        0.13294235950467576
+      ],
+      "inclusion_ratio_median_relative_error": 0.35814300508635094,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.27721858398367494,
+        0.4206328658620212
+      ],
+      "center_error_normalized_median": 0.1320018246769905,
+      "radius_relative_error_median": 0.1716790077136266,
+      "node_sdf_mae_mean": 0.09184106860898043,
+      "node_sdf_nll_mean": -1.6931411404358714,
+      "partition_soft_dice_mean": 0.3058125208082952,
+      "heterogeneity": {
+        "accuracy": 0.24,
+        "brier_score": 0.25569921772282994,
+        "binary_nll": 0.7045474743788237
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.5946242065255996,
+        "coverage": {
+          "50": 0.6,
+          "80": 0.88,
+          "90": 0.94,
+          "95": 0.98
+        },
+        "mean_interval_width": {
+          "50": 0.20699808208801446,
+          "80": 0.3933028131079904,
+          "90": 0.5047986955998774,
+          "95": 0.6015047458370271
+        },
+        "mean_absolute_calibration_error": 0.06249999999999997
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6813487346741957,
+        "coverage": {
+          "50": 0.46,
+          "80": 0.94,
+          "90": 1.0,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.7427493954149184,
+          "80": 1.4112470207658072,
+          "90": 1.811315941582619,
+          "95": 2.1583160665212966
+        },
+        "mean_absolute_calibration_error": 0.08249999999999998
+      }
+    },
+    {
+      "epoch": 28,
+      "train_loss": -3.991528496146202,
+      "validation_score": 0.4792306607032427,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.08466789087570481,
+      "E_background_median_bootstrap_95_ci": [
+        0.04596908443697104,
+        0.12037336297802168
+      ],
+      "inclusion_ratio_median_relative_error": 0.33124883312042824,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.24020746774261717,
+        0.38956405602424404
+      ],
+      "center_error_normalized_median": 0.1274040788412094,
+      "radius_relative_error_median": 0.17722458633259963,
+      "node_sdf_mae_mean": 0.09617414315672297,
+      "node_sdf_nll_mean": -1.6283268803044368,
+      "partition_soft_dice_mean": 0.29556213319301605,
+      "heterogeneity": {
+        "accuracy": 0.24,
+        "brier_score": 0.25325574682843877,
+        "binary_nll": 0.6996590628005079
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.6288596017186725,
+        "coverage": {
+          "50": 0.5,
+          "80": 0.84,
+          "90": 0.9,
+          "95": 0.96
+        },
+        "mean_interval_width": {
+          "50": 0.18523954822194458,
+          "80": 0.35196092002227547,
+          "90": 0.4517369502785481,
+          "95": 0.5382777765294958
+        },
+        "mean_absolute_calibration_error": 0.012499999999999983
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6767087600048615,
+        "coverage": {
+          "50": 0.46,
+          "80": 0.76,
+          "90": 0.92,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.6438458742501325,
+          "80": 1.2233272453359256,
+          "90": 1.5701235210026534,
+          "95": 1.8709175710351584
+        },
+        "mean_absolute_calibration_error": 0.03750000000000002
+      }
+    },
+    {
+      "epoch": 29,
+      "train_loss": -3.7382154956852136,
+      "validation_score": 0.5955390280058255,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.17911313986602445,
+      "E_background_median_bootstrap_95_ci": [
+        0.1374929803993581,
+        0.20777464801614953
+      ],
+      "inclusion_ratio_median_relative_error": 0.3545604959844014,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.27729004662869167,
+        0.4225372640987314
+      ],
+      "center_error_normalized_median": 0.1290716603398323,
+      "radius_relative_error_median": 0.17276160185005793,
+      "node_sdf_mae_mean": 0.10008537622266694,
+      "node_sdf_nll_mean": -1.600174492127017,
+      "partition_soft_dice_mean": 0.3017166405916214,
+      "heterogeneity": {
+        "accuracy": 0.76,
+        "brier_score": 0.24746156862159815,
+        "binary_nll": 0.6880700998901016
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.07575532888005858,
+        "coverage": {
+          "50": 0.3,
+          "80": 0.78,
+          "90": 0.86,
+          "95": 0.98
+        },
+        "mean_interval_width": {
+          "50": 0.28365721084819695,
+          "80": 0.5389575490729726,
+          "90": 0.6917445253081412,
+          "95": 0.824264441462494
+        },
+        "mean_absolute_calibration_error": 0.07250000000000002
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6956771281886022,
+        "coverage": {
+          "50": 0.44,
+          "80": 0.78,
+          "90": 1.0,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.7322138315021363,
+          "80": 1.3912291206829734,
+          "90": 1.7856232449791787,
+          "95": 2.1277013302412136
+        },
+        "mean_absolute_calibration_error": 0.05750000000000001
+      }
+    },
+    {
+      "epoch": 30,
+      "train_loss": -3.9161993139668514,
+      "validation_score": 0.5270088343350116,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.13697292086841187,
+      "E_background_median_bootstrap_95_ci": [
+        0.0866218373840794,
+        0.16751193842239975
+      ],
+      "inclusion_ratio_median_relative_error": 0.32774501032706793,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.24783574808492034,
+        0.38176641590646365
+      ],
+      "center_error_normalized_median": 0.1263432428240776,
+      "radius_relative_error_median": 0.1613043963670706,
+      "node_sdf_mae_mean": 0.08849579174267619,
+      "node_sdf_nll_mean": -1.7245987841957493,
+      "partition_soft_dice_mean": 0.2923906094541675,
+      "heterogeneity": {
+        "accuracy": 0.6,
+        "brier_score": 0.24916361255812697,
+        "binary_nll": 0.6914743326575207
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.32245500425082274,
+        "coverage": {
+          "50": 0.44,
+          "80": 0.78,
+          "90": 0.84,
+          "95": 0.88
+        },
+        "mean_interval_width": {
+          "50": 0.20481294937044123,
+          "80": 0.38915099278112164,
+          "90": 0.49946989190074653,
+          "95": 0.595155084590672
+        },
+        "mean_absolute_calibration_error": 0.052500000000000005
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6752201019681121,
+        "coverage": {
+          "50": 0.48,
+          "80": 0.76,
+          "90": 0.96,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.7107989993497311,
+          "80": 1.3505402715747234,
+          "90": 1.733399672528744,
+          "95": 2.0654731055106184
+        },
+        "mean_absolute_calibration_error": 0.04250000000000001
+      }
+    },
+    {
+      "epoch": 31,
+      "train_loss": -4.105734535345905,
+      "validation_score": 0.4924583609785328,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.10021492231670046,
+      "E_background_median_bootstrap_95_ci": [
+        0.0632547069706702,
+        0.14228548481638742
+      ],
+      "inclusion_ratio_median_relative_error": 0.3302554098911763,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.25914473840598046,
+        0.3799406177071703
+      ],
+      "center_error_normalized_median": 0.12488798424601555,
+      "radius_relative_error_median": 0.18480891114194165,
+      "node_sdf_mae_mean": 0.09319058266517363,
+      "node_sdf_nll_mean": -1.6784205154368752,
+      "partition_soft_dice_mean": 0.31437423217453453,
+      "heterogeneity": {
+        "accuracy": 0.7,
+        "brier_score": 0.24795211508262413,
+        "binary_nll": 0.689051072523259
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.49970469111189336,
+        "coverage": {
+          "50": 0.52,
+          "80": 0.74,
+          "90": 0.88,
+          "95": 0.98
+        },
+        "mean_interval_width": {
+          "50": 0.2004949581275706,
+          "80": 0.3809466747233602,
+          "90": 0.4889397636743121,
+          "95": 0.5826076629002379
+        },
+        "mean_absolute_calibration_error": 0.03250000000000003
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6634820228611238,
+        "coverage": {
+          "50": 0.44,
+          "80": 0.76,
+          "90": 0.96,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.684624561315499,
+          "80": 1.3008080228188772,
+          "90": 1.6695690222905346,
+          "95": 1.9894141945371657
+        },
+        "mean_absolute_calibration_error": 0.052500000000000005
+      }
+    },
+    {
+      "epoch": 32,
+      "train_loss": -4.0819840133190155,
+      "validation_score": 0.5286698057390508,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.09771021704219576,
+      "E_background_median_bootstrap_95_ci": [
+        0.07901218937346409,
+        0.13268073611273348
+      ],
+      "inclusion_ratio_median_relative_error": 0.36929457772204055,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.27843591936430445,
+        0.42288938130842396
+      ],
+      "center_error_normalized_median": 0.12296712398529053,
+      "radius_relative_error_median": 0.17493474013602084,
+      "node_sdf_mae_mean": 0.09327823217762143,
+      "node_sdf_nll_mean": -1.6419504347600435,
+      "partition_soft_dice_mean": 0.28792374365423856,
+      "heterogeneity": {
+        "accuracy": 0.72,
+        "brier_score": 0.24666004389925789,
+        "binary_nll": 0.686465998009202
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.6992106581366425,
+        "coverage": {
+          "50": 0.38,
+          "80": 0.72,
+          "90": 0.92,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.1586617950738636,
+          "80": 0.3014623599690214,
+          "90": 0.38692275013817073,
+          "95": 0.46104689356190265
+        },
+        "mean_absolute_calibration_error": 0.06750000000000003
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6599303912248972,
+        "coverage": {
+          "50": 0.32,
+          "80": 0.64,
+          "90": 0.96,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.5842884249980866,
+          "80": 1.1101662339097127,
+          "90": 1.4248829352328523,
+          "95": 1.6978527386768507
+        },
+        "mean_absolute_calibration_error": 0.1125
+      }
+    },
+    {
+      "epoch": 33,
+      "train_loss": -3.9126093356232894,
+      "validation_score": 0.5509258727630819,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.1147614393816817,
+      "E_background_median_bootstrap_95_ci": [
+        0.08365994393038914,
+        0.16751731675027165
+      ],
+      "inclusion_ratio_median_relative_error": 0.3736202070533401,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.29413967192400065,
+        0.4340171635123205
+      ],
+      "center_error_normalized_median": 0.1306280642747879,
+      "radius_relative_error_median": 0.17658101052066083,
+      "node_sdf_mae_mean": 0.09524248275709779,
+      "node_sdf_nll_mean": -1.6273804024646157,
+      "partition_soft_dice_mean": 0.30052719226008967,
+      "heterogeneity": {
+        "accuracy": 0.48,
+        "brier_score": 0.2501769053122406,
+        "binary_nll": 0.6935013072637627
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.3728534659256402,
+        "coverage": {
+          "50": 0.52,
+          "80": 0.76,
+          "90": 0.94,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.2380491167290462,
+          "80": 0.452300747538314,
+          "90": 0.5805217246526523,
+          "95": 0.6917343001948736
+        },
+        "mean_absolute_calibration_error": 0.037500000000000006
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.7815964740763727,
+        "coverage": {
+          "50": 0.28,
+          "80": 0.5,
+          "90": 0.66,
+          "95": 0.94
+        },
+        "mean_interval_width": {
+          "50": 0.46952708729613796,
+          "80": 0.8921161123872294,
+          "90": 1.1450186341104456,
+          "95": 1.364373855346053
+        },
+        "mean_absolute_calibration_error": 0.1925
+      }
+    },
+    {
+      "epoch": 34,
+      "train_loss": -3.957732526879562,
+      "validation_score": 0.4940718824111006,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.08540468507004395,
+      "E_background_median_bootstrap_95_ci": [
+        0.06039784915102782,
+        0.1073653230487541
+      ],
+      "inclusion_ratio_median_relative_error": 0.34745268373938254,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.28641156131646495,
+        0.41486206173607465
+      ],
+      "center_error_normalized_median": 0.13127707690000534,
+      "radius_relative_error_median": 0.17813866438067005,
+      "node_sdf_mae_mean": 0.10112194765947367,
+      "node_sdf_nll_mean": -1.588390783259743,
+      "partition_soft_dice_mean": 0.34525102925928014,
+      "heterogeneity": {
+        "accuracy": 0.72,
+        "brier_score": 0.24485805440669647,
+        "binary_nll": 0.682859682645108
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.7263930173752492,
+        "coverage": {
+          "50": 0.48,
+          "80": 0.82,
+          "90": 0.94,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.1751103405579148,
+          "80": 0.33271510948803074,
+          "90": 0.42703521988237747,
+          "95": 0.5088438493161408
+        },
+        "mean_absolute_calibration_error": 0.03249999999999997
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6656803573094514,
+        "coverage": {
+          "50": 0.32,
+          "80": 0.68,
+          "90": 0.94,
+          "95": 0.98
+        },
+        "mean_interval_width": {
+          "50": 0.5908858460510086,
+          "80": 1.122701539711574,
+          "90": 1.440971826048865,
+          "95": 1.7170238345323685
+        },
+        "mean_absolute_calibration_error": 0.09249999999999999
+      }
+    },
+    {
+      "epoch": 35,
+      "train_loss": -4.078031837940216,
+      "validation_score": 0.47194416252851124,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.08147754483063557,
+      "E_background_median_bootstrap_95_ci": [
+        0.05497531229058882,
+        0.12306782631600838
+      ],
+      "inclusion_ratio_median_relative_error": 0.331051527039661,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.25714764301735926,
+        0.38826244957946715
+      ],
+      "center_error_normalized_median": 0.12427833303809166,
+      "radius_relative_error_median": 0.1761287564262975,
+      "node_sdf_mae_mean": 0.12040693989317668,
+      "node_sdf_nll_mean": -1.3547780811786652,
+      "partition_soft_dice_mean": 0.2706596453331019,
+      "heterogeneity": {
+        "accuracy": 0.74,
+        "brier_score": 0.23766036263285858,
+        "binary_nll": 0.6684325810364161
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.5833019819625516,
+        "coverage": {
+          "50": 0.56,
+          "80": 0.76,
+          "90": 0.9,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.19614968471453362,
+          "80": 0.37269051969123707,
+          "90": 0.47834310341157,
+          "95": 0.569980963398791
+        },
+        "mean_absolute_calibration_error": 0.03750000000000003
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6369558930075419,
+        "coverage": {
+          "50": 0.34,
+          "80": 0.68,
+          "90": 0.94,
+          "95": 0.96
+        },
+        "mean_interval_width": {
+          "50": 0.5773236982083664,
+          "80": 1.0969330357501237,
+          "90": 1.407898309273055,
+          "95": 1.6776143085657265
+        },
+        "mean_absolute_calibration_error": 0.08249999999999998
+      }
+    },
+    {
+      "epoch": 36,
+      "train_loss": -4.084536081866214,
+      "validation_score": 0.5024749980200662,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.09678177249238833,
+      "E_background_median_bootstrap_95_ci": [
+        0.06615684062363864,
+        0.12550656145752298
+      ],
+      "inclusion_ratio_median_relative_error": 0.3450407707296309,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.25341665775328437,
+        0.4045207806053017
+      ],
+      "center_error_normalized_median": 0.1214299164712429,
+      "radius_relative_error_median": 0.17743415430936113,
+      "node_sdf_mae_mean": 0.10004860731331926,
+      "node_sdf_nll_mean": -1.5974476902108443,
+      "partition_soft_dice_mean": 0.3067533515001598,
+      "heterogeneity": {
+        "accuracy": 0.72,
+        "brier_score": 0.2426098191921878,
+        "binary_nll": 0.6783554732420345
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.6901728317292869,
+        "coverage": {
+          "50": 0.42,
+          "80": 0.76,
+          "90": 0.9,
+          "95": 0.98
+        },
+        "mean_interval_width": {
+          "50": 0.16152015573900136,
+          "80": 0.30689333439707384,
+          "90": 0.3938933303520591,
+          "95": 0.4693528521874671
+        },
+        "mean_absolute_calibration_error": 0.03750000000000002
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6703844790086286,
+        "coverage": {
+          "50": 0.44,
+          "80": 0.76,
+          "90": 1.0,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.704030620241925,
+          "80": 1.3376801401356813,
+          "90": 1.716893872520929,
+          "95": 2.045805231712452
+        },
+        "mean_absolute_calibration_error": 0.06250000000000001
+      }
+    },
+    {
+      "epoch": 37,
+      "train_loss": -4.254605694821007,
+      "validation_score": 0.5257159401740878,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.12660717979952632,
+      "E_background_median_bootstrap_95_ci": [
+        0.09853549362446729,
+        0.1670610120735725
+      ],
+      "inclusion_ratio_median_relative_error": 0.3378169243476029,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.264988320202709,
+        0.39662656470283886
+      ],
+      "center_error_normalized_median": 0.13145188242197037,
+      "radius_relative_error_median": 0.18517053737448377,
+      "node_sdf_mae_mean": 0.09426224731693142,
+      "node_sdf_nll_mean": -1.6619274396645396,
+      "partition_soft_dice_mean": 0.3339162821832456,
+      "heterogeneity": {
+        "accuracy": 0.72,
+        "brier_score": 0.24516734410783447,
+        "binary_nll": 0.6834794730794994
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.1464946284138608,
+        "coverage": {
+          "50": 0.42,
+          "80": 0.72,
+          "90": 0.8,
+          "95": 0.84
+        },
+        "mean_interval_width": {
+          "50": 0.21096167487898718,
+          "80": 0.40083376305196766,
+          "90": 0.5144645652088593,
+          "95": 0.6130223398663368
+        },
+        "mean_absolute_calibration_error": 0.09250000000000001
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.7034134129492879,
+        "coverage": {
+          "50": 0.34,
+          "80": 0.66,
+          "90": 0.76,
+          "95": 0.96
+        },
+        "mean_interval_width": {
+          "50": 0.5368095748035444,
+          "80": 1.0199549374750603,
+          "90": 1.3090979897636654,
+          "95": 1.5598864665702357
+        },
+        "mean_absolute_calibration_error": 0.1125
+      }
+    },
+    {
+      "epoch": 38,
+      "train_loss": -4.147801432170366,
+      "validation_score": 0.4852606539709479,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.09367958706119635,
+      "E_background_median_bootstrap_95_ci": [
+        0.05581988334196411,
+        0.11335122430577976
+      ],
+      "inclusion_ratio_median_relative_error": 0.332106952178021,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.2607941985587292,
+        0.38817080897265965
+      ],
+      "center_error_normalized_median": 0.12458367645740509,
+      "radius_relative_error_median": 0.17291878154619772,
+      "node_sdf_mae_mean": 0.0908991958161718,
+      "node_sdf_nll_mean": -1.6994077437802364,
+      "partition_soft_dice_mean": 0.3222990690877563,
+      "heterogeneity": {
+        "accuracy": 0.74,
+        "brier_score": 0.23789645892692232,
+        "binary_nll": 0.6689107627665254
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.5632394026001301,
+        "coverage": {
+          "50": 0.48,
+          "80": 0.72,
+          "90": 0.86,
+          "95": 0.88
+        },
+        "mean_interval_width": {
+          "50": 0.17015939404218094,
+          "80": 0.32330815666729223,
+          "90": 0.4149615266485216,
+          "95": 0.4944571564755135
+        },
+        "mean_absolute_calibration_error": 0.05250000000000002
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6917008227259988,
+        "coverage": {
+          "50": 0.46,
+          "80": 0.94,
+          "90": 1.0,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.7688145278765083,
+          "80": 1.4607715855239334,
+          "90": 1.8748800322955665,
+          "95": 2.234057352229687
+        },
+        "mean_absolute_calibration_error": 0.08249999999999998
+      }
+    },
+    {
+      "epoch": 39,
+      "train_loss": -4.272355766672837,
+      "validation_score": 0.5076371149777372,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.08747288357041921,
+      "E_background_median_bootstrap_95_ci": [
+        0.06099705846984582,
+        0.10332842395691326
+      ],
+      "inclusion_ratio_median_relative_error": 0.3609381565495118,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.2722821747680148,
+        0.4194338140886526
+      ],
+      "center_error_normalized_median": 0.12154443934559822,
+      "radius_relative_error_median": 0.1780536172495364,
+      "node_sdf_mae_mean": 0.08651802306504626,
+      "node_sdf_nll_mean": -1.7515918957559686,
+      "partition_soft_dice_mean": 0.34057026709380905,
+      "heterogeneity": {
+        "accuracy": 0.76,
+        "brier_score": 0.23690429943122496,
+        "binary_nll": 0.6669158073249958
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.6541402119578794,
+        "coverage": {
+          "50": 0.54,
+          "80": 0.84,
+          "90": 0.88,
+          "95": 0.98
+        },
+        "mean_interval_width": {
+          "50": 0.18545713862011784,
+          "80": 0.3523743485663642,
+          "90": 0.4522675800702107,
+          "95": 0.5389100609247403
+        },
+        "mean_absolute_calibration_error": 0.0325
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6428068595957428,
+        "coverage": {
+          "50": 0.36,
+          "80": 0.88,
+          "90": 0.96,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.6528038849611134,
+          "80": 1.240347745124819,
+          "90": 1.59196909597832,
+          "95": 1.8969481791526916
+        },
+        "mean_absolute_calibration_error": 0.08249999999999999
+      }
+    },
+    {
+      "epoch": 40,
+      "train_loss": -4.162960551286998,
+      "validation_score": 0.4689131673864348,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.09246534540496293,
+      "E_background_median_bootstrap_95_ci": [
+        0.058712318490054656,
+        0.15348300795363345
+      ],
+      "inclusion_ratio_median_relative_error": 0.3176109224231374,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.2551152565193533,
+        0.38115252104307706
+      ],
+      "center_error_normalized_median": 0.12768328934907913,
+      "radius_relative_error_median": 0.18409723402871114,
+      "node_sdf_mae_mean": 0.0852963324440153,
+      "node_sdf_nll_mean": -1.7214336426634538,
+      "partition_soft_dice_mean": 0.3269002931682687,
+      "heterogeneity": {
+        "accuracy": 0.76,
+        "brier_score": 0.23534759823333792,
+        "binary_nll": 0.6637803031202502
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.4107680421453843,
+        "coverage": {
+          "50": 0.54,
+          "80": 0.7,
+          "90": 0.84,
+          "95": 0.88
+        },
+        "mean_interval_width": {
+          "50": 0.1878285466296441,
+          "80": 0.3568800977586535,
+          "90": 0.4580506465501937,
+          "95": 0.5458010096603885
+        },
+        "mean_absolute_calibration_error": 0.06750000000000003
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6552049070777786,
+        "coverage": {
+          "50": 0.46,
+          "80": 0.76,
+          "90": 0.96,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.6940227242914248,
+          "80": 1.3186648256413653,
+          "90": 1.692487980589217,
+          "95": 2.016723817772059
+        },
+        "mean_absolute_calibration_error": 0.0475
+      }
+    },
+    {
+      "epoch": 41,
+      "train_loss": -4.329525680918443,
+      "validation_score": 0.5232577018063759,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.13264185206969648,
+      "E_background_median_bootstrap_95_ci": [
+        0.0829145845713448,
+        0.19143600216906537
+      ],
+      "inclusion_ratio_median_relative_error": 0.333733712493353,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.2429376887413985,
+        0.39513726332818155
+      ],
+      "center_error_normalized_median": 0.12963734567165375,
+      "radius_relative_error_median": 0.18054683554117434,
+      "node_sdf_mae_mean": 0.08781679827523858,
+      "node_sdf_nll_mean": -1.7288437909201573,
+      "partition_soft_dice_mean": 0.3121671992305078,
+      "heterogeneity": {
+        "accuracy": 0.74,
+        "brier_score": 0.22752854897330582,
+        "binary_nll": 0.6480127536890096
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.1430764761009666,
+        "coverage": {
+          "50": 0.4,
+          "80": 0.58,
+          "90": 0.68,
+          "95": 0.8
+        },
+        "mean_interval_width": {
+          "50": 0.17483881157477627,
+          "80": 0.3321991959499366,
+          "90": 0.42637305202495923,
+          "95": 0.5080548276481975
+        },
+        "mean_absolute_calibration_error": 0.1725
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6374192655019655,
+        "coverage": {
+          "50": 0.44,
+          "80": 0.76,
+          "90": 0.96,
+          "95": 0.98
+        },
+        "mean_interval_width": {
+          "50": 0.6558824485983114,
+          "80": 1.2461971120688424,
+          "90": 1.5994766771728066,
+          "95": 1.9058940139133655
+        },
+        "mean_absolute_calibration_error": 0.0475
+      }
+    },
+    {
+      "epoch": 42,
+      "train_loss": -4.162833066363084,
+      "validation_score": 0.466000053540243,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.09256956705615296,
+      "E_background_median_bootstrap_95_ci": [
+        0.06866076626676021,
+        0.14038739779090176
+      ],
+      "inclusion_ratio_median_relative_error": 0.3168932952012038,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.24212461989817816,
+        0.3911971890921663
+      ],
+      "center_error_normalized_median": 0.12201941013336182,
+      "radius_relative_error_median": 0.17565701547302592,
+      "node_sdf_mae_mean": 0.09199495123405206,
+      "node_sdf_nll_mean": -1.669549452631097,
+      "partition_soft_dice_mean": 0.3217625357210636,
+      "heterogeneity": {
+        "accuracy": 0.74,
+        "brier_score": 0.22614876513154514,
+        "binary_nll": 0.6451975573108742
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.3780616761808781,
+        "coverage": {
+          "50": 0.48,
+          "80": 0.68,
+          "90": 0.78,
+          "95": 0.84
+        },
+        "mean_interval_width": {
+          "50": 0.1752016326979395,
+          "80": 0.33288856740186346,
+          "90": 0.42725785070454797,
+          "95": 0.5091091303029429
+        },
+        "mean_absolute_calibration_error": 0.0925
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6252492966185463,
+        "coverage": {
+          "50": 0.46,
+          "80": 0.92,
+          "90": 0.96,
+          "95": 0.98
+        },
+        "mean_interval_width": {
+          "50": 0.6700307280055712,
+          "80": 1.2730792842869751,
+          "90": 1.6339795716814165,
+          "95": 1.9470067485003295
+        },
+        "mean_absolute_calibration_error": 0.062499999999999986
+      }
+    },
+    {
+      "epoch": 43,
+      "train_loss": -4.2823502609604285,
+      "validation_score": 0.5154412538065736,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.08584264502674814,
+      "E_background_median_bootstrap_95_ci": [
+        0.06769913161886217,
+        0.11371176500128927
+      ],
+      "inclusion_ratio_median_relative_error": 0.3717498998334663,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.2812582731741514,
+        0.4280272389963606
+      ],
+      "center_error_normalized_median": 0.11961252614855766,
+      "radius_relative_error_median": 0.1756613840803653,
+      "node_sdf_mae_mean": 0.08614378412695307,
+      "node_sdf_nll_mean": -1.7483676734723543,
+      "partition_soft_dice_mean": 0.3224287764414361,
+      "heterogeneity": {
+        "accuracy": 0.74,
+        "brier_score": 0.23139483578543654,
+        "binary_nll": 0.6558154890051192
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.6284891140490635,
+        "coverage": {
+          "50": 0.52,
+          "80": 0.84,
+          "90": 0.92,
+          "95": 0.94
+        },
+        "mean_interval_width": {
+          "50": 0.1872151966161744,
+          "80": 0.3557147136000946,
+          "90": 0.4565548921759381,
+          "95": 0.5440187083934407
+        },
+        "mean_absolute_calibration_error": 0.022499999999999992
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6644306823559283,
+        "coverage": {
+          "50": 0.36,
+          "80": 0.76,
+          "90": 1.0,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.6733065181561854,
+          "80": 1.279303387758814,
+          "90": 1.6419681220023121,
+          "95": 1.9565256933238029
+        },
+        "mean_absolute_calibration_error": 0.08250000000000002
+      }
+    },
+    {
+      "epoch": 44,
+      "train_loss": -4.29632136068846,
+      "validation_score": 0.46948899190165005,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.08825334005217533,
+      "E_background_median_bootstrap_95_ci": [
+        0.06482748116620372,
+        0.11936973360477912
+      ],
+      "inclusion_ratio_median_relative_error": 0.3229422829251225,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.26221143066213803,
+        0.3766991694969165
+      ],
+      "center_error_normalized_median": 0.11941555514931679,
+      "radius_relative_error_median": 0.17680776454516567,
+      "node_sdf_mae_mean": 0.0950702212162708,
+      "node_sdf_nll_mean": -1.6687386788819965,
+      "partition_soft_dice_mean": 0.2977930917159507,
+      "heterogeneity": {
+        "accuracy": 0.74,
+        "brier_score": 0.23317347569740896,
+        "binary_nll": 0.6593965087798794
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.7076334161721859,
+        "coverage": {
+          "50": 0.48,
+          "80": 0.86,
+          "90": 0.94,
+          "95": 0.96
+        },
+        "mean_interval_width": {
+          "50": 0.17324327549442678,
+          "80": 0.3291676276257918,
+          "90": 0.4224820762051906,
+          "95": 0.5034184439928343
+        },
+        "mean_absolute_calibration_error": 0.03249999999999997
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.664902420598632,
+        "coverage": {
+          "50": 0.46,
+          "80": 0.76,
+          "90": 0.96,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.6917129717793451,
+          "80": 1.3142762238175185,
+          "90": 1.6868552711288427,
+          "95": 2.0100120304757194
+        },
+        "mean_absolute_calibration_error": 0.0475
+      }
+    },
+    {
+      "epoch": 45,
+      "train_loss": -4.1308172768668125,
+      "validation_score": 0.5043436583415257,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.11508542686324788,
+      "E_background_median_bootstrap_95_ci": [
+        0.07150894546877468,
+        0.18536372339837354
+      ],
+      "inclusion_ratio_median_relative_error": 0.33356730449704175,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.2626394953224179,
+        0.3894581420137233
+      ],
+      "center_error_normalized_median": 0.1220572404563427,
+      "radius_relative_error_median": 0.17891502516004684,
+      "node_sdf_mae_mean": 0.1024231631308794,
+      "node_sdf_nll_mean": -1.5824441062776666,
+      "partition_soft_dice_mean": 0.3145942478195617,
+      "heterogeneity": {
+        "accuracy": 0.76,
+        "brier_score": 0.22276370792494454,
+        "binary_nll": 0.6383445610056794
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.20704116827316013,
+        "coverage": {
+          "50": 0.44,
+          "80": 0.6,
+          "90": 0.72,
+          "95": 0.82
+        },
+        "mean_interval_width": {
+          "50": 0.17292265577155114,
+          "80": 0.32855844015085056,
+          "90": 0.4217001925458899,
+          "95": 0.5024867721484708
+        },
+        "mean_absolute_calibration_error": 0.14250000000000002
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6531613113410992,
+        "coverage": {
+          "50": 0.36,
+          "80": 0.72,
+          "90": 0.92,
+          "95": 0.96
+        },
+        "mean_interval_width": {
+          "50": 0.5742997186108351,
+          "80": 1.091187380184172,
+          "90": 1.4005238401912328,
+          "95": 1.668827086670327
+        },
+        "mean_absolute_calibration_error": 0.06250000000000003
+      }
+    },
+    {
+      "epoch": 46,
+      "train_loss": -4.33110951749902,
+      "validation_score": 0.4793136118353203,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.07723301969192278,
+      "E_background_median_bootstrap_95_ci": [
+        0.05787791017845173,
+        0.1031702874051964
+      ],
+      "inclusion_ratio_median_relative_error": 0.34478186114014264,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.2659771005374128,
+        0.40580515671747386
+      ],
+      "center_error_normalized_median": 0.12084148451685905,
+      "radius_relative_error_median": 0.17487429316869488,
+      "node_sdf_mae_mean": 0.09190135958947633,
+      "node_sdf_nll_mean": -1.701944920577501,
+      "partition_soft_dice_mean": 0.3374171574649058,
+      "heterogeneity": {
+        "accuracy": 0.76,
+        "brier_score": 0.22919492401301966,
+        "binary_nll": 0.6513415505274187
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.745740025685653,
+        "coverage": {
+          "50": 0.52,
+          "80": 0.78,
+          "90": 0.9,
+          "95": 0.98
+        },
+        "mean_interval_width": {
+          "50": 0.1611503741175707,
+          "80": 0.3061907377813116,
+          "90": 0.3929915573584541,
+          "95": 0.46827832339004904
+        },
+        "mean_absolute_calibration_error": 0.017500000000000016
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6603670043232173,
+        "coverage": {
+          "50": 0.34,
+          "80": 0.7,
+          "90": 0.94,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.6109158777561291,
+          "80": 1.1607592247722331,
+          "90": 1.489818336004787,
+          "95": 1.7752280411045496
+        },
+        "mean_absolute_calibration_error": 0.08750000000000001
+      }
+    },
+    {
+      "epoch": 47,
+      "train_loss": -4.3547372363115615,
+      "validation_score": 0.5351552904857136,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.09681858639548518,
+      "E_background_median_bootstrap_95_ci": [
+        0.06494347147480678,
+        0.14040165002561203
+      ],
+      "inclusion_ratio_median_relative_error": 0.3817581229861229,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.2776256232856188,
+        0.43073764574632206
+      ],
+      "center_error_normalized_median": 0.1238621175289154,
+      "radius_relative_error_median": 0.18049026069123358,
+      "node_sdf_mae_mean": 0.08562819424428438,
+      "node_sdf_nll_mean": -1.7295285337849666,
+      "partition_soft_dice_mean": 0.2889810669186868,
+      "heterogeneity": {
+        "accuracy": 0.74,
+        "brier_score": 0.22631432441642246,
+        "binary_nll": 0.6455302818997108
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.378241850980787,
+        "coverage": {
+          "50": 0.5,
+          "80": 0.7,
+          "90": 0.8,
+          "95": 0.9
+        },
+        "mean_interval_width": {
+          "50": 0.1764761255197373,
+          "80": 0.33531014352007077,
+          "90": 0.4303659100039642,
+          "95": 0.5128126113840898
+        },
+        "mean_absolute_calibration_error": 0.0625
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6457586089965289,
+        "coverage": {
+          "50": 0.32,
+          "80": 0.66,
+          "90": 0.96,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.6041204221150793,
+          "80": 1.1478476470753975,
+          "90": 1.4732465054399504,
+          "95": 1.7554814870447952
+        },
+        "mean_absolute_calibration_error": 0.1075
+      }
+    },
+    {
+      "epoch": 48,
+      "train_loss": -3.9909166960339797,
+      "validation_score": 0.46948595085804024,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.09780168701740413,
+      "E_background_median_bootstrap_95_ci": [
+        0.06905141091852765,
+        0.12603341304765597
+      ],
+      "inclusion_ratio_median_relative_error": 0.3148179402900868,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.2568293408350101,
+        0.37881389316321096
+      ],
+      "center_error_normalized_median": 0.12208502367138863,
+      "radius_relative_error_median": 0.1787997388777779,
+      "node_sdf_mae_mean": 0.08775166059403043,
+      "node_sdf_nll_mean": -1.746085719058388,
+      "partition_soft_dice_mean": 0.30207883037234606,
+      "heterogeneity": {
+        "accuracy": 0.74,
+        "brier_score": 0.22746529420219738,
+        "binary_nll": 0.6478736231418541
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.38240089749891104,
+        "coverage": {
+          "50": 0.62,
+          "80": 0.84,
+          "90": 0.94,
+          "95": 0.98
+        },
+        "mean_interval_width": {
+          "50": 0.2578948953391284,
+          "80": 0.49000834597077164,
+          "90": 0.628918903285804,
+          "95": 0.749403095472502
+        },
+        "mean_absolute_calibration_error": 0.05749999999999997
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6347735703247068,
+        "coverage": {
+          "50": 0.44,
+          "80": 0.76,
+          "90": 0.96,
+          "95": 0.98
+        },
+        "mean_interval_width": {
+          "50": 0.6596300755831055,
+          "80": 1.2533177202441985,
+          "90": 1.6086158788235472,
+          "95": 1.9167840443631263
+        },
+        "mean_absolute_calibration_error": 0.0475
+      }
+    },
+    {
+      "epoch": 49,
+      "train_loss": -4.0998589710185405,
+      "validation_score": 0.5288913892485511,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.09007635881650392,
+      "E_background_median_bootstrap_95_ci": [
+        0.07479151029712276,
+        0.14592900917553686
+      ],
+      "inclusion_ratio_median_relative_error": 0.38102890540631007,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.26888524007143316,
+        0.4182784744418847
+      ],
+      "center_error_normalized_median": 0.11728865653276443,
+      "radius_relative_error_median": 0.16866100888219648,
+      "node_sdf_mae_mean": 0.08681069334086619,
+      "node_sdf_nll_mean": -1.7467048889712284,
+      "partition_soft_dice_mean": 0.3182932383527881,
+      "heterogeneity": {
+        "accuracy": 0.7,
+        "brier_score": 0.23114450010294846,
+        "binary_nll": 0.6552165709189107
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.5484006990077299,
+        "coverage": {
+          "50": 0.44,
+          "80": 0.74,
+          "90": 0.84,
+          "95": 0.92
+        },
+        "mean_interval_width": {
+          "50": 0.16761759523817726,
+          "80": 0.31847865965029043,
+          "90": 0.4087629343340634,
+          "95": 0.48707107816914075
+        },
+        "mean_absolute_calibration_error": 0.052500000000000005
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6560013250808141,
+        "coverage": {
+          "50": 0.32,
+          "80": 0.64,
+          "90": 0.94,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.5906635129377251,
+          "80": 1.1222790998608305,
+          "90": 1.4404296303703255,
+          "95": 1.7163777685328787
+        },
+        "mean_absolute_calibration_error": 0.1075
+      }
+    },
+    {
+      "epoch": 50,
+      "train_loss": -4.198503402502913,
+      "validation_score": 0.4867905817861588,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.08731102725091702,
+      "E_background_median_bootstrap_95_ci": [
+        0.06546953973383317,
+        0.1181462629977264
+      ],
+      "inclusion_ratio_median_relative_error": 0.3408908993410269,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.276284653043985,
+        0.39301650190508775
+      ],
+      "center_error_normalized_median": 0.12539495900273323,
+      "radius_relative_error_median": 0.17612340095169263,
+      "node_sdf_mae_mean": 0.09230561672072661,
+      "node_sdf_nll_mean": -1.6703241467475891,
+      "partition_soft_dice_mean": 0.3235185291422041,
+      "heterogeneity": {
+        "accuracy": 0.76,
+        "brier_score": 0.23435462077685962,
+        "binary_nll": 0.6617588002145797
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.6076999799840396,
+        "coverage": {
+          "50": 0.6,
+          "80": 0.92,
+          "90": 0.94,
+          "95": 0.98
+        },
+        "mean_interval_width": {
+          "50": 0.2103510431725632,
+          "80": 0.3996735437615908,
+          "90": 0.5129754398711487,
+          "95": 0.6112479375836315
+        },
+        "mean_absolute_calibration_error": 0.07249999999999998
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6771749557930643,
+        "coverage": {
+          "50": 0.36,
+          "80": 0.72,
+          "90": 0.88,
+          "95": 0.98
+        },
+        "mean_interval_width": {
+          "50": 0.5916425714338497,
+          "80": 1.1241393415444192,
+          "90": 1.442817224722767,
+          "95": 1.7192227626793481
+        },
+        "mean_absolute_calibration_error": 0.06750000000000003
+      }
+    },
+    {
+      "epoch": 51,
+      "train_loss": -4.272334801523309,
+      "validation_score": 0.474887582166659,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.09357905906741583,
+      "E_background_median_bootstrap_95_ci": [
+        0.06857668109564012,
+        0.10920386419790584
+      ],
+      "inclusion_ratio_median_relative_error": 0.32307251770386336,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.2539437366841317,
+        0.37192514267821486
+      ],
+      "center_error_normalized_median": 0.1186620332300663,
+      "radius_relative_error_median": 0.17582226286976393,
+      "node_sdf_mae_mean": 0.08811698883379761,
+      "node_sdf_nll_mean": -1.7323725192170394,
+      "partition_soft_dice_mean": 0.3326780558808854,
+      "heterogeneity": {
+        "accuracy": 0.72,
+        "brier_score": 0.23294402158151925,
+        "binary_nll": 0.6588505063613654
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.7065904502430216,
+        "coverage": {
+          "50": 0.5,
+          "80": 0.9,
+          "90": 0.96,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.18738087444555582,
+          "80": 0.35602950664410765,
+          "90": 0.4569589246738138,
+          "95": 0.544500142808908
+        },
+        "mean_absolute_calibration_error": 0.05249999999999999
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6508533724926636,
+        "coverage": {
+          "50": 0.38,
+          "80": 0.72,
+          "90": 0.76,
+          "95": 0.96
+        },
+        "mean_interval_width": {
+          "50": 0.5375115320182523,
+          "80": 1.0212886780800032,
+          "90": 1.3108098272975073,
+          "95": 1.5619262468027975
+        },
+        "mean_absolute_calibration_error": 0.08750000000000002
+      }
+    },
+    {
+      "epoch": 52,
+      "train_loss": -4.442387364412609,
+      "validation_score": 0.4650502107314099,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.0716589261945234,
+      "E_background_median_bootstrap_95_ci": [
+        0.04644468294534884,
+        0.09441090791933252
+      ],
+      "inclusion_ratio_median_relative_error": 0.337089185757909,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.2530003146219065,
+        0.40359685014245206
+      ],
+      "center_error_normalized_median": 0.11755814775824547,
+      "radius_relative_error_median": 0.1703125628728991,
+      "node_sdf_mae_mean": 0.0846724197464554,
+      "node_sdf_nll_mean": -1.763333769221055,
+      "partition_soft_dice_mean": 0.34174655495505585,
+      "heterogeneity": {
+        "accuracy": 0.76,
+        "brier_score": 0.2252083951159098,
+        "binary_nll": 0.6431927193660735
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.6413775744432673,
+        "coverage": {
+          "50": 0.54,
+          "80": 0.78,
+          "90": 0.82,
+          "95": 0.92
+        },
+        "mean_interval_width": {
+          "50": 0.17060830768632354,
+          "80": 0.3241611065946677,
+          "90": 0.4160562760283917,
+          "95": 0.49576163081990854
+        },
+        "mean_absolute_calibration_error": 0.04250000000000001
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6346820408244713,
+        "coverage": {
+          "50": 0.44,
+          "80": 0.82,
+          "90": 0.96,
+          "95": 0.98
+        },
+        "mean_interval_width": {
+          "50": 0.6720208463645043,
+          "80": 1.2768605712491097,
+          "90": 1.638832800955549,
+          "95": 1.952789727867098
+        },
+        "mean_absolute_calibration_error": 0.04249999999999997
+      }
+    },
+    {
+      "epoch": 53,
+      "train_loss": -4.407184065956819,
+      "validation_score": 0.45294575147557214,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.07545728845984268,
+      "E_background_median_bootstrap_95_ci": [
+        0.04983624405014858,
+        0.11385494987751565
+      ],
+      "inclusion_ratio_median_relative_error": 0.32195834697710424,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.25048746015284956,
+        0.3740672573874607
+      ],
+      "center_error_normalized_median": 0.11992210149765015,
+      "radius_relative_error_median": 0.17566370630077588,
+      "node_sdf_mae_mean": 0.08437237114106354,
+      "node_sdf_nll_mean": -1.7807713276461552,
+      "partition_soft_dice_mean": 0.33167404642230586,
+      "heterogeneity": {
+        "accuracy": 0.74,
+        "brier_score": 0.22212046415450096,
+        "binary_nll": 0.6369040226718713
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.6662188434075769,
+        "coverage": {
+          "50": 0.54,
+          "80": 0.8,
+          "90": 0.92,
+          "95": 0.94
+        },
+        "mean_interval_width": {
+          "50": 0.17692912376043154,
+          "80": 0.3361708543083101,
+          "90": 0.4314706203409143,
+          "95": 0.514128954940923
+        },
+        "mean_absolute_calibration_error": 0.017500000000000016
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6192325545425306,
+        "coverage": {
+          "50": 0.4,
+          "80": 0.76,
+          "90": 0.96,
+          "95": 0.96
+        },
+        "mean_interval_width": {
+          "50": 0.5914546156681184,
+          "80": 1.1237822197263991,
+          "90": 1.4423588638316198,
+          "95": 1.7186765919904494
+        },
+        "mean_absolute_calibration_error": 0.05249999999999999
+      }
+    },
+    {
+      "epoch": 54,
+      "train_loss": -4.442422898192155,
+      "validation_score": 0.4870323882686832,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.09312513107471289,
+      "E_background_median_bootstrap_95_ci": [
+        0.04872386001942528,
+        0.13643625061587822
+      ],
+      "inclusion_ratio_median_relative_error": 0.34157460104550574,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.24492628488186044,
+        0.40535243885510264
+      ],
+      "center_error_normalized_median": 0.11540256068110466,
+      "radius_relative_error_median": 0.1692299622335862,
+      "node_sdf_mae_mean": 0.09360834848331778,
+      "node_sdf_nll_mean": -1.666569344307247,
+      "partition_soft_dice_mean": 0.3269307405540818,
+      "heterogeneity": {
+        "accuracy": 0.74,
+        "brier_score": 0.20933062459385854,
+        "binary_nll": 0.6102302935602261
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.39058698335337205,
+        "coverage": {
+          "50": 0.5,
+          "80": 0.64,
+          "90": 0.76,
+          "95": 0.8
+        },
+        "mean_interval_width": {
+          "50": 0.17405324797541533,
+          "80": 0.3307066006061181,
+          "90": 0.4244573266410904,
+          "95": 0.5057721000576515
+        },
+        "mean_absolute_calibration_error": 0.11249999999999999
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.5957558723530716,
+        "coverage": {
+          "50": 0.42,
+          "80": 0.84,
+          "90": 0.96,
+          "95": 0.96
+        },
+        "mean_interval_width": {
+          "50": 0.6255041916343582,
+          "80": 1.1884774762117334,
+          "90": 1.5253943265765282,
+          "95": 1.8176194485176091
+        },
+        "mean_absolute_calibration_error": 0.04749999999999997
+      }
+    },
+    {
+      "epoch": 55,
+      "train_loss": -4.218551002050701,
+      "validation_score": 0.4721267799021054,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.08695764658945707,
+      "E_background_median_bootstrap_95_ci": [
+        0.06632929371121128,
+        0.10905765590031338
+      ],
+      "inclusion_ratio_median_relative_error": 0.3290526628893405,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.2535251107681536,
+        0.40407377355601126
+      ],
+      "center_error_normalized_median": 0.11523618921637535,
+      "radius_relative_error_median": 0.17341104173099753,
+      "node_sdf_mae_mean": 0.08552710182572666,
+      "node_sdf_nll_mean": -1.7531612201740867,
+      "partition_soft_dice_mean": 0.30967192175356967,
+      "heterogeneity": {
+        "accuracy": 0.76,
+        "brier_score": 0.22446588169323112,
+        "binary_nll": 0.641520628574792
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.7496424951815619,
+        "coverage": {
+          "50": 0.52,
+          "80": 0.92,
+          "90": 0.98,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.1873851110083965,
+          "80": 0.35603755624566097,
+          "90": 0.4569692562255571,
+          "95": 0.5445124536121241
+        },
+        "mean_absolute_calibration_error": 0.0675
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6493542141716095,
+        "coverage": {
+          "50": 0.4,
+          "80": 0.68,
+          "90": 0.82,
+          "95": 0.94
+        },
+        "mean_interval_width": {
+          "50": 0.5244258608059319,
+          "80": 0.9964254945794745,
+          "90": 1.278898276753674,
+          "95": 1.5239012889999182
+        },
+        "mean_absolute_calibration_error": 0.07750000000000001
+      }
+    },
+    {
+      "epoch": 56,
+      "train_loss": -4.342123121807449,
+      "validation_score": 0.5012642130716026,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.10980139933076492,
+      "E_background_median_bootstrap_95_ci": [
+        0.07382407526516933,
+        0.15510887898650919
+      ],
+      "inclusion_ratio_median_relative_error": 0.3413745139982307,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.23500744460502035,
+        0.4253809063698198
+      ],
+      "center_error_normalized_median": 0.12350022792816162,
+      "radius_relative_error_median": 0.1683432483295032,
+      "node_sdf_mae_mean": 0.08636045583376759,
+      "node_sdf_nll_mean": -1.7283593165247064,
+      "partition_soft_dice_mean": 0.3288971626837003,
+      "heterogeneity": {
+        "accuracy": 0.74,
+        "brier_score": 0.20035319897042797,
+        "binary_nll": 0.5903491899404305
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.054397633464880205,
+        "coverage": {
+          "50": 0.4,
+          "80": 0.64,
+          "90": 0.72,
+          "95": 0.76
+        },
+        "mean_interval_width": {
+          "50": 0.15561402973689506,
+          "80": 0.2956715107561622,
+          "90": 0.3794902756385178,
+          "95": 0.4521905539480666
+        },
+        "mean_absolute_calibration_error": 0.1575
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6729086510372411,
+        "coverage": {
+          "50": 0.38,
+          "80": 0.7,
+          "90": 0.94,
+          "95": 0.96
+        },
+        "mean_interval_width": {
+          "50": 0.5691946157627941,
+          "80": 1.0814875255232659,
+          "90": 1.3880742115154536,
+          "95": 1.653992439121385
+        },
+        "mean_absolute_calibration_error": 0.0675
+      }
+    },
+    {
+      "epoch": 57,
+      "train_loss": -4.365111319642318,
+      "validation_score": 0.48727563473098856,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.06949034663474937,
+      "E_background_median_bootstrap_95_ci": [
+        0.04114554329704773,
+        0.10198764358974137
+      ],
+      "inclusion_ratio_median_relative_error": 0.36369611028779303,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.2537067181129124,
+        0.4196567315535742
+      ],
+      "center_error_normalized_median": 0.11589165031909943,
+      "radius_relative_error_median": 0.17213472964171134,
+      "node_sdf_mae_mean": 0.08616039073584895,
+      "node_sdf_nll_mean": -1.7552146597912437,
+      "partition_soft_dice_mean": 0.3128186142758319,
+      "heterogeneity": {
+        "accuracy": 0.76,
+        "brier_score": 0.2163567112337845,
+        "binary_nll": 0.6250541254258098
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.6885718671022464,
+        "coverage": {
+          "50": 0.62,
+          "80": 0.84,
+          "90": 0.9,
+          "95": 0.94
+        },
+        "mean_interval_width": {
+          "50": 0.18675519144306893,
+          "80": 0.35484068942169805,
+          "90": 0.4554330942877135,
+          "95": 0.5426820037634195
+        },
+        "mean_absolute_calibration_error": 0.04249999999999998
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.638497417656811,
+        "coverage": {
+          "50": 0.32,
+          "80": 0.7,
+          "90": 0.96,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.621199347284611,
+          "80": 1.1802981376610133,
+          "90": 1.5148962592002857,
+          "95": 1.805110229686482
+        },
+        "mean_absolute_calibration_error": 0.09750000000000002
+      }
+    },
+    {
+      "epoch": 58,
+      "train_loss": -4.363991354641161,
+      "validation_score": 0.4543253699768931,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.0908422037141392,
+      "E_background_median_bootstrap_95_ci": [
+        0.05764285848322867,
+        0.14832673755495052
+      ],
+      "inclusion_ratio_median_relative_error": 0.31053752265570467,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.25586285560343863,
+        0.39779802685775156
+      ],
+      "center_error_normalized_median": 0.11996237933635712,
+      "radius_relative_error_median": 0.1662489698858095,
+      "node_sdf_mae_mean": 0.0927509163555346,
+      "node_sdf_nll_mean": -1.6983129099795693,
+      "partition_soft_dice_mean": 0.30441609358316973,
+      "heterogeneity": {
+        "accuracy": 0.76,
+        "brier_score": 0.21178257442819692,
+        "binary_nll": 0.6151699355841949
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.4429925481981668,
+        "coverage": {
+          "50": 0.52,
+          "80": 0.7,
+          "90": 0.86,
+          "95": 0.92
+        },
+        "mean_interval_width": {
+          "50": 0.1885325825260913,
+          "80": 0.35821778792374376,
+          "90": 0.45976755328960445,
+          "95": 0.5478468302239456
+        },
+        "mean_absolute_calibration_error": 0.047500000000000014
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6299939478815816,
+        "coverage": {
+          "50": 0.52,
+          "80": 0.96,
+          "90": 0.98,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.7567663224788376,
+          "80": 1.4378796194341612,
+          "90": 1.8454985119079645,
+          "95": 2.1990471113017698
+        },
+        "mean_absolute_calibration_error": 0.07749999999999999
+      }
+    },
+    {
+      "epoch": 59,
+      "train_loss": -4.348982767054909,
+      "validation_score": 0.5194186231279688,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.12345664188366452,
+      "E_background_median_bootstrap_95_ci": [
+        0.07427821678122715,
+        0.16495985934480745
+      ],
+      "inclusion_ratio_median_relative_error": 0.3463770704108824,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.24887299660702195,
+        0.46648705275030733
+      ],
+      "center_error_normalized_median": 0.12637237831950188,
+      "radius_relative_error_median": 0.16718061651538135,
+      "node_sdf_mae_mean": 0.08801701865894229,
+      "node_sdf_nll_mean": -1.7238652361066717,
+      "partition_soft_dice_mean": 0.3270599093092115,
+      "heterogeneity": {
+        "accuracy": 0.74,
+        "brier_score": 0.19833964333368787,
+        "binary_nll": 0.5850768080858556
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.3173824096007505,
+        "coverage": {
+          "50": 0.48,
+          "80": 0.7,
+          "90": 0.78,
+          "95": 0.9
+        },
+        "mean_interval_width": {
+          "50": 0.2121294363084305,
+          "80": 0.40305254619530023,
+          "90": 0.5173123425428744,
+          "95": 0.6164156758563627
+        },
+        "mean_absolute_calibration_error": 0.07250000000000001
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.887490561175429,
+        "coverage": {
+          "50": 0.3,
+          "80": 0.6,
+          "90": 0.86,
+          "95": 0.92
+        },
+        "mean_interval_width": {
+          "50": 0.486404560043134,
+          "80": 0.9241838370858794,
+          "90": 1.186177113173471,
+          "95": 1.4134172080798078
+        },
+        "mean_absolute_calibration_error": 0.11750000000000001
+      }
+    },
+    {
+      "epoch": 60,
+      "train_loss": -4.350650537955134,
+      "validation_score": 0.4847596910875508,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.08220342253971527,
+      "E_background_median_bootstrap_95_ci": [
+        0.05529915801798307,
+        0.10629464929126654
+      ],
+      "inclusion_ratio_median_relative_error": 0.3478573077808167,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.2644731752090478,
+        0.3947651572648574
+      ],
+      "center_error_normalized_median": 0.1181596964597702,
+      "radius_relative_error_median": 0.17258330501454766,
+      "node_sdf_mae_mean": 0.10049753508677609,
+      "node_sdf_nll_mean": -1.588791941341601,
+      "partition_soft_dice_mean": 0.310556344099735,
+      "heterogeneity": {
+        "accuracy": 0.74,
+        "brier_score": 0.21879584306807537,
+        "binary_nll": 0.6300676905650495
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.6503802522722707,
+        "coverage": {
+          "50": 0.58,
+          "80": 0.84,
+          "90": 0.92,
+          "95": 0.94
+        },
+        "mean_interval_width": {
+          "50": 0.18924156938774842,
+          "80": 0.3595648850771744,
+          "90": 0.46149653376783806,
+          "95": 0.5499070375346663
+        },
+        "mean_absolute_calibration_error": 0.03749999999999998
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6517553579925739,
+        "coverage": {
+          "50": 0.34,
+          "80": 0.72,
+          "90": 0.94,
+          "95": 0.98
+        },
+        "mean_interval_width": {
+          "50": 0.5906685792847471,
+          "80": 1.122288726078213,
+          "90": 1.440441985486577,
+          "95": 1.7163924905619286
+        },
+        "mean_absolute_calibration_error": 0.0775
+      }
+    },
+    {
+      "epoch": 61,
+      "train_loss": -4.438007698247307,
+      "validation_score": 0.4528839615746236,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.08113072811266456,
+      "E_background_median_bootstrap_95_ci": [
+        0.0645733241248603,
+        0.10993865965217109
+      ],
+      "inclusion_ratio_median_relative_error": 0.31737718968768625,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.2404608234653881,
+        0.4009156335800721
+      ],
+      "center_error_normalized_median": 0.11644411832094193,
+      "radius_relative_error_median": 0.1668240187948037,
+      "node_sdf_mae_mean": 0.09644262825972155,
+      "node_sdf_nll_mean": -1.633126693336587,
+      "partition_soft_dice_mean": 0.3340744240895698,
+      "heterogeneity": {
+        "accuracy": 0.72,
+        "brier_score": 0.21750417509709125,
+        "binary_nll": 0.6265487278620246
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.7083932228724192,
+        "coverage": {
+          "50": 0.5,
+          "80": 0.84,
+          "90": 0.94,
+          "95": 0.96
+        },
+        "mean_interval_width": {
+          "50": 0.16848344327127535,
+          "80": 0.3201237979226183,
+          "90": 0.4108744464470584,
+          "95": 0.48958710003672823
+        },
+        "mean_absolute_calibration_error": 0.022499999999999964
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6004900210377517,
+        "coverage": {
+          "50": 0.44,
+          "80": 0.76,
+          "90": 0.94,
+          "95": 0.98
+        },
+        "mean_interval_width": {
+          "50": 0.6169664517362285,
+          "80": 1.1722555040772722,
+          "90": 1.5045736507496172,
+          "95": 1.7928100830604765
+        },
+        "mean_absolute_calibration_error": 0.042499999999999996
+      }
+    },
+    {
+      "epoch": 62,
+      "train_loss": -4.530661176694067,
+      "validation_score": 0.46436026603568975,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.08414318518679538,
+      "E_background_median_bootstrap_95_ci": [
+        0.06036584933314485,
+        0.11727779389608817
+      ],
+      "inclusion_ratio_median_relative_error": 0.326183024841157,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.23810648704767176,
+        0.4060914341882016
+      ],
+      "center_error_normalized_median": 0.12111299857497215,
+      "radius_relative_error_median": 0.1672090786050054,
+      "node_sdf_mae_mean": 0.08469352488847155,
+      "node_sdf_nll_mean": -1.780240209479081,
+      "partition_soft_dice_mean": 0.34129263421422557,
+      "heterogeneity": {
+        "accuracy": 0.76,
+        "brier_score": 0.21613622403094943,
+        "binary_nll": 0.6237542370181738
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.6431235638280148,
+        "coverage": {
+          "50": 0.54,
+          "80": 0.9,
+          "90": 0.94,
+          "95": 0.98
+        },
+        "mean_interval_width": {
+          "50": 0.1968861298342793,
+          "80": 0.3740897883915745,
+          "90": 0.48013904534532403,
+          "95": 0.5721209602050764
+        },
+        "mean_absolute_calibration_error": 0.05249999999999999
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.5725517109914817,
+        "coverage": {
+          "50": 0.38,
+          "80": 0.76,
+          "90": 0.96,
+          "95": 0.96
+        },
+        "mean_interval_width": {
+          "50": 0.580216415315641,
+          "80": 1.1024292884899582,
+          "90": 1.4149526732930602,
+          "95": 1.686020101753945
+        },
+        "mean_absolute_calibration_error": 0.057499999999999996
+      }
+    },
+    {
+      "epoch": 63,
+      "train_loss": -4.371690988540649,
+      "validation_score": 0.4443960972522373,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.07265173005386921,
+      "E_background_median_bootstrap_95_ci": [
+        0.04119499253703355,
+        0.12440528985228286
+      ],
+      "inclusion_ratio_median_relative_error": 0.3181132813709649,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.24957343500217266,
+        0.4161804196980511
+      ],
+      "center_error_normalized_median": 0.11707809939980507,
+      "radius_relative_error_median": 0.16502619517292133,
+      "node_sdf_mae_mean": 0.08506437665537785,
+      "node_sdf_nll_mean": -1.7351804752098887,
+      "partition_soft_dice_mean": 0.3187080008026801,
+      "heterogeneity": {
+        "accuracy": 0.76,
+        "brier_score": 0.21452434330961276,
+        "binary_nll": 0.6206362826135983
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.5985727851363623,
+        "coverage": {
+          "50": 0.58,
+          "80": 0.76,
+          "90": 0.86,
+          "95": 0.94
+        },
+        "mean_interval_width": {
+          "50": 0.1772896533284428,
+          "80": 0.3368558717339649,
+          "90": 0.4323498306882831,
+          "95": 0.5151765986871154
+        },
+        "mean_absolute_calibration_error": 0.04250000000000001
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.5947676927343202,
+        "coverage": {
+          "50": 0.46,
+          "80": 0.92,
+          "90": 0.96,
+          "95": 0.98
+        },
+        "mean_interval_width": {
+          "50": 0.6549654598886832,
+          "80": 1.2444548049158146,
+          "90": 1.5972404501516149,
+          "95": 1.9032293850667767
+        },
+        "mean_absolute_calibration_error": 0.062499999999999986
+      }
+    },
+    {
+      "epoch": 64,
+      "train_loss": -4.446091150178721,
+      "validation_score": 0.4748190482736454,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.08578214844874466,
+      "E_background_median_bootstrap_95_ci": [
+        0.07082151922145025,
+        0.11008321347708387
+      ],
+      "inclusion_ratio_median_relative_error": 0.33330271149229707,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.26238199598563094,
+        0.3937110054612851
+      ],
+      "center_error_normalized_median": 0.12088380381464958,
+      "radius_relative_error_median": 0.1764742561433575,
+      "node_sdf_mae_mean": 0.08398889848276188,
+      "node_sdf_nll_mean": -1.7782142695627714,
+      "partition_soft_dice_mean": 0.3282933176348084,
+      "heterogeneity": {
+        "accuracy": 0.7,
+        "brier_score": 0.22293675333041485,
+        "binary_nll": 0.638016093688849
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.785732865445473,
+        "coverage": {
+          "50": 0.46,
+          "80": 0.9,
+          "90": 0.98,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.1729795721721324,
+          "80": 0.32866658308741675,
+          "90": 0.4218389925023041,
+          "95": 0.5026521624975998
+        },
+        "mean_absolute_calibration_error": 0.06749999999999999
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6283966145623144,
+        "coverage": {
+          "50": 0.4,
+          "80": 0.72,
+          "90": 0.94,
+          "95": 0.98
+        },
+        "mean_interval_width": {
+          "50": 0.595687502371902,
+          "80": 1.1318248365051269,
+          "90": 1.4526814507132872,
+          "95": 1.7309767129154046
+        },
+        "mean_absolute_calibration_error": 0.0625
+      }
+    },
+    {
+      "epoch": 65,
+      "train_loss": -4.2927296459674835,
+      "validation_score": 0.4678076939313569,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.08797661401604402,
+      "E_background_median_bootstrap_95_ci": [
+        0.07347951686984788,
+        0.10984161803745171
+      ],
+      "inclusion_ratio_median_relative_error": 0.32681618250850897,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.2488250664810981,
+        0.37863071659249586
+      ],
+      "center_error_normalized_median": 0.1162499450147152,
+      "radius_relative_error_median": 0.16488231935113867,
+      "node_sdf_mae_mean": 0.08741060683601781,
+      "node_sdf_nll_mean": -1.7272722658358122,
+      "partition_soft_dice_mean": 0.33489945334823507,
+      "heterogeneity": {
+        "accuracy": 0.76,
+        "brier_score": 0.2120595896272156,
+        "binary_nll": 0.6150966503116306
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.7010925509905487,
+        "coverage": {
+          "50": 0.6,
+          "80": 0.94,
+          "90": 0.98,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.2054719246490146,
+          "80": 0.3904030663666216,
+          "90": 0.5010769109499134,
+          "95": 0.5970699658951406
+        },
+        "mean_absolute_calibration_error": 0.09249999999999997
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6081803912863918,
+        "coverage": {
+          "50": 0.34,
+          "80": 0.72,
+          "90": 0.94,
+          "95": 0.96
+        },
+        "mean_interval_width": {
+          "50": 0.5297703107602054,
+          "80": 1.0065801162084655,
+          "90": 1.291931592513909,
+          "95": 1.5394314426078983
+        },
+        "mean_absolute_calibration_error": 0.0725
+      }
+    },
+    {
+      "epoch": 66,
+      "train_loss": -4.291211162742815,
+      "validation_score": 0.4636846755770886,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.082166474146456,
+      "E_background_median_bootstrap_95_ci": [
+        0.04677108047666041,
+        0.1148520070595976
+      ],
+      "inclusion_ratio_median_relative_error": 0.32978257807550326,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.23292806275410313,
+        0.4085080901240744
+      ],
+      "center_error_normalized_median": 0.11462903395295143,
+      "radius_relative_error_median": 0.1699541944228085,
+      "node_sdf_mae_mean": 0.08887439064289394,
+      "node_sdf_nll_mean": -1.7367917848260779,
+      "partition_soft_dice_mean": 0.328473847163351,
+      "heterogeneity": {
+        "accuracy": 0.74,
+        "brier_score": 0.2069424934205174,
+        "binary_nll": 0.6042782444706668
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.6078774874652602,
+        "coverage": {
+          "50": 0.56,
+          "80": 0.78,
+          "90": 0.92,
+          "95": 0.94
+        },
+        "mean_interval_width": {
+          "50": 0.18731739595568184,
+          "80": 0.35590889553318594,
+          "90": 0.45680412198886244,
+          "95": 0.544315684032611
+        },
+        "mean_absolute_calibration_error": 0.027500000000000024
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.604071511762282,
+        "coverage": {
+          "50": 0.36,
+          "80": 0.72,
+          "90": 0.94,
+          "95": 0.96
+        },
+        "mean_interval_width": {
+          "50": 0.5530511850178382,
+          "80": 1.0508145035263496,
+          "90": 1.3487058139904193,
+          "95": 1.6070821001016569
+        },
+        "mean_absolute_calibration_error": 0.0675
+      }
+    },
+    {
+      "epoch": 67,
+      "train_loss": -4.506515753896613,
+      "validation_score": 0.4816545288614119,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.09675688577036615,
+      "E_background_median_bootstrap_95_ci": [
+        0.05698332533237038,
+        0.130822901638261
+      ],
+      "inclusion_ratio_median_relative_error": 0.3320338233350955,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.23354385835895547,
+        0.41739679047149514
+      ],
+      "center_error_normalized_median": 0.11709685623645782,
+      "radius_relative_error_median": 0.16950764530521578,
+      "node_sdf_mae_mean": 0.08397522269699134,
+      "node_sdf_nll_mean": -1.7899626007205562,
+      "partition_soft_dice_mean": 0.32065330563407196,
+      "heterogeneity": {
+        "accuracy": 0.76,
+        "brier_score": 0.21145527902380085,
+        "binary_nll": 0.6139417543979636
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.4342816656875917,
+        "coverage": {
+          "50": 0.52,
+          "80": 0.78,
+          "90": 0.86,
+          "95": 0.92
+        },
+        "mean_interval_width": {
+          "50": 0.1971288129623807,
+          "80": 0.3745508939052746,
+          "90": 0.4807308678650012,
+          "95": 0.5728261602330916
+        },
+        "mean_absolute_calibration_error": 0.027499999999999997
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.5790255422618096,
+        "coverage": {
+          "50": 0.42,
+          "80": 0.84,
+          "90": 0.96,
+          "95": 0.98
+        },
+        "mean_interval_width": {
+          "50": 0.6019595736506954,
+          "80": 1.143741967587116,
+          "90": 1.4679769228660107,
+          "95": 1.749202392121544
+        },
+        "mean_absolute_calibration_error": 0.05249999999999998
+      }
+    },
+    {
+      "epoch": 68,
+      "train_loss": -4.403162617432444,
+      "validation_score": 0.4958135859179287,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.07691825059623003,
+      "E_background_median_bootstrap_95_ci": [
+        0.046933836957265176,
+        0.15943738357879506
+      ],
+      "inclusion_ratio_median_relative_error": 0.3695498874628528,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.21899603316323027,
+        0.447541279066863
+      ],
+      "center_error_normalized_median": 0.1201321966946125,
+      "radius_relative_error_median": 0.1708605946107222,
+      "node_sdf_mae_mean": 0.08855557284857098,
+      "node_sdf_nll_mean": -1.7106671003918898,
+      "partition_soft_dice_mean": 0.307284570250072,
+      "heterogeneity": {
+        "accuracy": 0.74,
+        "brier_score": 0.1973817914353836,
+        "binary_nll": 0.5813924869569485
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.45545665316118916,
+        "coverage": {
+          "50": 0.56,
+          "80": 0.7,
+          "90": 0.8,
+          "95": 0.94
+        },
+        "mean_interval_width": {
+          "50": 0.1931119159853953,
+          "80": 0.36691866434509157,
+          "90": 0.47093500727592036,
+          "95": 0.5611536723973456
+        },
+        "mean_absolute_calibration_error": 0.06750000000000003
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 1.0189637201752568,
+        "coverage": {
+          "50": 0.3,
+          "80": 0.58,
+          "90": 0.88,
+          "95": 0.92
+        },
+        "mean_interval_width": {
+          "50": 0.4758857361417512,
+          "80": 0.904197743546895,
+          "90": 1.1605252398271033,
+          "95": 1.3828511157108192
+        },
+        "mean_absolute_calibration_error": 0.11750000000000001
+      }
+    },
+    {
+      "epoch": 69,
+      "train_loss": -4.519900762721112,
+      "validation_score": 0.49191589594431195,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.07923386423546412,
+      "E_background_median_bootstrap_95_ci": [
+        0.05430088147282504,
+        0.10302748143918938
+      ],
+      "inclusion_ratio_median_relative_error": 0.36189563072449316,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.24274837090925983,
+        0.4247693202142906
+      ],
+      "center_error_normalized_median": 0.11562217772006989,
+      "radius_relative_error_median": 0.16562794453948154,
+      "node_sdf_mae_mean": 0.08576072615228202,
+      "node_sdf_nll_mean": -1.736211177549864,
+      "partition_soft_dice_mean": 0.34273103703009455,
+      "heterogeneity": {
+        "accuracy": 0.72,
+        "brier_score": 0.2031456039374187,
+        "binary_nll": 0.5934401531207757
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.6700768526730643,
+        "coverage": {
+          "50": 0.52,
+          "80": 0.76,
+          "90": 0.9,
+          "95": 0.94
+        },
+        "mean_interval_width": {
+          "50": 0.1715763663156911,
+          "80": 0.3260004481882862,
+          "90": 0.41841704540576785,
+          "95": 0.49857466103709425
+        },
+        "mean_absolute_calibration_error": 0.017500000000000016
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 1.2230483376627719,
+        "coverage": {
+          "50": 0.22,
+          "80": 0.52,
+          "90": 0.66,
+          "95": 0.78
+        },
+        "mean_interval_width": {
+          "50": 0.42225780796129797,
+          "80": 0.8023030071234083,
+          "90": 1.0297447614760715,
+          "95": 1.2270165640832629
+        },
+        "mean_absolute_calibration_error": 0.2425
+      }
+    },
+    {
+      "epoch": 70,
+      "train_loss": -4.451327954467974,
+      "validation_score": 0.5096838138092886,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.09494123005432814,
+      "E_background_median_bootstrap_95_ci": [
+        0.06534275083121945,
+        0.1281118962254982
+      ],
+      "inclusion_ratio_median_relative_error": 0.3636510810242712,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.23670999160237935,
+        0.43038335276800344
+      ],
+      "center_error_normalized_median": 0.11094048619270325,
+      "radius_relative_error_median": 0.17269601822354574,
+      "node_sdf_mae_mean": 0.0925255935443075,
+      "node_sdf_nll_mean": -1.6567618690038983,
+      "partition_soft_dice_mean": 0.35326334481176574,
+      "heterogeneity": {
+        "accuracy": 0.7,
+        "brier_score": 0.20436601092275716,
+        "binary_nll": 0.5961408957421291
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.6711781794805519,
+        "coverage": {
+          "50": 0.48,
+          "80": 0.8,
+          "90": 0.98,
+          "95": 0.98
+        },
+        "mean_interval_width": {
+          "50": 0.1868125607273131,
+          "80": 0.3549496928513512,
+          "90": 0.455572998675048,
+          "95": 0.5428487101231599
+        },
+        "mean_absolute_calibration_error": 0.0325
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 1.1795212846291088,
+        "coverage": {
+          "50": 0.26,
+          "80": 0.64,
+          "90": 0.74,
+          "95": 0.88
+        },
+        "mean_interval_width": {
+          "50": 0.48725515878176345,
+          "80": 0.9258000012230272,
+          "90": 1.1882514373865647,
+          "95": 1.4158889178315481
+        },
+        "mean_absolute_calibration_error": 0.1575
+      }
+    },
+    {
+      "epoch": 71,
+      "train_loss": -4.241500264131709,
+      "validation_score": 0.45808645607250437,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.08128332477469519,
+      "E_background_median_bootstrap_95_ci": [
+        0.061302474238138706,
+        0.09948787912854959
+      ],
+      "inclusion_ratio_median_relative_error": 0.3224727569926612,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.25874173582779,
+        0.40643522212302746
+      ],
+      "center_error_normalized_median": 0.11800841242074966,
+      "radius_relative_error_median": 0.16982894765933526,
+      "node_sdf_mae_mean": 0.08824234818549533,
+      "node_sdf_nll_mean": -1.715145518905238,
+      "partition_soft_dice_mean": 0.3485157497619328,
+      "heterogeneity": {
+        "accuracy": 0.7,
+        "brier_score": 0.2173214972205919,
+        "binary_nll": 0.6256465538209453
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.7390253254513953,
+        "coverage": {
+          "50": 0.62,
+          "80": 0.92,
+          "90": 0.96,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.19050777803665817,
+          "80": 0.361970721008476,
+          "90": 0.4645843907560741,
+          "95": 0.5535864460772791
+        },
+        "mean_absolute_calibration_error": 0.0875
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6110148419727971,
+        "coverage": {
+          "50": 0.38,
+          "80": 0.66,
+          "90": 0.86,
+          "95": 0.94
+        },
+        "mean_interval_width": {
+          "50": 0.5341301258998044,
+          "80": 1.0148639009746743,
+          "90": 1.3025637151564289,
+          "95": 1.5521003981411474
+        },
+        "mean_absolute_calibration_error": 0.07750000000000001
+      }
+    },
+    {
+      "epoch": 72,
+      "train_loss": -4.728146620486912,
+      "validation_score": 0.49716246275942655,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.09288846760825265,
+      "E_background_median_bootstrap_95_ci": [
+        0.05433883482982005,
+        0.11568808780025917
+      ],
+      "inclusion_ratio_median_relative_error": 0.35266522401043676,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.25577738677514317,
+        0.42229226263739694
+      ],
+      "center_error_normalized_median": 0.11654037982225418,
+      "radius_relative_error_median": 0.16498735164817077,
+      "node_sdf_mae_mean": 0.09032320799796205,
+      "node_sdf_nll_mean": -1.6935299164370488,
+      "partition_soft_dice_mean": 0.32221547965156405,
+      "heterogeneity": {
+        "accuracy": 0.7,
+        "brier_score": 0.20643508456294846,
+        "binary_nll": 0.600309247232557
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.709725256887466,
+        "coverage": {
+          "50": 0.44,
+          "80": 0.72,
+          "90": 0.88,
+          "95": 0.98
+        },
+        "mean_interval_width": {
+          "50": 0.1634797998316441,
+          "80": 0.3106167193026361,
+          "90": 0.3986722431411421,
+          "95": 0.47504727800043156
+        },
+        "mean_absolute_calibration_error": 0.04750000000000003
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.7881613671766771,
+        "coverage": {
+          "50": 0.24,
+          "80": 0.6,
+          "90": 0.9,
+          "95": 0.92
+        },
+        "mean_interval_width": {
+          "50": 0.5025495333665316,
+          "80": 0.9548597900299545,
+          "90": 1.225549272528458,
+          "95": 1.4603320295963989
+        },
+        "mean_absolute_calibration_error": 0.1225
+      }
+    },
+    {
+      "epoch": 73,
+      "train_loss": -4.620002175632276,
+      "validation_score": 0.5454236789699642,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.10887100103644938,
+      "E_background_median_bootstrap_95_ci": [
+        0.09364019442274649,
+        0.12937027728792017
+      ],
+      "inclusion_ratio_median_relative_error": 0.3792432629838177,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.2930402347142448,
+        0.4302982166980698
+      ],
+      "center_error_normalized_median": 0.11802094057202339,
+      "radius_relative_error_median": 0.17204303083819025,
+      "node_sdf_mae_mean": 0.08671943529656059,
+      "node_sdf_nll_mean": -1.7445524585874457,
+      "partition_soft_dice_mean": 0.3177448317016426,
+      "heterogeneity": {
+        "accuracy": 0.6,
+        "brier_score": 0.22923765979878882,
+        "binary_nll": 0.6501920409157504
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.683208245028621,
+        "coverage": {
+          "50": 0.36,
+          "80": 0.84,
+          "90": 0.98,
+          "95": 0.98
+        },
+        "mean_interval_width": {
+          "50": 0.17222892202362114,
+          "80": 0.3272403243893103,
+          "90": 0.4200084092814451,
+          "95": 0.5004708880517778
+        },
+        "mean_absolute_calibration_error": 0.07249999999999998
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6884793969572209,
+        "coverage": {
+          "50": 0.26,
+          "80": 0.56,
+          "90": 0.92,
+          "95": 0.94
+        },
+        "mean_interval_width": {
+          "50": 0.5311514451212743,
+          "80": 1.0092043145778857,
+          "90": 1.2952997146572787,
+          "95": 1.5434448076808571
+        },
+        "mean_absolute_calibration_error": 0.1275
+      }
+    },
+    {
+      "epoch": 74,
+      "train_loss": -4.432449570611904,
+      "validation_score": 0.4790037681976732,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.06949294184106902,
+      "E_background_median_bootstrap_95_ci": [
+        0.03826094904046875,
+        0.11804737551709414
+      ],
+      "inclusion_ratio_median_relative_error": 0.36030851164704797,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.2591150384058118,
+        0.4312243498050605
+      ],
+      "center_error_normalized_median": 0.116356510668993,
+      "radius_relative_error_median": 0.17422114924674936,
+      "node_sdf_mae_mean": 0.08704313204476707,
+      "node_sdf_nll_mean": -1.752545294008757,
+      "partition_soft_dice_mean": 0.34217743889281627,
+      "heterogeneity": {
+        "accuracy": 0.72,
+        "brier_score": 0.19680925883822498,
+        "binary_nll": 0.5765590976768032
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.5436293156401095,
+        "coverage": {
+          "50": 0.58,
+          "80": 0.76,
+          "90": 0.84,
+          "95": 0.98
+        },
+        "mean_interval_width": {
+          "50": 0.1944957539795163,
+          "80": 0.3695479997016485,
+          "90": 0.4743097226709006,
+          "95": 0.5651748938141674
+        },
+        "mean_absolute_calibration_error": 0.05250000000000002
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 1.9423644952544736,
+        "coverage": {
+          "50": 0.34,
+          "80": 0.6,
+          "90": 0.8,
+          "95": 0.82
+        },
+        "mean_interval_width": {
+          "50": 0.5312975691507463,
+          "80": 1.0094819547921057,
+          "90": 1.295656062014362,
+          "95": 1.5438694217464641
+        },
+        "mean_absolute_calibration_error": 0.14750000000000002
+      }
+    },
+    {
+      "epoch": 75,
+      "train_loss": -4.7471124623951155,
+      "validation_score": 0.4495905827167442,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.07238815081649369,
+      "E_background_median_bootstrap_95_ci": [
+        0.0499699307065148,
+        0.14385506085140093
+      ],
+      "inclusion_ratio_median_relative_error": 0.3257772305727439,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.25160548640058095,
+        0.41149461820242994
+      ],
+      "center_error_normalized_median": 0.1167171485722065,
+      "radius_relative_error_median": 0.16586011430845182,
+      "node_sdf_mae_mean": 0.08729351831502036,
+      "node_sdf_nll_mean": -1.746721215938267,
+      "partition_soft_dice_mean": 0.331154288429963,
+      "heterogeneity": {
+        "accuracy": 0.72,
+        "brier_score": 0.20570080531002646,
+        "binary_nll": 0.5990878402624765
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.5026332491601002,
+        "coverage": {
+          "50": 0.58,
+          "80": 0.72,
+          "90": 0.84,
+          "95": 0.94
+        },
+        "mean_interval_width": {
+          "50": 0.18431702621067877,
+          "80": 0.3502080994235288,
+          "90": 0.44948722939586305,
+          "95": 0.5355970687552104
+        },
+        "mean_absolute_calibration_error": 0.05750000000000002
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6763829846026549,
+        "coverage": {
+          "50": 0.3,
+          "80": 0.62,
+          "90": 0.88,
+          "95": 0.94
+        },
+        "mean_interval_width": {
+          "50": 0.5220590696769961,
+          "80": 0.9919285176043269,
+          "90": 1.2731264692925008,
+          "95": 1.5170237562126605
+        },
+        "mean_absolute_calibration_error": 0.10250000000000002
+      }
+    },
+    {
+      "epoch": 76,
+      "train_loss": -4.0383463094108984,
+      "validation_score": 0.52635922891905,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.11191686523531463,
+      "E_background_median_bootstrap_95_ci": [
+        0.08479123560913521,
+        0.13257759784755546
+      ],
+      "inclusion_ratio_median_relative_error": 0.35662691474692326,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.25445894411461767,
+        0.4048242084605227
+      ],
+      "center_error_normalized_median": 0.12236079201102257,
+      "radius_relative_error_median": 0.17959889773960314,
+      "node_sdf_mae_mean": 0.08847319266121638,
+      "node_sdf_nll_mean": -1.7425441208638643,
+      "partition_soft_dice_mean": 0.3452174945881492,
+      "heterogeneity": {
+        "accuracy": 0.6,
+        "brier_score": 0.23126179574724826,
+        "binary_nll": 0.6539184097813187
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.6513744941200046,
+        "coverage": {
+          "50": 0.38,
+          "80": 0.8,
+          "90": 0.98,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.1780649093519191,
+          "80": 0.33832888236206593,
+          "90": 0.4342404193616622,
+          "95": 0.517429374039698
+        },
+        "mean_absolute_calibration_error": 0.0625
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.7571719050275343,
+        "coverage": {
+          "50": 0.28,
+          "80": 0.68,
+          "90": 0.78,
+          "95": 0.86
+        },
+        "mean_interval_width": {
+          "50": 0.5426247242569934,
+          "80": 1.0310039028355822,
+          "90": 1.323279183276228,
+          "95": 1.5767844008830467
+        },
+        "mean_absolute_calibration_error": 0.13749999999999998
+      }
+    },
+    {
+      "epoch": 77,
+      "train_loss": -4.640061274955147,
+      "validation_score": 0.46150554563737267,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.07306954735689031,
+      "E_background_median_bootstrap_95_ci": [
+        0.05208683909632032,
+        0.10045583957656753
+      ],
+      "inclusion_ratio_median_relative_error": 0.3380674509188098,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.26784806595260824,
+        0.45754443389462085
+      ],
+      "center_error_normalized_median": 0.11757713928818703,
+      "radius_relative_error_median": 0.16326076238047,
+      "node_sdf_mae_mean": 0.10165175815161906,
+      "node_sdf_nll_mean": -1.5480508318072872,
+      "partition_soft_dice_mean": 0.3664507132611777,
+      "heterogeneity": {
+        "accuracy": 0.72,
+        "brier_score": 0.20147418944669016,
+        "binary_nll": 0.5861054063164576
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.7306032032971804,
+        "coverage": {
+          "50": 0.64,
+          "80": 0.8,
+          "90": 0.98,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.18746418152094385,
+          "80": 0.3561877926860428,
+          "90": 0.4571620826092204,
+          "95": 0.5447422204199766
+        },
+        "mean_absolute_calibration_error": 0.0675
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 1.6238425314023457,
+        "coverage": {
+          "50": 0.34,
+          "80": 0.62,
+          "90": 0.8,
+          "95": 0.84
+        },
+        "mean_interval_width": {
+          "50": 0.5146415596306373,
+          "80": 0.9778350171329104,
+          "90": 1.2550376572695523,
+          "95": 1.4954696072554663
+        },
+        "mean_absolute_calibration_error": 0.1375
+      }
+    },
+    {
+      "epoch": 78,
+      "train_loss": -3.8846235839944137,
+      "validation_score": 0.45490963666023254,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.07360557352442029,
+      "E_background_median_bootstrap_95_ci": [
+        0.05153811720872427,
+        0.0969155242599429
+      ],
+      "inclusion_ratio_median_relative_error": 0.3305923527201652,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.24377847269876482,
+        0.4286572550627679
+      ],
+      "center_error_normalized_median": 0.1144913099706173,
+      "radius_relative_error_median": 0.17311345059974195,
+      "node_sdf_mae_mean": 0.08626849552322376,
+      "node_sdf_nll_mean": -1.759585716222462,
+      "partition_soft_dice_mean": 0.3008240510366465,
+      "heterogeneity": {
+        "accuracy": 0.72,
+        "brier_score": 0.2028468416625881,
+        "binary_nll": 0.5922363722314905
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.7422864011504291,
+        "coverage": {
+          "50": 0.58,
+          "80": 0.78,
+          "90": 0.98,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.1824654134654053,
+          "80": 0.34668997744792046,
+          "90": 0.4449717687252046,
+          "95": 0.530216565503684
+        },
+        "mean_absolute_calibration_error": 0.057499999999999996
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.662487332725086,
+        "coverage": {
+          "50": 0.28,
+          "80": 0.7,
+          "90": 0.92,
+          "95": 0.94
+        },
+        "mean_interval_width": {
+          "50": 0.5667477974975417,
+          "80": 1.0768384944927343,
+          "90": 1.3821072447870173,
+          "95": 1.6468823597240105
+        },
+        "mean_absolute_calibration_error": 0.08750000000000002
+      }
+    },
+    {
+      "epoch": 79,
+      "train_loss": -4.50512427797443,
+      "validation_score": 0.4819335337380473,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.08871286578861429,
+      "E_background_median_bootstrap_95_ci": [
+        0.06919945449805552,
+        0.11338728718117347
+      ],
+      "inclusion_ratio_median_relative_error": 0.3410629872726495,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.24464618401687038,
+        0.41541813649964376
+      ],
+      "center_error_normalized_median": 0.11686313897371292,
+      "radius_relative_error_median": 0.16558035202499005,
+      "node_sdf_mae_mean": 0.08846242412140495,
+      "node_sdf_nll_mean": -1.7202933775751215,
+      "partition_soft_dice_mean": 0.3223860406954038,
+      "heterogeneity": {
+        "accuracy": 0.72,
+        "brier_score": 0.20863072270713431,
+        "binary_nll": 0.604917866358054
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.7034940770093879,
+        "coverage": {
+          "50": 0.48,
+          "80": 0.88,
+          "90": 0.94,
+          "95": 0.96
+        },
+        "mean_interval_width": {
+          "50": 0.17835038385525295,
+          "80": 0.3388712928235505,
+          "90": 0.43493659565207166,
+          "95": 0.5182589192549901
+        },
+        "mean_absolute_calibration_error": 0.03749999999999998
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6751004282665892,
+        "coverage": {
+          "50": 0.3,
+          "80": 0.58,
+          "90": 0.92,
+          "95": 0.94
+        },
+        "mean_interval_width": {
+          "50": 0.5120983272980751,
+          "80": 0.9730027963669299,
+          "90": 1.2488355690611268,
+          "95": 1.488079363334501
+        },
+        "mean_absolute_calibration_error": 0.11250000000000003
+      }
+    },
+    {
+      "epoch": 80,
+      "train_loss": -4.719640590642628,
+      "validation_score": 0.47069878840980994,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.06782290643285077,
+      "E_background_median_bootstrap_95_ci": [
+        0.046739259667191446,
+        0.14197913769686837
+      ],
+      "inclusion_ratio_median_relative_error": 0.3528282081894716,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.23009118715840485,
+        0.43587447380288613
+      ],
+      "center_error_normalized_median": 0.11082610860466957,
+      "radius_relative_error_median": 0.1714516242083098,
+      "node_sdf_mae_mean": 0.08447499112471153,
+      "node_sdf_nll_mean": -1.7692541260468333,
+      "partition_soft_dice_mean": 0.32178644071284096,
+      "heterogeneity": {
+        "accuracy": 0.72,
+        "brier_score": 0.20019069514995047,
+        "binary_nll": 0.5856860734943764
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.46538481527934733,
+        "coverage": {
+          "50": 0.56,
+          "80": 0.66,
+          "90": 0.76,
+          "95": 0.88
+        },
+        "mean_interval_width": {
+          "50": 0.1702941326607925,
+          "80": 0.3235641642457183,
+          "90": 0.41529010881815304,
+          "95": 0.49484868627967804
+        },
+        "mean_absolute_calibration_error": 0.10250000000000001
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.7687673298840569,
+        "coverage": {
+          "50": 0.28,
+          "80": 0.6,
+          "90": 0.92,
+          "95": 0.94
+        },
+        "mean_interval_width": {
+          "50": 0.5077583063706629,
+          "80": 0.9647566212213409,
+          "90": 1.2382517178440786,
+          "95": 1.4754679267523954
+        },
+        "mean_absolute_calibration_error": 0.11250000000000002
+      }
+    },
+    {
+      "epoch": 81,
+      "train_loss": -4.563189506530762,
+      "validation_score": 0.48798273410036275,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.08985462356652892,
+      "E_background_median_bootstrap_95_ci": [
+        0.07481956840257477,
+        0.10504656052679676
+      ],
+      "inclusion_ratio_median_relative_error": 0.3461428671800174,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.254359365393848,
+        0.4358261694565211
+      ],
+      "center_error_normalized_median": 0.11759686470031738,
+      "radius_relative_error_median": 0.1694914113362882,
+      "node_sdf_mae_mean": 0.09365230318354933,
+      "node_sdf_nll_mean": -1.6676988115436153,
+      "partition_soft_dice_mean": 0.3181169750659089,
+      "heterogeneity": {
+        "accuracy": 0.66,
+        "brier_score": 0.20794097341526574,
+        "binary_nll": 0.6013673670851508
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.7408192805750761,
+        "coverage": {
+          "50": 0.5,
+          "80": 0.92,
+          "90": 0.96,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.18354090663273465,
+          "80": 0.34873344801500117,
+          "90": 0.4475945348036052,
+          "95": 0.5333417840455099
+        },
+        "mean_absolute_calibration_error": 0.057499999999999996
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.9829776993610346,
+        "coverage": {
+          "50": 0.22,
+          "80": 0.54,
+          "90": 0.82,
+          "95": 0.9
+        },
+        "mean_interval_width": {
+          "50": 0.4661789547595109,
+          "80": 0.8857545561253027,
+          "90": 1.1368536650434073,
+          "95": 1.3546446946207071
+        },
+        "mean_absolute_calibration_error": 0.1675
+      }
+    },
+    {
+      "epoch": 82,
+      "train_loss": -4.626120192439933,
+      "validation_score": 0.4455412787499804,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.05979738572775599,
+      "E_background_median_bootstrap_95_ci": [
+        0.049537509926986176,
+        0.10214852737879002
+      ],
+      "inclusion_ratio_median_relative_error": 0.335235394130433,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.24550895983559015,
+        0.43949379445400355
+      ],
+      "center_error_normalized_median": 0.11337543278932571,
+      "radius_relative_error_median": 0.17664170001831092,
+      "node_sdf_mae_mean": 0.08511352656703246,
+      "node_sdf_nll_mean": -1.7628752165719082,
+      "partition_soft_dice_mean": 0.3549151914684396,
+      "heterogeneity": {
+        "accuracy": 0.72,
+        "brier_score": 0.2020339955671654,
+        "binary_nll": 0.5887393000156473
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.6943294508340361,
+        "coverage": {
+          "50": 0.6,
+          "80": 0.8,
+          "90": 0.96,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.1830662879712084,
+          "80": 0.3478316577527492,
+          "90": 0.4464370995325676,
+          "95": 0.5319626148547083
+        },
+        "mean_absolute_calibration_error": 0.05249999999999999
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.9191855300031466,
+        "coverage": {
+          "50": 0.32,
+          "80": 0.64,
+          "90": 0.86,
+          "95": 0.92
+        },
+        "mean_interval_width": {
+          "50": 0.5255205973076502,
+          "80": 0.998505528082175,
+          "90": 1.2815679708518928,
+          "95": 1.5270824257263187
+        },
+        "mean_absolute_calibration_error": 0.1025
+      }
+    },
+    {
+      "epoch": 83,
+      "train_loss": -4.8257319205685665,
+      "validation_score": 0.46537124600365426,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.08553268225392335,
+      "E_background_median_bootstrap_95_ci": [
+        0.06154182550682379,
+        0.10825635751979798
+      ],
+      "inclusion_ratio_median_relative_error": 0.3269709492409417,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.2598707834366896,
+        0.3996478979128338
+      ],
+      "center_error_normalized_median": 0.11547425761818886,
+      "radius_relative_error_median": 0.1670600196021915,
+      "node_sdf_mae_mean": 0.0838782881435595,
+      "node_sdf_nll_mean": -1.7678730707419545,
+      "partition_soft_dice_mean": 0.34459184188591807,
+      "heterogeneity": {
+        "accuracy": 0.64,
+        "brier_score": 0.21147045803515674,
+        "binary_nll": 0.6098323211446224
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.7091293664260366,
+        "coverage": {
+          "50": 0.5,
+          "80": 0.88,
+          "90": 0.94,
+          "95": 0.96
+        },
+        "mean_interval_width": {
+          "50": 0.18056675770603803,
+          "80": 0.3430824722780641,
+          "90": 0.44034158596672723,
+          "95": 0.5246993624530555
+        },
+        "mean_absolute_calibration_error": 0.03249999999999997
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6541022873345866,
+        "coverage": {
+          "50": 0.32,
+          "80": 0.68,
+          "90": 0.88,
+          "95": 0.94
+        },
+        "mean_interval_width": {
+          "50": 0.5430501502648822,
+          "80": 1.0318122255213973,
+          "90": 1.3243166542116602,
+          "95": 1.5780206237512322
+        },
+        "mean_absolute_calibration_error": 0.0825
+      }
+    },
+    {
+      "epoch": 84,
+      "train_loss": -4.580472519523219,
+      "validation_score": 0.4927230973715037,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.11090277280224708,
+      "E_background_median_bootstrap_95_ci": [
+        0.0844705269358196,
+        0.13786878296252958
+      ],
+      "inclusion_ratio_median_relative_error": 0.3247021307928411,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.2753048476647905,
+        0.40085623716103813
+      ],
+      "center_error_normalized_median": 0.11406690999865532,
+      "radius_relative_error_median": 0.16321251229078987,
+      "node_sdf_mae_mean": 0.08659346597759347,
+      "node_sdf_nll_mean": -1.757387736910268,
+      "partition_soft_dice_mean": 0.35924657512652247,
+      "heterogeneity": {
+        "accuracy": 0.5,
+        "brier_score": 0.22847277510566216,
+        "binary_nll": 0.6476739534793574
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.6167500345525163,
+        "coverage": {
+          "50": 0.38,
+          "80": 0.78,
+          "90": 0.96,
+          "95": 0.98
+        },
+        "mean_interval_width": {
+          "50": 0.18219348707836017,
+          "80": 0.3461733088300069,
+          "90": 0.4443086317333303,
+          "95": 0.5294263890408101
+        },
+        "mean_absolute_calibration_error": 0.057499999999999996
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6051301809872824,
+        "coverage": {
+          "50": 0.34,
+          "80": 0.72,
+          "90": 0.88,
+          "95": 0.98
+        },
+        "mean_interval_width": {
+          "50": 0.5557691474256731,
+          "80": 1.0559787168859145,
+          "90": 1.3553340100796039,
+          "95": 1.6149800828792176
+        },
+        "mean_absolute_calibration_error": 0.07250000000000002
+      }
+    },
+    {
+      "epoch": 85,
+      "train_loss": -4.453927674967992,
+      "validation_score": 0.4784385152305222,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.09590415279809508,
+      "E_background_median_bootstrap_95_ci": [
+        0.07958894297057593,
+        0.12643786143229716
+      ],
+      "inclusion_ratio_median_relative_error": 0.3253306772118705,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.26956234825384384,
+        0.3983416364633924
+      ],
+      "center_error_normalized_median": 0.11666448786854744,
+      "radius_relative_error_median": 0.17182559492364552,
+      "node_sdf_mae_mean": 0.08476924386463668,
+      "node_sdf_nll_mean": -1.7713832259178162,
+      "partition_soft_dice_mean": 0.34856250568440084,
+      "heterogeneity": {
+        "accuracy": 0.58,
+        "brier_score": 0.2288147408822267,
+        "binary_nll": 0.6489189152453314
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.6810841934359579,
+        "coverage": {
+          "50": 0.48,
+          "80": 0.82,
+          "90": 0.96,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.18346006740143447,
+          "80": 0.3485798509538153,
+          "90": 0.4473973951098361,
+          "95": 0.533106877611661
+        },
+        "mean_absolute_calibration_error": 0.03749999999999998
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.611407514380812,
+        "coverage": {
+          "50": 0.36,
+          "80": 0.7,
+          "90": 0.88,
+          "95": 0.98
+        },
+        "mean_interval_width": {
+          "50": 0.5671041429672644,
+          "80": 1.0775155620011212,
+          "90": 1.3829762515260384,
+          "95": 1.6479178451209462
+        },
+        "mean_absolute_calibration_error": 0.07250000000000004
+      }
+    },
+    {
+      "epoch": 86,
+      "train_loss": -4.462550724807539,
+      "validation_score": 0.45010422833499114,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.08367625250174777,
+      "E_background_median_bootstrap_95_ci": [
+        0.06860977283199715,
+        0.11203423769699188
+      ],
+      "inclusion_ratio_median_relative_error": 0.3124642291940454,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.24590111163921094,
+        0.3932628276001486
+      ],
+      "center_error_normalized_median": 0.11370518431067467,
+      "radius_relative_error_median": 0.1657387154040445,
+      "node_sdf_mae_mean": 0.0844796247976391,
+      "node_sdf_nll_mean": -1.7793574866495634,
+      "partition_soft_dice_mean": 0.34970136810290187,
+      "heterogeneity": {
+        "accuracy": 0.64,
+        "brier_score": 0.21585498655679206,
+        "binary_nll": 0.6208596233275289
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.724911302252547,
+        "coverage": {
+          "50": 0.56,
+          "80": 0.92,
+          "90": 0.96,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.19606294231655372,
+          "80": 0.37252570642921506,
+          "90": 0.47813156787987915,
+          "95": 0.5697289032660406
+        },
+        "mean_absolute_calibration_error": 0.07250000000000001
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.6272571652482569,
+        "coverage": {
+          "50": 0.32,
+          "80": 0.68,
+          "90": 0.8,
+          "95": 0.92
+        },
+        "mean_interval_width": {
+          "50": 0.5267862430179456,
+          "80": 1.0009102944125488,
+          "90": 1.2846544550222005,
+          "95": 1.530760198455475
+        },
+        "mean_absolute_calibration_error": 0.10749999999999997
+      }
+    },
+    {
+      "epoch": 87,
+      "train_loss": -4.709685975783749,
+      "validation_score": 0.47713466015644146,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.10198424097776712,
+      "E_background_median_bootstrap_95_ci": [
+        0.08138619710476885,
+        0.12108616051783899
+      ],
+      "inclusion_ratio_median_relative_error": 0.3205830074617435,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.25920486550419314,
+        0.3977657852269907
+      ],
+      "center_error_normalized_median": 0.11357559636235237,
+      "radius_relative_error_median": 0.16835355835442423,
+      "node_sdf_mae_mean": 0.08277162478158348,
+      "node_sdf_nll_mean": -1.7915678055662858,
+      "partition_soft_dice_mean": 0.35507438684764664,
+      "heterogeneity": {
+        "accuracy": 0.64,
+        "brier_score": 0.21826964686772313,
+        "binary_nll": 0.6264172222572636
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.7474823995617693,
+        "coverage": {
+          "50": 0.42,
+          "80": 0.88,
+          "90": 0.96,
+          "95": 1.0
+        },
+        "mean_interval_width": {
+          "50": 0.18052948536047697,
+          "80": 0.3430116536588169,
+          "90": 0.4402506912529629,
+          "95": 0.5245910547213254
+        },
+        "mean_absolute_calibration_error": 0.06749999999999999
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 0.5953942694555066,
+        "coverage": {
+          "50": 0.38,
+          "80": 0.72,
+          "90": 0.88,
+          "95": 0.98
+        },
+        "mean_interval_width": {
+          "50": 0.547313108001655,
+          "80": 1.0399119782008461,
+          "90": 1.3347125742279884,
+          "95": 1.5904081264957313
+        },
+        "mean_absolute_calibration_error": 0.06250000000000003
+      }
+    },
+    {
+      "epoch": 88,
+      "train_loss": -4.503010020444267,
+      "validation_score": 0.48198710760505464,
+      "patient_count": 50,
+      "E_background_median_relative_error": 0.08571534506788211,
+      "E_background_median_bootstrap_95_ci": [
+        0.06143102839510077,
+        0.1306763796652067
+      ],
+      "inclusion_ratio_median_relative_error": 0.3469799363607466,
+      "inclusion_ratio_median_bootstrap_95_ci": [
+        0.230658373303761,
+        0.44517221136728713
+      ],
+      "center_error_normalized_median": 0.110819511115551,
+      "radius_relative_error_median": 0.17015502555232986,
+      "node_sdf_mae_mean": 0.08798881012358163,
+      "node_sdf_nll_mean": -1.7396219027669806,
+      "partition_soft_dice_mean": 0.33427322695129796,
+      "heterogeneity": {
+        "accuracy": 0.7,
+        "brier_score": 0.1971673047057038,
+        "binary_nll": 0.5783575541508627
+      },
+      "log_E_uncertainty": {
+        "gaussian_nll": -0.5258801951167169,
+        "coverage": {
+          "50": 0.56,
+          "80": 0.78,
+          "90": 0.88,
+          "95": 0.94
+        },
+        "mean_interval_width": {
+          "50": 0.19787849161211565,
+          "80": 0.37597530672540097,
+          "90": 0.4825590819271216,
+          "95": 0.5750046116521561
+        },
+        "mean_absolute_calibration_error": 0.027500000000000024
+      },
+      "log_ratio_uncertainty": {
+        "gaussian_nll": 1.054758702647204,
+        "coverage": {
+          "50": 0.28,
+          "80": 0.64,
+          "90": 0.9,
+          "95": 0.9
+        },
+        "mean_interval_width": {
+          "50": 0.5242602331294461,
+          "80": 0.9961107968275276,
+          "90": 1.278494366561841,
+          "95": 1.5234200003210898
+        },
+        "mean_absolute_calibration_error": 0.10749999999999998
+      }
+    }
+  ],
+  "uncertainty_calibration_scales": {
+    "log_E": 1.0202093506075256,
+    "log_ratio": 1.0
+  }
+}

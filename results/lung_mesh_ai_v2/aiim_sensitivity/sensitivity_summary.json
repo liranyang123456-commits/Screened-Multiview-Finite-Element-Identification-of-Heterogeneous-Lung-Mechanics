@@ -1,0 +1,303 @@
+{
+  "reference": {
+    "name": "frozen screened MAP (track noise 0.05 px, force bias 0)",
+    "patients": 50,
+    "E_background_median_relative_error": 0.04110740128627288,
+    "inclusion_ratio_median_relative_error": 0.18692415951587435,
+    "force_scale_median_relative_error": 0.033896160509529843,
+    "refinement_acceptance_rate": 0.08,
+    "screening_rejection_rate": 0.92,
+    "function_evaluations_median": 7.0,
+    "wall_time_seconds_median": 24.575721350003732
+  },
+  "configurations": {
+    "noise_0.01": {
+      "config": "noise_0.01",
+      "spec": {
+        "screening_minimum_cost_reduction": 0.05,
+        "minimum_refinement_cost_reduction": 0.05,
+        "track_noise_px": 0.01,
+        "force_scale_error": 0.0
+      },
+      "runtime_seconds": 2701.7942984104156,
+      "patients": 50,
+      "E_background_median_relative_error": 0.04282169830269697,
+      "inclusion_ratio_median_relative_error": 0.18368356829348575,
+      "force_scale_median_relative_error": 0.033896160509529843,
+      "refinement_acceptance_rate": 0.1,
+      "screening_rejection_rate": 0.9,
+      "function_evaluations_median": 7.0,
+      "wall_time_seconds_median": 97.73402975004865,
+      "paired_vs_reference_E": {
+        "median_delta": 0.0,
+        "win_rate": 0.06,
+        "pairs": 50,
+        "metric": "E_background_relative_error",
+        "reference": "frozen_screened"
+      },
+      "paired_vs_reference_ratio": {
+        "median_delta": 0.0,
+        "win_rate": 0.08,
+        "pairs": 50,
+        "metric": "inclusion_ratio_relative_error",
+        "reference": "frozen_screened"
+      }
+    },
+    "noise_0.10": {
+      "config": "noise_0.10",
+      "spec": {
+        "screening_minimum_cost_reduction": 0.05,
+        "minimum_refinement_cost_reduction": 0.05,
+        "track_noise_px": 0.1,
+        "force_scale_error": 0.0
+      },
+      "runtime_seconds": 2746.7802686691284,
+      "patients": 50,
+      "E_background_median_relative_error": 0.04110740128627288,
+      "inclusion_ratio_median_relative_error": 0.18692415951587435,
+      "force_scale_median_relative_error": 0.033896160509529843,
+      "refinement_acceptance_rate": 0.04,
+      "screening_rejection_rate": 0.96,
+      "function_evaluations_median": 7.0,
+      "wall_time_seconds_median": 112.84704755007988,
+      "paired_vs_reference_E": {
+        "median_delta": 0.0,
+        "win_rate": 0.02,
+        "pairs": 50,
+        "metric": "E_background_relative_error",
+        "reference": "frozen_screened"
+      },
+      "paired_vs_reference_ratio": {
+        "median_delta": 0.0,
+        "win_rate": 0.02,
+        "pairs": 50,
+        "metric": "inclusion_ratio_relative_error",
+        "reference": "frozen_screened"
+      }
+    },
+    "noise_0.20": {
+      "config": "noise_0.20",
+      "spec": {
+        "screening_minimum_cost_reduction": 0.05,
+        "minimum_refinement_cost_reduction": 0.05,
+        "track_noise_px": 0.2,
+        "force_scale_error": 0.0
+      },
+      "runtime_seconds": 1305.7384989261627,
+      "patients": 50,
+      "E_background_median_relative_error": 0.03820899421520965,
+      "inclusion_ratio_median_relative_error": 0.18692415951587435,
+      "force_scale_median_relative_error": 0.033896160509529843,
+      "refinement_acceptance_rate": 0.0,
+      "screening_rejection_rate": 1.0,
+      "function_evaluations_median": 7.0,
+      "wall_time_seconds_median": 127.26637535000918,
+      "paired_vs_reference_E": {
+        "median_delta": 0.0,
+        "win_rate": 0.04,
+        "pairs": 50,
+        "metric": "E_background_relative_error",
+        "reference": "frozen_screened"
+      },
+      "paired_vs_reference_ratio": {
+        "median_delta": 0.0,
+        "win_rate": 0.04,
+        "pairs": 50,
+        "metric": "inclusion_ratio_relative_error",
+        "reference": "frozen_screened"
+      }
+    },
+    "noise_0.50": {
+      "config": "noise_0.50",
+      "spec": {
+        "screening_minimum_cost_reduction": 0.05,
+        "minimum_refinement_cost_reduction": 0.05,
+        "track_noise_px": 0.5,
+        "force_scale_error": 0.0
+      },
+      "runtime_seconds": 1014.0589189529419,
+      "patients": 50,
+      "E_background_median_relative_error": 0.03820899421520965,
+      "inclusion_ratio_median_relative_error": 0.18692415951587435,
+      "force_scale_median_relative_error": 0.033896160509529843,
+      "refinement_acceptance_rate": 0.0,
+      "screening_rejection_rate": 1.0,
+      "function_evaluations_median": 7.0,
+      "wall_time_seconds_median": 96.28069355001207,
+      "paired_vs_reference_E": {
+        "median_delta": 0.0,
+        "win_rate": 0.04,
+        "pairs": 50,
+        "metric": "E_background_relative_error",
+        "reference": "frozen_screened"
+      },
+      "paired_vs_reference_ratio": {
+        "median_delta": 0.0,
+        "win_rate": 0.04,
+        "pairs": 50,
+        "metric": "inclusion_ratio_relative_error",
+        "reference": "frozen_screened"
+      }
+    },
+    "force_m0.10": {
+      "config": "force_m0.10",
+      "spec": {
+        "screening_minimum_cost_reduction": 0.05,
+        "minimum_refinement_cost_reduction": 0.05,
+        "track_noise_px": 0.05,
+        "force_scale_error": -0.1
+      },
+      "runtime_seconds": 1439.3727419376373,
+      "patients": 50,
+      "E_background_median_relative_error": 0.04005426002384621,
+      "inclusion_ratio_median_relative_error": 0.19019564274287956,
+      "force_scale_median_relative_error": 0.0751511571054185,
+      "refinement_acceptance_rate": 0.02,
+      "screening_rejection_rate": 0.98,
+      "function_evaluations_median": 7.0,
+      "wall_time_seconds_median": 116.16579520009691,
+      "paired_vs_reference_E": {
+        "median_delta": 0.0,
+        "win_rate": 0.04,
+        "pairs": 50,
+        "metric": "E_background_relative_error",
+        "reference": "frozen_screened"
+      },
+      "paired_vs_reference_ratio": {
+        "median_delta": 0.0,
+        "win_rate": 0.04,
+        "pairs": 50,
+        "metric": "inclusion_ratio_relative_error",
+        "reference": "frozen_screened"
+      }
+    },
+    "force_p0.05": {
+      "config": "force_p0.05",
+      "spec": {
+        "screening_minimum_cost_reduction": 0.05,
+        "minimum_refinement_cost_reduction": 0.05,
+        "track_noise_px": 0.05,
+        "force_scale_error": 0.05
+      },
+      "runtime_seconds": 4871.30318069458,
+      "patients": 50,
+      "E_background_median_relative_error": 0.04282169830269697,
+      "inclusion_ratio_median_relative_error": 0.19019564274287956,
+      "force_scale_median_relative_error": 0.0759542387486134,
+      "refinement_acceptance_rate": 0.14,
+      "screening_rejection_rate": 0.86,
+      "function_evaluations_median": 7.0,
+      "wall_time_seconds_median": 110.6790399000165,
+      "paired_vs_reference_E": {
+        "median_delta": 0.0,
+        "win_rate": 0.02,
+        "pairs": 50,
+        "metric": "E_background_relative_error",
+        "reference": "frozen_screened"
+      },
+      "paired_vs_reference_ratio": {
+        "median_delta": 0.0,
+        "win_rate": 0.02,
+        "pairs": 50,
+        "metric": "inclusion_ratio_relative_error",
+        "reference": "frozen_screened"
+      }
+    },
+    "force_p0.10": {
+      "config": "force_p0.10",
+      "spec": {
+        "screening_minimum_cost_reduction": 0.05,
+        "minimum_refinement_cost_reduction": 0.05,
+        "track_noise_px": 0.05,
+        "force_scale_error": 0.1
+      },
+      "runtime_seconds": 5389.6229202747345,
+      "patients": 50,
+      "E_background_median_relative_error": 0.053849501778149546,
+      "inclusion_ratio_median_relative_error": 0.2213999215820414,
+      "force_scale_median_relative_error": 0.12719015487949975,
+      "refinement_acceptance_rate": 0.34,
+      "screening_rejection_rate": 0.66,
+      "function_evaluations_median": 7.0,
+      "wall_time_seconds_median": 97.79997305001598,
+      "paired_vs_reference_E": {
+        "median_delta": 0.0,
+        "win_rate": 0.04,
+        "pairs": 50,
+        "metric": "E_background_relative_error",
+        "reference": "frozen_screened"
+      },
+      "paired_vs_reference_ratio": {
+        "median_delta": 0.0,
+        "win_rate": 0.12,
+        "pairs": 50,
+        "metric": "inclusion_ratio_relative_error",
+        "reference": "frozen_screened"
+      }
+    },
+    "force_p0.20": {
+      "config": "force_p0.20",
+      "spec": {
+        "screening_minimum_cost_reduction": 0.05,
+        "minimum_refinement_cost_reduction": 0.05,
+        "track_noise_px": 0.05,
+        "force_scale_error": 0.2
+      },
+      "runtime_seconds": 9342.969784498215,
+      "patients": 50,
+      "E_background_median_relative_error": 0.1100997879404349,
+      "inclusion_ratio_median_relative_error": 0.2113368690249667,
+      "force_scale_median_relative_error": 0.22200056660033352,
+      "refinement_acceptance_rate": 0.66,
+      "screening_rejection_rate": 0.34,
+      "function_evaluations_median": 79.0,
+      "wall_time_seconds_median": 1050.7199719999917,
+      "paired_vs_reference_E": {
+        "median_delta": 0.04898716322878888,
+        "win_rate": 0.04,
+        "pairs": 50,
+        "metric": "E_background_relative_error",
+        "reference": "frozen_screened"
+      },
+      "paired_vs_reference_ratio": {
+        "median_delta": 0.0,
+        "win_rate": 0.18,
+        "pairs": 50,
+        "metric": "inclusion_ratio_relative_error",
+        "reference": "frozen_screened"
+      }
+    },
+    "noscreen": {
+      "config": "noscreen",
+      "spec": {
+        "screening_minimum_cost_reduction": 0.0,
+        "minimum_refinement_cost_reduction": 0.0,
+        "track_noise_px": 0.05,
+        "force_scale_error": 0.0
+      },
+      "runtime_seconds": 6157.685739994049,
+      "patients": 50,
+      "E_background_median_relative_error": 0.08809586179600251,
+      "inclusion_ratio_median_relative_error": 0.15543775064950066,
+      "force_scale_median_relative_error": 0.03325102429172504,
+      "refinement_acceptance_rate": 1.0,
+      "screening_rejection_rate": 0.0,
+      "function_evaluations_median": 64.0,
+      "wall_time_seconds_median": 561.2721827499918,
+      "paired_vs_reference_E": {
+        "median_delta": 0.044667039137230025,
+        "win_rate": 0.18,
+        "pairs": 50,
+        "metric": "E_background_relative_error",
+        "reference": "frozen_screened"
+      },
+      "paired_vs_reference_ratio": {
+        "median_delta": -0.015103695620561203,
+        "win_rate": 0.56,
+        "pairs": 50,
+        "metric": "inclusion_ratio_relative_error",
+        "reference": "frozen_screened"
+      }
+    }
+  }
+}

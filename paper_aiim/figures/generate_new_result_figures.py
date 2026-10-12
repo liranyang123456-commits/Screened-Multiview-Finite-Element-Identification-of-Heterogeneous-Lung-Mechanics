@@ -149,7 +149,7 @@ def fig_ct_ratio_calibration() -> None:
     colors = [GRAY, BLUE, ORANGE, PURPLE]
     bars = ax.bar(np.arange(4), vals, color=colors, edgecolor=INK)
     for bar, value in zip(bars, vals, strict=True):
-        ax.text(bar.get_x() + bar.get_width() / 2, value + 0.8, f"{value:.1f}%", ha="center", fontsize=7.5)
+        ax.text(bar.get_x() + bar.get_width() / 2, value + 0.8, f"{value:.2f}%", ha="center", fontsize=7.5)
     ax.axhline(25, color=INK, ls="--", lw=0.9, label="25% gate")
     ax.set_xticks(range(4), names)
     ax.set_ylabel("Held-out median ratio error (%)")
@@ -174,7 +174,7 @@ def fig_ct_ratio_calibration() -> None:
     ax.legend(fontsize=8)
     for label, axis in zip(("A", "B"), axes, strict=True):
         panel_label(axis, label)
-    fig.suptitle("Official CT ratio calibration is a scalar post-process, not a new network", fontsize=10.5)
+    fig.suptitle("Official CT ratio calibration: a scalar post-process of the frozen network", fontsize=10.5)
     fig.tight_layout(rect=(0, 0, 1, 0.95))
     save_figure(fig, OUT, "fig_ct_ratio_calibration")
 

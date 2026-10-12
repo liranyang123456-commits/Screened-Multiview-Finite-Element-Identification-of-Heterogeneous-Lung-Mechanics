@@ -939,7 +939,7 @@ def fig_dataset_protocol(manifest: dict[str, Any], output_dir: Path) -> None:
     # Six compact entries in two columns, formula on the last row.
     cards = (
         (0.04, 0.80, "Track noise", f"{noise_px:.2f} px"),
-        (0.57, 0.80, "Force prior", f"{force_prior:.0%}"),
+        (0.57, 0.80, "Force error", f"{force_prior:.0%}"),
         (0.04, 0.56, "Depth change", "normalized"),
         (0.57, 0.56, "Visibility", "binary mask"),
         (0.04, 0.32, "Occlusion", "confidence"),
@@ -2174,7 +2174,7 @@ def fig_calibration(payload: dict[str, Any], output_dir: Path) -> None:
         0.96,
         f"median center {np.median(center_errors):.1f}%, "
         f"radius {np.median(radius_errors):.1f}%\n"
-        f"$n={len(heterogeneous)}$ heterogeneous cases; dashed = ceilings",
+        f"$n={len(heterogeneous)}$ heterogeneous cases; dashed = criteria",
         transform=ax.transAxes,
         ha="left",
         va="top",
@@ -2330,10 +2330,10 @@ def fig_response_baselines(payload: dict[str, Any], output_dir: Path) -> None:
     ax.set_xticks(np.arange(len(methods)) + 0.5, tick_labels, fontsize=8)
     ax.set_yticks(np.arange(4) + 0.5, ("$E_b$", "Ratio", "Center", "Radius"))
     ax.tick_params(length=0)
-    ax.set_title("Cases meeting each ceiling", fontsize=9.5)
+    ax.set_title("Cases meeting each criterion", fontsize=9.5)
     colorbar = fig.colorbar(mesh, ax=ax, fraction=0.046, pad=0.03)
     colorbar.solids.set_rasterized(False)  # keep the PDF fully vector
-    colorbar.set_label("Cases within ceiling (%)", fontsize=7.5)
+    colorbar.set_label("Cases within criterion (%)", fontsize=7.5)
     colorbar.ax.tick_params(labelsize=7)
     panel_label(ax, "E", x=-0.20)
 
@@ -3794,7 +3794,7 @@ def fig_ion_ct_physics_material_maps(output_dir: Path) -> None:
         0.012,
         "Each row's four log E maps share that row's colour scale; the error column shares one scale.\n"
         "* true-region/true-force reference under the shared 16-evaluation budget "
-        "(a comparison, not an attainable bound).",
+        "(diagnostic comparison only).",
         fontsize=7.3,
         color=GRAY,
         va="bottom",

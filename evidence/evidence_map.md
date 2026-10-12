@@ -29,16 +29,16 @@ CT-conditioned samples**. Real CT-derived geometry appears only in the
 
 ### Cohort and protocol
 
-- **250 synthetic patients; 150/50/50 train/validation/test**
+- **250 synthetic cases; 150/50/50 train/validation/test**
   - Evidence: `node_response_calibrator_strict.json`, `protocol.split_counts`.
   - Corroboration: `dataset/sim_lung_ai_v2_multiview250/manifest.json`, `patient_count: 250`.
-- **Four experiments per patient**
-  - Evidence: all patient records in the screened fair-FEM summary report `experiment_count: 4`.
-  - Corroboration: the manifest reports 1,000 experiments for 250 patients.
+- **Four experiments per case**
+  - Evidence: all case records in the screened fair-FEM summary report `experiment_count: 4`.
+  - Corroboration: the manifest reports 1,000 experiments for 250 cases.
 - **Three views and seven frames**
   - Evidence: manifest `generation_config.num_views: 3`; `dataset/sim_lung_graph.py` requires `sequence_length == 7` and constructs multiview dynamic tensors.
-- **Patient-level separation**
-  - Evidence: manifest `patient_level_split: true`; the data loader builds one graph per patient and concatenates that patient's experiments.
+- **Case-level separation**
+  - Evidence: manifest `patient_level_split: true` (the field name is historical; each "patient" is one synthetic case); the data loader builds one graph per case and concatenates that case's experiments.
 - **Fixed template discretization**
   - 256 total nodes, 64 observed surface nodes, and 882 tetrahedra for
     template-consistent synthetic samples.
@@ -64,7 +64,7 @@ CT-conditioned samples**. Real CT-derived geometry appears only in the
   - Evidence: publication gate and strict calibrator test result.
 - **90% interval coverages: 0.92 and 0.90**
   - Evidence: strict calibrator `test.log_E_uncertainty.coverage.90` and `test.log_ratio_uncertainty.coverage.90`.
-  - Interpretation: marginal empirical coverage on 50 synthetic test patients only.
+  - Interpretation: marginal empirical coverage on 50 synthetic test cases only.
 
 ### Leakage-control and estimator identity
 
@@ -85,7 +85,7 @@ CT-conditioned samples**. Real CT-derived geometry appears only in the
 ### Common-input response baselines
 
 - All methods use the same visible-flow temporal mean/maximum summaries and
-  150/50/50 patient split.
+  150/50/50 case split.
 - Within-family hyperparameters are selected by five-fold training-only CV.
 - Test medians for population prior / Ridge / PLS / ExtraTrees / PCA--Ridge:
   - Background: 30.15% / 3.41% / 4.25% / 5.05% / 3.82%.
@@ -118,7 +118,7 @@ CT-conditioned samples**. Real CT-derived geometry appears only in the
   - Calculation: `(79 - 7) / 79`.
 - **Shared protocol**
   - The fair-run script sets the fixed material start to 5,000 Pa and ratio 1.8 while retaining predicted center/radius.
-  - Both arms use the shared held-out patients and frozen multiview FEM settings.
+  - Both arms use the shared held-out cases and frozen multiview FEM settings.
 - **Success caveat**
   - In `evaluate_sim_lung_v2.py`, screening rejection is classified as convergence with termination reason `insufficient_initial_physics_evidence`.
   - Therefore, 100% success is an algorithmic termination metric, not a substitute for material accuracy.
@@ -158,11 +158,11 @@ CT-conditioned samples**. Real CT-derived geometry appears only in the
 ### Five-seed evidence
 
 - Seeds: 2024, 2025, 2026, 2027, 2028.
-- Same test cohort: 50 patients.
+- Same test cohort: 50 synthetic cases.
 - Seed-level mean ± sample SD:
   - Background median error: `0.08256052751245158 ± 0.00866084304371891`.
   - Ratio median error: `0.3230160108837429 ± 0.036475693513688436`.
-- Per-patient average-error aggregate:
+- Per-case average-error aggregate:
   - Background median: `0.06993569554306704`, bootstrap 95% CI `[0.05705259558595363, 0.09052457814987824]`.
   - Ratio median: `0.30386758482871956`, bootstrap 95% CI `[0.2558157496213299, 0.403841480704395]`.
 - Evidence: `multiseed_aggregate.json`.
@@ -247,7 +247,7 @@ CT-conditioned samples**. Real CT-derived geometry appears only in the
 
 ## Method-to-code map
 
-- Mesh topology and patient graph construction: `dataset/sim_lung_graph.py`
+- Mesh topology and per-case graph construction: `dataset/sim_lung_graph.py`
   - Tetrahedral edges become bidirectional graph edges.
   - Static channels are normalized coordinates, fixed mask, and surface mask.
   - Dynamic channels are flow, normalized depth change, confidence, visibility, known force, and camera pose.
@@ -264,9 +264,9 @@ CT-conditioned samples**. Real CT-derived geometry appears only in the
 - Common-input response baselines:
   `experiments/benchmark_lung_response_baselines.py`.
 - FE inverse solver: `lung_inverse_rendering/evaluate_sim_lung_v2.py`
-  - Shared patient material across experiments, projected multiview residuals, force/material priors, bounded pattern search, refinement acceptance, and early screening.
+  - Shared per-case material across experiments, projected multiview residuals, force/material priors, bounded pattern search, refinement acceptance, and early screening.
 - Fair comparison orchestration: `experiments/run_fair_multiview_fem.py`.
-- Patient-level bootstrap and paired summaries: `lung_inverse_rendering/aggregate_large_eval.py`.
+- Case-level bootstrap and paired summaries: `lung_inverse_rendering/aggregate_large_eval.py`.
 - Multiseed aggregation: `evaluation/aggregate_multiseed.py`.
 - Geometry-only OOD checks: `evaluation/evaluate_lung_geometry_ood.py`.
 - CT synthetic-mechanics generation:
@@ -310,8 +310,7 @@ CT-conditioned samples**. Real CT-derived geometry appears only in the
 - `figures/fig_ion_ct_physics_material_maps.pdf`: truth, primary estimate,
   fixed-FEM recovery, oracle, and error fields on all three geometries.
 
-The LaTeX file contains compile-safe placeholders until these PDFs are
-supplied. Captions must state inputs, protocol, and the claim boundary.
+Captions must state inputs, protocol, and the claim boundary.
 
 ## Development-validation interpretation
 
@@ -332,7 +331,7 @@ do not modify the frozen files.
 - Records: `results/lung_mesh_ai_v2/vfm_oracle_benchmark.json`.
 - Information given: oracle full interior kinematics (peak frame), oracle
   inclusion region, measured forces (5% error).
-- Results (50 test patients): background median `0.07237588638329817` = 7.24%
+- Results (50 synthetic test cases): background median `0.07237588638329817` = 7.24%
   (mean 11.07%); ratio median `0.21041460042457744` = 21.04% (mean 22.44%).
 
 ### Noise x force-bias sensitivity and no-screen counterfactual (R1/R2)
@@ -343,14 +342,18 @@ do not modify the frozen files.
 - Configurations: track noise 0.01/0.10/0.20/0.50 px (0.05 px is the frozen
   arm), force-calibration bias -0.10/+0.05/+0.10/+0.20, and the unscreened
   counterfactual (screening and acceptance thresholds set to 0).
-- All runs reuse the frozen protocol (50 test patients, calibrator init,
+- All runs reuse the frozen protocol (50 synthetic test cases, calibrator init,
   predicted region, force prior sigma 0.05, material prior weight 0.05).
 - Results (median background / ratio / acceptance / evaluations):
   noise 0.01 px `0.0428/0.1837/0.10/7`; noise 0.10 px `0.0411/0.1869/0.04/7`;
   noise 0.20 px `0.0382/0.1869/0.00/7`; noise 0.50 px `0.0382/0.1869/0.00/7`;
   force -0.10 `0.0401/0.1902/0.02/7`; force +0.05 `0.0428/0.1902/0.14/7`;
   force +0.10 `0.0538/0.2214/0.34/7`; force +0.20 `0.1101/0.2113/0.66/79`;
-  no screen `0.0881/0.1554/1.00/64` (background worsened on 47/50 patients).
+  no screen `0.0881/0.1554/1.00/64` (background worsened in 37/50 cases
+  relative to the screened result, 37/9/4 worsened/improved/tied, and in
+  39/50 cases relative to the bounded initializer, 39 worsened / 11 improved;
+  `results/ct_reviewer_drivers_v6/second_round_facts.json`,
+  `primary_no_screen_counterfactual_w1_n96`).
 
 ### CT-cohort statistics correction (R4/R5)
 
@@ -360,9 +363,13 @@ do not modify the frozen files.
 - The main text now reports geometry-cluster bootstrap intervals
   (`methods.ours_hybrid_initializer.geometry_cluster_bootstrap` in
   `benchmark.json`, 2,000 replicates) instead of scene-level intervals.
-- Per-geometry ratio medians fail the 25% gate in 4/6 geometries
-  (26.9--33.6%); scene-level ratio-error Spearman correlations: inclusion
-  radius -0.20, OOD score 0.05, partition soft-Dice -0.06.
+- Before the official calibration, per-geometry ratio medians fail the 25%
+  gate in 4/6 geometries (26.9--33.6%); scene-level ratio-error Spearman
+  correlations: inclusion radius -0.20, OOD score 0.05, partition soft-Dice
+  -0.06. After the official calibration
+  (`results/ion_ct_ratio_optimization/fair_calibrate/official_lock.json`,
+  `official_hybrid.test_ratio`), all six geometry medians pass the gate
+  (6/6: 11.56 / 14.26 / 16.04 / 17.78 / 18.13 / 23.43%; pooled 17.77%).
 
 ## Post-lock inverse-arm controls (Array sync, 2026-08-25)
 
@@ -407,7 +414,6 @@ No result from `paper_tbme` experiments involving sim_v3, C3VD, ETS, small-bowel
 
 - Confirm institutional ethics/waiver and data-use requirements before mentioning or releasing any de-identified ION CT-derived geometry.
 - Do not add an ethics approval number unless verified from institutional documentation.
-- Replace figure placeholders with frozen-evidence figures.
 - Recheck that generated figure labels use percentages consistently.
 - Archive code, configurations, and all frozen evidence files with a persistent identifier.
 - Verify author emails, CRediT roles, and funding acknowledgements with all authors.

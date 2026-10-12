@@ -1,0 +1,483 @@
+{
+  "source": "results\\ion_ct_expanded120_final\\benchmark.json",
+  "geometries": [
+    "geom_58db559b24da6eb7cc0d",
+    "geom_62010c56d95ec023bc9b",
+    "geom_a417d13e9ae27d685557",
+    "geom_ab578f1bb0ee02be2ccd",
+    "geom_db38a9c3817f033727b5",
+    "geom_fac5cdc88e186e46ee04"
+  ],
+  "methods": {
+    "ours_hybrid_initializer": {
+      "label": "Hybrid initializer",
+      "per_geometry": {
+        "geom_58db559b24da6eb7cc0d": {
+          "scenes": 20,
+          "metrics": {
+            "E_background_relative_error": {
+              "median": 0.08758789511683879,
+              "gate": 0.15,
+              "pass": true,
+              "count": 20
+            },
+            "inclusion_ratio_relative_error": {
+              "median": 0.2702279942836133,
+              "gate": 0.25,
+              "pass": false,
+              "count": 20
+            },
+            "center_error_normalized": {
+              "median": 0.1008836068212986,
+              "gate": 0.1,
+              "pass": false,
+              "count": 18
+            },
+            "radius_relative_error": {
+              "median": 0.1332269193406515,
+              "gate": 0.12,
+              "pass": false,
+              "count": 18
+            }
+          }
+        },
+        "geom_62010c56d95ec023bc9b": {
+          "scenes": 20,
+          "metrics": {
+            "E_background_relative_error": {
+              "median": 0.19790589949921178,
+              "gate": 0.15,
+              "pass": false,
+              "count": 20
+            },
+            "inclusion_ratio_relative_error": {
+              "median": 0.26856184234654934,
+              "gate": 0.25,
+              "pass": false,
+              "count": 20
+            },
+            "center_error_normalized": {
+              "median": 0.09829675033688545,
+              "gate": 0.1,
+              "pass": true,
+              "count": 18
+            },
+            "radius_relative_error": {
+              "median": 0.11070035152461677,
+              "gate": 0.12,
+              "pass": true,
+              "count": 18
+            }
+          }
+        },
+        "geom_a417d13e9ae27d685557": {
+          "scenes": 20,
+          "metrics": {
+            "E_background_relative_error": {
+              "median": 0.08646125746378604,
+              "gate": 0.15,
+              "pass": true,
+              "count": 20
+            },
+            "inclusion_ratio_relative_error": {
+              "median": 0.3354974853907652,
+              "gate": 0.25,
+              "pass": false,
+              "count": 20
+            },
+            "center_error_normalized": {
+              "median": 0.08755699545145035,
+              "gate": 0.1,
+              "pass": true,
+              "count": 18
+            },
+            "radius_relative_error": {
+              "median": 0.09403948274835822,
+              "gate": 0.12,
+              "pass": true,
+              "count": 18
+            }
+          }
+        },
+        "geom_ab578f1bb0ee02be2ccd": {
+          "scenes": 20,
+          "metrics": {
+            "E_background_relative_error": {
+              "median": 0.05351012970255266,
+              "gate": 0.15,
+              "pass": true,
+              "count": 20
+            },
+            "inclusion_ratio_relative_error": {
+              "median": 0.29203524154358307,
+              "gate": 0.25,
+              "pass": false,
+              "count": 20
+            },
+            "center_error_normalized": {
+              "median": 0.101091668009758,
+              "gate": 0.1,
+              "pass": false,
+              "count": 18
+            },
+            "radius_relative_error": {
+              "median": 0.16000493425886775,
+              "gate": 0.12,
+              "pass": false,
+              "count": 18
+            }
+          }
+        },
+        "geom_db38a9c3817f033727b5": {
+          "scenes": 20,
+          "metrics": {
+            "E_background_relative_error": {
+              "median": 0.38716317950710055,
+              "gate": 0.15,
+              "pass": false,
+              "count": 20
+            },
+            "inclusion_ratio_relative_error": {
+              "median": 0.20419065490965624,
+              "gate": 0.25,
+              "pass": true,
+              "count": 20
+            },
+            "center_error_normalized": {
+              "median": 0.0880906879901886,
+              "gate": 0.1,
+              "pass": true,
+              "count": 18
+            },
+            "radius_relative_error": {
+              "median": 0.09327137822275766,
+              "gate": 0.12,
+              "pass": true,
+              "count": 18
+            }
+          }
+        },
+        "geom_fac5cdc88e186e46ee04": {
+          "scenes": 20,
+          "metrics": {
+            "E_background_relative_error": {
+              "median": 0.04998860966478491,
+              "gate": 0.15,
+              "pass": true,
+              "count": 20
+            },
+            "inclusion_ratio_relative_error": {
+              "median": 0.24811450602883411,
+              "gate": 0.25,
+              "pass": true,
+              "count": 20
+            },
+            "center_error_normalized": {
+              "median": 0.11168943345546722,
+              "gate": 0.1,
+              "pass": false,
+              "count": 18
+            },
+            "radius_relative_error": {
+              "median": 0.11152656458480836,
+              "gate": 0.12,
+              "pass": true,
+              "count": 18
+            }
+          }
+        }
+      }
+    },
+    "pca_ridge": {
+      "label": "PCA--Ridge",
+      "per_geometry": {
+        "geom_58db559b24da6eb7cc0d": {
+          "scenes": 20,
+          "metrics": {
+            "E_background_relative_error": {
+              "median": 0.28052488435304596,
+              "gate": 0.15,
+              "pass": false,
+              "count": 20
+            },
+            "inclusion_ratio_relative_error": {
+              "median": 0.36493973214552833,
+              "gate": 0.25,
+              "pass": false,
+              "count": 20
+            },
+            "center_error_normalized": {
+              "median": 0.10149587301439769,
+              "gate": 0.1,
+              "pass": false,
+              "count": 18
+            },
+            "radius_relative_error": {
+              "median": 0.1332269193406515,
+              "gate": 0.12,
+              "pass": false,
+              "count": 18
+            }
+          }
+        },
+        "geom_62010c56d95ec023bc9b": {
+          "scenes": 20,
+          "metrics": {
+            "E_background_relative_error": {
+              "median": 0.3143298762519686,
+              "gate": 0.15,
+              "pass": false,
+              "count": 20
+            },
+            "inclusion_ratio_relative_error": {
+              "median": 0.5169690807632451,
+              "gate": 0.25,
+              "pass": false,
+              "count": 20
+            },
+            "center_error_normalized": {
+              "median": 0.18027287327335328,
+              "gate": 0.1,
+              "pass": false,
+              "count": 18
+            },
+            "radius_relative_error": {
+              "median": 0.11070035152461677,
+              "gate": 0.12,
+              "pass": true,
+              "count": 18
+            }
+          }
+        },
+        "geom_a417d13e9ae27d685557": {
+          "scenes": 20,
+          "metrics": {
+            "E_background_relative_error": {
+              "median": 0.05998730364991944,
+              "gate": 0.15,
+              "pass": true,
+              "count": 20
+            },
+            "inclusion_ratio_relative_error": {
+              "median": 0.32450391856476424,
+              "gate": 0.25,
+              "pass": false,
+              "count": 20
+            },
+            "center_error_normalized": {
+              "median": 0.13192269887423222,
+              "gate": 0.1,
+              "pass": false,
+              "count": 18
+            },
+            "radius_relative_error": {
+              "median": 0.09403948274835822,
+              "gate": 0.12,
+              "pass": true,
+              "count": 18
+            }
+          }
+        },
+        "geom_ab578f1bb0ee02be2ccd": {
+          "scenes": 20,
+          "metrics": {
+            "E_background_relative_error": {
+              "median": 0.08626268417833749,
+              "gate": 0.15,
+              "pass": true,
+              "count": 20
+            },
+            "inclusion_ratio_relative_error": {
+              "median": 0.5169690807632451,
+              "gate": 0.25,
+              "pass": false,
+              "count": 20
+            },
+            "center_error_normalized": {
+              "median": 0.20472965815423866,
+              "gate": 0.1,
+              "pass": false,
+              "count": 18
+            },
+            "radius_relative_error": {
+              "median": 0.16000493425886775,
+              "gate": 0.12,
+              "pass": false,
+              "count": 18
+            }
+          }
+        },
+        "geom_db38a9c3817f033727b5": {
+          "scenes": 20,
+          "metrics": {
+            "E_background_relative_error": {
+              "median": 0.08357938074386562,
+              "gate": 0.15,
+              "pass": true,
+              "count": 20
+            },
+            "inclusion_ratio_relative_error": {
+              "median": 0.6689367979563545,
+              "gate": 0.25,
+              "pass": false,
+              "count": 20
+            },
+            "center_error_normalized": {
+              "median": 0.1630617594079346,
+              "gate": 0.1,
+              "pass": false,
+              "count": 18
+            },
+            "radius_relative_error": {
+              "median": 0.09327137822275766,
+              "gate": 0.12,
+              "pass": true,
+              "count": 18
+            }
+          }
+        },
+        "geom_fac5cdc88e186e46ee04": {
+          "scenes": 20,
+          "metrics": {
+            "E_background_relative_error": {
+              "median": 0.1610333658242158,
+              "gate": 0.15,
+              "pass": false,
+              "count": 20
+            },
+            "inclusion_ratio_relative_error": {
+              "median": 0.17381120741997452,
+              "gate": 0.25,
+              "pass": true,
+              "count": 20
+            },
+            "center_error_normalized": {
+              "median": 0.12288731741587929,
+              "gate": 0.1,
+              "pass": false,
+              "count": 18
+            },
+            "radius_relative_error": {
+              "median": 0.11152656458480836,
+              "gate": 0.12,
+              "pass": true,
+              "count": 18
+            }
+          }
+        }
+      }
+    }
+  },
+  "ratio_error_scene_correlations_spearman": {
+    "radius_fraction_true": -0.2048466558479147,
+    "ood_score": 0.045878185985137855,
+    "partition_soft_dice": -0.0552610887781512
+  },
+  "hybrid_geometry_cluster_bootstrap": {
+    "E_background_relative_error": {
+      "estimand": "scenario-level median with geometry-cluster resampling",
+      "cluster_variable": "geometry_id",
+      "cluster_count": 6,
+      "replicates": 2000,
+      "median": 0.08546262218403594,
+      "bootstrap_95_ci": [
+        0.05860133563228696,
+        0.20394064847101157
+      ]
+    },
+    "inclusion_ratio_relative_error": {
+      "estimand": "scenario-level median with geometry-cluster resampling",
+      "cluster_variable": "geometry_id",
+      "cluster_count": 6,
+      "replicates": 2000,
+      "median": 0.2694619923086097,
+      "bootstrap_95_ci": [
+        0.2370952514898606,
+        0.3048786988431682
+      ]
+    },
+    "center_error_normalized": {
+      "estimand": "scenario-level median with geometry-cluster resampling",
+      "cluster_variable": "geometry_id",
+      "cluster_count": 6,
+      "replicates": 2000,
+      "median": 0.09600735455751419,
+      "bootstrap_95_ci": [
+        0.08860383182764053,
+        0.10477510467171669
+      ]
+    },
+    "radius_relative_error": {
+      "estimand": "scenario-level median with geometry-cluster resampling",
+      "cluster_variable": "geometry_id",
+      "cluster_count": 6,
+      "replicates": 2000,
+      "median": 0.11455004168722682,
+      "bootstrap_95_ci": [
+        0.09478655601377406,
+        0.13160872951390679
+      ]
+    },
+    "node_log_E_mae": {
+      "estimand": "scenario-level median with geometry-cluster resampling",
+      "cluster_variable": "geometry_id",
+      "cluster_count": 6,
+      "replicates": 2000,
+      "median": 0.10581797850318253,
+      "bootstrap_95_ci": [
+        0.08288543578237295,
+        0.2084204349666834
+      ]
+    },
+    "material_map_correlation": {
+      "estimand": "scenario-level median with geometry-cluster resampling",
+      "cluster_variable": "geometry_id",
+      "cluster_count": 6,
+      "replicates": 2000,
+      "median": 0.3685700909354013,
+      "bootstrap_95_ci": [
+        0.28238015663858623,
+        0.47653574050975234
+      ]
+    },
+    "partition_soft_dice": {
+      "estimand": "scenario-level median with geometry-cluster resampling",
+      "cluster_variable": "geometry_id",
+      "cluster_count": 6,
+      "replicates": 2000,
+      "median": 0.29285714354234693,
+      "bootstrap_95_ci": [
+        0.1538461544970414,
+        0.41052631654182825
+      ]
+    },
+    "force_scale_relative_error": {
+      "available": false,
+      "reason": "metric_not_emitted"
+    },
+    "function_evaluations": {
+      "available": false,
+      "reason": "metric_not_emitted"
+    },
+    "diagnostic_function_evaluations": {
+      "available": false,
+      "reason": "metric_not_emitted"
+    },
+    "wall_time_seconds": {
+      "available": false,
+      "reason": "metric_not_emitted"
+    },
+    "algorithmic_termination": {
+      "available": false,
+      "reason": "metric_not_emitted"
+    },
+    "refinement_accepted": {
+      "available": false,
+      "reason": "metric_not_emitted"
+    },
+    "screening_rejected": {
+      "available": false,
+      "reason": "metric_not_emitted"
+    }
+  }
+}
