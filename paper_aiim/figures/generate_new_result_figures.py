@@ -64,8 +64,12 @@ def fig_fem_multistart() -> None:
         yerr = np.vstack((vals - cis[:, 0], cis[:, 1] - vals))
         bars = ax.bar(np.arange(3), vals, yerr=yerr, capsize=4, color=colors, edgecolor=INK)
         for bar, value, upper in zip(bars, vals, yerr[1], strict=True):
-            # Label above the upper CI cap so that it never sits on the error bar.
-            ax.text(bar.get_x() + bar.get_width() / 2, value + upper + 1.0, f"{value:.1f}%", ha="center", va="bottom", fontsize=7.5)
+            # Label above the upper CI cap so that it never sits on the error bar;
+            # if that position would touch the dashed gate line, lift it above the gate.
+            label_y = value + upper + 1.0
+            if abs(label_y - gate) < 2.5:
+                label_y = gate + 1.2
+            ax.text(bar.get_x() + bar.get_width() / 2, label_y, f"{value:.1f}%", ha="center", va="bottom", fontsize=7.5)
         ax.set_ylim(0, (vals + yerr[1]).max() * 1.18)
         ax.axhline(gate, color=INK, ls="--", lw=0.8)
         ax.set_xticks(range(3), labels)
@@ -159,7 +163,7 @@ def fig_ct_ratio_calibration() -> None:
     x = np.arange(len(keys))
     frozen = np.asarray([frozen_geoms[key] for key in keys]) * 100
     cal = np.asarray([official_geoms[key] * 100 for key in keys])
-    ax.bar(x - 0.18, frozen, 0.36, color=GRAY, edgecolor=INK, label="Frozen hybrid (26.95%)")
+    ax.bar(x - 0.18, frozen, 0.36, color=GRAY, edgecolor=INK, label="Raw MeshGNN (uncalibrated), 26.95%")
     ax.bar(x + 0.18, cal, 0.36, color=BLUE, edgecolor=INK, label="Official calibration (17.77%)")
     ax.axhline(25, color=INK, ls="--", lw=0.9)
     ax.set_xticks(x, keys, rotation=20, ha="right")

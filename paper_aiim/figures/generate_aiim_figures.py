@@ -83,7 +83,7 @@ CT_METHOD_LABELS = {
     "fem_deterministic_multistart": "Deterministic multistart FEM",
     "fem_learned_screened_map": "Uncalibrated hybrid-prior screened MAP",
     "ours_ood_screened_fem": "Uncalibrated hybrid-prior OOD fallback",
-    "fem_oracle_region_force": "True-region/force reference*",
+    "fem_oracle_region_force": "True-region/true-force reference*",
 }
 # Short category labels used on crowded estimator axes; the full names are
 # always written in an in-figure key (see ``_abbreviation_key``).
@@ -926,7 +926,7 @@ def fig_dataset_protocol(manifest: dict[str, Any], output_dir: Path) -> None:
     distribution_axes = [fig.add_subplot(grid[2, index]) for index in range(4)]
     histogram_specs = [
         (E, "$E_b$ (kPa)", BLUE),
-        (ratio, "Inclusion ratio $r$", GREEN),
+        (ratio, r"Inclusion ratio $\rho_E$", GREEN),
         (radius, "Radius fraction $R$", ORANGE),
     ]
     for ax, (values, label, color) in zip(distribution_axes[:3], histogram_specs, strict=True):
@@ -1206,7 +1206,7 @@ def fig_qualitative_case(
         triangles,
         true_center,
         true_radius,
-        f"Ground-truth partition\n$E_b$ = {record['E_background_true']/1000:.2f} kPa, $r$ = {record['inclusion_ratio_true']:.2f}",
+        f"Ground-truth partition\n$E_b$ = {record['E_background_true']/1000:.2f} kPa, $\\rho_E$ = {record['inclusion_ratio_true']:.2f}",
         fontsize=8.0,
         zoom=1.45,
     )
@@ -1216,7 +1216,7 @@ def fig_qualitative_case(
         triangles,
         pred_center,
         pred_radius,
-        f"Predicted partition\n$E_b$ = {record['E_background_estimated']/1000:.2f} kPa, $r$ = {record['inclusion_ratio_estimated']:.2f}",
+        f"Predicted partition\n$E_b$ = {record['E_background_estimated']/1000:.2f} kPa, $\\rho_E$ = {record['inclusion_ratio_estimated']:.2f}",
         fontsize=8.0,
         zoom=1.45,
     )
@@ -1587,7 +1587,7 @@ def fig_case_gallery(
             0.72,
             f"$E_b$: {record['E_background_true']/1000:.2f} → "
             f"{record['E_background_estimated']/1000:.2f} kPa\n"
-            f"$r$: {record['inclusion_ratio_true']:.2f} → "
+            f"$\\rho_E$: {record['inclusion_ratio_true']:.2f} → "
             f"{record['inclusion_ratio_estimated']:.2f}",
             transform=ax_card.transAxes,
             va="top",
@@ -1640,10 +1640,15 @@ def _development_metrics(results_root: Path) -> tuple[list[dict[str, Any]], list
         ("100-patient development", "stage100"),
         ("250-patient development", "stage250"),
     ]
+    # The stage-250 base reported in the supplement (development-variant table
+    # and text: 28.77/31.75/12.78/15.78 %) is the round-0 training state of
+    # ``stage250``; rounds 1-2 are later cycle states that were not tabulated.
+    # The 40- and 100-case stages keep their round-2 (final-cycle) records.
+    gnn_round = {"stage250": "round_0"}
     for stage_label, directory in stage_specs:
         for model, relative in (
             ("MLP", Path(directory) / "mlp" / "metrics_mlp.json"),
-            ("MeshGNN", Path(directory) / "round_2" / "metrics_gnn.json"),
+            ("MeshGNN", Path(directory) / gnn_round.get(directory, "round_2") / "metrics_gnn.json"),
         ):
             payload = load_json(results_root / relative)
             rows.append({"stage": stage_label, "model": model, **payload["validation"]})
@@ -1656,7 +1661,10 @@ def _development_metrics(results_root: Path) -> tuple[list[dict[str, Any]], list
         "stage250_local_refine",
         "stage250_mean_supervised",
     ):
-        candidates = [results_root / directory / "metrics_gnn.json", results_root / directory / "round_2" / "metrics_gnn.json"]
+        candidates = [
+            results_root / directory / "metrics_gnn.json",
+            results_root / directory / gnn_round.get(directory, "round_2") / "metrics_gnn.json",
+        ]
         path = next((candidate for candidate in candidates if candidate.is_file()), None)
         if path is None:
             continue
@@ -1702,7 +1710,7 @@ def fig_development_ablation(results_root: Path, output_dir: Path) -> None:
         ]
         plotted.extend(values)
         ax.plot(x + offset, values, marker=marker, lw=1.6, ms=4.5, color=color, label=model)
-    ax.set_xticks(x, ["40\n(round 2)", "100", "250"])
+    ax.set_xticks(x, ["40\n(round 2)", "100", "250\n(round 0)"])
     ax.set_xlim(-0.35, 2.35)
     # Extra room below the curves keeps the caveat box clear of the lines.
     value_span = max(max(plotted) - min(plotted), 1e-6)
@@ -2033,10 +2041,12 @@ def fig_fair_fem(payload: dict[str, Any], output_dir: Path) -> None:
         ax.set_ylim(0, (vals + yerr[1]).max() * 1.32)
         ax.grid(axis="y", color=LIGHT)
         delta = paired[f"{metric}_relative_error"]
+        # Paired difference of two percentages: report in percentage points.
+        delta_pp = f"{100 * delta['candidate_minus_reference_median']:.1f}".replace("-", "\u2212")
         ax.text(
             0.03,
             0.96,
-            f"Paired median Δ = {delta['candidate_minus_reference_median']:.1%}\nLearned win rate = {delta['candidate_win_rate']:.0%}",
+            f"Paired median Δ = {delta_pp} pp\nLearned win rate = {delta['candidate_win_rate']:.0%}",
             transform=ax.transAxes,
             va="top",
             fontsize=7.5,
@@ -2057,7 +2067,7 @@ def fig_fair_fem(payload: dict[str, Any], output_dir: Path) -> None:
         for method in records_by_method
     ]) * 100
     x = np.arange(2)
-    bars_term = ax.bar(x - 0.19, termination, 0.38, color=BLUE, edgecolor=INK, label="Recorded convergence / early stop")
+    bars_term = ax.bar(x - 0.19, termination, 0.38, color=BLUE, edgecolor=INK, label="Algorithmic termination / continuation stop")
     bars_accept = ax.bar(x + 0.19, accepted, 0.38, color=ORANGE, edgecolor=INK, hatch="//", label="Accepted refinement")
     for bars, values in ((bars_term, termination), (bars_accept, accepted)):
         for bar, value in zip(bars, values, strict=True):
@@ -2140,7 +2150,7 @@ def fig_calibration(payload: dict[str, Any], output_dir: Path) -> None:
             np.log([row["inclusion_ratio_estimated"] for row in records]),
             test["log_ratio_uncertainty"]["half_width"],
             test["log_ratio_uncertainty"]["coverage"]["90"],
-            r"$\log r$",
+            r"$\log \rho_E$",
             GREEN,
             "B",
         ),
@@ -2906,24 +2916,15 @@ def fig_ion_ct_method_comparison(output_dir: Path) -> None:
     full names are printed in an in-figure key, so no rotated tick text.
     """
     benchmark = load_json(ION_PHYSICS_RESULTS / "benchmark.json")
-    methods = [
-        method
-        for method in (
-            "training_population",
-            "ridge",
-            "pls",
-            "extra_trees",
-            "pca_ridge",
-            "mesh_gnn",
-            "ours_hybrid_initializer",
-            "fem_fixed_init",
-            "fem_deterministic_multistart",
-            "fem_learned_screened_map",
-            "ours_ood_screened_fem",
-            "fem_oracle_region_force",
-        )
-        if method in benchmark["methods"]
-    ]
+    # Same estimator order and evidence-tier separators as the main-text
+    # scene-distribution figure (``fig_ion_ct_error_distributions``):
+    # R, PLS, ET, PCR, Pop, GNN, Hyb, FEM-f, FEM-m, MAP, OOD, Ref*, with
+    # dotted lines after the common-input tier and before the reference arm.
+    methods = _ct_available_methods(benchmark)
+    tier_common_count = sum(
+        method in benchmark["protocol"]["evidence_tiers"]["common_input"]
+        for method in methods
+    )
     metrics = (
         ("E_background_relative_error", "Background E\nerror (%)", 15.0),
         ("inclusion_ratio_relative_error", "Modulus-ratio\nerror (%)", 25.0),
@@ -2991,14 +2992,11 @@ def fig_ion_ct_method_comparison(output_dir: Path) -> None:
             label="Across-geometry median",
         )
         ax.axhline(gate, color=INK, linestyle="--", linewidth=0.9, label="Development-fixed gate")
-        for boundary_method in ("fem_fixed_init", "fem_oracle_region_force"):
-            if boundary_method in methods:
-                ax.axvline(
-                    methods.index(boundary_method) - 0.5,
-                    color=GRAY,
-                    linestyle=":",
-                    linewidth=0.9,
-                )
+        boundaries = [tier_common_count - 0.5]
+        if "fem_oracle_region_force" in methods:
+            boundaries.append(methods.index("fem_oracle_region_force") - 0.5)
+        for boundary in boundaries:
+            ax.axvline(boundary, color=GRAY, linestyle=":", linewidth=0.9)
         ax.set_xticks(x, [CT_METHOD_ABBREV[method] for method in methods])
         ax.tick_params(axis="x", labelsize=8, labelbottom=True)
         ax.set_xlim(-0.6, len(methods) - 0.4)
@@ -3623,7 +3621,17 @@ def fig_ion_ct_multiview_tracks(output_dir: Path) -> None:
                 headwidth=3.4,
                 headlength=4.0,
             )
+            # Share the data window of the path panel with the peak-flow panel
+            # of the same view (union of both autoscaled ranges), so that a
+            # view with only a few visible peak-frame nodes is not squeezed
+            # into a thin band by the equal-aspect autoscale.
+            path_x, path_y = ax_path.get_xlim(), ax_path.get_ylim()
+            peak_x, peak_y = ax_peak.get_xlim(), ax_peak.get_ylim()
+            shared_x = (min(path_x[0], peak_x[0]), max(path_x[1], peak_x[1]))
+            shared_y = (min(path_y[0], peak_y[0]), max(path_y[1], peak_y[1]))
             for ax in (ax_path, ax_peak):
+                ax.set_xlim(*shared_x)
+                ax.set_ylim(*shared_y)
                 ax.invert_yaxis()
                 ax.set_aspect("equal")
                 ax.set_xticks([])

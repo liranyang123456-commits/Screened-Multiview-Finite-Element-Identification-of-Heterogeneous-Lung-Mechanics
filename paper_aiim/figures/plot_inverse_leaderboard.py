@@ -141,13 +141,17 @@ def panel_rank(ax) -> None:
     cols = [C[row[3]] for row in SYN_RANK][::-1]
     y = np.arange(len(names))
     bars = ax.barh(y, vals, color=cols, height=0.72, edgecolor="none", zorder=2)
+    # Value labels start to the right of both reference lines (3.82 / 4.11)
+    # so that neither line runs through the label text.
+    label_x_min = 4.11 + 1.2
     for i, (name, _short, value, _kind) in enumerate(SYN_RANK[::-1]):
+        label_x = max(value + 0.6, label_x_min)
         if name == "Response calibrator":
             bars[i].set_edgecolor(C["ink"])
             bars[i].set_linewidth(1.0)
-            ax.text(value + 0.6, y[i], f"{value:.2f}  (#1 E)", va="center", fontsize=7.2, color=C["prior"], fontweight="bold")
+            ax.text(label_x, y[i], f"{value:.2f}  (#1 E)", va="center", fontsize=7.2, color=C["prior"], fontweight="bold", zorder=3)
         else:
-            ax.text(value + 0.6, y[i], f"{value:.2f}", va="center", fontsize=7.2, color=C["muted"])
+            ax.text(label_x, y[i], f"{value:.2f}", va="center", fontsize=7.2, color=C["muted"], zorder=3)
     ax.set_yticks(y)
     ax.set_yticklabels(names)
     ax.set_xlabel("Median background-E error (%), lower is better")
