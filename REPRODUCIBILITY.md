@@ -58,10 +58,10 @@ reproduces every quoted summary statistic from them exactly.
 | 50-case synthetic arm, 48 evaluations (six-arm / threshold sweep) | 50 | 1-2.5 min | 1-2 h |
 | 50-case synthetic arm, 96 evaluations, residual acceptance (decoupled arms; three shards) | 50 | ~1 min (most cases stop after the 5-7 screening evaluations) | 20-50 min with three shards |
 | 120-scene official-prior audit | 120 | ~2 min | ~4 h |
-| Cohort-level EKF, 120 CT scenes (100 FEM solves per scene) | 120 | ~4 min | ~2 h with four shards |
-| Cohort-level EKF, 50 synthetic cases (140 FEM solves per case) | 50 | ~5 min | ~1 h with four shards |
+| Cohort-level EKF, 120 CT scenes (100 FEM solves per scene; identical for the width-1 rerun) | 120 | ~4 min | ~2 h with four shards |
+| Cohort-level EKF, 50 synthetic cases (140 FEM solves per case; identical for the width-1 rerun, two shards) | 50 | ~5 min | ~1 h with four shards (~1.5 h with two) |
 | Learned initializer re-inference (CPU, 11 condition x variant blocks) | 18 x 11 | seconds | ~30 min |
-| `summarize_reviewer_arms.py --check` (23 groups) | - | - | < 15 s |
+| `summarize_reviewer_arms.py --check` (26 groups) | - | - | < 15 s |
 | Fast pytest set (`pytest -q` on the files listed in the workflow) | - | - | 1-2 min |
 
 Constitutive / structural mismatch audits and the nested calibration

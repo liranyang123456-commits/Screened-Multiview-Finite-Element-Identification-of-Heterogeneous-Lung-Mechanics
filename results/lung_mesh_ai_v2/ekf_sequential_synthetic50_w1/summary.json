@@ -1,0 +1,160 @@
+{
+  "protocol": "EKF over log(E_bg), log(q), log(ratio) when the ratio is not contrast-locked with the same learned initializer, same prior scales (prior_width_scale 1, force prior 0.05; initial material SD = max(0.03, 1*log_E_std) as in the batch material_prior_sigma), ratio contrast-lock decision (threshold 1.20), initial ratio and prior centre identical to the six-arm learned/learned matrix; unlocked ratio gets prior SD = material_prior_sigma[1] = max(0.05, 1*log_ratio_std). One measurement update per nonzero frame per load (five frames x four loads), multiview UV residuals, central-difference Jacobians, Huber-style innovation clipping. No screening or rollback.",
+  "prior_width_scale": 1.0,
+  "prior_width_scale_in_records": [
+    1.0
+  ],
+  "prior_width_scale_recorded_per_record": 50,
+  "cohort": "synthetic50",
+  "n": 50,
+  "unique_ids": 50,
+  "expected_n": 50,
+  "missing_ids": [],
+  "unexpected_ids": [],
+  "duplicate_rows_dropped_in_merge": 0,
+  "shard_files": [
+    "records_shard0of2.jsonl",
+    "records_shard1of2.jsonl"
+  ],
+  "observation_noise_px": [
+    0.05
+  ],
+  "ratio_locked_n": 10,
+  "median_background_error_percent": 2.7313,
+  "median_ratio_error_percent": 9.9534,
+  "median_force_error_percent": 3.5805,
+  "median_fem_solves": 140.0,
+  "paired_vs_batch": {
+    "six_arm_learned_learned": {
+      "n_paired": 50,
+      "n_batch": 50,
+      "endpoints": {
+        "E_background_relative_error": {
+          "better": 39,
+          "worse": 11,
+          "tied": 0,
+          "median_paired_delta_pp": -4.3766,
+          "ekf_median_percent": 2.7313,
+          "batch_median_percent": 7.454
+        },
+        "inclusion_ratio_relative_error": {
+          "better": 31,
+          "worse": 9,
+          "tied": 10,
+          "median_paired_delta_pp": -7.2211,
+          "ekf_median_percent": 9.9534,
+          "batch_median_percent": 19.1157
+        },
+        "force_scale_relative_error": {
+          "better": 19,
+          "worse": 31,
+          "tied": 0,
+          "median_paired_delta_pp": 0.3366,
+          "ekf_median_percent": 3.5805,
+          "batch_median_percent": 3.3896
+        }
+      },
+      "batch_median_function_evaluations": 27.0,
+      "matched_protocol_checks": {
+        "lock_ratio_equal": 50,
+        "initial_E_equal": 50,
+        "initial_ratio_equal": 50,
+        "locked_ratio_value_equal": 10,
+        "n_locked_in_both": 10,
+        "n_checked": 50,
+        "prior_width": {
+          "ekf_prior_width_scale": 1.0,
+          "batch_prior_width_scale": 2.0,
+          "batch_prior_width_source": "run_manifest.json",
+          "width_scale_equal": false,
+          "n_prior_sd_checked": 50,
+          "prior_sd_E_equal": 0,
+          "n_ratio_sd_checked": 40,
+          "prior_sd_ratio_equal": 0,
+          "max_abs_prior_sd_E_difference": 0.06028786685457011,
+          "prior_sd_all_equal": false
+        }
+      },
+      "records_path": "results\\lung_mesh_ai_v2\\synthetic50_full_paired_controls_20261008\\learned_learned\\records.jsonl",
+      "records_sha256": "538b555dd03eddb642dc5d2844a90b8dfba524332cef9e727bd64e375ba84fd5"
+    },
+    "frozen_primary_screened_map_locked50_v1": {
+      "n_paired": 50,
+      "n_batch": 50,
+      "endpoints": {
+        "E_background_relative_error": {
+          "better": 31,
+          "worse": 19,
+          "tied": 0,
+          "median_paired_delta_pp": -1.028,
+          "ekf_median_percent": 2.7313,
+          "batch_median_percent": 4.1107
+        },
+        "inclusion_ratio_relative_error": {
+          "better": 27,
+          "worse": 13,
+          "tied": 10,
+          "median_paired_delta_pp": -3.3828,
+          "ekf_median_percent": 9.9534,
+          "batch_median_percent": 18.6924
+        },
+        "force_scale_relative_error": {
+          "better": 19,
+          "worse": 31,
+          "tied": 0,
+          "median_paired_delta_pp": 0.3366,
+          "ekf_median_percent": 3.5805,
+          "batch_median_percent": 3.3896
+        }
+      },
+      "batch_median_function_evaluations": 7.0,
+      "matched_protocol_checks": {
+        "lock_ratio_equal": 50,
+        "initial_E_equal": 50,
+        "initial_ratio_equal": 50,
+        "locked_ratio_value_equal": 10,
+        "n_locked_in_both": 10,
+        "n_checked": 50,
+        "prior_width": {
+          "ekf_prior_width_scale": 1.0,
+          "batch_prior_width_scale": 1.0,
+          "batch_prior_width_source": "documented legacy value (arm predates prior_width_scale bookkeeping)",
+          "width_scale_equal": true,
+          "n_prior_sd_checked": 50,
+          "prior_sd_E_equal": 50,
+          "n_ratio_sd_checked": 40,
+          "prior_sd_ratio_equal": 40,
+          "max_abs_prior_sd_E_difference": 0.0,
+          "prior_sd_all_equal": true
+        }
+      },
+      "records_path": "results\\lung_mesh_ai_v2\\screened_fem_locked50_v1\\records.jsonl",
+      "records_sha256": "bdb258a02e8b9fc8b675ec9fef54b57882ddd866a443ec70566a71c41720882b"
+    }
+  },
+  "records_sha256": "6c51cf166015f82fb730457043c81c476be07f08b78e965cf259712be4b0df93",
+  "shard_records_sha256": {
+    "records_shard0of2.jsonl": "32f9cee3e369e501ae90bc912b122fbfa2e004f3687f4064f889ba38c896448f",
+    "records_shard1of2.jsonl": "db9500fd3b201e1d9ca7e58ef7c02a2eb1c32075883953203e0abbfb4a7e98c0"
+  },
+  "paired_vs_initializer": {
+    "E_background_relative_error": {
+      "n": 50,
+      "ekf_better_than_initializer": 30,
+      "ekf_worse_than_initializer": 20,
+      "tied": 0,
+      "median_initializer_error_percent": 3.8209,
+      "median_ekf_error_percent": 2.7313,
+      "median_paired_delta_pp": -0.9297
+    },
+    "inclusion_ratio_relative_error_unlocked_only": {
+      "n": 40,
+      "ekf_better_than_initializer": 26,
+      "ekf_worse_than_initializer": 14,
+      "tied": 0,
+      "median_initializer_error_percent": 18.3684,
+      "median_ekf_error_percent": 9.9423,
+      "median_paired_delta_pp": -8.5498
+    }
+  }
+}

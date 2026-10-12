@@ -14,7 +14,7 @@ retains the prior or performs bounded physical refinement.
 - MeshMaterialGNN with temporal/view/load attention and node material heads.
 - Fixed and deterministic-multistart inverse FEM.
 - True-region/true-force reference, reported only as an undeployable, information-advantaged comparator.
-- Sequential extended Kalman filter over the material state (no screening or rollback), reported at cohort level.
+- Sequential extended Kalman filter over the material state (no screening or rollback), reported at cohort level with the prior-matched width-1 material prior and, as a sensitivity, the width-2 prior of the first runs.
 
 ## Limitations
 

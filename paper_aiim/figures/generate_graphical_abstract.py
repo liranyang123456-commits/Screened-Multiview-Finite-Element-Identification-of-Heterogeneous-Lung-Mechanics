@@ -21,17 +21,25 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import FancyArrowPatch, FancyBboxPatch
 
 ROOT = Path(__file__).resolve().parents[2]
-ATTACHMENTS = ROOT / "paper_aiim" / "array_submission" / "attachments"
+ATTACHMENTS = ROOT / "figures"
+# The EKF bars show the prior-matched run: material-prior width multiplier 1,
+# the width used by the CT120 official-prior audit and by the frozen primary
+# synthetic screened-MAP run (the width-2 runs, 3.12 % / 2.68 %, are the
+# sensitivity reported in Supplement Sec. 9.5). Switching EKF_PRIOR_WIDTH to
+# 2.0 selects the width-2 directories and their manuscript values instead.
+EKF_PRIOR_WIDTH = 1.0
+EKF_DIRS = {1.0: ("ekf_sequential_synthetic50_w1", "ekf_sequential_ct120_all_w1"), 2.0: ("ekf_sequential_synthetic50", "ekf_sequential_ct120_all")}
 SOURCES = {
     "calibrator": ROOT / "results" / "lung_mesh_ai_v2" / "node_response_calibrator_strict.json",
-    "ekf_synthetic": ROOT / "results" / "lung_mesh_ai_v2" / "ekf_sequential_synthetic50" / "summary.json",
+    "ekf_synthetic": ROOT / "results" / "lung_mesh_ai_v2" / EKF_DIRS[EKF_PRIOR_WIDTH][0] / "summary.json",
     "audit_ct": ROOT / "results" / "ion_ct_official_prior_screened_fem120_v1" / "summary.json",
-    "ekf_ct": ROOT / "results" / "ct_reviewer_drivers_v6" / "ekf_sequential_ct120_all" / "summary.json",
+    "ekf_ct": ROOT / "results" / "ct_reviewer_drivers_v6" / EKF_DIRS[EKF_PRIOR_WIDTH][1] / "summary.json",
 }
 # Manuscript values (percent) that the JSON-derived numbers must reproduce.
+EXPECTED_EKF = {1.0: {"synthetic": 2.73, "ct": 4.74}, 2.0: {"synthetic": 2.68, "ct": 3.12}}
 EXPECTED = {
-    "synthetic": {"initializer": 3.82, "audit": 4.11, "ekf": 2.68},
-    "ct": {"initializer": 8.55, "audit": 11.70, "ekf": 3.12},
+    "synthetic": {"initializer": 3.82, "audit": 4.11, "ekf": EXPECTED_EKF[EKF_PRIOR_WIDTH]["synthetic"]},
+    "ct": {"initializer": 8.55, "audit": 11.70, "ekf": EXPECTED_EKF[EKF_PRIOR_WIDTH]["ct"]},
 }
 
 TITLE = (
@@ -68,6 +76,24 @@ def _load(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8-sig"))
 
 
+def _check_ekf_prior_width(ekf_summary: dict, batch_arm: str, cohort: str) -> None:
+    """The EKF run must carry the selected prior width in every record and, for
+    width 1, reproduce the batch arm's material-prior SD scene by scene."""
+    if ekf_summary.get("prior_width_scale") is None:
+        if EKF_PRIOR_WIDTH != 2.0:
+            raise ValueError(f"{cohort}: EKF summary predates prior-width bookkeeping (legacy width-2 run)")
+        return
+    width = float(ekf_summary["prior_width_scale"])
+    in_records = [float(value) for value in ekf_summary["prior_width_scale_in_records"]]
+    if width != EKF_PRIOR_WIDTH or in_records != [EKF_PRIOR_WIDTH]:
+        raise ValueError(f"{cohort}: EKF summary reports prior width {width} / {in_records}, expected {EKF_PRIOR_WIDTH}")
+    if ekf_summary["prior_width_scale_recorded_per_record"] != ekf_summary["n"]:
+        raise ValueError(f"{cohort}: prior width not recorded in every EKF record")
+    check = ekf_summary["paired_vs_batch"][batch_arm]["matched_protocol_checks"]["prior_width"]
+    if EKF_PRIOR_WIDTH == 1.0 and not (check["width_scale_equal"] and check["prior_sd_all_equal"]):
+        raise ValueError(f"{cohort}: width-1 EKF prior SD does not match the batch arm {batch_arm}: {check}")
+
+
 def load_numbers() -> dict[str, dict[str, float]]:
     """Median background-modulus errors (percent) from the frozen artifacts."""
     calibrator = _load(SOURCES["calibrator"])
@@ -91,6 +117,8 @@ def load_numbers() -> dict[str, dict[str, float]]:
         raise ValueError("Synthetic sources do not describe the 50 held-out cases")
     if audit_ct["screened_fem_locked"]["n"] != 120 or ekf_ct["n"] != 120:
         raise ValueError("CT sources do not describe the 120-scene cohort")
+    _check_ekf_prior_width(ekf_ct, "official_prior_screened_fem120_v1", "ct")
+    _check_ekf_prior_width(ekf_synthetic, "frozen_primary_screened_map_locked50_v1", "synthetic")
     numbers = {"synthetic": synthetic, "ct": ct}
     for cohort, values in numbers.items():
         for key, value in values.items():
@@ -154,7 +182,7 @@ def draw_abstract(numbers: dict[str, dict[str, float]]) -> plt.Figure:
         ("Calibrated multiview tracks", "4 loads × 3 views × 7 frames; force and camera calibration", BLUE, PALE["blue"]),
         ("Learned initializer", "CV-selected PCA–Ridge with conformal intervals", GREEN, PALE["green"]),
         ("Screened FEM audit", "accept if the development-fixed objective improves, else retain", ORANGE, PALE["orange"]),
-        ("Sequential EKF diagnostic", "all-frame updates of E_bg and q; no screening", PURPLE, PALE["purple"]),
+        ("Sequential EKF diagnostic", "all-frame updates of E_bg and q; prior matched to the audit; no screening", PURPLE, PALE["purple"]),
     ]
     n = len(stages)
     x_margin, gap = 0.015, 0.022
@@ -216,7 +244,8 @@ def draw_abstract(numbers: dict[str, dict[str, float]]) -> plt.Figure:
         ("Synthetic: 50 held-out cases", numbers["synthetic"], 0.025, 0.46),
         ("CT-derived geometry: 120 held-out scenes", numbers["ct"], 0.515, 0.46),
     ]
-    rows = [("Learned initializer", "initializer", GREEN), ("Screened FEM audit", "audit", ORANGE), ("Sequential EKF", "ekf", PURPLE)]
+    ekf_label = "Prior-matched EKF" if EKF_PRIOR_WIDTH == 1.0 else "Sequential EKF (w2)"
+    rows = [("Learned initializer", "initializer", GREEN), ("Screened FEM audit", "audit", ORANGE), (ekf_label, "ekf", PURPLE)]
     card_patches = []
     for label, values, left, width in cards:
         card = FancyBboxPatch(
@@ -255,7 +284,7 @@ def draw_abstract(numbers: dict[str, dict[str, float]]) -> plt.Figure:
             inset.spines[spine].set_visible(False)
         inset.spines["left"].set_color("#C9D1D9")
         inset.set_facecolor("none")
-    ax.text(
+    bars_caption = ax.text(
         0.5,
         strip_y0 - 0.015,
         "Bars: median background-modulus error (%), lower is better",
@@ -269,10 +298,10 @@ def draw_abstract(numbers: dict[str, dict[str, float]]) -> plt.Figure:
     ct = numbers["ct"]
     note = (
         "The accept/retain screen controls cost but does not detect model mismatch: on CT-derived geometry the audit "
-        f"raises the median error ({ct['initializer']:.2f}% → {ct['audit']:.2f}%), whereas the sequential EKF "
-        f"diagnostic reaches {ct['ekf']:.2f}%."
+        f"raises the median error ({ct['initializer']:.2f}% → {ct['audit']:.2f}%), whereas the prior-matched "
+        f"sequential EKF reaches {ct['ekf']:.2f}%."
     )
-    ax.text(
+    note_text = ax.text(
         0.5,
         0.015,
         _fit_lines(fig, note, FONT["note"], "normal", 0.96 * width_pt),
@@ -303,6 +332,15 @@ def draw_abstract(numbers: dict[str, dict[str, float]]) -> plt.Figure:
                     raise RuntimeError(
                         f"Texts overlap inside a box: {texts[first].get_text()!r} / {texts[second].get_text()!r}"
                     )
+    # the free-standing lines below the cards must not run into each other or the cards
+    free_lines = [bars_caption, note_text]
+    free_extents = [text.get_window_extent(renderer) for text in free_lines]
+    if free_extents[0].overlaps(free_extents[1]):
+        raise RuntimeError("Note overlaps the bar caption; shorten the note")
+    for card, _texts in card_patches:
+        for text, extent in zip(free_lines, free_extents):
+            if extent.overlaps(card.get_window_extent(renderer)):
+                raise RuntimeError(f"Text overlaps a results card: {text.get_text()!r}")
     fig_bbox = fig.bbox
     for text in fig.findobj(matplotlib.text.Text):
         if not text.get_text().strip() or not text.get_visible():

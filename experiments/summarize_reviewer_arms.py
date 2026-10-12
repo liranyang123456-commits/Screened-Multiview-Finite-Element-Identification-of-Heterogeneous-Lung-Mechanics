@@ -15,7 +15,11 @@ Second-revision groups (verified field-by-field against the shipped records,
 run manifests and per-arm summaries; see ``VERIFY_GROUPS``):
 
 * ``ekf_sequential_ct120_all`` / ``ekf_sequential_synthetic50`` (+ the
-  superseded first synthetic run)  cohort-level sequential EKF
+  superseded first synthetic run)  cohort-level sequential EKF (prior width 2)
+* ``ekf_sequential_ct120_all_w1`` / ``ekf_sequential_synthetic50_w1``
+  prior-width-1 reruns (material-prior SD matched scene by scene to the CT120
+  audit and to the frozen primary run) and ``ekf_width_comparison`` (width 1
+  versus width 2 on the same scenes, plus the frozen primary strict run)
 * ``model_mismatch_n48``     camera-yaw arms at the common 48-evaluation budget
 * ``assumption_sensitivity_fixed``  corrected ellipsoid-aspect arms
 * ``synthetic50_decoupled_residual``  residual screen + residual acceptance, 50 cases
@@ -478,8 +482,91 @@ def upper_median(values) -> float:
 
 
 # ----------------------------------------------------------------------------- cohort-level EKF
-def _ekf_paired(ekf: dict[str, dict], batch_rows: list[dict], tie_tol: float = 1e-9) -> dict:
-    """Mirror of run_ekf_sequential_ct18._paired (kept torch-free here)."""
+# Prior-width bookkeeping of run_ekf_sequential_ct18.py (2026-10-12): records
+# written before the --prior-width-scale flag carry no width field and used the
+# hard-coded multiplier 2; the batch fitter's material_prior_sigma is
+# max(floor, width * initializer log-std) with the floors below.
+LEGACY_EKF_PRIOR_WIDTH = 2.0
+MATERIAL_PRIOR_FLOORS = (0.03, 0.05)
+BATCH_REFERENCE_PRIOR_WIDTH_DOCUMENTED = {
+    "official_prior_screened_fem120_v1": 1.0,
+    "frozen_primary_screened_map_locked50_v1": 1.0,
+}
+EKF_W1_CT120 = V6 / "ekf_sequential_ct120_all_w1"
+EKF_W1_SYN50 = LM / "ekf_sequential_synthetic50_w1"
+EKF_W2_CT120 = V6 / "ekf_sequential_ct120_all"
+EKF_W2_SYN50 = LM / "ekf_sequential_synthetic50"
+EKF_WIDTH_COMPARISON = V6 / "ekf_width_comparison.json"
+FAIR_MULTIVIEW_50 = LM / "fair_multiview_fem50_strict" / "fair_multiview_summary.json"
+
+
+def _material_prior_sigma(width: float, std_inputs: tuple[float, float]) -> tuple[float, float]:
+    return (max(MATERIAL_PRIOR_FLOORS[0], float(width) * std_inputs[0]), max(MATERIAL_PRIOR_FLOORS[1], float(width) * std_inputs[1]))
+
+
+def _batch_prior_width(name: str, records_path: Path) -> tuple[float | None, str]:
+    """Width multiplier the batch arm used for material_prior_sigma (mirror of run_ekf_sequential_ct18._batch_prior_width)."""
+    arm_dir = records_path.parent
+    manifest = arm_dir / "run_manifest.json"
+    if manifest.exists():
+        payload = _read_json(manifest)
+        if payload.get("prior_width_scale") is not None:
+            return float(payload["prior_width_scale"]), "run_manifest.json"
+    summary_path = arm_dir / "summary.json"
+    if summary_path.exists():
+        protocol = _read_json(summary_path).get("protocol", {})
+        if isinstance(protocol, dict) and protocol.get("prior_width_scale") is not None:
+            return float(protocol["prior_width_scale"]), "summary.json protocol"
+    if name in BATCH_REFERENCE_PRIOR_WIDTH_DOCUMENTED:
+        return BATCH_REFERENCE_PRIOR_WIDTH_DOCUMENTED[name], "documented legacy value (arm predates prior_width_scale bookkeeping)"
+    return None, "unknown (no run_manifest.json / summary.json protocol entry and no documented value)"
+
+
+def _ekf_records_have_width(records) -> bool:
+    rows = list(records)
+    return bool(rows) and all("prior_width_scale" in r and "prior_log_std_inputs" in r and "prior_log_std" in r for r in rows)
+
+
+def _ekf_prior_width_check(ekf: dict[str, dict], common: list[str], batch_prior_width: float | None, source: str | None) -> dict:
+    """EKF initial material SD versus the batch arm's material_prior_sigma, scene by scene."""
+    ekf_widths = sorted({float(ekf[p].get("prior_width_scale", LEGACY_EKF_PRIOR_WIDTH)) for p in common})
+    check: dict = {
+        "ekf_prior_width_scale": ekf_widths[0] if len(ekf_widths) == 1 else ekf_widths,
+        "batch_prior_width_scale": batch_prior_width,
+        "batch_prior_width_source": source,
+        "width_scale_equal": None if batch_prior_width is None or len(ekf_widths) != 1 else bool(abs(ekf_widths[0] - float(batch_prior_width)) <= 1e-12),
+        "n_prior_sd_checked": 0,
+        "prior_sd_E_equal": 0,
+        "n_ratio_sd_checked": 0,
+        "prior_sd_ratio_equal": 0,
+        "max_abs_prior_sd_E_difference": 0.0,
+    }
+    if batch_prior_width is not None:
+        for pid in common:
+            e = ekf[pid]
+            if "prior_log_std_inputs" not in e or "prior_log_std" not in e:
+                continue
+            inputs = (float(e["prior_log_std_inputs"][0]), float(e["prior_log_std_inputs"][1]))
+            batch_sigma = _material_prior_sigma(batch_prior_width, inputs)
+            ekf_sigma = [float(v) for v in e["prior_log_std"]]
+            check["n_prior_sd_checked"] += 1
+            diff_E = abs(ekf_sigma[0] - batch_sigma[0])
+            check["prior_sd_E_equal"] += int(diff_E <= 1e-9)
+            check["max_abs_prior_sd_E_difference"] = max(check["max_abs_prior_sd_E_difference"], diff_E)
+            if not bool(e.get("lock_ratio", True)) and len(ekf_sigma) >= 3:
+                check["n_ratio_sd_checked"] += 1
+                check["prior_sd_ratio_equal"] += int(abs(ekf_sigma[2] - batch_sigma[1]) <= 1e-9)
+    check["prior_sd_all_equal"] = (
+        None if batch_prior_width is None or check["n_prior_sd_checked"] == 0
+        else bool(check["prior_sd_E_equal"] == check["n_prior_sd_checked"] and check["prior_sd_ratio_equal"] == check["n_ratio_sd_checked"])
+    )
+    return check
+
+
+def _ekf_paired(ekf: dict[str, dict], batch_rows: list[dict], tie_tol: float = 1e-9, *, batch_name: str | None = None, batch_path: Path | None = None) -> dict:
+    """Mirror of run_ekf_sequential_ct18._paired (kept torch-free here). The
+    prior-width block is produced only for records that carry the width
+    bookkeeping (legacy width-2 records need the dataset predictions for it)."""
     batch = {str(r["patient_id"]): r for r in batch_rows}
     common = sorted(set(ekf) & set(batch))
     result: dict = {"n_paired": len(common), "n_batch": len(batch), "endpoints": {}}
@@ -521,8 +608,68 @@ def _ekf_paired(ekf: dict[str, dict], batch_rows: list[dict], tie_tol: float = 1
             checks["initial_E_equal"] += int(abs(float(e["initial_E_background"]) - float(b["initial_E_background"])) <= 1e-9 * max(1.0, abs(float(b["initial_E_background"]))))
         if "initial_ratio" in e and "initial_ratio" in b:
             checks["initial_ratio_equal"] += int(abs(float(e["initial_ratio"]) - float(b["initial_ratio"])) <= 1e-9)
+    if batch_name is not None and batch_path is not None and _ekf_records_have_width(ekf[p] for p in common):
+        width, source = _batch_prior_width(batch_name, batch_path)
+        checks["prior_width"] = _ekf_prior_width_check(ekf, common, width, source)
     result["matched_protocol_checks"] = checks
     return result
+
+
+def _ekf_protocol_text(cohort: str, width: float | None) -> str:
+    """Protocol sentence written by run_ekf_sequential_ct18.py --summarize; the
+    width-aware wording appeared together with the --prior-width-scale flag."""
+    head = "EKF over log(E_bg), log(q)" + (", log(ratio) when the ratio is not contrast-locked" if cohort == "synthetic50" else "")
+    tail = ("One measurement update per nonzero frame per load (five frames x four loads), multiview UV residuals, "
+            "central-difference Jacobians, Huber-style innovation clipping. No screening or rollback.")
+    if width is None:  # legacy summaries (records without the width field)
+        return (head + " with the same learned initializer, same prior scales (prior_width_scale 2.0, force prior 0.05), "
+                + ("ratio locked (official 2028+bins3) and predicted region locked as in the official-prior screened FEM. "
+                   if cohort == "ct120" else
+                   "ratio contrast-lock decision (threshold 1.20), initial ratio and prior centre identical to the six-arm learned/learned matrix; "
+                   "unlocked ratio gets prior SD = material_prior_sigma[1] = max(0.05, 2*log_ratio_std). ")
+                + tail)
+    return (head + f" with the same learned initializer, same prior scales (prior_width_scale {width:g}, force prior 0.05; "
+            + f"initial material SD = max(0.03, {width:g}*log_E_std) as in the batch material_prior_sigma), "
+            + ("ratio locked (official 2028+bins3) and predicted region locked as in the official-prior screened FEM. "
+               if cohort == "ct120" else
+               "ratio contrast-lock decision (threshold 1.20), initial ratio and prior centre identical to the six-arm learned/learned matrix; "
+               f"unlocked ratio gets prior SD = material_prior_sigma[1] = max(0.05, {width:g}*log_ratio_std). ")
+            + tail)
+
+
+def _ekf_references(cohort: str) -> dict[str, Path]:
+    return (
+        {"official_prior_screened_fem120_v1": CT120_AUDIT / "records.jsonl", "eighteen_scene_w2_s0p05_p2": BASELINE_18 / "records.jsonl"}
+        if cohort == "ct120"
+        else {"six_arm_learned_learned": SIX_ARM_50 / "learned_learned" / "records.jsonl", "frozen_primary_screened_map_locked50_v1": LOCKED50_V1 / "records.jsonl"}
+    )
+
+
+def _ekf_vs_initializer(records: list[dict]) -> dict:
+    init_pairs = [(_init_error(r), float(r["E_background_relative_error"])) for r in records if "initial_E_background" in r and "E_background_true" in r]
+    ratio_pairs = [
+        (abs(float(r["initial_ratio"]) - float(r["inclusion_ratio_true"])) / float(r["inclusion_ratio_true"]), float(r["inclusion_ratio_relative_error"]))
+        for r in records if not bool(r.get("lock_ratio", True)) and "initial_ratio" in r and "inclusion_ratio_true" in r
+    ]
+
+    def _vs_init(pairs: list[tuple[float, float]]) -> dict | None:
+        if not pairs:
+            return None
+        deltas = [100.0 * (f - i) for i, f in pairs]
+        return {
+            "n": len(pairs),
+            "ekf_better_than_initializer": sum(f < i for i, f in pairs),
+            "ekf_worse_than_initializer": sum(f > i for i, f in pairs),
+            "tied": sum(f == i for i, f in pairs),
+            "median_initializer_error_percent": round(100.0 * med(i for i, _ in pairs), 4),
+            "median_ekf_error_percent": round(100.0 * med(f for _, f in pairs), 4),
+            "median_paired_delta_pp": round(med(deltas), 4),
+        }
+
+    return {
+        "E_background_relative_error": _vs_init(init_pairs),
+        "inclusion_ratio_relative_error_unlocked_only": _vs_init(ratio_pairs),
+    }
 
 
 def ekf_cohort_summary(out_dir: Path, cohort: str) -> dict | None:
@@ -546,17 +693,17 @@ def ekf_cohort_summary(out_dir: Path, cohort: str) -> dict | None:
     records = load(merged_path)
     ekf = {str(r["patient_id"]): r for r in records}
     expected = list(order)
-    summary: dict = {
-        "protocol": (
-            "EKF over log(E_bg), log(q)" + (", log(ratio) when the ratio is not contrast-locked" if cohort == "synthetic50" else "")
-            + " with the same learned initializer, same prior scales (prior_width_scale 2.0, force prior 0.05), "
-            + ("ratio locked (official 2028+bins3) and predicted region locked as in the official-prior screened FEM. "
-               if cohort == "ct120" else
-               "ratio contrast-lock decision (threshold 1.20), initial ratio and prior centre identical to the six-arm learned/learned matrix; "
-               "unlocked ratio gets prior SD = material_prior_sigma[1] = max(0.05, 2*log_ratio_std). ")
-            + "One measurement update per nonzero frame per load (five frames x four loads), multiview UV residuals, "
-            + "central-difference Jacobians, Huber-style innovation clipping. No screening or rollback."
-        ),
+    with_width = _ekf_records_have_width(records)
+    record_widths = sorted({float(r.get("prior_width_scale", LEGACY_EKF_PRIOR_WIDTH)) for r in records})
+    width = record_widths[0] if len(record_widths) == 1 else None
+    summary: dict = {"protocol": _ekf_protocol_text(cohort, width if with_width else None)}
+    if with_width:
+        summary.update({
+            "prior_width_scale": width,
+            "prior_width_scale_in_records": record_widths,
+            "prior_width_scale_recorded_per_record": sum("prior_width_scale" in r for r in records),
+        })
+    summary.update({
         "cohort": cohort,
         "n": len(records),
         "unique_ids": len(ekf),
@@ -575,45 +722,128 @@ def ekf_cohort_summary(out_dir: Path, cohort: str) -> dict | None:
         "paired_vs_batch": {},
         "records_sha256": sha(merged_path),
         "shard_records_sha256": {p.name: sha(p) for p in shard_paths},
-    }
-    references = (
-        {"official_prior_screened_fem120_v1": CT120_AUDIT / "records.jsonl", "eighteen_scene_w2_s0p05_p2": BASELINE_18 / "records.jsonl"}
-        if cohort == "ct120"
-        else {"six_arm_learned_learned": SIX_ARM_50 / "learned_learned" / "records.jsonl", "frozen_primary_screened_map_locked50_v1": LOCKED50_V1 / "records.jsonl"}
-    )
-    for name, path in references.items():
+    })
+    for name, path in _ekf_references(cohort).items():
         if not path.exists():
             summary["paired_vs_batch"][name] = {"missing": str(path)}
             continue
-        comparison = _ekf_paired(ekf, load(path))
+        comparison = _ekf_paired(ekf, load(path), batch_name=name, batch_path=path)
         comparison["records_path"] = _rel_posix(path)
         comparison["records_sha256"] = sha(path)
         summary["paired_vs_batch"][name] = comparison
-    init_pairs = [(_init_error(r), float(r["E_background_relative_error"])) for r in records if "initial_E_background" in r and "E_background_true" in r]
-    ratio_pairs = [
-        (abs(float(r["initial_ratio"]) - float(r["inclusion_ratio_true"])) / float(r["inclusion_ratio_true"]), float(r["inclusion_ratio_relative_error"]))
-        for r in records if not bool(r.get("lock_ratio", True)) and "initial_ratio" in r and "inclusion_ratio_true" in r
-    ]
-
-    def _vs_init(pairs: list[tuple[float, float]]) -> dict | None:
-        if not pairs:
-            return None
-        deltas = [100.0 * (f - i) for i, f in pairs]
-        return {
-            "n": len(pairs),
-            "ekf_better_than_initializer": sum(f < i for i, f in pairs),
-            "ekf_worse_than_initializer": sum(f > i for i, f in pairs),
-            "tied": sum(f == i for i, f in pairs),
-            "median_initializer_error_percent": round(100.0 * med(i for i, _ in pairs), 4),
-            "median_ekf_error_percent": round(100.0 * med(f for _, f in pairs), 4),
-            "median_paired_delta_pp": round(med(deltas), 4),
-        }
-
-    summary["paired_vs_initializer"] = {
-        "E_background_relative_error": _vs_init(init_pairs),
-        "inclusion_ratio_relative_error_unlocked_only": _vs_init(ratio_pairs),
-    }
+    summary["paired_vs_initializer"] = _ekf_vs_initializer(records)
     return summary
+
+
+def _ekf_width_block(out_dir: Path, cohort: str) -> dict:
+    """One width arm of ekf_width_comparison.json, recomputed from its records."""
+    records_path = out_dir / "records.jsonl"
+    summary_path = out_dir / "summary.json"
+    records = load(records_path)
+    ekf = {str(r["patient_id"]): r for r in records}
+    archived = _read_json(summary_path)
+    medians = {
+        "median_background_error_percent": round(100.0 * med(r["E_background_relative_error"] for r in records), 4),
+        "median_ratio_error_percent": round(100.0 * med(r["inclusion_ratio_relative_error"] for r in records), 4),
+        "median_force_error_percent": round(100.0 * med(r["force_scale_relative_error"] for r in records), 4),
+        "median_fem_solves": med(float(r["fem_solves"]) for r in records),
+    }
+    block: dict = {
+        "records_path": _rel_posix(records_path),
+        "records_sha256": sha(records_path),
+        "summary_path": _rel_posix(summary_path),
+        "n": len(records),
+        "prior_width_scale_in_records": sorted({float(r.get("prior_width_scale", LEGACY_EKF_PRIOR_WIDTH)) for r in records}),
+        "prior_width_scale_field_present_in_records": sum("prior_width_scale" in r for r in records),
+        "ratio_locked_n": sum(bool(r.get("lock_ratio", True)) for r in records),
+        "observation_noise_px": sorted({float(r.get("observation_noise_px", 0.0)) for r in records}),
+        **medians,
+        "median_prior_sd_E": round(med(float(r["prior_log_std"][0]) for r in records), 6),
+        "summary_medians_match_recomputed": all(_equal(archived.get(key), value) for key, value in medians.items()),
+        "paired_vs_batch": {},
+    }
+    with_width = _ekf_records_have_width(records)
+    for name, path in _ekf_references(cohort).items():
+        batch_rows = load(path)
+        paired = _ekf_paired(ekf, batch_rows)
+        common = sorted(set(ekf) & {str(r["patient_id"]) for r in batch_rows})
+        width, source = _batch_prior_width(name, path)
+        block["paired_vs_batch"][name] = {
+            "n_paired": paired["n_paired"],
+            "records_sha256": sha(path),
+            "batch_median_function_evaluations": paired["batch_median_function_evaluations"],
+            "prior_width_check": _ekf_prior_width_check(ekf, common, width, source) if with_width else None,
+            "endpoints": paired["endpoints"],
+        }
+    block["paired_vs_initializer"] = _ekf_vs_initializer(records)
+    return block
+
+
+def _paired_endpoints(first: dict[str, dict], second: dict[str, dict], first_label: str, second_label: str, tie_tol: float = 1e-9) -> dict:
+    """Per-scene first-minus-second comparison on the three error endpoints."""
+    common = sorted(set(first) & set(second))
+    out: dict = {}
+    for key in ERROR_KEYS:
+        deltas = [100.0 * (float(first[p][key]) - float(second[p][key])) for p in common]
+        out[key] = {
+            f"{first_label}_better": sum(d < -100.0 * tie_tol for d in deltas),
+            f"{first_label}_worse": sum(d > 100.0 * tie_tol for d in deltas),
+            "tied": sum(abs(d) <= 100.0 * tie_tol for d in deltas),
+            "median_paired_delta_pp": round(med(deltas), 4),
+            f"{first_label}_median_percent": round(100.0 * med(float(first[p][key]) for p in common), 4),
+            f"{second_label}_median_percent": round(100.0 * med(float(second[p][key]) for p in common), 4),
+        }
+    return out
+
+
+def ekf_width_comparison_payload() -> dict | None:
+    """Recompute ekf_width_comparison.json (width-1 versus width-2 EKF on both
+    cohorts, plus the frozen primary strict run) from the shipped records."""
+    arms = {"ct120": (EKF_W1_CT120, EKF_W2_CT120), "synthetic50": (EKF_W1_SYN50, EKF_W2_SYN50)}
+    if not all((w1 / "records.jsonl").exists() and (w2 / "records.jsonl").exists() for w1, w2 in arms.values()):
+        return None
+    cohorts: dict = {}
+    for cohort, (w1_dir, w2_dir) in arms.items():
+        w1 = _rows_by_id(w1_dir / "records.jsonl")
+        w2 = _rows_by_id(w2_dir / "records.jsonl")
+        common = sorted(set(w1) & set(w2))
+        cohorts[cohort] = {
+            "width_1": _ekf_width_block(w1_dir, cohort),
+            "width_2": _ekf_width_block(w2_dir, cohort),
+            "paired_width1_minus_width2": {
+                "n_paired": len(common),
+                "same_scene_set": set(w1) == set(w2),
+                "lock_decision_identical_n": sum(bool(w1[p].get("lock_ratio", True)) == bool(w2[p].get("lock_ratio", True)) for p in common),
+                "initial_E_identical_n": sum(float(w1[p]["initial_E_background"]) == float(w2[p]["initial_E_background"]) for p in common),
+                "fem_solves_identical_n": sum(int(w1[p]["fem_solves"]) == int(w2[p]["fem_solves"]) for p in common),
+                "endpoints": _paired_endpoints(w1, w2, "width1", "width2"),
+            },
+        }
+    # frozen primary strict run (first 50 of the 100 concatenated records are the screened-MAP arm)
+    fair = _read_json(FAIR_MULTIVIEW_50)
+    strict_rows = fair["records"][:50]
+    strict = {str(r["patient_id"]): r for r in strict_rows}
+    methods = fair["methods"]["calibrated_multiview_screened_map_strict"]
+    recomputed = {
+        "E_background_median_relative_error": med(r["E_background_relative_error"] for r in strict_rows),
+        "inclusion_ratio_median_relative_error": med(r["inclusion_ratio_relative_error"] for r in strict_rows),
+        "force_scale_median_relative_error": med(r["force_scale_relative_error"] for r in strict_rows),
+        "function_evaluations_median": med(r["function_evaluations"] for r in strict_rows),
+    }
+    w1_syn = _rows_by_id(EKF_W1_SYN50 / "records.jsonl")
+    w2_syn = _rows_by_id(EKF_W2_SYN50 / "records.jsonl")
+    cohorts["synthetic50"]["fair_multiview_fem50_strict"] = {
+        "source": _rel_posix(FAIR_MULTIVIEW_50),
+        "source_sha256": sha(FAIR_MULTIVIEW_50),
+        "first50_matches_methods_block": all(_equal(methods[key], value) for key, value in recomputed.items()),
+        "strict_median_background_error_percent": round(100.0 * recomputed["E_background_median_relative_error"], 4),
+        "strict_median_ratio_error_percent": round(100.0 * recomputed["inclusion_ratio_median_relative_error"], 4),
+        "strict_median_force_error_percent": round(100.0 * recomputed["force_scale_median_relative_error"], 4),
+        "strict_median_function_evaluations": recomputed["function_evaluations_median"],
+        "ekf_width_1_minus_strict": {"n_paired": len(set(w1_syn) & set(strict)), "endpoints": _paired_endpoints(w1_syn, strict, "ekf", "strict")},
+        "ekf_width_2_minus_strict": {"n_paired": len(set(w2_syn) & set(strict)), "endpoints": _paired_endpoints(w2_syn, strict, "ekf", "strict")},
+    }
+    return {"cohorts": cohorts}
 
 
 # ----------------------------------------------------------------------------- 18-scene FEM arm groups (second revision)
@@ -1349,6 +1579,11 @@ VERIFY_GROUPS = {
         LM / "ekf_sequential_synthetic50" / "superseded_v0_unclipped_initial_ratio" / "summary.json",
         lambda: ekf_cohort_summary(LM / "ekf_sequential_synthetic50" / "superseded_v0_unclipped_initial_ratio", "synthetic50"),
     ),
+    # prior-width-1 reruns (material-prior SD matched to the CT120 audit / frozen
+    # primary run) and the width-1 vs width-2 side-by-side
+    "ekf_sequential_ct120_all_w1": (EKF_W1_CT120 / "summary.json", lambda: ekf_cohort_summary(EKF_W1_CT120, "ct120")),
+    "ekf_sequential_synthetic50_w1": (EKF_W1_SYN50 / "summary.json", lambda: ekf_cohort_summary(EKF_W1_SYN50, "synthetic50")),
+    "ekf_width_comparison": (EKF_WIDTH_COMPARISON, ekf_width_comparison_payload),
     "model_mismatch_n48": (V6 / "model_mismatch_n48" / "summary.json", model_mismatch_n48_summary),
     "assumption_sensitivity_fixed": (V6 / "assumption_sensitivity_fixed" / "summary.json", assumption_fixed_summary),
     "synthetic50_decoupled_residual": (DECOUPLED_50 / "comparison.json", decoupled_residual_comparison),
@@ -1371,6 +1606,9 @@ NOT_RECOMPUTED = {
     "ekf_sequential_ct120_all": ("duplicate_rows_dropped_in_merge (merge identity asserted instead)",),
     "ekf_sequential_synthetic50": ("duplicate_rows_dropped_in_merge (merge identity asserted instead)",),
     "ekf_sequential_synthetic50_superseded_v0": ("duplicate_rows_dropped_in_merge (merge identity asserted instead)",),
+    "ekf_sequential_ct120_all_w1": ("duplicate_rows_dropped_in_merge (merge identity asserted instead)",),
+    "ekf_sequential_synthetic50_w1": ("duplicate_rows_dropped_in_merge (merge identity asserted instead)",),
+    "ekf_width_comparison": ("generated_at (time stamp)", "purpose, conventions, cohorts/synthetic50/fair_multiview_fem50_strict/note (prose)"),
     "model_mismatch_n48": ("notes (prose)",),
     "assumption_sensitivity_fixed": ("vs_baseline/*/occupancy_* (needs node coordinates)", "pre_run_occupancy_check (needs node coordinates)", "conclusion, notes (prose)"),
     "synthetic50_decoupled_residual": ("protocol_notes (prose)",),

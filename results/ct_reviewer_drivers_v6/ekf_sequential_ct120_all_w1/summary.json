@@ -1,0 +1,156 @@
+{
+  "protocol": "EKF over log(E_bg), log(q) with the same learned initializer, same prior scales (prior_width_scale 1, force prior 0.05; initial material SD = max(0.03, 1*log_E_std) as in the batch material_prior_sigma), ratio locked (official 2028+bins3) and predicted region locked as in the official-prior screened FEM. One measurement update per nonzero frame per load (five frames x four loads), multiview UV residuals, central-difference Jacobians, Huber-style innovation clipping. No screening or rollback.",
+  "prior_width_scale": 1.0,
+  "prior_width_scale_in_records": [
+    1.0
+  ],
+  "prior_width_scale_recorded_per_record": 120,
+  "cohort": "ct120",
+  "n": 120,
+  "unique_ids": 120,
+  "expected_n": 120,
+  "missing_ids": [],
+  "unexpected_ids": [],
+  "duplicate_rows_dropped_in_merge": 0,
+  "shard_files": [
+    "records_shard0of4.jsonl",
+    "records_shard1of4.jsonl",
+    "records_shard2of4.jsonl",
+    "records_shard3of4.jsonl"
+  ],
+  "observation_noise_px": [
+    0.05
+  ],
+  "ratio_locked_n": 120,
+  "median_background_error_percent": 4.7409,
+  "median_ratio_error_percent": 17.7672,
+  "median_force_error_percent": 5.3077,
+  "median_fem_solves": 100.0,
+  "paired_vs_batch": {
+    "official_prior_screened_fem120_v1": {
+      "n_paired": 120,
+      "n_batch": 120,
+      "endpoints": {
+        "E_background_relative_error": {
+          "better": 100,
+          "worse": 20,
+          "tied": 0,
+          "median_paired_delta_pp": -7.7539,
+          "ekf_median_percent": 4.7409,
+          "batch_median_percent": 11.6957
+        },
+        "inclusion_ratio_relative_error": {
+          "better": 0,
+          "worse": 0,
+          "tied": 120,
+          "median_paired_delta_pp": 0.0,
+          "ekf_median_percent": 17.7672,
+          "batch_median_percent": 17.7672
+        },
+        "force_scale_relative_error": {
+          "better": 44,
+          "worse": 76,
+          "tied": 0,
+          "median_paired_delta_pp": 1.3707,
+          "ekf_median_percent": 5.3077,
+          "batch_median_percent": 4.1318
+        }
+      },
+      "batch_median_function_evaluations": 33.0,
+      "matched_protocol_checks": {
+        "lock_ratio_equal": 120,
+        "initial_E_equal": 120,
+        "initial_ratio_equal": 120,
+        "locked_ratio_value_equal": 120,
+        "n_locked_in_both": 120,
+        "n_checked": 120,
+        "prior_width": {
+          "ekf_prior_width_scale": 1.0,
+          "batch_prior_width_scale": 1.0,
+          "batch_prior_width_source": "documented legacy value (arm predates prior_width_scale bookkeeping)",
+          "width_scale_equal": true,
+          "n_prior_sd_checked": 120,
+          "prior_sd_E_equal": 120,
+          "n_ratio_sd_checked": 0,
+          "prior_sd_ratio_equal": 0,
+          "max_abs_prior_sd_E_difference": 0.0,
+          "prior_sd_all_equal": true
+        }
+      },
+      "records_path": "results\\ion_ct_official_prior_screened_fem120_v1\\records.jsonl",
+      "records_sha256": "166da29af39c37c0fa6b24f4db737b38c2862fa4916513fd87143be323ccc124"
+    },
+    "eighteen_scene_w2_s0p05_p2": {
+      "n_paired": 18,
+      "n_batch": 18,
+      "endpoints": {
+        "E_background_relative_error": {
+          "better": 18,
+          "worse": 0,
+          "tied": 0,
+          "median_paired_delta_pp": -20.5769,
+          "ekf_median_percent": 3.9315,
+          "batch_median_percent": 24.631
+        },
+        "inclusion_ratio_relative_error": {
+          "better": 0,
+          "worse": 0,
+          "tied": 18,
+          "median_paired_delta_pp": 0.0,
+          "ekf_median_percent": 54.3857,
+          "batch_median_percent": 54.3857
+        },
+        "force_scale_relative_error": {
+          "better": 3,
+          "worse": 15,
+          "tied": 0,
+          "median_paired_delta_pp": 2.1384,
+          "ekf_median_percent": 6.2462,
+          "batch_median_percent": 4.3641
+        }
+      },
+      "batch_median_function_evaluations": 33.0,
+      "matched_protocol_checks": {
+        "lock_ratio_equal": 18,
+        "initial_E_equal": 18,
+        "initial_ratio_equal": 18,
+        "locked_ratio_value_equal": 18,
+        "n_locked_in_both": 18,
+        "n_checked": 18,
+        "prior_width": {
+          "ekf_prior_width_scale": 1.0,
+          "batch_prior_width_scale": 2.0,
+          "batch_prior_width_source": "run_manifest.json",
+          "width_scale_equal": false,
+          "n_prior_sd_checked": 18,
+          "prior_sd_E_equal": 0,
+          "n_ratio_sd_checked": 0,
+          "prior_sd_ratio_equal": 0,
+          "max_abs_prior_sd_E_difference": 0.08541449904441833,
+          "prior_sd_all_equal": false
+        }
+      },
+      "records_path": "results\\ct_reviewer_drivers_v6\\ct_reviewer_drivers_v6\\fem_paired\\w2_s0p05_p2\\records.jsonl",
+      "records_sha256": "d2e818b23eead350176e25fc420f36f26324f2b2364acf2a5f40ea37020138e1"
+    }
+  },
+  "records_sha256": "6a4dc223aae75b8cfb225259f8f02ffb87323561ff0f00cd5832bfa28fc7a940",
+  "shard_records_sha256": {
+    "records_shard0of4.jsonl": "eea49c9ebfdfd7108f5d8e4152cc7a5eca62cddcc4e706c57ba72107ec6a9903",
+    "records_shard1of4.jsonl": "58b97581f0426fc306bd16d89572d5204142d60917fc97160a790592d3edcefe",
+    "records_shard2of4.jsonl": "4fcd7a7fbfdc9c09184835054a4e7fabf5614b1d599c79014e34240eda8cffa1",
+    "records_shard3of4.jsonl": "18d2637f510dde30f11fad25bad9447a60404322ca0dd3086a38cc195f1a7f38"
+  },
+  "paired_vs_initializer": {
+    "E_background_relative_error": {
+      "n": 120,
+      "ekf_better_than_initializer": 92,
+      "ekf_worse_than_initializer": 28,
+      "tied": 0,
+      "median_initializer_error_percent": 8.5463,
+      "median_ekf_error_percent": 4.7409,
+      "median_paired_delta_pp": -5.01
+    },
+    "inclusion_ratio_relative_error_unlocked_only": null
+  }
+}

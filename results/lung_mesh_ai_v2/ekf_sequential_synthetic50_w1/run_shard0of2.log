@@ -1,0 +1,26 @@
+[synthetic50] 25 scenes selected, 0 already done -> records_shard0of2.jsonl (prior_width_scale=1.0, noise_px=0.05)
+lung_patient_004 0.0538 ratio 0.0574 lock 0 solves 140
+lung_patient_014 0.0284 ratio 0.1845 lock 0 solves 140
+lung_patient_024 0.0231 ratio 0.1033 lock 0 solves 140
+lung_patient_034 0.0309 ratio 0.205 lock 0 solves 140
+lung_patient_044 0.0139 ratio 0.0602 lock 0 solves 140
+lung_patient_054 0.003 ratio 0.3193 lock 0 solves 140
+lung_patient_064 0.073 ratio 0.2231 lock 1 solves 100
+lung_patient_074 0.0227 ratio 0.218 lock 0 solves 140
+lung_patient_084 0.0563 ratio 0.5785 lock 0 solves 140
+lung_patient_094 0.1436 ratio 0.097 lock 0 solves 140
+lung_patient_104 0.0291 ratio 0.1832 lock 0 solves 140
+lung_patient_114 0.0835 ratio 0.0324 lock 0 solves 140
+lung_patient_124 0.0413 ratio 0.034 lock 0 solves 140
+lung_patient_134 0.1171 ratio 0.0995 lock 0 solves 140
+lung_patient_144 0.02 ratio 0.0422 lock 0 solves 140
+lung_patient_154 0.024 ratio 0.045 lock 0 solves 140
+lung_patient_164 0.0132 ratio 0.3561 lock 0 solves 140
+lung_patient_174 0.0075 ratio 0.1482 lock 0 solves 140
+lung_patient_184 0.0276 ratio 0.0529 lock 0 solves 140
+lung_patient_194 0.0117 ratio 0.2407 lock 1 solves 100
+lung_patient_204 0.0442 ratio 0.1844 lock 0 solves 140
+lung_patient_214 0.0136 ratio 0.2646 lock 0 solves 140
+lung_patient_224 0.0257 ratio 0.2063 lock 0 solves 140
+lung_patient_234 0.0209 ratio 0.0931 lock 1 solves 100
+lung_patient_244 0.0247 ratio 0.0993 lock 0 solves 140
