@@ -18,6 +18,19 @@ Generalisations (2026-10-12, reviewer compute):
 * ``--summarize`` merges shard files into ``records.jsonl`` (dedup by
   patient_id, test-split order) and writes ``summary.json`` including a
   PAIRED comparison against the matched batch arm.
+* ``--prior-width-scale`` (2026-10-12, reviewer fix).  Multiplier on the
+  initializer log-std that sets the initial EKF material covariance,
+  sig_E = max(0.03, w * log_E_std) and (unlocked ratio) sig_r = max(0.05,
+  w * log_ratio_std) -- the same formula the batch fitter uses for
+  material_prior_sigma.  Default 2.0 preserves every record/summary written
+  before the flag existed.  The CT120 official-prior audit and the frozen
+  primary synthetic screened-MAP run used width 1, so a matched EKF rerun
+  needs ``--prior-width-scale 1.0``.  The width is recorded in each record
+  (``prior_width_scale``, ``prior_log_std_inputs``) and in
+  ``summary.json["prior_width_scale"]``; ``matched_protocol_checks`` compares
+  the EKF prior SD with the batch arm's material_prior_sigma (width read from
+  the arm's run_manifest.json / summary.json protocol, else the documented
+  legacy value).
 
 Measurement h(x) = multiview UV projections of the isotropic FEM solve at
 frame t under measured forces.  Jacobian by central differences in
@@ -61,7 +74,7 @@ IDS = ROOT / "results" / "ct_reviewer_drivers_v6" / "paired_scene_ids.json"
 OUT = ROOT / "results" / "ct_reviewer_drivers_v6" / "ekf_sequential"
 FRAMES = (1, 2, 3, 4, 5)
 TRACK_NOISE_PX = 0.05
-PRIOR_WIDTH_SCALE = 2.0       # six-arm learned/learned and official-prior CT arms
+PRIOR_WIDTH_SCALE = 2.0       # default for --prior-width-scale (six-arm learned/learned value; keeps old records reproducible)
 CONTRAST_RATIO_LOCK = 1.20    # six-arm learned/learned contrast lock threshold
 FORCE_PRIOR_SIGMA = 0.05
 GLOBAL_BOUNDS = {"E": (1000.0, 15000.0), "ratio": (1.0, 5.0)}  # fit_patient global box
@@ -77,6 +90,30 @@ BATCH_REFERENCES = {
     },
 }
 BATCH_18_REFERENCE = ROOT / "results" / "ct_reviewer_drivers_v6" / "ct_reviewer_drivers_v6" / "fem_paired" / "w2_s0p05_p2" / "records.jsonl"
+# Arms written before run_screened_fem_locked.py recorded prior_width_scale in
+# run_manifest.json / summary.json["protocol"].  Values as documented in the
+# manuscript (primary synthetic run and CT120 official audit: width multiplier 1).
+BATCH_REFERENCE_PRIOR_WIDTH_DOCUMENTED = {
+    "official_prior_screened_fem120_v1": 1.0,
+    "frozen_primary_screened_map_locked50_v1": 1.0,
+}
+MATERIAL_PRIOR_FLOORS = (0.03, 0.05)  # same floors as run_screened_fem_locked material_prior_sigma
+
+
+def _prior_std_inputs(prior: dict, official: dict | None) -> tuple[float, float]:
+    """(log_E_std, log_ratio_std) exactly as the batch fitter reads them."""
+    return (
+        float(prior.get("log_E_std", 0.06)),
+        float((official or prior).get("log_ratio_std", 0.23)),
+    )
+
+
+def _material_prior_sigma(width: float, std_inputs: tuple[float, float]) -> tuple[float, float]:
+    """run_screened_fem_locked material_prior_sigma for a given width multiplier."""
+    return (
+        max(MATERIAL_PRIOR_FLOORS[0], float(width) * std_inputs[0]),
+        max(MATERIAL_PRIOR_FLOORS[1], float(width) * std_inputs[1]),
+    )
 
 
 def _predict_uv(scene, experiment, center, radius, log_E, log_q, ratio, frame, focal, H, W):
@@ -139,16 +176,33 @@ def _select_ids(args, manifest: dict) -> list[str]:
     return ids
 
 
-def _done_ids(out_dir: Path) -> set[str]:
+def _done_ids(out_dir: Path, prior_width_scale: float | None = None) -> set[str]:
+    """IDs already written in the output directory.
+
+    When ``prior_width_scale`` is given, refuse to resume into a directory whose
+    existing records were produced with a different width (records written
+    before the flag existed carry no field and count as the old hard-coded 2.0).
+    """
     done: set[str] = set()
+    widths: set[float] = set()
     for path in sorted(out_dir.glob("records*.jsonl")):
         for line in path.read_text(encoding="utf-8").splitlines():
             if line.strip():
-                done.add(str(json.loads(line)["patient_id"]))
+                row = json.loads(line)
+                done.add(str(row["patient_id"]))
+                widths.add(float(row.get("prior_width_scale", PRIOR_WIDTH_SCALE)))
+    if prior_width_scale is not None and any(abs(w - float(prior_width_scale)) > 1e-12 for w in widths):
+        raise RuntimeError(
+            f"{out_dir} already holds records with prior_width_scale {sorted(widths)}; "
+            f"refusing to append records with prior_width_scale={prior_width_scale}"
+        )
     return done
 
 
-def run_ekf_patient(scene, experiments, prior, official, *, lock_ratio: bool, noise_px: float, pid: str) -> dict:
+def run_ekf_patient(
+    scene, experiments, prior, official, *, lock_ratio: bool, noise_px: float, pid: str,
+    prior_width_scale: float = PRIOR_WIDTH_SCALE,
+) -> dict:
     center, radius = _predicted_region(scene, prior)
     initial_E_raw = float(prior["E_background_estimated"])
     initial_ratio_raw = float((official or prior)["inclusion_ratio_estimated"])
@@ -158,9 +212,10 @@ def run_ekf_patient(scene, experiments, prior, official, *, lock_ratio: bool, no
     initial_ratio = min(max(initial_ratio_raw, GLOBAL_BOUNDS["ratio"][0]), GLOBAL_BOUNDS["ratio"][1])
     intr = experiments[0]["render_intrinsics"]
     focal, H, W = float(intr["focal_px"]), int(intr["height_px"]), int(intr["width_px"])
-    # prior state and covariance (same scales as batch material/force priors)
-    sig_E = max(0.03, PRIOR_WIDTH_SCALE * float(prior.get("log_E_std", 0.06)))
-    sig_r = max(0.05, PRIOR_WIDTH_SCALE * float((official or prior).get("log_ratio_std", 0.23)))
+    # prior state and covariance (same formula as the batch material_prior_sigma,
+    # with the width multiplier taken from --prior-width-scale)
+    std_inputs = _prior_std_inputs(prior, official)
+    sig_E, sig_r = _material_prior_sigma(prior_width_scale, std_inputs)
     if lock_ratio:
         x = torch.tensor([math.log(initial_E), 0.0], dtype=torch.float64)
         P = torch.diag(torch.tensor([sig_E ** 2, FORCE_PRIOR_SIGMA ** 2], dtype=torch.float64))
@@ -245,6 +300,9 @@ def run_ekf_patient(scene, experiments, prior, official, *, lock_ratio: bool, no
         "start_E_background_clipped": initial_E,
         "start_ratio_clipped": initial_ratio,
         "prior_log_std": [sig_E, FORCE_PRIOR_SIGMA] + ([] if lock_ratio else [sig_r]),
+        # width multiplier and the initializer log-stds it was applied to (2026-10-12)
+        "prior_width_scale": float(prior_width_scale),
+        "prior_log_std_inputs": [std_inputs[0], std_inputs[1]],
     }
     return record
 
@@ -263,8 +321,12 @@ def run(args) -> None:
         rec_path = out_dir / f"records_shard{args.shard[0]}of{args.shard[1]}.jsonl"
     else:
         rec_path = out_dir / "records.jsonl"
-    done = _done_ids(out_dir)
-    print(f"[{args.cohort}] {len(ids)} scenes selected, {len([i for i in ids if i in done])} already done -> {rec_path.name}", flush=True)
+    done = _done_ids(out_dir, args.prior_width_scale)
+    print(
+        f"[{args.cohort}] {len(ids)} scenes selected, {len([i for i in ids if i in done])} already done -> {rec_path.name}"
+        f" (prior_width_scale={args.prior_width_scale}, noise_px={args.noise_px})",
+        flush=True,
+    )
     with rec_path.open("a", encoding="utf-8") as handle:
         for pid in ids:
             if pid in done:
@@ -281,7 +343,8 @@ def run(args) -> None:
             else:
                 lock_ratio = setup["always_lock_ratio"] or _low_contrast(prior, official, CONTRAST_RATIO_LOCK)
             record = run_ekf_patient(
-                scene, experiments, prior, official, lock_ratio=lock_ratio, noise_px=args.noise_px, pid=pid
+                scene, experiments, prior, official, lock_ratio=lock_ratio, noise_px=args.noise_px, pid=pid,
+                prior_width_scale=args.prior_width_scale,
             )
             record.update({
                 "cohort": args.cohort,
@@ -318,7 +381,33 @@ def _read_jsonl(path: Path) -> list[dict]:
     return [json.loads(l) for l in path.read_text(encoding="utf-8").splitlines() if l.strip()]
 
 
-def _paired(ekf: dict[str, dict], batch_rows: list[dict], tie_tol: float = 1e-9) -> dict:
+def _batch_prior_width(name: str, records_path: Path) -> tuple[float | None, str]:
+    """Width multiplier the batch arm used for material_prior_sigma, and where it came from."""
+    arm_dir = records_path.parent
+    manifest = arm_dir / "run_manifest.json"
+    if manifest.exists():
+        payload = json.loads(manifest.read_text(encoding="utf-8"))
+        if payload.get("prior_width_scale") is not None:
+            return float(payload["prior_width_scale"]), "run_manifest.json"
+    summary_path = arm_dir / "summary.json"
+    if summary_path.exists():
+        protocol = json.loads(summary_path.read_text(encoding="utf-8")).get("protocol", {})
+        if isinstance(protocol, dict) and protocol.get("prior_width_scale") is not None:
+            return float(protocol["prior_width_scale"]), "summary.json protocol"
+    if name in BATCH_REFERENCE_PRIOR_WIDTH_DOCUMENTED:
+        return BATCH_REFERENCE_PRIOR_WIDTH_DOCUMENTED[name], "documented legacy value (arm predates prior_width_scale bookkeeping)"
+    return None, "unknown (no run_manifest.json / summary.json protocol entry and no documented value)"
+
+
+def _paired(
+    ekf: dict[str, dict],
+    batch_rows: list[dict],
+    tie_tol: float = 1e-9,
+    *,
+    batch_prior_width: float | None = None,
+    batch_prior_width_source: str | None = None,
+    std_inputs: dict[str, tuple[float, float]] | None = None,
+) -> dict:
     batch = {str(r["patient_id"]): r for r in batch_rows}
     common = sorted(set(ekf) & set(batch))
     result = {"n_paired": len(common), "n_batch": len(batch), "endpoints": {}}
@@ -361,6 +450,51 @@ def _paired(ekf: dict[str, dict], batch_rows: list[dict], tie_tol: float = 1e-9)
             checks["initial_E_equal"] += int(abs(float(e["initial_E_background"]) - float(b["initial_E_background"])) <= 1e-9 * max(1.0, abs(float(b["initial_E_background"]))))
         if "initial_ratio" in e and "initial_ratio" in b:
             checks["initial_ratio_equal"] += int(abs(float(e["initial_ratio"]) - float(b["initial_ratio"])) <= 1e-9)
+    # prior-width check: EKF initial material SD vs the batch arm's material_prior_sigma
+    # (batch sigma = max(floor, batch_width * initializer log-std), recomputed from the
+    # same initializer log-stds the EKF record used; the batch records themselves do
+    # not store material_prior_sigma, only the arm manifest stores the width).
+    ekf_widths = sorted({float(e.get("prior_width_scale", PRIOR_WIDTH_SCALE)) for e in (ekf[p] for p in common)})
+    prior_check = {
+        "ekf_prior_width_scale": ekf_widths[0] if len(ekf_widths) == 1 else ekf_widths,
+        "batch_prior_width_scale": batch_prior_width,
+        "batch_prior_width_source": batch_prior_width_source,
+        "width_scale_equal": (
+            None if batch_prior_width is None or len(ekf_widths) != 1
+            else bool(abs(ekf_widths[0] - float(batch_prior_width)) <= 1e-12)
+        ),
+        "n_prior_sd_checked": 0,
+        "prior_sd_E_equal": 0,
+        "n_ratio_sd_checked": 0,
+        "prior_sd_ratio_equal": 0,
+        "max_abs_prior_sd_E_difference": 0.0,
+    }
+    if batch_prior_width is not None:
+        for pid in common:
+            e = ekf[pid]
+            inputs = (
+                tuple(e["prior_log_std_inputs"]) if "prior_log_std_inputs" in e
+                else (std_inputs or {}).get(pid)
+            )
+            if inputs is None or "prior_log_std" not in e:
+                continue
+            batch_sigma = _material_prior_sigma(batch_prior_width, (float(inputs[0]), float(inputs[1])))
+            ekf_sigma = [float(v) for v in e["prior_log_std"]]
+            prior_check["n_prior_sd_checked"] += 1
+            diff_E = abs(ekf_sigma[0] - batch_sigma[0])
+            prior_check["prior_sd_E_equal"] += int(diff_E <= 1e-9)
+            prior_check["max_abs_prior_sd_E_difference"] = max(prior_check["max_abs_prior_sd_E_difference"], diff_E)
+            if not bool(e.get("lock_ratio", True)) and len(ekf_sigma) >= 3:
+                prior_check["n_ratio_sd_checked"] += 1
+                prior_check["prior_sd_ratio_equal"] += int(abs(ekf_sigma[2] - batch_sigma[1]) <= 1e-9)
+    prior_check["prior_sd_all_equal"] = (
+        None if batch_prior_width is None or prior_check["n_prior_sd_checked"] == 0
+        else bool(
+            prior_check["prior_sd_E_equal"] == prior_check["n_prior_sd_checked"]
+            and prior_check["prior_sd_ratio_equal"] == prior_check["n_ratio_sd_checked"]
+        )
+    )
+    checks["prior_width"] = prior_check
     result["matched_protocol_checks"] = checks
     return result
 
@@ -388,17 +522,35 @@ def summarize(args) -> None:
     records = _read_jsonl(merged_path) if merged_path.exists() else []
     ekf = {str(r["patient_id"]): r for r in records}
     expected = [p for p in order] if (args.all_test or args.cohort == "synthetic50") else [str(p) for p in json.loads(IDS.read_text(encoding="utf-8"))]
+    # width actually used by the records (legacy records predate the field -> 2.0)
+    record_widths = sorted({float(r.get("prior_width_scale", PRIOR_WIDTH_SCALE)) for r in records})
+    width = record_widths[0] if len(record_widths) == 1 else float(args.prior_width_scale)
+    # initializer log-stds per scene (same lookup as run()) for the prior-SD check on legacy records
+    std_inputs: dict[str, tuple[float, float]] = {}
+    for row in manifest["patients"]:
+        pid = str(row["patient_id"])
+        if pid not in ekf:
+            continue
+        prior = setup["predictions"].get(_normalize_id(pid))
+        if prior is None:
+            continue
+        official = setup["official_ratios"].get(_official_ratio_key(row)) or setup["official_ratios"].get(_normalize_id(pid))
+        std_inputs[pid] = _prior_std_inputs(prior, official)  # falls back to prior when official is None, as run() does
     summary = {
         "protocol": (
             "EKF over log(E_bg), log(q)" + (", log(ratio) when the ratio is not contrast-locked" if args.cohort == "synthetic50" else "")
-            + " with the same learned initializer, same prior scales (prior_width_scale 2.0, force prior 0.05), "
+            + f" with the same learned initializer, same prior scales (prior_width_scale {width:g}, force prior 0.05; "
+            + f"initial material SD = max(0.03, {width:g}*log_E_std) as in the batch material_prior_sigma), "
             + ("ratio locked (official 2028+bins3) and predicted region locked as in the official-prior screened FEM. "
                if args.cohort == "ct120" else
                "ratio contrast-lock decision (threshold 1.20), initial ratio and prior centre identical to the six-arm learned/learned matrix; "
-               "unlocked ratio gets prior SD = material_prior_sigma[1] = max(0.05, 2*log_ratio_std). ")
+               f"unlocked ratio gets prior SD = material_prior_sigma[1] = max(0.05, {width:g}*log_ratio_std). ")
             + "One measurement update per nonzero frame per load (five frames x four loads), multiview UV residuals, "
             + "central-difference Jacobians, Huber-style innovation clipping. No screening or rollback."
         ),
+        "prior_width_scale": width,
+        "prior_width_scale_in_records": record_widths,
+        "prior_width_scale_recorded_per_record": sum("prior_width_scale" in r for r in records),
         "cohort": args.cohort,
         "n": len(records),
         "unique_ids": len(ekf),
@@ -424,7 +576,11 @@ def summarize(args) -> None:
         if not path.exists():
             summary["paired_vs_batch"][name] = {"missing": str(path)}
             continue
-        comparison = _paired(ekf, _read_jsonl(path))
+        batch_width, batch_width_source = _batch_prior_width(name, path)
+        comparison = _paired(
+            ekf, _read_jsonl(path),
+            batch_prior_width=batch_width, batch_prior_width_source=batch_width_source, std_inputs=std_inputs,
+        )
         comparison["records_path"] = str(path.relative_to(ROOT))
         comparison["records_sha256"] = _sha256(path)
         summary["paired_vs_batch"][name] = comparison
@@ -478,9 +634,17 @@ def main() -> None:
     parser.add_argument("--patient-limit", type=int, default=None)
     parser.add_argument("--shard", type=_parse_shard, default=None, help="i/n round-robin shard of the selected scenes")
     parser.add_argument("--noise-px", type=float, default=0.0, help="add i.i.d. pixel noise to observed tracks (protocol parity with batch fitter)")
+    parser.add_argument(
+        "--prior-width-scale", type=float, default=PRIOR_WIDTH_SCALE,
+        help="multiplier on the initializer log-std for the initial material covariance "
+             "(sig_E = max(0.03, w*log_E_std)); 2.0 = six-arm learned/learned (legacy default), "
+             "1.0 = CT120 official audit / frozen primary synthetic protocol",
+    )
     parser.add_argument("--out", type=Path, default=OUT)
     parser.add_argument("--summarize", action="store_true", help="merge shard records and write summary.json (no FEM runs)")
     args = parser.parse_args()
+    if args.prior_width_scale <= 0:
+        parser.error("--prior-width-scale must be positive")
     if args.summarize:
         summarize(args)
     else:

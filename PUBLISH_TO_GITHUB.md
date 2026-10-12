@@ -9,9 +9,12 @@ Before updating the public repository, run:
 
 ```bash
 python scripts/verify_release.py
+python experiments/summarize_reviewer_arms.py --check
 pytest experiments/test_benchmark_ion_ct_synthetic_mechanics.py \
        experiments/test_export_ion_ct_figure_assets.py \
        experiments/test_generate_ion_ct_synthetic_mechanics.py \
+       experiments/test_constitutive_mismatch.py \
+       experiments/test_assumption_summary_statistics.py \
        lung_inverse_rendering/test_lung_pipeline.py \
        evaluation/test_material_uncertainty_metrics.py \
        evaluation/test_aggregate_multiseed.py -q

@@ -1,654 +1,664 @@
 {
   "schema_version": 1,
-  "file_count": 458,
+  "file_count": 558,
   "patient_derived_assets_included": false,
   "raw_clinical_data_included": false,
   "checkpoints_included": false,
   "files": [
     {
+      "path": ".gitattributes",
+      "size_bytes": 456,
+      "sha256": "77524702b8e04888b4a35c82ca6b88ebf6b59682f9144ecd1ce1f5b4875b6587"
+    },
+    {
       "path": ".github/workflows/tests.yml",
-      "size_bytes": 769,
-      "sha256": "f0f0baf320865804fdae7f8f4a5eb0629db6f5d68e06d3f941ac93c3151fc5e2"
+      "size_bytes": 1543,
+      "sha256": "c29ccfa230434b9220ec4fe22862a6815f7996c68b2ad655d771ed4bc2ff2bf3"
     },
     {
       "path": ".gitignore",
-      "size_bytes": 422,
-      "sha256": "48b0fca139cb6378b614965dd079f59bdbe7258edeae910a739a315293c11762"
+      "size_bytes": 387,
+      "sha256": "895bc1b979d887f282e6c4e9b74b34bf0892724537c88ac248bcfcd82c1e3bf3"
     },
     {
       "path": "CITATION.cff",
-      "size_bytes": 869,
-      "sha256": "f92c378ce13211ca6da8d57fdc9bc41cac1b18f91498fdda2b1405299e61e2d1"
+      "size_bytes": 845,
+      "sha256": "5e235ef1a66651bad2b0ca0940325a220f1263a25aafd33b74f12ed8c8f34384"
     },
     {
       "path": "DATA_CARD.md",
-      "size_bytes": 1390,
-      "sha256": "f69b0152fce9df35c324faeba6a8c4f4931ab9f53aa7e51167f83e1bfaa196cb"
+      "size_bytes": 1355,
+      "sha256": "9d87f7c64640ff9fe4da34b5b4e3b2a5bdf45ccf2787557ff070911d72ecc328"
     },
     {
       "path": "dataset/__init__.py",
-      "size_bytes": 2,
-      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+      "size_bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
     },
     {
       "path": "dataset/ets_indentation/__init__.py",
-      "size_bytes": 456,
-      "sha256": "fc0fbb4a8ebedd765e7fd60e8f86d92ce558dee5a9f1109ccc7e369d2230e123"
+      "size_bytes": 433,
+      "sha256": "95bf218166d05380c0fe46cea88f451586b3b3e29f66a81331b1df08c8a696b0"
     },
     {
       "path": "dataset/ets_indentation/loader.py",
-      "size_bytes": 8652,
-      "sha256": "340f0b5fe1563a2e60dea20035b21c427dc03297657045e0b300a58f6902d8f2"
+      "size_bytes": 8413,
+      "sha256": "f06ebbf62b656d4888671d25a3426eab794cf0c90863aa292a8c8888655ccb72"
     },
     {
       "path": "dataset/ion_ct_synthetic_mechanics540/manifest.json",
-      "size_bytes": 1325761,
-      "sha256": "091f1ebe76608b67d5e9f8ab167807050f0cdb21030830cd3853bf9cf948a131"
+      "size_bytes": 1325759,
+      "sha256": "b863d9ad35cff466a1a7a8288458325c79cc2ab2c4851feb475078ae243ec116"
     },
     {
       "path": "dataset/real_colon_fem.py",
-      "size_bytes": 8016,
-      "sha256": "48487ac12651aa6c213104caf29b15b80d9f1becdaee7bd9f016dcc204464cbe"
+      "size_bytes": 7846,
+      "sha256": "f6d4e649fa01966801edbc76717f3cf4699d877faa082e097291648593327354"
     },
     {
       "path": "dataset/real_colon_generator.py",
-      "size_bytes": 6510,
-      "sha256": "524049ecba89b378b46c142872f1f77a0340978dac32e49d8387c99584e8ba8e"
+      "size_bytes": 6381,
+      "sha256": "2673a105483e04ad86df2dfb14f7e686759ac53f6336a4fdc1977fd4100f1133"
     },
     {
       "path": "dataset/real_datasets.py",
-      "size_bytes": 9007,
-      "sha256": "601812524fd2a59d7e6a6ffbca6f9d3f72060d4dc8ce7b956f93deb51530cc3b"
+      "size_bytes": 8802,
+      "sha256": "95ed83275b0c73649d949a0be890604af17850f09ea79843e40c443470a94cb4"
     },
     {
       "path": "dataset/real_mesh_loader.py",
-      "size_bytes": 6598,
-      "sha256": "14410b28bc03eedd037b1685dc490868f8e3cabec716e98c37e8bcdc9d807445"
+      "size_bytes": 6449,
+      "sha256": "4ce7acb55ec40de65681d748b1329df1b0221c5176e0427b9d4c788356b7957c"
     },
     {
       "path": "dataset/sim_generator.py",
-      "size_bytes": 5247,
-      "sha256": "f9c3530a9325bd9ae035462a09fe3508a1f666625028f0a0bff141f5971ae28b"
+      "size_bytes": 5129,
+      "sha256": "6f300f31c6f78b8a3bf5caa1e7f2e0431818424b6ed6b998b441216cca0661e1"
+    },
+    {
+      "path": "dataset/sim_lung_ai_v2_multiview250/manifest.json",
+      "size_bytes": 521221,
+      "sha256": "08c424958111da5ed886ad3df0fc391c236d43521b7bfd4c9b9038351be96db9"
     },
     {
       "path": "dataset/sim_lung_graph.py",
-      "size_bytes": 21202,
-      "sha256": "7fff882a2c8f786596386542b8b2728d0d195fc6cea6ec48a4af3986088c6415"
+      "size_bytes": 20733,
+      "sha256": "f43c301ce98f14fa4663ec2d6a5edef0e51a2794b721eeb8b9a407bce0880dca"
     },
     {
       "path": "dataset/sim_v2_generator.py",
-      "size_bytes": 5321,
-      "sha256": "5e8992a5e50f14ef188bb26fdf3258972c7c14c3289c8afe9e3d3591514e7059"
+      "size_bytes": 5211,
+      "sha256": "357f8d4a2b3dc7857c6c1ad866ccb5af08258fb41a099e16d2dfb954ef818d29"
     },
     {
       "path": "dataset/sim_v3_generator.py",
-      "size_bytes": 12522,
-      "sha256": "484d4ad1dc9d4e61f834d1c72ed514c6ff86e8234f635ff8719d30d05703c6eb"
+      "size_bytes": 12177,
+      "sha256": "30f4958c3a2284a546afc2e03c8eed6aaffc2e25751f0bfbb9fbdd2a100b51a6"
     },
     {
       "path": "dataset/small_bowel_force/__init__.py",
-      "size_bytes": 328,
-      "sha256": "89ab0e090a217c258bbee2b24f5c397561d8b41d3ec295c89de5086d905bc790"
+      "size_bytes": 316,
+      "sha256": "463e84c7fe2da970aaebf0ca5c1e66e8c9e89ca4c2b5f09763accd91ab1c65f6"
     },
     {
       "path": "dataset/small_bowel_force/download.py",
-      "size_bytes": 3222,
-      "sha256": "55704af519df1d26971db9e718a67138b9ffc8e39a993e4bfc3bd4f7592d505a"
+      "size_bytes": 3115,
+      "sha256": "c3618f5e28590ab814043feb905cc646d38370048afc9d8fc0c42a860a530c83"
     },
     {
       "path": "dataset/small_bowel_force/loader.py",
-      "size_bytes": 14211,
-      "sha256": "058956594e63e00d240604c82799434cbe9bf08fea53ba06f7a24270c9c3af2a"
+      "size_bytes": 13852,
+      "sha256": "d394e736f6ccd641f373e4b30e2e31d2adef745191bea4a0605932c372c7a704"
     },
     {
       "path": "dataset/small_bowel_force/splits.py",
-      "size_bytes": 3076,
-      "sha256": "0688f710474ee6fb0e77f792f54630f31b48171a103bb76b7ec46fc39aaaeb35"
+      "size_bytes": 2995,
+      "sha256": "961a77c09d6bf196d8f3e17a42cda6f1f6f1ed38d4a618672042ea9baffa8951"
     },
     {
       "path": "dataset/small_bowel_force/test_loader.py",
-      "size_bytes": 1128,
-      "sha256": "86237760ddf1992245f3503906760183eaad182cf5c239e193b127872d419a02"
+      "size_bytes": 1100,
+      "sha256": "abf7f20758422a9ff92326def8aa51acb60152faecb910d4de346fa5629d3dd6"
     },
     {
       "path": "evaluation/__init__.py",
-      "size_bytes": 2,
-      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+      "size_bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
     },
     {
       "path": "evaluation/aggregate_geometry_ood.py",
-      "size_bytes": 1932,
-      "sha256": "0aa4f94d247d4150a033ffc2499c44689f11bd426ddc59aaa6a917bcd098482f"
+      "size_bytes": 1877,
+      "sha256": "d3913c73e943873c65d7042c02228454f6218afec6aed400e7d1ac81c4e09e8f"
     },
     {
       "path": "evaluation/aggregate_multiseed.py",
-      "size_bytes": 4677,
-      "sha256": "7aacc237ebaeceee89ab43527697c5ab25bfff189ef47e898b2ee81950c7f33d"
+      "size_bytes": 4557,
+      "sha256": "d146558542d90476b78b05805a053637a580aa7180fb5c8a26f9c295a38c79ed"
     },
     {
       "path": "evaluation/baselines.py",
-      "size_bytes": 6463,
-      "sha256": "ccf1991481f487154a17b514405ac5f54a86edffe09c4cb098c9dc07a3f6e673"
+      "size_bytes": 6337,
+      "sha256": "e82c8eb2050c261033e564711d04035bafdfe0ab3a7230704d0331b480d44d67"
     },
     {
       "path": "evaluation/eval_baselines.py",
-      "size_bytes": 4672,
-      "sha256": "c4124815b448171d44092bb9929ae7f94e768455470809ecfa21b62d06c3e0b4"
+      "size_bytes": 4573,
+      "sha256": "6bb1b54f66bd49e18b023aa4d713961c034eeefe56f4d84956df1cbe62e96dfb"
     },
     {
       "path": "evaluation/eval_real.py",
-      "size_bytes": 8365,
-      "sha256": "050bb9047e1955e396d12e2d4a8705e01539a391f6d70e0bdde7bd30ecf3bca9"
+      "size_bytes": 8180,
+      "sha256": "77cb5c0b3948173ec6d1920d1cc56a0e3672f52ba8e38b346b32bab47a5aa6c9"
     },
     {
       "path": "evaluation/eval_real_colon.py",
-      "size_bytes": 3337,
-      "sha256": "057e6a169e6e9591f08d2eeb6226d79ddb804515c41069ece6c194168da32977"
+      "size_bytes": 3266,
+      "sha256": "ab9cc053a7adec4aa7f859a06c8a0a139390a30f25ca6b11b487bd628b665a03"
     },
     {
       "path": "evaluation/eval_sim.py",
-      "size_bytes": 8727,
-      "sha256": "d4ac538f8e2da74a5208f33e48b6b45c318b557a7bc360632056a14c9675a9a0"
+      "size_bytes": 8544,
+      "sha256": "ab8a28e8eb6da8ff674673e52d4e2e15e08ab1c6b580f4041cc740eccff95462"
     },
     {
       "path": "evaluation/eval_sim_v2.py",
-      "size_bytes": 3561,
-      "sha256": "3d602ba140f95cb494b4952fb1bff2c5dd390623042820a91ab69896deaf226f"
+      "size_bytes": 3479,
+      "sha256": "1d3efd397c71b1cab55f0b518adb8b30cf60ef5a1ff6ff0e1a32fae9dfbbf1ab"
     },
     {
       "path": "evaluation/eval_sim_v3.py",
-      "size_bytes": 18076,
-      "sha256": "aca1a4b9beedc66928c44b6978ac7feaf8964e9a38e73dc72eca882f37876ddc"
+      "size_bytes": 17572,
+      "sha256": "ab5e9804c57255594e8ee84673892d1b1e4fce104d91bdc5ca47078ed64e7a66"
     },
     {
       "path": "evaluation/evaluate_lung_geometry_ood.py",
-      "size_bytes": 10795,
-      "sha256": "41022c2ed24abf275c29667d803f8df9ec440171f156e54f0f73afa82ee5275e"
+      "size_bytes": 10527,
+      "sha256": "37aa95affdd3b9a789ec436bd61f2be9382d91042f4affaf99ce8d1fbbeeb5b6"
     },
     {
       "path": "evaluation/evaluate_lung_mesh_gnn.py",
-      "size_bytes": 7415,
-      "sha256": "a7dd3580b66aaf1455343faedc2a8cb7e2b2d056d91452e73c37909d808cc783"
+      "size_bytes": 7228,
+      "sha256": "4c259e998a70e3831afc3a12064b14d375800913ec3a37fb439d4b7ff2cc0d73"
     },
     {
       "path": "evaluation/force_metrics.py",
-      "size_bytes": 2005,
-      "sha256": "22c6fc6799538c4ac1c70adb7c19fb47c17f37b2177b6de9df55b1d33b1f4a4a"
+      "size_bytes": 1951,
+      "sha256": "4b7e65d4e256e16960d615b1951c5da4f8d9e39d602edfebb66239a0d8be3ee0"
     },
     {
       "path": "evaluation/material_uncertainty_metrics.py",
-      "size_bytes": 3630,
-      "sha256": "9a1009040e869780adb73ecc06abe3aa0a956d29ff8a353bc9c44ed6d35ffe3f"
+      "size_bytes": 3527,
+      "sha256": "c141540b9a32f7cb1f1c3c4d687875e4b9b8d1064f0092cb7634af3b66c2ad42"
     },
     {
       "path": "evaluation/metrics.py",
-      "size_bytes": 4100,
-      "sha256": "0d3ede6f3eb20cc7ee4e7eef7d12ecde38ed730e31d7e28f5092bb29f2eb7827"
+      "size_bytes": 4007,
+      "sha256": "4d4f64e214b98526e54cfdd20d158a764383080664d7b0413dcdd7dad533e5f0"
     },
     {
       "path": "evaluation/sota_baselines.py",
-      "size_bytes": 5012,
-      "sha256": "6b042f59e2ce4243e5420f7fa8b7ee293a7b9c39707e3c5c4654900970c78ac2"
+      "size_bytes": 4947,
+      "sha256": "9a40bd7a8aed21bc84ce93cdaf33b875c95286067953984f7c8adffdd622193c"
     },
     {
       "path": "evaluation/test_aggregate_multiseed.py",
-      "size_bytes": 1579,
-      "sha256": "75bbcc29e837d4a2dfeee04e634504807b55f32494c9ca3a63d18c3615b1076d"
+      "size_bytes": 1519,
+      "sha256": "fb846c14c316d997d7910c78758af1cf18ec8439b7d01601854dc807f41d1de3"
     },
     {
       "path": "evaluation/test_material_uncertainty_metrics.py",
-      "size_bytes": 1283,
-      "sha256": "ac3eb27744f5a67cec11fce76a8bd714edd323b6a33de995d9c43dab98c0a888"
+      "size_bytes": 1245,
+      "sha256": "58c1aa12a18b63f7aa28b6f57fec0d4c416cf3bb6bcd3710d8f3ba19817bc2d3"
     },
     {
       "path": "evidence/evidence_map.md",
-      "size_bytes": 23091,
-      "sha256": "32dc85fd8d44a0dde0802776f0674e0728ccf7986f72c00be20f0045f6cc72ad"
+      "size_bytes": 22678,
+      "sha256": "18349b2d974c8b5ebebc1e62bfb19955566547bc3b1d31c2699f110322f9d545"
     },
     {
       "path": "evidence/frozen_evidence.json",
-      "size_bytes": 996307,
-      "sha256": "b5a460e3fa26bc88e3e0ec49c15d9de8a9aaa962ebde731873eb678cc658840d"
+      "size_bytes": 968748,
+      "sha256": "7bdea5dd2470b2a22363f3fb9e225cbf3cde0d38ba3ae5a085821cb5ad14c2ab"
     },
     {
       "path": "experiments/accepted_update_harm.py",
-      "size_bytes": 10191,
-      "sha256": "ec800fce5cdf8ee6271bab6ea9c4b8514c28b4bac06c52a64076e57cdbb7c53b"
+      "size_bytes": 10332,
+      "sha256": "6b910f36fb49cdb621e88280ecbf1072564d794f5c4cb6714ef2b650c5710bfe"
     },
     {
       "path": "experiments/aggregate_results.py",
-      "size_bytes": 4925,
-      "sha256": "32392b306d374346e9628d9062e8c92b05c60505e05de71ddd31198cbf3dfac2"
+      "size_bytes": 4827,
+      "sha256": "93ecad1888350da7d55708fc4081e99fd3ef8005053197255f31c18075fb16e2"
     },
     {
       "path": "experiments/analyze_ct_ratio_errors.py",
-      "size_bytes": 4493,
-      "sha256": "8d6e3591859b0a462b79cdc374c42d90d8429acb3fd15a3b6c4c798e93afd68f"
+      "size_bytes": 4382,
+      "sha256": "83bab8671403bf7deb67ca55e15032cb516e0169e4ae3e5d1c7a10cffa55e210"
     },
     {
       "path": "experiments/aspect_arm_sanity.py",
-      "size_bytes": 12046,
-      "sha256": "27baf341faf690001e08f528b58763ead4a8def174be32159e93d798a4b59945"
+      "size_bytes": 11823,
+      "sha256": "afcb4438857438e232723ab99090f9e4b309609f6ca4f3b86dfec47720d13af7"
     },
     {
       "path": "experiments/audit_constitutive_mismatch.py",
-      "size_bytes": 7373,
-      "sha256": "360a9f1b470072aca65da324719dcbb00814e4734a867122978794b036e260b1"
+      "size_bytes": 7206,
+      "sha256": "31e87660dfcff5f93525505592787f70f28e6d3ce003328b69f22ade7ee9559a"
     },
     {
       "path": "experiments/audit_ct_geometry_influence.py",
-      "size_bytes": 5087,
-      "sha256": "097b2800ea7db802b8c54cd894c4c60f401f4f9042e1157379621e1cf6aed7fa"
+      "size_bytes": 4979,
+      "sha256": "a32610412ab9426f04ca7d1408665eb8ad8cf3fabcaea17fb87173f351f8b9e9"
     },
     {
       "path": "experiments/audit_ion_dataset.py",
-      "size_bytes": 9814,
-      "sha256": "06b493d53f1767be7a8fa6d61a3b06a7c5a817fbe799176c1753a563c8df8e2c"
+      "size_bytes": 9579,
+      "sha256": "ea96ae953af144642c3026f9c0f614f99ee9cfe10f07eea3d319e1e41530d46b"
     },
     {
       "path": "experiments/audit_joint_identifiability_ct.py",
-      "size_bytes": 17518,
-      "sha256": "60bb52036400d033010205578da2e45b34f1a27b4563cf08b67b4c83af699a13"
+      "size_bytes": 17246,
+      "sha256": "e2f6f904f4c1335af83be3913bdd88e2b451867cbee0a35c0ae4ce98adc95415"
     },
     {
       "path": "experiments/audit_nested_calibration_resampling.py",
-      "size_bytes": 3919,
-      "sha256": "60431e797f83d2d95a5e0b112798e47ac33f9dca00a44b0f1c4af9103d9b6ba1"
+      "size_bytes": 3822,
+      "sha256": "625e7d5b35984b0c72d7693f5c800ecd699c6672f6d0cf635abd8cccae5e3da2"
     },
     {
       "path": "experiments/audit_structural_mismatch.py",
-      "size_bytes": 8855,
-      "sha256": "b41297153793f8826c6eef519824bf62212e1b179143f24ecf54a46a88f28353"
+      "size_bytes": 8678,
+      "sha256": "0e8f35ca7d2810546cdbe4044ef26b61227c1ad62472d7ecd0bf097a1c3e502d"
     },
     {
       "path": "experiments/audit_temporal_amplitude.py",
-      "size_bytes": 4237,
-      "sha256": "56bbdea8f104c220c5f58c4ce13c7060503383555d986ce88deba4bf58dc35de"
+      "size_bytes": 4150,
+      "sha256": "657dec889cb346a8aaa2993b7b338d871dcc2deb089c3c7c0fb118217b4cc704"
     },
     {
       "path": "experiments/benchmark_ion_ct_synthetic_mechanics.py",
-      "size_bytes": 54641,
-      "sha256": "4d23e50e2c94636a437fcda8e3dfa747d833656231431551f085617f492754db"
+      "size_bytes": 53177,
+      "sha256": "9ffe7da1bd7934b86b2c518633bc8445db7f8e78e653a122258026c5d413ff93"
     },
     {
       "path": "experiments/benchmark_lung_response_baselines.py",
-      "size_bytes": 13906,
-      "sha256": "9189da49e7178487f5df72a9530043677731d94f40440b3e9959707a5a5fe6e6"
+      "size_bytes": 13516,
+      "sha256": "4686d494bbcf2c9c6e3404ab5768c3dbdf7babd10116c509e485ab5dfaebcf3b"
     },
     {
       "path": "experiments/benchmark_vfm_oracle.py",
-      "size_bytes": 9113,
-      "sha256": "a8a81697dd397653cbef69dfe90f61a5879e9764d8f9d279ff1257c52d9598e3"
+      "size_bytes": 8890,
+      "sha256": "8a588372894907466dff0c70fc5967927f8adc0d3806c0c9b021b3b590849617"
     },
     {
       "path": "experiments/build_ion_geometry_split.py",
-      "size_bytes": 3973,
-      "sha256": "7a37c48a2e11ce3628891b9b021f282789700e0a0ee5a991850e53713efab18d"
+      "size_bytes": 3861,
+      "sha256": "5129bf52dcb4b583bd56d4db209a36c1cb6f212a5806489809d9582df2f3a737"
     },
     {
       "path": "experiments/build_ion_video_dataset.py",
-      "size_bytes": 10930,
-      "sha256": "b4caba093442d22999c7a4d08a8f1a8c36b04442fc9600559095e42cad11b619"
+      "size_bytes": 10647,
+      "sha256": "f4d68d76de0c0d44bd66e6e6abfeb70139aac3c0b7f8c4f86d4ef178b17c23c3"
     },
     {
       "path": "experiments/calibrate_ct_ratio_fair.py",
-      "size_bytes": 18847,
-      "sha256": "9d8b75a86afb90cdf8dbde912c207b900521e69d6373176a7905853d03aa9025"
+      "size_bytes": 18356,
+      "sha256": "90f2d9cea20e7b8f6d5cc9b51585948e7b04fdd3f2a4089b2ecdc1607b17a6d9"
     },
     {
       "path": "experiments/calibrate_ct_ratio_v2.py",
-      "size_bytes": 20917,
-      "sha256": "a5780ade44ba7528559394005585c76d40a779f5e653917fe1457562075c956a"
+      "size_bytes": 20383,
+      "sha256": "9220c9515e513f28fa3b6055d1002d634d8ab62faad795bca2cc2a8bd654a381"
     },
     {
       "path": "experiments/calibrate_ion_geometry_fusion.py",
-      "size_bytes": 4059,
-      "sha256": "79bfa4f7e71e06ca271fec5d736a0091c9d6cbad107a9b772655fdd6bb92a87d"
+      "size_bytes": 3930,
+      "sha256": "9654b9852995ed20d945f8adda0da496a69b27d820a43a32bc921cf17390f7fb"
     },
     {
       "path": "experiments/check_lung_ai_v2_gates.py",
-      "size_bytes": 5236,
-      "sha256": "9bf1a59dfe502359481a8c30c91a62b1be3b3ab62d1ef9b1b6b0287257cf1c82"
+      "size_bytes": 5094,
+      "sha256": "fcae6c1d18a16a186b36557962f5d0fdaad42d9878d6fe571c18303024860706"
     },
     {
       "path": "experiments/compare_pinn_inverse_arm.py",
-      "size_bytes": 8467,
-      "sha256": "9a36c7441455b955d353bb5add8a25b946c3077eb3a442ae50eaa9fbd752a252"
+      "size_bytes": 8271,
+      "sha256": "fb962988bfd9d370c823958f94b22816456af221769e9379a789dd7d536194f5"
     },
     {
       "path": "experiments/compose_ct_ratio_hybrid.py",
-      "size_bytes": 4933,
-      "sha256": "9679e33b11c5861f3870f046f00be3d55439f8d25194416aaa60a61a44c80f81"
+      "size_bytes": 4813,
+      "sha256": "8b2e0514e80458ce9746ea435c6dde33921c07d87e16ae3b648c2f67f0a867b3"
     },
     {
       "path": "experiments/compute_paper_statistics.py",
-      "size_bytes": 10602,
-      "sha256": "14dfe2f902dab18e9ec01a9510cf012e790b8fe951c24f92f2ebb3431269c5d2"
+      "size_bytes": 10319,
+      "sha256": "a00f180800041dcf3f9544bd725fb57543df19200e4aaaa3de7e7d050228e1ca"
     },
     {
       "path": "experiments/diagnose_pinn_headroom.py",
-      "size_bytes": 7296,
-      "sha256": "889ad3d936e4e5d93b3902875a39061f5d89d900f596ad92388d16f49e236b9d"
+      "size_bytes": 7124,
+      "sha256": "898edeceb0c883ee16c9eba9aeacc7a9986e7e17fbeba8082c05e5fa1cbd0594"
     },
     {
       "path": "experiments/ensemble_ridge_pcaridge.py",
-      "size_bytes": 6072,
-      "sha256": "2cc6201e2a1e0e68f329ab2a453725b92db8c527738d5ed050d45300733f8637"
+      "size_bytes": 5915,
+      "sha256": "e5b73c2e73b9c51dd9153f338858765243fee3e34dfc2c0e96ea4b13037eafce"
     },
     {
       "path": "experiments/ets_phantom_validation.py",
-      "size_bytes": 15803,
-      "sha256": "518117ea2db7007007cd6c6c5857939303d19921437ae5b71e0f462025091fd1"
+      "size_bytes": 15396,
+      "sha256": "747e8334aa5f3b9825cd58550e3160f8f8761ad3b31d3785071b9ca6f6467e89"
     },
     {
       "path": "experiments/evaluate_lung_population_prior.py",
-      "size_bytes": 3916,
-      "sha256": "a8312c4712e683c512e8fb6e93fad306bd5069fd995c77d98fde6beaa86be22c"
+      "size_bytes": 3824,
+      "sha256": "ba44824bf678f05341bf3aa5427b8d5442213f6fae9fd31bf5c05ff9e9de7133"
     },
     {
       "path": "experiments/export_ion_ct_figure_assets.py",
-      "size_bytes": 12695,
-      "sha256": "518acc09f6ae8c05498186c4c6d2bc05330b58e74b649481e8cf9126eea1ef32"
+      "size_bytes": 12366,
+      "sha256": "89a2d5aa9612b371522c9f8779f76a9cffeeb426b4dcf9bc975df822365540b7"
     },
     {
       "path": "experiments/filter_ion_endoscopic_content.py",
-      "size_bytes": 2715,
-      "sha256": "3ede260443538de6a56dedde172fdf0a410f158dc8338eb1573ed5242f2496dc"
+      "size_bytes": 2643,
+      "sha256": "c1c0d370f6c3548116e79d7292a656b5c3272cc7219e7d9a15ad4dd69ac72432"
     },
     {
       "path": "experiments/final_report.py",
-      "size_bytes": 5868,
-      "sha256": "09a84cd6394aca37acf70110557a590b6c8843e17cfab389df78774275fe35e6"
+      "size_bytes": 5769,
+      "sha256": "4f2ba9ca4109a694ee1c95240a8c228d0c0fdabee5895352f786053cb45744df"
     },
     {
       "path": "experiments/fine_tune_lung_gnn_physics.py",
-      "size_bytes": 4653,
-      "sha256": "a370a91ee7e1c95a7874d5e2daa330894b8ae649951b9cde59a2a59d6e42497e"
+      "size_bytes": 4522,
+      "sha256": "9a78653901eb52ed6d2eefdb677c9293b1f9863038587823dbfa3c2bb9d19f20"
     },
     {
       "path": "experiments/finetune_ct_ratio.py",
-      "size_bytes": 7399,
-      "sha256": "045a7de393bea1cbaa33972cfdf5c091d37cd101e7a07c9e244acfbbc1c8d5c6"
+      "size_bytes": 7206,
+      "sha256": "5dcd37076b696b77cda05377c6d967bf4a760d127b76f95ef9f0506afa050d3d"
     },
     {
       "path": "experiments/finetune_ct_ratio_heads.py",
-      "size_bytes": 6477,
-      "sha256": "8bd0e4807bb09c019203c48366127b2734041331946dcb63500753bb6bb3d2dd"
+      "size_bytes": 6312,
+      "sha256": "6f002376510935f5fa79f9882d8f104f8b7871e7a6c0e44480b06d009ace860f"
     },
     {
       "path": "experiments/finetune_ct_ratio_relerr.py",
-      "size_bytes": 8968,
-      "sha256": "79efc153c19ce267e04f81db41b254f16c76452d9c833f33c5e9e581e974c090"
+      "size_bytes": 8731,
+      "sha256": "4c547987e64764a938c75014f04af18c4159fb3de01315cdd1bc29a273330cf4"
     },
     {
       "path": "experiments/gen_final_figures.py",
-      "size_bytes": 2483,
-      "sha256": "671de19db8aef69b27dcf8cb9daeceb5265dec62e874305af573785d1837d348"
+      "size_bytes": 2425,
+      "sha256": "0b1a400d38700cc26bc77257523068b89cfa2d593f6adcdf760eddd5fa2be420"
     },
     {
       "path": "experiments/generate_ion_ct_synthetic_mechanics.py",
-      "size_bytes": 12531,
-      "sha256": "ca7a64ff9626614ee9d827e799db04d114eb32866971215a270b9db6c65b12a9"
+      "size_bytes": 12211,
+      "sha256": "fcba6d932817b0bfc1e5277fbfaf667781cc339e0c6b9fd52bd58604f773eab1"
     },
     {
       "path": "experiments/generate_ion_ct_synthetic_mechanics_parallel.py",
-      "size_bytes": 7455,
-      "sha256": "a743031b0db39168619591ab3f5da60d996c95618b9118ee359a81a32836964f"
+      "size_bytes": 7248,
+      "sha256": "46c5eccc657be2beb040a8b91c79c1da5db9a05b88c1831e48004ca2da9ce8a1"
     },
     {
       "path": "experiments/heterogeneous_experiment.py",
-      "size_bytes": 3165,
-      "sha256": "ec91e0e95162d54c5866366fdbe609fef002916b05fdc6d49e202e77f113762f"
+      "size_bytes": 3100,
+      "sha256": "200a5fc57619cbc8554c990ddd77faf2344c455087be312f71be2691635f7a91"
     },
     {
       "path": "experiments/lock_official_ct_ratio.py",
-      "size_bytes": 12996,
-      "sha256": "b48784e1c8deed29152ec401391c3e693351f9069154646d460a05fd0cdfc3f2"
+      "size_bytes": 12648,
+      "sha256": "a4b878838a2f67f55cfac00e661c71f18e32a0108db06dd3c3a1fd0d55c0724e"
     },
     {
       "path": "experiments/m1_3d_verify.py",
-      "size_bytes": 3371,
-      "sha256": "83297f28542193ece8b62d9cc219002021fec044a86ad39ad2964235e575b11f"
+      "size_bytes": 3288,
+      "sha256": "5aa9b6b32d0e778f3a944422d7be8bdd08bba152d43a1cce13b8d9ffe6dffc5e"
     },
     {
       "path": "experiments/m1_neohookean_verify.py",
-      "size_bytes": 6313,
-      "sha256": "19f1b42bc856b7b44ed0af8fc94f1d4f3f7fd2ff77402d68c44ccad69ac8e026"
+      "size_bytes": 6163,
+      "sha256": "e9826f6ac82cddfab4f19a010349880665e9f7a2f9c0d1e42b10a306222282d6"
     },
     {
       "path": "experiments/m5_joint_recover.py",
-      "size_bytes": 2979,
-      "sha256": "00b4db08499b9585308451ff7f64c147280238961e5babd274eb0ff5c36cf16a"
+      "size_bytes": 2916,
+      "sha256": "d22e2ea353b009eb95209e4708656f445539e63872a2e3fe071a92398f7c727a"
     },
     {
       "path": "experiments/m6_ablation.py",
-      "size_bytes": 9240,
-      "sha256": "346729cb1acf3f5f134460a138b035cf5d0fec62cc9ebe9f6dd3ee06437ee941"
+      "size_bytes": 9067,
+      "sha256": "7cf0a3c7579aec6c933c97c2938a688e87c6702b736de9eed9d541132890089d"
     },
     {
       "path": "experiments/m7_realdata_smoke.py",
-      "size_bytes": 3204,
-      "sha256": "bb8d658610138c72ecde2101d886c5a7ba9b26b0995113cba2095e846720e89e"
+      "size_bytes": 3133,
+      "sha256": "ece8b60fcea582eac3e63edfc0f049c0e3684feb7d8df6df269cb56883880104"
     },
     {
       "path": "experiments/merge_aiim_sensitivity.py",
-      "size_bytes": 4384,
-      "sha256": "d9b5adcd367f9db03bcb6e228cf279a2326581f4d5d790253509e99d180123eb"
+      "size_bytes": 4267,
+      "sha256": "4da3f4d21edad7a98315b6d6acaec36f8ca83a448a4dbac20a852141e58b7cfc"
     },
     {
       "path": "experiments/optimize_ct_ratio_heads.py",
-      "size_bytes": 9716,
-      "sha256": "b1a7a78852457247f8980c94b7bc9113615de1a7da56ba75935b5a03cb1caa6e"
+      "size_bytes": 9459,
+      "sha256": "18c7e76037a91dbfbdf9e35d48a56b062924a31d9a9aa94f5080fe775077e164"
     },
     {
       "path": "experiments/prepare_ion_visual_qc.py",
-      "size_bytes": 2714,
-      "sha256": "3507a07a762acff23e2bfb47f5dfe46e7041c72a8597a8e67d3d06ff7d1236c1"
+      "size_bytes": 2644,
+      "sha256": "6cc0b08f18b777296672dc036d6e5ffc705b4e9b3418d6c406006b156cf9c2a8"
     },
     {
       "path": "experiments/reconcile_ct_reviewer_evidence.py",
-      "size_bytes": 8693,
-      "sha256": "6fcec40290f5a447ad2de26b9d0c70cd24fadeb7b5f596f72d78b42298930af5"
+      "size_bytes": 8505,
+      "sha256": "2e6c7ad2edecdb558a702508dedf6ad1cf403687e0ac232737cf7f18240c6299"
     },
     {
       "path": "experiments/reinfer_mismatch_initializer.py",
-      "size_bytes": 34168,
-      "sha256": "6be84d8cc0919fb439e57b4f301e8d871e22f5ae3b5cbff827daf5c986165c3d"
+      "size_bytes": 33511,
+      "sha256": "5d86600fe9b42344a3fb0d287b520ac4250fa29c58fb4514e1d99031a9769d89"
     },
     {
       "path": "experiments/reproduce_reviewer_arms.ps1",
-      "size_bytes": 22118,
-      "sha256": "a900e4be77bde3f9e68a2b2f2b65163355004f9c5b9049dccd8ea6d9fd133cca"
+      "size_bytes": 31073,
+      "sha256": "4898767116ea9d55c01ab27585972884b00458b8ee760a0d49e0f9daec8ceae8"
     },
     {
       "path": "experiments/run_aiim_sensitivity_sweeps.py",
-      "size_bytes": 10219,
-      "sha256": "ae68258d61e4d440cfcdf80a9dc205d1ab487db44c4e0ccd85b1dd3b2d4dd157"
+      "size_bytes": 9920,
+      "sha256": "45f9f52e94f771e32a3fafa3b2b78450aab9fcaeb4ec36ef0833d00f47bd514e"
     },
     {
       "path": "experiments/run_assumption_sensitivity_ct18.py",
-      "size_bytes": 9602,
-      "sha256": "8125c460cabf08e939db7859f0d0c00effa60607fa10276f6d2aa09178190707"
+      "size_bytes": 9395,
+      "sha256": "90d924eba9b045dbf0058c1f7edbf875203f519b77050314e0005ac4525f3477"
     },
     {
       "path": "experiments/run_ct_reviewer_drivers.py",
-      "size_bytes": 28863,
-      "sha256": "fbb523a6abe88bfc3c064e0ed76b2ddad55f5eb95532da495da382f095815d42"
+      "size_bytes": 28351,
+      "sha256": "4673f52d0b1004aec02185e01f9f09bd028fb6189174ffef798fb28e7532e707"
     },
     {
       "path": "experiments/run_ekf_sequential_ct18.py",
-      "size_bytes": 25114,
-      "sha256": "b6deea2a8187db084926bb7d9362fc4427cc7710ff09ab71ca856fae7941e50c"
+      "size_bytes": 33567,
+      "sha256": "8285fc98adf46675385f0c7581ecdf740ece3ba175ebadd3750a8be17cfcaec6"
     },
     {
       "path": "experiments/run_fair_lung_benchmarks.py",
-      "size_bytes": 5061,
-      "sha256": "2ac23a2a58e4437c16f05efa8c35642919a92f2119d8e113d9f9be98529d0253"
+      "size_bytes": 4906,
+      "sha256": "9612713932536d85266cc0848b41ede6b96ccf894ddd6d5198cfae22a2a90c11"
     },
     {
       "path": "experiments/run_fair_multiview_fem.py",
-      "size_bytes": 3343,
-      "sha256": "5e6eba98dbb1806c7498f6cf62a164c825db246fde7ffbe0bc95123f23078d90"
+      "size_bytes": 3240,
+      "sha256": "9a1d0f6e3bcf477e0604c0212a69f22e72a1e88d16bfc4ddc43182c2d2efb38c"
     },
     {
       "path": "experiments/run_lung_ai_cycle.py",
-      "size_bytes": 6119,
-      "sha256": "063f3918728f9f966ae59d44a9d2d03473fa9350ac3252c54a2258ad5a3756e0"
+      "size_bytes": 5938,
+      "sha256": "f2e3eec05bb5fca1408f8b22a735104d097753d765813c38cc5e543837e70e2c"
     },
     {
       "path": "experiments/run_lung_multiseed.py",
-      "size_bytes": 2479,
-      "sha256": "46a6374c9f5b8e112fcde594bca77bf76e80bce9a7fa6237dca77b872fc2c879"
+      "size_bytes": 2407,
+      "sha256": "acb23cc06b90758677cd5e2198ca39a8ad459b00104dbae2a3a2caba9b244062"
     },
     {
       "path": "experiments/run_pinn_inverse_arm.py",
-      "size_bytes": 12810,
-      "sha256": "b4f273a269eb424ebb76418d775e5d03e22e0da56ceff90536f367959bc3a287"
+      "size_bytes": 12525,
+      "sha256": "942028c540743adbf779b5148201beec8439064b2b1d7ef7904b5486ab1f70df"
     },
     {
       "path": "experiments/run_screened_fem_locked.py",
-      "size_bytes": 34316,
-      "sha256": "01d8e5b2ef9016ef238f197550c0344844eeb1b526cc97347827bec1eac96e43"
+      "size_bytes": 33610,
+      "sha256": "79ea5d3d27473923328548e45a191b9d5cb4d281d5a8bfe6c72f0a079c673472"
     },
     {
       "path": "experiments/run_structured_tracking_sweeps.py",
-      "size_bytes": 2909,
-      "sha256": "a867896aa86eca74f5c10e757cf970cd9da0d4b89a029597105254832013e5fc"
+      "size_bytes": 2817,
+      "sha256": "af38c855d556a31fe368ab3891d34fe42e1d7ac4963eb16c5ccf469ae926b80a"
     },
     {
       "path": "experiments/run_synthetic_multistart50.py",
-      "size_bytes": 4572,
-      "sha256": "9818112abfde6bf22d80908ac970c8765fc0dd5d7f2d5ccbc4fb69b18dcd6da0"
+      "size_bytes": 4448,
+      "sha256": "08301396661def319768d115d6ae7a8b3a95849b84ffd170b9dc1535ed180b5b"
     },
     {
       "path": "experiments/small_bowel_force_train.py",
-      "size_bytes": 12415,
-      "sha256": "7db1800236fc270f309ec0839f03bde34a532799db3af595f5f33548207dfd77"
+      "size_bytes": 12090,
+      "sha256": "d94c8ffc2493a179ff0c994fba66186c79e5ce654cf1b4e906aa22e4bac4ffee"
     },
     {
       "path": "experiments/stack_ct_ratio_calibrator.py",
-      "size_bytes": 7252,
-      "sha256": "e71684b367e02bbe9dfa95c631ace89d9fee94a9538486eda81ca7b1a378f91c"
+      "size_bytes": 7072,
+      "sha256": "f88ab0467bfa3f0d2faca76ba635e27f83498ee9a21b56993b272cd66cdbf2b3"
     },
     {
       "path": "experiments/stiffness_map_viz.py",
-      "size_bytes": 4480,
-      "sha256": "73ac4a75aa337ba1c1d9b012882ed34eba8a03b2ba20dd99af50eaf544bee12d"
+      "size_bytes": 4396,
+      "sha256": "3cadbfbe68441c1bf90ae07caca123304ea303b2f5e5bc2f903484821b5e6f30"
     },
     {
       "path": "experiments/summarize_all_inverse_arms.py",
-      "size_bytes": 13699,
-      "sha256": "f0003b2c0af98b4d1e4d494749bdb139faafcfdb7d3e478316d4cd9cecffc123"
+      "size_bytes": 13414,
+      "sha256": "c00be7a8167822537fd8a07d00cfa7f647f20d17fabe0c84c5c67b45f39fd152"
     },
     {
       "path": "experiments/summarize_ct_reviewer_pilot.py",
-      "size_bytes": 7472,
-      "sha256": "597d76cf422c13550235f25876cadaaf152ae0a98bf9e292872b8d88dc579b70"
+      "size_bytes": 7306,
+      "sha256": "2c69cb26ac0deb9d5d29e321defb253a7263a0039f2b91a3bd3ce9d5377b2d50"
     },
     {
       "path": "experiments/summarize_expanded_ion_results.py",
-      "size_bytes": 4102,
-      "sha256": "6882375eb83ae46c057a28d0b9b4d9aa365107303754283f6ecc519f09e811e7"
+      "size_bytes": 3983,
+      "sha256": "fa31a83c3cf7cb079172bd298bc5d419fbd0f0e037dc2a305af9134a83d9037d"
     },
     {
       "path": "experiments/summarize_ion_geometry_failure.py",
-      "size_bytes": 6929,
-      "sha256": "4f3c3b92ba27337c55dc698521e3aa17046cc37b56bae6562f96d5937e6f497a"
+      "size_bytes": 6755,
+      "sha256": "19b4e33139c29a3ecfddf3d972d387364c33e0dddab56edc99ab8f2b21499201"
     },
     {
       "path": "experiments/summarize_lung_mesh_ai.py",
-      "size_bytes": 4349,
-      "sha256": "fcec47881da6412b737ab562892d77683594387fa183263d244f697a5e80be7e"
+      "size_bytes": 4255,
+      "sha256": "624ef8375be752e4c4f80eae601f2b5565c741beff8781afa835fd316787e658"
     },
     {
       "path": "experiments/summarize_multistart50.py",
-      "size_bytes": 4876,
-      "sha256": "97a516fbf5cfd4e608843499857fd335e7974d2477e621b3801fc121eded04b4"
+      "size_bytes": 4741,
+      "sha256": "31fb0c003beb8d11ccad3ba246dc27349d983003245a269a2d51be8d5701df61"
     },
     {
       "path": "experiments/summarize_reviewer_arms.py",
-      "size_bytes": 24842,
-      "sha256": "37516297ed07dcfea828d10760203507fe5c65403fb678923b27873b42a2d243"
+      "size_bytes": 83790,
+      "sha256": "fcc4f9f33280e58064d7a23e92e797a4369e08eca145f846d78fa577971ee4a6"
     },
     {
       "path": "experiments/test_assumption_summary_statistics.py",
-      "size_bytes": 2800,
-      "sha256": "fad7d1f947ed23079e8a51cdeca8416a48c3231c1694d49c94516300d2ce3d19"
+      "size_bytes": 2732,
+      "sha256": "61b8fd85dff3beb93820f134ae282d317685e29c80d2732f840e9f3d70b5a4bd"
     },
     {
       "path": "experiments/test_benchmark_ion_ct_synthetic_mechanics.py",
-      "size_bytes": 7339,
-      "sha256": "803a28b8603aef3101430b5c0019e6cc52faa9497ede50dc99432ff3de533a07"
+      "size_bytes": 7116,
+      "sha256": "30bb8ee6cb54682f1c7950b5e6aaa1f92dbd8fe1443c6ad0d549ec2510ad3871"
     },
     {
       "path": "experiments/test_constitutive_mismatch.py",
-      "size_bytes": 3032,
-      "sha256": "9dc529245684002c432bc2fbcd9510285b23019e6fa93bd2627932cbccf8c7ce"
+      "size_bytes": 2969,
+      "sha256": "91f9a825cc91b7cd2b9fd3f41cf01439ef57bf45393dae276ded2fd4c903be7b"
     },
     {
       "path": "experiments/test_export_ion_ct_figure_assets.py",
-      "size_bytes": 1429,
-      "sha256": "3fdfc5c38b38e8a56c9869627affd035363e3cc7a39ad95cea9075ec153bd8ff"
+      "size_bytes": 1388,
+      "sha256": "d967c8c5ebb13f1f410b573d62df241434f2ac333911c19f43c71efb5efae428"
     },
     {
       "path": "experiments/test_generate_ion_ct_synthetic_mechanics.py",
-      "size_bytes": 9063,
-      "sha256": "83157182c425929ccd464a6f6959078964da37d9ca3d1c83fac7a9a92e4e506b"
+      "size_bytes": 8830,
+      "sha256": "07f335681d6d1faa5803065fa5f3e14b118f8c031e359436baba518d9173682a"
     },
     {
       "path": "experiments/test_lung_response_calibrator.py",
-      "size_bytes": 1282,
-      "sha256": "fee75cdc311916b5a806cee57439a9a9b7268d21da4d8d6ed8fe312924ee58f9"
+      "size_bytes": 1239,
+      "sha256": "162964ee1f6a569de5c6d9f59a46c534207f71b2d87b234332f62f4012809d75"
     },
     {
       "path": "experiments/test_solver_convergence.py",
-      "size_bytes": 1903,
-      "sha256": "b50bca6d9cd33caef20235abaf440f2a798c2be982154f4df6ac5cc72e888a21"
+      "size_bytes": 1857,
+      "sha256": "81eb480851f7f09571d595b057ff012f14bdf51ebf557259681f6cd3ca710fd6"
     },
     {
       "path": "experiments/train_expanded_ion_models.py",
-      "size_bytes": 5148,
-      "sha256": "d87a25f12b5b54061cef11069d1829df75a901492155c72957a77c3089eac05b"
+      "size_bytes": 4998,
+      "sha256": "ca77f37331b16a83ff1960294950ec7d8af47c3b8a7213784c31548c8771077a"
     },
     {
       "path": "experiments/train_hierarchical_material_prior.py",
-      "size_bytes": 11240,
-      "sha256": "7376bae9e798f511dadc5e1209a46436de5728c413278f3a8513de439fd173b0"
+      "size_bytes": 10968,
+      "sha256": "5ab4bd279eeab8e0a3124e1b39cff4dfa7d8ed3d1618e6cc17a4c2310ffcf04b"
     },
     {
       "path": "experiments/train_lung_mesh_gnn.py",
-      "size_bytes": 34750,
-      "sha256": "d3ecd93fa04dfec686c99318e13363954da8ab358cc473fae36b6570a4266ab1"
+      "size_bytes": 33921,
+      "sha256": "31711585d3fd03afbb28b578a2fa3827bcdfed8df45cb9b3dc6b50275d810e66"
     },
     {
       "path": "experiments/train_lung_response_calibrator.py",
-      "size_bytes": 18022,
-      "sha256": "43a8f66d40ae93fcab59009b01fd03d34fc23f43aa98fcba3b247c1c6d178e58"
+      "size_bytes": 17551,
+      "sha256": "f136660ffb6ff1d2f4a5f4547654d5406b6357cf069af13849f93e0b13dfa447"
     },
     {
       "path": "experiments/train_lung_visual_baseline.py",
-      "size_bytes": 9467,
-      "sha256": "8d8ad8a5c70121078c0e6d560c6d9ca898bf3300060d47c1fd8939233ad8359d"
+      "size_bytes": 9227,
+      "sha256": "3fb8a19a24c249843bfdee7aa254ed31fe324012a5e5b3a334e827707e9856b5"
     },
     {
       "path": "experiments/validate_ion_ct_synthetic_mechanics.py",
-      "size_bytes": 6728,
-      "sha256": "01b9da83f6193ee49606077bfc29f3a138dba09f0727e2b5d9b61dbb23d65e39"
+      "size_bytes": 6573,
+      "sha256": "d1a973406f860534e67f4786957fdd6f92729f2156bacdaf634d9e6c750bbfe0"
     },
     {
       "path": "experiments/validate_ion_geometry_cohort.py",
-      "size_bytes": 4309,
-      "sha256": "f591ba89d592f3a1ac7be60e9b81a55f528ccdbe56ade287b0585d07871aad26"
+      "size_bytes": 4190,
+      "sha256": "1b29813410e87e7eca93e77e17f9d5dfe77cb4ca3071c063d951204aabdb451b"
     },
     {
       "path": "figures/fig_aiim_sensitivity.pdf",
-      "size_bytes": 32406,
-      "sha256": "5f711b9ed72b3ca0ce0ea6c611abfbcf6c1592960fc8932bd630ac1488e40075"
+      "size_bytes": 32917,
+      "sha256": "3f08df2869a270547f8d18de728948913089baf3fd1b686c0fc5c72ae12267dc"
     },
     {
       "path": "figures/fig_aiim_sensitivity.png",
-      "size_bytes": 292115,
-      "sha256": "3eae4d88eddcdfde1ce27d9e2e072281ccadc09a22e3e2fd24dcdcb025ce5e06"
+      "size_bytes": 312962,
+      "sha256": "a06ae415aef3280abb326b29ff595800e592f05b5f290b986c16181ceab07b00"
     },
     {
       "path": "figures/fig_calibration.pdf",
@@ -722,28 +732,28 @@
     },
     {
       "path": "figures/fig_inverse_leaderboard.jpg",
-      "size_bytes": 402420,
-      "sha256": "6cfbc363605d91431582fd7a4d469e6918a9fc2b8cc38f8db2e0c30125289316"
+      "size_bytes": 437052,
+      "sha256": "2c9144526d3e6ea4afb80bbff1fbabb151a0e4242d68f2a1d474fe4942750f8b"
     },
     {
       "path": "figures/fig_inverse_leaderboard.pdf",
-      "size_bytes": 30780,
-      "sha256": "d79ad863c7a11b0fd61e476d3cfc9ba4de1c2b76cdff553f31d1df0e8bb6ec5c"
+      "size_bytes": 30854,
+      "sha256": "ca65506ad2becb06e61e6983579a6103c19a49a9cb7c3e64d403acc039f8ec5f"
     },
     {
       "path": "figures/fig_inverse_leaderboard.png",
-      "size_bytes": 463328,
-      "sha256": "dc69108601ad6b393bbd7bce53769e9963c832cdf72e56522684da6a6a4f900c"
+      "size_bytes": 479877,
+      "sha256": "96b65a4360be5b42ee5b58db318f651449086d07ad2a732f62438a667b6246c2"
     },
     {
       "path": "figures/fig_ion_ct_error_distributions.pdf",
-      "size_bytes": 36713,
-      "sha256": "95ed226ab7e26666394880fed58acc7d9a8c41cdcb78b9fd69c272c663324012"
+      "size_bytes": 41393,
+      "sha256": "b61f701272e14844e624f85457c12674dcd324b96df48a908f9fe99fc20df6ec"
     },
     {
       "path": "figures/fig_ion_ct_error_distributions.png",
-      "size_bytes": 334291,
-      "sha256": "706a3dbd12148db979cc27617dda358f02580680276bc162d55ea5523745bd28"
+      "size_bytes": 338611,
+      "sha256": "41c125d83dff213bdbfe1cd76d8c377a0e0e2850e6fb586484d795f689981e0c"
     },
     {
       "path": "figures/fig_ion_ct_material_recovery.pdf",
@@ -757,13 +767,13 @@
     },
     {
       "path": "figures/fig_ion_ct_method_comparison.pdf",
-      "size_bytes": 38539,
-      "sha256": "72d30229d69398dcb39ec3789355d474afc2c0da49e7f6ad1ca7ad40c9a817be"
+      "size_bytes": 41736,
+      "sha256": "fcfa9893c4673a14e424811904283939173907f5869d3e0412829d9436d9466a"
     },
     {
       "path": "figures/fig_ion_ct_method_comparison.png",
-      "size_bytes": 393692,
-      "sha256": "bdab1897833c73abf411ecb512c697640f6e9ea3da4a6a2fadf020f4cc5c321b"
+      "size_bytes": 398379,
+      "sha256": "4edd729697edbb6e346cf84808e7f1dad3def2a37b888123159a74ff918442cb"
     },
     {
       "path": "figures/fig_ion_ct_multiview_tracks.pdf",
@@ -797,23 +807,23 @@
     },
     {
       "path": "figures/fig_ion_ct_physics_tradeoff.pdf",
-      "size_bytes": 56408,
-      "sha256": "7877546966d50829269db8137e28ab5993e7692b673121b1af99dcceaf5f0e5c"
+      "size_bytes": 56407,
+      "sha256": "61418071f7ae0547f12a71bb44b62b39e85af7af467f51f39ab07bfda9a8bfcc"
     },
     {
       "path": "figures/fig_ion_ct_physics_tradeoff.png",
-      "size_bytes": 331505,
-      "sha256": "56782fcee45bdde8d31f7cd4e600633ea4a6b240b06c209c986d5cb80d3e74ae"
+      "size_bytes": 332751,
+      "sha256": "06899c92af433f24e3b7afd47e8b1be66cf7d08948c29bc8ee86749ee8d109df"
     },
     {
       "path": "figures/fig_ion_ct_synthetic_pipeline.pdf",
-      "size_bytes": 1686286,
-      "sha256": "f809d099bb36d0f90e742819d055b36a28669832714023db3501aa165f30c7b2"
+      "size_bytes": 1685947,
+      "sha256": "1ea25b5bfd53c2cbab1a092d97b04f31abe5011945bf38e3c84236186dfc57e8"
     },
     {
       "path": "figures/fig_ion_ct_synthetic_pipeline.png",
-      "size_bytes": 2535392,
-      "sha256": "550c5d3269b0a6ebc56f548798c65129f92dbe622b03a7058b08a555aa67c9a1"
+      "size_bytes": 2524609,
+      "sha256": "31812d2173442fc55ccd948abecef5f74997f64556f66ea5b80f2d97f3168609"
     },
     {
       "path": "figures/fig_main_results.pdf",
@@ -827,13 +837,13 @@
     },
     {
       "path": "figures/fig_multiseed_ood.pdf",
-      "size_bytes": 26740,
-      "sha256": "c06e92a8c974d4fd2a37adeb91055395ebd5c30c4a7c1c391dd105b0477f98a9"
+      "size_bytes": 26760,
+      "sha256": "f152995074b92f2c0af891fffc1845c3e48df434983d48c7767c6f51d7b95360"
     },
     {
       "path": "figures/fig_multiseed_ood.png",
-      "size_bytes": 204680,
-      "sha256": "c0a483f4a15850e53a54cbc17f86bda95b2acd958fed254bcafbab7e869ab4d5"
+      "size_bytes": 203056,
+      "sha256": "e3950a638b8bf451760ee18ad7fde0e758c782f9adec1fbe676e2808147abb06"
     },
     {
       "path": "figures/fig_network_fem.pdf",
@@ -886,6 +896,16 @@
       "sha256": "6fc30665809155390a1face6784f96d126f0cd1ce9dde041d715605539421f86"
     },
     {
+      "path": "figures/fig_review_sensitivity.pdf",
+      "size_bytes": 28934,
+      "sha256": "a594f51fb7bcfba650e64ee0a68d36e5b2136f4861a5955f6489ce0d9d278224"
+    },
+    {
+      "path": "figures/fig_review_sensitivity.png",
+      "size_bytes": 264414,
+      "sha256": "ff04932bb63b1c09bbe7c38854f3dec9945173d6d06ca64965f0e8470b68e216"
+    },
+    {
       "path": "figures/fig_structured_tracking.pdf",
       "size_bytes": 24907,
       "sha256": "a5fb0f92cef0d27fdfa0f207b03c6294e5e28e5dca836e0e502712756deec3ed"
@@ -902,253 +922,348 @@
     },
     {
       "path": "figures/meshmaterial_gnn.tex",
-      "size_bytes": 8585,
-      "sha256": "0438262900874843776bca74474ba5913e3c7f78b3a5801657d3513da1002e6a"
+      "size_bytes": 8255,
+      "sha256": "fe234e503a0158dd5018c4626fddab02d31f2fed8831c631d7ac4c8cc1d21f06"
     },
     {
       "path": "inverse/__init__.py",
-      "size_bytes": 2,
-      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+      "size_bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
     },
     {
       "path": "inverse/heterogeneous_recover.py",
-      "size_bytes": 5351,
-      "sha256": "0b15527c213abcfabb1f62c19252a8b1ae85f009cb1cf3df11a3c3d053581d67"
+      "size_bytes": 5255,
+      "sha256": "631076f9f97675afb030def1bd84c2e75463089dbb33b72a27d8a29462717911"
     },
     {
       "path": "inverse/joint_opt.py",
-      "size_bytes": 5774,
-      "sha256": "e7f95a784af0d758cf217c687a3276dcbfa8fef4baf142f924d2ebe6e8d4ed7b"
+      "size_bytes": 5647,
+      "sha256": "0207b8a4be422239c8200b277e76bdaf5a66832b18224b89a7c07bb57b692149"
     },
     {
       "path": "LICENSE",
-      "size_bytes": 1107,
-      "sha256": "94530626760678388aa406e5c8a65b01f68910ef6a2d5e69456b624e315de16d"
+      "size_bytes": 1085,
+      "sha256": "e32d57e55f295e0ccedc4d25a07b17ddfd0b8ad411abc89a94d6dd596e977561"
     },
     {
       "path": "lung_inverse_rendering/__init__.py",
-      "size_bytes": 72,
-      "sha256": "beb2de3fb42d9292297f59f439b921fd2488722b8ee140ff010c4766b4c7d732"
+      "size_bytes": 71,
+      "sha256": "734cabdfed5f05e09a16686ae5a95f5d0ec9357c31e2962484a68374dc9f33c8"
     },
     {
       "path": "lung_inverse_rendering/aggregate_large_eval.py",
-      "size_bytes": 7688,
-      "sha256": "32ca19adb8625639bdf74a4b0a2d562426b59377761bfaa29584db5dfc9c9f40"
+      "size_bytes": 7492,
+      "sha256": "d93cfb602f075e3340212ee6ede0c564f21c8b0ec4f91f2e0d0032b5499dfdce"
     },
     {
       "path": "lung_inverse_rendering/augment_sim_lung_v2_multiview.py",
-      "size_bytes": 7134,
-      "sha256": "3d2a05a66df65738f59506da977c4182f7b2b819c7802d8121d2188b3e15d2ac"
+      "size_bytes": 6947,
+      "sha256": "8d0d39cd48392cbc0d68d12a1320ec7e3a5eb29c9b055e95c1c60924b923f8b7"
     },
     {
       "path": "lung_inverse_rendering/augment_sim_lung_v2_tracks.py",
-      "size_bytes": 5012,
-      "sha256": "7efce83f166fd0b5f25771399f090378ee2df8db7fb029f86ddde7fc8e4199d1"
+      "size_bytes": 4882,
+      "sha256": "c81532f2411ab80932ef3f16012cffc18d40a386c02b496c73d5957f964ce6ed"
     },
     {
       "path": "lung_inverse_rendering/ct_geometry.py",
-      "size_bytes": 4685,
-      "sha256": "fd278708f980b697ceafaca52660c1e299fe4782f84202d850782eb65d28ecd9"
+      "size_bytes": 4566,
+      "sha256": "7eb94764faf7f04e7384152184b10d6927297ae047aa04614384871c2f766845"
     },
     {
       "path": "lung_inverse_rendering/ct_loader.py",
-      "size_bytes": 5808,
-      "sha256": "22fd149cabd42b29154483792a261f7f311455823c9e7644fd02a62ba5d3fec0"
+      "size_bytes": 5665,
+      "sha256": "dc05554db20a64265d961f548e0fb1451d34c82cad6f4b7de9a330f068ba8ec9"
     },
     {
       "path": "lung_inverse_rendering/evaluate_sim_lung_v1.py",
-      "size_bytes": 4742,
-      "sha256": "3a36ca4492da47fa7f0d218a2386dec0b24c34ce05978b20f566afed3cd7f6f0"
+      "size_bytes": 4624,
+      "sha256": "6bd8df33621abc6d3f0a87a1ddd4f7b011096f512f5fd6770ce9f29b7c1d8047"
     },
     {
       "path": "lung_inverse_rendering/evaluate_sim_lung_v2.py",
-      "size_bytes": 61239,
-      "sha256": "dc016685acc07da065ebd49280a2f07f4c461f1573722760fa4c71db2b7bb035"
+      "size_bytes": 59876,
+      "sha256": "b3c75c3ccf1ee46e9ac4ccef30379926aeebc45161fc67df8ae4096ef315efce"
     },
     {
       "path": "lung_inverse_rendering/evaluate_unknown_region.py",
-      "size_bytes": 7595,
-      "sha256": "0fe3e272f4afd7f234f945b1ee5e614dabf8f6b1fa24bd536ad2a421e21d0443"
+      "size_bytes": 7403,
+      "sha256": "d00a08dcd550576f9a22a0cc56eae1cc7fc16ac704d067b97b89e2a93abc4f3d"
     },
     {
       "path": "lung_inverse_rendering/generate_sim_lung_v1.py",
-      "size_bytes": 8602,
-      "sha256": "f175c6ff9fba0b7e01692e1bb7eedbe642c9fcef5f872fd820617d84502e619b"
+      "size_bytes": 8384,
+      "sha256": "49f86e082ad0e7bd85c3a8c14a3747d1790c1571425fe14051cd4d5e52a54ff1"
     },
     {
       "path": "lung_inverse_rendering/generate_sim_lung_v2.py",
-      "size_bytes": 33177,
-      "sha256": "0a11c17b136ec91611611131f64066b653e2d8e964e60f0b006f66903b763e69"
+      "size_bytes": 32373,
+      "sha256": "ea48718f0a10fd3cb6207c73e7d72e3dd5de4d2085ac9603b7ec602c2c2ee560"
     },
     {
       "path": "lung_inverse_rendering/ion_dicom_sources.py",
-      "size_bytes": 7081,
-      "sha256": "6dcfe3d1b49fa62ea6b8514abe3a78cad229bacd212db94b595eba1415a44c55"
+      "size_bytes": 6855,
+      "sha256": "16e6e10a0218290856f9946cea4a286bba68c9c3068cf3e0fee74a5daff9dcbb"
     },
     {
       "path": "lung_inverse_rendering/make_patient_subset_manifest.py",
-      "size_bytes": 1593,
-      "sha256": "0ba7905d8b88b5f5d40cc69d5fa098f33637d1246fb2d45cfa803de400fe68ba"
+      "size_bytes": 1550,
+      "sha256": "ed90e6264d605cd07f41d630de33d1638f995b99ba1a029530aeea0db1e51ccf"
     },
     {
       "path": "lung_inverse_rendering/make_sim_lung_stage_manifest.py",
-      "size_bytes": 1521,
-      "sha256": "e74bb92c254faff6126cf4922967dc9f00e9d5a9002f66c9c6f6f1880872d42f"
+      "size_bytes": 1480,
+      "sha256": "ccc72aad60db64362f420b40ac46fcac999230d9277218fc8066e4cfd7f61076"
     },
     {
       "path": "lung_inverse_rendering/merge_sim_lung_shards.py",
-      "size_bytes": 1944,
-      "sha256": "d4ffe432b2f90fcea91b1c892985bfaffa1330e82d463774b511ffb2ab42d913"
+      "size_bytes": 1892,
+      "sha256": "6f6f4907b0d91fce4f5eaca476bddf84964f6080e6ba5bfc404d230b04859082"
     },
     {
       "path": "lung_inverse_rendering/pinn_inverse.py",
-      "size_bytes": 18221,
-      "sha256": "604f984c5f1648b7f67cfe111b1f7698899489d2797819692052872756f51d4a"
+      "size_bytes": 17805,
+      "sha256": "2b7fb2cc05ce25f32e682657757d7a187c9313ab1fe6a9ae89a601d5da5cfb39"
     },
     {
       "path": "lung_inverse_rendering/prepare_ion_ct_meshes.py",
-      "size_bytes": 12425,
-      "sha256": "c8610eca48262855f883230533cf466829f944ee752859c68eb256f19357eb18"
+      "size_bytes": 12103,
+      "sha256": "4ff431b49bd8ac30d034aacd4b7f3ed1881c8627edaa52973169f65e235991cb"
     },
     {
       "path": "lung_inverse_rendering/qc_sim_lung_ai.py",
-      "size_bytes": 8711,
-      "sha256": "5cfda4857b5b5e3e06893630e5917a8a0de3135381dcfc97c999332eb67fc6f4"
+      "size_bytes": 8529,
+      "sha256": "ac439a8341fce69246438680dec1363ddb5aeb395af477067fa04c90a252f4ae"
     },
     {
       "path": "lung_inverse_rendering/summarize_sim_lung_v2.py",
-      "size_bytes": 4770,
-      "sha256": "b6c95740d05f993bfa4c7192a29e8692030381e6854408f184ba92fe164ab0be"
+      "size_bytes": 4693,
+      "sha256": "b99e8462845818f3ac9e0b4a0ec528a1994ba66a4225fcab410caedc9d195d30"
     },
     {
       "path": "lung_inverse_rendering/test_force_prior_eval.py",
-      "size_bytes": 5849,
-      "sha256": "1f26cd087bdad691cc3cd7bcf555ab41c4e073e9175488e7cfab80a830622172"
+      "size_bytes": 5672,
+      "sha256": "6543bd3025334117ddfbb48c59541be2e3396e0bd1b82a1ecff81c720a766654"
     },
     {
       "path": "lung_inverse_rendering/test_ion_geometry_ood.py",
-      "size_bytes": 9050,
-      "sha256": "3049c17ef5ca3f2b1cf0ffb4a0924c74e4777e44b48e518ba7f1fde04a7f7ade"
+      "size_bytes": 8801,
+      "sha256": "671745164f1f74262d06eb6ac7d4b49e4c2031d43e1c92a2d28e0b2b792e7826"
     },
     {
       "path": "lung_inverse_rendering/test_lung_ai.py",
-      "size_bytes": 12158,
-      "sha256": "a692b8c830db31a999b9a48b5f5c110b0c8fe3541ac3faeb017a7036b4313720"
+      "size_bytes": 11843,
+      "sha256": "69aaeabaa885bc487f1a29d4f738c054a39aeadf45fa82d589b9d17ba9d3b5da"
     },
     {
       "path": "lung_inverse_rendering/test_lung_ai_end_to_end.py",
-      "size_bytes": 3745,
-      "sha256": "dc9324d542907fe6957b465e4a3dfbfae83c250a7ea7a079492551806fef447f"
+      "size_bytes": 3618,
+      "sha256": "3670e80b05acde47fb7e73390657c75f3be4a39ccfef604e843224b3dfe391f6"
     },
     {
       "path": "lung_inverse_rendering/test_lung_pipeline.py",
-      "size_bytes": 1849,
-      "sha256": "8bacfbf5abf252c0146f5c2bd8e079dc2f24d21cd762e9cc5e483936b4774e6b"
+      "size_bytes": 1802,
+      "sha256": "aa17af74e15faa8c3536cc42b77037d37bce9fc336be697ca75e682453bab3d5"
     },
     {
       "path": "lung_inverse_rendering/test_pinn_inverse.py",
-      "size_bytes": 1133,
-      "sha256": "225c8331efcf2dafb439b2a783941b10e6c2c6972c9710996c86f1876f3b1eea"
+      "size_bytes": 1105,
+      "sha256": "cb9c841beca6138f02ef04a41d9971ab55de539ba37103f0756d03cc77a2ace1"
     },
     {
       "path": "lung_inverse_rendering/test_sim_lung_v2.py",
-      "size_bytes": 8441,
-      "sha256": "d990430c855813703a5744d1c34f667c19475c9e19418d018d29350d073e0c48"
+      "size_bytes": 8226,
+      "sha256": "fb831adf81bd6a548cafe794b3173df7ea760f0f5133d56acc2c73e3946fd356"
     },
     {
       "path": "lung_inverse_rendering/tracking_error.py",
-      "size_bytes": 2323,
-      "sha256": "27d6228e91d01116515ee412b86aadaf62298860de39fb19dcfca18c2bfe1277"
+      "size_bytes": 2264,
+      "sha256": "78aa29e86c3be981257fa3573c275c086c31311361c77dec0db42755e9551d08"
     },
     {
       "path": "lung_inverse_rendering/viscoelastic_extension.py",
-      "size_bytes": 6360,
-      "sha256": "1956d2475fe23ec4d03fdc3897d394deed5f364509b54838950b2350517f081f"
+      "size_bytes": 6190,
+      "sha256": "41b8a03d41e6fa8a7ee856a3f482395ed24ab3bdef4d32fde93411b818fd4d09"
     },
     {
       "path": "MODEL_CARD.md",
-      "size_bytes": 1440,
-      "sha256": "dbf1ea897b622f12762a725f35ed2094ca835c62068fffc2251da64f7f5c5e6f"
+      "size_bytes": 1411,
+      "sha256": "c6b78e9a873aeda7d1f673a2f960aa96083edba369d88f02625d356c797dcebb"
     },
     {
       "path": "models/__init__.py",
-      "size_bytes": 33,
-      "sha256": "f67c23b71ef3551287860eb7d51b82ce62f7bde163f3cd6ff3a46122e6d90583"
+      "size_bytes": 32,
+      "sha256": "31407fefab7568768d37a3c652279a81f95f30308db509634f4a129b91db4728"
     },
     {
       "path": "models/force_regressor.py",
-      "size_bytes": 1130,
-      "sha256": "ea62340ec7744c7a5cc779a4fd8ffcf6f50571b2bfb18608f2a362d402726997"
+      "size_bytes": 1101,
+      "sha256": "d8bbc84cc6c93d4526639a80255e9610b6accbd8fecb024b0845e6d0fde18eda"
     },
     {
       "path": "models/hierarchical_material_initializer.py",
-      "size_bytes": 6642,
-      "sha256": "a7675aa17e7aefeb3e9fcf22582620f1c96595d9d18834a4d8d3ea7e5f6c0a6b"
+      "size_bytes": 6489,
+      "sha256": "aad35fc762bb3b45a883deed3b37a2b06b6b009877044c7a8983dbe37e0f909f"
     },
     {
       "path": "models/lung_mesh_material_gnn.py",
-      "size_bytes": 22490,
-      "sha256": "43a7e1a342adc424d6c7244622095d9b41129cfac9af34df7fb16d9429b40675"
+      "size_bytes": 21968,
+      "sha256": "7d1767fe64406b540c76033d65634bc76342d2e9a8d4549f234857321612481b"
+    },
+    {
+      "path": "paper_aiim/figures/generate_aiim_figures.py",
+      "size_bytes": 153773,
+      "sha256": "945f1b1ae714ab66f99cc5d74a860537a606a2f9070daf67f1d7e1fcb054dae9"
+    },
+    {
+      "path": "paper_aiim/figures/generate_graphical_abstract.py",
+      "size_bytes": 13042,
+      "sha256": "5c446688d95d5542925f25b28ab4ce5559beba7a989c4a501f08bc13a8ea6d8f"
+    },
+    {
+      "path": "paper_aiim/figures/generate_new_result_figures.py",
+      "size_bytes": 10536,
+      "sha256": "db7f4debcb6742a5fb2151e5afcd8e11186cf7097b3e26bdb8345810a02af9d0"
+    },
+    {
+      "path": "paper_aiim/figures/plot_inverse_leaderboard.py",
+      "size_bytes": 16385,
+      "sha256": "e03029167dc9a196a53e6708c1ee6128a8df27c99f9442d0719f3999e414fe58"
+    },
+    {
+      "path": "paper_aiim/figures/plot_meshmaterial_gnn.py",
+      "size_bytes": 12022,
+      "sha256": "505c9fb62f0e3c7807f57b8c56c075fb662c8adcd28c76c45e74a00d7cd8c063"
+    },
+    {
+      "path": "paper_aiim/figures/plot_revision_overview.py",
+      "size_bytes": 8274,
+      "sha256": "633564568e946c033aedf6e56e88d63f1c79fd24b23096985143979bc75ea23b"
+    },
+    {
+      "path": "paper_aiim/figures/plot_revision_sensitivity.py",
+      "size_bytes": 7684,
+      "sha256": "4d1a716a00c0d8f78ee9bbcd81e1338f37c90bbed4e7d93a087354f2e7aa9dcf"
+    },
+    {
+      "path": "paper_aiim/figures/README.md",
+      "size_bytes": 1595,
+      "sha256": "b3cb56fd0df2335f3a6a9a3e70b4480f1337dcf2a498555da8d690e49a8ae420"
+    },
+    {
+      "path": "paper_aiim/revision_tools/build_all.ps1",
+      "size_bytes": 2575,
+      "sha256": "d1f10eae95782fcdf2f7ebd9c45557baa8c55a42f688a997ccc1b50281f9d8fa"
+    },
+    {
+      "path": "paper_aiim/revision_tools/build_responses.py",
+      "size_bytes": 2529,
+      "sha256": "ac3d21b809371675c3768640c63c941a7492f51d283124f332cef1d33e28d331"
+    },
+    {
+      "path": "paper_aiim/revision_tools/export_responses_pdf.py",
+      "size_bytes": 4528,
+      "sha256": "37db53a92d6cd19b61950e212ec66bd4bd34a555e8a8a40728a231d17424fd51"
+    },
+    {
+      "path": "paper_aiim/revision_tools/fix_diff_paths.py",
+      "size_bytes": 2705,
+      "sha256": "ee8d7b189da716cb0f209635864c403d5ba12cca0347e42b758349af4fbd6c59"
+    },
+    {
+      "path": "paper_aiim/revision_tools/fix_diff_refs.py",
+      "size_bytes": 944,
+      "sha256": "2fcebeda2308da8e1f054fd472af40694d7df355d4221e280ee8c63e68d614a4"
+    },
+    {
+      "path": "paper_aiim/revision_tools/flatten_revgroups.py",
+      "size_bytes": 3154,
+      "sha256": "598b5dfc15afede44c0eebc669af1eaa4a8e6f132d7274ed21e9ddbd99f8f63b"
+    },
+    {
+      "path": "paper_aiim/revision_tools/make_diff.ps1",
+      "size_bytes": 3681,
+      "sha256": "12315b04bdff875cbfc019a2381891797cfb434854df43432075376692d7b0a2"
+    },
+    {
+      "path": "paper_aiim/revision_tools/merge_bib.py",
+      "size_bytes": 804,
+      "sha256": "6678d6b9847077c1bed0c84040cfc0412502ec6aa6166fb914d12b81138857fa"
+    },
+    {
+      "path": "paper_aiim/revision_tools/README.md",
+      "size_bytes": 1175,
+      "sha256": "b2436d4f9fa651e20a37502899a8f962038ea796e0f3eb4182864a83a04b2096"
+    },
+    {
+      "path": "paper_aiim/revision_tools/run_latexdiff.py",
+      "size_bytes": 777,
+      "sha256": "01a8fbeb70155234e584c9504dff36a63c6b50c16fbe5a903f4ec8ebdc199dfa"
+    },
+    {
+      "path": "paper_aiim/revision_tools/sync_supp.py",
+      "size_bytes": 1001,
+      "sha256": "bb5c5d027f9928238bc75ba0ed701c8f05bd9eecefe21fc311678b391321e7d2"
     },
     {
       "path": "physics/__init__.py",
-      "size_bytes": 5440,
-      "sha256": "3d2481b889d400efb2c7270ddfe2b8b1f446aa0bf759af3ebec9ff894bbea0b8"
+      "size_bytes": 5296,
+      "sha256": "ab43f33fb4be9863a5afdeed6a32091fb29e73f6ab721470013aec52d654f7ed"
     },
     {
       "path": "physics/constitutive_mismatch.py",
-      "size_bytes": 4792,
-      "sha256": "86d22dc57ff219e4858bafab43f59462f546390b14b9b4ec0e3a396d92788e5b"
+      "size_bytes": 4674,
+      "sha256": "eee11779e846ce5adf3753e8c56c9d32766b905f3daaad605f01e33c06d89092"
     },
     {
       "path": "physics/fem.py",
-      "size_bytes": 17017,
-      "sha256": "2ef38c7bffea3fc02b60d9e6fa578c36ab9bbb9b185c6bbb57562a7af97b13d3"
+      "size_bytes": 16676,
+      "sha256": "b24c3720e08248061fa5537a2cda52415b218c9a9767464deab5552095284ecc"
     },
     {
       "path": "physics/fem_neohookean.py",
-      "size_bytes": 10098,
-      "sha256": "05dec9d20f501e7953bd6ae4028efe58abbfafa1f660e680ec5f53ab0d61b2a4"
+      "size_bytes": 9877,
+      "sha256": "308e6548c7815a506593571b4463b59277cf89b97d367dc9f79c439effcdae6f"
     },
     {
       "path": "PUBLISH_TO_GITHUB.md",
-      "size_bytes": 952,
-      "sha256": "ae43d3f9dd322c4235034dfb29b2853a6c970b85f5e387809456f359f64e1c17"
+      "size_bytes": 1093,
+      "sha256": "9388577f56fc3f324e616c21569d98ad39b2aecd0476b16805a563fe8f2623e4"
     },
     {
       "path": "pyproject.toml",
-      "size_bytes": 687,
-      "sha256": "48e6a66544b7a4e199bd868e860ab791ce7861d5a5c65834c78f4e4dfcd9b9ce"
+      "size_bytes": 656,
+      "sha256": "cd4677a635966c81110f06cc258cfbc5fd05d2fe92010c24b3b2bde89e1757ff"
     },
     {
       "path": "README.md",
-      "size_bytes": 13313,
-      "sha256": "8883ee1a995376974da6775e924c2f1395e11df92b9b1b5450243c0f06c39cd2"
+      "size_bytes": 21979,
+      "sha256": "ccf0e929e51a5b538f1b20967ac5d719c1e1e7743e601b182dd65880c1803854"
     },
     {
       "path": "rendering/__init__.py",
-      "size_bytes": 2,
-      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+      "size_bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
     },
     {
       "path": "rendering/gaussian_pbr.py",
-      "size_bytes": 14213,
-      "sha256": "4ab321bac64e0c128b067a8c0eb6028677546c891641257549951c5912f21d64"
+      "size_bytes": 13937,
+      "sha256": "637e7202d4dc1b40369e1972e895a3725c1e99ce67554628c405be40e2e83269"
     },
     {
       "path": "REPRODUCIBILITY.md",
-      "size_bytes": 1575,
-      "sha256": "c68e0f09cf561386dd5cd98f6864d13c2576a589c75a0cdcb60d44f6f0712a7c"
+      "size_bytes": 5894,
+      "sha256": "92abb7622cb0bc52a57a1f0ff5c3cbeffff9ea79d9ebc0d41da003a68260714e"
     },
     {
       "path": "requirements-optional.txt",
-      "size_bytes": 67,
-      "sha256": "0bb12983966a89d811b5012c2e45fdccd936efdd15a566fc333f5c0bdcc9ab9e"
+      "size_bytes": 60,
+      "sha256": "0d7e39021b9aa3ee78ea1dcc5679312e5b35b062511681746a7538e8aca5d1bb"
     },
     {
       "path": "requirements.txt",
-      "size_bytes": 109,
-      "sha256": "945740e7aa96bdb1cc58f9e7c3d6775b0ec95ffdccde6af45b6ea4f841eda349"
+      "size_bytes": 95,
+      "sha256": "6b6135df6727fd3c823fc21c3f752337675d770baaa0d62ff1561424a9e5e786"
     },
     {
       "path": "results/ct_reviewer_drivers_v1/recovered_raw/fem_paired/w1_s0p05_p2/driver_manifest.json",
@@ -1302,8 +1417,8 @@
     },
     {
       "path": "results/ct_reviewer_drivers_v6/accepted_update_harm.json",
-      "size_bytes": 35979,
-      "sha256": "4bdf46891709c2ab184df9c6c2fa9771aec9463a5567d31916d7c9785d926b6e"
+      "size_bytes": 35977,
+      "sha256": "0bef41ec013f74628003dada53a0e2fc94c041db89807206cafa24a7f33987f1"
     },
     {
       "path": "results/ct_reviewer_drivers_v6/assumption_sensitivity/aspect_1p5/records.jsonl",
@@ -1327,8 +1442,8 @@
     },
     {
       "path": "results/ct_reviewer_drivers_v6/assumption_sensitivity/aspect_arm_sanity.json",
-      "size_bytes": 51365,
-      "sha256": "161cc93048de20e37c35b1c251212716127485c1381fa7fb60532ed743ce45b4"
+      "size_bytes": 51363,
+      "sha256": "e80e4835398aee48f1a581e19475fb3a2f6c4ccb994cbac35ae6a9dabb645e3b"
     },
     {
       "path": "results/ct_reviewer_drivers_v6/assumption_sensitivity/contact_shift_0p15/records.jsonl",
@@ -1412,8 +1527,8 @@
     },
     {
       "path": "results/ct_reviewer_drivers_v6/assumption_sensitivity/summary.json",
-      "size_bytes": 4661,
-      "sha256": "b2dd29fbf4274480aeffa27afdab3c2d71b3903dbd4f315e9ab3da96c4685fb7"
+      "size_bytes": 4558,
+      "sha256": "4f30c5f72bf176c4a5f6c94daed3e260f2bd0f5925e4be9c61dd547424d7dd94"
     },
     {
       "path": "results/ct_reviewer_drivers_v6/assumption_sensitivity_fixed/aspect_1p5/records.jsonl",
@@ -1427,8 +1542,8 @@
     },
     {
       "path": "results/ct_reviewer_drivers_v6/assumption_sensitivity_fixed/aspect_1p5/summary.json",
-      "size_bytes": 48903,
-      "sha256": "7dba8e7df7170998966321f6e5d2ed42130d5ec2ced2e6dde7a992dd30382052"
+      "size_bytes": 48901,
+      "sha256": "401730ed4f368044c3d49c0983e13c793c6c536073fcf0f88034435a4c984adb"
     },
     {
       "path": "results/ct_reviewer_drivers_v6/assumption_sensitivity_fixed/aspect_2p0/records.jsonl",
@@ -1442,23 +1557,23 @@
     },
     {
       "path": "results/ct_reviewer_drivers_v6/assumption_sensitivity_fixed/aspect_2p0/summary.json",
-      "size_bytes": 48893,
-      "sha256": "2a4eabf835694e77af5c82b7085bbacd6d4ae585f96bf1990a91b328d1b415f9"
+      "size_bytes": 48891,
+      "sha256": "dbe95517d3423a331c1ef304db1a13763e645b715cfafe903f6aab1d9ee0d4db"
     },
     {
       "path": "results/ct_reviewer_drivers_v6/assumption_sensitivity_fixed/summary.json",
-      "size_bytes": 69224,
-      "sha256": "8125f3714a233877b73552fb5d9b5e4dd9fb6538992d81f1136d8431c35ae395"
+      "size_bytes": 67486,
+      "sha256": "95ce824a007842f0f504a3abc7c51d8bb006f5ae109e0ffc275bb931ec08aa7e"
     },
     {
       "path": "results/ct_reviewer_drivers_v6/calibration_fourbin_test_sensitivity.json",
-      "size_bytes": 13142,
-      "sha256": "2db683a0120bb9e46600dd689b33916317f65ec777977748714bb2eb9d7e57ec"
+      "size_bytes": 12746,
+      "sha256": "8654a593b548e2f01b44030eb259e7b4cb6efa4d78e9722a20409057503823ee"
     },
     {
       "path": "results/ct_reviewer_drivers_v6/calibration_stability_loo_refit.json",
-      "size_bytes": 73173,
-      "sha256": "3ec3b0d8ed0ea4b51c248943a9636750423584de006c676b2ad9747a62778b55"
+      "size_bytes": 73171,
+      "sha256": "82d1115bd9dc141f479b0ddaf89a5b1bc2a562ecb9abe33f4041041bad7445e8"
     },
     {
       "path": "results/ct_reviewer_drivers_v6/constitutive_mismatch/fiber/records.jsonl",
@@ -1467,8 +1582,8 @@
     },
     {
       "path": "results/ct_reviewer_drivers_v6/constitutive_mismatch/summary.json",
-      "size_bytes": 1118,
-      "sha256": "6a05f6544f5f264785433af085845af7039d8a1f3b5743d89b95dd1dde57066b"
+      "size_bytes": 1088,
+      "sha256": "dbed83cf343265c93928c80d46258a2728952ea2904d7ab4bd354eec9c8ec81f"
     },
     {
       "path": "results/ct_reviewer_drivers_v6/constitutive_mismatch/viscous/records.jsonl",
@@ -1477,8 +1592,8 @@
     },
     {
       "path": "results/ct_reviewer_drivers_v6/ct120_audit_mechanics.json",
-      "size_bytes": 7457,
-      "sha256": "66c5386813673e7bed78645bba3f787abb31d5dfe923135287931db993ecc63c"
+      "size_bytes": 7295,
+      "sha256": "92b66c4ec63e820b85af306b7bcb7a36aa0ddf8a3967261fa775abd2de8880a4"
     },
     {
       "path": "results/ct_reviewer_drivers_v6/ct_reviewer_drivers_v6/fem_paired/w2_s0p05_p2/driver_manifest.json",
@@ -1687,8 +1802,8 @@
     },
     {
       "path": "results/ct_reviewer_drivers_v6/decoupled_screen/summary.json",
-      "size_bytes": 5735,
-      "sha256": "c2c8a930cd16397b9bdd8ed5f6c3409e85c1fcf6ed33d29fd25a7ff02082b33c"
+      "size_bytes": 5595,
+      "sha256": "054d72028413e772f6f79752993d06fbb2c1a16c3cb2fe3dc30dca6a12118c44"
     },
     {
       "path": "results/ct_reviewer_drivers_v6/ekf_sequential/records.jsonl",
@@ -1697,8 +1812,13 @@
     },
     {
       "path": "results/ct_reviewer_drivers_v6/ekf_sequential/summary.json",
-      "size_bytes": 893,
-      "sha256": "02baea934085bf25d64871d6067be9884738d3d0e40b088fbe7aa78c5c34fea4"
+      "size_bytes": 874,
+      "sha256": "ced7617c20eff0bf0dc70ccf0435281adb3f7d4db209d0757ce456cfe72d5788"
+    },
+    {
+      "path": "results/ct_reviewer_drivers_v6/ekf_sequential_ct120_all/launch_command.txt",
+      "size_bytes": 799,
+      "sha256": "52e26438cc3f6a8caad6087ff489324bf783ee8841b8f56d38580b6c94de2040"
     },
     {
       "path": "results/ct_reviewer_drivers_v6/ekf_sequential_ct120_all/records.jsonl",
@@ -1706,9 +1826,29 @@
       "sha256": "525d67d2bc6332d7a4c4a140bd91da88ccae36f49addcfc13c227a1061bf5e74"
     },
     {
+      "path": "results/ct_reviewer_drivers_v6/ekf_sequential_ct120_all/records_shard0of4.jsonl",
+      "size_bytes": 87271,
+      "sha256": "d720ac90475eb4a71caed309bd5c1b80b6ca7b14bf7a01ea466525b1f88b90ba"
+    },
+    {
+      "path": "results/ct_reviewer_drivers_v6/ekf_sequential_ct120_all/records_shard1of4.jsonl",
+      "size_bytes": 86886,
+      "sha256": "042793f41f399f5d509c96dfc252711caffac95d5aa1a33340e39cc10a272796"
+    },
+    {
+      "path": "results/ct_reviewer_drivers_v6/ekf_sequential_ct120_all/records_shard2of4.jsonl",
+      "size_bytes": 87333,
+      "sha256": "d6f991b6c513623d884878ac335b16ed40911bbdc231bffd0a34b1c9d779a422"
+    },
+    {
+      "path": "results/ct_reviewer_drivers_v6/ekf_sequential_ct120_all/records_shard3of4.jsonl",
+      "size_bytes": 86807,
+      "sha256": "e74df6536d5e9cb00e55085db761d534b6b35f1866e19535c64bd5022f78ae6d"
+    },
+    {
       "path": "results/ct_reviewer_drivers_v6/ekf_sequential_ct120_all/summary.json",
-      "size_bytes": 4705,
-      "sha256": "f03659cd9b0cf104dddf9d15444e591244a8e899bad37fd4cb294589051a1c83"
+      "size_bytes": 4578,
+      "sha256": "624a3a7093b04b1b2b2be5c80868ae4fd9dca7b1ed5b80a91a6be886943c6bae"
     },
     {
       "path": "results/ct_reviewer_drivers_v6/ekf_sequential_noise0p05/records.jsonl",
@@ -1717,18 +1857,18 @@
     },
     {
       "path": "results/ct_reviewer_drivers_v6/ekf_sequential_noise0p05/summary.json",
-      "size_bytes": 894,
-      "sha256": "d9298d7070a713b51098373ead52f4b29036e15b7dfd2b416a18896a0f01d7ed"
+      "size_bytes": 875,
+      "sha256": "aa061792af8bf9adec1831a4c1151b6ac4afea26480518f3f827c5036430dabe"
     },
     {
       "path": "results/ct_reviewer_drivers_v6/initializer_reference_18.json",
-      "size_bytes": 112521,
-      "sha256": "18a33870e1e048e29752b0ba6df238c3a7bb2d6a9a8c4becef2147ec51a1df30"
+      "size_bytes": 109541,
+      "sha256": "c07b74873cba8e267d11bb6c23a6a03d8bb242a5ab0da7bc2ed41ad8145fc6aa"
     },
     {
       "path": "results/ct_reviewer_drivers_v6/joint_identifiability_audit_v1.json",
-      "size_bytes": 117481,
-      "sha256": "b051b0bafde575ed976b68d86837380774c4d0b57cc4c1adec81bf7b8c1ba5de"
+      "size_bytes": 113673,
+      "sha256": "8389427982b69d9241f25c275ccfab8dc0f8143aeb4014d6ae8e373c08f57ec6"
     },
     {
       "path": "results/ct_reviewer_drivers_v6/material_prior_weight_sweep/w0p01/records.jsonl",
@@ -1787,8 +1927,8 @@
     },
     {
       "path": "results/ct_reviewer_drivers_v6/mismatch_initializer_reinference/summary.json",
-      "size_bytes": 126381,
-      "sha256": "7c60b6b77d070ff2db7ed0aca17cbed42494da909e0b3a6fb496e588bf8202c7"
+      "size_bytes": 126379,
+      "sha256": "3bb98fe8c6fe4c49cbc21308b0aaf6ba6c96065719712448fc88f218c5ca05a9"
     },
     {
       "path": "results/ct_reviewer_drivers_v6/model_mismatch_completed/force_m20/records.jsonl",
@@ -1801,6 +1941,11 @@
       "sha256": "e447ea8a486d9b4b3fe1ee1c6c24704aacfa2b639d0c08541951f98dc880c9a2"
     },
     {
+      "path": "results/ct_reviewer_drivers_v6/model_mismatch_completed/force_m20/summary.json",
+      "size_bytes": 44860,
+      "sha256": "c63a410459000678fc3ff7b54535143c5d2b6fe26db8beec173fe4d0fc577311"
+    },
+    {
       "path": "results/ct_reviewer_drivers_v6/model_mismatch_completed/force_p10/records.jsonl",
       "size_bytes": 42630,
       "sha256": "cb99f7c9f7b5cad4d1820e4eeace3c43e1c8e6a6377908a3118102d9c0246761"
@@ -1809,6 +1954,11 @@
       "path": "results/ct_reviewer_drivers_v6/model_mismatch_completed/force_p10/run_manifest.json",
       "size_bytes": 1685,
       "sha256": "655733f561defd7938f7929e5f549f63ceb336a157320e7684e2cf1079b23e8b"
+    },
+    {
+      "path": "results/ct_reviewer_drivers_v6/model_mismatch_completed/force_p10/summary.json",
+      "size_bytes": 47581,
+      "sha256": "238d66dc87a6b0f16e442b80e2d97aad6901d8ac7c400c861f2af557dff49cbd"
     },
     {
       "path": "results/ct_reviewer_drivers_v6/model_mismatch_completed/force_p20/records.jsonl",
@@ -1821,6 +1971,11 @@
       "sha256": "e05d124338596bcf1483465624aa23c7c0b37e512e2eac37970e06b7d428dfb4"
     },
     {
+      "path": "results/ct_reviewer_drivers_v6/model_mismatch_completed/force_p20/summary.json",
+      "size_bytes": 47828,
+      "sha256": "43a736738837f3a4ee3623ad46ec18d7e333a5033858b773f4305b8b714faad6"
+    },
+    {
       "path": "results/ct_reviewer_drivers_v6/model_mismatch_completed/force_p5/records.jsonl",
       "size_bytes": 42592,
       "sha256": "02e1ba9defc9e8a1bb138521fb5ebefa81c3c1901c81ef35565f9f6234b604ea"
@@ -1829,6 +1984,11 @@
       "path": "results/ct_reviewer_drivers_v6/model_mismatch_completed/force_p5/run_manifest.json",
       "size_bytes": 1688,
       "sha256": "06434949b961ded9b553562a9d4e056e1e5325c056d10a6b3da65e2729a9357a"
+    },
+    {
+      "path": "results/ct_reviewer_drivers_v6/model_mismatch_completed/force_p5/summary.json",
+      "size_bytes": 47526,
+      "sha256": "07417f794734a4282ac1a305bc8c8503998179c6941bb309f5495ab20f3d16eb"
     },
     {
       "path": "results/ct_reviewer_drivers_v6/model_mismatch_completed/pose_yaw_m10/run_manifest.json",
@@ -1846,6 +2006,11 @@
       "sha256": "03ee7c7fe5ccd092ccc2219bc7449dd4b33cb71ef73dd145b1bc890aa2231769"
     },
     {
+      "path": "results/ct_reviewer_drivers_v6/model_mismatch_completed/pose_yaw_m10_v2/summary.json",
+      "size_bytes": 47189,
+      "sha256": "eed9a571c056210089fb7fe613f57e3d47ac45c82ff7c1db2ffa322d2629750a"
+    },
+    {
       "path": "results/ct_reviewer_drivers_v6/model_mismatch_completed/pose_yaw_m5/run_manifest.json",
       "size_bytes": 1684,
       "sha256": "707c64782588629d63952823fffa6d3dd8ad15bb83687b0d5b6bd831281ffc98"
@@ -1859,6 +2024,11 @@
       "path": "results/ct_reviewer_drivers_v6/model_mismatch_completed/pose_yaw_m5_v1/run_manifest.json",
       "size_bytes": 1688,
       "sha256": "415c68cfa203f2bf04c44970e5efb5e95b14da6deeba8884ba633ce6ca4e5ef7"
+    },
+    {
+      "path": "results/ct_reviewer_drivers_v6/model_mismatch_completed/pose_yaw_m5_v1/summary.json",
+      "size_bytes": 46982,
+      "sha256": "c4115ce8cd1acf79998f71e34bc7f3a9dcd0d24028e663f060ee72298ef5c09a"
     },
     {
       "path": "results/ct_reviewer_drivers_v6/model_mismatch_completed/pose_yaw_p10/run_manifest.json",
@@ -1876,6 +2046,11 @@
       "sha256": "79cb37854f5b31dff5211927efc4311331e109dbbc1f8486c0e6f0fd64513bc5"
     },
     {
+      "path": "results/ct_reviewer_drivers_v6/model_mismatch_completed/pose_yaw_p10_v1/summary.json",
+      "size_bytes": 47459,
+      "sha256": "e5d5085082bb7a74f0f1922907e34bfa089dc9f63f746f4c6e25dd40af6f2184"
+    },
+    {
       "path": "results/ct_reviewer_drivers_v6/model_mismatch_completed/pose_yaw_p5/run_manifest.json",
       "size_bytes": 1683,
       "sha256": "73a6f546e97b313392337a8ac69dbfea65b46a604ff376eb1aa8a0c22df1c30e"
@@ -1891,6 +2066,11 @@
       "sha256": "ad62e3f9b076815aa6a002d59f4ebc777af90b2ce68d9e4442268f94930950e9"
     },
     {
+      "path": "results/ct_reviewer_drivers_v6/model_mismatch_completed/pose_yaw_p5_v1/summary.json",
+      "size_bytes": 46994,
+      "sha256": "3d99ab4cbec80a68116ed9dcf368674169a8d4029bd81a5cee32be1bed57e337"
+    },
+    {
       "path": "results/ct_reviewer_drivers_v6/model_mismatch_n48/pose_yaw_m10/records.jsonl",
       "size_bytes": 36182,
       "sha256": "48b8a520741a531a5e96b3dc1b9c6d51f22e25baf4df9f706a28baed5323bf32"
@@ -1902,8 +2082,8 @@
     },
     {
       "path": "results/ct_reviewer_drivers_v6/model_mismatch_n48/pose_yaw_m10/summary.json",
-      "size_bytes": 49182,
-      "sha256": "d882bb2f983e7c1e2ef067b3de292c10c992b4507aeda3955482311c15672a2f"
+      "size_bytes": 49180,
+      "sha256": "ef4b55f06692d425928c29077251f98007fef8ddd678ad6e20ef4c553c2cc98b"
     },
     {
       "path": "results/ct_reviewer_drivers_v6/model_mismatch_n48/pose_yaw_p10/records.jsonl",
@@ -1917,18 +2097,18 @@
     },
     {
       "path": "results/ct_reviewer_drivers_v6/model_mismatch_n48/pose_yaw_p10/summary.json",
-      "size_bytes": 49424,
-      "sha256": "b917c0f573fdc17e5e57e448eedeeb878af88b6884925796d2637e35244d45bd"
+      "size_bytes": 49422,
+      "sha256": "cf9aeaf1fdbf18e3764a33bd745e314584fa5ee9d4dbc7810cc1c0b4cfccfc2b"
     },
     {
       "path": "results/ct_reviewer_drivers_v6/model_mismatch_n48/summary.json",
-      "size_bytes": 159383,
-      "sha256": "9eed4b20a0fc328bfb0d58d7913a86d5f17e20d9446c7b38fd7621ac481dcc1b"
+      "size_bytes": 155829,
+      "sha256": "d94c51ade29d305a7c815ef607b38b9624c9d06373736d2fb8a73be24a9c18bb"
     },
     {
       "path": "results/ct_reviewer_drivers_v6/paired_scene_ids.json",
-      "size_bytes": 815,
-      "sha256": "4465ca0b013225ec696f5be9dc34654b985e9ec4cd9f21347d7f8c8cd17c3a3f"
+      "size_bytes": 813,
+      "sha256": "c85c901b500a6e0dcb467804cc9884abce1d81803cd1bb45878a23cdfb983d7e"
     },
     {
       "path": "results/ct_reviewer_drivers_v6/population_prior/learned_init_population_center/records.jsonl",
@@ -1942,28 +2122,28 @@
     },
     {
       "path": "results/ct_reviewer_drivers_v6/population_prior/population_prior_E.json",
-      "size_bytes": 1258,
-      "sha256": "0e2081a18209282dc6d9bd11eafb23505e6cfb649b505d1ca8340284b0094454"
+      "size_bytes": 1240,
+      "sha256": "d6fad692358702485ea8fc0b93a81e599e6e628bcc69d9bb64fb62af757fbe9c"
     },
     {
       "path": "results/ct_reviewer_drivers_v6/population_prior/summary.json",
-      "size_bytes": 6831,
-      "sha256": "65b0348c4bf979ae296601807d605dfda8f8996dc0a590334da5566c2a88b799"
+      "size_bytes": 6673,
+      "sha256": "24a310bf93b5a7834b95c9652a0d65fcfdce8705fea3c1b5be9a329460c0428f"
     },
     {
       "path": "results/ct_reviewer_drivers_v6/reconciled_paired_experiments.json",
-      "size_bytes": 3222138,
-      "sha256": "aa26f8fe95855c61ffcd6eddc860e25759d905661dfc64d876ede6efabdf33cd"
+      "size_bytes": 3135910,
+      "sha256": "aa03241f9d2ed5537e799481e6b5b2c707b6ae67ce0b047c29f647758d0801a1"
     },
     {
       "path": "results/ct_reviewer_drivers_v6/repeated_outer_audit_seed20261008_1000.json",
-      "size_bytes": 1396573,
-      "sha256": "92189a3fbbbcc9e9dd67051f9a36c9da594ed9f519ac5cf2f0fa2faed6e8ee60"
+      "size_bytes": 1396571,
+      "sha256": "4d420653deacad7aec1a425b4eae0186b15918eea34ddf14c5e7c081ff20ae97"
     },
     {
       "path": "results/ct_reviewer_drivers_v6/repeated_outer_audit_seed20261009_1000.json",
-      "size_bytes": 1396596,
-      "sha256": "1fa3573c7a9beda851625a68797cc13ed3d08550069a0e2165a46fc3d51bf18f"
+      "size_bytes": 1396594,
+      "sha256": "2d8214507640320dc3c711154e68849cc0073cfc56519ac109a6fdcb60bd7bed"
     },
     {
       "path": "results/ct_reviewer_drivers_v6/structural_mismatch/diffuse/records.jsonl",
@@ -1982,8 +2162,8 @@
     },
     {
       "path": "results/ct_reviewer_drivers_v6/structural_mismatch/summary.json",
-      "size_bytes": 2867,
-      "sha256": "877c8acf9d3707708109cd6fe33c0ee01116049fec9f9c88abf4077c1599d1d9"
+      "size_bytes": 2793,
+      "sha256": "726aaa89e15ab17d526d2fc1e75655cc3e2eb6ebbc4ba0c36f3ca1001515ce00"
     },
     {
       "path": "results/ct_reviewer_drivers_v6/structural_mismatch/two_inclusions/records.jsonl",
@@ -1991,24 +2171,74 @@
       "sha256": "7f8aee04fddb0fb91b4478a10a56886c870b35a350c413dd6dbf739446c3122e"
     },
     {
+      "path": "results/inverse_arm_scoreboard_20260825.json",
+      "size_bytes": 17419,
+      "sha256": "3e3e169ec5b88abb76f2ef312df81f4a45886ded8de25b4487f6272720354afd"
+    },
+    {
       "path": "results/ion_ct_expanded120_final/benchmark.json",
-      "size_bytes": 1510434,
-      "sha256": "4670a175f36b51f763fdfdcf8e5e15fce08fa31944b4968dcc8e051bb4d23575"
+      "size_bytes": 1510432,
+      "sha256": "8ebb6f6bf94d44d206421eeeab11317586db03eb1f6aa0a86c09511ebb769f3b"
     },
     {
       "path": "results/ion_ct_expanded30_physics16/benchmark.json",
-      "size_bytes": 1223737,
-      "sha256": "ad65825d9d474f1be100da0fb79263609d429cdf06de7e2e2f0fab7cfe7d8b40"
+      "size_bytes": 1189961,
+      "sha256": "4552c8c66820cebd286ee54c1d8773794abf119f89e37066e095588fa396fb89"
     },
     {
       "path": "results/ion_ct_expanded_summary.json",
-      "size_bytes": 8062,
-      "sha256": "4607970a3f70aec42f3d5a1e0686fdc01104327608d0e295cbe48fcd7f74a6de"
+      "size_bytes": 7841,
+      "sha256": "242a1372d8ef88ff7d3f7021990cee3b3933d5982f47c4f0fd9f2f8a73b1a563"
+    },
+    {
+      "path": "results/ion_ct_expanded_training/seed_2026/predictions_gnn_test.json",
+      "size_bytes": 176339,
+      "sha256": "abf0031d3ffac93f047cf843a086c8ae658c9ff127eceb767f409274143002d3"
+    },
+    {
+      "path": "results/ion_ct_expanded_training/seed_2026/predictions_gnn_val.json",
+      "size_bytes": 89087,
+      "sha256": "f47a91f7ab2a6990629ef36defd4d5b83461b61d4e217c40b418aab1f321cf3a"
+    },
+    {
+      "path": "results/ion_ct_expanded_training/seed_2027/predictions_gnn_test.json",
+      "size_bytes": 176380,
+      "sha256": "ba9b76bb386e8fd540063696f11d6dee5e9565456c510f7b59d20b4968cdefd7"
+    },
+    {
+      "path": "results/ion_ct_expanded_training/seed_2027/predictions_gnn_val.json",
+      "size_bytes": 89124,
+      "sha256": "26ebd9ceebedd61b6f1266071d9c5361c345dbf8c58ec3360b4ff3e00c6a8f4e"
+    },
+    {
+      "path": "results/ion_ct_expanded_training/seed_2028/predictions_gnn_test.json",
+      "size_bytes": 176532,
+      "sha256": "fbe8249ca4175ddd8f3a7b6a2c09672c0ae57c5a75ad980d5d5079dff238372f"
+    },
+    {
+      "path": "results/ion_ct_expanded_training/seed_2028/predictions_gnn_val.json",
+      "size_bytes": 89156,
+      "sha256": "be1936054d33257976338b47b4419788b0f32714615d77b86551b8989801f716"
+    },
+    {
+      "path": "results/ion_ct_expanded_training/selected/predictions_gnn_test.json",
+      "size_bytes": 176380,
+      "sha256": "ba9b76bb386e8fd540063696f11d6dee5e9565456c510f7b59d20b4968cdefd7"
+    },
+    {
+      "path": "results/ion_ct_expanded_training/selected/predictions_gnn_test_geometry_calibrated.json",
+      "size_bytes": 176436,
+      "sha256": "c0423242987a6f70552d48d1b31b474a8697193d7b87fe28af6aee5fbbb61bb8"
+    },
+    {
+      "path": "results/ion_ct_expanded_training/selected/predictions_gnn_val.json",
+      "size_bytes": 89124,
+      "sha256": "26ebd9ceebedd61b6f1266071d9c5361c345dbf8c58ec3360b4ff3e00c6a8f4e"
     },
     {
       "path": "results/ion_ct_official_prior_screened_fem120_v1/geometry_influence_audit.json",
-      "size_bytes": 12419,
-      "sha256": "5eaf266f06a535df198de19572eea14cb0dabf41d29894ea55e4610c2bb0f70e"
+      "size_bytes": 12082,
+      "sha256": "4175a168738430f9aac656ad520162f2cd8c33b44a7fcbb5df20fd2cbb815af9"
     },
     {
       "path": "results/ion_ct_official_prior_screened_fem120_v1/records.jsonl",
@@ -2017,43 +2247,113 @@
     },
     {
       "path": "results/ion_ct_official_prior_screened_fem120_v1/summary.json",
-      "size_bytes": 231011,
-      "sha256": "782069f9184bd68cdea2d1a8748f2df1c270f540487329569773b0704da79c99"
+      "size_bytes": 231009,
+      "sha256": "c5076fad3b4619fd308c179c9b77256c6e39282c790f4e06693c59f239d9a7ee"
+    },
+    {
+      "path": "results/ion_ct_pinn_inverse120_officialstart_v1/comparison.json",
+      "size_bytes": 2655,
+      "sha256": "16670375f29111c8d7c8768d04375e295de99b403f27b3b68cbab4dcb346921b"
+    },
+    {
+      "path": "results/ion_ct_pinn_inverse120_officialstart_v1/headroom.json",
+      "size_bytes": 3103,
+      "sha256": "6bf5aad8b27bf8318bf0e84046d11b2b86d3345903a98a0809926b1e391408c4"
+    },
+    {
+      "path": "results/ion_ct_pinn_inverse120_officialstart_v1/records.jsonl",
+      "size_bytes": 249789,
+      "sha256": "9f272ad618a4776a75e7d7f0e225ec270500094108cd228a63901bf340ee7427"
+    },
+    {
+      "path": "results/ion_ct_pinn_inverse120_officialstart_v1/summary.json",
+      "size_bytes": 342252,
+      "sha256": "305015aca641be21958a8d2964253f97b931ada5f2fde3df6ddd63901c13d513"
+    },
+    {
+      "path": "results/ion_ct_pinn_inverse120_v1/comparison.json",
+      "size_bytes": 2637,
+      "sha256": "86e99abab7ef569f39e65b8fcea20aea16b7a4a3dfbead9caf8deadff2fdf846"
+    },
+    {
+      "path": "results/ion_ct_pinn_inverse120_v1/records.jsonl",
+      "size_bytes": 245191,
+      "sha256": "74c7317fb64a54addb90c825db1b49d0f702aa884577354de56bd2d35769cbe2"
+    },
+    {
+      "path": "results/ion_ct_pinn_inverse120_v1/summary.json",
+      "size_bytes": 336753,
+      "sha256": "7857e78d2d54df81365c098f5d75b9eba416ce1f809a9cb17365af56c6591743"
+    },
+    {
+      "path": "results/ion_ct_ratio_optimization/calibrate_v2/gnn_test.json",
+      "size_bytes": 189978,
+      "sha256": "a9ee28878b86aa8820ec16fe178f72503240f2e267718f14168f5210f4bd18be"
+    },
+    {
+      "path": "results/ion_ct_ratio_optimization/calibrate_v2/gnn_train.json",
+      "size_bytes": 570082,
+      "sha256": "003b4984f7338a2a976bfe843df9183a475964cc6582d854310c34b155af8819"
+    },
+    {
+      "path": "results/ion_ct_ratio_optimization/calibrate_v2/gnn_val.json",
+      "size_bytes": 95010,
+      "sha256": "195f52a0eb87b3c693f97b88fd4e7966ba7c0510225413deb18a5f936ca83b52"
+    },
+    {
+      "path": "results/ion_ct_ratio_optimization/calibrate_v2/selection.json",
+      "size_bytes": 13744,
+      "sha256": "c2b850e65124bc886aa0fe763c03733b9f0d5ccc3bb8f040d1950c9ad8a59972"
+    },
+    {
+      "path": "results/ion_ct_ratio_optimization/fair_calibrate/official_lock.json",
+      "size_bytes": 8581,
+      "sha256": "53a250e24dcca12c0a557ff7619f03d6cc4c32408efd3ebe040502eb39e8287f"
+    },
+    {
+      "path": "results/ion_ct_ratio_optimization/stack_covariate_v1/selection.json",
+      "size_bytes": 6448,
+      "sha256": "22b5edb25dcc62b8eb12b7dcb52df92478716e60a9acb3c3ff76e87b439c132a"
     },
     {
       "path": "results/ion_ct_synthetic_mechanics/deidentified_figure_assets/privacy_manifest.json",
-      "size_bytes": 6113,
-      "sha256": "23ead302748b6c346f6bd23c9b405535b9be2179eca107100d74bf2364127e04"
+      "size_bytes": 5966,
+      "sha256": "2acbbf011cdaa5500f256816d23276c08180b5def0c2749895c09dde2c8c8541"
     },
     {
       "path": "results/ion_ct_synthetic_mechanics540/protocol_validation.json",
-      "size_bytes": 1826,
-      "sha256": "2ef985adb8fb4321a42bc40060c0fb4aec85979fe4571084a7f88da6e5e52b59"
+      "size_bytes": 1769,
+      "sha256": "fce9737bee3bd7b674143f3d726c2ff01a905d4b9bab29927111bad43d3f4d48"
     },
     {
       "path": "results/ion_geometry_ood/formal_validation/aggregate.json",
-      "size_bytes": 401,
-      "sha256": "27519ede5a49a314021203f95021b3975ecfd1112c2436aaf779ca40fe0f5807"
+      "size_bytes": 388,
+      "sha256": "8aad613505f58f099f31ebfd9af189bcaa050da65c27f418dd01af76476f5d61"
     },
     {
       "path": "results/ion_geometry_ood/formal_validation/formal_evidence.json",
-      "size_bytes": 818,
-      "sha256": "cdfb297d41f000a55d0086145219deef6c1988634b55d2e374aa6398f80ea418"
+      "size_bytes": 795,
+      "sha256": "e2b22fd2ab748432b67a1560d7491d9180b551fdc05efcee65e296cd3c032ed5"
     },
     {
       "path": "results/ion_geometry_ood/formal_validation/privacy_verification.json",
-      "size_bytes": 416,
-      "sha256": "86b553c7bca710d0db5b64e798b6a84c09b2d7deababcd48355fd33784dc0c22"
+      "size_bytes": 402,
+      "sha256": "e5d7a4796a1a58ab879231843a1fbc2dffa0fa7402c81c99b12fc56ddf067c29"
     },
     {
       "path": "results/ion_geometry_ood/geometry_qc_27.json",
-      "size_bytes": 22584,
-      "sha256": "71f04f5488c8e356e91edb423cef9e6b04b6ec33407df65a6fb53ac347e588c4"
+      "size_bytes": 21891,
+      "sha256": "42251478f25ac60abc7f4f0d321f395ce3d9304257e655ad3207658eede510a8"
     },
     {
       "path": "results/lung_mesh_ai_v2/aiim_sensitivity/sensitivity_noscreen.json",
-      "size_bytes": 88050,
-      "sha256": "652cf4174331f1ffca29b0afc498512fe1a9418fb4077c305eb64cdd283f0ea1"
+      "size_bytes": 85980,
+      "sha256": "8333c9734eec094110eb665baf55dfe1779bd0c9d45dcc4dc49366fc97402a71"
+    },
+    {
+      "path": "results/lung_mesh_ai_v2/ekf_sequential_synthetic50/launch_command.txt",
+      "size_bytes": 865,
+      "sha256": "d04e174a64db33a6ccac0667861e0bfb31ebd31c1ab21e3603ab04fb0c74ade7"
     },
     {
       "path": "results/lung_mesh_ai_v2/ekf_sequential_synthetic50/records.jsonl",
@@ -2061,9 +2361,34 @@
       "sha256": "86aa130891a7648af16fa6a5960c2729d40a1d2033c8e54b01b64a4274175bbf"
     },
     {
+      "path": "results/lung_mesh_ai_v2/ekf_sequential_synthetic50/records_shard0of4.jsonl",
+      "size_bytes": 46854,
+      "sha256": "9068b1028920bbb65f777450c854fd66c4e77a0500e1fedda729879a99355c2e"
+    },
+    {
+      "path": "results/lung_mesh_ai_v2/ekf_sequential_synthetic50/records_shard1of4.jsonl",
+      "size_bytes": 45318,
+      "sha256": "fee61e39a6a6d24a7c5f6968221fea42e7fda4c1aaa21ab0f553869ba49f33c8"
+    },
+    {
+      "path": "results/lung_mesh_ai_v2/ekf_sequential_synthetic50/records_shard2of4.jsonl",
+      "size_bytes": 42490,
+      "sha256": "b78b339125cd027898a0b01d263bc765dbf560a13c54d3b67ac0e89437d5f32e"
+    },
+    {
+      "path": "results/lung_mesh_ai_v2/ekf_sequential_synthetic50/records_shard3of4.jsonl",
+      "size_bytes": 41030,
+      "sha256": "f18772d9bb5bf5cf4a27b279253479a4fa866b71fb8faf6b28d670e48fff840e"
+    },
+    {
       "path": "results/lung_mesh_ai_v2/ekf_sequential_synthetic50/summary.json",
-      "size_bytes": 5121,
-      "sha256": "a946ed8a946d1e07f3e47c310c0a17cace0b5dcfd066e53fecc73c81dd7c524e"
+      "size_bytes": 4986,
+      "sha256": "8e77e084d6530510221653fd3f8194a4d3d97fb5306d1632db0c46e85c7be28c"
+    },
+    {
+      "path": "results/lung_mesh_ai_v2/ekf_sequential_synthetic50/superseded_v0_unclipped_initial_ratio/launch_command.txt",
+      "size_bytes": 441,
+      "sha256": "314864d6711fa5d8c65c28d8c9bd6233a2ca86120f21651f1b6c1de2d63630be"
     },
     {
       "path": "results/lung_mesh_ai_v2/ekf_sequential_synthetic50/superseded_v0_unclipped_initial_ratio/records.jsonl",
@@ -2071,44 +2396,84 @@
       "sha256": "484363f6781d412367a9a837e77f00ff7a0dc73f48790c4fc74de6e386592449"
     },
     {
+      "path": "results/lung_mesh_ai_v2/ekf_sequential_synthetic50/superseded_v0_unclipped_initial_ratio/records_shard0of2.jsonl",
+      "size_bytes": 87084,
+      "sha256": "279a978f7b7c31bb96d5137a03d473c623aed290567b819e09204e13ad10f29d"
+    },
+    {
+      "path": "results/lung_mesh_ai_v2/ekf_sequential_synthetic50/superseded_v0_unclipped_initial_ratio/records_shard1of2.jsonl",
+      "size_bytes": 84152,
+      "sha256": "8492770a5a703cd116ccf8a48efdd1dbd99d57ea42a17fc80aa406d88efc7e57"
+    },
+    {
       "path": "results/lung_mesh_ai_v2/ekf_sequential_synthetic50/superseded_v0_unclipped_initial_ratio/summary.json",
-      "size_bytes": 4062,
-      "sha256": "e92ce45937045358fcfcca276aadacea41ce8fee0c0b7d9af654b47908dc5a67"
+      "size_bytes": 3955,
+      "sha256": "7dee0ca5c18cdd08452bb27f4e16de386e3009866fdb52f51b8e3598c4fcf47a"
     },
     {
       "path": "results/lung_mesh_ai_v2/ekf_sequential_synthetic50/superseded_v0_unclipped_initial_ratio/WHY_SUPERSEDED.txt",
-      "size_bytes": 256,
-      "sha256": "faf7628196433f89fde00fc6dd246a74c1b8bdc801228e072c9514a57559a084"
+      "size_bytes": 255,
+      "sha256": "094414a330b58e8a5e29f8feb460e1d0f5ae51621d7541906fdcfe941adc3be8"
     },
     {
       "path": "results/lung_mesh_ai_v2/fair_multiview_fem50_strict/fair_multiview_summary.json",
-      "size_bytes": 175578,
-      "sha256": "7fd343dbed9fd8895fe52c0f6a16aaa6dc7461d0d754db5da5c1038487a2540f"
+      "size_bytes": 171382,
+      "sha256": "8f99ba21ab8e7fe97dc1d7e0efb514500905dfdd42e0911abc0b373b2deb072b"
+    },
+    {
+      "path": "results/lung_mesh_ai_v2/fem_multistart50_v1/summary.json",
+      "size_bytes": 1485,
+      "sha256": "c2f83b6f22b998dd6a2e22e63b51c495bad9d44f81100fc60cf73d9e16af0c8b"
     },
     {
       "path": "results/lung_mesh_ai_v2/multiseed_node_summary/multiseed_aggregate.json",
-      "size_bytes": 10289,
-      "sha256": "89dc20de93509197d130deb01229650341c626ce33df82c0e970a82b3688ce03"
+      "size_bytes": 9985,
+      "sha256": "3d2917ace3d8282d28eaa9d21b132a5c681d32017b519daf78da4d3765192dc2"
     },
     {
       "path": "results/lung_mesh_ai_v2/node_response_calibrator_strict.json",
-      "size_bytes": 142460,
-      "sha256": "e9252fd343ed9999e53ca1f7968d891f1fd78ae3d125023c301ccf9433a071d6"
+      "size_bytes": 142458,
+      "sha256": "5ec8dc959e8ddd9ebafe65f82e9bd6654e3377e1353cf8fe4ed75ab7bef4cfb1"
+    },
+    {
+      "path": "results/lung_mesh_ai_v2/pinn_inverse50_v1/comparison.json",
+      "size_bytes": 1372,
+      "sha256": "b8c35bc90abe4a5964342d30d135ade30b5b12d692bc0bbff7b3608f031db9c2"
+    },
+    {
+      "path": "results/lung_mesh_ai_v2/pinn_inverse50_v1/records.jsonl",
+      "size_bytes": 99662,
+      "sha256": "9c24011d70bed7707d269baaf0596296185b33dfe10c390d396c6d3eb3e4ee1f"
+    },
+    {
+      "path": "results/lung_mesh_ai_v2/pinn_inverse50_v1/summary.json",
+      "size_bytes": 139003,
+      "sha256": "8311734943f945d4bb75e7886f998886bf3057356d6f522a35d03b1167bef2e6"
     },
     {
       "path": "results/lung_mesh_ai_v2/publication_gates_final.json",
-      "size_bytes": 1568,
-      "sha256": "663fcb36c7f35b32a467ef8c19391829fe8a676fdc1951e2bca889297d16ee72"
+      "size_bytes": 1496,
+      "sha256": "2edaa7516e84214dc3d9a180bee1f86c07767e110b4169e2fc7627b036cdbbad"
     },
     {
       "path": "results/lung_mesh_ai_v2/response_baseline_benchmark.json",
-      "size_bytes": 119412,
-      "sha256": "6ad3240a52db16b95876db22c120fa288ffbf30a9d2d79a741709d6c2b4cf897"
+      "size_bytes": 116311,
+      "sha256": "7e8b90cacba4dc0b6ddef756acdaf161d8f5694f4847fc543e52ef681060ea16"
+    },
+    {
+      "path": "results/lung_mesh_ai_v2/screened_fem_locked50_v1/records.jsonl",
+      "size_bytes": 74783,
+      "sha256": "bdb258a02e8b9fc8b675ec9fef54b57882ddd866a443ec70566a71c41720882b"
+    },
+    {
+      "path": "results/lung_mesh_ai_v2/screened_fem_locked50_v1/summary.json",
+      "size_bytes": 93819,
+      "sha256": "ff193696f657b2ad40a3a7e2d573ad982b264872983ea9a96a2a5e6650fdf64f"
     },
     {
       "path": "results/lung_mesh_ai_v2/synthetic50_decoupled_residual/comparison.json",
-      "size_bytes": 15186,
-      "sha256": "fe3550dfd8a270e0bb53da319d4a07acac9c026beb5e3ff864816a2e21591edb"
+      "size_bytes": 14770,
+      "sha256": "f29ce4c8a9e7dddb2ea65b31925512228b970ef47c4e9a245bb1118955852eac"
     },
     {
       "path": "results/lung_mesh_ai_v2/synthetic50_decoupled_residual/map_w1_n96/records.jsonl",
@@ -2116,9 +2481,54 @@
       "sha256": "8e8c8ca64b45f3b954a57f1067128ea1e855720ad31337cf99eb8a9298aac288"
     },
     {
+      "path": "results/lung_mesh_ai_v2/synthetic50_decoupled_residual/map_w1_n96/shard0/command.txt",
+      "size_bytes": 269,
+      "sha256": "5567985b49d4b1fd0c11d6b59a18324db6d798393701443b223aae342a7f0796"
+    },
+    {
+      "path": "results/lung_mesh_ai_v2/synthetic50_decoupled_residual/map_w1_n96/shard0/records.jsonl",
+      "size_bytes": 31189,
+      "sha256": "fd2777e1ddd47e470e82d43ec49ddd3bc1c9bba967df77a064813b815f694a81"
+    },
+    {
+      "path": "results/lung_mesh_ai_v2/synthetic50_decoupled_residual/map_w1_n96/shard0/run_manifest.json",
+      "size_bytes": 1431,
+      "sha256": "3422d3dd30ec356562700a13cc01a1e040084bc4deb0ca5b6a40db2a91540fb9"
+    },
+    {
+      "path": "results/lung_mesh_ai_v2/synthetic50_decoupled_residual/map_w1_n96/shard1/command.txt",
+      "size_bytes": 270,
+      "sha256": "529efa272edec4b2655feb6760ca43476b891243ab76cbb302c7e189d6dce6bc"
+    },
+    {
+      "path": "results/lung_mesh_ai_v2/synthetic50_decoupled_residual/map_w1_n96/shard1/records.jsonl",
+      "size_bytes": 31501,
+      "sha256": "bf43726cf48ac7e3d6aa98c97a6b9425e1e2fc2ad910f72541169b31e923d885"
+    },
+    {
+      "path": "results/lung_mesh_ai_v2/synthetic50_decoupled_residual/map_w1_n96/shard1/run_manifest.json",
+      "size_bytes": 1432,
+      "sha256": "d48fc1a6bf3f820135474547de56f3f990ab79f22c98d15a76c702596d96d8c6"
+    },
+    {
+      "path": "results/lung_mesh_ai_v2/synthetic50_decoupled_residual/map_w1_n96/shard2/command.txt",
+      "size_bytes": 270,
+      "sha256": "5bfd0f67a1f10adae7e5ea1788cb266d4fc65b22e5bfbd64236d9a2d4a9842c8"
+    },
+    {
+      "path": "results/lung_mesh_ai_v2/synthetic50_decoupled_residual/map_w1_n96/shard2/records.jsonl",
+      "size_bytes": 29368,
+      "sha256": "7e4cedf97ae2ed5cb6b2fc35f2c12b386b2da1da797b7f387eeccc58f0464974"
+    },
+    {
+      "path": "results/lung_mesh_ai_v2/synthetic50_decoupled_residual/map_w1_n96/shard2/run_manifest.json",
+      "size_bytes": 1407,
+      "sha256": "050c945a077fe56c5559c30f103d8952b74a55680d909d7e3ebcf965a3beb05d"
+    },
+    {
       "path": "results/lung_mesh_ai_v2/synthetic50_decoupled_residual/map_w1_n96/summary.json",
-      "size_bytes": 4959,
-      "sha256": "cbf9a1af3097fc6f99fd3fdbd70e79edcbee7d69fa4534362078b8ecf94097ae"
+      "size_bytes": 4781,
+      "sha256": "657c8a5ba9593b366e695a402d0ecc605b8db2d6eb7f622219a665ecd1e30dbb"
     },
     {
       "path": "results/lung_mesh_ai_v2/synthetic50_decoupled_residual/primary_like_w1_n96/records.jsonl",
@@ -2126,9 +2536,54 @@
       "sha256": "97b1c4434cb56efae040464e21fb16ee6cb8d39085cc392a9a37a3ce4759836f"
     },
     {
+      "path": "results/lung_mesh_ai_v2/synthetic50_decoupled_residual/primary_like_w1_n96/shard0/command.txt",
+      "size_bytes": 358,
+      "sha256": "73b2ba8aa552e3a53de2d50178cbab5d56a8f08365dc5cbd163cd9e19a446dd1"
+    },
+    {
+      "path": "results/lung_mesh_ai_v2/synthetic50_decoupled_residual/primary_like_w1_n96/shard0/records.jsonl",
+      "size_bytes": 34471,
+      "sha256": "158de9b314616e7fb842891274de1bead0603180cafb404413d81f1a6a8ba33c"
+    },
+    {
+      "path": "results/lung_mesh_ai_v2/synthetic50_decoupled_residual/primary_like_w1_n96/shard0/run_manifest.json",
+      "size_bytes": 1472,
+      "sha256": "ab5f87c3699baad5b62fa83a548e39489b4b717bca5ba741c1291983e8dda06b"
+    },
+    {
+      "path": "results/lung_mesh_ai_v2/synthetic50_decoupled_residual/primary_like_w1_n96/shard1/command.txt",
+      "size_bytes": 359,
+      "sha256": "41a3f1890ecfef6627fde4832967c08d6c18cd5753c3071ed1128e4dc1c3b1b5"
+    },
+    {
+      "path": "results/lung_mesh_ai_v2/synthetic50_decoupled_residual/primary_like_w1_n96/shard1/records.jsonl",
+      "size_bytes": 34773,
+      "sha256": "b8c5710d30c2aad158a88a788fc2416b057a3eb1e8909f0575ba6f1d5ab824c8"
+    },
+    {
+      "path": "results/lung_mesh_ai_v2/synthetic50_decoupled_residual/primary_like_w1_n96/shard1/run_manifest.json",
+      "size_bytes": 1473,
+      "sha256": "5feca6492ab0b67cc25914a7bc9f04c49a40f0cc75001280c081d24d36aab333"
+    },
+    {
+      "path": "results/lung_mesh_ai_v2/synthetic50_decoupled_residual/primary_like_w1_n96/shard2/command.txt",
+      "size_bytes": 359,
+      "sha256": "d8c5026368c4429d7b40694769eda9fcf949b5681f7f3dd0636d994ef35f50f1"
+    },
+    {
+      "path": "results/lung_mesh_ai_v2/synthetic50_decoupled_residual/primary_like_w1_n96/shard2/records.jsonl",
+      "size_bytes": 32452,
+      "sha256": "f8b34a7969d444be7e647b591f8db153622ea2fd5c16d058354d9fa9e745a391"
+    },
+    {
+      "path": "results/lung_mesh_ai_v2/synthetic50_decoupled_residual/primary_like_w1_n96/shard2/run_manifest.json",
+      "size_bytes": 1448,
+      "sha256": "9a46212d2132ee6739a87a347ee5ff321b5901bf86f84c1df9234ac43318625f"
+    },
+    {
       "path": "results/lung_mesh_ai_v2/synthetic50_decoupled_residual/primary_like_w1_n96/summary.json",
-      "size_bytes": 5681,
-      "sha256": "5478da9f3b08f9902cb4bbe3e461bce66c33d96b30e8bf306d553a82d60c4a7f"
+      "size_bytes": 5489,
+      "sha256": "0f8de517b78dfc0f53e134c217b1beaba968239e8112ac74648b60f5bb90c4ce"
     },
     {
       "path": "results/lung_mesh_ai_v2/synthetic50_decoupled_residual/sixarm_like_w2_n48/records.jsonl",
@@ -2136,9 +2591,54 @@
       "sha256": "95c11966d38f6714a3a7190fe93dbfcbd73383b75c5f1b0a20add2d430b65669"
     },
     {
+      "path": "results/lung_mesh_ai_v2/synthetic50_decoupled_residual/sixarm_like_w2_n48/shard0/command.txt",
+      "size_bytes": 357,
+      "sha256": "3ae1d0653d229ddcdd808254e13bd4c0a843d6de1154f8b244ba61b3f658f52b"
+    },
+    {
+      "path": "results/lung_mesh_ai_v2/synthetic50_decoupled_residual/sixarm_like_w2_n48/shard0/records.jsonl",
+      "size_bytes": 35380,
+      "sha256": "aa384797d1caa378af787d7401d79a6b30c7be0868b2d91fb1e0ec8245afa0bc"
+    },
+    {
+      "path": "results/lung_mesh_ai_v2/synthetic50_decoupled_residual/sixarm_like_w2_n48/shard0/run_manifest.json",
+      "size_bytes": 1472,
+      "sha256": "b6cefb5296d4027b9d9de629466bef5f2603e564af7c2055effc6464d5697903"
+    },
+    {
+      "path": "results/lung_mesh_ai_v2/synthetic50_decoupled_residual/sixarm_like_w2_n48/shard1/command.txt",
+      "size_bytes": 358,
+      "sha256": "f00be20961271e3b2ed551a3248523a342cbde3cf9e03a0caadd73bb0e934683"
+    },
+    {
+      "path": "results/lung_mesh_ai_v2/synthetic50_decoupled_residual/sixarm_like_w2_n48/shard1/records.jsonl",
+      "size_bytes": 35560,
+      "sha256": "e4dad8fb7f564da8a7d61c5ceb1aa24905ca89b3ef0f73fd8df5837a35eb3afe"
+    },
+    {
+      "path": "results/lung_mesh_ai_v2/synthetic50_decoupled_residual/sixarm_like_w2_n48/shard1/run_manifest.json",
+      "size_bytes": 1473,
+      "sha256": "379f20afb2f051444187d64eed0435c59322c9744b8faf222efc3f5ee6f180ef"
+    },
+    {
+      "path": "results/lung_mesh_ai_v2/synthetic50_decoupled_residual/sixarm_like_w2_n48/shard2/command.txt",
+      "size_bytes": 358,
+      "sha256": "70b49489bc1c06a927c7f83fe6651c96f6ac6c26e47867e63d04ca10f99d1a48"
+    },
+    {
+      "path": "results/lung_mesh_ai_v2/synthetic50_decoupled_residual/sixarm_like_w2_n48/shard2/records.jsonl",
+      "size_bytes": 33262,
+      "sha256": "0dae660687aefd45e8344f7e99b03149efd7a71aaff86bc570a88c7033c1d5be"
+    },
+    {
+      "path": "results/lung_mesh_ai_v2/synthetic50_decoupled_residual/sixarm_like_w2_n48/shard2/run_manifest.json",
+      "size_bytes": 1448,
+      "sha256": "19d2c7b3668f2ef1bd04387ad01cc0ae8f9b321d1e114b4c481055e0e44beab3"
+    },
+    {
       "path": "results/lung_mesh_ai_v2/synthetic50_decoupled_residual/sixarm_like_w2_n48/summary.json",
-      "size_bytes": 6305,
-      "sha256": "bc012b52ad56d892387dbee0135826cf5ba86d4ae87e92001906ccd21343f982"
+      "size_bytes": 6090,
+      "sha256": "93592badb07847f2b13f4f34982afc47cf545088919bf95e3ed581211b5a324e"
     },
     {
       "path": "results/lung_mesh_ai_v2/synthetic50_full_paired_controls_20261008/fixed_fixed/records.jsonl",
@@ -2202,8 +2702,8 @@
     },
     {
       "path": "results/lung_mesh_ai_v2/synthetic50_full_paired_controls_20261008/summary_50patient_paired.json",
-      "size_bytes": 12175,
-      "sha256": "1588294d2ed61d8cbecbfe5cf3a5710ac572f6c73cace813c55730e74188f908"
+      "size_bytes": 11790,
+      "sha256": "f832d9eccb096bb404e935f76d7b5d0f6018de1f2bff892000808b8d84e574b2"
     },
     {
       "path": "results/lung_mesh_ai_v2/synthetic50_threshold_sweep/s0p00/records.jsonl",
@@ -2257,43 +2757,43 @@
     },
     {
       "path": "results/lung_mesh_ai_v2/synthetic50_threshold_sweep/summary.json",
-      "size_bytes": 10943,
-      "sha256": "abfbd8306ca5523c59e4e9097ddef742fcc8b063d8281071f94063930bf8f34e"
+      "size_bytes": 10660,
+      "sha256": "ebc63017947c9ccabf38b6695c18cf1fc28404d037f15d8bd8cc1e3a165323ac"
     },
     {
       "path": "results/lung_mesh_ai_v2/temporal_amplitude_audit_test50.json",
-      "size_bytes": 239445,
-      "sha256": "b32b887a0aae2448ef000d5c9df945f8fba4e31fbd212e00ebc0a427d9b8481b"
+      "size_bytes": 231008,
+      "sha256": "737adf5c69c9f332a1d72c467c3f8376e0b4ccdb382c95a38e2f3c723a5f6d96"
     },
     {
       "path": "results/lung_mesh_ai_v2/vfm_oracle_trueforce_50.json",
-      "size_bytes": 19503,
-      "sha256": "45906af06843d305414b45474e8626f93753cf00a6f8cfca8d7cf235767b5d05"
+      "size_bytes": 19029,
+      "sha256": "7c62bec5d88b05e3796ca62889dfcdd77c3731c0c95d98faab14d65b51bbb76a"
     },
     {
       "path": "scripts/summarize_ct_benchmark.py",
-      "size_bytes": 988,
-      "sha256": "d207d976fb375e4c8fce2644fcd1485241d69407bf1b3f13550aa66bf0efc0e2"
+      "size_bytes": 955,
+      "sha256": "091c49c2b4b56045d75aa60001becc0d0c24fd36e089b8444c59b52bb8a9acf2"
     },
     {
       "path": "scripts/verify_release.py",
-      "size_bytes": 1750,
-      "sha256": "70e99f0e168bbed930d63fe261c11837c78ebfb6c8004921792a7c5cacddd0af"
+      "size_bytes": 1886,
+      "sha256": "9ff655465a8541d94b93c9335783eb2c4f08522f43c37cc9971da0d5abc8ff1b"
     },
     {
       "path": "simulator/__init__.py",
-      "size_bytes": 2,
-      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+      "size_bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
     },
     {
       "path": "simulator/anatomy.py",
-      "size_bytes": 7898,
-      "sha256": "a01a9eda227256899d85f204380b404cccd76b52884f504d1c008178baba1ba6"
+      "size_bytes": 7731,
+      "sha256": "123c421e526f5b2db3a139249e4d51662eb808e7cf40ed45ef7e5097405a444a"
     },
     {
       "path": "simulator/scene.py",
-      "size_bytes": 9979,
-      "sha256": "e724f5374d7d34be498040d49d8e08dec8e8fe00722ca4c8bd23a49625370477"
+      "size_bytes": 9758,
+      "sha256": "10715967f41005ffcf6c9ca4b904c8a85757938a486ee7d28bf774e2ac59a28d"
     }
   ]
 }

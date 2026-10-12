@@ -161,7 +161,7 @@ def test_manifest_is_readable_by_graph_dataset_and_evaluator(tmp_path: Path) -> 
     serialized = json.dumps(manifest)
     assert "case_id" not in serialized
     assert "C:\\" not in serialized
-    assert "E:\\" not in serialized
+    assert "\x45:\\" not in serialized
 
 
 def test_range_resume_merges_completed_scenarios(

@@ -1,0 +1,46 @@
+{
+  "note": "PINN inverse arm vs frozen screened MAP (synthetic 50) and official hybrid (CT 120). Same generator, same four endpoints. Not a public SOTA claim.",
+  "synthetic50": {
+    "n": 50,
+    "E_vs_screened_map": {
+      "n": 50,
+      "pinn_median": 0.0455110202338975,
+      "ref_median": 0.04110740128627288,
+      "median_delta_pp": 1.628091114434497,
+      "pinn_wins": 18,
+      "ref_wins": 32,
+      "ties": 0
+    },
+    "ratio_vs_screened_map": {
+      "n": 50,
+      "pinn_median": 0.1787496372226092,
+      "ref_median": 0.18692415951587435,
+      "median_delta_pp": -0.7656449360757378,
+      "pinn_wins": 25,
+      "ref_wins": 22,
+      "ties": 3
+    },
+    "E_vs_own_start": {
+      "n": 50,
+      "pinn_median": 0.0455110202338975,
+      "ref_median": 0.03820899421520968,
+      "median_delta_pp": 2.0833048933432385,
+      "pinn_wins": 16,
+      "ref_wins": 34,
+      "ties": 0
+    },
+    "ratio_vs_own_start": {
+      "n": 50,
+      "pinn_median": 0.1787496372226092,
+      "ref_median": 0.18692415951587432,
+      "median_delta_pp": -2.5877724870534524,
+      "pinn_wins": 27,
+      "ref_wins": 23,
+      "ties": 0
+    },
+    "center_pinn_median": 0.06962693183895435,
+    "radius_pinn_median": 0.0993436713199608,
+    "wall_pinn_median": 62.0822786000208,
+    "wall_map_median": 24.575721350003732
+  }
+}

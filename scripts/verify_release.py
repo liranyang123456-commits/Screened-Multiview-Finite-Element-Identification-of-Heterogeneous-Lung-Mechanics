@@ -11,7 +11,9 @@ FORBIDDEN_SUFFIXES = {
     ".dcm", ".dicom", ".mp4", ".zip", ".pt", ".pth", ".joblib", ".npz"
 }
 FORBIDDEN_TEXT = (
-    "E:\\Diff_Rending_Re_3D",
+    "\x45:\\Diff_Rending_Re_3D",
+    "\x45:\\\\Diff_Rending_Re_3D",   # JSON/regex-escaped form
+    "\x45:\\",               # any absolute path of the development machine
     "\x46:\\",               # private raw-data drive root
     "\u7701\u533b",          # institution token
     "ION\u60a3\u8005\u6574\u7406",  # private source folder name
@@ -31,7 +33,7 @@ def main() -> None:
         if path.suffix.lower() == ".json":
             json.loads(path.read_text(encoding="utf-8"))
             json_count += 1
-        if path.suffix.lower() in {".py", ".md", ".txt", ".tex", ".json", ".yml", ".yaml", ".toml"}:
+        if path.suffix.lower() in {".py", ".md", ".txt", ".tex", ".json", ".jsonl", ".yml", ".yaml", ".toml", ".ps1", ".cff"}:
             text = path.read_text(encoding="utf-8", errors="ignore")
             for token in FORBIDDEN_TEXT:
                 if token in text:
@@ -42,7 +44,7 @@ def main() -> None:
         raise SystemExit("\n".join(failures))
     print(
         f"Release verification passed: {json_count} JSON files; "
-        "no raw/checkpoint artifacts or known private paths."
+        "no raw/checkpoint artifacts, no development-machine or private paths."
     )
 
 

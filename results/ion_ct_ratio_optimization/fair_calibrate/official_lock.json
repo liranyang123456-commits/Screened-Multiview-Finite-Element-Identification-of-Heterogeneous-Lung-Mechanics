@@ -1,0 +1,250 @@
+{
+  "schema_version": 1,
+  "locked": true,
+  "do_not_overwrite_frozen_benchmark": true,
+  "official_rule": "validation_geometry_pass_then_median",
+  "official_policy": "bins3_regularized",
+  "components": {
+    "E_center": "MeshGNN seed 2027",
+    "ratio": "MeshGNN seed 2028 + bins3_regularized",
+    "radius": "PCA-Ridge"
+  },
+  "fit": {
+    "edges": [
+      0.0,
+      2.3522442307010984,
+      3.1483814709163886,
+      10.0
+    ],
+    "multipliers": [
+      0.625,
+      1.175,
+      1.05
+    ]
+  },
+  "gate": 0.25,
+  "mesh_gnn_seed2028": {
+    "train": {
+      "n": 360,
+      "median": 0.16707945705162114,
+      "pass_rate": 0.6,
+      "geometry_medians": {
+        "geom_05cf9d4fae8e8284f1cf": 0.13188684422780428,
+        "geom_16cb9f3ab9be38cc56e9": 0.16330156971531878,
+        "geom_16d7b575eb21c6be3a32": 0.1826099879782891,
+        "geom_1fd11f1511a5d5db1c30": 0.16453491043116303,
+        "geom_306f69af45a814373d2e": 0.16275256163428886,
+        "geom_40dfead03c83371b4f69": 0.19120914311776582,
+        "geom_4321788df5aa62e8484b": 0.1754460538362338,
+        "geom_4a28ee0fdb392694f551": 0.16961187583102266,
+        "geom_55fc14f5542c626bd87f": 0.1796253788792097,
+        "geom_6d4dd09b30cfb766ab98": 0.17726780984942864,
+        "geom_b916af738e01f23cb936": 0.15847542262614545,
+        "geom_c45d80174af16be5c949": 0.13046657193431305,
+        "geom_d9b84925e4f0f3b2ee70": 0.17445601918365305,
+        "geom_db7f7d8f94c6f2a94df6": 0.17856391588211984,
+        "geom_db8344e3ed905d9505f7": 0.1553896028528588,
+        "geom_dd1d30e9968e340055a2": 0.1856642875368152,
+        "geom_e6a4978ad30c1171231c": 0.17893859978602122,
+        "geom_fbba1dfbf564184c0b18": 0.15349296396880774
+      },
+      "geometries_passing": 18,
+      "geometry_count": 18
+    },
+    "validation": {
+      "n": 60,
+      "median": 0.21717484017250538,
+      "pass_rate": 0.5666666666666667,
+      "geometry_medians": {
+        "geom_03024386f1bfde4e97a1": 0.20157733384220122,
+        "geom_271acd77cdf0a24bc7a4": 0.22389932110148542,
+        "geom_955e8309dafc61ab6034": 0.18656628585117252
+      },
+      "geometries_passing": 3,
+      "geometry_count": 3
+    },
+    "test_after_freeze": {
+      "n": 120,
+      "median": 0.17767180073003352,
+      "pass_rate": 0.575,
+      "geometry_medians": {
+        "geom_58db559b24da6eb7cc0d": 0.18129287102381092,
+        "geom_62010c56d95ec023bc9b": 0.11555876852553343,
+        "geom_a417d13e9ae27d685557": 0.23434303747394658,
+        "geom_ab578f1bb0ee02be2ccd": 0.17781971377157202,
+        "geom_db38a9c3817f033727b5": 0.1425943503087425,
+        "geom_fac5cdc88e186e46ee04": 0.16043850164655943
+      },
+      "geometries_passing": 6,
+      "geometry_count": 6
+    }
+  },
+  "same_protocol_baselines": {
+    "ridge": {
+      "selected": "raw",
+      "validation": {
+        "n": 60,
+        "median": 0.43776897673365867,
+        "pass_rate": 0.25,
+        "geometry_medians": {
+          "geom_03024386f1bfde4e97a1": 0.5169690807632451,
+          "geom_271acd77cdf0a24bc7a4": 0.2961745754797176,
+          "geom_955e8309dafc61ab6034": 0.5169690807632451
+        },
+        "geometries_passing": 0,
+        "geometry_count": 3
+      },
+      "test_after_freeze": {
+        "n": 120,
+        "median": 0.416347622993776,
+        "pass_rate": 0.2916666666666667,
+        "geometry_medians": {
+          "geom_58db559b24da6eb7cc0d": 0.4075871873860639,
+          "geom_62010c56d95ec023bc9b": 0.5169690807632451,
+          "geom_a417d13e9ae27d685557": 0.21918042876033467,
+          "geom_ab578f1bb0ee02be2ccd": 0.5169690807632451,
+          "geom_db38a9c3817f033727b5": 0.28601283757881324,
+          "geom_fac5cdc88e186e46ee04": 0.5162031535856522
+        },
+        "geometries_passing": 1,
+        "geometry_count": 6
+      }
+    },
+    "pca_ridge": {
+      "selected": "shrink",
+      "validation": {
+        "n": 60,
+        "median": 0.4277287144952802,
+        "pass_rate": 0.26666666666666666,
+        "geometry_medians": {
+          "geom_03024386f1bfde4e97a1": 0.5169690807632451,
+          "geom_271acd77cdf0a24bc7a4": 0.2374818816215556,
+          "geom_955e8309dafc61ab6034": 0.5169690807632451
+        },
+        "geometries_passing": 1,
+        "geometry_count": 3
+      },
+      "test_after_freeze": {
+        "n": 120,
+        "median": 0.44826469322303564,
+        "pass_rate": 0.275,
+        "geometry_medians": {
+          "geom_58db559b24da6eb7cc0d": 0.5681102424790501,
+          "geom_62010c56d95ec023bc9b": 0.5169690807632451,
+          "geom_a417d13e9ae27d685557": 0.31572767845318833,
+          "geom_ab578f1bb0ee02be2ccd": 0.5169690807632451,
+          "geom_db38a9c3817f033727b5": 0.932162922224863,
+          "geom_fac5cdc88e186e46ee04": 0.25672282672554986
+        },
+        "geometries_passing": 0,
+        "geometry_count": 6
+      }
+    }
+  },
+  "frozen_uncalibrated_hybrid": {
+    "E_background_median": 0.0855,
+    "ratio_median": 0.2695,
+    "center_median": 0.096,
+    "radius_median": 0.1146,
+    "ratio_geometries_passing": "2/6",
+    "note": "seed-2027 MeshGNN ratio head, no piecewise calibration"
+  },
+  "official_hybrid": {
+    "E_background_median": 0.08546262218403594,
+    "ratio_median": 0.17767180073003352,
+    "center_median": 0.09600735455751419,
+    "radius_median": 0.11455004168722682,
+    "validation_ratio": {
+      "n": 60,
+      "median": 0.21717484017250538,
+      "pass_rate": 0.5666666666666667,
+      "geometry_medians": {
+        "geom_03024386f1bfde4e97a1": 0.20157733384220122,
+        "geom_271acd77cdf0a24bc7a4": 0.22389932110148542,
+        "geom_955e8309dafc61ab6034": 0.18656628585117252
+      },
+      "geometries_passing": 3,
+      "geometry_count": 3
+    },
+    "test_ratio": {
+      "n": 120,
+      "median": 0.17767180073003352,
+      "pass_rate": 0.575,
+      "geometry_medians": {
+        "geom_58db559b24da6eb7cc0d": 0.18129287102381092,
+        "geom_62010c56d95ec023bc9b": 0.11555876852553343,
+        "geom_a417d13e9ae27d685557": 0.23434303747394658,
+        "geom_ab578f1bb0ee02be2ccd": 0.17781971377157202,
+        "geom_db38a9c3817f033727b5": 0.1425943503087425,
+        "geom_fac5cdc88e186e46ee04": 0.16043850164655943
+      },
+      "geometries_passing": 6,
+      "geometry_count": 6
+    },
+    "scene_pass_rates": {
+      "E_background_relative_error": 0.6916666666666667,
+      "inclusion_ratio_relative_error": 0.575,
+      "center_error_normalized": 0.5185185185185185,
+      "radius_relative_error": 0.5092592592592593
+    },
+    "geometry_cluster_bootstrap": {
+      "E_background_relative_error": {
+        "estimand": "scenario-level median with geometry-cluster resampling",
+        "cluster_variable": "geometry_id",
+        "cluster_count": 6,
+        "replicates": 2000,
+        "median": 0.08546262218403594,
+        "bootstrap_95_ci": [
+          0.05860133563228696,
+          0.20394064847101157
+        ]
+      },
+      "inclusion_ratio_relative_error": {
+        "estimand": "scenario-level median with geometry-cluster resampling",
+        "cluster_variable": "geometry_id",
+        "cluster_count": 6,
+        "replicates": 2000,
+        "median": 0.17767180073003352,
+        "bootstrap_95_ci": [
+          0.13766823076835072,
+          0.221252613001217
+        ]
+      },
+      "center_error_normalized": {
+        "estimand": "scenario-level median with geometry-cluster resampling",
+        "cluster_variable": "geometry_id",
+        "cluster_count": 6,
+        "replicates": 2000,
+        "median": 0.09600735455751419,
+        "bootstrap_95_ci": [
+          0.08860383182764053,
+          0.10477510467171669
+        ]
+      },
+      "radius_relative_error": {
+        "estimand": "scenario-level median with geometry-cluster resampling",
+        "cluster_variable": "geometry_id",
+        "cluster_count": 6,
+        "replicates": 2000,
+        "median": 0.11455004168722682,
+        "bootstrap_95_ci": [
+          0.09478655601377406,
+          0.13160872951390679
+        ]
+      }
+    },
+    "ratio_error_scene_correlations_spearman": {
+      "radius_fraction_true": -0.1282139569294218,
+      "ood_score": 0.03555778140479645,
+      "partition_soft_dice": 0.2906353176145039
+    }
+  },
+  "paper_rounding": {
+    "E": "8.55%",
+    "ratio": "17.77%",
+    "center": "9.60%",
+    "radius": "11.46%",
+    "ratio_scene_pass": "57.5%",
+    "ratio_geometry_pass": "6/6"
+  }
+}

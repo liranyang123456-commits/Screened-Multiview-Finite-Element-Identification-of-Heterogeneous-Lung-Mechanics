@@ -1,0 +1,652 @@
+{
+  "generated": "2026-08-25",
+  "gates": {
+    "E": 0.15,
+    "ratio": 0.25,
+    "center": 0.1,
+    "radius": 0.12
+  },
+  "synthetic50": {
+    "calibrator": {
+      "label": "\u54cd\u5e94\u6821\u51c6\u5668 PCA\u2013Ridge",
+      "status": "complete",
+      "n": 50,
+      "E": {
+        "median": 0.03820904483953458,
+        "ci95": null
+      },
+      "ratio": {
+        "median": 0.1869241537987601,
+        "ci95": null
+      },
+      "center": {
+        "median": 0.06962693724803312,
+        "ci95": null
+      },
+      "radius": {
+        "median": 0.09934366067485978,
+        "ci95": null
+      },
+      "notes": "\u8bba\u6587\u6821\u51c6\u5668\uff1bE 3.82% \u662f\u5408\u6210\u4e0a\u6700\u5f3a\u5148\u9a8c"
+    },
+    "screened_map": {
+      "label": "Screened MAP\uff08\u51bb\u7ed3\uff09",
+      "status": "complete",
+      "n": 50,
+      "heterogeneous_n": 0,
+      "E": {
+        "median": 0.04110740128627288,
+        "ci95": [
+          0.033376455613848076,
+          0.05062520572485973
+        ],
+        "n": 50
+      },
+      "ratio": {
+        "median": 0.18692415951587435,
+        "ci95": [
+          0.1478627351664203,
+          0.2370869624157672
+        ],
+        "n": 50
+      },
+      "center": {
+        "median": NaN,
+        "ci95": [
+          NaN,
+          NaN
+        ],
+        "n": 0
+      },
+      "radius": {
+        "median": NaN,
+        "ci95": [
+          NaN,
+          NaN
+        ],
+        "n": 0
+      },
+      "force": {
+        "median": 0.033896160509529843,
+        "ci95": [
+          0.024718322617726968,
+          0.041517176629786615
+        ],
+        "n": 50
+      },
+      "wall_s": 24.575721350003732,
+      "evals": 7.0,
+      "scene_pass": {
+        "E_15": 0.94,
+        "ratio_25": 0.68,
+        "center_10": null,
+        "radius_12": null
+      },
+      "geometry_ratio_pass_25": null,
+      "accept_rate": 0.08,
+      "screen_reject_rate": 0.92,
+      "notes": "\u63a5\u53d7\u7387 8%\uff1b\u4ee3\u4ef7\u7b5b\u9009\u56de\u6eda"
+    },
+    "locked_fem": {
+      "label": "\u9501\u03c1 + Hessian \u95e8\u7684 screened FEM",
+      "status": "complete",
+      "n": 50,
+      "heterogeneous_n": 42,
+      "E": {
+        "median": 0.04110740128627288,
+        "ci95": [
+          0.033376455613848076,
+          0.05062520572485973
+        ],
+        "n": 50
+      },
+      "ratio": {
+        "median": 0.18692415951587435,
+        "ci95": [
+          0.1478627351664203,
+          0.2370869624157672
+        ],
+        "n": 50
+      },
+      "center": {
+        "median": 0.06962693183895435,
+        "ci95": [
+          0.06144363759949162,
+          0.07748680509278941
+        ],
+        "n": 42
+      },
+      "radius": {
+        "median": 0.0993436713199608,
+        "ci95": [
+          0.0815554332476004,
+          0.11795105271215856
+        ],
+        "n": 42
+      },
+      "force": {
+        "median": 0.033896160509529843,
+        "ci95": [
+          0.02760982543842385,
+          0.041517176629786615
+        ],
+        "n": 50
+      },
+      "wall_s": 18.537975300016114,
+      "evals": 7.0,
+      "scene_pass": {
+        "E_15": 0.94,
+        "ratio_25": 0.68,
+        "center_10": 0.8809523809523809,
+        "radius_12": 0.6428571428571429
+      },
+      "geometry_ratio_pass_25": null,
+      "accept_rate": 0.08,
+      "screen_reject_rate": 0.92,
+      "notes": "\u4e0e screened MAP \u4e2d\u4f4d\u76f8\u540c\uff1bHessian \u56de\u6eda 0%"
+    },
+    "pinn": {
+      "label": "PINN \u53cd\u6f14\u81c2",
+      "status": "complete",
+      "n": 50,
+      "heterogeneous_n": 42,
+      "E": {
+        "median": 0.0455110202338975,
+        "ci95": [
+          0.0322004672222591,
+          0.07646473232565573
+        ],
+        "n": 50
+      },
+      "ratio": {
+        "median": 0.1787496372226092,
+        "ci95": [
+          0.129677414894104,
+          0.23079542062815683
+        ],
+        "n": 50
+      },
+      "center": {
+        "median": 0.06962693183895435,
+        "ci95": [
+          0.06144363759949162,
+          0.07748680509278941
+        ],
+        "n": 42
+      },
+      "radius": {
+        "median": 0.0993436713199608,
+        "ci95": [
+          0.0815554332476004,
+          0.11795105271215856
+        ],
+        "n": 42
+      },
+      "force": {
+        "median": 0.030799993141504074,
+        "ci95": [
+          0.02457371325063005,
+          0.044156845107487554
+        ],
+        "n": 50
+      },
+      "wall_s": 62.0822786000208,
+      "evals": 3200.0,
+      "scene_pass": {
+        "E_15": 0.96,
+        "ratio_25": 0.68,
+        "center_10": 0.8809523809523809,
+        "radius_12": 0.6428571428571429
+      },
+      "geometry_ratio_pass_25": null,
+      "accept_rate": null,
+      "screen_reject_rate": null,
+      "notes": "\u65e0\u7b5b\u9009\uff1bE \u5dee\u4e8e MAP\uff0cratio \u533a\u95f4\u91cd\u53e0"
+    },
+    "fixed_fem": {
+      "label": "\u56fa\u5b9a\u521d\u503c FEM",
+      "status": "complete",
+      "n": 50,
+      "E": {
+        "median": 0.34135420257031346,
+        "ci95": [
+          0.24151751793960852,
+          0.44150245469146276
+        ]
+      },
+      "ratio": {
+        "median": 0.4486981464901718,
+        "ci95": [
+          0.3791614680655937,
+          0.5814682141077319
+        ]
+      },
+      "wall_s": 285.8010787499952,
+      "evals": 79.0
+    },
+    "multistart_fem": {
+      "label": "\u56db\u8d77\u70b9 FEM\uff08\u65e0\u7b5b\u9009\uff09",
+      "status": "complete",
+      "n": 50,
+      "E": {
+        "median": 0.29637255435716886,
+        "ci95": [
+          0.24923002000444758,
+          0.36267891383566286
+        ]
+      },
+      "ratio": {
+        "median": 0.33777904012451887,
+        "ci95": [
+          0.2467223425388728,
+          0.408498051947022
+        ]
+      },
+      "evals": 96.0,
+      "notes": "\u63a5\u53d7\u7387 92%\uff1b\u66f4\u591a\u8d77\u70b9\u6ca1\u6709\u8d62\u8fc7 screened MAP"
+    }
+  },
+  "ct120": {
+    "official_hybrid": {
+      "label": "\u5b98\u65b9 hybrid\uff082027 E/\u4e2d\u5fc3 + 2028 bins3 + PCA \u534a\u5f84\uff09",
+      "status": "complete",
+      "n": 120,
+      "heterogeneous_n": 108,
+      "E": {
+        "median": 0.08546262218403594,
+        "ci95": [
+          0.07199353385412206,
+          0.10695241761074512
+        ],
+        "n": 120
+      },
+      "ratio": {
+        "median": 0.17767180073003352,
+        "ci95": [
+          0.1311676953440729,
+          0.3136269830967938
+        ],
+        "n": 120
+      },
+      "center": {
+        "median": 0.09600735455751419,
+        "ci95": [
+          0.08064819127321243,
+          0.10977862402796745
+        ],
+        "n": 108
+      },
+      "radius": {
+        "median": 0.11455004168722682,
+        "ci95": [
+          0.09304948218978104,
+          0.14158822671327737
+        ],
+        "n": 108
+      },
+      "force": null,
+      "wall_s": null,
+      "evals": null,
+      "scene_pass": {
+        "E_15": 0.6916666666666667,
+        "ratio_25": 0.575,
+        "center_10": 0.5185185185185185,
+        "radius_12": 0.5092592592592593
+      },
+      "geometry_ratio_pass_25": {
+        "pass": "6/6",
+        "medians": {
+          "geom_58db559b24da6eb7cc0d": 0.18129287102381092,
+          "geom_62010c56d95ec023bc9b": 0.11555876852553343,
+          "geom_a417d13e9ae27d685557": 0.23434303747394658,
+          "geom_ab578f1bb0ee02be2ccd": 0.17781971377157202,
+          "geom_db38a9c3817f033727b5": 0.1425943503087425,
+          "geom_fac5cdc88e186e46ee04": 0.16043850164655943
+        }
+      },
+      "accept_rate": null,
+      "screen_reject_rate": null,
+      "notes": "\u8bba\u6587\u9501\u5b9a\u6570\u5b57 8.55 / 17.77 / 9.60 / 11.46\uff1bratio 6/6"
+    },
+    "uncalibrated_hybrid": {
+      "label": "\u672a\u6821\u51c6 hybrid\uff082027 ratio\uff09",
+      "status": "complete",
+      "n": 120,
+      "E": {
+        "median": 0.0855
+      },
+      "ratio": {
+        "median": 0.2695
+      },
+      "center": {
+        "median": 0.096
+      },
+      "radius": {
+        "median": 0.1146
+      },
+      "geometry_ratio_pass_25": {
+        "pass": "2/6"
+      }
+    },
+    "pinn_officialstart": {
+      "label": "PINN\uff08\u5b98\u65b9 2028+bins3 \u8d77\u70b9\uff09",
+      "status": "complete",
+      "n": 120,
+      "heterogeneous_n": 108,
+      "E": {
+        "median": 0.11306751984135635,
+        "ci95": [
+          0.09656884645389952,
+          0.13146231457158974
+        ],
+        "n": 120
+      },
+      "ratio": {
+        "median": 0.23949901663996903,
+        "ci95": [
+          0.19140582865008188,
+          0.3872436950223713
+        ],
+        "n": 120
+      },
+      "center": {
+        "median": 0.09600734792508726,
+        "ci95": [
+          0.08064818584612839,
+          0.10977864040114492
+        ],
+        "n": 108
+      },
+      "radius": {
+        "median": 0.11454998798097737,
+        "ci95": [
+          0.09304948975875038,
+          0.14158821023903556
+        ],
+        "n": 108
+      },
+      "force": {
+        "median": 0.040079868201303145,
+        "ci95": [
+          0.0372202368863487,
+          0.04382657075704584
+        ],
+        "n": 120
+      },
+      "wall_s": 45.13714664996951,
+      "evals": 3200.0,
+      "scene_pass": {
+        "E_15": 0.6833333333333333,
+        "ratio_25": 0.5083333333333333,
+        "center_10": 0.5185185185185185,
+        "radius_12": 0.5092592592592593
+      },
+      "geometry_ratio_pass_25": {
+        "pass": "3/6",
+        "medians": {
+          "geom_58db559b24da6eb7cc0d": 0.18129284215370434,
+          "geom_62010c56d95ec023bc9b": 0.19574733653567586,
+          "geom_a417d13e9ae27d685557": 0.32659200551156387,
+          "geom_ab578f1bb0ee02be2ccd": 0.2579701145476794,
+          "geom_db38a9c3817f033727b5": 0.4067106163256232,
+          "geom_fac5cdc88e186e46ee04": 0.20402749244688267
+        }
+      },
+      "accept_rate": null,
+      "screen_reject_rate": null,
+      "notes": "\u8d70\u4e22\u5b98\u65b9 ratio\uff1b3/6 \u8fc7\u95e8"
+    },
+    "pinn_hybridstart": {
+      "label": "PINN\uff08hybrid \u521d\u59cb\u5316\u5668+bins3 \u8d77\u70b9\uff09",
+      "status": "complete",
+      "n": 120,
+      "heterogeneous_n": 108,
+      "E": {
+        "median": 0.10920253324602036,
+        "ci95": [
+          0.08773052169135451,
+          0.1235639836911924
+        ],
+        "n": 120
+      },
+      "ratio": {
+        "median": 0.265738892914529,
+        "ci95": [
+          0.20052412812135678,
+          0.35390288503951595
+        ],
+        "n": 120
+      },
+      "center": {
+        "median": 0.09600734792508726,
+        "ci95": [
+          0.08064818584612839,
+          0.10977864040114492
+        ],
+        "n": 108
+      },
+      "radius": {
+        "median": 0.11454998798097737,
+        "ci95": [
+          0.09304948975875038,
+          0.14158821023903556
+        ],
+        "n": 108
+      },
+      "force": {
+        "median": 0.04007271195846326,
+        "ci95": [
+          0.037205882888789406,
+          0.043763693024545594
+        ],
+        "n": 120
+      },
+      "wall_s": 46.899969299993245,
+      "evals": 3200.0,
+      "scene_pass": {
+        "E_15": 0.65,
+        "ratio_25": 0.48333333333333334,
+        "center_10": 0.5185185185185185,
+        "radius_12": 0.5092592592592593
+      },
+      "geometry_ratio_pass_25": {
+        "pass": "2/6",
+        "medians": {
+          "geom_58db559b24da6eb7cc0d": 0.20119407547496815,
+          "geom_62010c56d95ec023bc9b": 0.18044116247737862,
+          "geom_a417d13e9ae27d685557": 0.3260841561078282,
+          "geom_ab578f1bb0ee02be2ccd": 0.30214917556649734,
+          "geom_db38a9c3817f033727b5": 0.26416444580650533,
+          "geom_fac5cdc88e186e46ee04": 0.34182311245982094
+        }
+      },
+      "accept_rate": null,
+      "screen_reject_rate": null,
+      "notes": "\u8d77\u70b9\u4e0d\u662f\u5b98\u65b9 17.77%\uff1b2/6 \u8fc7\u95e8"
+    },
+    "ridge_same_protocol": {
+      "label": "Ridge\uff08\u540c\u534f\u8bae\uff09",
+      "status": "complete",
+      "n": 120,
+      "ratio": {
+        "median": 0.416347622993776
+      },
+      "geometry_ratio_pass_25": {
+        "pass": "1/6"
+      }
+    },
+    "pca_ridge_same_protocol": {
+      "label": "PCA\u2013Ridge\uff08\u540c\u534f\u8bae\uff09",
+      "status": "complete",
+      "n": 120,
+      "ratio": {
+        "median": 0.44826469322303564
+      },
+      "geometry_ratio_pass_25": {
+        "pass": "0/6"
+      }
+    },
+    "official_prior_fem_partial": {
+      "label": "\u5b98\u65b9\u5148\u9a8c screened FEM\uff08\u8fdb\u884c\u4e2d\uff09",
+      "status": "partial_25/120",
+      "n": 25,
+      "heterogeneous_n": 22,
+      "E": {
+        "median": 0.13064747098064433,
+        "ci95": [
+          0.0998649109266201,
+          0.14322761993390815
+        ],
+        "n": 25
+      },
+      "ratio": {
+        "median": 0.14133309847450806,
+        "ci95": [
+          0.05847825070227848,
+          0.5489021124603168
+        ],
+        "n": 25
+      },
+      "center": {
+        "median": 0.10513197440314834,
+        "ci95": [
+          0.05905592736562826,
+          0.13515567391852515
+        ],
+        "n": 22
+      },
+      "radius": {
+        "median": 0.12946606515449338,
+        "ci95": [
+          0.07616925757305681,
+          0.1539274624094587
+        ],
+        "n": 22
+      },
+      "force": {
+        "median": 0.04346321424153527,
+        "ci95": [
+          0.03067649826528972,
+          0.05018745619378961
+        ],
+        "n": 25
+      },
+      "wall_s": 107.60121799999615,
+      "evals": 29.0,
+      "scene_pass": {
+        "E_15": 0.72,
+        "ratio_25": 0.6,
+        "center_10": 0.45454545454545453,
+        "radius_12": 0.45454545454545453
+      },
+      "geometry_ratio_pass_25": {
+        "pass": "2/2",
+        "medians": {
+          "geom_58db559b24da6eb7cc0d": 0.18129284331952814,
+          "geom_62010c56d95ec023bc9b": 0.047408627336224904
+        }
+      },
+      "accept_rate": 0.6,
+      "screen_reject_rate": 0.4,
+      "notes": "ratio \u9501\u6b7b\uff1b\u8fdb\u7a0b\u66fe\u4e2d\u65ad\uff0c\u5df2\u7eed\u8dd1\u3002\u90e8\u5206\u96c6\u4e0d\u80fd\u5f53\u6700\u7ec8\u6570\u3002"
+    },
+    "official_hybrid_on_same_partial": {
+      "label": "\u5b98\u65b9 hybrid\uff08\u540c\u4e00\u5df2\u5b8c\u6210\u5b50\u96c6\uff09",
+      "status": "partial_25/120",
+      "n": 25,
+      "heterogeneous_n": 22,
+      "E": {
+        "median": 0.08930293184692543,
+        "ci95": [
+          0.042713282867282036,
+          0.10792618498763726
+        ],
+        "n": 25
+      },
+      "ratio": {
+        "median": 0.14133312904640483,
+        "ci95": [
+          0.05847820766138767,
+          0.5489020164660894
+        ],
+        "n": 25
+      },
+      "center": {
+        "median": 0.10513197258114815,
+        "ci95": [
+          0.059055931866168976,
+          0.13515567779541016
+        ],
+        "n": 22
+      },
+      "radius": {
+        "median": 0.12946603858845956,
+        "ci95": [
+          0.07616926244607669,
+          0.1539274928841256
+        ],
+        "n": 22
+      },
+      "force": null,
+      "wall_s": null,
+      "evals": null,
+      "scene_pass": {
+        "E_15": 0.84,
+        "ratio_25": 0.6,
+        "center_10": 0.45454545454545453,
+        "radius_12": 0.45454545454545453
+      },
+      "geometry_ratio_pass_25": {
+        "pass": "2/2",
+        "medians": {
+          "geom_58db559b24da6eb7cc0d": 0.18129287102381092,
+          "geom_62010c56d95ec023bc9b": 0.04740863240308102
+        }
+      },
+      "accept_rate": null,
+      "screen_reject_rate": null,
+      "notes": "\u4e0e FEM \u90e8\u5206\u96c6\u5bf9\u9f50\uff0c\u4fbf\u4e8e\u770b E \u662f\u5426\u88ab FEM \u8d70\u574f"
+    }
+  },
+  "calibrator_stacking_val_select": {
+    "rule": "validation_geometry_pass_then_median",
+    "selected": "official_2028_bins3",
+    "leaderboard": [
+      {
+        "policy": "official_2028_bins3",
+        "val_median": 0.21717484017250538,
+        "val_geom_pass": "3/3",
+        "test_median": 0.17767180073003352,
+        "test_geom_pass": "6/6"
+      },
+      {
+        "policy": "stack_linear_2028",
+        "val_median": 0.3008090540749591,
+        "val_geom_pass": "0/3",
+        "test_median": 0.291368541333154,
+        "test_geom_pass": "0/6"
+      },
+      {
+        "policy": "covariate_residual_2028",
+        "val_median": 0.3024639039533385,
+        "val_geom_pass": "0/3",
+        "test_median": 0.28729766160627546,
+        "test_geom_pass": "0/6"
+      },
+      {
+        "policy": "seed_equal_mean_raw",
+        "val_median": 0.3648004199135979,
+        "val_geom_pass": "0/3",
+        "test_median": 0.3232678654809448,
+        "test_geom_pass": "0/6"
+      },
+      {
+        "policy": "seed_equal_mean_bins3",
+        "val_median": 0.34557911507425254,
+        "val_geom_pass": "0/3",
+        "test_median": 0.2711006433617387,
+        "test_geom_pass": "1/6"
+      }
+    ]
+  }
+}

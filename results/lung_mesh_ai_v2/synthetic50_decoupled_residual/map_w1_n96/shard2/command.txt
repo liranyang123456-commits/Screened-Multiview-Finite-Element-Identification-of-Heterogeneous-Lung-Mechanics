@@ -1,0 +1,1 @@
+python .\experiments\run_screened_fem_locked.py --cohort synthetic50 --prior-width-scale 1.0 --max-nfev 96 --screen-threshold 0.05 --probe-count 2 --patient-start 34 --patient-limit 16 --results .\results\lung_mesh_ai_v2\synthetic50_decoupled_residual\map_w1_n96\shard2

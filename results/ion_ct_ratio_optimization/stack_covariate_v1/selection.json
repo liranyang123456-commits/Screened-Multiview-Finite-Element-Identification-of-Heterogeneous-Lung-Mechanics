@@ -1,0 +1,199 @@
+{
+  "schema_version": 1,
+  "do_not_overwrite_official_lock": true,
+  "official_rule": "validation_geometry_pass_then_median",
+  "locked_bins3": {
+    "edges": [
+      0.0,
+      2.3522442307010984,
+      3.1483814709163886,
+      10.0
+    ],
+    "multipliers": [
+      0.625,
+      1.175,
+      1.05
+    ]
+  },
+  "residual_fit": {
+    "coef": [
+      -0.06454780439536457,
+      -0.27298076199905175,
+      0.009744084047384399,
+      -0.0052615904428889426,
+      0.12027817382816303,
+      -0.023996515849123316
+    ],
+    "mean": [
+      0.8624203037372079,
+      -2.147003374511471,
+      -14.56343678956228,
+      0.9042831978010427,
+      8.312481526533762
+    ],
+    "std": [
+      0.4981870640476111,
+      0.13287321716479963,
+      2.5450461940913667,
+      0.258942044722399,
+      0.3363757993670289
+    ]
+  },
+  "selected_by_val_geometries": "official_2028_bins3",
+  "leaderboard": [
+    {
+      "policy": "official_2028_bins3",
+      "validation": {
+        "n": 60,
+        "median": 0.21717484017250538,
+        "pass_rate": 0.5666666666666667,
+        "geometry_medians": {
+          "geom_03024386f1bfde4e97a1": 0.20157733384220122,
+          "geom_271acd77cdf0a24bc7a4": 0.22389932110148542,
+          "geom_955e8309dafc61ab6034": 0.18656628585117252
+        },
+        "geometries_passing": 3,
+        "geometry_count": 3
+      },
+      "test_after_freeze": {
+        "n": 120,
+        "median": 0.17767180073003352,
+        "pass_rate": 0.575,
+        "geometry_medians": {
+          "geom_58db559b24da6eb7cc0d": 0.18129287102381092,
+          "geom_62010c56d95ec023bc9b": 0.11555876852553343,
+          "geom_a417d13e9ae27d685557": 0.23434303747394658,
+          "geom_ab578f1bb0ee02be2ccd": 0.17781971377157202,
+          "geom_db38a9c3817f033727b5": 0.1425943503087425,
+          "geom_fac5cdc88e186e46ee04": 0.16043850164655943
+        },
+        "geometries_passing": 6,
+        "geometry_count": 6
+      }
+    },
+    {
+      "policy": "stack_linear_2028",
+      "validation": {
+        "n": 60,
+        "median": 0.3008090540749591,
+        "pass_rate": 0.36666666666666664,
+        "geometry_medians": {
+          "geom_03024386f1bfde4e97a1": 0.3035009489546249,
+          "geom_271acd77cdf0a24bc7a4": 0.2868418288244906,
+          "geom_955e8309dafc61ab6034": 0.31666400485493873
+        },
+        "geometries_passing": 0,
+        "geometry_count": 3
+      },
+      "test_after_freeze": {
+        "n": 120,
+        "median": 0.291368541333154,
+        "pass_rate": 0.38333333333333336,
+        "geometry_medians": {
+          "geom_58db559b24da6eb7cc0d": 0.28457389505548636,
+          "geom_62010c56d95ec023bc9b": 0.35658035376445085,
+          "geom_a417d13e9ae27d685557": 0.2922552340634744,
+          "geom_ab578f1bb0ee02be2ccd": 0.2940180043851203,
+          "geom_db38a9c3817f033727b5": 0.2568770087913346,
+          "geom_fac5cdc88e186e46ee04": 0.27675306668903293
+        },
+        "geometries_passing": 0,
+        "geometry_count": 6
+      }
+    },
+    {
+      "policy": "covariate_residual_2028",
+      "validation": {
+        "n": 60,
+        "median": 0.3024639039533385,
+        "pass_rate": 0.36666666666666664,
+        "geometry_medians": {
+          "geom_03024386f1bfde4e97a1": 0.3040579746183495,
+          "geom_271acd77cdf0a24bc7a4": 0.29966673822547363,
+          "geom_955e8309dafc61ab6034": 0.29969840566349987
+        },
+        "geometries_passing": 0,
+        "geometry_count": 3
+      },
+      "test_after_freeze": {
+        "n": 120,
+        "median": 0.28729766160627546,
+        "pass_rate": 0.38333333333333336,
+        "geometry_medians": {
+          "geom_58db559b24da6eb7cc0d": 0.2926176001592633,
+          "geom_62010c56d95ec023bc9b": 0.279223680428003,
+          "geom_a417d13e9ae27d685557": 0.30217748022401697,
+          "geom_ab578f1bb0ee02be2ccd": 0.29221437931568306,
+          "geom_db38a9c3817f033727b5": 0.27049310342417027,
+          "geom_fac5cdc88e186e46ee04": 0.2909879470652751
+        },
+        "geometries_passing": 0,
+        "geometry_count": 6
+      }
+    },
+    {
+      "policy": "seed_equal_mean_raw",
+      "validation": {
+        "n": 60,
+        "median": 0.3648004199135979,
+        "pass_rate": 0.3,
+        "geometry_medians": {
+          "geom_03024386f1bfde4e97a1": 0.360705245657193,
+          "geom_271acd77cdf0a24bc7a4": 0.3499259280587648,
+          "geom_955e8309dafc61ab6034": 0.3716718953247354
+        },
+        "geometries_passing": 0,
+        "geometry_count": 3
+      },
+      "test_after_freeze": {
+        "n": 120,
+        "median": 0.3232678654809448,
+        "pass_rate": 0.3333333333333333,
+        "geometry_medians": {
+          "geom_58db559b24da6eb7cc0d": 0.3301083673643542,
+          "geom_62010c56d95ec023bc9b": 0.32786653308636715,
+          "geom_a417d13e9ae27d685557": 0.3473317607989742,
+          "geom_ab578f1bb0ee02be2ccd": 0.3298470382443807,
+          "geom_db38a9c3817f033727b5": 0.29523097094014394,
+          "geom_fac5cdc88e186e46ee04": 0.2969320561555859
+        },
+        "geometries_passing": 0,
+        "geometry_count": 6
+      }
+    },
+    {
+      "policy": "seed_equal_mean_bins3",
+      "validation": {
+        "n": 60,
+        "median": 0.34557911507425254,
+        "pass_rate": 0.36666666666666664,
+        "geometry_medians": {
+          "geom_03024386f1bfde4e97a1": 0.3421448680642703,
+          "geom_271acd77cdf0a24bc7a4": 0.35898457076879814,
+          "geom_955e8309dafc61ab6034": 0.33494583815935636
+        },
+        "geometries_passing": 0,
+        "geometry_count": 3
+      },
+      "test_after_freeze": {
+        "n": 120,
+        "median": 0.2711006433617387,
+        "pass_rate": 0.4666666666666667,
+        "geometry_medians": {
+          "geom_58db559b24da6eb7cc0d": 0.2637399609988111,
+          "geom_62010c56d95ec023bc9b": 0.27111875115035283,
+          "geom_a417d13e9ae27d685557": 0.3571851367187537,
+          "geom_ab578f1bb0ee02be2ccd": 0.26128216035084306,
+          "geom_db38a9c3817f033727b5": 0.2257717651660871,
+          "geom_fac5cdc88e186e46ee04": 0.2651080525206967
+        },
+        "geometries_passing": 1,
+        "geometry_count": 6
+      }
+    }
+  ],
+  "paper_reference": {
+    "official_hybrid_ratio": 0.17767180073003352,
+    "official_geometry_pass": "6/6"
+  }
+}

@@ -1,0 +1,6 @@
+launched 2026-10-12T02:53:21.1650497+08:00 (v1 re-run with start point clipped to fit_patient global box)
+OMP_NUM_THREADS=3 MKL_NUM_THREADS=3
+pid=20372 python ".\experiments\run_ekf_sequential_ct18.py" --cohort synthetic50 --all-test --shard 0/4 --noise-px 0.05 --out ".\results\lung_mesh_ai_v2\ekf_sequential_synthetic50"
+pid=9044 python ".\experiments\run_ekf_sequential_ct18.py" --cohort synthetic50 --all-test --shard 1/4 --noise-px 0.05 --out ".\results\lung_mesh_ai_v2\ekf_sequential_synthetic50"
+pid=57616 python ".\experiments\run_ekf_sequential_ct18.py" --cohort synthetic50 --all-test --shard 2/4 --noise-px 0.05 --out ".\results\lung_mesh_ai_v2\ekf_sequential_synthetic50"
+pid=13220 python ".\experiments\run_ekf_sequential_ct18.py" --cohort synthetic50 --all-test --shard 3/4 --noise-px 0.05 --out ".\results\lung_mesh_ai_v2\ekf_sequential_synthetic50"

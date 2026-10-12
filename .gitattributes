@@ -1,0 +1,11 @@
+
+# Code and documentation: LF in the repository and on every checkout.
+* text=auto eol=lf
+# Frozen evidence, dataset manifests and figures are stored byte-for-byte:
+# the SHA-256 digests quoted in the group summaries and in the supplement
+# are digests of these exact bytes (several records were written on Windows
+# with CRLF line endings), so no end-of-line conversion may touch them.
+results/** -text
+dataset/** -text
+figures/** -text
+evidence/** -text

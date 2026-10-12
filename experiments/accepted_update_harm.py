@@ -125,7 +125,13 @@ def analyse_arm(rows: list[dict]) -> dict:
     }
 
 
-def main() -> None:
+def build_payload() -> dict:
+    """Recompute the complete accepted_update_harm.json payload from the archived records.
+
+    Shared by ``main()`` (which writes the file) and by
+    ``experiments/summarize_reviewer_arms.py --check`` (which compares it with the
+    archived file without writing).
+    """
     out: dict = {
         "description": __doc__.strip(),
         "tie_tolerance_relative": TIE_TOL,
@@ -172,6 +178,11 @@ def main() -> None:
             "matches": s20["increased_error"] == 11 and s20["n"] == 26,
         },
     }
+    return out
+
+
+def main() -> None:
+    out = build_payload()
     OUT.write_text(json.dumps(out, indent=2), encoding="utf-8")
     compact = {
         name: {

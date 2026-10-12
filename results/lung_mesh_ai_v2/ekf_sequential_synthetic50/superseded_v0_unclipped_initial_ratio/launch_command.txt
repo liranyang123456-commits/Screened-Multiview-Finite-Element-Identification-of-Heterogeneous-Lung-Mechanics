@@ -1,0 +1,4 @@
+launched 2026-10-12T01:56:40.4625035+08:00
+OMP_NUM_THREADS=3 MKL_NUM_THREADS=3
+pid=31976 python ".\experiments\run_ekf_sequential_ct18.py" --cohort synthetic50 --all-test --shard 0/2 --noise-px 0.05 --out ".\results\lung_mesh_ai_v2\ekf_sequential_synthetic50"
+pid=13612 python ".\experiments\run_ekf_sequential_ct18.py" --cohort synthetic50 --all-test --shard 1/2 --noise-px 0.05 --out ".\results\lung_mesh_ai_v2\ekf_sequential_synthetic50"

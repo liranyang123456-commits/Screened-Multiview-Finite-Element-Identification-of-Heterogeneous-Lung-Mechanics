@@ -1,0 +1,76 @@
+{
+  "note": "PINN inverse arm vs frozen screened MAP (synthetic 50) and official hybrid (CT 120). Same generator, same four endpoints. Not a public SOTA claim.",
+  "label": "hybrid_initializer_bins3",
+  "ct120": {
+    "n": 120,
+    "E_vs_official_hybrid": {
+      "n": 120,
+      "pinn_median": 0.10920253324602036,
+      "ref_median": 0.08546262218403594,
+      "median_delta_pp": -1.748216462514187,
+      "pinn_wins": 62,
+      "ref_wins": 58,
+      "ties": 0
+    },
+    "ratio_vs_official_calibrated": {
+      "n": 120,
+      "pinn_median": 0.265738892914529,
+      "ref_median": 0.17767180073003352,
+      "median_delta_pp": 0.0,
+      "pinn_wins": 52,
+      "ref_wins": 58,
+      "ties": 10
+    },
+    "ratio_vs_uncalibrated_hybrid": {
+      "n": 120,
+      "pinn_median": 0.265738892914529,
+      "ref_median": 0.2694619923086097,
+      "median_delta_pp": 0.07801805695723876,
+      "pinn_wins": 59,
+      "ref_wins": 61,
+      "ties": 0
+    },
+    "E_vs_own_start": {
+      "n": 120,
+      "pinn_median": 0.10920253324602036,
+      "ref_median": 0.08546258402271423,
+      "median_delta_pp": -1.748211678192764,
+      "pinn_wins": 62,
+      "ref_wins": 58,
+      "ties": 0
+    },
+    "ratio_vs_own_start": {
+      "n": 120,
+      "pinn_median": 0.265738892914529,
+      "ref_median": 0.2643412546554066,
+      "median_delta_pp": -1.5384579436783508e-06,
+      "pinn_wins": 63,
+      "ref_wins": 57,
+      "ties": 0
+    },
+    "official_calibrated_ratio_median": 0.17767180073003352,
+    "uncalibrated_hybrid_ratio_median": 0.2694619923086097,
+    "pinn_ratio_gt_0.9": 12,
+    "pinn_geometry_ratio_medians": {
+      "geom_58db559b24da6eb7cc0d": 0.20119407547496815,
+      "geom_62010c56d95ec023bc9b": 0.18044116247737862,
+      "geom_a417d13e9ae27d685557": 0.3260841561078282,
+      "geom_ab578f1bb0ee02be2ccd": 0.30214917556649734,
+      "geom_db38a9c3817f033727b5": 0.26416444580650533,
+      "geom_fac5cdc88e186e46ee04": 0.34182311245982094
+    },
+    "pinn_geometry_pass_0.25": "2/6",
+    "official_geometry_ratio_medians": {
+      "geom_58db559b24da6eb7cc0d": 0.18129287102381092,
+      "geom_62010c56d95ec023bc9b": 0.11555876852553343,
+      "geom_a417d13e9ae27d685557": 0.23434303747394658,
+      "geom_ab578f1bb0ee02be2ccd": 0.17781971377157202,
+      "geom_db38a9c3817f033727b5": 0.1425943503087425,
+      "geom_fac5cdc88e186e46ee04": 0.16043850164655943
+    },
+    "official_geometry_pass_0.25": "6/6",
+    "center_pinn_median": 0.09600734792508726,
+    "radius_pinn_median": 0.11454998798097737,
+    "wall_pinn_median": 46.899969299993245
+  }
+}

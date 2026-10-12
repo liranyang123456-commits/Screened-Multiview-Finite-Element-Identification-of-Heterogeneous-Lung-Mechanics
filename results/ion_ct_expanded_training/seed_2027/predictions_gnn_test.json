@@ -1,0 +1,4621 @@
+{
+  "model": "gnn",
+  "split": "test",
+  "metrics": {
+    "patient_count": 120,
+    "E_background_median_relative_error": 0.08546262218403594,
+    "E_background_median_bootstrap_95_ci": [
+      0.07199353385412206,
+      0.10695241761074512
+    ],
+    "inclusion_ratio_median_relative_error": 0.2694619923086097,
+    "inclusion_ratio_median_bootstrap_95_ci": [
+      0.2255209232985768,
+      0.31232105003954724
+    ],
+    "center_error_normalized_median": 0.09194447472691536,
+    "radius_relative_error_median": 0.31861029487627035,
+    "node_sdf_mae_mean": 0.1495656502191667,
+    "node_sdf_nll_mean": -1.0536433063723423,
+    "partition_soft_dice_mean": 0.4113691249103458,
+    "heterogeneity": {
+      "accuracy": 0.975,
+      "brier_score": 0.02098432919829544,
+      "binary_nll": 0.08527125187678104
+    },
+    "log_E_uncertainty": {
+      "gaussian_nll": 0.10677727330118204,
+      "coverage": {
+        "50": 0.3333333333333333,
+        "80": 0.5666666666666667,
+        "90": 0.6583333333333333,
+        "95": 0.7333333333333333
+      },
+      "mean_interval_width": {
+        "50": 0.11805398479024341,
+        "80": 0.2243062537017539,
+        "90": 0.2878939598442454,
+        "95": 0.3430468118352446
+      },
+      "mean_absolute_calibration_error": 0.21458333333333338
+    },
+    "log_ratio_uncertainty": {
+      "gaussian_nll": 0.2322023389323018,
+      "coverage": {
+        "50": 0.475,
+        "80": 0.925,
+        "90": 0.9833333333333333,
+        "95": 0.9916666666666667
+      },
+      "mean_interval_width": {
+        "50": 0.5531443191670156,
+        "80": 1.0509914613150322,
+        "90": 1.3489329368533283,
+        "95": 1.6073527336851396
+      },
+      "mean_absolute_calibration_error": 0.06875
+    }
+  },
+  "records": [
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_000",
+      "E_background_true": 7354.59130859375,
+      "E_background_estimated": 6939.235308030035,
+      "E_background_relative_error": 0.056475741905383126,
+      "inclusion_ratio_true": 1.7094215154647827,
+      "inclusion_ratio_estimated": 2.2542442488095986,
+      "inclusion_ratio_relative_error": 0.3187176061702262,
+      "log_E_mean": 8.84494686126709,
+      "log_E_std": 0.08585023747081791,
+      "log_ratio_mean": 0.8128147721290588,
+      "log_ratio_std": 0.2357214391231537,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9440415501594543,
+      "center_fraction_true": [
+        0.5633198022842407,
+        0.5012134909629822,
+        0.5517470836639404
+      ],
+      "center_fraction_estimated": [
+        0.5336792469024658,
+        0.47099441289901733,
+        0.5322779417037964
+      ],
+      "center_fraction_std": [
+        0.038555972278118134,
+        0.028174208477139473,
+        0.03063199669122696
+      ],
+      "radius_fraction_true": 0.1491013616323471,
+      "radius_fraction_estimated": 0.10575922019779682,
+      "radius_fraction_std": 0.025890043005347252,
+      "center_error_normalized": 0.046591874212026596,
+      "radius_relative_error": 0.2906891054517864,
+      "node_sdf_mae": 0.22969824075698853,
+      "node_sdf_nll": -0.6201877593994141,
+      "partition_soft_dice": 0.34081465005874634
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_001",
+      "E_background_true": 2611.16259765625,
+      "E_background_estimated": 2975.7657605112827,
+      "E_background_relative_error": 0.13963250055063456,
+      "inclusion_ratio_true": 2.7941300868988037,
+      "inclusion_ratio_estimated": 2.1214713590003624,
+      "inclusion_ratio_relative_error": 0.24073994659462084,
+      "log_E_mean": 7.998256683349609,
+      "log_E_std": 0.05409916559173438,
+      "log_ratio_mean": 0.7521098852157593,
+      "log_ratio_std": 0.446258008480072,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9777612686157227,
+      "center_fraction_true": [
+        0.6071944236755371,
+        0.4444397985935211,
+        0.46219876408576965
+      ],
+      "center_fraction_estimated": [
+        0.48904845118522644,
+        0.4269039034843445,
+        0.5060898065567017
+      ],
+      "center_fraction_std": [
+        0.16164512932300568,
+        0.05539452284574509,
+        0.03541574254631996
+      ],
+      "radius_fraction_true": 0.1614656299352646,
+      "radius_fraction_estimated": 0.11614917404949665,
+      "radius_fraction_std": 0.03331654146313667,
+      "center_error_normalized": 0.12724937498569489,
+      "radius_relative_error": 0.28065697885015145,
+      "node_sdf_mae": 0.2650338113307953,
+      "node_sdf_nll": -0.673040509223938,
+      "partition_soft_dice": 0.302254855632782
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_002",
+      "E_background_true": 3813.055908203125,
+      "E_background_estimated": 4087.571277818007,
+      "E_background_relative_error": 0.07199353385412206,
+      "inclusion_ratio_true": 3.662076950073242,
+      "inclusion_ratio_estimated": 2.756712374855248,
+      "inclusion_ratio_relative_error": 0.24722707566259272,
+      "log_E_mean": 8.315706253051758,
+      "log_E_std": 0.074906530854911,
+      "log_ratio_mean": 1.0140388011932373,
+      "log_ratio_std": 0.5615368485450745,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9844212532043457,
+      "center_fraction_true": [
+        0.6007080674171448,
+        0.5927639603614807,
+        0.47958898544311523
+      ],
+      "center_fraction_estimated": [
+        0.5038440823554993,
+        0.4379187524318695,
+        0.5093943476676941
+      ],
+      "center_fraction_std": [
+        0.08435207605361938,
+        0.1018316000699997,
+        0.03637058660387993
+      ],
+      "radius_fraction_true": 0.15152569115161896,
+      "radius_fraction_estimated": 0.10559680499136448,
+      "radius_fraction_std": 0.030012475326657295,
+      "center_error_normalized": 0.1850622296333313,
+      "radius_relative_error": 0.3031095638712337,
+      "node_sdf_mae": 0.2422528862953186,
+      "node_sdf_nll": -0.7574789524078369,
+      "partition_soft_dice": 0.5109862089157104
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_003",
+      "E_background_true": 7782.3291015625,
+      "E_background_estimated": 7087.34429619532,
+      "E_background_relative_error": 0.08930293184692543,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_estimated": 1.0073021239640305,
+      "inclusion_ratio_relative_error": 0.007302123964030516,
+      "log_E_mean": 8.866065979003906,
+      "log_E_std": 0.10174251105688696,
+      "log_ratio_mean": 0.007275592535734177,
+      "log_ratio_std": 0.012351714074611664,
+      "heterogeneous_true": false,
+      "heterogeneity_probability": 0.0021155946888029575,
+      "center_fraction_true": [
+        0.4619864225387573,
+        0.6415968537330627,
+        0.5463299751281738
+      ],
+      "center_fraction_estimated": [
+        0.3090828061103821,
+        0.5660642385482788,
+        0.43991023302078247
+      ],
+      "center_fraction_std": [
+        0.00998030137270689,
+        0.010134626179933548,
+        0.01756238378584385
+      ],
+      "radius_fraction_true": 0.21600976586341858,
+      "radius_fraction_estimated": 0.12736386992037296,
+      "radius_fraction_std": 0.011076736263930798,
+      "center_error_normalized": null,
+      "radius_relative_error": null,
+      "node_sdf_mae": null,
+      "node_sdf_nll": null,
+      "partition_soft_dice": null
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_004",
+      "E_background_true": 2811.328369140625,
+      "E_background_estimated": 3070.7391477914625,
+      "E_background_relative_error": 0.09227338275326939,
+      "inclusion_ratio_true": 1.3014060258865356,
+      "inclusion_ratio_estimated": 2.1958836863526603,
+      "inclusion_ratio_relative_error": 0.6873163660486313,
+      "log_E_mean": 8.02967357635498,
+      "log_E_std": 0.056291518905995874,
+      "log_ratio_mean": 0.7865845561027527,
+      "log_ratio_std": 0.46644699573516846,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9787507057189941,
+      "center_fraction_true": [
+        0.36046507954597473,
+        0.4995959401130676,
+        0.47857174277305603
+      ],
+      "center_fraction_estimated": [
+        0.491476833820343,
+        0.4282299876213074,
+        0.507290244102478
+      ],
+      "center_fraction_std": [
+        0.15178070962429047,
+        0.060567401349544525,
+        0.03541862964630127
+      ],
+      "radius_fraction_true": 0.20353876054286957,
+      "radius_fraction_estimated": 0.11470668949186802,
+      "radius_fraction_std": 0.03320615738630295,
+      "center_error_normalized": 0.1519273966550827,
+      "radius_relative_error": 0.43643810551893203,
+      "node_sdf_mae": 0.2376609742641449,
+      "node_sdf_nll": -0.7262099385261536,
+      "partition_soft_dice": 0.31281718611717224
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_005",
+      "E_background_true": 4568.96044921875,
+      "E_background_estimated": 4586.086468457372,
+      "E_background_relative_error": 0.0037483404439515463,
+      "inclusion_ratio_true": 3.9906089305877686,
+      "inclusion_ratio_estimated": 2.8921209967895236,
+      "inclusion_ratio_relative_error": 0.27526824925850374,
+      "log_E_mean": 8.430782318115234,
+      "log_E_std": 0.08152394607375983,
+      "log_ratio_mean": 1.0619901418685913,
+      "log_ratio_std": 0.5534152388572693,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.983089029788971,
+      "center_fraction_true": [
+        0.5352808833122253,
+        0.40642035007476807,
+        0.5230876207351685
+      ],
+      "center_fraction_estimated": [
+        0.5116839408874512,
+        0.4471115469932556,
+        0.5167723298072815
+      ],
+      "center_fraction_std": [
+        0.0695330798625946,
+        0.0954306572675705,
+        0.03663007169961929
+      ],
+      "radius_fraction_true": 0.14099302887916565,
+      "radius_fraction_estimated": 0.10416228510439396,
+      "radius_fraction_std": 0.02857123501598835,
+      "center_error_normalized": 0.04746021702885628,
+      "radius_relative_error": 0.2612238638148309,
+      "node_sdf_mae": 0.17010624706745148,
+      "node_sdf_nll": -1.0437865257263184,
+      "partition_soft_dice": 0.8039131760597229
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_006",
+      "E_background_true": 2886.237548828125,
+      "E_background_estimated": 3197.738156441214,
+      "E_background_relative_error": 0.10792618498763726,
+      "inclusion_ratio_true": 2.4051513671875,
+      "inclusion_ratio_estimated": 2.2867912397095322,
+      "inclusion_ratio_relative_error": 0.04921109294521199,
+      "log_E_mean": 8.070199012756348,
+      "log_E_std": 0.0590955146404295,
+      "log_ratio_mean": 0.8271496295928955,
+      "log_ratio_std": 0.48754796385765076,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.979888379573822,
+      "center_fraction_true": [
+        0.5204493999481201,
+        0.4046655297279358,
+        0.4878888726234436
+      ],
+      "center_fraction_estimated": [
+        0.49398720264434814,
+        0.4309312105178833,
+        0.5079970955848694
+      ],
+      "center_fraction_std": [
+        0.13911885023117065,
+        0.0671958178281784,
+        0.035376980900764465
+      ],
+      "radius_fraction_true": 0.15761570632457733,
+      "radius_fraction_estimated": 0.11297786422073841,
+      "radius_fraction_std": 0.03287150338292122,
+      "center_error_normalized": 0.04236123710870743,
+      "radius_relative_error": 0.2832068145030953,
+      "node_sdf_mae": 0.17365512251853943,
+      "node_sdf_nll": -1.0251774787902832,
+      "partition_soft_dice": 0.31575825810432434
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_007",
+      "E_background_true": 3239.5263671875,
+      "E_background_estimated": 3481.5517660985042,
+      "E_background_relative_error": 0.07471011854153434,
+      "inclusion_ratio_true": 3.5530576705932617,
+      "inclusion_ratio_estimated": 2.4669703480136334,
+      "inclusion_ratio_relative_error": 0.3056768066470145,
+      "log_E_mean": 8.155233383178711,
+      "log_E_std": 0.0657799053008175,
+      "log_ratio_mean": 0.9029908180236816,
+      "log_ratio_std": 0.5147239565849304,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9813168048858643,
+      "center_fraction_true": [
+        0.6132705211639404,
+        0.36223310232162476,
+        0.5146952271461487
+      ],
+      "center_fraction_estimated": [
+        0.5018200874328613,
+        0.43488138914108276,
+        0.5088918209075928
+      ],
+      "center_fraction_std": [
+        0.11845104396343231,
+        0.08077315241098404,
+        0.03571458160877228
+      ],
+      "radius_fraction_true": 0.2148633450269699,
+      "radius_fraction_estimated": 0.1102029774338007,
+      "radius_fraction_std": 0.03297076001763344,
+      "center_error_normalized": 0.13316400349140167,
+      "radius_relative_error": 0.4871020116531841,
+      "node_sdf_mae": 0.24541465938091278,
+      "node_sdf_nll": -0.7455604076385498,
+      "partition_soft_dice": 0.458603173494339
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_008",
+      "E_background_true": 4360.91796875,
+      "E_background_estimated": 4547.187091510232,
+      "E_background_relative_error": 0.042713282867282036,
+      "inclusion_ratio_true": 3.5842037200927734,
+      "inclusion_ratio_estimated": 2.9144105240086606,
+      "inclusion_ratio_relative_error": 0.18687364011406582,
+      "log_E_mean": 8.422264099121094,
+      "log_E_std": 0.08198010286634627,
+      "log_ratio_mean": 1.0696675777435303,
+      "log_ratio_std": 0.5431187152862549,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9845514893531799,
+      "center_fraction_true": [
+        0.5396498441696167,
+        0.5415748953819275,
+        0.5060862898826599
+      ],
+      "center_fraction_estimated": [
+        0.5062180161476135,
+        0.44487637281417847,
+        0.5147913694381714
+      ],
+      "center_fraction_std": [
+        0.0722886174917221,
+        0.10190176963806152,
+        0.03706387057900429
+      ],
+      "radius_fraction_true": 0.15167826414108276,
+      "radius_fraction_estimated": 0.10456677712500095,
+      "radius_fraction_std": 0.03009757585823536,
+      "center_error_normalized": 0.10268431901931763,
+      "radius_relative_error": 0.3106014383989871,
+      "node_sdf_mae": 0.17684173583984375,
+      "node_sdf_nll": -1.0355613231658936,
+      "partition_soft_dice": 0.6921130418777466
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_009",
+      "E_background_true": 3030.940673828125,
+      "E_background_estimated": 3379.298529867704,
+      "E_background_relative_error": 0.11493390782855464,
+      "inclusion_ratio_true": 1.4595363140106201,
+      "inclusion_ratio_estimated": 2.3812319141217784,
+      "inclusion_ratio_relative_error": 0.6314989159663017,
+      "log_E_mean": 8.125423431396484,
+      "log_E_std": 0.06370336337685793,
+      "log_ratio_mean": 0.8676179647445679,
+      "log_ratio_std": 0.5044124722480774,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9809331893920898,
+      "center_fraction_true": [
+        0.3698481023311615,
+        0.5211280584335327,
+        0.5552514791488647
+      ],
+      "center_fraction_estimated": [
+        0.4948194622993469,
+        0.4345918893814087,
+        0.5071148872375488
+      ],
+      "center_fraction_std": [
+        0.12612071633338928,
+        0.07588563114404678,
+        0.035768941044807434
+      ],
+      "radius_fraction_true": 0.18149060010910034,
+      "radius_fraction_estimated": 0.11119774915277958,
+      "radius_fraction_std": 0.03325558826327324,
+      "center_error_normalized": 0.15944743156433105,
+      "radius_relative_error": 0.38730849374053133,
+      "node_sdf_mae": 0.2368617206811905,
+      "node_sdf_nll": -0.727458119392395,
+      "partition_soft_dice": 0.2979682683944702
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_010",
+      "E_background_true": 6316.05908203125,
+      "E_background_estimated": 6069.901868509123,
+      "E_background_relative_error": 0.03897322845228395,
+      "inclusion_ratio_true": 3.286842107772827,
+      "inclusion_ratio_estimated": 3.166725723268935,
+      "inclusion_ratio_relative_error": 0.03654461655454553,
+      "log_E_mean": 8.711097717285156,
+      "log_E_std": 0.0996474468665298,
+      "log_ratio_mean": 1.1526981592178345,
+      "log_ratio_std": 0.38295552134513855,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9835906624794006,
+      "center_fraction_true": [
+        0.4571569859981537,
+        0.49175313115119934,
+        0.4733695387840271
+      ],
+      "center_fraction_estimated": [
+        0.49542683362960815,
+        0.46288353204727173,
+        0.5235182046890259
+      ],
+      "center_fraction_std": [
+        0.05287163704633713,
+        0.07265675812959671,
+        0.039819344878196716
+      ],
+      "radius_fraction_true": 0.18714892864227295,
+      "radius_fraction_estimated": 0.10464775003492832,
+      "radius_fraction_std": 0.031416673213243484,
+      "center_error_normalized": 0.06937523931264877,
+      "radius_relative_error": 0.4408316905999609,
+      "node_sdf_mae": 0.1803157776594162,
+      "node_sdf_nll": -0.9578227400779724,
+      "partition_soft_dice": 0.33272144198417664
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_011",
+      "E_background_true": 2745.05224609375,
+      "E_background_estimated": 3119.6793295187254,
+      "E_background_relative_error": 0.13647357129835153,
+      "inclusion_ratio_true": 1.7172937393188477,
+      "inclusion_ratio_estimated": 1.5191101946022278,
+      "inclusion_ratio_relative_error": 0.11540456951483903,
+      "log_E_mean": 8.045485496520996,
+      "log_E_std": 0.06913393678675296,
+      "log_ratio_mean": 0.4181247651576996,
+      "log_ratio_std": 0.49077919125556946,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.8610456585884094,
+      "center_fraction_true": [
+        0.45945411920547485,
+        0.4337645471096039,
+        0.5173054337501526
+      ],
+      "center_fraction_estimated": [
+        0.47876471281051636,
+        0.42570972442626953,
+        0.49772191047668457
+      ],
+      "center_fraction_std": [
+        0.05658040940761566,
+        0.03407105430960655,
+        0.023960787802934647
+      ],
+      "radius_fraction_true": 0.21101221442222595,
+      "radius_fraction_estimated": 0.12629098631441593,
+      "radius_fraction_std": 0.018604924902319908,
+      "center_error_normalized": 0.028658220544457436,
+      "radius_relative_error": 0.40149916600698127,
+      "node_sdf_mae": 0.1794423609972,
+      "node_sdf_nll": -0.9266307353973389,
+      "partition_soft_dice": 0.48975229263305664
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_012",
+      "E_background_true": 3313.880126953125,
+      "E_background_estimated": 3644.819788404612,
+      "E_background_relative_error": 0.099864705050681,
+      "inclusion_ratio_true": 3.826371431350708,
+      "inclusion_ratio_estimated": 2.5458628764376705,
+      "inclusion_ratio_relative_error": 0.3346534903594078,
+      "log_E_mean": 8.201062202453613,
+      "log_E_std": 0.06839980183670874,
+      "log_ratio_mean": 0.9344696402549744,
+      "log_ratio_std": 0.5381805300712585,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.982298731803894,
+      "center_fraction_true": [
+        0.632805347442627,
+        0.45429304242134094,
+        0.5031412839889526
+      ],
+      "center_fraction_estimated": [
+        0.5003677606582642,
+        0.43657350540161133,
+        0.5091768503189087
+      ],
+      "center_fraction_std": [
+        0.1075693741440773,
+        0.08713387697935104,
+        0.03603493049740791
+      ],
+      "radius_fraction_true": 0.13660302758216858,
+      "radius_fraction_estimated": 0.10885375179350376,
+      "radius_fraction_std": 0.03228307142853737,
+      "center_error_normalized": 0.1337539702653885,
+      "radius_relative_error": 0.20313807299749087,
+      "node_sdf_mae": 0.2879943549633026,
+      "node_sdf_nll": -0.5035620331764221,
+      "partition_soft_dice": 0.3644818067550659
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_013",
+      "E_background_true": 3448.605712890625,
+      "E_background_estimated": 3806.098661311554,
+      "E_background_relative_error": 0.1036630389738809,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_estimated": 1.2651877581614894,
+      "inclusion_ratio_relative_error": 0.26518775816148943,
+      "log_E_mean": 8.244359970092773,
+      "log_E_std": 0.09395021446197555,
+      "log_ratio_mean": 0.2352205365896225,
+      "log_ratio_std": 0.2860681712627411,
+      "heterogeneous_true": false,
+      "heterogeneity_probability": 0.5205851793289185,
+      "center_fraction_true": [
+        0.44086188077926636,
+        0.5743837952613831,
+        0.5712599158287048
+      ],
+      "center_fraction_estimated": [
+        0.47323280572891235,
+        0.4328576624393463,
+        0.49756887555122375
+      ],
+      "center_fraction_std": [
+        0.024752797558903694,
+        0.03220883756875992,
+        0.020258082076907158
+      ],
+      "radius_fraction_true": 0.12374812364578247,
+      "radius_fraction_estimated": 0.12217836268246174,
+      "radius_fraction_std": 0.013163655996322632,
+      "center_error_normalized": null,
+      "radius_relative_error": null,
+      "node_sdf_mae": null,
+      "node_sdf_nll": null,
+      "partition_soft_dice": null
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_014",
+      "E_background_true": 5463.2373046875,
+      "E_background_estimated": 5530.541656827905,
+      "E_background_relative_error": 0.012319500030258161,
+      "inclusion_ratio_true": 1.6312952041625977,
+      "inclusion_ratio_estimated": 3.1044067452220836,
+      "inclusion_ratio_relative_error": 0.9030318591635209,
+      "log_E_mean": 8.618041038513184,
+      "log_E_std": 0.09077792587982335,
+      "log_ratio_mean": 1.1328226327896118,
+      "log_ratio_std": 0.4772036671638489,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9851859211921692,
+      "center_fraction_true": [
+        0.45191454887390137,
+        0.4527600407600403,
+        0.42572009563446045
+      ],
+      "center_fraction_estimated": [
+        0.5011605024337769,
+        0.45747172832489014,
+        0.5152192115783691
+      ],
+      "center_fraction_std": [
+        0.0552728995680809,
+        0.08775953203439713,
+        0.03853027522563934
+      ],
+      "radius_fraction_true": 0.1252078264951706,
+      "radius_fraction_estimated": 0.10277554579079151,
+      "radius_fraction_std": 0.027837630361318588,
+      "center_error_normalized": 0.10226170718669891,
+      "radius_relative_error": 0.1791603714584433,
+      "node_sdf_mae": 0.20052137970924377,
+      "node_sdf_nll": -0.8497514724731445,
+      "partition_soft_dice": 0.49318727850914
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_015",
+      "E_background_true": 3147.69384765625,
+      "E_background_estimated": 3661.5112686584953,
+      "E_background_relative_error": 0.16323614870767372,
+      "inclusion_ratio_true": 1.8172317743301392,
+      "inclusion_ratio_estimated": 2.5488300098741057,
+      "inclusion_ratio_relative_error": 0.40258939221643614,
+      "log_E_mean": 8.205631256103516,
+      "log_E_std": 0.0679675708809907,
+      "log_ratio_mean": 0.935634434223175,
+      "log_ratio_std": 0.5409319400787354,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9829400777816772,
+      "center_fraction_true": [
+        0.4510311484336853,
+        0.42909350991249084,
+        0.4338393807411194
+      ],
+      "center_fraction_estimated": [
+        0.5008162260055542,
+        0.4337325394153595,
+        0.5068804621696472
+      ],
+      "center_fraction_std": [
+        0.10453560203313828,
+        0.0893673226237297,
+        0.035822100937366486
+      ],
+      "radius_fraction_true": 0.19174809753894806,
+      "radius_fraction_estimated": 0.1083249170333147,
+      "radius_fraction_std": 0.031290654093027115,
+      "center_error_normalized": 0.08851595222949982,
+      "radius_relative_error": 0.4350665356076785,
+      "node_sdf_mae": 0.17799803614616394,
+      "node_sdf_nll": -0.9708645343780518,
+      "partition_soft_dice": 0.4522276520729065
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_016",
+      "E_background_true": 7423.7626953125,
+      "E_background_estimated": 6713.721672762308,
+      "E_background_relative_error": 0.09564435875604224,
+      "inclusion_ratio_true": 2.927333354949951,
+      "inclusion_ratio_estimated": 3.1466149537239896,
+      "inclusion_ratio_relative_error": 0.07490831148534756,
+      "log_E_mean": 8.811908721923828,
+      "log_E_std": 0.10115900498341651,
+      "log_ratio_mean": 1.146327257156372,
+      "log_ratio_std": 0.3372817039489746,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9838870167732239,
+      "center_fraction_true": [
+        0.5163505673408508,
+        0.4380873143672943,
+        0.536470353603363
+      ],
+      "center_fraction_estimated": [
+        0.503801703453064,
+        0.45801377296447754,
+        0.5275227427482605
+      ],
+      "center_fraction_std": [
+        0.044971171766519547,
+        0.056488294154405594,
+        0.03763071447610855
+      ],
+      "radius_fraction_true": 0.12864533066749573,
+      "radius_fraction_estimated": 0.10321077890694141,
+      "radius_fraction_std": 0.029052555561065674,
+      "center_error_normalized": 0.02519121952354908,
+      "radius_relative_error": 0.19771064856052917,
+      "node_sdf_mae": 0.1983673870563507,
+      "node_sdf_nll": -0.9276472330093384,
+      "partition_soft_dice": 0.9476452469825745
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_017",
+      "E_background_true": 4538.24951171875,
+      "E_background_estimated": 4717.0531562803735,
+      "E_background_relative_error": 0.03939925385325631,
+      "inclusion_ratio_true": 1.7786283493041992,
+      "inclusion_ratio_estimated": 2.970956268152778,
+      "inclusion_ratio_relative_error": 0.6703637211871825,
+      "log_E_mean": 8.458939552307129,
+      "log_E_std": 0.0847022745253895,
+      "log_ratio_mean": 1.088883876800537,
+      "log_ratio_std": 0.5262323021888733,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9848572015762329,
+      "center_fraction_true": [
+        0.5203258991241455,
+        0.5941723585128784,
+        0.5136945843696594
+      ],
+      "center_fraction_estimated": [
+        0.5087682008743286,
+        0.4459587335586548,
+        0.5157885551452637
+      ],
+      "center_fraction_std": [
+        0.06909734010696411,
+        0.10137495398521423,
+        0.03745036944746971
+      ],
+      "radius_fraction_true": 0.16250452399253845,
+      "radius_fraction_estimated": 0.10428274609148502,
+      "radius_fraction_std": 0.03019610233604908,
+      "center_error_normalized": 0.14867831766605377,
+      "radius_relative_error": 0.3582778895664882,
+      "node_sdf_mae": 0.16743534803390503,
+      "node_sdf_nll": -1.0696117877960205,
+      "partition_soft_dice": 0.7345964312553406
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_018",
+      "E_background_true": 6041.1943359375,
+      "E_background_estimated": 5950.325542225036,
+      "E_background_relative_error": 0.015041527992554258,
+      "inclusion_ratio_true": 3.835310459136963,
+      "inclusion_ratio_estimated": 3.15509775527219,
+      "inclusion_ratio_relative_error": 0.1773553174148611,
+      "log_E_mean": 8.691201210021973,
+      "log_E_std": 0.09774005111445562,
+      "log_ratio_mean": 1.149019479751587,
+      "log_ratio_std": 0.40151116251945496,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9839305281639099,
+      "center_fraction_true": [
+        0.5050106644630432,
+        0.47941336035728455,
+        0.502076268196106
+      ],
+      "center_fraction_estimated": [
+        0.4990711212158203,
+        0.4621807932853699,
+        0.5225650072097778
+      ],
+      "center_fraction_std": [
+        0.05340723320841789,
+        0.07481338828802109,
+        0.03953423723578453
+      ],
+      "radius_fraction_true": 0.1552499532699585,
+      "radius_fraction_estimated": 0.10443473048508167,
+      "radius_fraction_std": 0.03082515485584736,
+      "center_error_normalized": 0.027423128485679626,
+      "radius_relative_error": 0.3273123225777471,
+      "node_sdf_mae": 0.16857221722602844,
+      "node_sdf_nll": -1.0627893209457397,
+      "partition_soft_dice": 0.9547498822212219
+    },
+    {
+      "patient_id": "geom_58db559b24da6eb7cc0d_scenario_019",
+      "E_background_true": 3606.52587890625,
+      "E_background_estimated": 3916.228564973723,
+      "E_background_relative_error": 0.08587285838675214,
+      "inclusion_ratio_true": 1.6401879787445068,
+      "inclusion_ratio_estimated": 2.6762718097921234,
+      "inclusion_ratio_relative_error": 0.6316860289640057,
+      "log_E_mean": 8.272884368896484,
+      "log_E_std": 0.07368773987630142,
+      "log_ratio_mean": 0.9844247102737427,
+      "log_ratio_std": 0.5337421298027039,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9832810759544373,
+      "center_fraction_true": [
+        0.4556237757205963,
+        0.3863484561443329,
+        0.44785797595977783
+      ],
+      "center_fraction_estimated": [
+        0.5017075538635254,
+        0.4374728500843048,
+        0.5099256038665771
+      ],
+      "center_fraction_std": [
+        0.09430864453315735,
+        0.09603329747915268,
+        0.03633422031998634
+      ],
+      "radius_fraction_true": 0.14178916811943054,
+      "radius_fraction_estimated": 0.1072359848767519,
+      "radius_fraction_std": 0.03205924108624458,
+      "center_error_normalized": 0.09268122166395187,
+      "radius_relative_error": 0.24369409667157454,
+      "node_sdf_mae": 0.1922706812620163,
+      "node_sdf_nll": -0.9457922577857971,
+      "partition_soft_dice": 0.503247082233429
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_000",
+      "E_background_true": 7354.59130859375,
+      "E_background_estimated": 7395.623775250259,
+      "E_background_relative_error": 0.005579163400767542,
+      "inclusion_ratio_true": 1.7094215154647827,
+      "inclusion_ratio_estimated": 1.997415310658303,
+      "inclusion_ratio_relative_error": 0.16847441815146239,
+      "log_E_mean": 8.90864372253418,
+      "log_E_std": 0.08816549094400264,
+      "log_ratio_mean": 0.6918540000915527,
+      "log_ratio_std": 0.15901704132556915,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9238701462745667,
+      "center_fraction_true": [
+        0.5633198022842407,
+        0.5012134909629822,
+        0.5517470836639404
+      ],
+      "center_fraction_estimated": [
+        0.5136349201202393,
+        0.4952710270881653,
+        0.529342532157898
+      ],
+      "center_fraction_std": [
+        0.03532605618238449,
+        0.022375712171196938,
+        0.030715491622686386
+      ],
+      "radius_fraction_true": 0.1491013616323471,
+      "radius_fraction_estimated": 0.10796117223799229,
+      "radius_fraction_std": 0.026968564838171005,
+      "center_error_normalized": 0.054825764149427414,
+      "radius_relative_error": 0.27592095031162733,
+      "node_sdf_mae": 0.16352728009223938,
+      "node_sdf_nll": -0.5194753408432007,
+      "partition_soft_dice": 0.357638955116272
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_001",
+      "E_background_true": 2611.16259765625,
+      "E_background_estimated": 3515.7983194357457,
+      "E_background_relative_error": 0.3464494024966069,
+      "inclusion_ratio_true": 2.7941300868988037,
+      "inclusion_ratio_estimated": 2.3716110640403536,
+      "inclusion_ratio_relative_error": 0.15121666125695768,
+      "log_E_mean": 8.165021896362305,
+      "log_E_std": 0.08009686162109601,
+      "log_ratio_mean": 0.8635694980621338,
+      "log_ratio_std": 0.535136878490448,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9795042872428894,
+      "center_fraction_true": [
+        0.6071944236755371,
+        0.4444397985935211,
+        0.46219876408576965
+      ],
+      "center_fraction_estimated": [
+        0.49503207206726074,
+        0.47238606214523315,
+        0.4907587170600891
+      ],
+      "center_fraction_std": [
+        0.09476343542337418,
+        0.08993259072303772,
+        0.040358688682317734
+      ],
+      "radius_fraction_true": 0.1614656299352646,
+      "radius_fraction_estimated": 0.10989243723452091,
+      "radius_fraction_std": 0.03330058977007866,
+      "center_error_normalized": 0.11906745284795761,
+      "radius_relative_error": 0.3194066298903401,
+      "node_sdf_mae": 0.19992689788341522,
+      "node_sdf_nll": 0.4534112811088562,
+      "partition_soft_dice": 0.2831011712551117
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_002",
+      "E_background_true": 3813.055908203125,
+      "E_background_estimated": 4575.466482282042,
+      "E_background_relative_error": 0.19994738929443018,
+      "inclusion_ratio_true": 3.662076950073242,
+      "inclusion_ratio_estimated": 2.59200492553548,
+      "inclusion_ratio_relative_error": 0.29220358805304747,
+      "log_E_mean": 8.42846393585205,
+      "log_E_std": 0.09445388489445149,
+      "log_ratio_mean": 0.9524316787719727,
+      "log_ratio_std": 0.5538643002510071,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9755584001541138,
+      "center_fraction_true": [
+        0.6007080674171448,
+        0.5927639603614807,
+        0.47958898544311523
+      ],
+      "center_fraction_estimated": [
+        0.504630446434021,
+        0.487930566072464,
+        0.49389511346817017
+      ],
+      "center_fraction_std": [
+        0.056970130652189255,
+        0.08785610646009445,
+        0.040520116686820984
+      ],
+      "radius_fraction_true": 0.15152569115161896,
+      "radius_fraction_estimated": 0.10557339526712894,
+      "radius_fraction_std": 0.027928689494729042,
+      "center_error_normalized": 0.14291821420192719,
+      "radius_relative_error": 0.3032640573043777,
+      "node_sdf_mae": 0.21329949796199799,
+      "node_sdf_nll": 1.8042417764663696,
+      "partition_soft_dice": 0.2495204508304596
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_003",
+      "E_background_true": 7782.3291015625,
+      "E_background_estimated": 7491.676548464413,
+      "E_background_relative_error": 0.037347759174015296,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_estimated": 1.0574951084464383,
+      "inclusion_ratio_relative_error": 0.05749510844643835,
+      "log_E_mean": 8.921547889709473,
+      "log_E_std": 0.08937333559126291,
+      "log_ratio_mean": 0.055903006345033646,
+      "log_ratio_std": 0.026623213663697243,
+      "heterogeneous_true": false,
+      "heterogeneity_probability": 0.06924737244844437,
+      "center_fraction_true": [
+        0.4619864225387573,
+        0.6415968537330627,
+        0.5463299751281738
+      ],
+      "center_fraction_estimated": [
+        0.5067420601844788,
+        0.5030381679534912,
+        0.5492279529571533
+      ],
+      "center_fraction_std": [
+        0.01605750434100628,
+        0.013377899304032326,
+        0.021172987297177315
+      ],
+      "radius_fraction_true": 0.21600976586341858,
+      "radius_fraction_estimated": 0.11863800324499607,
+      "radius_fraction_std": 0.0178521741181612,
+      "center_error_normalized": null,
+      "radius_relative_error": null,
+      "node_sdf_mae": null,
+      "node_sdf_nll": null,
+      "partition_soft_dice": null
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_004",
+      "E_background_true": 2811.328369140625,
+      "E_background_estimated": 3591.132998251356,
+      "E_background_relative_error": 0.2773794188080221,
+      "inclusion_ratio_true": 1.3014060258865356,
+      "inclusion_ratio_estimated": 2.4129751965273236,
+      "inclusion_ratio_relative_error": 0.8541294173611743,
+      "log_E_mean": 8.186223030090332,
+      "log_E_std": 0.08071411639735052,
+      "log_ratio_mean": 0.8808605074882507,
+      "log_ratio_std": 0.5470634698867798,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9801385402679443,
+      "center_fraction_true": [
+        0.36046507954597473,
+        0.4995959401130676,
+        0.47857174277305603
+      ],
+      "center_fraction_estimated": [
+        0.49538731575012207,
+        0.476127952337265,
+        0.4919062852859497
+      ],
+      "center_fraction_std": [
+        0.09112761169672012,
+        0.09318433701992035,
+        0.04039367288351059
+      ],
+      "radius_fraction_true": 0.20353876054286957,
+      "radius_fraction_estimated": 0.10918807424604893,
+      "radius_fraction_std": 0.03296603634953499,
+      "center_error_normalized": 0.13759566843509674,
+      "radius_relative_error": 0.4635514436914751,
+      "node_sdf_mae": 0.14354833960533142,
+      "node_sdf_nll": -0.7976344227790833,
+      "partition_soft_dice": 0.4964542090892792
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_005",
+      "E_background_true": 4568.96044921875,
+      "E_background_estimated": 5382.601702140646,
+      "E_background_relative_error": 0.17808016986906094,
+      "inclusion_ratio_true": 3.9906089305877686,
+      "inclusion_ratio_estimated": 2.6645568238899298,
+      "inclusion_ratio_relative_error": 0.3322931737394091,
+      "log_E_mean": 8.590927124023438,
+      "log_E_std": 0.09078825579650994,
+      "log_ratio_mean": 0.9800377488136292,
+      "log_ratio_std": 0.4808831512928009,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9765259623527527,
+      "center_fraction_true": [
+        0.5352808833122253,
+        0.40642035007476807,
+        0.5230876207351685
+      ],
+      "center_fraction_estimated": [
+        0.5000542402267456,
+        0.48787784576416016,
+        0.4978393316268921
+      ],
+      "center_fraction_std": [
+        0.04782804846763611,
+        0.06768582761287689,
+        0.038405828177928925
+      ],
+      "radius_fraction_true": 0.14099302887916565,
+      "radius_fraction_estimated": 0.1036780197173357,
+      "radius_fraction_std": 0.02649889700114727,
+      "center_error_normalized": 0.09226980060338974,
+      "radius_relative_error": 0.2646585399183799,
+      "node_sdf_mae": 0.17079080641269684,
+      "node_sdf_nll": 0.20796960592269897,
+      "partition_soft_dice": 0.42064473032951355
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_006",
+      "E_background_true": 2886.237548828125,
+      "E_background_estimated": 3797.6325582056365,
+      "E_background_relative_error": 0.31577269506023775,
+      "inclusion_ratio_true": 2.4051513671875,
+      "inclusion_ratio_estimated": 2.4992503563996245,
+      "inclusion_ratio_relative_error": 0.03912393643738129,
+      "log_E_mean": 8.242133140563965,
+      "log_E_std": 0.08421612219994125,
+      "log_ratio_mean": 0.9159908294677734,
+      "log_ratio_std": 0.572344958782196,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9806309938430786,
+      "center_fraction_true": [
+        0.5204493999481201,
+        0.4046655297279358,
+        0.4878888726234436
+      ],
+      "center_fraction_estimated": [
+        0.4989224076271057,
+        0.48092296719551086,
+        0.49292004108428955
+      ],
+      "center_fraction_std": [
+        0.07987424731254578,
+        0.0990649089217186,
+        0.04064517468214035
+      ],
+      "radius_fraction_true": 0.15761570632457733,
+      "radius_fraction_estimated": 0.1075232345610857,
+      "radius_fraction_std": 0.03145715221762657,
+      "center_error_normalized": 0.07939723134040833,
+      "radius_relative_error": 0.3178139598622007,
+      "node_sdf_mae": 0.1824169009923935,
+      "node_sdf_nll": 0.3025752007961273,
+      "partition_soft_dice": 0.40880367159843445
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_007",
+      "E_background_true": 3239.5263671875,
+      "E_background_estimated": 4121.591427351559,
+      "E_background_relative_error": 0.27228210552576937,
+      "inclusion_ratio_true": 3.5530576705932617,
+      "inclusion_ratio_estimated": 2.682842442543885,
+      "inclusion_ratio_relative_error": 0.24492009664005115,
+      "log_E_mean": 8.323994636535645,
+      "log_E_std": 0.08824128012100153,
+      "log_ratio_mean": 0.9868768453598022,
+      "log_ratio_std": 0.5506082773208618,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9828604459762573,
+      "center_fraction_true": [
+        0.6132705211639404,
+        0.36223310232162476,
+        0.5146952271461487
+      ],
+      "center_fraction_estimated": [
+        0.501912534236908,
+        0.4838225245475769,
+        0.494276225566864
+      ],
+      "center_fraction_std": [
+        0.07317215949296951,
+        0.10408233106136322,
+        0.04222612455487251
+      ],
+      "radius_fraction_true": 0.2148633450269699,
+      "radius_fraction_estimated": 0.10650511272251606,
+      "radius_fraction_std": 0.03205598518252373,
+      "center_error_normalized": 0.16613706946372986,
+      "radius_relative_error": 0.5043123213540801,
+      "node_sdf_mae": 0.17901203036308289,
+      "node_sdf_nll": 0.6495223045349121,
+      "partition_soft_dice": 0.24677124619483948
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_008",
+      "E_background_true": 4360.91796875,
+      "E_background_estimated": 5070.14205530345,
+      "E_background_relative_error": 0.1626318338560127,
+      "inclusion_ratio_true": 3.5842037200927734,
+      "inclusion_ratio_estimated": 2.91042550900045,
+      "inclusion_ratio_relative_error": 0.18798546726436732,
+      "log_E_mean": 8.531124114990234,
+      "log_E_std": 0.09464390962749358,
+      "log_ratio_mean": 1.0682992935180664,
+      "log_ratio_std": 0.4904179871082306,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.984226644039154,
+      "center_fraction_true": [
+        0.5396498441696167,
+        0.5415748953819275,
+        0.5060862898826599
+      ],
+      "center_fraction_estimated": [
+        0.48807305097579956,
+        0.486477792263031,
+        0.49447566270828247
+      ],
+      "center_fraction_std": [
+        0.05496421083807945,
+        0.08668038994073868,
+        0.04354676231741905
+      ],
+      "radius_fraction_true": 0.15167826414108276,
+      "radius_fraction_estimated": 0.10475181974470615,
+      "radius_fraction_std": 0.029641781002283096,
+      "center_error_normalized": 0.07635878026485443,
+      "radius_relative_error": 0.3093814704572846,
+      "node_sdf_mae": 0.16131150722503662,
+      "node_sdf_nll": -0.1107138842344284,
+      "partition_soft_dice": 0.28302428126335144
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_009",
+      "E_background_true": 3030.940673828125,
+      "E_background_estimated": 3805.8300671773786,
+      "E_background_relative_error": 0.2556597032862924,
+      "inclusion_ratio_true": 1.4595363140106201,
+      "inclusion_ratio_estimated": 2.5405009976757076,
+      "inclusion_ratio_relative_error": 0.7406219860982657,
+      "log_E_mean": 8.24428939819336,
+      "log_E_std": 0.08491972971092274,
+      "log_ratio_mean": 0.9323613047599792,
+      "log_ratio_std": 0.5352277159690857,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9820840954780579,
+      "center_fraction_true": [
+        0.3698481023311615,
+        0.5211280584335327,
+        0.5552514791488647
+      ],
+      "center_fraction_estimated": [
+        0.4836856722831726,
+        0.4800349473953247,
+        0.4925903081893921
+      ],
+      "center_fraction_std": [
+        0.08555389940738678,
+        0.09936600923538208,
+        0.041986074298620224
+      ],
+      "radius_fraction_true": 0.18149060010910034,
+      "radius_fraction_estimated": 0.10818029381334782,
+      "radius_fraction_std": 0.033553000539541245,
+      "center_error_normalized": 0.1362866759300232,
+      "radius_relative_error": 0.4039344530883866,
+      "node_sdf_mae": 0.18638256192207336,
+      "node_sdf_nll": 0.2371641844511032,
+      "partition_soft_dice": 0.38546767830848694
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_010",
+      "E_background_true": 6316.05908203125,
+      "E_background_estimated": 6588.18781704401,
+      "E_background_relative_error": 0.04308521048939327,
+      "inclusion_ratio_true": 3.286842107772827,
+      "inclusion_ratio_estimated": 2.9737154360168767,
+      "inclusion_ratio_relative_error": 0.09526672151834087,
+      "log_E_mean": 8.793033599853516,
+      "log_E_std": 0.09997822292828415,
+      "log_ratio_mean": 1.089812159538269,
+      "log_ratio_std": 0.30159544944763184,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9821934700012207,
+      "center_fraction_true": [
+        0.4571569859981537,
+        0.49175313115119934,
+        0.4733695387840271
+      ],
+      "center_fraction_estimated": [
+        0.47796857357025146,
+        0.4884694218635559,
+        0.5092878937721252
+      ],
+      "center_fraction_std": [
+        0.04388578236103058,
+        0.050073664635419846,
+        0.04009035602211952
+      ],
+      "radius_fraction_true": 0.18714892864227295,
+      "radius_fraction_estimated": 0.1056476179510355,
+      "radius_fraction_std": 0.030483895912766457,
+      "center_error_normalized": 0.0416417233645916,
+      "radius_relative_error": 0.43548905827307016,
+      "node_sdf_mae": 0.12403681129217148,
+      "node_sdf_nll": -0.9638528227806091,
+      "partition_soft_dice": 0.3960797190666199
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_011",
+      "E_background_true": 2745.05224609375,
+      "E_background_estimated": 3584.436971280375,
+      "E_background_relative_error": 0.3057809651459574,
+      "inclusion_ratio_true": 1.7172937393188477,
+      "inclusion_ratio_estimated": 2.004735707104917,
+      "inclusion_ratio_relative_error": 0.16738078128677109,
+      "log_E_mean": 8.184356689453125,
+      "log_E_std": 0.08796909327872175,
+      "log_ratio_mean": 0.6955122351646423,
+      "log_ratio_std": 0.5846152305603027,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.949297308921814,
+      "center_fraction_true": [
+        0.45945411920547485,
+        0.4337645471096039,
+        0.5173054337501526
+      ],
+      "center_fraction_estimated": [
+        0.4987066388130188,
+        0.4728375971317291,
+        0.49196720123291016
+      ],
+      "center_fraction_std": [
+        0.06784415990114212,
+        0.07134798914194107,
+        0.0337400883436203
+      ],
+      "radius_fraction_true": 0.21101221442222595,
+      "radius_fraction_estimated": 0.11388503946363926,
+      "radius_fraction_std": 0.026363806799054146,
+      "center_error_normalized": 0.0609055794775486,
+      "radius_relative_error": 0.4602917192473019,
+      "node_sdf_mae": 0.1535670906305313,
+      "node_sdf_nll": -0.3965303599834442,
+      "partition_soft_dice": 0.5533336400985718
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_012",
+      "E_background_true": 3313.880126953125,
+      "E_background_estimated": 4086.5500739267222,
+      "E_background_relative_error": 0.23316170693356122,
+      "inclusion_ratio_true": 3.826371431350708,
+      "inclusion_ratio_estimated": 2.6666334095650295,
+      "inclusion_ratio_relative_error": 0.30309081138427046,
+      "log_E_mean": 8.31545639038086,
+      "log_E_std": 0.08782363930266325,
+      "log_ratio_mean": 0.9808167815208435,
+      "log_ratio_std": 0.5532888174057007,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9831767082214355,
+      "center_fraction_true": [
+        0.632805347442627,
+        0.45429304242134094,
+        0.5031412839889526
+      ],
+      "center_fraction_estimated": [
+        0.4983360171318054,
+        0.484678715467453,
+        0.4942115545272827
+      ],
+      "center_fraction_std": [
+        0.07470386475324631,
+        0.10260328650474548,
+        0.042300283908843994
+      ],
+      "radius_fraction_true": 0.13660302758216858,
+      "radius_fraction_estimated": 0.10659869201481342,
+      "radius_fraction_std": 0.031771741807460785,
+      "center_error_normalized": 0.13814857602119446,
+      "radius_relative_error": 0.21964619744102773,
+      "node_sdf_mae": 0.19670796394348145,
+      "node_sdf_nll": 0.41537901759147644,
+      "partition_soft_dice": 0.12432251870632172
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_013",
+      "E_background_true": 3448.605712890625,
+      "E_background_estimated": 4338.2321531057305,
+      "E_background_relative_error": 0.25796699138140083,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_estimated": 1.8404045492314314,
+      "inclusion_ratio_relative_error": 0.8404045492314314,
+      "log_E_mean": 8.375222206115723,
+      "log_E_std": 0.09602514575407443,
+      "log_ratio_mean": 0.6099854111671448,
+      "log_ratio_std": 0.4978293776512146,
+      "heterogeneous_true": false,
+      "heterogeneity_probability": 0.9053103923797607,
+      "center_fraction_true": [
+        0.44086188077926636,
+        0.5743837952613831,
+        0.5712599158287048
+      ],
+      "center_fraction_estimated": [
+        0.5095495581626892,
+        0.48255929350852966,
+        0.4980841875076294
+      ],
+      "center_fraction_std": [
+        0.04214024171233177,
+        0.06129295006394386,
+        0.030008038505911827
+      ],
+      "radius_fraction_true": 0.12374812364578247,
+      "radius_fraction_estimated": 0.11167953349649906,
+      "radius_fraction_std": 0.021020447835326195,
+      "center_error_normalized": null,
+      "radius_relative_error": null,
+      "node_sdf_mae": null,
+      "node_sdf_nll": null,
+      "partition_soft_dice": null
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_014",
+      "E_background_true": 5463.2373046875,
+      "E_background_estimated": 5919.032850753283,
+      "E_background_relative_error": 0.0834295712680661,
+      "inclusion_ratio_true": 1.6312952041625977,
+      "inclusion_ratio_estimated": 2.8325082033114106,
+      "inclusion_ratio_relative_error": 0.7363553795068248,
+      "log_E_mean": 8.685928344726562,
+      "log_E_std": 0.09665214882995472,
+      "log_ratio_mean": 1.0411626100540161,
+      "log_ratio_std": 0.4010471701622009,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9800414443016052,
+      "center_fraction_true": [
+        0.45191454887390137,
+        0.4527600407600403,
+        0.42572009563446045
+      ],
+      "center_fraction_estimated": [
+        0.4848031997680664,
+        0.48851028084754944,
+        0.4977996349334717
+      ],
+      "center_fraction_std": [
+        0.0443466380238533,
+        0.06112140789628029,
+        0.03982986509799957
+      ],
+      "radius_fraction_true": 0.1252078264951706,
+      "radius_fraction_estimated": 0.10399274714291096,
+      "radius_fraction_std": 0.028268637135624886,
+      "center_error_normalized": 0.08692067116498947,
+      "radius_relative_error": 0.1694389236369176,
+      "node_sdf_mae": 0.18763777613639832,
+      "node_sdf_nll": 0.48130184412002563,
+      "partition_soft_dice": 0.4187771677970886
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_015",
+      "E_background_true": 3147.69384765625,
+      "E_background_estimated": 4052.68388508712,
+      "E_background_relative_error": 0.28750891326509376,
+      "inclusion_ratio_true": 1.8172317743301392,
+      "inclusion_ratio_estimated": 2.491286934120532,
+      "inclusion_ratio_relative_error": 0.3709241547016536,
+      "log_E_mean": 8.307134628295898,
+      "log_E_std": 0.09054906702302974,
+      "log_ratio_mean": 0.9127994179725647,
+      "log_ratio_std": 0.5827382802963257,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9754552841186523,
+      "center_fraction_true": [
+        0.4510311484336853,
+        0.42909350991249084,
+        0.4338393807411194
+      ],
+      "center_fraction_estimated": [
+        0.5056111216545105,
+        0.4858104884624481,
+        0.49366897344589233
+      ],
+      "center_fraction_std": [
+        0.06849034875631332,
+        0.0938778966665268,
+        0.04021627455949783
+      ],
+      "radius_fraction_true": 0.19174809753894806,
+      "radius_fraction_estimated": 0.1073735672980547,
+      "radius_fraction_std": 0.029689310118556023,
+      "center_error_normalized": 0.09887047111988068,
+      "radius_relative_error": 0.44002799153590105,
+      "node_sdf_mae": 0.1715872883796692,
+      "node_sdf_nll": 0.17076751589775085,
+      "partition_soft_dice": 0.4611278176307678
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_016",
+      "E_background_true": 7423.7626953125,
+      "E_background_estimated": 7481.017221900302,
+      "E_background_relative_error": 0.0077123325377780666,
+      "inclusion_ratio_true": 2.927333354949951,
+      "inclusion_ratio_estimated": 2.4279727471494525,
+      "inclusion_ratio_relative_error": 0.17058549445901294,
+      "log_E_mean": 8.920124053955078,
+      "log_E_std": 0.09474367932330678,
+      "log_ratio_mean": 0.8870566487312317,
+      "log_ratio_std": 0.19753296673297882,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9646475911140442,
+      "center_fraction_true": [
+        0.5163505673408508,
+        0.4380873143672943,
+        0.536470353603363
+      ],
+      "center_fraction_estimated": [
+        0.5003625154495239,
+        0.48566877841949463,
+        0.5215054750442505
+      ],
+      "center_fraction_std": [
+        0.03614430129528046,
+        0.02774641662836075,
+        0.03238404169678688
+      ],
+      "radius_fraction_true": 0.12864533066749573,
+      "radius_fraction_estimated": 0.10502160526812077,
+      "radius_fraction_std": 0.027689781039953232,
+      "center_error_normalized": 0.05237901583313942,
+      "radius_relative_error": 0.18363453439623262,
+      "node_sdf_mae": 0.19519203901290894,
+      "node_sdf_nll": 0.41113004088401794,
+      "partition_soft_dice": 0.5062062740325928
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_017",
+      "E_background_true": 4538.24951171875,
+      "E_background_estimated": 5163.947556789098,
+      "E_background_relative_error": 0.13787211202351454,
+      "inclusion_ratio_true": 1.7786283493041992,
+      "inclusion_ratio_estimated": 2.9655806537321685,
+      "inclusion_ratio_relative_error": 0.6673413841021403,
+      "log_E_mean": 8.549456596374512,
+      "log_E_std": 0.095980008293288,
+      "log_ratio_mean": 1.0870728492736816,
+      "log_ratio_std": 0.4642789959907532,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9847471714019775,
+      "center_fraction_true": [
+        0.5203258991241455,
+        0.5941723585128784,
+        0.5136945843696594
+      ],
+      "center_fraction_estimated": [
+        0.48435211181640625,
+        0.48609355092048645,
+        0.4940965175628662
+      ],
+      "center_fraction_std": [
+        0.05454360693693161,
+        0.08889312297105789,
+        0.04414647817611694
+      ],
+      "radius_fraction_true": 0.16250452399253845,
+      "radius_fraction_estimated": 0.10543112643063068,
+      "radius_fraction_std": 0.030958618968725204,
+      "center_error_normalized": 0.11558211594820023,
+      "radius_relative_error": 0.3512111303715357,
+      "node_sdf_mae": 0.1761671006679535,
+      "node_sdf_nll": 0.32532966136932373,
+      "partition_soft_dice": 0.44379934668540955
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_018",
+      "E_background_true": 6041.1943359375,
+      "E_background_estimated": 6445.621299985573,
+      "E_background_relative_error": 0.06694486910348872,
+      "inclusion_ratio_true": 3.835310459136963,
+      "inclusion_ratio_estimated": 2.921468305449938,
+      "inclusion_ratio_relative_error": 0.23827071196021538,
+      "log_E_mean": 8.771156311035156,
+      "log_E_std": 0.09767510884708624,
+      "log_ratio_mean": 1.0720863342285156,
+      "log_ratio_std": 0.3198719918727875,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9813833832740784,
+      "center_fraction_true": [
+        0.5050106644630432,
+        0.47941336035728455,
+        0.502076268196106
+      ],
+      "center_fraction_estimated": [
+        0.4815012812614441,
+        0.4887450039386749,
+        0.5074902772903442
+      ],
+      "center_fraction_std": [
+        0.04501180350780487,
+        0.04987691342830658,
+        0.040092017501592636
+      ],
+      "radius_fraction_true": 0.1552499532699585,
+      "radius_fraction_estimated": 0.10544566251337528,
+      "radius_fraction_std": 0.029764577746391296,
+      "center_error_normalized": 0.02586662396788597,
+      "radius_relative_error": 0.320800681144041,
+      "node_sdf_mae": 0.12638403475284576,
+      "node_sdf_nll": -1.01710844039917,
+      "partition_soft_dice": 0.5821757912635803
+    },
+    {
+      "patient_id": "geom_62010c56d95ec023bc9b_scenario_019",
+      "E_background_true": 3606.52587890625,
+      "E_background_estimated": 4312.9159412603985,
+      "E_background_relative_error": 0.19586440970399338,
+      "inclusion_ratio_true": 1.6401879787445068,
+      "inclusion_ratio_estimated": 2.7539864585954414,
+      "inclusion_ratio_relative_error": 0.6790675790121931,
+      "log_E_mean": 8.369369506835938,
+      "log_E_std": 0.09180363987859315,
+      "log_ratio_mean": 1.0130494832992554,
+      "log_ratio_std": 0.525082528591156,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9836708307266235,
+      "center_fraction_true": [
+        0.4556237757205963,
+        0.3863484561443329,
+        0.44785797595977783
+      ],
+      "center_fraction_estimated": [
+        0.49332907795906067,
+        0.48373696208000183,
+        0.4939618706703186
+      ],
+      "center_fraction_std": [
+        0.06935659795999527,
+        0.1042114719748497,
+        0.043681856244802475
+      ],
+      "radius_fraction_true": 0.14178916811943054,
+      "radius_fraction_estimated": 0.1063461471349001,
+      "radius_fraction_std": 0.03239184245467186,
+      "center_error_normalized": 0.1141568273305893,
+      "radius_relative_error": 0.2499698774921679,
+      "node_sdf_mae": 0.23586878180503845,
+      "node_sdf_nll": 2.618112564086914,
+      "partition_soft_dice": 0.3146131932735443
+    },
+    {
+      "patient_id": "geom_a417d13e9ae27d685557_scenario_000",
+      "E_background_true": 7354.59130859375,
+      "E_background_estimated": 6409.113410196581,
+      "E_background_relative_error": 0.1285561438733366,
+      "inclusion_ratio_true": 1.7094215154647827,
+      "inclusion_ratio_estimated": 2.4542930865843635,
+      "inclusion_ratio_relative_error": 0.43574482032715856,
+      "log_E_mean": 8.76547622680664,
+      "log_E_std": 0.09149898190262867,
+      "log_ratio_mean": 0.8978387713432312,
+      "log_ratio_std": 0.3727981448173523,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9588745832443237,
+      "center_fraction_true": [
+        0.5633198022842407,
+        0.5012134909629822,
+        0.5517470836639404
+      ],
+      "center_fraction_estimated": [
+        0.5234323740005493,
+        0.4745398759841919,
+        0.506315290927887
+      ],
+      "center_fraction_std": [
+        0.03629894554615021,
+        0.03566322103142738,
+        0.03137702867388725
+      ],
+      "radius_fraction_true": 0.1491013616323471,
+      "radius_fraction_estimated": 0.10303025878965855,
+      "radius_fraction_std": 0.022715754806995392,
+      "center_error_normalized": 0.0660797730088234,
+      "radius_relative_error": 0.3089918317197552,
+      "node_sdf_mae": 0.09126920998096466,
+      "node_sdf_nll": -1.6921048164367676,
+      "partition_soft_dice": 0.35817110538482666
+    },
+    {
+      "patient_id": "geom_a417d13e9ae27d685557_scenario_001",
+      "E_background_true": 2611.16259765625,
+      "E_background_estimated": 2652.627736787642,
+      "E_background_relative_error": 0.015879952925417405,
+      "inclusion_ratio_true": 2.7941300868988037,
+      "inclusion_ratio_estimated": 1.8417450916082232,
+      "inclusion_ratio_relative_error": 0.3408520597362844,
+      "log_E_mean": 7.88330602645874,
+      "log_E_std": 0.05233120383058517,
+      "log_ratio_mean": 0.610713541507721,
+      "log_ratio_std": 0.3701752722263336,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9703988432884216,
+      "center_fraction_true": [
+        0.6071944236755371,
+        0.4444397985935211,
+        0.46219876408576965
+      ],
+      "center_fraction_estimated": [
+        0.4619612991809845,
+        0.4469738006591797,
+        0.4974505305290222
+      ],
+      "center_fraction_std": [
+        0.1852114051580429,
+        0.037281543016433716,
+        0.0380713976919651
+      ],
+      "radius_fraction_true": 0.1614656299352646,
+      "radius_fraction_estimated": 0.12215105630457401,
+      "radius_fraction_std": 0.03452490270137787,
+      "center_error_normalized": 0.14947162568569183,
+      "radius_relative_error": 0.24348571052831938,
+      "node_sdf_mae": 0.13802948594093323,
+      "node_sdf_nll": -1.3182425498962402,
+      "partition_soft_dice": 0.34203511476516724
+    },
+    {
+      "patient_id": "geom_a417d13e9ae27d685557_scenario_002",
+      "E_background_true": 3813.055908203125,
+      "E_background_estimated": 3240.780667985266,
+      "E_background_relative_error": 0.15008309712603704,
+      "inclusion_ratio_true": 3.662076950073242,
+      "inclusion_ratio_estimated": 2.246349072609773,
+      "inclusion_ratio_relative_error": 0.38659151535173353,
+      "log_E_mean": 8.083569526672363,
+      "log_E_std": 0.07097582853874092,
+      "log_ratio_mean": 0.809306263923645,
+      "log_ratio_std": 0.4718998968601227,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9777975082397461,
+      "center_fraction_true": [
+        0.6007080674171448,
+        0.5927639603614807,
+        0.47958898544311523
+      ],
+      "center_fraction_estimated": [
+        0.4844091236591339,
+        0.45714548230171204,
+        0.49811893701553345
+      ],
+      "center_fraction_std": [
+        0.12060355395078659,
+        0.06491275131702423,
+        0.03809402510523796
+      ],
+      "radius_fraction_true": 0.15152569115161896,
+      "radius_fraction_estimated": 0.11277926154434681,
+      "radius_fraction_std": 0.03211626410484314,
+      "center_error_normalized": 0.17961396276950836,
+      "radius_relative_error": 0.25570864790513886,
+      "node_sdf_mae": 0.14795851707458496,
+      "node_sdf_nll": -1.2316230535507202,
+      "partition_soft_dice": 0.18641097843647003
+    },
+    {
+      "patient_id": "geom_a417d13e9ae27d685557_scenario_003",
+      "E_background_true": 7782.3291015625,
+      "E_background_estimated": 7296.8418823432075,
+      "E_background_relative_error": 0.062383280491417226,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_estimated": 1.010327297957923,
+      "inclusion_ratio_relative_error": 0.010327297957922976,
+      "log_E_mean": 8.895196914672852,
+      "log_E_std": 0.09543359646347266,
+      "log_ratio_mean": 0.010274335741996765,
+      "log_ratio_std": 0.016751479357481003,
+      "heterogeneous_true": false,
+      "heterogeneity_probability": 0.004377294331789017,
+      "center_fraction_true": [
+        0.4619864225387573,
+        0.6415968537330627,
+        0.5463299751281738
+      ],
+      "center_fraction_estimated": [
+        0.48733097314834595,
+        0.44942814111709595,
+        0.5603547692298889
+      ],
+      "center_fraction_std": [
+        0.010119946673512459,
+        0.010740282014012337,
+        0.015085358172655106
+      ],
+      "radius_fraction_true": 0.21600976586341858,
+      "radius_fraction_estimated": 0.12513545341789722,
+      "radius_fraction_std": 0.010637220926582813,
+      "center_error_normalized": null,
+      "radius_relative_error": null,
+      "node_sdf_mae": null,
+      "node_sdf_nll": null,
+      "partition_soft_dice": null
+    },
+    {
+      "patient_id": "geom_a417d13e9ae27d685557_scenario_004",
+      "E_background_true": 2811.328369140625,
+      "E_background_estimated": 2658.7326966028663,
+      "E_background_relative_error": 0.05427885060058088,
+      "inclusion_ratio_true": 1.3014060258865356,
+      "inclusion_ratio_estimated": 1.8434124736797877,
+      "inclusion_ratio_relative_error": 0.4164775919367899,
+      "log_E_mean": 7.8856048583984375,
+      "log_E_std": 0.052036189761440706,
+      "log_ratio_mean": 0.6116184592247009,
+      "log_ratio_std": 0.3759783208370209,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9708365201950073,
+      "center_fraction_true": [
+        0.36046507954597473,
+        0.4995959401130676,
+        0.47857174277305603
+      ],
+      "center_fraction_estimated": [
+        0.46143656969070435,
+        0.4467447102069855,
+        0.4976227283477783
+      ],
+      "center_fraction_std": [
+        0.183346226811409,
+        0.03760138154029846,
+        0.03797175735235214
+      ],
+      "radius_fraction_true": 0.20353876054286957,
+      "radius_fraction_estimated": 0.12199378199875355,
+      "radius_fraction_std": 0.03433466702699661,
+      "center_error_normalized": 0.11554840952157974,
+      "radius_relative_error": 0.4006361163182033,
+      "node_sdf_mae": 0.1271001696586609,
+      "node_sdf_nll": -1.4061572551727295,
+      "partition_soft_dice": 0.5800814628601074
+    },
+    {
+      "patient_id": "geom_a417d13e9ae27d685557_scenario_005",
+      "E_background_true": 4568.96044921875,
+      "E_background_estimated": 3854.446914053897,
+      "E_background_relative_error": 0.15638426795465651,
+      "inclusion_ratio_true": 3.9906089305877686,
+      "inclusion_ratio_estimated": 2.554193025348836,
+      "inclusion_ratio_relative_error": 0.3599490529450015,
+      "log_E_mean": 8.256982803344727,
+      "log_E_std": 0.0872041922774873,
+      "log_ratio_mean": 0.9377363324165344,
+      "log_ratio_std": 0.5437301993370056,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9785555601119995,
+      "center_fraction_true": [
+        0.5352808833122253,
+        0.40642035007476807,
+        0.5230876207351685
+      ],
+      "center_fraction_estimated": [
+        0.5046955943107605,
+        0.4651702642440796,
+        0.49991536140441895
+      ],
+      "center_fraction_std": [
+        0.08204363286495209,
+        0.0849934071302414,
+        0.039042502641677856
+      ],
+      "radius_fraction_true": 0.14099302887916565,
+      "radius_fraction_estimated": 0.10718327201902866,
+      "radius_fraction_std": 0.029761342331767082,
+      "center_error_normalized": 0.07017097622156143,
+      "radius_relative_error": 0.2397973653655795,
+      "node_sdf_mae": 0.047923631966114044,
+      "node_sdf_nll": -1.9519379138946533,
+      "partition_soft_dice": 0.3458787500858307
+    },
+    {
+      "patient_id": "geom_a417d13e9ae27d685557_scenario_006",
+      "E_background_true": 2886.237548828125,
+      "E_background_estimated": 2775.7536056031936,
+      "E_background_relative_error": 0.03827957378968695,
+      "inclusion_ratio_true": 2.4051513671875,
+      "inclusion_ratio_estimated": 1.9188206426126946,
+      "inclusion_ratio_relative_error": 0.20220379108342923,
+      "log_E_mean": 7.928677558898926,
+      "log_E_std": 0.056477099488163186,
+      "log_ratio_mean": 0.6517107486724854,
+      "log_ratio_std": 0.4043784737586975,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9717158079147339,
+      "center_fraction_true": [
+        0.5204493999481201,
+        0.4046655297279358,
+        0.4878888726234436
+      ],
+      "center_fraction_estimated": [
+        0.4670794606208801,
+        0.44962090253829956,
+        0.49837881326675415
+      ],
+      "center_fraction_std": [
+        0.1650547832250595,
+        0.042287860065698624,
+        0.03770914673805237
+      ],
+      "radius_fraction_true": 0.15761570632457733,
+      "radius_fraction_estimated": 0.11994588561356068,
+      "radius_fraction_std": 0.03368965536355972,
+      "center_error_normalized": 0.07056468725204468,
+      "radius_relative_error": 0.23899788662840085,
+      "node_sdf_mae": 0.08775261789560318,
+      "node_sdf_nll": -1.6199806928634644,
+      "partition_soft_dice": 0.4789550304412842
+    },
+    {
+      "patient_id": "geom_a417d13e9ae27d685557_scenario_007",
+      "E_background_true": 3239.5263671875,
+      "E_background_estimated": 2980.321253726807,
+      "E_background_relative_error": 0.08001327480650527,
+      "inclusion_ratio_true": 3.5530576705932617,
+      "inclusion_ratio_estimated": 2.1121654166104133,
+      "inclusion_ratio_relative_error": 0.40553584759074834,
+      "log_E_mean": 7.999786376953125,
+      "log_E_std": 0.06359907496388012,
+      "log_ratio_mean": 0.7477136850357056,
+      "log_ratio_std": 0.427882581949234,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9760392308235168,
+      "center_fraction_true": [
+        0.6132705211639404,
+        0.36223310232162476,
+        0.5146952271461487
+      ],
+      "center_fraction_estimated": [
+        0.4784075617790222,
+        0.4536815881729126,
+        0.5007764101028442
+      ],
+      "center_fraction_std": [
+        0.14448775351047516,
+        0.05409137159585953,
+        0.03825850039720535
+      ],
+      "radius_fraction_true": 0.2148633450269699,
+      "radius_fraction_estimated": 0.11575432308018208,
+      "radius_fraction_std": 0.03403688222169876,
+      "center_error_normalized": 0.16353769600391388,
+      "radius_relative_error": 0.4612653774628127,
+      "node_sdf_mae": 0.12274646013975143,
+      "node_sdf_nll": -1.4378079175949097,
+      "partition_soft_dice": 0.3443225026130676
+    },
+    {
+      "patient_id": "geom_a417d13e9ae27d685557_scenario_008",
+      "E_background_true": 4360.91796875,
+      "E_background_estimated": 3639.446425963715,
+      "E_background_relative_error": 0.16544029214864722,
+      "inclusion_ratio_true": 3.5842037200927734,
+      "inclusion_ratio_estimated": 2.4946607335791913,
+      "inclusion_ratio_relative_error": 0.30398467040410876,
+      "log_E_mean": 8.199586868286133,
+      "log_E_std": 0.08148982453952656,
+      "log_ratio_mean": 0.9141527414321899,
+      "log_ratio_std": 0.503329873085022,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9803198575973511,
+      "center_fraction_true": [
+        0.5396498441696167,
+        0.5415748953819275,
+        0.5060862898826599
+      ],
+      "center_fraction_estimated": [
+        0.49277836084365845,
+        0.4631194770336151,
+        0.4996148347854614
+      ],
+      "center_fraction_std": [
+        0.0967266857624054,
+        0.08152127265930176,
+        0.0396660678088665
+      ],
+      "radius_fraction_true": 0.15167826414108276,
+      "radius_fraction_estimated": 0.10889045335352421,
+      "radius_fraction_std": 0.03176429867744446,
+      "center_error_normalized": 0.09161914885044098,
+      "radius_relative_error": 0.2820958627780688,
+      "node_sdf_mae": 0.09349863231182098,
+      "node_sdf_nll": -1.6541094779968262,
+      "partition_soft_dice": 0.32830166816711426
+    },
+    {
+      "patient_id": "geom_a417d13e9ae27d685557_scenario_009",
+      "E_background_true": 3030.940673828125,
+      "E_background_estimated": 2783.320232376479,
+      "E_background_relative_error": 0.08169755468651174,
+      "inclusion_ratio_true": 1.4595363140106201,
+      "inclusion_ratio_estimated": 1.9413919961796806,
+      "inclusion_ratio_relative_error": 0.3301429896218083,
+      "log_E_mean": 7.931399822235107,
+      "log_E_std": 0.05532696417815729,
+      "log_ratio_mean": 0.6634052395820618,
+      "log_ratio_std": 0.3983997106552124,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9741759896278381,
+      "center_fraction_true": [
+        0.3698481023311615,
+        0.5211280584335327,
+        0.5552514791488647
+      ],
+      "center_fraction_estimated": [
+        0.46405574679374695,
+        0.4480981230735779,
+        0.4991137981414795
+      ],
+      "center_fraction_std": [
+        0.17001408338546753,
+        0.04375998675823212,
+        0.038171395659446716
+      ],
+      "radius_fraction_true": 0.18149060010910034,
+      "radius_fraction_estimated": 0.11925013549625874,
+      "radius_fraction_std": 0.03420452028512955,
+      "center_error_normalized": 0.13175693154335022,
+      "radius_relative_error": 0.34294043093927007,
+      "node_sdf_mae": 0.15260186791419983,
+      "node_sdf_nll": -1.2767568826675415,
+      "partition_soft_dice": 0.39458030462265015
+    },
+    {
+      "patient_id": "geom_a417d13e9ae27d685557_scenario_010",
+      "E_background_true": 6316.05908203125,
+      "E_background_estimated": 5853.947182232433,
+      "E_background_relative_error": 0.0731645942188054,
+      "inclusion_ratio_true": 3.286842107772827,
+      "inclusion_ratio_estimated": 3.064242302519401,
+      "inclusion_ratio_relative_error": 0.0677245203616611,
+      "log_E_mean": 8.674871444702148,
+      "log_E_std": 0.10374338310991138,
+      "log_ratio_mean": 1.119800329208374,
+      "log_ratio_std": 0.4541461765766144,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9839845299720764,
+      "center_fraction_true": [
+        0.4571569859981537,
+        0.49175313115119934,
+        0.4733695387840271
+      ],
+      "center_fraction_estimated": [
+        0.5043246150016785,
+        0.47082558274269104,
+        0.49739229679107666
+      ],
+      "center_fraction_std": [
+        0.04489513114094734,
+        0.06488256901502609,
+        0.04143807664513588
+      ],
+      "radius_fraction_true": 0.18714892864227295,
+      "radius_fraction_estimated": 0.10208596475422382,
+      "radius_fraction_std": 0.02726343460381031,
+      "center_error_normalized": 0.05691959708929062,
+      "radius_relative_error": 0.45452017548357593,
+      "node_sdf_mae": 0.10488420724868774,
+      "node_sdf_nll": -1.6574180126190186,
+      "partition_soft_dice": 0.6084698438644409
+    },
+    {
+      "patient_id": "geom_a417d13e9ae27d685557_scenario_011",
+      "E_background_true": 2745.05224609375,
+      "E_background_estimated": 2774.5348537938476,
+      "E_background_relative_error": 0.010740271971891154,
+      "inclusion_ratio_true": 1.7172937393188477,
+      "inclusion_ratio_estimated": 1.6187468323736454,
+      "inclusion_ratio_relative_error": 0.057385003327555494,
+      "log_E_mean": 7.928238391876221,
+      "log_E_std": 0.05836895562543357,
+      "log_ratio_mean": 0.48165228962898254,
+      "log_ratio_std": 0.40993645787239075,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9330198764801025,
+      "center_fraction_true": [
+        0.45945411920547485,
+        0.4337645471096039,
+        0.5173054337501526
+      ],
+      "center_fraction_estimated": [
+        0.4578227996826172,
+        0.4463587999343872,
+        0.4980783462524414
+      ],
+      "center_fraction_std": [
+        0.12309817969799042,
+        0.03067064844071865,
+        0.032608646899461746
+      ],
+      "radius_fraction_true": 0.21101221442222595,
+      "radius_fraction_estimated": 0.12912344373762608,
+      "radius_fraction_std": 0.028367748484015465,
+      "center_error_normalized": 0.02304251119494438,
+      "radius_relative_error": 0.3880759742217772,
+      "node_sdf_mae": 0.10326097160577774,
+      "node_sdf_nll": -1.5454941987991333,
+      "partition_soft_dice": 0.6050401329994202
+    },
+    {
+      "patient_id": "geom_a417d13e9ae27d685557_scenario_012",
+      "E_background_true": 3313.880126953125,
+      "E_background_estimated": 3016.203004206438,
+      "E_background_relative_error": 0.08982736591029916,
+      "inclusion_ratio_true": 3.826371431350708,
+      "inclusion_ratio_estimated": 2.1351995771263304,
+      "inclusion_ratio_relative_error": 0.4419779638662508,
+      "log_E_mean": 8.011754035949707,
+      "log_E_std": 0.06418239213608296,
+      "log_ratio_mean": 0.7585601210594177,
+      "log_ratio_std": 0.4371708631515503,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9768384695053101,
+      "center_fraction_true": [
+        0.632805347442627,
+        0.45429304242134094,
+        0.5031412839889526
+      ],
+      "center_fraction_estimated": [
+        0.47695493698120117,
+        0.4542964696884155,
+        0.5005210638046265
+      ],
+      "center_fraction_std": [
+        0.14312174916267395,
+        0.05580776557326317,
+        0.038501109927892685
+      ],
+      "radius_fraction_true": 0.13660302758216858,
+      "radius_fraction_estimated": 0.11525966413319111,
+      "radius_fraction_std": 0.033822450786828995,
+      "center_error_normalized": 0.1558724343776703,
+      "radius_relative_error": 0.15624370723510608,
+      "node_sdf_mae": 0.14302444458007812,
+      "node_sdf_nll": -1.287853717803955,
+      "partition_soft_dice": 0.21419095993041992
+    },
+    {
+      "patient_id": "geom_a417d13e9ae27d685557_scenario_013",
+      "E_background_true": 3448.605712890625,
+      "E_background_estimated": 3055.711910356469,
+      "E_background_relative_error": 0.1139283047248773,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_estimated": 1.6735576769386455,
+      "inclusion_ratio_relative_error": 0.6735576769386455,
+      "log_E_mean": 8.024767875671387,
+      "log_E_std": 0.0718109461295798,
+      "log_ratio_mean": 0.5149517059326172,
+      "log_ratio_std": 0.47160181403160095,
+      "heterogeneous_true": false,
+      "heterogeneity_probability": 0.9206123948097229,
+      "center_fraction_true": [
+        0.44086188077926636,
+        0.5743837952613831,
+        0.5712599158287048
+      ],
+      "center_fraction_estimated": [
+        0.4705389142036438,
+        0.44931769371032715,
+        0.4996020793914795
+      ],
+      "center_fraction_std": [
+        0.08604755997657776,
+        0.038445845246315,
+        0.030089905485510826
+      ],
+      "radius_fraction_true": 0.12374812364578247,
+      "radius_fraction_estimated": 0.1249310914427042,
+      "radius_fraction_std": 0.025165783241391182,
+      "center_error_normalized": null,
+      "radius_relative_error": null,
+      "node_sdf_mae": null,
+      "node_sdf_nll": null,
+      "partition_soft_dice": null
+    },
+    {
+      "patient_id": "geom_a417d13e9ae27d685557_scenario_014",
+      "E_background_true": 5463.2373046875,
+      "E_background_estimated": 4496.092711049695,
+      "E_background_relative_error": 0.1770277474141545,
+      "inclusion_ratio_true": 1.6312952041625977,
+      "inclusion_ratio_estimated": 2.832900930615643,
+      "inclusion_ratio_relative_error": 0.7365961252058439,
+      "log_E_mean": 8.410964012145996,
+      "log_E_std": 0.09622636537276533,
+      "log_ratio_mean": 1.0413012504577637,
+      "log_ratio_std": 0.5309258699417114,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.983062744140625,
+      "center_fraction_true": [
+        0.45191454887390137,
+        0.4527600407600403,
+        0.42572009563446045
+      ],
+      "center_fraction_estimated": [
+        0.502663254737854,
+        0.4686279296875,
+        0.4964044690132141
+      ],
+      "center_fraction_std": [
+        0.06471136212348938,
+        0.09494295716285706,
+        0.04203058406710625
+      ],
+      "radius_fraction_true": 0.1252078264951706,
+      "radius_fraction_estimated": 0.10373473353683949,
+      "radius_fraction_std": 0.028991257771849632,
+      "center_error_normalized": 0.08845055848360062,
+      "radius_relative_error": 0.17149960636972922,
+      "node_sdf_mae": 0.09430579841136932,
+      "node_sdf_nll": -1.6636593341827393,
+      "partition_soft_dice": 0.23732204735279083
+    },
+    {
+      "patient_id": "geom_a417d13e9ae27d685557_scenario_015",
+      "E_background_true": 3147.69384765625,
+      "E_background_estimated": 2886.135758324501,
+      "E_background_relative_error": 0.08309514901727291,
+      "inclusion_ratio_true": 1.8172317743301392,
+      "inclusion_ratio_estimated": 1.9968152433982904,
+      "inclusion_ratio_relative_error": 0.09882254515076846,
+      "log_E_mean": 7.9676737785339355,
+      "log_E_std": 0.059850463527512575,
+      "log_ratio_mean": 0.69155353307724,
+      "log_ratio_std": 0.41982030868530273,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9738224744796753,
+      "center_fraction_true": [
+        0.4510311484336853,
+        0.42909350991249084,
+        0.4338393807411194
+      ],
+      "center_fraction_estimated": [
+        0.4721900224685669,
+        0.4511488080024719,
+        0.498210608959198
+      ],
+      "center_fraction_std": [
+        0.15314827859401703,
+        0.04750894010066986,
+        0.037539467215538025
+      ],
+      "radius_fraction_true": 0.19174809753894806,
+      "radius_fraction_estimated": 0.11804014630615711,
+      "radius_fraction_std": 0.03324040025472641,
+      "center_error_normalized": 0.07125860452651978,
+      "radius_relative_error": 0.3843999089368765,
+      "node_sdf_mae": 0.10584624856710434,
+      "node_sdf_nll": -1.5326156616210938,
+      "partition_soft_dice": 0.4256593585014343
+    },
+    {
+      "patient_id": "geom_a417d13e9ae27d685557_scenario_016",
+      "E_background_true": 7423.7626953125,
+      "E_background_estimated": 6562.152440775897,
+      "E_background_relative_error": 0.1160611255907519,
+      "inclusion_ratio_true": 2.927333354949951,
+      "inclusion_ratio_estimated": 3.058461629405056,
+      "inclusion_ratio_relative_error": 0.044794445509041346,
+      "log_E_mean": 8.789073944091797,
+      "log_E_std": 0.1025424880408647,
+      "log_ratio_mean": 1.1179120540618896,
+      "log_ratio_std": 0.38610926270484924,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9828981161117554,
+      "center_fraction_true": [
+        0.5163505673408508,
+        0.4380873143672943,
+        0.536470353603363
+      ],
+      "center_fraction_estimated": [
+        0.5023871064186096,
+        0.47025376558303833,
+        0.4995267391204834
+      ],
+      "center_fraction_std": [
+        0.03891749307513237,
+        0.047716088593006134,
+        0.03888436406850815
+      ],
+      "radius_fraction_true": 0.12864533066749573,
+      "radius_fraction_estimated": 0.10255215503275394,
+      "radius_fraction_std": 0.026588348671793938,
+      "center_error_normalized": 0.05093613266944885,
+      "radius_relative_error": 0.20283033592710595,
+      "node_sdf_mae": 0.05913623422384262,
+      "node_sdf_nll": -1.966625690460205,
+      "partition_soft_dice": 0.3606370985507965
+    },
+    {
+      "patient_id": "geom_a417d13e9ae27d685557_scenario_017",
+      "E_background_true": 4538.24951171875,
+      "E_background_estimated": 3667.2669292927408,
+      "E_background_relative_error": 0.19192038255652147,
+      "inclusion_ratio_true": 1.7786283493041992,
+      "inclusion_ratio_estimated": 2.507494495648121,
+      "inclusion_ratio_relative_error": 0.40979114418650464,
+      "log_E_mean": 8.207201957702637,
+      "log_E_std": 0.08160363755326064,
+      "log_ratio_mean": 0.9192840456962585,
+      "log_ratio_std": 0.5009161233901978,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9804741144180298,
+      "center_fraction_true": [
+        0.5203258991241455,
+        0.5941723585128784,
+        0.5136945843696594
+      ],
+      "center_fraction_estimated": [
+        0.49338382482528687,
+        0.46274250745773315,
+        0.49968844652175903
+      ],
+      "center_fraction_std": [
+        0.09563653916120529,
+        0.08313369750976562,
+        0.039908282458782196
+      ],
+      "radius_fraction_true": 0.16250452399253845,
+      "radius_fraction_estimated": 0.10863605327904224,
+      "radius_fraction_std": 0.03211655095219612,
+      "center_error_normalized": 0.13489200174808502,
+      "radius_relative_error": 0.33148905267381745,
+      "node_sdf_mae": 0.10730483382940292,
+      "node_sdf_nll": -1.549337387084961,
+      "partition_soft_dice": 0.2072216272354126
+    },
+    {
+      "patient_id": "geom_a417d13e9ae27d685557_scenario_018",
+      "E_background_true": 6041.1943359375,
+      "E_background_estimated": 5842.023403484366,
+      "E_background_relative_error": 0.032968800766483806,
+      "inclusion_ratio_true": 3.835310459136963,
+      "inclusion_ratio_estimated": 3.068617167198002,
+      "inclusion_ratio_relative_error": 0.19990384092960378,
+      "log_E_mean": 8.672832489013672,
+      "log_E_std": 0.10366967184685617,
+      "log_ratio_mean": 1.1212270259857178,
+      "log_ratio_std": 0.4549032151699066,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9841565489768982,
+      "center_fraction_true": [
+        0.5050106644630432,
+        0.47941336035728455,
+        0.502076268196106
+      ],
+      "center_fraction_estimated": [
+        0.5064436793327332,
+        0.4702562093734741,
+        0.4976816475391388
+      ],
+      "center_fraction_std": [
+        0.045345500111579895,
+        0.06533987820148468,
+        0.04125317558646202
+      ],
+      "radius_fraction_true": 0.1552499532699585,
+      "radius_fraction_estimated": 0.10206715203821659,
+      "radius_fraction_std": 0.02737910859286785,
+      "center_error_normalized": 0.010257662273943424,
+      "radius_relative_error": 0.34256242988533636,
+      "node_sdf_mae": 0.07274840027093887,
+      "node_sdf_nll": -1.9079622030258179,
+      "partition_soft_dice": 0.6120058298110962
+    },
+    {
+      "patient_id": "geom_a417d13e9ae27d685557_scenario_019",
+      "E_background_true": 3606.52587890625,
+      "E_background_estimated": 3047.734645245176,
+      "E_background_relative_error": 0.15493892250415192,
+      "inclusion_ratio_true": 1.6401879787445068,
+      "inclusion_ratio_estimated": 2.140246355562338,
+      "inclusion_ratio_relative_error": 0.3048786988431682,
+      "log_E_mean": 8.022153854370117,
+      "log_E_std": 0.06452375661099535,
+      "log_ratio_mean": 0.7609209418296814,
+      "log_ratio_std": 0.4416138827800751,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9770549535751343,
+      "center_fraction_true": [
+        0.4556237757205963,
+        0.3863484561443329,
+        0.44785797595977783
+      ],
+      "center_fraction_estimated": [
+        0.47576767206192017,
+        0.4535863697528839,
+        0.5000337362289429
+      ],
+      "center_fraction_std": [
+        0.14038047194480896,
+        0.057000208646059036,
+        0.0383843258023262
+      ],
+      "radius_fraction_true": 0.14178916811943054,
+      "radius_fraction_estimated": 0.11492950655519962,
+      "radius_fraction_std": 0.0336197204887867,
+      "center_error_normalized": 0.08745869249105453,
+      "radius_relative_error": 0.18943380457389197,
+      "node_sdf_mae": 0.10098052024841309,
+      "node_sdf_nll": -1.5547349452972412,
+      "partition_soft_dice": 0.23360078036785126
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_000",
+      "E_background_true": 7354.59130859375,
+      "E_background_estimated": 6883.080350497529,
+      "E_background_relative_error": 0.06411110261766224,
+      "inclusion_ratio_true": 1.7094215154647827,
+      "inclusion_ratio_estimated": 2.7900988689058877,
+      "inclusion_ratio_relative_error": 0.6321889268763968,
+      "log_E_mean": 8.836821556091309,
+      "log_E_std": 0.0976329639800656,
+      "log_ratio_mean": 1.0260770320892334,
+      "log_ratio_std": 0.30703645944595337,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9729888439178467,
+      "center_fraction_true": [
+        0.5633198022842407,
+        0.5012134909629822,
+        0.5517470836639404
+      ],
+      "center_fraction_estimated": [
+        0.5135589838027954,
+        0.4657183289527893,
+        0.5240737199783325
+      ],
+      "center_fraction_std": [
+        0.0432865172624588,
+        0.03717838600277901,
+        0.033402178436517715
+      ],
+      "radius_fraction_true": 0.1491013616323471,
+      "radius_fraction_estimated": 0.10327930189669132,
+      "radius_fraction_std": 0.026882877573370934,
+      "center_error_normalized": 0.06709590554237366,
+      "radius_relative_error": 0.3073215377378205,
+      "node_sdf_mae": 0.1634257435798645,
+      "node_sdf_nll": -1.110100269317627,
+      "partition_soft_dice": 0.6164165139198303
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_001",
+      "E_background_true": 2611.16259765625,
+      "E_background_estimated": 2811.0484030551293,
+      "E_background_relative_error": 0.07655050113627336,
+      "inclusion_ratio_true": 2.7941300868988037,
+      "inclusion_ratio_estimated": 1.98337340469116,
+      "inclusion_ratio_relative_error": 0.2901642575659389,
+      "log_E_mean": 7.941312789916992,
+      "log_E_std": 0.05370222934654319,
+      "log_ratio_mean": 0.6847991347312927,
+      "log_ratio_std": 0.3670811057090759,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9746103882789612,
+      "center_fraction_true": [
+        0.6071944236755371,
+        0.4444397985935211,
+        0.46219876408576965
+      ],
+      "center_fraction_estimated": [
+        0.4781208634376526,
+        0.4466434121131897,
+        0.509636640548706
+      ],
+      "center_fraction_std": [
+        0.18209072947502136,
+        0.04946970194578171,
+        0.03542877361178398
+      ],
+      "radius_fraction_true": 0.1614656299352646,
+      "radius_fraction_estimated": 0.11746997572481632,
+      "radius_fraction_std": 0.035046737641096115,
+      "center_error_normalized": 0.13753251731395721,
+      "radius_relative_error": 0.27247689943728065,
+      "node_sdf_mae": 0.22903567552566528,
+      "node_sdf_nll": -0.8144443035125732,
+      "partition_soft_dice": 0.30799612402915955
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_002",
+      "E_background_true": 3813.055908203125,
+      "E_background_estimated": 3752.1862759188757,
+      "E_background_relative_error": 0.01596347752292299,
+      "inclusion_ratio_true": 3.662076950073242,
+      "inclusion_ratio_estimated": 2.585769736108928,
+      "inclusion_ratio_relative_error": 0.2939062255212272,
+      "log_E_mean": 8.230093955993652,
+      "log_E_std": 0.07758398759547692,
+      "log_ratio_mean": 0.9500232338905334,
+      "log_ratio_std": 0.47566157579421997,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.98223876953125,
+      "center_fraction_true": [
+        0.6007080674171448,
+        0.5927639603614807,
+        0.47958898544311523
+      ],
+      "center_fraction_estimated": [
+        0.5081231594085693,
+        0.4582810401916504,
+        0.5046775937080383
+      ],
+      "center_fraction_std": [
+        0.09916027635335922,
+        0.09644348919391632,
+        0.03651728108525276
+      ],
+      "radius_fraction_true": 0.15152569115161896,
+      "radius_fraction_estimated": 0.10600020922720432,
+      "radius_fraction_std": 0.03213122487068176,
+      "center_error_normalized": 0.16518795490264893,
+      "radius_relative_error": 0.30044728110734126,
+      "node_sdf_mae": 0.21791993081569672,
+      "node_sdf_nll": -0.8138216137886047,
+      "partition_soft_dice": 0.22179089486598969
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_003",
+      "E_background_true": 7782.3291015625,
+      "E_background_estimated": 7326.274221880922,
+      "E_background_relative_error": 0.05860133563228696,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_estimated": 1.005833938773326,
+      "inclusion_ratio_relative_error": 0.005833938773325942,
+      "log_E_mean": 8.899222373962402,
+      "log_E_std": 0.10645144185582987,
+      "log_ratio_mean": 0.005816987250000238,
+      "log_ratio_std": 0.011694200336933136,
+      "heterogeneous_true": false,
+      "heterogeneity_probability": 0.0015352009795606136,
+      "center_fraction_true": [
+        0.4619864225387573,
+        0.6415968537330627,
+        0.5463299751281738
+      ],
+      "center_fraction_estimated": [
+        0.4112023413181305,
+        0.48672401905059814,
+        0.5201556086540222
+      ],
+      "center_fraction_std": [
+        0.009830749593675137,
+        0.009828092530369759,
+        0.01625979132950306
+      ],
+      "radius_fraction_true": 0.21600976586341858,
+      "radius_fraction_estimated": 0.1286416593939066,
+      "radius_fraction_std": 0.010740615427494049,
+      "center_error_normalized": null,
+      "radius_relative_error": null,
+      "node_sdf_mae": null,
+      "node_sdf_nll": null,
+      "partition_soft_dice": null
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_004",
+      "E_background_true": 2811.328369140625,
+      "E_background_estimated": 2860.9541448041236,
+      "E_background_relative_error": 0.0176520737343352,
+      "inclusion_ratio_true": 1.3014060258865356,
+      "inclusion_ratio_estimated": 2.0240757417355204,
+      "inclusion_ratio_relative_error": 0.5552991929299638,
+      "log_E_mean": 7.9589104652404785,
+      "log_E_std": 0.05511735336631579,
+      "log_ratio_mean": 0.7051131725311279,
+      "log_ratio_std": 0.3787248432636261,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9753389954566956,
+      "center_fraction_true": [
+        0.36046507954597473,
+        0.4995959401130676,
+        0.47857174277305603
+      ],
+      "center_fraction_estimated": [
+        0.4804483950138092,
+        0.44789156317710876,
+        0.5101226568222046
+      ],
+      "center_fraction_std": [
+        0.17582623660564423,
+        0.05260378494858742,
+        0.035472217947244644
+      ],
+      "radius_fraction_true": 0.20353876054286957,
+      "radius_fraction_estimated": 0.11654067970812321,
+      "radius_fraction_std": 0.035031482577323914,
+      "center_error_normalized": 0.13440535962581635,
+      "radius_relative_error": 0.4274275848133738,
+      "node_sdf_mae": 0.1753585934638977,
+      "node_sdf_nll": -1.055167555809021,
+      "partition_soft_dice": 0.32562631368637085
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_005",
+      "E_background_true": 4568.96044921875,
+      "E_background_estimated": 4264.315671717245,
+      "E_background_relative_error": 0.06667704413015796,
+      "inclusion_ratio_true": 3.9906089305877686,
+      "inclusion_ratio_estimated": 2.79385884676992,
+      "inclusion_ratio_relative_error": 0.299891596654544,
+      "log_E_mean": 8.358036994934082,
+      "log_E_std": 0.08580839086895664,
+      "log_ratio_mean": 1.0274237394332886,
+      "log_ratio_std": 0.47627779841423035,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9820533990859985,
+      "center_fraction_true": [
+        0.5352808833122253,
+        0.40642035007476807,
+        0.5230876207351685
+      ],
+      "center_fraction_estimated": [
+        0.5099138021469116,
+        0.45404767990112305,
+        0.5137182474136353
+      ],
+      "center_fraction_std": [
+        0.07946421205997467,
+        0.09931056201457977,
+        0.0372321680188179
+      ],
+      "radius_fraction_true": 0.14099302887916565,
+      "radius_fraction_estimated": 0.10425339080393314,
+      "radius_fraction_std": 0.030950410291552544,
+      "center_error_normalized": 0.054768938571214676,
+      "radius_relative_error": 0.26057769215468973,
+      "node_sdf_mae": 0.12437275797128677,
+      "node_sdf_nll": -1.3421672582626343,
+      "partition_soft_dice": 0.39210379123687744
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_006",
+      "E_background_true": 2886.237548828125,
+      "E_background_estimated": 2973.090813072658,
+      "E_background_relative_error": 0.030092209243067075,
+      "inclusion_ratio_true": 2.4051513671875,
+      "inclusion_ratio_estimated": 2.1157864837768905,
+      "inclusion_ratio_relative_error": 0.12031046667511106,
+      "log_E_mean": 7.997357368469238,
+      "log_E_std": 0.05859928095259414,
+      "log_ratio_mean": 0.7494266033172607,
+      "log_ratio_std": 0.3986184000968933,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9766214489936829,
+      "center_fraction_true": [
+        0.5204493999481201,
+        0.4046655297279358,
+        0.4878888726234436
+      ],
+      "center_fraction_estimated": [
+        0.48618239164352417,
+        0.4504629075527191,
+        0.5110692977905273
+      ],
+      "center_fraction_std": [
+        0.16257290542125702,
+        0.05973156541585922,
+        0.03564654290676117
+      ],
+      "radius_fraction_true": 0.15761570632457733,
+      "radius_fraction_estimated": 0.11451358534395695,
+      "radius_fraction_std": 0.035068534314632416,
+      "center_error_normalized": 0.061716772615909576,
+      "radius_relative_error": 0.2734633621592278,
+      "node_sdf_mae": 0.11206304281949997,
+      "node_sdf_nll": -1.3410389423370361,
+      "partition_soft_dice": 0.31922799348831177
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_007",
+      "E_background_true": 3239.5263671875,
+      "E_background_estimated": 3270.1848002195024,
+      "E_background_relative_error": 0.009463862786404657,
+      "inclusion_ratio_true": 3.5530576705932617,
+      "inclusion_ratio_estimated": 2.335378498736864,
+      "inclusion_ratio_relative_error": 0.34271303332182584,
+      "log_E_mean": 8.092601776123047,
+      "log_E_std": 0.06672415811347417,
+      "log_ratio_mean": 0.848173975944519,
+      "log_ratio_std": 0.4296410381793976,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.978905439376831,
+      "center_fraction_true": [
+        0.6132705211639404,
+        0.36223310232162476,
+        0.5146952271461487
+      ],
+      "center_fraction_estimated": [
+        0.4995696246623993,
+        0.45419344305992126,
+        0.5123675465583801
+      ],
+      "center_fraction_std": [
+        0.13566508889198303,
+        0.07672867178916931,
+        0.03632057085633278
+      ],
+      "radius_fraction_true": 0.2148633450269699,
+      "radius_fraction_estimated": 0.11093984730541706,
+      "radius_fraction_std": 0.03526207059621811,
+      "center_error_normalized": 0.14625325798988342,
+      "radius_relative_error": 0.48367253013075934,
+      "node_sdf_mae": 0.22123318910598755,
+      "node_sdf_nll": -0.905116856098175,
+      "partition_soft_dice": 0.2891598641872406
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_008",
+      "E_background_true": 4360.91796875,
+      "E_background_estimated": 4137.572933291632,
+      "E_background_relative_error": 0.05121514255916794,
+      "inclusion_ratio_true": 3.5842037200927734,
+      "inclusion_ratio_estimated": 2.7801272506966828,
+      "inclusion_ratio_relative_error": 0.22433894169812368,
+      "log_E_mean": 8.327864646911621,
+      "log_E_std": 0.08401998303113181,
+      "log_ratio_mean": 1.0224967002868652,
+      "log_ratio_std": 0.450177937746048,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9834998846054077,
+      "center_fraction_true": [
+        0.5396498441696167,
+        0.5415748953819275,
+        0.5060862898826599
+      ],
+      "center_fraction_estimated": [
+        0.5060229301452637,
+        0.4573960602283478,
+        0.5112155079841614
+      ],
+      "center_fraction_std": [
+        0.08815541118383408,
+        0.10213591903448105,
+        0.03775880113244057
+      ],
+      "radius_fraction_true": 0.15167826414108276,
+      "radius_fraction_estimated": 0.10537632741034031,
+      "radius_fraction_std": 0.03336435556411743,
+      "center_error_normalized": 0.09079182147979736,
+      "radius_relative_error": 0.30526415233546544,
+      "node_sdf_mae": 0.13504648208618164,
+      "node_sdf_nll": -1.3055599927902222,
+      "partition_soft_dice": 0.2639496624469757
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_009",
+      "E_background_true": 3030.940673828125,
+      "E_background_estimated": 3053.1514423634026,
+      "E_background_relative_error": 0.007328011639114342,
+      "inclusion_ratio_true": 1.4595363140106201,
+      "inclusion_ratio_estimated": 2.154028020442597,
+      "inclusion_ratio_relative_error": 0.47583037144420326,
+      "log_E_mean": 8.023929595947266,
+      "log_E_std": 0.05996955086348172,
+      "log_ratio_mean": 0.7673395872116089,
+      "log_ratio_std": 0.4041648805141449,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9776462912559509,
+      "center_fraction_true": [
+        0.3698481023311615,
+        0.5211280584335327,
+        0.5552514791488647
+      ],
+      "center_fraction_estimated": [
+        0.48100578784942627,
+        0.4498756229877472,
+        0.509657084941864
+      ],
+      "center_fraction_std": [
+        0.1584922820329666,
+        0.06330996751785278,
+        0.0359468050301075
+      ],
+      "radius_fraction_true": 0.18149060010910034,
+      "radius_fraction_estimated": 0.11357867904007435,
+      "radius_fraction_std": 0.0354800820350647,
+      "center_error_normalized": 0.13968460261821747,
+      "radius_relative_error": 0.3741897433156415,
+      "node_sdf_mae": 0.15942010283470154,
+      "node_sdf_nll": -1.03672194480896,
+      "partition_soft_dice": 0.1889115273952484
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_010",
+      "E_background_true": 6316.05908203125,
+      "E_background_estimated": 5963.590666952652,
+      "E_background_relative_error": 0.05580511684593738,
+      "inclusion_ratio_true": 3.286842107772827,
+      "inclusion_ratio_estimated": 3.2107261012227917,
+      "inclusion_ratio_relative_error": 0.02315779220730864,
+      "log_E_mean": 8.693428039550781,
+      "log_E_std": 0.10750827485289517,
+      "log_ratio_mean": 1.1664971113204956,
+      "log_ratio_std": 0.3543458878993988,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9850040674209595,
+      "center_fraction_true": [
+        0.4571569859981537,
+        0.49175313115119934,
+        0.4733695387840271
+      ],
+      "center_fraction_estimated": [
+        0.49244940280914307,
+        0.4556788206100464,
+        0.5190407037734985
+      ],
+      "center_fraction_std": [
+        0.05412306636571884,
+        0.07737376540899277,
+        0.03880729898810387
+      ],
+      "radius_fraction_true": 0.18714892864227295,
+      "radius_fraction_estimated": 0.10306715406477451,
+      "radius_fraction_std": 0.031325459480285645,
+      "center_error_normalized": 0.06806442141532898,
+      "radius_relative_error": 0.44927734926133134,
+      "node_sdf_mae": 0.10890348255634308,
+      "node_sdf_nll": -1.3752565383911133,
+      "partition_soft_dice": 0.2931576669216156
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_011",
+      "E_background_true": 2745.05224609375,
+      "E_background_estimated": 2922.9065823338515,
+      "E_background_relative_error": 0.06479087474316411,
+      "inclusion_ratio_true": 1.7172937393188477,
+      "inclusion_ratio_estimated": 1.3694630968563812,
+      "inclusion_ratio_relative_error": 0.2025458047732888,
+      "log_E_mean": 7.9803338050842285,
+      "log_E_std": 0.0705926025487093,
+      "log_ratio_mean": 0.314418762922287,
+      "log_ratio_std": 0.43297815322875977,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.8020021319389343,
+      "center_fraction_true": [
+        0.45945411920547485,
+        0.4337645471096039,
+        0.5173054337501526
+      ],
+      "center_fraction_estimated": [
+        0.4652889370918274,
+        0.44210416078567505,
+        0.4956216812133789
+      ],
+      "center_fraction_std": [
+        0.05401771515607834,
+        0.026571203023195267,
+        0.021490072831511497
+      ],
+      "radius_fraction_true": 0.21101221442222595,
+      "radius_fraction_estimated": 0.1304259765893221,
+      "radius_fraction_std": 0.016445064917206764,
+      "center_error_normalized": 0.023953691124916077,
+      "radius_relative_error": 0.3819031900762599,
+      "node_sdf_mae": 0.10463033616542816,
+      "node_sdf_nll": -1.314363718032837,
+      "partition_soft_dice": 0.5118101835250854
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_012",
+      "E_background_true": 3313.880126953125,
+      "E_background_estimated": 3370.04902733475,
+      "E_background_relative_error": 0.01694958726019709,
+      "inclusion_ratio_true": 3.826371431350708,
+      "inclusion_ratio_estimated": 2.3805321478905768,
+      "inclusion_ratio_relative_error": 0.3778617181839429,
+      "log_E_mean": 8.122682571411133,
+      "log_E_std": 0.06770599730729891,
+      "log_ratio_mean": 0.8673240542411804,
+      "log_ratio_std": 0.43805959820747375,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9803770780563354,
+      "center_fraction_true": [
+        0.632805347442627,
+        0.45429304242134094,
+        0.5031412839889526
+      ],
+      "center_fraction_estimated": [
+        0.4979512393474579,
+        0.4554098844528198,
+        0.5100053548812866
+      ],
+      "center_fraction_std": [
+        0.12887321412563324,
+        0.08021589368581772,
+        0.036395344883203506
+      ],
+      "radius_fraction_true": 0.13660302758216858,
+      "radius_fraction_estimated": 0.10997398383915424,
+      "radius_fraction_std": 0.03476576879620552,
+      "center_error_normalized": 0.13503330945968628,
+      "radius_relative_error": 0.19493743450888454,
+      "node_sdf_mae": 0.25689417123794556,
+      "node_sdf_nll": -0.6861386299133301,
+      "partition_soft_dice": 0.16812559962272644
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_013",
+      "E_background_true": 3448.605712890625,
+      "E_background_estimated": 3650.434325555575,
+      "E_background_relative_error": 0.05852469939098287,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_estimated": 1.113791763390413,
+      "inclusion_ratio_relative_error": 0.11379176339041308,
+      "log_E_mean": 8.202601432800293,
+      "log_E_std": 0.1023905318843317,
+      "log_ratio_mean": 0.10777019709348679,
+      "log_ratio_std": 0.18355692923069,
+      "heterogeneous_true": false,
+      "heterogeneity_probability": 0.24815671145915985,
+      "center_fraction_true": [
+        0.44086188077926636,
+        0.5743837952613831,
+        0.5712599158287048
+      ],
+      "center_fraction_estimated": [
+        0.4620057940483093,
+        0.4559186100959778,
+        0.49904388189315796
+      ],
+      "center_fraction_std": [
+        0.01980731263756752,
+        0.02268250286579132,
+        0.016002662479877472
+      ],
+      "radius_fraction_true": 0.12374812364578247,
+      "radius_fraction_estimated": 0.12615837343037128,
+      "radius_fraction_std": 0.01065597403794527,
+      "center_error_normalized": null,
+      "radius_relative_error": null,
+      "node_sdf_mae": null,
+      "node_sdf_nll": null,
+      "partition_soft_dice": null
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_014",
+      "E_background_true": 5463.2373046875,
+      "E_background_estimated": 5208.977443025883,
+      "E_background_relative_error": 0.04654014597598753,
+      "inclusion_ratio_true": 1.6312952041625977,
+      "inclusion_ratio_estimated": 3.074041396281313,
+      "inclusion_ratio_relative_error": 0.8844176016929619,
+      "log_E_mean": 8.558138847351074,
+      "log_E_std": 0.09632042826186235,
+      "log_ratio_mean": 1.1229931116104126,
+      "log_ratio_std": 0.4518471956253052,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9857978224754333,
+      "center_fraction_true": [
+        0.45191454887390137,
+        0.4527600407600403,
+        0.42572009563446045
+      ],
+      "center_fraction_estimated": [
+        0.504874587059021,
+        0.4521960914134979,
+        0.5044365525245667
+      ],
+      "center_fraction_std": [
+        0.05913795903325081,
+        0.09534512460231781,
+        0.037687256932258606
+      ],
+      "radius_fraction_true": 0.1252078264951706,
+      "radius_fraction_estimated": 0.10150407440960407,
+      "radius_fraction_std": 0.028565172106027603,
+      "center_error_normalized": 0.0948755219578743,
+      "radius_relative_error": 0.18931525887066494,
+      "node_sdf_mae": 0.13340722024440765,
+      "node_sdf_nll": -1.2531241178512573,
+      "partition_soft_dice": 0.4594755172729492
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_015",
+      "E_background_true": 3147.69384765625,
+      "E_background_estimated": 3260.975821014192,
+      "E_background_relative_error": 0.03598887910979371,
+      "inclusion_ratio_true": 1.8172317743301392,
+      "inclusion_ratio_estimated": 2.303207927411198,
+      "inclusion_ratio_relative_error": 0.2674266210539916,
+      "log_E_mean": 8.089781761169434,
+      "log_E_std": 0.06675932357576526,
+      "log_ratio_mean": 0.8343029022216797,
+      "log_ratio_std": 0.4384223520755768,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9792687296867371,
+      "center_fraction_true": [
+        0.4510311484336853,
+        0.42909350991249084,
+        0.4338393807411194
+      ],
+      "center_fraction_estimated": [
+        0.49982497096061707,
+        0.453030526638031,
+        0.5044922828674316
+      ],
+      "center_fraction_std": [
+        0.13173437118530273,
+        0.07590366899967194,
+        0.035844553261995316
+      ],
+      "radius_fraction_true": 0.19174809753894806,
+      "radius_fraction_estimated": 0.11025627888739109,
+      "radius_fraction_std": 0.033601030707359314,
+      "center_error_normalized": 0.08913837373256683,
+      "radius_relative_error": 0.4249941443878173,
+      "node_sdf_mae": 0.10710181295871735,
+      "node_sdf_nll": -1.3592653274536133,
+      "partition_soft_dice": 0.31432515382766724
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_016",
+      "E_background_true": 7423.7626953125,
+      "E_background_estimated": 6597.178615553777,
+      "E_background_relative_error": 0.11134300942575169,
+      "inclusion_ratio_true": 2.927333354949951,
+      "inclusion_ratio_estimated": 3.262040825867148,
+      "inclusion_ratio_relative_error": 0.11433869338837878,
+      "log_E_mean": 8.794397354125977,
+      "log_E_std": 0.11203414043918156,
+      "log_ratio_mean": 1.1823530197143555,
+      "log_ratio_std": 0.32504984736442566,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9862733483314514,
+      "center_fraction_true": [
+        0.5163505673408508,
+        0.4380873143672943,
+        0.536470353603363
+      ],
+      "center_fraction_estimated": [
+        0.4976087808609009,
+        0.4548637866973877,
+        0.5166606307029724
+      ],
+      "center_fraction_std": [
+        0.04644167050719261,
+        0.06400051712989807,
+        0.03698247671127319
+      ],
+      "radius_fraction_true": 0.12864533066749573,
+      "radius_fraction_estimated": 0.10166043229401112,
+      "radius_fraction_std": 0.028971675783395767,
+      "center_error_normalized": 0.032017648220062256,
+      "radius_relative_error": 0.20976197296450164,
+      "node_sdf_mae": 0.11427061259746552,
+      "node_sdf_nll": -1.4231352806091309,
+      "partition_soft_dice": 0.45065027475357056
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_017",
+      "E_background_true": 4538.24951171875,
+      "E_background_estimated": 4221.99679349709,
+      "E_background_relative_error": 0.06968605789633789,
+      "inclusion_ratio_true": 1.7786283493041992,
+      "inclusion_ratio_estimated": 2.811236802750469,
+      "inclusion_ratio_relative_error": 0.5805644860266771,
+      "log_E_mean": 8.348063468933105,
+      "log_E_std": 0.08533465631631064,
+      "log_ratio_mean": 1.033624529838562,
+      "log_ratio_std": 0.4449208974838257,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9832797050476074,
+      "center_fraction_true": [
+        0.5203258991241455,
+        0.5941723585128784,
+        0.5136945843696594
+      ],
+      "center_fraction_estimated": [
+        0.5054264068603516,
+        0.4551861882209778,
+        0.512499213218689
+      ],
+      "center_fraction_std": [
+        0.08633000403642654,
+        0.10162605345249176,
+        0.038016125559806824
+      ],
+      "radius_fraction_true": 0.16250452399253845,
+      "radius_fraction_estimated": 0.10541346110403538,
+      "radius_fraction_std": 0.03360063210129738,
+      "center_error_normalized": 0.13978762924671173,
+      "radius_relative_error": 0.35131983704727177,
+      "node_sdf_mae": 0.126413494348526,
+      "node_sdf_nll": -1.3003613948822021,
+      "partition_soft_dice": 0.27904653549194336
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_018",
+      "E_background_true": 6041.1943359375,
+      "E_background_estimated": 5647.959056984325,
+      "E_background_relative_error": 0.06509230742899964,
+      "inclusion_ratio_true": 3.835310459136963,
+      "inclusion_ratio_estimated": 3.174735126256199,
+      "inclusion_ratio_relative_error": 0.1722351658148189,
+      "log_E_mean": 8.639049530029297,
+      "log_E_std": 0.10389231684616265,
+      "log_ratio_mean": 1.1552242040634155,
+      "log_ratio_std": 0.3760579228401184,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9849911332130432,
+      "center_fraction_true": [
+        0.5050106644630432,
+        0.47941336035728455,
+        0.502076268196106
+      ],
+      "center_fraction_estimated": [
+        0.4947983920574188,
+        0.4545357823371887,
+        0.5158421993255615
+      ],
+      "center_fraction_std": [
+        0.05803815647959709,
+        0.08607908338308334,
+        0.03931358829140663
+      ],
+      "radius_fraction_true": 0.1552499532699585,
+      "radius_fraction_estimated": 0.10329544730484486,
+      "radius_fraction_std": 0.03155801072716713,
+      "center_error_normalized": 0.03021068125963211,
+      "radius_relative_error": 0.3346507027591296,
+      "node_sdf_mae": 0.10333285480737686,
+      "node_sdf_nll": -1.4122352600097656,
+      "partition_soft_dice": 0.6558265686035156
+    },
+    {
+      "patient_id": "geom_ab578f1bb0ee02be2ccd_scenario_019",
+      "E_background_true": 3606.52587890625,
+      "E_background_estimated": 3460.571387665627,
+      "E_background_relative_error": 0.04046955328791006,
+      "inclusion_ratio_true": 1.6401879787445068,
+      "inclusion_ratio_estimated": 2.43161456590227,
+      "inclusion_ratio_relative_error": 0.48252188006131236,
+      "log_E_mean": 8.149188995361328,
+      "log_E_std": 0.0710221938577668,
+      "log_ratio_mean": 0.8885554671287537,
+      "log_ratio_std": 0.4351327419281006,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9803164601325989,
+      "center_fraction_true": [
+        0.4556237757205963,
+        0.3863484561443329,
+        0.44785797595977783
+      ],
+      "center_fraction_estimated": [
+        0.4968922734260559,
+        0.45365768671035767,
+        0.5108156800270081
+      ],
+      "center_fraction_std": [
+        0.12282342463731766,
+        0.0844569206237793,
+        0.036804743111133575
+      ],
+      "radius_fraction_true": 0.14178916811943054,
+      "radius_fraction_estimated": 0.10923008061945438,
+      "radius_fraction_std": 0.03519906848669052,
+      "center_error_normalized": 0.10098165273666382,
+      "radius_relative_error": 0.2296302879254591,
+      "node_sdf_mae": 0.10187774896621704,
+      "node_sdf_nll": -1.3353010416030884,
+      "partition_soft_dice": 0.3180735409259796
+    },
+    {
+      "patient_id": "geom_db38a9c3817f033727b5_scenario_000",
+      "E_background_true": 7354.59130859375,
+      "E_background_estimated": 8045.854690316688,
+      "E_background_relative_error": 0.0939907267063508,
+      "inclusion_ratio_true": 1.7094215154647827,
+      "inclusion_ratio_estimated": 2.045451140903623,
+      "inclusion_ratio_relative_error": 0.196575053255648,
+      "log_E_mean": 8.992912292480469,
+      "log_E_std": 0.087160923945033,
+      "log_ratio_mean": 0.715618371963501,
+      "log_ratio_std": 0.16848263144493103,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9195767641067505,
+      "center_fraction_true": [
+        0.5633198022842407,
+        0.5012134909629822,
+        0.5517470836639404
+      ],
+      "center_fraction_estimated": [
+        0.5277894735336304,
+        0.4741218686103821,
+        0.5307570695877075
+      ],
+      "center_fraction_std": [
+        0.028899457305669785,
+        0.018488571047782898,
+        0.02487824484705925
+      ],
+      "radius_fraction_true": 0.1491013616323471,
+      "radius_fraction_estimated": 0.10490609891712666,
+      "radius_fraction_std": 0.02292121760547161,
+      "center_error_normalized": 0.04936538264155388,
+      "radius_relative_error": 0.2964108592394801,
+      "node_sdf_mae": 0.1258135735988617,
+      "node_sdf_nll": -1.4703731536865234,
+      "partition_soft_dice": 0.4037863314151764
+    },
+    {
+      "patient_id": "geom_db38a9c3817f033727b5_scenario_001",
+      "E_background_true": 2611.16259765625,
+      "E_background_estimated": 3696.403308894157,
+      "E_background_relative_error": 0.4156159069573096,
+      "inclusion_ratio_true": 2.7941300868988037,
+      "inclusion_ratio_estimated": 2.44046285155709,
+      "inclusion_ratio_relative_error": 0.12657507859064931,
+      "log_E_mean": 8.215115547180176,
+      "log_E_std": 0.08241419797931043,
+      "log_ratio_mean": 0.8921877145767212,
+      "log_ratio_std": 0.4984491169452667,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9794705510139465,
+      "center_fraction_true": [
+        0.6071944236755371,
+        0.4444397985935211,
+        0.46219876408576965
+      ],
+      "center_fraction_estimated": [
+        0.49793341755867004,
+        0.44947972893714905,
+        0.498452365398407
+      ],
+      "center_fraction_std": [
+        0.09289543330669403,
+        0.08273425698280334,
+        0.03942707180976868
+      ],
+      "radius_fraction_true": 0.1614656299352646,
+      "radius_fraction_estimated": 0.1081386748701334,
+      "radius_fraction_std": 0.030772937461733818,
+      "center_error_normalized": 0.11522886902093887,
+      "radius_relative_error": 0.3302681511013287,
+      "node_sdf_mae": 0.19723817706108093,
+      "node_sdf_nll": -1.0320792198181152,
+      "partition_soft_dice": 0.31073686480522156
+    },
+    {
+      "patient_id": "geom_db38a9c3817f033727b5_scenario_002",
+      "E_background_true": 3813.055908203125,
+      "E_background_estimated": 5557.7765985375145,
+      "E_background_relative_error": 0.4575649380280334,
+      "inclusion_ratio_true": 3.662076950073242,
+      "inclusion_ratio_estimated": 2.991240618253307,
+      "inclusion_ratio_relative_error": 0.1831846629565002,
+      "log_E_mean": 8.622953414916992,
+      "log_E_std": 0.10305049326032366,
+      "log_ratio_mean": 1.0956882238388062,
+      "log_ratio_std": 0.48106226325035095,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9844207763671875,
+      "center_fraction_true": [
+        0.6007080674171448,
+        0.5927639603614807,
+        0.47958898544311523
+      ],
+      "center_fraction_estimated": [
+        0.508758008480072,
+        0.4587717652320862,
+        0.4959619343280792
+      ],
+      "center_fraction_std": [
+        0.04807228967547417,
+        0.07355085760354996,
+        0.040280912071466446
+      ],
+      "radius_fraction_true": 0.15152569115161896,
+      "radius_fraction_estimated": 0.10123396851122379,
+      "radius_fraction_std": 0.02687038667500019,
+      "center_error_normalized": 0.1633303314447403,
+      "radius_relative_error": 0.33190228177261694,
+      "node_sdf_mae": 0.2128268927335739,
+      "node_sdf_nll": -0.9984164237976074,
+      "partition_soft_dice": 0.175944522023201
+    },
+    {
+      "patient_id": "geom_db38a9c3817f033727b5_scenario_003",
+      "E_background_true": 7782.3291015625,
+      "E_background_estimated": 8263.769796060096,
+      "E_background_relative_error": 0.06186331729416774,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_estimated": 1.004664767662239,
+      "inclusion_ratio_relative_error": 0.004664767662239111,
+      "log_E_mean": 9.019636154174805,
+      "log_E_std": 0.10071650873512976,
+      "log_ratio_mean": 0.004653921350836754,
+      "log_ratio_std": 0.01084519550204277,
+      "heterogeneous_true": false,
+      "heterogeneity_probability": 0.0011067299637943506,
+      "center_fraction_true": [
+        0.4619864225387573,
+        0.6415968537330627,
+        0.5463299751281738
+      ],
+      "center_fraction_estimated": [
+        0.4487268030643463,
+        0.4583214521408081,
+        0.5389829277992249
+      ],
+      "center_fraction_std": [
+        0.009468626230955124,
+        0.009052465669810772,
+        0.015029453672468662
+      ],
+      "radius_fraction_true": 0.21600976586341858,
+      "radius_fraction_estimated": 0.12861877866089344,
+      "radius_fraction_std": 0.010922862216830254,
+      "center_error_normalized": null,
+      "radius_relative_error": null,
+      "node_sdf_mae": null,
+      "node_sdf_nll": null,
+      "partition_soft_dice": null
+    },
+    {
+      "patient_id": "geom_db38a9c3817f033727b5_scenario_004",
+      "E_background_true": 2811.328369140625,
+      "E_background_estimated": 3763.5145498441707,
+      "E_background_relative_error": 0.3386961804801951,
+      "inclusion_ratio_true": 1.3014060258865356,
+      "inclusion_ratio_estimated": 2.4677130263832914,
+      "inclusion_ratio_relative_error": 0.8961899494066438,
+      "log_E_mean": 8.233108520507812,
+      "log_E_std": 0.08278841636152873,
+      "log_ratio_mean": 0.9032918214797974,
+      "log_ratio_std": 0.5120685696601868,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9798786640167236,
+      "center_fraction_true": [
+        0.36046507954597473,
+        0.4995959401130676,
+        0.47857174277305603
+      ],
+      "center_fraction_estimated": [
+        0.4974261522293091,
+        0.44921353459358215,
+        0.49833944439888
+      ],
+      "center_fraction_std": [
+        0.0891287699341774,
+        0.08436482399702072,
+        0.039391931146383286
+      ],
+      "radius_fraction_true": 0.20353876054286957,
+      "radius_fraction_estimated": 0.10757909901440144,
+      "radius_fraction_std": 0.03032100945711136,
+      "center_error_normalized": 0.1472667157649994,
+      "radius_relative_error": 0.47145645022367616,
+      "node_sdf_mae": 0.18268507719039917,
+      "node_sdf_nll": -1.0714362859725952,
+      "partition_soft_dice": 0.44535523653030396
+    },
+    {
+      "patient_id": "geom_db38a9c3817f033727b5_scenario_005",
+      "E_background_true": 4568.96044921875,
+      "E_background_estimated": 6264.522588276514,
+      "E_background_relative_error": 0.3711045779237791,
+      "inclusion_ratio_true": 3.9906089305877686,
+      "inclusion_ratio_estimated": 2.6780355457140987,
+      "inclusion_ratio_relative_error": 0.3289155634401749,
+      "log_E_mean": 8.742657661437988,
+      "log_E_std": 0.09549388579435568,
+      "log_ratio_mean": 0.9850835204124451,
+      "log_ratio_std": 0.42586538195610046,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9709177613258362,
+      "center_fraction_true": [
+        0.5352808833122253,
+        0.40642035007476807,
+        0.5230876207351685
+      ],
+      "center_fraction_estimated": [
+        0.5199190378189087,
+        0.462902307510376,
+        0.505164623260498
+      ],
+      "center_fraction_std": [
+        0.038909558206796646,
+        0.042405806481838226,
+        0.03347665071487427
+      ],
+      "radius_fraction_true": 0.14099302887916565,
+      "radius_fraction_estimated": 0.10233029909431934,
+      "radius_fraction_std": 0.023522760719060898,
+      "center_error_normalized": 0.06121626868844032,
+      "radius_relative_error": 0.2742173148005862,
+      "node_sdf_mae": 0.16295582056045532,
+      "node_sdf_nll": -1.2737860679626465,
+      "partition_soft_dice": 0.42170512676239014
+    },
+    {
+      "patient_id": "geom_db38a9c3817f033727b5_scenario_006",
+      "E_background_true": 2886.237548828125,
+      "E_background_estimated": 4088.600535281107,
+      "E_background_relative_error": 0.41658490200890347,
+      "inclusion_ratio_true": 2.4051513671875,
+      "inclusion_ratio_estimated": 2.590737136350568,
+      "inclusion_ratio_relative_error": 0.0771617835346827,
+      "log_E_mean": 8.315958023071289,
+      "log_E_std": 0.08845019498080448,
+      "log_ratio_mean": 0.9519424438476562,
+      "log_ratio_std": 0.528241753578186,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9805615544319153,
+      "center_fraction_true": [
+        0.5204493999481201,
+        0.4046655297279358,
+        0.4878888726234436
+      ],
+      "center_fraction_estimated": [
+        0.5027822256088257,
+        0.4522782564163208,
+        0.4988425672054291
+      ],
+      "center_fraction_std": [
+        0.0764356181025505,
+        0.08782268315553665,
+        0.039499908685684204
+      ],
+      "radius_fraction_true": 0.15761570632457733,
+      "radius_fraction_estimated": 0.10552256740629673,
+      "radius_fraction_std": 0.02911020815372467,
+      "center_error_normalized": 0.05195270851254463,
+      "radius_relative_error": 0.3305072833985557,
+      "node_sdf_mae": 0.1454976201057434,
+      "node_sdf_nll": -1.3009955883026123,
+      "partition_soft_dice": 0.3392263948917389
+    },
+    {
+      "patient_id": "geom_db38a9c3817f033727b5_scenario_007",
+      "E_background_true": 3239.5263671875,
+      "E_background_estimated": 4690.86817065036,
+      "E_background_relative_error": 0.4480104925717551,
+      "inclusion_ratio_true": 3.5530576705932617,
+      "inclusion_ratio_estimated": 2.8004978260300892,
+      "inclusion_ratio_relative_error": 0.21180625656366447,
+      "log_E_mean": 8.453372955322266,
+      "log_E_std": 0.09677682366657629,
+      "log_ratio_mean": 1.0297971963882446,
+      "log_ratio_std": 0.5165097117424011,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9821380376815796,
+      "center_fraction_true": [
+        0.6132705211639404,
+        0.36223310232162476,
+        0.5146952271461487
+      ],
+      "center_fraction_estimated": [
+        0.5091285705566406,
+        0.45507851243019104,
+        0.4998660683631897
+      ],
+      "center_fraction_std": [
+        0.06302143633365631,
+        0.08717727661132812,
+        0.04063386842608452
+      ],
+      "radius_fraction_true": 0.2148633450269699,
+      "radius_fraction_estimated": 0.1036572027951479,
+      "radius_fraction_std": 0.028874829411506653,
+      "center_error_normalized": 0.1403058022260666,
+      "radius_relative_error": 0.5175668386707062,
+      "node_sdf_mae": 0.20430724322795868,
+      "node_sdf_nll": -1.060064673423767,
+      "partition_soft_dice": 0.36300089955329895
+    },
+    {
+      "patient_id": "geom_db38a9c3817f033727b5_scenario_008",
+      "E_background_true": 4360.91796875,
+      "E_background_estimated": 5995.948005309332,
+      "E_background_relative_error": 0.37492795055440864,
+      "inclusion_ratio_true": 3.5842037200927734,
+      "inclusion_ratio_estimated": 3.01769525547509,
+      "inclusion_ratio_relative_error": 0.15805699364739784,
+      "log_E_mean": 8.69883918762207,
+      "log_E_std": 0.10311022582957584,
+      "log_ratio_mean": 1.1044933795928955,
+      "log_ratio_std": 0.44535836577415466,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9825642704963684,
+      "center_fraction_true": [
+        0.5396498441696167,
+        0.5415748953819275,
+        0.5060862898826599
+      ],
+      "center_fraction_estimated": [
+        0.5064639449119568,
+        0.4618552327156067,
+        0.5002773404121399
+      ],
+      "center_fraction_std": [
+        0.04473993927240372,
+        0.05970461294054985,
+        0.03939038887619972
+      ],
+      "radius_fraction_true": 0.15167826414108276,
+      "radius_fraction_estimated": 0.10267545469105244,
+      "radius_fraction_std": 0.027676211670041084,
+      "center_error_normalized": 0.08654636144638062,
+      "radius_relative_error": 0.3230707427166401,
+      "node_sdf_mae": 0.16073741018772125,
+      "node_sdf_nll": -1.2798969745635986,
+      "partition_soft_dice": 0.3075602054595947
+    },
+    {
+      "patient_id": "geom_db38a9c3817f033727b5_scenario_009",
+      "E_background_true": 3030.940673828125,
+      "E_background_estimated": 4257.797561937277,
+      "E_background_relative_error": 0.40477759881707387,
+      "inclusion_ratio_true": 1.4595363140106201,
+      "inclusion_ratio_estimated": 2.668019918227256,
+      "inclusion_ratio_relative_error": 0.8279914604494333,
+      "log_E_mean": 8.356507301330566,
+      "log_E_std": 0.09166559282065931,
+      "log_ratio_mean": 0.9813365936279297,
+      "log_ratio_std": 0.506464421749115,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9822273850440979,
+      "center_fraction_true": [
+        0.3698481023311615,
+        0.5211280584335327,
+        0.5552514791488647
+      ],
+      "center_fraction_estimated": [
+        0.49045857787132263,
+        0.45216813683509827,
+        0.4977952241897583
+      ],
+      "center_fraction_std": [
+        0.07470656931400299,
+        0.09186384081840515,
+        0.04137314110994339
+      ],
+      "radius_fraction_true": 0.18149060010910034,
+      "radius_fraction_estimated": 0.10515734739601612,
+      "radius_fraction_std": 0.030512342229485512,
+      "center_error_normalized": 0.1503448635339737,
+      "radius_relative_error": 0.420590667875899,
+      "node_sdf_mae": 0.16341708600521088,
+      "node_sdf_nll": -1.1630500555038452,
+      "partition_soft_dice": 0.2549362778663635
+    },
+    {
+      "patient_id": "geom_db38a9c3817f033727b5_scenario_010",
+      "E_background_true": 6316.05908203125,
+      "E_background_estimated": 7629.381927891077,
+      "E_background_relative_error": 0.20793390764759298,
+      "inclusion_ratio_true": 3.286842107772827,
+      "inclusion_ratio_estimated": 2.9572759869561844,
+      "inclusion_ratio_relative_error": 0.10026831530400393,
+      "log_E_mean": 8.939762115478516,
+      "log_E_std": 0.10003645422956743,
+      "log_ratio_mean": 1.084268569946289,
+      "log_ratio_std": 0.2671160101890564,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9780048727989197,
+      "center_fraction_true": [
+        0.4571569859981537,
+        0.49175313115119934,
+        0.4733695387840271
+      ],
+      "center_fraction_estimated": [
+        0.4966210722923279,
+        0.467668741941452,
+        0.5115973949432373
+      ],
+      "center_fraction_std": [
+        0.03459441289305687,
+        0.030247628688812256,
+        0.03373085334897041
+      ],
+      "radius_fraction_true": 0.18714892864227295,
+      "radius_fraction_estimated": 0.10540814884006977,
+      "radius_fraction_std": 0.028003230690956116,
+      "center_error_normalized": 0.05999033898115158,
+      "radius_relative_error": 0.4367686226964576,
+      "node_sdf_mae": 0.14202027022838593,
+      "node_sdf_nll": -1.3672947883605957,
+      "partition_soft_dice": 0.5147526860237122
+    },
+    {
+      "patient_id": "geom_db38a9c3817f033727b5_scenario_011",
+      "E_background_true": 2745.05224609375,
+      "E_background_estimated": 3914.955202985017,
+      "E_background_relative_error": 0.42618604383798386,
+      "inclusion_ratio_true": 1.7172937393188477,
+      "inclusion_ratio_estimated": 1.4518035032063155,
+      "inclusion_ratio_relative_error": 0.15459803412422443,
+      "log_E_mean": 8.27255916595459,
+      "log_E_std": 0.10590392644492481,
+      "log_ratio_mean": 0.372806578874588,
+      "log_ratio_std": 0.3582567274570465,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.750070333480835,
+      "center_fraction_true": [
+        0.45945411920547485,
+        0.4337645471096039,
+        0.5173054337501526
+      ],
+      "center_fraction_estimated": [
+        0.48150455951690674,
+        0.43608736991882324,
+        0.49388641119003296
+      ],
+      "center_fraction_std": [
+        0.03331670165061951,
+        0.04415176063776016,
+        0.024491632357239723
+      ],
+      "radius_fraction_true": 0.21101221442222595,
+      "radius_fraction_estimated": 0.12122334726154804,
+      "radius_fraction_std": 0.016781212761998177,
+      "center_error_normalized": 0.03225008770823479,
+      "radius_relative_error": 0.4255150224669669,
+      "node_sdf_mae": 0.15393739938735962,
+      "node_sdf_nll": -1.2858355045318604,
+      "partition_soft_dice": 0.3918500244617462
+    },
+    {
+      "patient_id": "geom_db38a9c3817f033727b5_scenario_012",
+      "E_background_true": 3313.880126953125,
+      "E_background_estimated": 4891.823026894015,
+      "E_background_relative_error": 0.476161731713481,
+      "inclusion_ratio_true": 3.826371431350708,
+      "inclusion_ratio_estimated": 2.874745395617695,
+      "inclusion_ratio_relative_error": 0.24870194982537003,
+      "log_E_mean": 8.495320320129395,
+      "log_E_std": 0.09841560181611128,
+      "log_ratio_mean": 1.0559641122817993,
+      "log_ratio_std": 0.5103716850280762,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9832088351249695,
+      "center_fraction_true": [
+        0.632805347442627,
+        0.45429304242134094,
+        0.5031412839889526
+      ],
+      "center_fraction_estimated": [
+        0.5055890083312988,
+        0.45672276616096497,
+        0.49856430292129517
+      ],
+      "center_fraction_std": [
+        0.05983678624033928,
+        0.08543476462364197,
+        0.04107902571558952
+      ],
+      "radius_fraction_true": 0.13660302758216858,
+      "radius_fraction_estimated": 0.10314534790813923,
+      "radius_fraction_std": 0.029102060943841934,
+      "center_error_normalized": 0.12732182443141937,
+      "radius_relative_error": 0.24492634069844535,
+      "node_sdf_mae": 0.22269077599048615,
+      "node_sdf_nll": -0.9598076343536377,
+      "partition_soft_dice": 0.3011423945426941
+    },
+    {
+      "patient_id": "geom_db38a9c3817f033727b5_scenario_013",
+      "E_background_true": 3448.605712890625,
+      "E_background_estimated": 5143.481668341036,
+      "E_background_relative_error": 0.4914670149489964,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_estimated": 1.1241355759926035,
+      "inclusion_ratio_relative_error": 0.1241355759926035,
+      "log_E_mean": 8.545485496520996,
+      "log_E_std": 0.11046604119024805,
+      "log_ratio_mean": 0.11701436340808868,
+      "log_ratio_std": 0.1119498610496521,
+      "heterogeneous_true": false,
+      "heterogeneity_probability": 0.20903204381465912,
+      "center_fraction_true": [
+        0.44086188077926636,
+        0.5743837952613831,
+        0.5712599158287048
+      ],
+      "center_fraction_estimated": [
+        0.4785648286342621,
+        0.4366160035133362,
+        0.5048019886016846
+      ],
+      "center_fraction_std": [
+        0.016795238479971886,
+        0.025340784341096878,
+        0.01909935660660267
+      ],
+      "radius_fraction_true": 0.12374812364578247,
+      "radius_fraction_estimated": 0.11954265274107456,
+      "radius_fraction_std": 0.012392047792673111,
+      "center_error_normalized": null,
+      "radius_relative_error": null,
+      "node_sdf_mae": null,
+      "node_sdf_nll": null,
+      "partition_soft_dice": null
+    },
+    {
+      "patient_id": "geom_db38a9c3817f033727b5_scenario_014",
+      "E_background_true": 5463.2373046875,
+      "E_background_estimated": 6983.056999554275,
+      "E_background_relative_error": 0.2781903128320561,
+      "inclusion_ratio_true": 1.6312952041625977,
+      "inclusion_ratio_estimated": 3.043870734451248,
+      "inclusion_ratio_relative_error": 0.865922689335543,
+      "log_E_mean": 8.851242065429688,
+      "log_E_std": 0.1007720158812907,
+      "log_ratio_mean": 1.11312997341156,
+      "log_ratio_std": 0.35499462485313416,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9824712872505188,
+      "center_fraction_true": [
+        0.45191454887390137,
+        0.4527600407600403,
+        0.42572009563446045
+      ],
+      "center_fraction_estimated": [
+        0.4991253912448883,
+        0.4644467830657959,
+        0.5023067593574524
+      ],
+      "center_fraction_std": [
+        0.036374300718307495,
+        0.0410706028342247,
+        0.03631838783621788
+      ],
+      "radius_fraction_true": 0.1252078264951706,
+      "radius_fraction_estimated": 0.10260956920683384,
+      "radius_fraction_std": 0.026077602058649063,
+      "center_error_normalized": 0.0907246470451355,
+      "radius_relative_error": 0.180485980157226,
+      "node_sdf_mae": 0.1603371948003769,
+      "node_sdf_nll": -1.2064433097839355,
+      "partition_soft_dice": 0.3091268539428711
+    },
+    {
+      "patient_id": "geom_db38a9c3817f033727b5_scenario_015",
+      "E_background_true": 3147.69384765625,
+      "E_background_estimated": 4701.047602657866,
+      "E_background_relative_error": 0.493489465679209,
+      "inclusion_ratio_true": 1.8172317743301392,
+      "inclusion_ratio_estimated": 2.829950898827764,
+      "inclusion_ratio_relative_error": 0.557286714222752,
+      "log_E_mean": 8.455540657043457,
+      "log_E_std": 0.09690780184023279,
+      "log_ratio_mean": 1.0402593612670898,
+      "log_ratio_std": 0.5137556195259094,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9841907620429993,
+      "center_fraction_true": [
+        0.4510311484336853,
+        0.42909350991249084,
+        0.4338393807411194
+      ],
+      "center_fraction_estimated": [
+        0.5060814619064331,
+        0.4549391269683838,
+        0.4945027530193329
+      ],
+      "center_fraction_std": [
+        0.06171891465783119,
+        0.09192768484354019,
+        0.04079287499189377
+      ],
+      "radius_fraction_true": 0.19174809753894806,
+      "radius_fraction_estimated": 0.10247485525906086,
+      "radius_fraction_std": 0.028246600180864334,
+      "center_error_normalized": 0.08589864522218704,
+      "radius_relative_error": 0.46557563504250116,
+      "node_sdf_mae": 0.16560564935207367,
+      "node_sdf_nll": -1.200087547302246,
+      "partition_soft_dice": 0.4143441319465637
+    },
+    {
+      "patient_id": "geom_db38a9c3817f033727b5_scenario_016",
+      "E_background_true": 7423.7626953125,
+      "E_background_estimated": 8073.302130165216,
+      "E_background_relative_error": 0.08749463870428499,
+      "inclusion_ratio_true": 2.927333354949951,
+      "inclusion_ratio_estimated": 2.9158429609744565,
+      "inclusion_ratio_relative_error": 0.003925208571160877,
+      "log_E_mean": 8.996317863464355,
+      "log_E_std": 0.09904142177352603,
+      "log_ratio_mean": 1.0701589584350586,
+      "log_ratio_std": 0.22171370685100555,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.977997899055481,
+      "center_fraction_true": [
+        0.5163505673408508,
+        0.4380873143672943,
+        0.536470353603363
+      ],
+      "center_fraction_estimated": [
+        0.4972306787967682,
+        0.4663613438606262,
+        0.5151785016059875
+      ],
+      "center_fraction_std": [
+        0.031750865280628204,
+        0.025851037353277206,
+        0.032012924551963806
+      ],
+      "radius_fraction_true": 0.12864533066749573,
+      "radius_fraction_estimated": 0.10485435463488102,
+      "radius_fraction_std": 0.027115242555737495,
+      "center_error_normalized": 0.04022851958870888,
+      "radius_relative_error": 0.184934625370168,
+      "node_sdf_mae": 0.0834667831659317,
+      "node_sdf_nll": -1.6737236976623535,
+      "partition_soft_dice": 0.33081603050231934
+    },
+    {
+      "patient_id": "geom_db38a9c3817f033727b5_scenario_017",
+      "E_background_true": 4538.24951171875,
+      "E_background_estimated": 6102.975716184118,
+      "E_background_relative_error": 0.3447862882869053,
+      "inclusion_ratio_true": 1.7786283493041992,
+      "inclusion_ratio_estimated": 3.017557479231583,
+      "inclusion_ratio_relative_error": 0.6965643668122425,
+      "log_E_mean": 8.716531753540039,
+      "log_E_std": 0.1032381815829506,
+      "log_ratio_mean": 1.1044477224349976,
+      "log_ratio_std": 0.43337348103523254,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9822201728820801,
+      "center_fraction_true": [
+        0.5203258991241455,
+        0.5941723585128784,
+        0.5136945843696594
+      ],
+      "center_fraction_estimated": [
+        0.5071796774864197,
+        0.4624395966529846,
+        0.500861406326294
+      ],
+      "center_fraction_std": [
+        0.043834228068590164,
+        0.057025931775569916,
+        0.039155688136816025
+      ],
+      "radius_fraction_true": 0.16250452399253845,
+      "radius_fraction_estimated": 0.10285580344498158,
+      "radius_fraction_std": 0.027711588889360428,
+      "center_error_normalized": 0.13300764560699463,
+      "radius_relative_error": 0.3670588306224367,
+      "node_sdf_mae": 0.15702688694000244,
+      "node_sdf_nll": -1.2729582786560059,
+      "partition_soft_dice": 0.2055998295545578
+    },
+    {
+      "patient_id": "geom_db38a9c3817f033727b5_scenario_018",
+      "E_background_true": 6041.1943359375,
+      "E_background_estimated": 7507.046079927327,
+      "E_background_relative_error": 0.24264270647111194,
+      "inclusion_ratio_true": 3.835310459136963,
+      "inclusion_ratio_estimated": 2.9703677032557065,
+      "inclusion_ratio_relative_error": 0.2255209232985768,
+      "log_E_mean": 8.92359733581543,
+      "log_E_std": 0.10033009627897875,
+      "log_ratio_mean": 1.0886857509613037,
+      "log_ratio_std": 0.279582679271698,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9781678318977356,
+      "center_fraction_true": [
+        0.5050106644630432,
+        0.47941336035728455,
+        0.502076268196106
+      ],
+      "center_fraction_estimated": [
+        0.497215211391449,
+        0.4666191637516022,
+        0.5106701254844666
+      ],
+      "center_fraction_std": [
+        0.03524059057235718,
+        0.03174224868416786,
+        0.03428102657198906
+      ],
+      "radius_fraction_true": 0.1552499532699585,
+      "radius_fraction_estimated": 0.10536997951567173,
+      "radius_fraction_std": 0.02818651683628559,
+      "center_error_normalized": 0.017271796241402626,
+      "radius_relative_error": 0.32128817241930047,
+      "node_sdf_mae": 0.1256704330444336,
+      "node_sdf_nll": -1.4673320055007935,
+      "partition_soft_dice": 0.5130463242530823
+    },
+    {
+      "patient_id": "geom_db38a9c3817f033727b5_scenario_019",
+      "E_background_true": 3606.52587890625,
+      "E_background_estimated": 5046.9665750104605,
+      "E_background_relative_error": 0.39939840845979246,
+      "inclusion_ratio_true": 1.6401879787445068,
+      "inclusion_ratio_estimated": 2.868985649857829,
+      "inclusion_ratio_relative_error": 0.7491810006154987,
+      "log_E_mean": 8.526542663574219,
+      "log_E_std": 0.10129082824169125,
+      "log_ratio_mean": 1.053958535194397,
+      "log_ratio_std": 0.4916073679924011,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.98248690366745,
+      "center_fraction_true": [
+        0.4556237757205963,
+        0.3863484561443329,
+        0.44785797595977783
+      ],
+      "center_fraction_estimated": [
+        0.49960947036743164,
+        0.4561302065849304,
+        0.49825024604797363
+      ],
+      "center_fraction_std": [
+        0.057124219834804535,
+        0.0821612998843193,
+        0.041464343667030334
+      ],
+      "radius_fraction_true": 0.14178916811943054,
+      "radius_fraction_estimated": 0.10316495038568974,
+      "radius_fraction_std": 0.02906596101820469,
+      "center_error_normalized": 0.09666237235069275,
+      "radius_relative_error": 0.2724059830946128,
+      "node_sdf_mae": 0.1211932972073555,
+      "node_sdf_nll": -1.4092882871627808,
+      "partition_soft_dice": 0.27122417092323303
+    },
+    {
+      "patient_id": "geom_fac5cdc88e186e46ee04_scenario_000",
+      "E_background_true": 7354.59130859375,
+      "E_background_estimated": 6361.11761067169,
+      "E_background_relative_error": 0.1350821080650937,
+      "inclusion_ratio_true": 1.7094215154647827,
+      "inclusion_ratio_estimated": 2.9491359016628906,
+      "inclusion_ratio_relative_error": 0.7252245130780609,
+      "log_E_mean": 8.757959365844727,
+      "log_E_std": 0.11397845147581522,
+      "log_ratio_mean": 1.081512212753296,
+      "log_ratio_std": 0.3786658048629761,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9740212559700012,
+      "center_fraction_true": [
+        0.5633198022842407,
+        0.5012134909629822,
+        0.5517470836639404
+      ],
+      "center_fraction_estimated": [
+        0.5208518505096436,
+        0.47175294160842896,
+        0.5186716318130493
+      ],
+      "center_fraction_std": [
+        0.04047733172774315,
+        0.04609542340040207,
+        0.03351985663175583
+      ],
+      "radius_fraction_true": 0.1491013616323471,
+      "radius_fraction_estimated": 0.10087043233215809,
+      "radius_fraction_std": 0.025916339829564095,
+      "center_error_normalized": 0.06136315315961838,
+      "radius_relative_error": 0.32347745702763225,
+      "node_sdf_mae": 0.10366062819957733,
+      "node_sdf_nll": -1.7596687078475952,
+      "partition_soft_dice": 0.5015584826469421
+    },
+    {
+      "patient_id": "geom_fac5cdc88e186e46ee04_scenario_001",
+      "E_background_true": 2611.16259765625,
+      "E_background_estimated": 2890.4327502503393,
+      "E_background_relative_error": 0.10695241761074512,
+      "inclusion_ratio_true": 2.7941300868988037,
+      "inclusion_ratio_estimated": 2.2003638585324774,
+      "inclusion_ratio_relative_error": 0.2125048619426827,
+      "log_E_mean": 7.969161510467529,
+      "log_E_std": 0.07332369730710404,
+      "log_ratio_mean": 0.7886227369308472,
+      "log_ratio_std": 0.3837241530418396,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9690749049186707,
+      "center_fraction_true": [
+        0.6071944236755371,
+        0.4444397985935211,
+        0.46219876408576965
+      ],
+      "center_fraction_estimated": [
+        0.5033470392227173,
+        0.4455767869949341,
+        0.5195895433425903
+      ],
+      "center_fraction_std": [
+        0.16216933727264404,
+        0.06376049667596817,
+        0.03835688903927803
+      ],
+      "radius_fraction_true": 0.1614656299352646,
+      "radius_fraction_estimated": 0.11838046461343765,
+      "radius_fraction_std": 0.03860950842499733,
+      "center_error_normalized": 0.11865611374378204,
+      "radius_relative_error": 0.266837997282151,
+      "node_sdf_mae": 0.09746955335140228,
+      "node_sdf_nll": -1.7212960720062256,
+      "partition_soft_dice": 0.39130598306655884
+    },
+    {
+      "patient_id": "geom_fac5cdc88e186e46ee04_scenario_002",
+      "E_background_true": 3813.055908203125,
+      "E_background_estimated": 3955.697621210398,
+      "E_background_relative_error": 0.03740876515878103,
+      "inclusion_ratio_true": 3.662076950073242,
+      "inclusion_ratio_estimated": 2.7981205213146136,
+      "inclusion_ratio_relative_error": 0.23591979101950583,
+      "log_E_mean": 8.282912254333496,
+      "log_E_std": 0.10644880718025533,
+      "log_ratio_mean": 1.0289479494094849,
+      "log_ratio_std": 0.4658879339694977,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9776521325111389,
+      "center_fraction_true": [
+        0.6007080674171448,
+        0.5927639603614807,
+        0.47958898544311523
+      ],
+      "center_fraction_estimated": [
+        0.5287929773330688,
+        0.4533570110797882,
+        0.5187790393829346
+      ],
+      "center_fraction_std": [
+        0.08344737440347672,
+        0.10478775203227997,
+        0.039858296513557434
+      ],
+      "radius_fraction_true": 0.15152569115161896,
+      "radius_fraction_estimated": 0.10800373554229736,
+      "radius_fraction_std": 0.034281764179468155,
+      "center_error_normalized": 0.16168469190597534,
+      "radius_relative_error": 0.2872249271958301,
+      "node_sdf_mae": 0.1067652553319931,
+      "node_sdf_nll": -1.5246803760528564,
+      "partition_soft_dice": 0.2992240786552429
+    },
+    {
+      "patient_id": "geom_fac5cdc88e186e46ee04_scenario_003",
+      "E_background_true": 7782.3291015625,
+      "E_background_estimated": 7466.042741044466,
+      "E_background_relative_error": 0.04064160695215667,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_estimated": 1.008306515649333,
+      "inclusion_ratio_relative_error": 0.008306515649332935,
+      "log_E_mean": 8.918120384216309,
+      "log_E_std": 0.11114103513027286,
+      "log_ratio_mean": 0.008272206410765648,
+      "log_ratio_std": 0.013399451971054077,
+      "heterogeneous_true": false,
+      "heterogeneity_probability": 0.0024585823994129896,
+      "center_fraction_true": [
+        0.4619864225387573,
+        0.6415968537330627,
+        0.5463299751281738
+      ],
+      "center_fraction_estimated": [
+        0.405946284532547,
+        0.5016312599182129,
+        0.5031610727310181
+      ],
+      "center_fraction_std": [
+        0.009808022528886795,
+        0.009757163003087044,
+        0.015434468165040016
+      ],
+      "radius_fraction_true": 0.21600976586341858,
+      "radius_fraction_estimated": 0.1774929314851761,
+      "radius_fraction_std": 0.010472610592842102,
+      "center_error_normalized": null,
+      "radius_relative_error": null,
+      "node_sdf_mae": null,
+      "node_sdf_nll": null,
+      "partition_soft_dice": null
+    },
+    {
+      "patient_id": "geom_fac5cdc88e186e46ee04_scenario_004",
+      "E_background_true": 2811.328369140625,
+      "E_background_estimated": 2888.950116700549,
+      "E_background_relative_error": 0.0276103454907517,
+      "inclusion_ratio_true": 1.3014060258865356,
+      "inclusion_ratio_estimated": 2.176903982877879,
+      "inclusion_ratio_relative_error": 0.6727323675906157,
+      "log_E_mean": 7.968648433685303,
+      "log_E_std": 0.07017252589823607,
+      "log_ratio_mean": 0.77790367603302,
+      "log_ratio_std": 0.38771140575408936,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9699040651321411,
+      "center_fraction_true": [
+        0.36046507954597473,
+        0.4995959401130676,
+        0.47857174277305603
+      ],
+      "center_fraction_estimated": [
+        0.49808019399642944,
+        0.44614043831825256,
+        0.5184260606765747
+      ],
+      "center_fraction_std": [
+        0.16409239172935486,
+        0.06134776398539543,
+        0.03778596222400665
+      ],
+      "radius_fraction_true": 0.20353876054286957,
+      "radius_fraction_estimated": 0.11391301639378071,
+      "radius_fraction_std": 0.03780922666192055,
+      "center_error_normalized": 0.1529175490140915,
+      "radius_relative_error": 0.4403374763118486,
+      "node_sdf_mae": 0.13447698950767517,
+      "node_sdf_nll": -1.2683547735214233,
+      "partition_soft_dice": 0.4921819865703583
+    },
+    {
+      "patient_id": "geom_fac5cdc88e186e46ee04_scenario_005",
+      "E_background_true": 4568.96044921875,
+      "E_background_estimated": 4342.855935491556,
+      "E_background_relative_error": 0.04948708053838719,
+      "inclusion_ratio_true": 3.9906089305877686,
+      "inclusion_ratio_estimated": 2.907169126921318,
+      "inclusion_ratio_relative_error": 0.2714973635632277,
+      "log_E_mean": 8.376287460327148,
+      "log_E_std": 0.11213261765263742,
+      "log_ratio_mean": 1.067179799079895,
+      "log_ratio_std": 0.47068047523498535,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9773558378219604,
+      "center_fraction_true": [
+        0.5352808833122253,
+        0.40642035007476807,
+        0.5230876207351685
+      ],
+      "center_fraction_estimated": [
+        0.525740385055542,
+        0.456966757774353,
+        0.5201755166053772
+      ],
+      "center_fraction_std": [
+        0.07160000503063202,
+        0.09836927801370621,
+        0.04032789170742035
+      ],
+      "radius_fraction_true": 0.14099302887916565,
+      "radius_fraction_estimated": 0.10316974110901356,
+      "radius_fraction_std": 0.033361952751874924,
+      "center_error_normalized": 0.051521264016628265,
+      "radius_relative_error": 0.2682635309761842,
+      "node_sdf_mae": 0.06179462745785713,
+      "node_sdf_nll": -2.077035427093506,
+      "partition_soft_dice": 0.4859415590763092
+    },
+    {
+      "patient_id": "geom_fac5cdc88e186e46ee04_scenario_006",
+      "E_background_true": 2886.237548828125,
+      "E_background_estimated": 3028.0080889868937,
+      "E_background_relative_error": 0.04911949822575434,
+      "inclusion_ratio_true": 2.4051513671875,
+      "inclusion_ratio_estimated": 2.3076928948090907,
+      "inclusion_ratio_relative_error": 0.04052072302308934,
+      "log_E_mean": 8.015660285949707,
+      "log_E_std": 0.07890579438905097,
+      "log_ratio_mean": 0.8362482786178589,
+      "log_ratio_std": 0.4039074778556824,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9708122611045837,
+      "center_fraction_true": [
+        0.5204493999481201,
+        0.4046655297279358,
+        0.4878888726234436
+      ],
+      "center_fraction_estimated": [
+        0.5071865320205688,
+        0.44714903831481934,
+        0.5210096836090088
+      ],
+      "center_fraction_std": [
+        0.14656339585781097,
+        0.07290102541446686,
+        0.03889597952365875
+      ],
+      "radius_fraction_true": 0.15761570632457733,
+      "radius_fraction_estimated": 0.11406682431697845,
+      "radius_fraction_std": 0.038464806973934174,
+      "center_error_normalized": 0.055477384477853775,
+      "radius_relative_error": 0.27629785776500504,
+      "node_sdf_mae": 0.058399561792612076,
+      "node_sdf_nll": -2.0279622077941895,
+      "partition_soft_dice": 0.42136576771736145
+    },
+    {
+      "patient_id": "geom_fac5cdc88e186e46ee04_scenario_007",
+      "E_background_true": 3239.5263671875,
+      "E_background_estimated": 3606.787401547904,
+      "E_background_relative_error": 0.11336874367818583,
+      "inclusion_ratio_true": 3.5530576705932617,
+      "inclusion_ratio_estimated": 2.666921113248314,
+      "inclusion_ratio_relative_error": 0.2494011185574107,
+      "log_E_mean": 8.190572738647461,
+      "log_E_std": 0.10028750401421904,
+      "log_ratio_mean": 0.980924665927887,
+      "log_ratio_std": 0.4422471225261688,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9747734665870667,
+      "center_fraction_true": [
+        0.6132705211639404,
+        0.36223310232162476,
+        0.5146952271461487
+      ],
+      "center_fraction_estimated": [
+        0.5238597989082336,
+        0.4514360725879669,
+        0.5225324630737305
+      ],
+      "center_fraction_std": [
+        0.10219769924879074,
+        0.09985009580850601,
+        0.04081324487924576
+      ],
+      "radius_fraction_true": 0.2148633450269699,
+      "radius_fraction_estimated": 0.1083172857761383,
+      "radius_fraction_std": 0.03775859251618385,
+      "center_error_normalized": 0.12654197216033936,
+      "radius_relative_error": 0.4958782487420449,
+      "node_sdf_mae": 0.09815211594104767,
+      "node_sdf_nll": -1.5785857439041138,
+      "partition_soft_dice": 0.5689005851745605
+    },
+    {
+      "patient_id": "geom_fac5cdc88e186e46ee04_scenario_008",
+      "E_background_true": 4360.91796875,
+      "E_background_estimated": 4371.823701301047,
+      "E_background_relative_error": 0.0025007882810904204,
+      "inclusion_ratio_true": 3.5842037200927734,
+      "inclusion_ratio_estimated": 2.935181678246124,
+      "inclusion_ratio_relative_error": 0.18107844657609193,
+      "log_E_mean": 8.382935523986816,
+      "log_E_std": 0.11047541665842461,
+      "log_ratio_mean": 1.0767693519592285,
+      "log_ratio_std": 0.4613704979419708,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9794812202453613,
+      "center_fraction_true": [
+        0.5396498441696167,
+        0.5415748953819275,
+        0.5060862898826599
+      ],
+      "center_fraction_estimated": [
+        0.5241988301277161,
+        0.45761412382125854,
+        0.5175504684448242
+      ],
+      "center_fraction_std": [
+        0.07206982374191284,
+        0.1013282909989357,
+        0.04013538733124733
+      ],
+      "radius_fraction_true": 0.15167826414108276,
+      "radius_fraction_estimated": 0.10311802662909031,
+      "radius_fraction_std": 0.03369522839784622,
+      "center_error_normalized": 0.08613693714141846,
+      "radius_relative_error": 0.3201529090999116,
+      "node_sdf_mae": 0.08924531191587448,
+      "node_sdf_nll": -1.839312195777893,
+      "partition_soft_dice": 0.43943360447883606
+    },
+    {
+      "patient_id": "geom_fac5cdc88e186e46ee04_scenario_009",
+      "E_background_true": 3030.940673828125,
+      "E_background_estimated": 3233.7169717333145,
+      "E_background_relative_error": 0.06690210061059357,
+      "inclusion_ratio_true": 1.4595363140106201,
+      "inclusion_ratio_estimated": 2.3967387765020916,
+      "inclusion_ratio_relative_error": 0.6421234288554002,
+      "log_E_mean": 8.081387519836426,
+      "log_E_std": 0.07934595422692256,
+      "log_ratio_mean": 0.8741089701652527,
+      "log_ratio_std": 0.42092999815940857,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9747163653373718,
+      "center_fraction_true": [
+        0.3698481023311615,
+        0.5211280584335327,
+        0.5552514791488647
+      ],
+      "center_fraction_estimated": [
+        0.503771185874939,
+        0.44952720403671265,
+        0.5179456472396851
+      ],
+      "center_fraction_std": [
+        0.13299450278282166,
+        0.07796930521726608,
+        0.038090530782938004
+      ],
+      "radius_fraction_true": 0.18149060010910034,
+      "radius_fraction_estimated": 0.11004958488047123,
+      "radius_fraction_std": 0.03735646978020668,
+      "center_error_normalized": 0.15637710690498352,
+      "radius_relative_error": 0.3936347953320085,
+      "node_sdf_mae": 0.13044175505638123,
+      "node_sdf_nll": -1.3384567499160767,
+      "partition_soft_dice": 0.4743528962135315
+    },
+    {
+      "patient_id": "geom_fac5cdc88e186e46ee04_scenario_010",
+      "E_background_true": 6316.05908203125,
+      "E_background_estimated": 5997.160382366183,
+      "E_background_relative_error": 0.05049013879118264,
+      "inclusion_ratio_true": 3.286842107772827,
+      "inclusion_ratio_estimated": 3.184607380540627,
+      "inclusion_ratio_relative_error": 0.031104240447215905,
+      "log_E_mean": 8.699041366577148,
+      "log_E_std": 0.11856821540141313,
+      "log_ratio_mean": 1.1583290100097656,
+      "log_ratio_std": 0.39792126417160034,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9815446138381958,
+      "center_fraction_true": [
+        0.4571569859981537,
+        0.49175313115119934,
+        0.4733695387840271
+      ],
+      "center_fraction_estimated": [
+        0.5105264186859131,
+        0.46615082025527954,
+        0.5169494152069092
+      ],
+      "center_fraction_std": [
+        0.044975824654102325,
+        0.06329819560050964,
+        0.037264056503772736
+      ],
+      "radius_fraction_true": 0.18714892864227295,
+      "radius_fraction_estimated": 0.10104733146727085,
+      "radius_fraction_std": 0.028797293081879616,
+      "center_error_normalized": 0.0735049694776535,
+      "radius_relative_error": 0.4600699442933043,
+      "node_sdf_mae": 0.1306384950876236,
+      "node_sdf_nll": -1.3472225666046143,
+      "partition_soft_dice": 0.7550051808357239
+    },
+    {
+      "patient_id": "geom_fac5cdc88e186e46ee04_scenario_011",
+      "E_background_true": 2745.05224609375,
+      "E_background_estimated": 2978.5254892674043,
+      "E_background_relative_error": 0.08505238598131973,
+      "inclusion_ratio_true": 1.7172937393188477,
+      "inclusion_ratio_estimated": 1.293417743121596,
+      "inclusion_ratio_relative_error": 0.24682789350025755,
+      "log_E_mean": 7.999183654785156,
+      "log_E_std": 0.09815919320076279,
+      "log_ratio_mean": 0.2572881281375885,
+      "log_ratio_std": 0.37635788321495056,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.5913546085357666,
+      "center_fraction_true": [
+        0.45945411920547485,
+        0.4337645471096039,
+        0.5173054337501526
+      ],
+      "center_fraction_estimated": [
+        0.44160258769989014,
+        0.4594271779060364,
+        0.47441530227661133
+      ],
+      "center_fraction_std": [
+        0.041063543409109116,
+        0.028021162375807762,
+        0.021507838740944862
+      ],
+      "radius_fraction_true": 0.21101221442222595,
+      "radius_fraction_estimated": 0.14802704006433487,
+      "radius_fraction_std": 0.01457607839256525,
+      "center_error_normalized": 0.053073637187480927,
+      "radius_relative_error": 0.29849065624163623,
+      "node_sdf_mae": 0.09773492813110352,
+      "node_sdf_nll": -1.7409077882766724,
+      "partition_soft_dice": 0.6419166326522827
+    },
+    {
+      "patient_id": "geom_fac5cdc88e186e46ee04_scenario_012",
+      "E_background_true": 3313.880126953125,
+      "E_background_estimated": 3570.89844995721,
+      "E_background_relative_error": 0.07755812315407881,
+      "inclusion_ratio_true": 3.826371431350708,
+      "inclusion_ratio_estimated": 2.6058917449698016,
+      "inclusion_ratio_relative_error": 0.31896529343207997,
+      "log_E_mean": 8.180572509765625,
+      "log_E_std": 0.09259600115883468,
+      "log_ratio_mean": 0.9577749371528625,
+      "log_ratio_std": 0.44838353991508484,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9763073921203613,
+      "center_fraction_true": [
+        0.632805347442627,
+        0.45429304242134094,
+        0.5031412839889526
+      ],
+      "center_fraction_estimated": [
+        0.5176174640655518,
+        0.45148926973342896,
+        0.5186280012130737
+      ],
+      "center_fraction_std": [
+        0.10461650788784027,
+        0.09537733346223831,
+        0.03908330947160721
+      ],
+      "radius_fraction_true": 0.13660302758216858,
+      "radius_fraction_estimated": 0.10672622360289097,
+      "radius_fraction_std": 0.036184024065732956,
+      "center_error_normalized": 0.11625810712575912,
+      "radius_relative_error": 0.21871260475033255,
+      "node_sdf_mae": 0.10326611250638962,
+      "node_sdf_nll": -1.6782630681991577,
+      "partition_soft_dice": 0.33886396884918213
+    },
+    {
+      "patient_id": "geom_fac5cdc88e186e46ee04_scenario_013",
+      "E_background_true": 3448.605712890625,
+      "E_background_estimated": 3417.6004276851636,
+      "E_background_relative_error": 0.008990672691159217,
+      "inclusion_ratio_true": 1.0,
+      "inclusion_ratio_estimated": 1.1906549868655367,
+      "inclusion_ratio_relative_error": 0.19065498686553672,
+      "log_E_mean": 8.136693954467773,
+      "log_E_std": 0.11716707504652954,
+      "log_ratio_mean": 0.17450356483459473,
+      "log_ratio_std": 0.25379934906959534,
+      "heterogeneous_true": false,
+      "heterogeneity_probability": 0.33923569321632385,
+      "center_fraction_true": [
+        0.44086188077926636,
+        0.5743837952613831,
+        0.5712599158287048
+      ],
+      "center_fraction_estimated": [
+        0.4279974102973938,
+        0.4713950753211975,
+        0.4651015102863312
+      ],
+      "center_fraction_std": [
+        0.02654135599732399,
+        0.02757161669433117,
+        0.019220637157559395
+      ],
+      "radius_fraction_true": 0.12374812364578247,
+      "radius_fraction_estimated": 0.15155521035194397,
+      "radius_fraction_std": 0.012453695759177208,
+      "center_error_normalized": null,
+      "radius_relative_error": null,
+      "node_sdf_mae": null,
+      "node_sdf_nll": null,
+      "partition_soft_dice": null
+    },
+    {
+      "patient_id": "geom_fac5cdc88e186e46ee04_scenario_014",
+      "E_background_true": 5463.2373046875,
+      "E_background_estimated": 4992.850804403657,
+      "E_background_relative_error": 0.08610032368175691,
+      "inclusion_ratio_true": 1.6312952041625977,
+      "inclusion_ratio_estimated": 3.0299038278095067,
+      "inclusion_ratio_relative_error": 0.8573608382333626,
+      "log_E_mean": 8.515762329101562,
+      "log_E_std": 0.11370817353055547,
+      "log_ratio_mean": 1.108530879020691,
+      "log_ratio_std": 0.48458173871040344,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9804492592811584,
+      "center_fraction_true": [
+        0.45191454887390137,
+        0.4527600407600403,
+        0.42572009563446045
+      ],
+      "center_fraction_estimated": [
+        0.5218644142150879,
+        0.4606248140335083,
+        0.512812614440918
+      ],
+      "center_fraction_std": [
+        0.05561358481645584,
+        0.0872054472565651,
+        0.03836999833583832
+      ],
+      "radius_fraction_true": 0.1252078264951706,
+      "radius_fraction_estimated": 0.100620212033391,
+      "radius_fraction_std": 0.02883128449320793,
+      "center_error_normalized": 0.11198189854621887,
+      "radius_relative_error": 0.19637442123258939,
+      "node_sdf_mae": 0.09634485840797424,
+      "node_sdf_nll": -1.7508095502853394,
+      "partition_soft_dice": 0.26524901390075684
+    },
+    {
+      "patient_id": "geom_fac5cdc88e186e46ee04_scenario_015",
+      "E_background_true": 3147.69384765625,
+      "E_background_estimated": 3396.4871277255334,
+      "E_background_relative_error": 0.07903985969109831,
+      "inclusion_ratio_true": 1.8172317743301392,
+      "inclusion_ratio_estimated": 2.521621034263391,
+      "inclusion_ratio_relative_error": 0.3876166320022117,
+      "log_E_mean": 8.130496978759766,
+      "log_E_std": 0.0896612509496141,
+      "log_ratio_mean": 0.9249019622802734,
+      "log_ratio_std": 0.4364187717437744,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.975050151348114,
+      "center_fraction_true": [
+        0.4510311484336853,
+        0.42909350991249084,
+        0.4338393807411194
+      ],
+      "center_fraction_estimated": [
+        0.5192486643791199,
+        0.44918394088745117,
+        0.5181270837783813
+      ],
+      "center_fraction_std": [
+        0.11394553631544113,
+        0.0906732976436615,
+        0.0387389212846756
+      ],
+      "radius_fraction_true": 0.19174809753894806,
+      "radius_fraction_estimated": 0.11043757200241089,
+      "radius_fraction_std": 0.03649728745222092,
+      "center_error_normalized": 0.11027996987104416,
+      "radius_relative_error": 0.4240486689575697,
+      "node_sdf_mae": 0.0968901589512825,
+      "node_sdf_nll": -1.682020664215088,
+      "partition_soft_dice": 0.5914815068244934
+    },
+    {
+      "patient_id": "geom_fac5cdc88e186e46ee04_scenario_016",
+      "E_background_true": 7423.7626953125,
+      "E_background_estimated": 6436.069762504653,
+      "E_background_relative_error": 0.1330447878447804,
+      "inclusion_ratio_true": 2.927333354949951,
+      "inclusion_ratio_estimated": 3.1019382225669463,
+      "inclusion_ratio_relative_error": 0.0596463902280717,
+      "log_E_mean": 8.769673347473145,
+      "log_E_std": 0.11680901766486376,
+      "log_ratio_mean": 1.1320271492004395,
+      "log_ratio_std": 0.37632808089256287,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9795641303062439,
+      "center_fraction_true": [
+        0.5163505673408508,
+        0.4380873143672943,
+        0.536470353603363
+      ],
+      "center_fraction_estimated": [
+        0.5152194499969482,
+        0.469015508890152,
+        0.5165747404098511
+      ],
+      "center_fraction_std": [
+        0.039839740842580795,
+        0.0504390187561512,
+        0.03434847295284271
+      ],
+      "radius_fraction_true": 0.12864533066749573,
+      "radius_fraction_estimated": 0.10013173706829548,
+      "radius_fraction_std": 0.02616771124303341,
+      "center_error_normalized": 0.03679222986102104,
+      "radius_relative_error": 0.2216449944296708,
+      "node_sdf_mae": 0.07050193846225739,
+      "node_sdf_nll": -2.0283656120300293,
+      "partition_soft_dice": 0.5404319763183594
+    },
+    {
+      "patient_id": "geom_fac5cdc88e186e46ee04_scenario_017",
+      "E_background_true": 4538.24951171875,
+      "E_background_estimated": 4324.6254000837325,
+      "E_background_relative_error": 0.047071918607250095,
+      "inclusion_ratio_true": 1.7786283493041992,
+      "inclusion_ratio_estimated": 2.924758137208626,
+      "inclusion_ratio_relative_error": 0.6443896997103378,
+      "log_E_mean": 8.37208080291748,
+      "log_E_std": 0.10882553310278864,
+      "log_ratio_mean": 1.0732117891311646,
+      "log_ratio_std": 0.45073363184928894,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9795867800712585,
+      "center_fraction_true": [
+        0.5203258991241455,
+        0.5941723585128784,
+        0.5136945843696594
+      ],
+      "center_fraction_estimated": [
+        0.5212694406509399,
+        0.45791900157928467,
+        0.5183624029159546
+      ],
+      "center_fraction_std": [
+        0.07597721368074417,
+        0.10018344223499298,
+        0.040274180471897125
+      ],
+      "radius_fraction_true": 0.16250452399253845,
+      "radius_fraction_estimated": 0.10391807742416859,
+      "radius_fraction_std": 0.03499139845371246,
+      "center_error_normalized": 0.136336550116539,
+      "radius_relative_error": 0.3605219419679659,
+      "node_sdf_mae": 0.10897839069366455,
+      "node_sdf_nll": -1.6041879653930664,
+      "partition_soft_dice": 0.4186949133872986
+    },
+    {
+      "patient_id": "geom_fac5cdc88e186e46ee04_scenario_018",
+      "E_background_true": 6041.1943359375,
+      "E_background_estimated": 6021.63748976851,
+      "E_background_relative_error": 0.003237248312415869,
+      "inclusion_ratio_true": 3.835310459136963,
+      "inclusion_ratio_estimated": 3.2378930462567466,
+      "inclusion_ratio_relative_error": 0.15576768015141323,
+      "log_E_mean": 8.70311450958252,
+      "log_E_std": 0.11932320405718412,
+      "log_ratio_mean": 1.1749228239059448,
+      "log_ratio_std": 0.3872496485710144,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.9828905463218689,
+      "center_fraction_true": [
+        0.5050106644630432,
+        0.47941336035728455,
+        0.502076268196106
+      ],
+      "center_fraction_estimated": [
+        0.507309079170227,
+        0.4653393626213074,
+        0.5158160924911499
+      ],
+      "center_fraction_std": [
+        0.04597616195678711,
+        0.06603588908910751,
+        0.03787824511528015
+      ],
+      "radius_fraction_true": 0.1552499532699585,
+      "radius_fraction_estimated": 0.10164734907448292,
+      "radius_fraction_std": 0.030020935460925102,
+      "center_error_normalized": 0.019802598282694817,
+      "radius_relative_error": 0.3452664755542178,
+      "node_sdf_mae": 0.10845503956079483,
+      "node_sdf_nll": -1.7145328521728516,
+      "partition_soft_dice": 0.7248605489730835
+    },
+    {
+      "patient_id": "geom_fac5cdc88e186e46ee04_scenario_019",
+      "E_background_true": 3606.52587890625,
+      "E_background_estimated": 3594.0452340659435,
+      "E_background_relative_error": 0.0034605726561683426,
+      "inclusion_ratio_true": 1.6401879787445068,
+      "inclusion_ratio_estimated": 2.6271367893075577,
+      "inclusion_ratio_relative_error": 0.6017290843202726,
+      "log_E_mean": 8.187033653259277,
+      "log_E_std": 0.09355055903274798,
+      "log_ratio_mean": 0.9658945798873901,
+      "log_ratio_std": 0.4378071129322052,
+      "heterogeneous_true": true,
+      "heterogeneity_probability": 0.976495623588562,
+      "center_fraction_true": [
+        0.4556237757205963,
+        0.3863484561443329,
+        0.44785797595977783
+      ],
+      "center_fraction_estimated": [
+        0.5174810886383057,
+        0.45208877325057983,
+        0.51934814453125
+      ],
+      "center_fraction_std": [
+        0.10634348541498184,
+        0.09484844654798508,
+        0.039527714252471924
+      ],
+      "radius_fraction_true": 0.14178916811943054,
+      "radius_fraction_estimated": 0.10703836567699909,
+      "radius_fraction_std": 0.037297386676073074,
+      "center_error_normalized": 0.11514756083488464,
+      "radius_relative_error": 0.245087850527203,
+      "node_sdf_mae": 0.07955975830554962,
+      "node_sdf_nll": -1.8838601112365723,
+      "partition_soft_dice": 0.32468438148498535
+    }
+  ]
+}

@@ -27,7 +27,10 @@
   Names: primary50, sixarm50, threshold50, ct18_controls, ct18_sensitivity,
          ct18_weight, ct18_mismatch, ct18_assumption, ct18_constitutive,
          ct18_structural, ct18_ekf, ct18_decoupled, ct18_population,
-         calibration, ct120, audits, summaries, tests
+         calibration, ct120, audits,
+         (second revision) ekf_cohort, ct18_yaw48, ct18_aspect_fixed,
+         decoupled50, ct18_reinference, record_audits,
+         summaries, tests
 
 .EXAMPLE
   powershell -ExecutionPolicy Bypass -File experiments/reproduce_reviewer_arms.ps1
@@ -257,18 +260,104 @@ $Sections.audits = @(
     "$Py experiments/validate_ion_ct_synthetic_mechanics.py"
 )
 
+# ================================================================ second-revision arms (2026-10-12)
+# ---------------------------------------------------------------- cohort-level sequential EKF
+$EkfCt = "$V6/ekf_sequential_ct120_all"
+$EkfSyn = "$LM/ekf_sequential_synthetic50"
+$Sections.ekf_cohort = @(
+    "# All 120 locked CT test scenes (official ratio locked, prior width 2, 0.05 px noise), four round-robin shards -> $EkfCt/records_shard{i}of4.jsonl (OMP_NUM_THREADS=3 per shard)",
+    "$Py experiments/run_ekf_sequential_ct18.py --cohort ct120 --all-test --shard 0/4 --noise-px 0.05 --out $EkfCt",
+    "$Py experiments/run_ekf_sequential_ct18.py --cohort ct120 --all-test --shard 1/4 --noise-px 0.05 --out $EkfCt",
+    "$Py experiments/run_ekf_sequential_ct18.py --cohort ct120 --all-test --shard 2/4 --noise-px 0.05 --out $EkfCt",
+    "$Py experiments/run_ekf_sequential_ct18.py --cohort ct120 --all-test --shard 3/4 --noise-px 0.05 --out $EkfCt",
+    "# Merge shards (dedup by scene, test-split order) -> records.jsonl and write summary.json with the paired comparison against the 120-scene audit and the 18-scene baseline",
+    "$Py experiments/run_ekf_sequential_ct18.py --cohort ct120 --all-test --noise-px 0.05 --out $EkfCt --summarize",
+    "# 50 synthetic test cases (six-arm learned/learned lock rule; start point clipped to the fit_patient global box) -> $EkfSyn/",
+    "$Py experiments/run_ekf_sequential_ct18.py --cohort synthetic50 --all-test --shard 0/4 --noise-px 0.05 --out $EkfSyn",
+    "$Py experiments/run_ekf_sequential_ct18.py --cohort synthetic50 --all-test --shard 1/4 --noise-px 0.05 --out $EkfSyn",
+    "$Py experiments/run_ekf_sequential_ct18.py --cohort synthetic50 --all-test --shard 2/4 --noise-px 0.05 --out $EkfSyn",
+    "$Py experiments/run_ekf_sequential_ct18.py --cohort synthetic50 --all-test --shard 3/4 --noise-px 0.05 --out $EkfSyn",
+    "$Py experiments/run_ekf_sequential_ct18.py --cohort synthetic50 --all-test --noise-px 0.05 --out $EkfSyn --summarize",
+    "# The discarded first synthetic run (unclipped start point) is kept for provenance: $EkfSyn/superseded_v0_unclipped_initial_ratio/ (see WHY_SUPERSEDED.txt)",
+    "$Py experiments/summarize_reviewer_arms.py --check --groups ekf_sequential_ct120_all ekf_sequential_synthetic50 ekf_sequential_synthetic50_superseded_v0"
+)
+
+# ---------------------------------------------------------------- camera-yaw arms at the common 48-evaluation budget
+$N48 = "$V6/model_mismatch_n48"
+$Sections.ct18_yaw48 = @(
+    "# +/-10 deg yaw re-run at 48 evaluations (the archived +/-10 deg arms in ct18_mismatch stopped at 16) -> $N48/<arm>/",
+    "$Ct18Base --pose-rotation-error-deg -10 --results $N48/pose_yaw_m10 $Ids18Arg",
+    "$Ct18Base --pose-rotation-error-deg 10  --results $N48/pose_yaw_p10 $Ids18Arg",
+    "# +/-5 deg at 48 evaluations = the archived arms $Drv/model_mismatch/mismatch_pose_{m5,p5}_baseline (ct18_mismatch); 16-evaluation references = $MM/pose_yaw_*_v1|v2",
+    "# Group summary ($N48/summary.json: arms_48, arms_16_reference, paired_48_vs_16, baseline_reference, paired_48_vs_baseline) is verified field-by-field from the records:",
+    "$Py experiments/summarize_reviewer_arms.py --check --groups model_mismatch_n48"
+)
+
+# ---------------------------------------------------------------- corrected ellipsoid-aspect arms
+$ASF = "$V6/assumption_sensitivity_fixed"
+$Sections.ct18_aspect_fixed = @(
+    "# Region attention always driven by the predicted centre/radius (the archived $AS/aspect_* arms fell back to the true region) -> $ASF/<arm>/",
+    "$Ct18Base --region-aspect-xy 1.5 --results $ASF/aspect_1p5 $Ids18Arg",
+    "$Ct18Base --region-aspect-xy 2.0 --results $ASF/aspect_2p0 $Ids18Arg",
+    "# Occupancy / attention-fallback sanity check of the archived arms (needs the CT dataset tensors) -> $AS/aspect_arm_sanity.json",
+    "$Py experiments/aspect_arm_sanity.py",
+    "$Py experiments/summarize_reviewer_arms.py --check --groups assumption_sensitivity_fixed aspect_arm_sanity"
+)
+
+# ---------------------------------------------------------------- decoupled residual screen + residual acceptance on the 50 cases
+$DR = "$LM/synthetic50_decoupled_residual"
+$DRShard = @("--patient-start 0 --patient-limit 17", "--patient-start 17 --patient-limit 17", "--patient-start 34 --patient-limit 16")
+$Sections.decoupled50 = @(
+    "# Three arms x three shards; <arm>/records.jsonl is the concatenation of shard0..shard2/records.jsonl (shard order) -> $DR/<arm>/",
+    "# A1 primary-like: width 1, 96 evaluations, residual screen, MAP objective, residual acceptance",
+    "$Fem --cohort synthetic50 --prior-width-scale 1.0 --max-nfev 96 --screen-threshold 0.05 --probe-count 2 --screening-metric residual --objective-metric map --acceptance-metric residual $($DRShard[0]) --results $DR/primary_like_w1_n96/shard0",
+    "$Fem --cohort synthetic50 --prior-width-scale 1.0 --max-nfev 96 --screen-threshold 0.05 --probe-count 2 --screening-metric residual --objective-metric map --acceptance-metric residual $($DRShard[1]) --results $DR/primary_like_w1_n96/shard1",
+    "$Fem --cohort synthetic50 --prior-width-scale 1.0 --max-nfev 96 --screen-threshold 0.05 --probe-count 2 --screening-metric residual --objective-metric map --acceptance-metric residual $($DRShard[2]) --results $DR/primary_like_w1_n96/shard2",
+    "# A2 six-arm-like: width 2, 48 evaluations, residual screen, MAP objective, residual acceptance",
+    "$Fem --cohort synthetic50 --prior-width-scale 2.0 --max-nfev 48 --screen-threshold 0.05 --probe-count 2 --screening-metric residual --objective-metric map --acceptance-metric residual $($DRShard[0]) --results $DR/sixarm_like_w2_n48/shard0",
+    "$Fem --cohort synthetic50 --prior-width-scale 2.0 --max-nfev 48 --screen-threshold 0.05 --probe-count 2 --screening-metric residual --objective-metric map --acceptance-metric residual $($DRShard[1]) --results $DR/sixarm_like_w2_n48/shard1",
+    "$Fem --cohort synthetic50 --prior-width-scale 2.0 --max-nfev 48 --screen-threshold 0.05 --probe-count 2 --screening-metric residual --objective-metric map --acceptance-metric residual $($DRShard[2]) --results $DR/sixarm_like_w2_n48/shard2",
+    "# A3 plain learned/learned at width 1, 96 evaluations (MAP screen / objective / acceptance)",
+    "$Fem --cohort synthetic50 --prior-width-scale 1.0 --max-nfev 96 --screen-threshold 0.05 --probe-count 2 $($DRShard[0]) --results $DR/map_w1_n96/shard0",
+    "$Fem --cohort synthetic50 --prior-width-scale 1.0 --max-nfev 96 --screen-threshold 0.05 --probe-count 2 $($DRShard[1]) --results $DR/map_w1_n96/shard1",
+    "$Fem --cohort synthetic50 --prior-width-scale 1.0 --max-nfev 96 --screen-threshold 0.05 --probe-count 2 $($DRShard[2]) --results $DR/map_w1_n96/shard2",
+    "# Per-arm summary.json and the group comparison.json (vs the frozen primary metrics file and the six-arm learned/learned arm) are verified field-by-field:",
+    "$Py experiments/summarize_reviewer_arms.py --check --groups synthetic50_decoupled_residual synthetic50_decoupled_residual/primary_like_w1_n96 synthetic50_decoupled_residual/sixarm_like_w2_n48 synthetic50_decoupled_residual/map_w1_n96"
+)
+
+# ---------------------------------------------------------------- learned initializer re-inferred on the mismatched observations
+$Sections.ct18_reinference = @(
+    "# MeshGNN / PCA-Ridge hybrid initializer re-run on the fiber / viscous / two-inclusion / diffuse / sliding-boundary observations of the 18 scenes (needs the CT dataset tensors and the training checkpoints; OMP_NUM_THREADS=3, CPU) -> $V6/mismatch_initializer_reinference/",
+    "$Py experiments/reinfer_mismatch_initializer.py --shard 0 --shard-count 1 --scratch <scratch directory outside results/>",
+    "$Py experiments/reinfer_mismatch_initializer.py --merge --shard-count 1 --scratch <scratch directory outside results/>",
+    "$Py experiments/summarize_reviewer_arms.py --check --groups mismatch_initializer_reinference"
+)
+
+# ---------------------------------------------------------------- record-only audits (no FEM, no dataset tensors)
+$Sections.record_audits = @(
+    "# Accepted-update harm statistics over the six-arm, threshold-sweep, CT120 and 18-scene baseline records -> $V6/accepted_update_harm.json",
+    "$Py experiments/accepted_update_harm.py",
+    "# initializer_reference_18.json, calibration_fourbin_test_sensitivity.json and ct120_audit_mechanics.json are record-only",
+    "# recomputations (initializer-vs-final outcome per scene; 4-bin vs locked 3-bin ratio rule on the stored MeshGNN predictions;",
+    "# acceptance mechanics and prior-width evidence of the 120-scene audit). Every record-derived field is regenerated and compared by:",
+    "$Py experiments/summarize_reviewer_arms.py --check --groups accepted_update_harm initializer_reference_18 calibration_fourbin_test_sensitivity ct120_audit_mechanics"
+)
+
 # ---------------------------------------------------------------- summaries only (no FEM)
 $Sections.summaries = @(
     "$Py experiments/run_assumption_sensitivity_ct18.py --summarize-only",
+    "# all 23 groups: 8 regenerated summaries + 15 second-revision summaries verified field-by-field",
     "$Py experiments/summarize_reviewer_arms.py --check",
     "$Py experiments/reconcile_ct_reviewer_evidence.py"
 )
 
 # ---------------------------------------------------------------- fast tests
 $Sections.tests = @(
-    "$Py -m pytest -q lung_inverse_rendering/test_sim_lung_v2.py lung_inverse_rendering/test_pinn_inverse.py experiments/test_generate_ion_ct_synthetic_mechanics.py experiments/test_assumption_summary_statistics.py experiments/test_solver_convergence.py",
+    "$Py -m pytest -q lung_inverse_rendering/test_sim_lung_v2.py lung_inverse_rendering/test_pinn_inverse.py experiments/test_generate_ion_ct_synthetic_mechanics.py experiments/test_assumption_summary_statistics.py experiments/test_solver_convergence.py experiments/test_constitutive_mismatch.py",
     "$Py experiments/run_screened_fem_locked.py --help",
     "$Py experiments/run_assumption_sensitivity_ct18.py --help",
+    "$Py experiments/run_ekf_sequential_ct18.py --help",
+    "$Py experiments/reinfer_mismatch_initializer.py --help",
     "$Py experiments/summarize_reviewer_arms.py --help"
 )
 

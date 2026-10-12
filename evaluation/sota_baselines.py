@@ -5,9 +5,9 @@ endoscopy images and reports depth metrics, to position our pipeline against
 the geometry-reconstruction state of the art.
 
 Available locally (per SOTA survey):
-  - Depth-Anything-V2  (E:\SOTA_Methods\Depth-Anything-V2, weights present)
-  - FoundationStereo   (E:\SOTA_Methods\FoundationStereo, weights present)
-  - ZoeDepth           (E:\SOTA_Methods\ZoeDepth, ZoeD_NK.pth 1.45GB)
+  - Depth-Anything-V2  (external_tools/SOTA_Methods\Depth-Anything-V2, weights present)
+  - FoundationStereo   (external_tools/SOTA_Methods\FoundationStereo, weights present)
+  - ZoeDepth           (external_tools/SOTA_Methods\ZoeDepth, ZoeD_NK.pth 1.45GB)
 
 Note: these predict DEPTH only (not material). The honest framing is that they
 are geometry baselines; our differentiator is the material (albedo + E)
@@ -22,7 +22,7 @@ import torch
 from evaluation.metrics import depth_metrics
 
 
-SOTA_ROOT = r"E:\SOTA_Methods"
+SOTA_ROOT = r"external_tools/SOTA_Methods"
 
 
 def _load_image(path):

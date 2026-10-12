@@ -1,0 +1,395 @@
+{
+  "schema_version": 1,
+  "gate": 0.25,
+  "selection": "minimum validation median ratio; test unused for selection",
+  "selected_policy": "gnn_pred_bins",
+  "train_fit": {
+    "shrink_alpha": 1.225,
+    "log_shift": 0.15000000000000002,
+    "power": 1.2,
+    "affine": {
+      "intercept": 0.0,
+      "slope": 1.2000000000000002
+    },
+    "bins": {
+      "edges": [
+        0.0,
+        2.170310948168769,
+        2.7145717119423765,
+        3.24175055126214,
+        10.0
+      ],
+      "multipliers": [
+        0.65,
+        0.675,
+        1.225,
+        1.075
+      ]
+    },
+    "hetero_gate": 0.7500000000000001,
+    "gnn_ridge_blend": 0.0,
+    "contrast_shrink": {
+      "gate": 0.7,
+      "alpha": 1.05
+    },
+    "train_raw": {
+      "n": 360,
+      "median": 0.23794073259188236,
+      "pass_rate": 0.5166666666666667,
+      "geometry_medians": {
+        "geom_05cf9d4fae8e8284f1cf": 0.20905895660396062,
+        "geom_16cb9f3ab9be38cc56e9": 0.24033085166229395,
+        "geom_16d7b575eb21c6be3a32": 0.2406341922926476,
+        "geom_1fd11f1511a5d5db1c30": 0.26359488767381967,
+        "geom_306f69af45a814373d2e": 0.24458896191697485,
+        "geom_40dfead03c83371b4f69": 0.2664836991975663,
+        "geom_4321788df5aa62e8484b": 0.2402721650964551,
+        "geom_4a28ee0fdb392694f551": 0.24998632218506778,
+        "geom_55fc14f5542c626bd87f": 0.26121060706773713,
+        "geom_6d4dd09b30cfb766ab98": 0.2820089766305603,
+        "geom_b916af738e01f23cb936": 0.2838088703201238,
+        "geom_c45d80174af16be5c949": 0.20814142167455546,
+        "geom_d9b84925e4f0f3b2ee70": 0.23446194338356086,
+        "geom_db7f7d8f94c6f2a94df6": 0.30088516683775623,
+        "geom_db8344e3ed905d9505f7": 0.20642490565274563,
+        "geom_dd1d30e9968e340055a2": 0.20703315147921425,
+        "geom_e6a4978ad30c1171231c": 0.20471637617414812,
+        "geom_fbba1dfbf564184c0b18": 0.18358625032866532
+      },
+      "geometries_passing": 12,
+      "geometry_count": 18
+    }
+  },
+  "leaderboard": [
+    {
+      "name": "gnn_pred_bins",
+      "validation": {
+        "n": 60,
+        "median": 0.20762037044755988,
+        "pass_rate": 0.5166666666666667,
+        "geometry_medians": {
+          "geom_03024386f1bfde4e97a1": 0.19557086520328926,
+          "geom_271acd77cdf0a24bc7a4": 0.26446095211580734,
+          "geom_955e8309dafc61ab6034": 0.1513090046718134
+        },
+        "geometries_passing": 2,
+        "geometry_count": 3
+      },
+      "test_after_freeze": {
+        "n": 120,
+        "median": 0.1963312632987983,
+        "pass_rate": 0.5416666666666666,
+        "geometry_medians": {
+          "geom_58db559b24da6eb7cc0d": 0.21084779391020314,
+          "geom_62010c56d95ec023bc9b": 0.16059713107375023,
+          "geom_a417d13e9ae27d685557": 0.259818979798517,
+          "geom_ab578f1bb0ee02be2ccd": 0.09166467981646842,
+          "geom_db38a9c3817f033727b5": 0.2675449779055925,
+          "geom_fac5cdc88e186e46ee04": 0.10476781897547116
+        },
+        "geometries_passing": 4,
+        "geometry_count": 6
+      }
+    },
+    {
+      "name": "gnn_median_affine",
+      "validation": {
+        "n": 60,
+        "median": 0.28494430066824566,
+        "pass_rate": 0.4,
+        "geometry_medians": {
+          "geom_03024386f1bfde4e97a1": 0.28858958515019634,
+          "geom_271acd77cdf0a24bc7a4": 0.2971685426659417,
+          "geom_955e8309dafc61ab6034": 0.26827913250378255
+        },
+        "geometries_passing": 0,
+        "geometry_count": 3
+      },
+      "test_after_freeze": {
+        "n": 120,
+        "median": 0.23931757101570716,
+        "pass_rate": 0.5083333333333333,
+        "geometry_medians": {
+          "geom_58db559b24da6eb7cc0d": 0.22006494937806964,
+          "geom_62010c56d95ec023bc9b": 0.09884406617776986,
+          "geom_a417d13e9ae27d685557": 0.3085322905258547,
+          "geom_ab578f1bb0ee02be2ccd": 0.1657084867364101,
+          "geom_db38a9c3817f033727b5": 0.2346162518215198,
+          "geom_fac5cdc88e186e46ee04": 0.24593626627344622
+        },
+        "geometries_passing": 5,
+        "geometry_count": 6
+      }
+    },
+    {
+      "name": "gnn_power",
+      "validation": {
+        "n": 60,
+        "median": 0.28494430066824583,
+        "pass_rate": 0.4,
+        "geometry_medians": {
+          "geom_03024386f1bfde4e97a1": 0.28858958515019617,
+          "geom_271acd77cdf0a24bc7a4": 0.2971685426659418,
+          "geom_955e8309dafc61ab6034": 0.26827913250378244
+        },
+        "geometries_passing": 0,
+        "geometry_count": 3
+      },
+      "test_after_freeze": {
+        "n": 120,
+        "median": 0.23931757101570728,
+        "pass_rate": 0.5083333333333333,
+        "geometry_medians": {
+          "geom_58db559b24da6eb7cc0d": 0.2200649493780698,
+          "geom_62010c56d95ec023bc9b": 0.09884406617776981,
+          "geom_a417d13e9ae27d685557": 0.3085322905258547,
+          "geom_ab578f1bb0ee02be2ccd": 0.16570848673641025,
+          "geom_db38a9c3817f033727b5": 0.23461625182151957,
+          "geom_fac5cdc88e186e46ee04": 0.2459362662734459
+        },
+        "geometries_passing": 5,
+        "geometry_count": 6
+      }
+    },
+    {
+      "name": "gnn_raw",
+      "validation": {
+        "n": 60,
+        "median": 0.2855796473920235,
+        "pass_rate": 0.4166666666666667,
+        "geometry_medians": {
+          "geom_03024386f1bfde4e97a1": 0.3256290693294242,
+          "geom_271acd77cdf0a24bc7a4": 0.2855796473920235,
+          "geom_955e8309dafc61ab6034": 0.25736364367093967
+        },
+        "geometries_passing": 0,
+        "geometry_count": 3
+      },
+      "test_after_freeze": {
+        "n": 120,
+        "median": 0.24728405831960293,
+        "pass_rate": 0.5,
+        "geometry_medians": {
+          "geom_58db559b24da6eb7cc0d": 0.27488343750611477,
+          "geom_62010c56d95ec023bc9b": 0.2291238460339614,
+          "geom_a417d13e9ae27d685557": 0.3096335435537027,
+          "geom_ab578f1bb0ee02be2ccd": 0.2512604849862097,
+          "geom_db38a9c3817f033727b5": 0.15740516384582004,
+          "geom_fac5cdc88e186e46ee04": 0.24487743238765552
+        },
+        "geometries_passing": 3,
+        "geometry_count": 6
+      }
+    },
+    {
+      "name": "gnn_hetero_gate",
+      "validation": {
+        "n": 60,
+        "median": 0.2855796473920235,
+        "pass_rate": 0.4166666666666667,
+        "geometry_medians": {
+          "geom_03024386f1bfde4e97a1": 0.3256290693294242,
+          "geom_271acd77cdf0a24bc7a4": 0.2855796473920235,
+          "geom_955e8309dafc61ab6034": 0.25736364367093967
+        },
+        "geometries_passing": 0,
+        "geometry_count": 3
+      },
+      "test_after_freeze": {
+        "n": 120,
+        "median": 0.23057667526542147,
+        "pass_rate": 0.5083333333333333,
+        "geometry_medians": {
+          "geom_58db559b24da6eb7cc0d": 0.27488343750611477,
+          "geom_62010c56d95ec023bc9b": 0.2291238460339614,
+          "geom_a417d13e9ae27d685557": 0.3096335435537027,
+          "geom_ab578f1bb0ee02be2ccd": 0.2512604849862097,
+          "geom_db38a9c3817f033727b5": 0.15740516384582004,
+          "geom_fac5cdc88e186e46ee04": 0.20831888472534793
+        },
+        "geometries_passing": 3,
+        "geometry_count": 6
+      }
+    },
+    {
+      "name": "blend_gnn_ridge",
+      "validation": {
+        "n": 60,
+        "median": 0.2855796473920235,
+        "pass_rate": 0.4166666666666667,
+        "geometry_medians": {
+          "geom_03024386f1bfde4e97a1": 0.3256290693294242,
+          "geom_271acd77cdf0a24bc7a4": 0.2855796473920235,
+          "geom_955e8309dafc61ab6034": 0.25736364367093967
+        },
+        "geometries_passing": 0,
+        "geometry_count": 3
+      },
+      "test_after_freeze": {
+        "n": 120,
+        "median": 0.24728405831960293,
+        "pass_rate": 0.5,
+        "geometry_medians": {
+          "geom_58db559b24da6eb7cc0d": 0.27488343750611477,
+          "geom_62010c56d95ec023bc9b": 0.2291238460339614,
+          "geom_a417d13e9ae27d685557": 0.3096335435537027,
+          "geom_ab578f1bb0ee02be2ccd": 0.2512604849862097,
+          "geom_db38a9c3817f033727b5": 0.15740516384582004,
+          "geom_fac5cdc88e186e46ee04": 0.24487743238765552
+        },
+        "geometries_passing": 3,
+        "geometry_count": 6
+      }
+    },
+    {
+      "name": "gnn_shrink",
+      "validation": {
+        "n": 60,
+        "median": 0.2911698186259991,
+        "pass_rate": 0.4666666666666667,
+        "geometry_medians": {
+          "geom_03024386f1bfde4e97a1": 0.29394352066269824,
+          "geom_271acd77cdf0a24bc7a4": 0.31727893832389026,
+          "geom_955e8309dafc61ab6034": 0.22890017530609535
+        },
+        "geometries_passing": 1,
+        "geometry_count": 3
+      },
+      "test_after_freeze": {
+        "n": 120,
+        "median": 0.21022831812445553,
+        "pass_rate": 0.525,
+        "geometry_medians": {
+          "geom_58db559b24da6eb7cc0d": 0.2291390666287358,
+          "geom_62010c56d95ec023bc9b": 0.13665689161564665,
+          "geom_a417d13e9ae27d685557": 0.3016188732327884,
+          "geom_ab578f1bb0ee02be2ccd": 0.1931308626895673,
+          "geom_db38a9c3817f033727b5": 0.12618234282494595,
+          "geom_fac5cdc88e186e46ee04": 0.2061204554754797
+        },
+        "geometries_passing": 5,
+        "geometry_count": 6
+      }
+    },
+    {
+      "name": "gnn_contrast_shrink",
+      "validation": {
+        "n": 60,
+        "median": 0.2930344615510423,
+        "pass_rate": 0.45,
+        "geometry_medians": {
+          "geom_03024386f1bfde4e97a1": 0.3076845784937162,
+          "geom_271acd77cdf0a24bc7a4": 0.29517295748149464,
+          "geom_955e8309dafc61ab6034": 0.23621534757845097
+        },
+        "geometries_passing": 1,
+        "geometry_count": 3
+      },
+      "test_after_freeze": {
+        "n": 120,
+        "median": 0.22478190567276074,
+        "pass_rate": 0.525,
+        "geometry_medians": {
+          "geom_58db559b24da6eb7cc0d": 0.25440166507924133,
+          "geom_62010c56d95ec023bc9b": 0.20337835153932043,
+          "geom_a417d13e9ae27d685557": 0.3149796715879061,
+          "geom_ab578f1bb0ee02be2ccd": 0.229597564933341,
+          "geom_db38a9c3817f033727b5": 0.1449988240883444,
+          "geom_fac5cdc88e186e46ee04": 0.2261256020322447
+        },
+        "geometries_passing": 4,
+        "geometry_count": 6
+      }
+    },
+    {
+      "name": "gnn_log_shift",
+      "validation": {
+        "n": 60,
+        "median": 0.2954515514116138,
+        "pass_rate": 0.45,
+        "geometry_medians": {
+          "geom_03024386f1bfde4e97a1": 0.27917282074236804,
+          "geom_271acd77cdf0a24bc7a4": 0.3020653709352131,
+          "geom_955e8309dafc61ab6034": 0.2513441096250096
+        },
+        "geometries_passing": 0,
+        "geometry_count": 3
+      },
+      "test_after_freeze": {
+        "n": 120,
+        "median": 0.22023163474823915,
+        "pass_rate": 0.55,
+        "geometry_medians": {
+          "geom_58db559b24da6eb7cc0d": 0.23132154118483028,
+          "geom_62010c56d95ec023bc9b": 0.1637719288572555,
+          "geom_a417d13e9ae27d685557": 0.31217684204510787,
+          "geom_ab578f1bb0ee02be2ccd": 0.1965441675917602,
+          "geom_db38a9c3817f033727b5": 0.1894537369383782,
+          "geom_fac5cdc88e186e46ee04": 0.20006938764433368
+        },
+        "geometries_passing": 5,
+        "geometry_count": 6
+      }
+    },
+    {
+      "name": "stack_linear_trainfit",
+      "validation": {
+        "n": 60,
+        "median": 0.3008090540749591,
+        "pass_rate": 0.36666666666666664,
+        "geometry_medians": {
+          "geom_03024386f1bfde4e97a1": 0.3035009489546249,
+          "geom_271acd77cdf0a24bc7a4": 0.2868418288244906,
+          "geom_955e8309dafc61ab6034": 0.31666400485493873
+        },
+        "geometries_passing": 0,
+        "geometry_count": 3
+      },
+      "test_after_freeze": {
+        "n": 120,
+        "median": 0.291368541333154,
+        "pass_rate": 0.38333333333333336,
+        "geometry_medians": {
+          "geom_58db559b24da6eb7cc0d": 0.28457389505548636,
+          "geom_62010c56d95ec023bc9b": 0.35658035376445085,
+          "geom_a417d13e9ae27d685557": 0.2922552340634744,
+          "geom_ab578f1bb0ee02be2ccd": 0.2940180043851203,
+          "geom_db38a9c3817f033727b5": 0.2568770087913346,
+          "geom_fac5cdc88e186e46ee04": 0.27675306668903293
+        },
+        "geometries_passing": 0,
+        "geometry_count": 6
+      }
+    },
+    {
+      "name": "ridge_compact_trainfit",
+      "validation": {
+        "n": 60,
+        "median": 0.3477290368806208,
+        "pass_rate": 0.3,
+        "geometry_medians": {
+          "geom_03024386f1bfde4e97a1": 0.36319549457044725,
+          "geom_271acd77cdf0a24bc7a4": 0.3354857086478538,
+          "geom_955e8309dafc61ab6034": 0.3455411737976122
+        },
+        "geometries_passing": 0,
+        "geometry_count": 3
+      },
+      "test_after_freeze": {
+        "n": 120,
+        "median": 0.3204296002650292,
+        "pass_rate": 0.3333333333333333,
+        "geometry_medians": {
+          "geom_58db559b24da6eb7cc0d": 0.31441794057216915,
+          "geom_62010c56d95ec023bc9b": 0.3165884963604351,
+          "geom_a417d13e9ae27d685557": 0.33993978761544025,
+          "geom_ab578f1bb0ee02be2ccd": 0.30926407589295224,
+          "geom_db38a9c3817f033727b5": 0.30634276970513497,
+          "geom_fac5cdc88e186e46ee04": 0.3313448637771096
+        },
+        "geometries_passing": 0,
+        "geometry_count": 6
+      }
+    }
+  ]
+}

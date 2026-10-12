@@ -15,7 +15,7 @@ authors = [
   {name = "Junjun Pan", email = "pan_junjun@buaa.edu.cn"},
 ]
 dependencies = [
-  "numpy>=1.26,<2",
+  "numpy>=1.26",
   "scipy",
   "torch",
   "scikit-learn",

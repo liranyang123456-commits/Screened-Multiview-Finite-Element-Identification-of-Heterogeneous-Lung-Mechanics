@@ -1,0 +1,6 @@
+launched 2026-10-12T01:56:40.4625035+08:00
+OMP_NUM_THREADS=3 MKL_NUM_THREADS=3
+pid=56104 python ".\experiments\run_ekf_sequential_ct18.py" --cohort ct120 --all-test --shard 0/4 --noise-px 0.05 --out ".\results\ct_reviewer_drivers_v6\ekf_sequential_ct120_all"
+pid=55172 python ".\experiments\run_ekf_sequential_ct18.py" --cohort ct120 --all-test --shard 1/4 --noise-px 0.05 --out ".\results\ct_reviewer_drivers_v6\ekf_sequential_ct120_all"
+pid=56204 python ".\experiments\run_ekf_sequential_ct18.py" --cohort ct120 --all-test --shard 2/4 --noise-px 0.05 --out ".\results\ct_reviewer_drivers_v6\ekf_sequential_ct120_all"
+pid=34776 python ".\experiments\run_ekf_sequential_ct18.py" --cohort ct120 --all-test --shard 3/4 --noise-px 0.05 --out ".\results\ct_reviewer_drivers_v6\ekf_sequential_ct120_all"
