@@ -1247,8 +1247,8 @@
     },
     {
       "path": "README.md",
-      "size_bytes": 24773,
-      "sha256": "b467cf1c9595a52ffaf9c6fdad2f48a6977a45fa82ca11a9e3358f3085872621"
+      "size_bytes": 25682,
+      "sha256": "0a10d1335ff5565718732f95b6fb633e2d743784db37c520fac64c62a3a3260c"
     },
     {
       "path": "rendering/__init__.py",
