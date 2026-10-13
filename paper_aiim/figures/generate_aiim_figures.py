@@ -404,7 +404,7 @@ PIPELINE_STAGES: tuple[tuple[str, str, str, str], ...] = (
     ),
     (
         "5  Physics decision",
-        "seven probes\nretain prior or bounded MAP",
+        "seven first-round evaluations\nretain prior or bounded MAP",
         ORANGE,
         PALE_ORANGE,
     ),
@@ -954,19 +954,19 @@ def fig_dataset_protocol(manifest: dict[str, Any], output_dir: Path) -> None:
     x_half = 0.5 * (y_range[1] - y_range[0]) * (box.width * W) / (box.height * H)
     ax.set_xlim(-x_half, x_half)
     ax.set_ylim(*y_range)
-    ax.text(0.5, 1.02, "3 synchronized views", transform=ax.transAxes, ha="center", va="bottom", fontsize=small_pt + 0.4, fontweight="semibold")
+    ax.text(0.44, 1.02, "3 synchronized views", transform=ax.transAxes, ha="center", va="bottom", fontsize=small_pt + 0.4, fontweight="semibold")
     ax.axis("off")
 
     ax = protocol_axes[2]
     frames = np.arange(7)
-    ramp = np.sin(np.linspace(0, np.pi / 2, 7)) ** 1.6
-    ax.plot(frames, ramp, "o-", color=BLUE, lw=1.6, markersize=3.5)
-    ax.fill_between(frames, 0, ramp, color=BLUE, alpha=0.12)
+    envelope = np.array([0, 0.45, 1, 1, 0.65, 0.25, 0])
+    ax.plot(frames, envelope, "o-", color=BLUE, lw=1.6, markersize=3.5)
+    ax.fill_between(frames, 0, envelope, color=BLUE, alpha=0.12)
     ax.set_xticks(frames)
     ax.tick_params(labelsize=small_pt)
     ax.set_xlabel("Frame", fontsize=small_pt + 0.4)
     ax.set_ylabel("Normalized load", fontsize=small_pt + 0.4)
-    ax.text(0.5, 1.02, "7-frame load ramp", transform=ax.transAxes, ha="center", va="bottom", fontsize=small_pt + 0.4, fontweight="semibold")
+    ax.text(0.56, 1.02, "7-frame load envelope", transform=ax.transAxes, ha="center", va="bottom", fontsize=small_pt + 0.4, fontweight="semibold")
     ax.grid(color=LIGHT)
 
     ax = protocol_axes[3]
@@ -1371,7 +1371,7 @@ def fig_qualitative_case(
     confidence_handles = [
         Line2D([0], [0], color=plt.cm.viridis(value), lw=2.2, label=label)
         for value, label in (
-            (0.2, "Arrow colour: low confidence"),
+            (0.2, "Arrow color: low confidence"),
             (0.6, "medium"),
             (0.95, "high"),
         )
@@ -2992,7 +2992,7 @@ def fig_ion_ct_method_comparison(output_dir: Path) -> None:
             zorder=4,
             label="Across-geometry median",
         )
-        ax.axhline(gate, color=INK, linestyle="--", linewidth=0.9, label="Development-fixed gate")
+        ax.axhline(gate, color=INK, linestyle="--", linewidth=0.9, label="Development-fixed criterion")
         boundaries = [tier_common_count - 0.5]
         if "fem_oracle_region_force" in methods:
             boundaries.append(methods.index("fem_oracle_region_force") - 0.5)
@@ -3158,7 +3158,7 @@ def fig_ion_ct_error_distributions(output_dir: Path) -> None:
             color=INK,
             linestyle="--",
             linewidth=0.9,
-            label="Development-fixed gate",
+            label="Development-fixed criterion",
         )
 
     axes: list[plt.Axes] = []
@@ -3196,7 +3196,7 @@ def fig_ion_ct_error_distributions(output_dir: Path) -> None:
     ]
     fig.legend(
         handles,
-        ("Common input", "Secondary", "Ref*", "Development-fixed gate", "Evidence-tier boundary", "Box: scene distribution"),
+        ("Common input", "Secondary", "Ref*", "Development-fixed criterion", "Evidence-tier boundary", "Box: scene distribution"),
         loc="upper center",
         ncol=3,
         fontsize=7.5,
@@ -3678,7 +3678,7 @@ def fig_ion_ct_multiview_tracks(output_dir: Path) -> None:
             [0],
             color=plt.cm.viridis(0.85),
             linewidth=1.6,
-            label="Arrow colour = confidence (peak flow)",
+            label="Arrow color = confidence (peak flow)",
         ),
     ]
     # Two legend rows: frame colours, then the three encodings.
@@ -3843,7 +3843,7 @@ def fig_ion_ct_physics_material_maps(output_dir: Path) -> None:
     fig.text(
         0.04,
         0.012,
-        "Each row's four log E maps share that row's colour scale; the error column shares one scale.\n"
+        "Each row's four log E maps share that row's color scale; the error column shares one scale.\n"
         "* true-region/true-force reference under the shared 16-evaluation budget "
         "(diagnostic comparison only).",
         fontsize=7.3,

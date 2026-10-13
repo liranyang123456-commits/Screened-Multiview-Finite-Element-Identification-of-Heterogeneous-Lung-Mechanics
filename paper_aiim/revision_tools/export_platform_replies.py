@@ -4,7 +4,8 @@ The decision letter states: "Before you can submit your revision, you must respo
 reviews in our peer review platform." The platform asks for one reply per reviewer
 comment. This script converts Response_Reviewer[1-4].md into plain text (no Markdown
 markup), one block per comment, so each block can be pasted into the corresponding
-reply box. The wording is identical to the uploaded Response_Reviewer PDFs.
+reply box. The wording is identical to the uploaded response PDFs
+(02b_Response_to_Reviewer1.pdf ... 02e_Response_to_Reviewer4.pdf).
 
 Output: responses/platform_replies/Platform_Replies_Reviewer<n>.txt
 """
@@ -21,6 +22,11 @@ def plain(text: str) -> str:
     text = re.sub(r"\*\*(.*?)\*\*", r"\1", text)
     text = text.replace("`", "")
     return text.strip()
+
+
+def upload_name(reviewer: str) -> str:
+    """Submission-system file name of the uploaded response PDF (02b-02e)."""
+    return f"02{'bcde'[int(reviewer) - 1]}_Response_to_Reviewer{reviewer}.pdf"
 
 
 for md in sorted(source.glob("Response_Reviewer[1-4].md")):
@@ -69,7 +75,7 @@ for md in sorted(source.glob("Response_Reviewer[1-4].md")):
     with out.open("w", encoding="utf-8", newline="\n") as f:
         f.write(f"Replies for Reviewer {reviewer} - paste each block into the matching comment box "
                 f"of the online peer review platform ({len(blocks)} comments).\n")
-        f.write("Wording is identical to the uploaded Response_Reviewer%s.pdf.\n\n" % reviewer)
+        f.write(f"Wording is identical to the uploaded {upload_name(reviewer)}.\n\n")
         for k, b in enumerate(blocks, 1):
             f.write("=" * 78 + "\n")
             f.write(f"{b['title']}\n")

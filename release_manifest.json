@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "file_count": 603,
+  "file_count": 605,
   "patient_derived_assets_included": false,
   "raw_clinical_data_included": false,
   "checkpoints_included": false,
@@ -682,23 +682,23 @@
     },
     {
       "path": "figures/fig_ct_ratio_calibration.pdf",
-      "size_bytes": 25931,
-      "sha256": "970343f2edbb7ab4d2240a833716bfe9c6f6130ee818eb157ae5690f06eaffde"
+      "size_bytes": 25937,
+      "sha256": "70e7333318e78521b229448b53835531ab78f505940e697f76855e88d6614b6f"
     },
     {
       "path": "figures/fig_ct_ratio_calibration.png",
-      "size_bytes": 244808,
-      "sha256": "c0b7c82ff9fe06b9eea58f25e268806d26a6e28516c587e5e7ffc0ab253ad36a"
+      "size_bytes": 245363,
+      "sha256": "421ea906b77e6aa865ea03b5a229d95bdf24ba1f9668059b291342073b6a2ed3"
     },
     {
       "path": "figures/fig_dataset_protocol.pdf",
-      "size_bytes": 42358,
-      "sha256": "d55c56cee92ed129fa7923b27ece1339ffa4979310c9c57d0148c8e97765cf35"
+      "size_bytes": 42353,
+      "sha256": "98188bc079c9f9a0012e273835fe36034bdcda8a8f48875b4b15678c002cc14c"
     },
     {
       "path": "figures/fig_dataset_protocol.png",
-      "size_bytes": 316025,
-      "sha256": "52d280bcb337828e7385eee2952dadd09ab2785227c416ca33abda1fef2021fe"
+      "size_bytes": 321755,
+      "sha256": "a7b4e57560df5632a9c309c9f9e2793000ddff7ff5b976a3b706bbf91a5a9d53"
     },
     {
       "path": "figures/fig_development_ablation.pdf",
@@ -747,13 +747,13 @@
     },
     {
       "path": "figures/fig_ion_ct_error_distributions.pdf",
-      "size_bytes": 41397,
-      "sha256": "51da99ce41f1aba76bf86c76f1d0ceed7ddf2cd2e0e34cb62c1a3c51570da417"
+      "size_bytes": 41412,
+      "sha256": "068cc35b2222557716579f10f39c3385eea1e1b404b91e8bd7b7723714353ea6"
     },
     {
       "path": "figures/fig_ion_ct_error_distributions.png",
-      "size_bytes": 338432,
-      "sha256": "fc46113333b66ee539ab7290adda368d29de52efbbf347a6460e8a6f1bf1e390"
+      "size_bytes": 337644,
+      "sha256": "5065c17326df4e82027f1968a4acce6cd8f7cc6bef3687237b64d35d296c3b45"
     },
     {
       "path": "figures/fig_ion_ct_material_recovery.pdf",
@@ -767,23 +767,23 @@
     },
     {
       "path": "figures/fig_ion_ct_method_comparison.pdf",
-      "size_bytes": 41986,
-      "sha256": "d4ee4b477586e8691f913cafe1a30b20191265326fa22a33491da99d7b6999fd"
+      "size_bytes": 41993,
+      "sha256": "b267c110d0cb132e3f0abfe2955f6d1ac988443779d325051cac84d4679dca28"
     },
     {
       "path": "figures/fig_ion_ct_method_comparison.png",
-      "size_bytes": 399005,
-      "sha256": "55316741b242851fbaf3843b876e9956ce65e524b50e6f982bad0613b0a493a1"
+      "size_bytes": 398525,
+      "sha256": "acdaf17584b12aa66b238416ab6516767a5b497bb51734c65d0f1ff8909e3841"
     },
     {
       "path": "figures/fig_ion_ct_multiview_tracks.pdf",
-      "size_bytes": 97172,
-      "sha256": "6820e82a833174388bbe8781b96cdd25c48b048016ea4a547234c751ece846c6"
+      "size_bytes": 97173,
+      "sha256": "c92118e8a020f4415bdcd32f1762eca13d0d5334d3f800368f9fb25efc475cc8"
     },
     {
       "path": "figures/fig_ion_ct_multiview_tracks.png",
-      "size_bytes": 645345,
-      "sha256": "c971da76a34dca6289123dd9a25869a9e58232c90a8dfb3b2d74449a38afdc62"
+      "size_bytes": 645172,
+      "sha256": "4118e9cdb4f35502618d728f3c11a1772231cd48daf7dc3feedec7b31c40da98"
     },
     {
       "path": "figures/fig_ion_ct_node_material_metrics.pdf",
@@ -797,13 +797,13 @@
     },
     {
       "path": "figures/fig_ion_ct_physics_material_maps.pdf",
-      "size_bytes": 40340,
-      "sha256": "7e948d529036e32c84c9d9fc1453764e3bf0ecc8ef030d891e4cec769a038495"
+      "size_bytes": 40339,
+      "sha256": "b30211e2f35af4fc3538280506586bee9cd9ff7016d608195dcc7edf5f776f16"
     },
     {
       "path": "figures/fig_ion_ct_physics_material_maps.png",
-      "size_bytes": 602629,
-      "sha256": "8b5d1cd1c9fcd94155f160f15a67d7f86398bed8179a9df7f95d778da82d0ab1"
+      "size_bytes": 602505,
+      "sha256": "af03c8a0512a7c814ad869887e3a2c5549ba823999acbe3d5238c1dbc8453ba6"
     },
     {
       "path": "figures/fig_ion_ct_physics_tradeoff.pdf",
@@ -857,23 +857,23 @@
     },
     {
       "path": "figures/fig_pipeline.pdf",
-      "size_bytes": 45349,
-      "sha256": "91f46e4768eaf5dd6a3bb83dd4d4cd019064b1f6c674ce9b805fc8a2d0983df3"
+      "size_bytes": 45368,
+      "sha256": "7985f45095f2b95f9829a4e9bdaae9cfd2eab8371055e3d4da7eb35511a3bf2e"
     },
     {
       "path": "figures/fig_pipeline.png",
-      "size_bytes": 331234,
-      "sha256": "bcdf0461245bd7bcdffbd7da0aebb72bbd0473ccf49fc9c6842bc7ecc198d6e2"
+      "size_bytes": 333756,
+      "sha256": "1c5375cef97686edeff1c2227c5dc37cf1a5b2187ce2e291b682a0de345bcd91"
     },
     {
       "path": "figures/fig_qualitative_case.pdf",
-      "size_bytes": 137630,
-      "sha256": "35088c37902bd1c49ef066db4b651c930d9488ea9cf005479b81b3865bf14022"
+      "size_bytes": 137615,
+      "sha256": "a6c991b616679484eaf5fdd2a0f941779ef1d6b198fad74afc52bebfd99afc4a"
     },
     {
       "path": "figures/fig_qualitative_case.png",
-      "size_bytes": 1028874,
-      "sha256": "0ce1b31685aba37a3bc08a47cbaf58ba42cb531c849503891b98c77bbbed759d"
+      "size_bytes": 1029243,
+      "sha256": "0c1ac6378ed7c77577b095ad558588d3252bddc6192d0511df01c2b918b7c7d7"
     },
     {
       "path": "figures/fig_real_ion_cases.pdf",
@@ -917,13 +917,13 @@
     },
     {
       "path": "figures/graphical_abstract_array.pdf",
-      "size_bytes": 51459,
-      "sha256": "1af06e26d009bced82a11ffc1360148e184992a65a614591bd3c12c254217e11"
+      "size_bytes": 51460,
+      "sha256": "8f5dd44c393a130828c0eb7f70ae7863d76cbbedafb39a30560ce27f5ab9d248"
     },
     {
       "path": "figures/graphical_abstract_array.png",
-      "size_bytes": 493907,
-      "sha256": "3708e44964a9c134331deca79f9228160ffb08abf9dd16685daa9be233fe699d"
+      "size_bytes": 492940,
+      "sha256": "0a12ea63e3b2aa4789d983c0273e383cac61c5d04e7d26cfe9426b474a077a0e"
     },
     {
       "path": "figures/meshmaterial_gnn.pdf",
@@ -1122,18 +1122,18 @@
     },
     {
       "path": "paper_aiim/figures/generate_aiim_figures.py",
-      "size_bytes": 162024,
-      "sha256": "24135a6b04051e68545df0a947bacda410e598324ececb2a98dc7be679f7e492"
+      "size_bytes": 162068,
+      "sha256": "ef90f824d9732fc4ecd52d11bc44326ceab6821860de6881858b0dca1f634ea0"
     },
     {
       "path": "paper_aiim/figures/generate_graphical_abstract.py",
-      "size_bytes": 20160,
-      "sha256": "bbcfcfc3aa2bbee73e62623330bc7d723d380b4abe3e875afa546cbfdd9ba390"
+      "size_bytes": 20159,
+      "sha256": "abb0f98ca25e3559864b385d890e27f65ed44fdd28b76faea18db027f564404f"
     },
     {
       "path": "paper_aiim/figures/generate_new_result_figures.py",
-      "size_bytes": 10747,
-      "sha256": "9309bfcba4798fed56df1823310b182515c80db1582014c8b3d71778ad326663"
+      "size_bytes": 10752,
+      "sha256": "5c80affdc984dada245a791d20aa72bb237e832462b4778ecac62e75da25d433"
     },
     {
       "path": "paper_aiim/figures/plot_inverse_leaderboard.py",
@@ -1167,18 +1167,28 @@
     },
     {
       "path": "paper_aiim/revision_tools/build_responses.py",
-      "size_bytes": 2597,
-      "sha256": "f8d07b2107bd9b141276e4cca17db1d0d770229185b5238c7e4a4fd35704fcc9"
+      "size_bytes": 3324,
+      "sha256": "d217796a75093145e21cfc8dc164b231e556501ba3ea59248cd952fac6c3665f"
+    },
+    {
+      "path": "paper_aiim/revision_tools/color_changed_floats.py",
+      "size_bytes": 4226,
+      "sha256": "bc8cdbb8366eb8e92486a1e3af73ac995e924c2941a63ad8d447cfd207172b6a"
+    },
+    {
+      "path": "paper_aiim/revision_tools/export_plaintext_responses.py",
+      "size_bytes": 4330,
+      "sha256": "4746ae8ec1dd2c2fae3bc6d2e09973c485fe8cc6875ff9244d1a13173172c1bd"
     },
     {
       "path": "paper_aiim/revision_tools/export_platform_replies.py",
-      "size_bytes": 3617,
-      "sha256": "12e02b6c4c0209b4f0f7cdfce6412c21d9c86a2ba6845c9771df16d32e333d28"
+      "size_bytes": 3862,
+      "sha256": "5f45a9ff60a6fdad5854d78c2a25b83d1f6739c0cc9c731ebd7dbc095ab512ba"
     },
     {
       "path": "paper_aiim/revision_tools/export_responses_pdf.py",
-      "size_bytes": 5015,
-      "sha256": "b59b393ff0582e0652865cf133440889279d0cc286a8dbe084499de5c130e61e"
+      "size_bytes": 7986,
+      "sha256": "be34c66dfb30e3abc68c28fee27ff83387971956dbfae7786c46fdc287429600"
     },
     {
       "path": "paper_aiim/revision_tools/fix_diff_paths.py",
@@ -1197,8 +1207,8 @@
     },
     {
       "path": "paper_aiim/revision_tools/make_diff.ps1",
-      "size_bytes": 4878,
-      "sha256": "4d54820d36d1038af40a383de14acb203946236264fdbf5b3e89fb5d275ab606"
+      "size_bytes": 5113,
+      "sha256": "26f2c2b5a455400b74b852e56df812f61d2fc43a4c30646b3e9ee4c2d8f0c941"
     },
     {
       "path": "paper_aiim/revision_tools/merge_bib.py",
@@ -1207,8 +1217,8 @@
     },
     {
       "path": "paper_aiim/revision_tools/README.md",
-      "size_bytes": 1344,
-      "sha256": "7d45ac5227380f9d7bf3aa8bed9391be94a9d80de58444f3d68f82964bb323d9"
+      "size_bytes": 1635,
+      "sha256": "fb70c819056234eab0b46734d429d2602d3d9e6a5e9b7abe1cb5e088971d8f82"
     },
     {
       "path": "paper_aiim/revision_tools/run_latexdiff.py",

@@ -91,7 +91,7 @@ GA_STAGES = (
     ("2  Multiview\nmotion", "4 loads, 3 views\n7 frames + force", BLUE, PALE["blue"]),
     ("3  Response\nencoding", "visibility mask\nresponse tokens", BLUE, "#F2F7FB"),
     ("4  Learned\ninitializer", "PCA–Ridge or\nMeshGNN hybrid", GREEN, PALE["green"]),
-    ("5  Physics\ndecision", "seven probes:\nprior or MAP", ORANGE, PALE["orange"]),
+    ("5  Physics\ndecision", "7 first-round\nevaluations", ORANGE, PALE["orange"]),
     ("6  Audited\noutput", "accept / retain\nfield + interval", PURPLE, PALE["purple"]),
 )
 

@@ -150,7 +150,7 @@ def fig_ct_ratio_calibration() -> None:
     bars = ax.bar(np.arange(4), vals, color=colors, edgecolor=INK)
     for bar, value in zip(bars, vals, strict=True):
         ax.text(bar.get_x() + bar.get_width() / 2, value + 0.8, f"{value:.2f}%", ha="center", fontsize=7.5)
-    ax.axhline(25, color=INK, ls="--", lw=0.9, label="25% gate")
+    ax.axhline(25, color=INK, ls="--", lw=0.9, label="25% criterion")
     ax.set_xticks(range(4), names)
     ax.set_ylabel("Held-out median ratio error (%)")
     ax.set_title("Same train-fit / validation-select protocol")

@@ -8,6 +8,9 @@ src_dir = Path(sys.argv[1])
 out_dir = Path(sys.argv[2])
 out_dir.mkdir(parents=True, exist_ok=True)
 
+LABELS = ('**Author Response:**', '**Location of revisions:**')
+QUOTE_LABELS = ("Reviewer's Comment:", "Editor's Comment:")
+
 md_paths = sorted(src_dir.glob('Response_Reviewer[1-4].md')) + sorted(src_dir.glob('Response_to_Editor.md'))
 for md_path in md_paths:
     text = md_path.read_text(encoding='utf-8-sig')
@@ -34,26 +37,34 @@ for md_path in md_paths:
         stripped = line.strip()
         if not stripped:
             continue
-        if stripped.startswith('# '):
-            doc.add_heading(stripped[2:].strip(), level=0)
-            continue
-        if stripped.startswith('## '):
-            doc.add_heading(stripped[3:].strip(), level=1)
-            continue
-        if stripped.startswith('### '):
-            doc.add_heading(stripped[4:].strip(), level=2)
+        heading = re.match(r'^(#{1,3}) ', stripped)
+        if heading:
+            level = len(heading.group(1)) - 1
+            h = doc.add_heading(stripped[heading.end():].strip(), level=level)
+            h.paragraph_format.keep_with_next = True
             continue
         if stripped.startswith('> '):
+            body = stripped[2:].replace('  ', ' ')
             p = doc.add_paragraph()
             p.paragraph_format.left_indent = Inches(0.18)
             p.paragraph_format.right_indent = Inches(0.18)
-            r = p.add_run(stripped[2:].replace('  ', ' '))
-            r.italic = True
-            r.font.color.rgb = RGBColor(90, 90, 90)
+            for part in re.split(r'(\*\*.*?\*\*)', body):
+                if not part:
+                    continue
+                bold = len(part) > 4 and part.startswith('**') and part.endswith('**')
+                r = p.add_run(part[2:-2] if bold else part)
+                r.italic = True
+                if bold:
+                    r.bold = True
+                r.font.color.rgb = RGBColor(90, 90, 90)
+            if body.replace('**', '').strip() in QUOTE_LABELS:
+                p.paragraph_format.keep_with_next = True
             continue
         if stripped == '---':
             continue
         p = doc.add_paragraph()
+        if stripped in LABELS:
+            p.paragraph_format.keep_with_next = True
         parts = re.split(r'(\*\*.*?\*\*|`[^`]+`)', stripped)
         for part in parts:
             if part.startswith('**') and part.endswith('**'):
@@ -65,5 +76,9 @@ for md_path in md_paths:
             else:
                 p.add_run(part)
     output = out_dir / f'{md_path.stem}.docx'
+    props = doc.core_properties
+    props.author = props.last_modified_by = 'Ranyang Li'
+    props.comments = ''
+    props.title = md_path.stem.replace('_', ' ')
     doc.save(output)
     print(output)

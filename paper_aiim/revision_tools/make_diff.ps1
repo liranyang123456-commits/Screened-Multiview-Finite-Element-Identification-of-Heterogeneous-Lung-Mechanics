@@ -42,6 +42,7 @@ Pop-Location
 & $PY "$T\merge_bib.py"
 & $PY "$T\fix_diff_refs.py" build_diff\main_diff.tex build_diff\frozen_main\main.aux build_final\main_clean.aux
 & $PY "$T\fix_diff_paths.py" build_diff\main_diff.tex
+& $PY "$T\color_changed_floats.py" build_diff\main_diff.tex build_diff\main_new_flat.tex "$BW\main.tex"
 cmd /c "pdflatex -interaction=nonstopmode -output-directory=build_diff build_diff\main_diff.tex > build_diff\main_diff.pass1.stdout 2>&1"
 Push-Location build_diff
 cmd /c "bibtex main_diff > main_diff.bibtex.stdout 2>&1"
@@ -61,6 +62,7 @@ Copy-Item ion_geometry_failure_table.tex build_diff\ion_geometry_failure_table.t
 & $PY "$T\run_latexdiff.py" build_diff\supplementary_diff.tex build_diff\supplementary_diff.latexdiff.err "$BW\supplementary.tex" build_diff\supplementary_new_flat.tex @opts
 & $PY "$T\fix_diff_refs.py" build_diff\supplementary_diff.tex build_diff\frozen_supp\supplementary.aux build_final\supplementary_clean.aux
 & $PY "$T\fix_diff_paths.py" build_diff\supplementary_diff.tex
+& $PY "$T\color_changed_floats.py" build_diff\supplementary_diff.tex build_diff\supplementary_new_flat.tex "$BW\supplementary.tex"
 cmd /c "pdflatex -interaction=nonstopmode -output-directory=build_diff build_diff\supplementary_diff.tex > build_diff\supplementary_diff.pass1.stdout 2>&1"
 cmd /c "pdflatex -interaction=nonstopmode -output-directory=build_diff build_diff\supplementary_diff.tex > build_diff\supplementary_diff.pass2.stdout 2>&1"
 cmd /c "pdflatex -interaction=nonstopmode -output-directory=build_diff build_diff\supplementary_diff.tex > build_diff\supplementary_diff.pass3.stdout 2>&1"
