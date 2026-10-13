@@ -82,10 +82,17 @@ for md in sorted(source.glob("Response_Reviewer[1-4].md")) + sorted(source.glob(
             lines.append(line)
         line_height = size * 1.42
         required = len(lines) * line_height + after
-        if state["y"] + required > PAGE_H - MARGIN_Y:
+        # Keep short paragraphs together; let long paragraphs flow across pages
+        # (a paragraph taller than the text area would otherwise leave a page
+        # almost empty).
+        if state["y"] + required > PAGE_H - MARGIN_Y and required <= (PAGE_H - 2 * MARGIN_Y) * 0.6:
             new_page()
         writer = fitz.TextWriter(state["page"].rect)
         for ln in lines:
+            if state["y"] + line_height > PAGE_H - MARGIN_Y:
+                writer.write_text(state["page"], color=color)
+                new_page()
+                writer = fitz.TextWriter(state["page"].rect)
             writer.append((MARGIN_X + indent, state["y"] + size), ln, font=font, fontsize=size)
             state["y"] += line_height
         writer.write_text(state["page"], color=color)

@@ -1177,8 +1177,8 @@
     },
     {
       "path": "paper_aiim/revision_tools/export_responses_pdf.py",
-      "size_bytes": 4575,
-      "sha256": "8208da89e62bc11dbdbaf84fb9281db84b039ac2172144e9fd42877c74ff6b06"
+      "size_bytes": 5015,
+      "sha256": "b59b393ff0582e0652865cf133440889279d0cc286a8dbe084499de5c130e61e"
     },
     {
       "path": "paper_aiim/revision_tools/fix_diff_paths.py",
