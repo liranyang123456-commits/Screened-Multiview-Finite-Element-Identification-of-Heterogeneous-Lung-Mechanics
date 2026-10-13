@@ -692,13 +692,13 @@
     },
     {
       "path": "figures/fig_dataset_protocol.pdf",
-      "size_bytes": 42353,
-      "sha256": "98188bc079c9f9a0012e273835fe36034bdcda8a8f48875b4b15678c002cc14c"
+      "size_bytes": 42363,
+      "sha256": "be2955696fff8b40cf77599f00e547bfd20c2ffb886f2965ac3fdb2000c3fb04"
     },
     {
       "path": "figures/fig_dataset_protocol.png",
-      "size_bytes": 321755,
-      "sha256": "a7b4e57560df5632a9c309c9f9e2793000ddff7ff5b976a3b706bbf91a5a9d53"
+      "size_bytes": 320783,
+      "sha256": "f41a98d7eda45c1d79ec5283c66306c56fcbf97d08f6939010dea4d2abfdf3d0"
     },
     {
       "path": "figures/fig_development_ablation.pdf",
@@ -1122,8 +1122,8 @@
     },
     {
       "path": "paper_aiim/figures/generate_aiim_figures.py",
-      "size_bytes": 162068,
-      "sha256": "ef90f824d9732fc4ecd52d11bc44326ceab6821860de6881858b0dca1f634ea0"
+      "size_bytes": 162044,
+      "sha256": "c816a27c7d3a71b0381d58c05b66d07fbdba704bca488865a46fea8a55b2ce48"
     },
     {
       "path": "paper_aiim/figures/generate_graphical_abstract.py",

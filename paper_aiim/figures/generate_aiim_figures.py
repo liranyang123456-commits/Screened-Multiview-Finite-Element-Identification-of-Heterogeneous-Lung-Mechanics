@@ -987,21 +987,22 @@ def fig_dataset_protocol(manifest: dict[str, Any], output_dir: Path) -> None:
     noise_px = manifest["generation_config"]["motion_noise_std"] * 200.0
     force_prior = manifest["generation_config"]["force_prior_fraction"]
     ax.text(0.5, 1.02, "Observation model", transform=ax.transAxes, ha="center", va="bottom", fontsize=small_pt + 0.4, fontweight="semibold", color=ORANGE)
-    # Six compact entries in two columns, formula on the last row.
+    # Six entries, one per row (label left, value right), formula below.
     cards = (
-        (0.04, 0.80, "Track noise", f"{noise_px:.2f} px"),
-        (0.57, 0.80, "Force error", f"{force_prior:.0%}"),
-        (0.04, 0.56, "Depth change", "normalized"),
-        (0.57, 0.56, "Visibility", "binary mask"),
-        (0.04, 0.32, "Occlusion", "confidence"),
-        (0.57, 0.32, "Camera pose", "known"),
+        ("Track noise", f"{noise_px:.2f} px"),
+        ("Force error", f"{force_prior:.0%}"),
+        ("Depth", "normalized"),
+        ("Visibility", "binary mask"),
+        ("Occlusion", "confidence"),
+        ("Camera pose", "known"),
     )
-    for x0, y0, title, value in cards:
-        ax.text(x0, y0 + 0.095, title, transform=ax.transAxes, fontsize=small_pt, color=GRAY, va="center")
-        ax.text(x0, y0, value, transform=ax.transAxes, fontsize=small_pt + 0.2, color=INK, fontweight="semibold", va="center")
+    for row, (title, value) in enumerate(cards):
+        y0 = 0.91 - 0.105 * row
+        ax.text(0.05, y0, title, transform=ax.transAxes, fontsize=small_pt, color=GRAY, va="center")
+        ax.text(0.96, y0, value, transform=ax.transAxes, fontsize=small_pt + 0.2, color=INK, fontweight="semibold", va="center", ha="right")
     ax.text(
         0.5,
-        0.09,
+        0.22,
         r"$y_{t,v}=\Pi_v(x+u_t)+\epsilon$",
         transform=ax.transAxes,
         ha="center",
@@ -1011,7 +1012,7 @@ def fig_dataset_protocol(manifest: dict[str, Any], output_dir: Path) -> None:
     )
     ax.text(
         0.5,
-        -0.08,
+        0.08,
         r"$\epsilon\sim\mathcal{N}(0,0.05^2)$",
         transform=ax.transAxes,
         ha="center",
