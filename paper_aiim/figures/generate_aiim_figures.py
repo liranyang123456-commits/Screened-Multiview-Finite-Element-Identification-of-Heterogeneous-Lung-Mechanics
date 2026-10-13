@@ -17,6 +17,7 @@ import argparse
 import json
 import sys
 import textwrap
+from collections.abc import Sequence
 from pathlib import Path
 from typing import Any
 
@@ -372,94 +373,107 @@ def verify_assets(output_dir: Path, stems: tuple[str, ...]) -> None:
             print(f"  verified {stem}: {image.width}x{image.height} px, {dpi[0]:.1f} dpi")
 
 
-def fig_pipeline(output_dir: Path) -> None:
-    """Draw the Calibrated Multiview screened-FEM inference path: observe → encode → prior → screen → audit.
+# Figure 1 stage boxes: (title, detail, edge colour, fill). The graphical
+# abstract (generate_graphical_abstract.py) redraws the same boxes and icons
+# through draw_pipeline_stages() with its own shortened labels.
+PIPELINE_STAGES: tuple[tuple[str, str, str, str], ...] = (
+    (
+        "1  Geometry and\nconstraints",
+        "surface mesh • tetrahedra\nboundary • contacts",
+        GRAY,
+        "#F4F6F8",
+    ),
+    (
+        "2  Multiview motion",
+        "4 loads • 3 views\n7-frame tracks + force",
+        BLUE,
+        PALE_BLUE,
+    ),
+    (
+        "3  Response encoding",
+        "visibility mask\ntemporal response tokens",
+        BLUE,
+        "#F2F7FB",
+    ),
+    (
+        "4  Hybrid material\ninitializer",
+        "MeshGNN field + calibrated radius\n"
+        r"$\theta_0=(\hat E_b,\hat\rho_E,\hat{\mathbf{c}},\hat R)$",
+        GREEN,
+        PALE_GREEN,
+    ),
+    (
+        "5  Physics decision",
+        "seven probes\nretain prior or bounded MAP",
+        ORANGE,
+        PALE_ORANGE,
+    ),
+    (
+        "6  Audited output",
+        "accept or roll back\nfield • interval • diagnostics",
+        PURPLE,
+        PALE_PURPLE,
+    ),
+)
+PIPELINE_BOX_W, PIPELINE_BOX_H = 1.78, 1.00
 
-    The canvas is laid out at its printed size (``FINAL_WIDTH_IN`` wide): one
-    axes fills the figure and its data units are inches, so every coordinate
-    below is an axes fraction scaled by the page width/height and every font
-    size is the printed point size (titles 8.5 pt, all other text >= 7 pt).
+
+def draw_pipeline_stages(
+    ax: plt.Axes,
+    positions: Sequence[tuple[float, float]],
+    *,
+    stages: Sequence[tuple[str, str, str, str]] = PIPELINE_STAGES,
+    box_w: float = PIPELINE_BOX_W,
+    box_h: float = PIPELINE_BOX_H,
+    icon_dy: float = 0.50,
+    title_dy: tuple[float, float] = (0.14, 0.15),
+    detail_dy: float = 0.16,
+    title_pt: float = 8.5,
+    detail_pt: float = 7.1,
+    label_pt: float = 7.1,
+    check_pt: float = 11.0,
+    box_lw: float = 1.3,
+    rounding_size: float = 0.07,
+    marker_scale: float = 1.0,
+    lw_scale: float = 1.0,
+    arrow_scale: float = 7.0,
+    decision_area: float = 300.0,
+    decision_arm: tuple[float, float] = (0.09, 0.07),
+    fem_lattice: bool = True,
+) -> list[tuple[FancyBboxPatch, list[plt.Text]]]:
+    """Draw the six illustrated stage boxes of Figure 1 (box, title, detail, icon).
+
+    ``positions`` holds the lower-left corner of each box in the data units of
+    ``ax``, which must be isotropic (inches in ``fig_pipeline``; the graphical
+    abstract uses an inset whose data unit is a scaled inch). All geometry
+    (``box_w``, ``box_h``, ``icon_dy`` = icon centre above the box bottom,
+    ``title_dy`` = title centre below the box top for one-/two-line titles,
+    ``detail_dy`` = detail centre above the box bottom, ``decision_arm`` =
+    offset of the prior/MAP arrow tails from the decision diamond) follows the
+    data units, whereas font sizes, marker areas (``marker_scale``), line
+    widths (``lw_scale``), icon arrow heads (``arrow_scale``) and the decision
+    diamond area are display points and must be chosen for the target scale;
+    ``fem_lattice`` switches the small FEM lattice beside the MAP branch off
+    where the prior/MAP labels would collide with it at small sizes.
+    With the defaults this reproduces Figure 1 exactly. Returns
+    ``[(box_patch, [title_text, detail_text]), ...]`` for layout checks.
     """
-    W, H = FINAL_WIDTH_IN, 3.9
-    fig = plt.figure(figsize=(W, H))
-    ax = fig.add_axes([0.0, 0.0, 1.0, 1.0])
-    ax.set_xlim(0, W)
-    ax.set_ylim(0, H)
-    ax.axis("off")
-    # save_figure pads the page by 0.03 in per side, so nominal 7.1 pt prints
-    # at >= 7.0 pt once the PDF is scaled to \linewidth.
-    title_pt, detail_pt, label_pt = 8.5, 7.1, 7.1
-    stages = [
-        (
-            "1  Geometry and\nconstraints",
-            "surface mesh • tetrahedra\nboundary • contacts",
-            GRAY,
-            "#F4F6F8",
-        ),
-        (
-            "2  Multiview motion",
-            "4 loads • 3 views\n7-frame tracks + force",
-            BLUE,
-            PALE_BLUE,
-        ),
-        (
-            "3  Response encoding",
-            "visibility mask\ntemporal response tokens",
-            BLUE,
-            "#F2F7FB",
-        ),
-        (
-            "4  Hybrid material\ninitializer",
-            "MeshGNN field + calibrated radius\n"
-            r"$\theta_0=(\hat E_b,\hat\rho_E,\hat{\mathbf{c}},\hat R)$",
-            GREEN,
-            PALE_GREEN,
-        ),
-        (
-            "5  Physics decision",
-            "seven probes\nretain prior or bounded MAP",
-            ORANGE,
-            PALE_ORANGE,
-        ),
-        (
-            "6  Audited output",
-            "accept or roll back\nfield • interval • diagnostics",
-            PURPLE,
-            PALE_PURPLE,
-        ),
-    ]
-    # Estimator inference order (clockwise): geometry → motion → encoding →
-    # hybrid prior → screened FEM decision → audited material field.
-    box_w, box_h = 1.78, 1.00
-    margin = 0.02
-    gap = (W - 2 * margin - 3 * box_w) / 2
-    col_x = [margin + index * (box_w + gap) for index in range(3)]
-    row_y = (2.42, 1.05)  # bottom edge of the top and bottom rows (in)
-    positions = (
-        (col_x[0], row_y[0]),
-        (col_x[1], row_y[0]),
-        (col_x[2], row_y[0]),
-        (col_x[2], row_y[1]),
-        (col_x[1], row_y[1]),
-        (col_x[0], row_y[1]),
-    )
-    icon_dy = 0.50  # icon centre above the box bottom (in)
+    boxes: list[tuple[FancyBboxPatch, list[plt.Text]]] = []
     for (left, y0), (title, detail, color, fill) in zip(positions, stages, strict=True):
-        ax.add_patch(
-            FancyBboxPatch(
-                (left, y0),
-                box_w,
-                box_h,
-                boxstyle="round,pad=0,rounding_size=0.07",
-                facecolor=fill,
-                edgecolor=color,
-                linewidth=1.3,
-            )
+        patch = FancyBboxPatch(
+            (left, y0),
+            box_w,
+            box_h,
+            boxstyle=f"round,pad=0,rounding_size={rounding_size}",
+            facecolor=fill,
+            edgecolor=color,
+            linewidth=box_lw,
         )
+        ax.add_patch(patch)
         two_lines = "\n" in title
-        ax.text(
+        title_text = ax.text(
             left + box_w / 2,
-            y0 + box_h - (0.15 if two_lines else 0.14),
+            y0 + box_h - (title_dy[1] if two_lines else title_dy[0]),
             title,
             ha="center",
             va="center",
@@ -468,9 +482,9 @@ def fig_pipeline(output_dir: Path) -> None:
             color=color,
             linespacing=1.05,
         )
-        ax.text(
+        detail_text = ax.text(
             left + box_w / 2,
-            y0 + 0.16,
+            y0 + detail_dy,
             detail,
             ha="center",
             va="center",
@@ -478,6 +492,7 @@ def fig_pipeline(output_dir: Path) -> None:
             color=INK,
             linespacing=1.3,
         )
+        boxes.append((patch, [title_text, detail_text]))
 
     def _icon_centre(index: int) -> tuple[float, float]:
         left, y0 = positions[index]
@@ -511,14 +526,14 @@ def fig_pipeline(output_dir: Path) -> None:
                         closed=True,
                         facecolor=GRAY,
                         edgecolor=GRAY,
-                        linewidth=0.35,
+                        linewidth=0.35 * lw_scale,
                         alpha=alpha,
                         zorder=2,
                     )
                 )
-    ax.scatter(mesh_x.ravel(), mesh_y.ravel(), s=3.0, color=GRAY, zorder=3)
+    ax.scatter(mesh_x.ravel(), mesh_y.ravel(), s=3.0 * marker_scale, color=GRAY, zorder=3)
     # Fixed posterior boundary cue.
-    ax.plot(mesh_x[-1], mesh_y[-1] - 0.03, color=ORANGE, lw=1.2, solid_capstyle="round", zorder=4)
+    ax.plot(mesh_x[-1], mesh_y[-1] - 0.03, color=ORANGE, lw=1.2 * lw_scale, solid_capstyle="round", zorder=4)
 
     # 2: rendered multiview tracks with three cameras.
     cx, cy = _icon_centre(1)
@@ -532,7 +547,7 @@ def fig_pipeline(output_dir: Path) -> None:
             boxstyle="round,pad=0.01,rounding_size=0.02",
             facecolor="#F8FBFD",
             edgecolor=BLUE,
-            linewidth=0.7,
+            linewidth=0.7 * lw_scale,
         )
     )
     rng = np.random.default_rng(7)
@@ -542,37 +557,37 @@ def fig_pipeline(output_dir: Path) -> None:
     for index, (u_value, v_value) in enumerate(zip(node_u, node_v, strict=True)):
         track_u = u_value + 0.022 * np.arange(5)
         track_v = v_value - 0.014 * np.arange(5)
-        ax.plot(track_u, track_v, color=GRAY, lw=0.45, alpha=0.45, zorder=3)
-        ax.scatter(track_u[-1], track_v[-1], s=5, color=frame_colors[index % len(frame_colors)], zorder=4)
+        ax.plot(track_u, track_v, color=GRAY, lw=0.45 * lw_scale, alpha=0.45, zorder=3)
+        ax.scatter(track_u[-1], track_v[-1], s=5 * marker_scale, color=frame_colors[index % len(frame_colors)], zorder=4)
     target = (cx, cy + 0.01)
     cameras = ((cx - 0.60, cy + 0.15), (cx + 0.60, cy + 0.15), (cx, cy - 0.21))
     for camera_x, camera_y in cameras:
-        ax.scatter(camera_x, camera_y, marker="s", s=14, color=BLUE, zorder=5)
-        ax.plot((camera_x, target[0]), (camera_y, target[1]), color=BLUE, lw=0.55, alpha=0.65, zorder=2)
+        ax.scatter(camera_x, camera_y, marker="s", s=14 * marker_scale, color=BLUE, zorder=5)
+        ax.plot((camera_x, target[0]), (camera_y, target[1]), color=BLUE, lw=0.55 * lw_scale, alpha=0.65, zorder=2)
 
     # 3: temporal token sequence with masked frames.
     cx, cy = _icon_centre(2)
     token_x = cx - 0.46 + 0.14 * np.arange(7)
     token_y = cy + 0.02 + 0.025 * np.sin(np.linspace(0, np.pi, 7))
-    ax.plot(token_x, token_y, color=BLUE, lw=0.9, alpha=0.55, zorder=2)
+    ax.plot(token_x, token_y, color=BLUE, lw=0.9 * lw_scale, alpha=0.55, zorder=2)
     for index, (x_value, y_value) in enumerate(zip(token_x, token_y, strict=True)):
         visible = index not in (2, 5)
         ax.scatter(
             x_value,
             y_value,
-            s=20 if visible else 11,
+            s=(20 if visible else 11) * marker_scale,
             color=BLUE if visible else LIGHT,
             edgecolor=BLUE,
-            linewidth=0.6,
+            linewidth=0.6 * lw_scale,
             zorder=4,
         )
         if visible:
-            ax.plot((x_value, x_value), (y_value - 0.11, y_value - 0.04), color=BLUE, lw=0.8, alpha=0.55, zorder=3)
+            ax.plot((x_value, x_value), (y_value - 0.11, y_value - 0.04), color=BLUE, lw=0.8 * lw_scale, alpha=0.55, zorder=3)
     ax.annotate(
         "",
         (token_x[-1] + 0.14, token_y[-1]),
         (token_x[-1] + 0.03, token_y[-1]),
-        arrowprops={"arrowstyle": "-|>", "color": BLUE, "lw": 0.8, "mutation_scale": 7},
+        arrowprops={"arrowstyle": "-|>", "color": BLUE, "lw": 0.8 * lw_scale, "mutation_scale": arrow_scale},
     )
 
     # 4: MeshGNN cue: node graph + global material heads.
@@ -587,23 +602,23 @@ def fig_pipeline(output_dir: Path) -> None:
                     (layer_x[first_layer], layer_x[second_layer]),
                     (first_y, second_y),
                     color=GREEN,
-                    lw=0.35,
+                    lw=0.35 * lw_scale,
                     alpha=0.35,
                     zorder=2,
                 )
     for x_value, ys in zip(layer_x, layer_y, strict=True):
-        ax.scatter(np.full(len(ys), x_value), ys, s=9, color=GREEN, edgecolor="#0B5F3A", linewidth=0.3, zorder=4)
+        ax.scatter(np.full(len(ys), x_value), ys, s=9 * marker_scale, color=GREEN, edgecolor="#0B5F3A", linewidth=0.3 * lw_scale, zorder=4)
     head_x = cx + 0.52
     for y_value in cy + np.asarray((-0.10, 0.0, 0.10)):
         ax.plot(
             (layer_x[-1], head_x),
             (layer_y[-1][len(layer_y[-1]) // 2], y_value),
             color=GREEN,
-            lw=0.45,
+            lw=0.45 * lw_scale,
             alpha=0.55,
             zorder=2,
         )
-        ax.scatter(head_x, y_value, s=11, marker="D", color=ORANGE, zorder=5)
+        ax.scatter(head_x, y_value, s=11 * marker_scale, marker="D", color=ORANGE, zorder=5)
 
     # 5: support screen with retain-prior / MAP-FEM branches and a FEM lattice.
     cx, cy = _icon_centre(4)
@@ -611,11 +626,11 @@ def fig_pipeline(output_dir: Path) -> None:
     ax.scatter(
         decision_x,
         decision_y,
-        s=300,
+        s=decision_area,
         marker="D",
         facecolor="#FFF7ED",
         edgecolor=ORANGE,
-        linewidth=0.9,
+        linewidth=0.9 * lw_scale,
         zorder=3,
     )
     ax.text(decision_x, decision_y, r"$\Delta J$?", fontsize=label_pt, ha="center", va="center", color=ORANGE, zorder=4)
@@ -623,20 +638,20 @@ def fig_pipeline(output_dir: Path) -> None:
         ax.annotate(
             "",
             (cx + sign * 0.40, cy - 0.06),
-            (decision_x + sign * 0.09, decision_y - 0.07),
-            arrowprops={"arrowstyle": "-|>", "color": ORANGE, "lw": 0.6, "mutation_scale": 7},
+            (decision_x + sign * decision_arm[0], decision_y - decision_arm[1]),
+            arrowprops={"arrowstyle": "-|>", "color": ORANGE, "lw": 0.6 * lw_scale, "mutation_scale": arrow_scale},
         )
         ax.text(cx + sign * 0.40, cy - 0.15, word, fontsize=label_pt, ha="center", va="center", color=ORANGE)
-    for row in range(2):
+    for row in range(2 if fem_lattice else 0):
         for col in range(3):
             ax.scatter(
                 cx + 0.58 + 0.075 * col,
                 cy - 0.08 - 0.065 * row,
-                s=8,
+                s=8 * marker_scale,
                 marker="s",
                 facecolor=PALE_ORANGE,
                 edgecolor=ORANGE,
-                linewidth=0.45,
+                linewidth=0.45 * lw_scale,
                 zorder=3,
             )
 
@@ -655,15 +670,51 @@ def fig_pipeline(output_dir: Path) -> None:
             ax.scatter(
                 cx - 0.42 + 0.13 * col,
                 cy + 0.13 - 0.09 * row,
-                s=24,
+                s=24 * marker_scale,
                 marker="s",
                 color=ORANGE if field[row, col] else BLUE,
                 alpha=0.85 if field[row, col] else 0.55,
                 edgecolor="white",
-                linewidth=0.3,
+                linewidth=0.3 * lw_scale,
                 zorder=3,
             )
-    ax.text(cx + 0.50, cy, "✓", color=PURPLE, fontsize=11, va="center", ha="center", fontweight="bold", zorder=4)
+    ax.text(cx + 0.50, cy, "✓", color=PURPLE, fontsize=check_pt, va="center", ha="center", fontweight="bold", zorder=4)
+    return boxes
+
+
+def fig_pipeline(output_dir: Path) -> None:
+    """Draw the Calibrated Multiview screened-FEM inference path: observe → encode → prior → screen → audit.
+
+    The canvas is laid out at its printed size (``FINAL_WIDTH_IN`` wide): one
+    axes fills the figure and its data units are inches, so every coordinate
+    below is an axes fraction scaled by the page width/height and every font
+    size is the printed point size (titles 8.5 pt, all other text >= 7 pt).
+    """
+    W, H = FINAL_WIDTH_IN, 3.9
+    fig = plt.figure(figsize=(W, H))
+    ax = fig.add_axes([0.0, 0.0, 1.0, 1.0])
+    ax.set_xlim(0, W)
+    ax.set_ylim(0, H)
+    ax.axis("off")
+    # save_figure pads the page by 0.03 in per side, so nominal 7.1 pt prints
+    # at >= 7.0 pt once the PDF is scaled to \linewidth.
+    title_pt, detail_pt, label_pt = 8.5, 7.1, 7.1
+    # Estimator inference order (clockwise): geometry → motion → encoding →
+    # hybrid prior → screened FEM decision → audited material field.
+    box_w, box_h = PIPELINE_BOX_W, PIPELINE_BOX_H
+    margin = 0.02
+    gap = (W - 2 * margin - 3 * box_w) / 2
+    col_x = [margin + index * (box_w + gap) for index in range(3)]
+    row_y = (2.42, 1.05)  # bottom edge of the top and bottom rows (in)
+    positions = (
+        (col_x[0], row_y[0]),
+        (col_x[1], row_y[0]),
+        (col_x[2], row_y[0]),
+        (col_x[2], row_y[1]),
+        (col_x[1], row_y[1]),
+        (col_x[0], row_y[1]),
+    )
+    draw_pipeline_stages(ax, positions, title_pt=title_pt, detail_pt=detail_pt, label_pt=label_pt)
 
     # Arrows between stages: symbol above the shaft, verb below it.
     mid_top = row_y[0] + box_h / 2
