@@ -92,7 +92,7 @@ GA_STAGES = (
     ("3  Response\nencoding", "visibility mask\nresponse tokens", BLUE, "#F2F7FB"),
     ("4  Learned\ninitializer", "MeshGNN field,\ncalibrated radius", GREEN, PALE["green"]),
     ("5  Physics\ndecision", "seven probes:\nprior or MAP", ORANGE, PALE["orange"]),
-    ("6  Audited\noutput", "accept / roll back\nfield + interval", PURPLE, PALE["purple"]),
+    ("6  Audited\noutput", "accept / retain\nfield + interval", PURPLE, PALE["purple"]),
 )
 
 
@@ -303,7 +303,7 @@ def draw_abstract(numbers: dict[str, dict[str, float]]) -> tuple[plt.Figure, flo
     card_w = (W - 2 * margin_x - card_gap) / 2
     cards = [
         ("Synthetic: 50 held-out cases", numbers["synthetic"], margin_x),
-        ("CT-derived geometry: 120 held-out scenes", numbers["ct"], margin_x + card_w + card_gap),
+        ("CT-derived: 120 scenes, 6 held-out geometries", numbers["ct"], margin_x + card_w + card_gap),
     ]
     ekf_bar_label = "Prior-matched EKF" if EKF_PRIOR_WIDTH == 1.0 else "Sequential EKF (w2)"
     rows = [("Learned initializer", "initializer", GREEN), ("Screened FEM audit", "audit", ORANGE), (ekf_bar_label, "ekf", PURPLE)]

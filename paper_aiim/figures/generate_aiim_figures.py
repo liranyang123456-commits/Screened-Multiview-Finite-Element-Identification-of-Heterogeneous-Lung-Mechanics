@@ -410,7 +410,7 @@ PIPELINE_STAGES: tuple[tuple[str, str, str, str], ...] = (
     ),
     (
         "6  Audited output",
-        "accept or roll back\nfield • interval • diagnostics",
+        "accept or retain\nfield • interval • diagnostics",
         PURPLE,
         PALE_PURPLE,
     ),
@@ -725,7 +725,7 @@ def fig_pipeline(output_dir: Path) -> None:
         ((col_x[0] + box_w + 0.02, mid_top), (col_x[1] - 0.02, mid_top), r"$\Pi_v,\mathbf{f}$", "project\n+ load"),
         ((col_x[1] + box_w + 0.02, mid_top), (col_x[2] - 0.02, mid_top), r"$\mathbf{z}_{i\ell vt}$", "tokenize"),
         ((col_x[2] - 0.02, mid_bottom), (col_x[1] + box_w + 0.02, mid_bottom), r"$\Delta J$", "screen"),
-        ((col_x[1] - 0.02, mid_bottom), (col_x[0] + box_w + 0.02, mid_bottom), "accept /\nroll back", "audit"),
+        ((col_x[1] - 0.02, mid_bottom), (col_x[0] + box_w + 0.02, mid_bottom), "accept /\nretain", "audit"),
     )
     for start, end, formula, gloss in arrow_specs:
         ax.add_patch(
@@ -789,7 +789,7 @@ def fig_pipeline(output_dir: Path) -> None:
     ax.text(
         W / 2,
         0.86,
-        "Learned-prior initializer + support-screened MAP FEM + objective-based fallback",
+        "Learned-prior initializer + support-screened MAP FEM + objective-based retention",
         ha="center",
         va="center",
         fontsize=8.0,
