@@ -2,11 +2,12 @@
 # Figure scripts
 
 These are the development scripts that drew every figure of the manuscript
-and supplement, copied unchanged except for four release-specific edits:
+and supplement, copied unchanged except for five release-specific edits:
 `plot_meshmaterial_gnn.py` reads the PlotNeuralNet checkout from the
-`PLOTNEURALNET_DIR` environment variable, and the two `plot_revision_*.py`
-scripts and `generate_graphical_abstract.py` write into the repository's
-`figures/` folder instead of the manuscript source tree. Each script
+`PLOTNEURALNET_DIR` environment variable (and a comment in
+`generate_aiim_figures.py` names that variable instead of a local path), and
+the two `plot_revision_*.py` scripts and `generate_graphical_abstract.py` write
+into the repository's `figures/` folder instead of the manuscript source tree. Each script
 resolves the repository root from its own location
 (`Path(__file__).resolve().parents[2]`), so run them from a checkout:
 
@@ -22,7 +23,7 @@ python paper_aiim/figures/generate_new_result_figures.py --output-dir figures \
     --only fig_fem_multistart fig_structured_tracking fig_ct_ratio_calibration
 python paper_aiim/figures/plot_revision_sensitivity.py                 # fig_review_sensitivity (main Fig. 22)
 python paper_aiim/figures/plot_meshmaterial_gnn.py                     # meshmaterial_gnn / fig_network_fem (main Fig. 3; PlotNeuralNet + pdflatex)
-python paper_aiim/figures/generate_graphical_abstract.py               # graphical_abstract_array (2656 x 1062 px; width-1 EKF bars)
+python paper_aiim/figures/generate_graphical_abstract.py               # graphical_abstract_array (2656 x 1409 px; Figure 1 stages + width-1 EKF bars)
 python paper_aiim/figures/plot_revision_overview.py                    # auxiliary *_simplified drawings only (not compiled)
 ```
 

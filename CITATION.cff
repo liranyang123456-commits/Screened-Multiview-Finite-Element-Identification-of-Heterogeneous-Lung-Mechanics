@@ -3,8 +3,8 @@ cff-version: 1.2.0
 message: "If you use this software or evidence package, please cite the associated article."
 title: "Heterogeneous Lung Mechanics from Multiview Motion"
 type: software
-version: 1.0.0
-date-released: 2026-07-30
+version: 1.1.0
+date-released: 2026-10-13
 repository-code: "https://github.com/liranyang123456-commits/Screened-Multiview-Finite-Element-Identification-of-Heterogeneous-Lung-Mechanics"
 url: "https://github.com/liranyang123456-commits/Screened-Multiview-Finite-Element-Identification-of-Heterogeneous-Lung-Mechanics"
 authors:

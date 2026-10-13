@@ -1,4 +1,4 @@
-# AIIM manuscript evidence map
+# Manuscript evidence map
 
 ## Frozen evidence boundary
 

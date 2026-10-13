@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "file_count": 601,
+  "file_count": 603,
   "patient_derived_assets_included": false,
   "raw_clinical_data_included": false,
   "checkpoints_included": false,
@@ -23,7 +23,7 @@
     {
       "path": "CITATION.cff",
       "size_bytes": 845,
-      "sha256": "5e235ef1a66651bad2b0ca0940325a220f1263a25aafd33b74f12ed8c8f34384"
+      "sha256": "9e085a82ff0d9a6e79cfb3e9a2911e47815e3c888bbc3235bec9784388765174"
     },
     {
       "path": "DATA_CARD.md",
@@ -212,8 +212,8 @@
     },
     {
       "path": "evidence/evidence_map.md",
-      "size_bytes": 23129,
-      "sha256": "c3df09e7e470146aacf4e6087ccc14a016c1bf9bc4345124a8899836f7d4c672"
+      "size_bytes": 23124,
+      "sha256": "34f2977662a5f8ec71cbb7fd32adae6c25407b9e69227c9f295c9ec0cb1e07e3"
     },
     {
       "path": "evidence/frozen_evidence.json",
@@ -932,8 +932,8 @@
     },
     {
       "path": "figures/meshmaterial_gnn.tex",
-      "size_bytes": 8255,
-      "sha256": "fe234e503a0158dd5018c4626fddab02d31f2fed8831c631d7ac4c8cc1d21f06"
+      "size_bytes": 8267,
+      "sha256": "34636d82e8f09067b9954c43daafaf56ddffcfd7f5fbac9694a0c0f6d8049a37"
     },
     {
       "path": "inverse/__init__.py",
@@ -1157,8 +1157,8 @@
     },
     {
       "path": "paper_aiim/figures/README.md",
-      "size_bytes": 2581,
-      "sha256": "474606b2d9b8275ed27c55e3fa83e6a85da384d63d3d54e91c926035201113b7"
+      "size_bytes": 2689,
+      "sha256": "a04973fe8b74b15fff667e4e84eeee07d9d692ca1fd62341819edf1aee5988c9"
     },
     {
       "path": "paper_aiim/revision_tools/build_all.ps1",
@@ -1252,8 +1252,8 @@
     },
     {
       "path": "README.md",
-      "size_bytes": 26410,
-      "sha256": "947e02b89fa2eb53736156a02caa2e0862b41da419e3fd33e64875cd6c2b3b72"
+      "size_bytes": 26516,
+      "sha256": "0c4a16c70f393a834a5186be714a3834d997fd639cbb8b7f80a476ccaddffdab"
     },
     {
       "path": "rendering/__init__.py",
@@ -1272,13 +1272,13 @@
     },
     {
       "path": "requirements-optional.txt",
-      "size_bytes": 60,
-      "sha256": "0d7e39021b9aa3ee78ea1dcc5679312e5b35b062511681746a7538e8aca5d1bb"
+      "size_bytes": 52,
+      "sha256": "6cd6a1ae8811c7eda1a9ae2eecc18667324038efcc77fa5576d9d0dc286a334f"
     },
     {
       "path": "requirements.txt",
-      "size_bytes": 95,
-      "sha256": "6b6135df6727fd3c823fc21c3f752337675d770baaa0d62ff1561424a9e5e786"
+      "size_bytes": 103,
+      "sha256": "01f372dd200a6fa11e73d31abff73651efe02ab7993aa88948235cedf5013862"
     },
     {
       "path": "results/ct_reviewer_drivers_v1/recovered_raw/fem_paired/w1_s0p05_p2/driver_manifest.json",
@@ -2581,6 +2581,11 @@
       "sha256": "c2f83b6f22b998dd6a2e22e63b51c495bad9d44f81100fc60cf73d9e16af0c8b"
     },
     {
+      "path": "results/lung_mesh_ai_v2/fem_multiview_screened50_strict/metrics_image_tracks_force_map_sigma_0.05_px_0.05_nodes_allframes_temporalreg_smooth2_multiview_conf0.20_regionweight8.0_frozen50_screen05_strict_gnn_init_predicted_region.json",
+      "size_bytes": 86524,
+      "sha256": "3caf908a8d087aebebfa4d0e0721e13f6f3ea3d73d85d49c451b27954f199dde"
+    },
+    {
       "path": "results/lung_mesh_ai_v2/multiseed_node_summary/multiseed_aggregate.json",
       "size_bytes": 9985,
       "sha256": "3d2917ace3d8282d28eaa9d21b132a5c681d32017b519daf78da4d3765192dc2"
@@ -2679,6 +2684,11 @@
       "path": "results/lung_mesh_ai_v2/stage40_round2/round_2/metrics_gnn.json",
       "size_bytes": 31148,
       "sha256": "b233b0601466b341371dc8c7c286cee3e0ddc9d37c25966cef5563085299022b"
+    },
+    {
+      "path": "results/lung_mesh_ai_v2/structured_tracking_v1/mixed/metrics_image_tracks_force_map_sigma_0.05_px_0.05_nodes_allframes_temporalreg_smooth2_multiview_conf0.20_regionweight8.0_track_mixed_gnn_init_predicted_region.json",
+      "size_bytes": 88913,
+      "sha256": "abc0132cd7d8f9f249982b703504317d81c6adbedd191f38c1dee945196906c3"
     },
     {
       "path": "results/lung_mesh_ai_v2/synthetic50_decoupled_residual/comparison.json",
@@ -2992,8 +3002,8 @@
     },
     {
       "path": "scripts/verify_release.py",
-      "size_bytes": 1886,
-      "sha256": "9ff655465a8541d94b93c9335783eb2c4f08522f43c37cc9971da0d5abc8ff1b"
+      "size_bytes": 2407,
+      "sha256": "9e1b55fb997561fe0c3df00e210c10cf8a8b2115a31dc19458c01709fad01f44"
     },
     {
       "path": "simulator/__init__.py",

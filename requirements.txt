@@ -8,4 +8,5 @@ scikit-image
 joblib
 matplotlib
 pillow
+pydicom
 pytest
