@@ -8,7 +8,8 @@ src_dir = Path(sys.argv[1])
 out_dir = Path(sys.argv[2])
 out_dir.mkdir(parents=True, exist_ok=True)
 
-for md_path in sorted(src_dir.glob('Response_Reviewer[1-4].md')):
+md_paths = sorted(src_dir.glob('Response_Reviewer[1-4].md')) + sorted(src_dir.glob('Response_to_Editor.md'))
+for md_path in md_paths:
     text = md_path.read_text(encoding='utf-8-sig')
     doc = Document()
     section = doc.sections[0]

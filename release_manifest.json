@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "file_count": 600,
+  "file_count": 601,
   "patient_derived_assets_included": false,
   "raw_clinical_data_included": false,
   "checkpoints_included": false,
@@ -1167,13 +1167,18 @@
     },
     {
       "path": "paper_aiim/revision_tools/build_responses.py",
-      "size_bytes": 2529,
-      "sha256": "ac3d21b809371675c3768640c63c941a7492f51d283124f332cef1d33e28d331"
+      "size_bytes": 2597,
+      "sha256": "f8d07b2107bd9b141276e4cca17db1d0d770229185b5238c7e4a4fd35704fcc9"
+    },
+    {
+      "path": "paper_aiim/revision_tools/export_platform_replies.py",
+      "size_bytes": 3394,
+      "sha256": "75fa7c66c6273242e11b9dc30d775b71fc5522eecbb98fd251a4f64f93619c79"
     },
     {
       "path": "paper_aiim/revision_tools/export_responses_pdf.py",
-      "size_bytes": 4528,
-      "sha256": "37db53a92d6cd19b61950e212ec66bd4bd34a555e8a8a40728a231d17424fd51"
+      "size_bytes": 4575,
+      "sha256": "8208da89e62bc11dbdbaf84fb9281db84b039ac2172144e9fd42877c74ff6b06"
     },
     {
       "path": "paper_aiim/revision_tools/fix_diff_paths.py",
@@ -1202,8 +1207,8 @@
     },
     {
       "path": "paper_aiim/revision_tools/README.md",
-      "size_bytes": 1175,
-      "sha256": "b2436d4f9fa651e20a37502899a8f962038ea796e0f3eb4182864a83a04b2096"
+      "size_bytes": 1344,
+      "sha256": "7d45ac5227380f9d7bf3aa8bed9391be94a9d80de58444f3d68f82964bb323d9"
     },
     {
       "path": "paper_aiim/revision_tools/run_latexdiff.py",

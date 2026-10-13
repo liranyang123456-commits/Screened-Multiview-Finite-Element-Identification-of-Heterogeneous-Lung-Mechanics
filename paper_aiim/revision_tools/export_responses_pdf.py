@@ -52,7 +52,7 @@ def check_glyphs(text: str, font: fitz.Font, where: str) -> None:
         raise ValueError(f"{where}: font {font.name} lacks glyphs for {[hex(ord(c)) for c in missing]}")
 
 
-for md in sorted(source.glob("Response_Reviewer[1-4].md")):
+for md in sorted(source.glob("Response_Reviewer[1-4].md")) + sorted(source.glob("Response_to_Editor.md")):
     doc = fitz.open()
     state = {"page": doc.new_page(width=PAGE_W, height=PAGE_H), "y": MARGIN_Y}
 
