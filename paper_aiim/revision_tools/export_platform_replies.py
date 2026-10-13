@@ -77,6 +77,9 @@ for md in sorted(source.glob("Response_Reviewer[1-4].md")):
             f.write("[Reviewer's comment, for orientation only - do not paste]\n")
             f.write(" ".join(b["quote"]) + "\n\n")
             f.write("[REPLY - paste from here]\n")
+            if k == 1:
+                f.write("(Notation used in all replies: counts written as a/b/c give the numbers of cases "
+                        "that worsened/improved/tied relative to the stated reference.)\n")
             f.write("\n".join(b["response"]) + "\n")
             if b["location"]:
                 f.write("Location of revisions: " + " ".join(b["location"]) + "\n")

@@ -90,7 +90,7 @@ GA_STAGES = (
     ("1  Geometry &\nconstraints", "mesh, boundary,\ncontacts", GRAY, PALE["gray"]),
     ("2  Multiview\nmotion", "4 loads, 3 views\n7 frames + force", BLUE, PALE["blue"]),
     ("3  Response\nencoding", "visibility mask\nresponse tokens", BLUE, "#F2F7FB"),
-    ("4  Learned\ninitializer", "MeshGNN field,\ncalibrated radius", GREEN, PALE["green"]),
+    ("4  Learned\ninitializer", "PCA–Ridge or\nMeshGNN hybrid", GREEN, PALE["green"]),
     ("5  Physics\ndecision", "seven probes:\nprior or MAP", ORANGE, PALE["orange"]),
     ("6  Audited\noutput", "accept / retain\nfield + interval", PURPLE, PALE["purple"]),
 )

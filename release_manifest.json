@@ -857,13 +857,13 @@
     },
     {
       "path": "figures/fig_pipeline.pdf",
-      "size_bytes": 43179,
-      "sha256": "1907b05a3512beeafd57b43baf853ef112dfb3dc9f9940d9e8edb426c713670b"
+      "size_bytes": 45349,
+      "sha256": "91f46e4768eaf5dd6a3bb83dd4d4cd019064b1f6c674ce9b805fc8a2d0983df3"
     },
     {
       "path": "figures/fig_pipeline.png",
-      "size_bytes": 330765,
-      "sha256": "a719aa3a41a1ce2a866c17c2f544de40dd97193411dd86ccfdd780dae7a75497"
+      "size_bytes": 331234,
+      "sha256": "bcdf0461245bd7bcdffbd7da0aebb72bbd0473ccf49fc9c6842bc7ecc198d6e2"
     },
     {
       "path": "figures/fig_qualitative_case.pdf",
@@ -917,13 +917,13 @@
     },
     {
       "path": "figures/graphical_abstract_array.pdf",
-      "size_bytes": 50570,
-      "sha256": "c0724bc3973eee82ea45e145db65476f4f394c4b74031643eca4461bf0521844"
+      "size_bytes": 51459,
+      "sha256": "1af06e26d009bced82a11ffc1360148e184992a65a614591bd3c12c254217e11"
     },
     {
       "path": "figures/graphical_abstract_array.png",
-      "size_bytes": 493762,
-      "sha256": "46b05369b5035420f5a09a820c636ee5b2e012719cf758ccc6dd9826b1d860e5"
+      "size_bytes": 493907,
+      "sha256": "3708e44964a9c134331deca79f9228160ffb08abf9dd16685daa9be233fe699d"
     },
     {
       "path": "figures/meshmaterial_gnn.pdf",
@@ -1122,13 +1122,13 @@
     },
     {
       "path": "paper_aiim/figures/generate_aiim_figures.py",
-      "size_bytes": 162006,
-      "sha256": "658288fa1edfe3b22b4d8b2e7bf094dc557bf49e24fd73a337f0a77b5fc79662"
+      "size_bytes": 162024,
+      "sha256": "24135a6b04051e68545df0a947bacda410e598324ececb2a98dc7be679f7e492"
     },
     {
       "path": "paper_aiim/figures/generate_graphical_abstract.py",
-      "size_bytes": 20163,
-      "sha256": "03c3bf811dbc9147b3ad9b7c2249d35e7b6883d49012e20b8b29bad80237c771"
+      "size_bytes": 20160,
+      "sha256": "bbcfcfc3aa2bbee73e62623330bc7d723d380b4abe3e875afa546cbfdd9ba390"
     },
     {
       "path": "paper_aiim/figures/generate_new_result_figures.py",
@@ -1172,8 +1172,8 @@
     },
     {
       "path": "paper_aiim/revision_tools/export_platform_replies.py",
-      "size_bytes": 3394,
-      "sha256": "75fa7c66c6273242e11b9dc30d775b71fc5522eecbb98fd251a4f64f93619c79"
+      "size_bytes": 3617,
+      "sha256": "12e02b6c4c0209b4f0f7cdfce6412c21d9c86a2ba6845c9771df16d32e333d28"
     },
     {
       "path": "paper_aiim/revision_tools/export_responses_pdf.py",

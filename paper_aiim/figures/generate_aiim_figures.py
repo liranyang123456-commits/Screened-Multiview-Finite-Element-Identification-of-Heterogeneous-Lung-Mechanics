@@ -633,7 +633,7 @@ def draw_pipeline_stages(
         linewidth=0.9 * lw_scale,
         zorder=3,
     )
-    ax.text(decision_x, decision_y, r"$\Delta J$?", fontsize=label_pt, ha="center", va="center", color=ORANGE, zorder=4)
+    ax.text(decision_x, decision_y, r"$\Delta\mathcal{J}$?", fontsize=label_pt, ha="center", va="center", color=ORANGE, zorder=4)
     for sign, word in ((-1, "prior"), (1, "MAP")):
         ax.annotate(
             "",
@@ -724,7 +724,7 @@ def fig_pipeline(output_dir: Path) -> None:
         # start, end, formula, gloss
         ((col_x[0] + box_w + 0.02, mid_top), (col_x[1] - 0.02, mid_top), r"$\Pi_v,\mathbf{f}$", "project\n+ load"),
         ((col_x[1] + box_w + 0.02, mid_top), (col_x[2] - 0.02, mid_top), r"$\mathbf{z}_{i\ell vt}$", "tokenize"),
-        ((col_x[2] - 0.02, mid_bottom), (col_x[1] + box_w + 0.02, mid_bottom), r"$\Delta J$", "screen"),
+        ((col_x[2] - 0.02, mid_bottom), (col_x[1] + box_w + 0.02, mid_bottom), r"$\Delta\mathcal{J}$", "screen"),
         ((col_x[1] - 0.02, mid_bottom), (col_x[0] + box_w + 0.02, mid_bottom), "accept /\nretain", "audit"),
     )
     for start, end, formula, gloss in arrow_specs:
